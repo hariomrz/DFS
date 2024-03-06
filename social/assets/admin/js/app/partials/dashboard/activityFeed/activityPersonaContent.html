@@ -1,0 +1,46 @@
+<div class="list-group-bottom">
+    <div  class="post-type-title">    
+        <p ng-if="activityData.activity.PostTitle!=''">
+            {{activityData.activity.PostTitle}}
+        </p>
+        
+        
+    </div>
+    <p ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID]" class="list-group-item-text" ng-bind-html="textToLink(activityData.activity.PostContent)"></p>
+    <p ng-if="( activityData.activity_log_details.ActivityTypeID == 20 )" class="list-group-item-text" ng-bind-html="textToLink(activityData.comment_details.PostComment)"></p>
+    <ng-include ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID]" ng-init="isCommentAttachment = false; attachmentMedia = activityData.activity.Album[0].Media; attachmentFile = activityData.activity.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+    <ng-include ng-if="( activityData.activity_log_details.ActivityTypeID == 20 )" ng-init="isCommentAttachment = true; attachmentMedia = activityData.comment_details.Media; attachmentFile = activityData.comment_details.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+    <div class="list-group-footer">
+        <ul class="list-group-inline">
+            <li>
+                <a class="bullet">
+                    <i class="ficon-heart"></i>
+                </a>
+                <a ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID] && ( ( activityData.activity.NoOfLikes != '' ) && ( activityData.activity.NoOfLikes > 0 ) )" class="text" ng-bind="activityData.activity.NoOfLikes"></a>
+                <a ng-if="( activityData.activity_log_details.ActivityTypeID == 20 ) && ( ( activityData.comment_details.NoOfLikes != '' ) && ( activityData.comment_details.NoOfLikes > 0 ) )" class="text" ng-bind="activityData.comment_details.NoOfLikes"></a>
+            </li>
+            <li ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID]">
+                <a class="bullet">
+                    <i class="ficon-comment"></i>
+                </a>
+                <a class="text" ng-if="( ( activityData.activity.NoOfComments != '' ) && ( activityData.activity.NoOfComments > 0 ) )" ng-bind="activityData.activity.NoOfComments"></a>
+            </li>
+            <li ng-if="( activityData.activity_log_details.ActivityTypeID == 20 && !activityData.parent_comment_details.PostCommentID )">
+                <a class="bullet">
+                    <i class="ficon-reply"></i>
+                </a>
+                <a  class="text" ng-if="( ( activityData.comment_details.NoOfReplies != '' ) && ( activityData.comment_details.NoOfReplies > 0 ) )" ng-bind="activityData.comment_details.NoOfReplies"></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <div ng-if="activityData.activity_log_details.ActivityTypeID == 20" class="list-group-content" ng-init="activityTitleMessage='';">
+        <h6 class="list-group-item-heading" create-title-message parent-comment-id="activityData.parent_comment_details.PostCommentID" group-profile="activityData.group_profile" page-profile="activityData.page_profile" event-profile="activityData.event_profile" user-profile="activityData.user_profile" poll-data="activityData.PollData" activity-log-details="activityData.activity_log_details" subject-user="activityData.subject_user" activity-user="activityData.activity_user" parent-comment-user="activityData.parent_comment_user" activity="activityData.activity" parent-activity="activityData.parent_activity" parent-activity-user="activityData.parent_activity_user" activity-title-message="activityTitleMessage" activity-post-type="activityPostType">
+                </h6>
+        <ul class="list-activites">
+            <li ng-if="activityData.activity_log_details.ActivityTypeID=='20'" ng-bind="createDateObject(activityData.comment_details.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+            <li ng-if="activityData.activity_log_details.ActivityTypeID!=='20'" ng-bind="createDateObject(activityData.activity.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+        </ul>
+    </div> -->
+    <ng-include ng-if="activityData.activity_log_details.ActivityTypeID == 20" src="partialPageUrl + '/dashboard/activityFeed/activityContentPersona.html'"></ng-include>
+</div>

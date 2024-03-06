@@ -1,0 +1,144 @@
+.add-merchandise-container {
+  padding: 15px 0;
+
+  .upload-img {
+    .icon-delete {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      color: $white;
+      padding: 6px;
+      font-size: 16px;
+      background-color: $gray-9;
+      border-radius: 100%;
+      margin: 4px;
+    }
+
+    .img-cover {
+      object-fit: fill;
+    }
+  }
+}
+
+.header-primary {
+  background: $theme-color;
+  padding: 15px;
+  color: $white;
+  font-size: 18px;
+  font-family: $font-bold;
+}
+
+.form-body {
+  background: $white;
+  padding: 15px;
+
+  .border-right {
+    border-right: 2px solid #D8D8D8 !important;
+  }
+
+  &.add-rewards {
+    margin-top: 0;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.uploaded-logo-view {
+  border: 1px solid #979797;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  margin: 10px auto 0;
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+.uploaded-label {
+  text-align: center;
+  margin-top: 8px;
+  color: $gray-5;
+  font-family: $font-bold;
+  text-transform: capitalize;
+}
+
+.added-merchandise-list-wrap {
+  margin-top: 100px;
+}
+
+.added-merchandise-list {
+  .merchandise-info-wrap {
+    text-align: center;
+    padding: 0 40px;
+    display: inline-block;
+    margin-bottom: 30px;
+    vertical-align: top;
+    &.d-inline-grid{
+      display: inline-grid;
+    }
+    .merchandise-img-wrap {
+      overflow: hidden;
+      height: 200px;
+      border-radius: 10px;
+      background: $white;
+      padding: 25px;
+      width: 200px;
+      position: relative;
+
+      a {
+        position: absolute;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        top: 0;
+        right: 0;
+        background: rgba(42, 46, 73, 0.9);
+        padding-left: 4px;
+        border-radius: 0 0 0 20px;
+        font-size: 16px;
+        color: $white;
+      }
+
+      img {
+        max-width: 150px;
+        max-height: 150px;
+      }
+    }
+
+    .merchandise-related-data {
+      text-align: center;
+      width: 200px;
+
+      .merchandise-label {
+        margin-top: 10px;
+        font-size: 16px;
+        font-family: $font-bold;
+        color: $black;
+        text-transform: capitalize;
+            word-break: break-all;
+      }
+
+      .amt {
+        font-size: 12px;
+        font-family: $font-bold;
+        color: $black;
+      }
+    }
+  }
+}
+
+.figure-help-text {
+  position: absolute;
+  bottom: -10px;
+  left: 60px;
+  font-size: 11px;
+  max-width: 240px;
+  text-align: center;
+}
+
+.create-template .multi-select .dropdown label .item-renderer span,
+.multi-select .dropdown label .item-renderer span {
+  display: inline !important;
+}

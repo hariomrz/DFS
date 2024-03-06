@@ -1,0 +1,28 @@
+.switch-component {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.center-switch {
+}
+.center-switch-btn {
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    &:active {
+        background-color: #bbb;
+    }
+}

@@ -1,0 +1,24 @@
+#cricket
+*/5 */5 * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_cricket/league
+*/5 * * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_cricket/season
+*/10 * * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_cricket/score
+
+#soccer
+*/8 */5 * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_soccer/league
+*/7 * * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_soccer/season
+*/17 * * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_soccer/score
+
+#Football
+*/9 */5 * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_football/league
+*/8 * * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_football/season
+*/18 * * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_football/score
+
+#Basketball
+*/9 */5 * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_basketball/league
+*/8 * * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_basketball/season
+*/18 * * * * wget -O - -q -t 1 http://localhost/pickem/feed/vinfotech_basketball/score
+
+#Pickem fantasy
+*/10 * * * * wget -O - -q -t 1 http://localhost/pickem/cron/cron_queue/pickem_scores
+*/10 * * * * wget -O - -q -t 1 http://localhost/pickem/cron/cron_queue/prize_distribution
+*/12 * * * * wget -O - -q -t 1 http://localhost/pickem/cron/cron_queue/prize_notification

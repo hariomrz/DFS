@@ -1,0 +1,44 @@
+.all-leagues{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.sort-contest-section{
+    font-size: $font-size-small;
+    font-family: $font-bold;
+    color: $primary_text_color;
+    padding: 6px 16px;
+    background: $white;
+    border-radius: 7px;
+    position: relative;
+    p{
+        color: $help_text_color;
+        text-transform: none;
+        font-size: $font-size-h6;
+        font-family: $font-regular;
+        margin-bottom: 0;
+    }
+    .verity-count {
+        background: $primary;
+        color: $white;
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        font-weight: bold;
+        text-align: center;
+        padding: 4px 13px;
+        border-radius: 20px;
+        position: absolute;
+        top: 50%;
+        right: 36px;
+        transform: translateY(-50%);
+        line-height: 18px;
+    }
+    i{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+        color: $gray-550;
+        font-size: $font-size-small;
+        cursor: pointer;
+    }
+}

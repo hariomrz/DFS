@@ -1,0 +1,217 @@
+
+
+.how-to_play_label{
+  width: 219px;
+  color: $gray-900;
+  font-family: $font-bold;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+}
+.parallelogram-outer-r-white {
+	width: 100%;
+  transform: skew(10deg);
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 80%, $body_text_color 150%);
+    border-radius : 12px;
+    //height: 135px;
+    justify-content: end;
+    align-items: center;
+    display: flex;
+    margin-left: 40px;
+    @media (max-width: 767px) {
+      //height: 100px;
+      width: 95%;
+      margin-left: 3px;
+
+  }
+}
+
+
+.parallelogram-outer-white {
+	width: 83%;
+  transform: skew(-15deg);
+  background: linear-gradient(90deg,$white 5%,  $body_text_color 150%);
+    border-radius : 12px;
+    //height: 130px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px;
+    display: flex;
+       @media (max-width: 767px) {
+      //  height: 100px; 
+        width: 95%;
+    }
+    
+}
+
+.parallelogram-outer-full-white{
+  width: 83%;
+  transform: skew(0deg);
+  background: $white;
+    border-radius : 12px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-left: 20px;
+       @media (max-width: 767px) {
+        width: 95%;
+    }
+
+}
+.parallelogram-outer-full-white-r{
+  width: 83%;
+  transform: skew(0deg);
+  background: $white;
+    border-radius : 12px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-left: 40px;
+       @media (max-width: 767px) {
+        width: 95%;
+    }
+
+}
+.plan-bg{
+    width: 90%;
+    transform: skew(15deg);
+    text-align: left;
+    
+}
+.plan-bg-r{
+  width: 100%;
+  transform: skew(-8deg);
+  text-align: right;
+}
+.parallelogram-outer-r-full-white {
+	width: 83%;
+  transform: skew(0deg);
+  background-color: $white;
+    border-radius : 12px;
+    margin: 2px;
+    @media (max-width: 767px) {
+      width: 95%;
+      margin-left: 1px;
+
+  }
+}
+.text-blue{
+    height: 19px;
+    color: $primary;
+    font-family: $font-bold;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-left: -14px;
+  }
+  .text-blue-right{
+    height: 19px;
+    color: $primary;
+    font-family: $font-bold;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-left: -15px;
+  }
+  
+  .create-your-team-and {
+  
+    color: $body_text_color;
+    font-family: $font-regular;
+    display: flex;
+    text-align: justify;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 14px;
+    margin-right: 7px;
+  }
+  .how-to-play-detail {
+  
+    color: $body_text_color;
+    font-family: $font-regular;
+    display: flex;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 14px;
+    margin-right: 7px;
+  }
+  
+  .ic2{
+    position: absolute;
+    z-index: 999;
+    height: 100px;
+    top: -34px;
+    transform: skew(-6deg);
+  }
+  .ic1{
+    position: absolute;
+    z-index: 999;
+    height: 100px;
+    top: -46px;
+    right: -40px;
+    -webkit-transform: skew(15deg);
+    transform: skew(15deg);
+  }
+  .ic3{
+    position: absolute;
+    z-index: 999;
+    height: 100px;
+    top: -34px;
+    right: -20px;
+    transform: skew(15deg);
+  }
+  .button-footer-modal{
+    border-radius: 22px;
+    position: fixed;
+    width: 100%;
+    bottom: 40px;
+    max-width: 280px;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    border-radius: 22px;
+    &.no-bottom{
+      bottom: 0px;
+
+    }
+    @media (max-width: 200px){
+        // bottom: calc(100vh - 88vh);
+        bottom: 2px;
+    }
+    @media (max-width: 414px){
+        // bottom: calc(100vh - 88vh);
+        bottom: 2px;
+    }
+    
+}
+.button-got-it{
+  border-radius: 22px;
+  width: 100%;
+  max-width: 280px;
+  left: 0;
+  right: 0;
+  box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  border-radius: 22px;
+  &.no-bottom{
+    bottom: 0px;
+
+  }
+  @media (max-width: 200px){
+      // bottom: calc(100vh - 88vh);
+      bottom: 2px;
+  }
+  @media (max-width: 414px){
+      // bottom: calc(100vh - 88vh);
+      bottom: 2px;
+  }
+  
+}

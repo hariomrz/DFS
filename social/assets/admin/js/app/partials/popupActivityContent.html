@@ -1,0 +1,130 @@
+<div class="list-group-bottom">
+    <div id="std-{{popupActivityData.ActivityGUID}}" class="post-type-title">    
+        <p ng-if="popupActivityData.PostTitle!=''">
+            {{popupActivityData.PostTitle}}
+            <!-- <span class="action" ng-if="popupActivityData.ActivityTypeID!=20">
+                <a class="ficon-edit" ng-click="show_title_form(popupActivityData);" uib-tooltip="Edit Title" tooltip-append-to-body="true"></a>
+                <a class="ficon-bin" ng-click="delete_title(popupActivityData);" uib-tooltip="Delete Title" tooltip-append-to-body="true"></a>
+             </span> -->
+        </p>
+        <!-- <a ng-if="popupActivityData.PostTitle=='' && popupActivityData.ActivityTypeID!=20" href="javascript:void(0)" ng-click="show_title_form(popupActivityData);" id="add-{{popupActivityData.ActivityGUID}}" class="a-link">Add Title</a> -->
+    </div>
+    <!-- <div ng-if="popupActivityData.ActivityTypeID!=20" class='row' id="atd-{{popupActivityData.ActivityGUID}}" style="display: none;">
+        <div class="col-sm-8">
+            <input class="form-control" type="text" maxlength="40" id="title-{{popupActivityData.ActivityGUID}}" value="{{popupActivityData.PostTitle}}"  >
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-sm btn-primay" id="btnSaveIp" ng-click="submit_title_form(popupActivityData);">Submit</button>
+            <button class="btn btn-sm btn-default" ng-click="reset_title_form(popupActivityData);">Cancel</button>
+            
+        </div>
+    </div> -->
+    <p ng-if="activityPostType[popupActivityData.ActivityTypeID]" class="list-group-item-text" ng-bind-html="textToLink(popupActivityData.PostContent)"></p>
+    <!-- <p ng-if="( popupActivityData.ActivityTypeID == 20 )" class="list-group-item-text" ng-bind-html="textToLink(activityData.comment_details.PostComment)"></p> -->
+
+    <div ng-if="( popupActivityData.Album[0].Media.length > 0 ) " ng-class="layoutClass(popupActivityData.Album[0].Media)" class="feed-content mediaPost">
+
+        <!-- <div ng-repeat="media in attachmentMedia|limitTo:4">
+            <p>qweweasde</p>
+            <video ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" width="100%" controls="" class="object">
+                <source type="video/mp4" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+                <source type="video/ogg" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+                <source type="video/webm" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            </video>
+        </div> -->
+        <figure ng-repeat="media in popupActivityData.Album[0].Media|limitTo:4" class="media-thumbwrap">
+            <video ng-if="popupActivityData.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" id="playerVideo" width="100%" controls controlsList="nodownload">
+                <source type="video/mp4" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+                <source type="video/ogg" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+                <source type="video/webm" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            </video>
+            <video ng-if="popupActivityData.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" id="playerVideo" width="100%" controls controlsList="nodownload">
+                <source type="video/mp4" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+                <source type="video/ogg" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+                <source type="video/webm" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            </video>
+            <a ng-if="(media.ConversionStatus !== 'Pending')"  class="mediaThumb">
+                <img ng-if="popupActivityData.ActivityTypeID!=23 && popupActivityData.ActivityTypeID!=24 && popupActivityData.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Image'" title="" alt="" ng-src="{{imageServerPath+'upload/album/750x500/'+media.ImageName}}" />
+                <!-- <img ng-if="popupActivityData.ActivityTypeID!=23 && popupActivityData.ActivityTypeID!=24 && popupActivityData.Album[0].AlbumName=='Wall Media' && media.MediaType=='Image'" title="" alt="" ng-src="{{imageServerPath+'upload/wall/750x500/'+media.ImageName}}" /> -->
+                <!-- <img ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" title="" alt="" ng-src="{{imageServerPath+'upload/album/750x500/'+  media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg' }}" /> -->
+                <!-- <img ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" title="" alt="" ng-src="{{imageServerPath+'upload/wall/750x500/'+ media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" /> -->
+                <!-- <img ng-if="popupActivityData.ActivityTypeID==23" ng-src="{{imageServerPath+'upload/profile/'+media.ImageName}}" /> -->
+                <!-- <img ng-if="popupActivityData.ActivityTypeID==24" ng-src="{{imageServerPath+'upload/profilebanner/1200x300/'+media.ImageName}}" /> -->
+                <!-- <img ng-if="popupActivityData.ActivityTypeID!=23 && popupActivityData.ActivityTypeID!=24 && popupActivityData.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Image'" style="width:1px;" ng-src="{{imageServerPath+'upload/album/750x500/'+media.ImageName}}" /> -->
+                <!-- <img ng-if="popupActivityData.ActivityTypeID!=23 && popupActivityData.ActivityTypeID!=24 && popupActivityData.Album[0].AlbumName=='Wall Media' && media.MediaType=='Image'" style="width:1px;" ng-src="{{imageServerPath+'upload/wall/750x500/'+media.ImageName}}" /> -->
+                <!-- <img ng-if="popupActivityData.ActivityTypeID==23" style="width:1px;" ng-src="{{imageServerPath+'upload/profile/'+media.ImageName}}" /> -->
+                <!-- <img ng-if="popupActivityData.ActivityTypeID==24" style="width:1px;" ng-src="{{imageServerPath+'upload/profilebanner/1200x300/'+media.ImageName}}" /> -->
+                <i class="icon-n-video-big" ng-if="media.MediaType=='Video' && media.ConversionStatus=='Finished'"></i>
+                <div ng-if="$last && popupActivityData.Album[0].TotalMedia>4 && popupActivityData.Album[0].TotalMedia>1" class="more-content"><span ng-bind="'+'+(popupActivityData.Album[0].TotalMedia-4)"></span></div>
+                <div class="t"></div>
+                <div class="r"></div>
+                <div class="b"></div>
+                <div class="l"></div>
+            </a>
+            
+            <a ng-if="(media.ConversionStatus !== 'Pending')"  class="mediaThumb" image-class="{{layoutClass(popupActivityData.Album[0].Media)}}">
+                <!-- Media Thumbs -->
+                <img ng-if="popupActivityData.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Image'" title="" alt="" ng-src="{{imageServerPath+'upload/album/750x500/'+media.ImageName}}" />
+                <img ng-if="popupActivityData.Album[0].AlbumName=='Wall Media' && media.MediaType=='Image'" title="" alt="" ng-src="{{imageServerPath+'upload/wall/750x500/'+media.ImageName}}" />
+                <!-- <img ng-if="activityData.parent_activity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" title="" alt="" ng-src="{{imageServerPath+'upload/album/750x500/'+media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" /> -->
+                <!-- <img ng-if="activityData.parent_activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" title="" alt="" ng-src="{{imageServerPath+'upload/wall/750x500/'+media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" /> -->
+                <!-- <i class="icon-n-video-big" ng-if="media.MediaType=='Video' && media.ConversionStatus=='Finished'"></i> -->
+                <!-- Media Thumbs -->
+            </a>
+            
+            <a  ng-if="( isCommentAttachment && ( media.ConversionStatus !== 'Pending' ) )" class="mediaThumb" image-class="{{addMediaClasses(popupActivityData.Album[0].TotalMedia)}}" >
+                <!-- <i class="icon-n-video-big" ng-if="((media.MediaType == 'Video') && (media.ConversionStatus == 'Finished'))"></i> -->
+                <img ng-if="media.MediaType == 'Image'" ng-src="{{imageServerPath + 'upload/comments/533x300/' + media.ImageName}}" alt="">
+                <!-- <img ng-if="media.MediaType == 'Video'" ng-src="{{imageServerPath + 'upload/comments/533x300/' + media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" alt=""> -->
+                <div ng-if="( $last && ( popupActivityData.Album[0].TotalMedia > 4 ) )" class="more-content"><span ng-bind="'+' + ( popupActivityData.Album[0].TotalMedia - 4 )"></span></div>
+                <!-- <div class="more-content" ng-if="((popupActivityData.Album[0].TotalMedia > 4) && (mediaIndex === 3))"><span ng-bind="'+' + (popupActivityData.Album[0].TotalMedia - 4)"></span></div> -->
+                <div class="t"></div>
+                <div class="r"></div>
+                <div class="b"></div>
+                <div class="l"></div>
+            </a>
+            <div class="post-video" ng-if="media.MediaType=='Video' && media.ConversionStatus=='Pending'">
+                <div class="wall-video pending-rating-video">
+                    <i class="icon-video-c"></i>
+                </div>
+            </div>
+        </figure>
+    </div>
+
+
+    <!-- <ng-include ng-if="activityPostType[popupActivityData.ActivityTypeID]" ng-init="isCommentAttachment = false; attachmentMedia = popupActivityData.Album[0].Media; attachmentFile = popupActivityData.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+    <ng-include ng-if="( popupActivityData.ActivityTypeID == 20 )" ng-init="isCommentAttachment = true; attachmentMedia = activityData.comment_details.Media; attachmentFile = activityData.comment_details.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include> -->
+    <div class="list-group-footer">
+        <ul class="list-group-inline">
+            <li>
+                <a class="bullet">
+                    <i class="ficon-heart"></i>
+                </a>
+                <a ng-if="activityPostType[popupActivityData.ActivityTypeID] && ( ( popupActivityData.NoOfLikes != '' ) && ( popupActivityData.NoOfLikes > 0 ) )" class="text" ng-bind="popupActivityData.NoOfLikes"></a>
+                <a ng-if="( popupActivityData.ActivityTypeID == 20 ) && ( ( activityData.comment_details.NoOfLikes != '' ) && ( activityData.comment_details.NoOfLikes > 0 ) )" class="text" ng-bind="activityData.comment_details.NoOfLikes"></a>
+            </li>
+            <li ng-if="activityPostType[popupActivityData.ActivityTypeID]">
+                <a class="bullet">
+                    <i class="ficon-comment"></i>
+                </a>
+                <a class="text" ng-if="( ( popupActivityData.NoOfComments != '' ) && ( popupActivityData.NoOfComments > 0 ) )" ng-bind="popupActivityData.NoOfComments"></a>
+            </li>
+            <li ng-if="( popupActivityData.ActivityTypeID == 20 && !activityData.parent_comment_details.PostCommentID )">
+                <a class="bullet">
+                    <i class="ficon-reply"></i>
+                </a>
+                <a  class="text" ng-if="( ( activityData.comment_details.NoOfReplies != '' ) && ( activityData.comment_details.NoOfReplies > 0 ) )" ng-bind="activityData.comment_details.NoOfReplies"></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <div ng-if="popupActivityData.ActivityTypeID == 20" class="list-group-content" ng-init="activityTitleMessage='';">
+        <h6 class="list-group-item-heading" create-title-message parent-comment-id="activityData.parent_comment_details.PostCommentID" group-profile="activityData.group_profile" page-profile="activityData.page_profile" event-profile="activityData.event_profile" user-profile="activityData.user_profile" poll-data="activityData.PollData" activity-log-details="popupActivityData" subject-user="activityData.subject_user" activity-user="activityData.activity_user" parent-comment-user="activityData.parent_comment_user" activity="activityData.activity" parent-activity="activityData.parent_activity" parent-activity-user="activityData.parent_activity_user" activity-title-message="activityTitleMessage" activity-post-type="activityPostType">
+                </h6>
+        <ul class="list-activites">
+            <li ng-if="popupActivityData.ActivityTypeID=='20'" ng-bind="createDateObject(activityData.comment_details.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+            <li ng-if="popupActivityData.ActivityTypeID!=='20'" ng-bind="createDateObject(popupActivityData.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+        </ul>
+    </div> -->
+    <!-- <ng-include ng-if="popupActivityData.ActivityTypeID == 20" src="partialPageUrl + '/dashboard/activityFeed/activityContentPersona.html'"></ng-include> -->
+</div>

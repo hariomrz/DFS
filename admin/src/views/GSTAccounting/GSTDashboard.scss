@@ -1,0 +1,178 @@
+.gst-dashboard {
+  margin-top: 20px;
+
+  .gst-details-box {
+    //padding: 18px 20px 24px;
+    border-radius: 6px;
+    background-color: $white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    display: table;
+    width: 100%;
+  }
+
+  .gst-container {
+    // height: 360px;
+    width: 100%;
+    padding: 18px 20px 18px;
+    height: 315px;
+    // float: left;
+    // border-radius: 6px;
+    // background-color: $white;
+    // box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .gst-details {
+    // height: 360px;
+    // width: 100%;
+    // float: left;
+    // padding: 18px 20px 24px;
+    // border-radius: 6px;
+    // background-color: $white;
+    // box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .box-head {
+    background-color: #2A2E49;
+    color: #fff;
+    display: table;
+    width: 100%;
+    padding: 5px 20px 5px;
+
+    .gst-title {
+      color: #fff;
+      font-family: $font-black;
+      font-size: 17px;
+    }
+
+    .gst-value {
+      color: #fff;
+      font-family: $font-black;
+    }
+  }
+
+  .box-footer {
+    padding: 9px;
+    border-top: 1px solid #c8ced3;
+    display: table;
+    width: 100%;
+    padding: 10px 20px 10px;
+  }
+
+  .gst-heading {
+    color: $black;
+    font-family: $font-black;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .gst-box-title {
+    color: $black;
+    font-family: $font-black;
+    font-size: 18px;
+    display: table;
+    width: 100%;
+  }
+
+  // .gst-details {
+  //   min-height: 250px;
+  // }
+  .inner-table {
+    width: 100%;
+  }
+
+  .gst-info {
+    display: table;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .gst-title {
+    display: table-cell;
+    color: $text-color;
+    font-family: $font-regular;
+    font-size: 15px;
+    float: left;
+  }
+
+  .total-gst-title {
+    display: table-cell;
+    float: left;
+    font-family: $font-black;
+    font-size: 18px;
+  }
+
+  .sub-table-row {
+    .gst-title {
+      font-family: $font-regular;
+      // font-size: 13px;
+    }
+
+    .gst-value {
+      font-family: $font-regular;
+      // font-size: 13px;
+    }
+
+  }
+
+  .main-table-row {
+    .gst-title {
+      font-family: $font-regular;
+      // font-size: 14px;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .gst-value {
+      font-family: $font-regular;
+      // font-size: 14px;
+      color: #000;
+      font-weight: 600;
+    }
+  }
+
+  .gst-value {
+    float: right;
+    color: $text-color;
+    font-family: $font-regular;
+    font-size: 15px;
+  }
+
+  .total-gst-value {
+    float: right;
+    font-family: $font-black;
+    font-size: 18px;
+  }
+}
+
+.overlap-state {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+.gst-table {
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: #efefef;
+
+      }
+    }
+  }
+}
+.cls-dis {
+  background-color: $gray-9;
+  cursor: no-drop;
+}
+
+.gst-regime-view{
+  .Select-clear{
+    display: none;
+  }
+}

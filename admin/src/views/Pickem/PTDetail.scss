@@ -1,0 +1,29 @@
+.pt-detail {
+  &.view-picks {
+    .live-comp-date {
+      height: 22px;
+      border-radius: 14px 14px 0 0;
+      background-color: $white;
+      color: #EB4A3C;
+      font-family: $font-black;
+      font-size: 9px;
+      padding-top: 4px;
+
+      &.pt-c-gray {
+        color: #B8B8B8;
+      }
+    }
+
+    .bg-container {
+      border-radius: 0 0 14px 14px;
+    }
+  }
+
+  .p-live-dlt {
+    float: right;
+    padding-right: 10px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+}

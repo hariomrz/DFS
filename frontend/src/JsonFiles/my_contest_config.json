@@ -1,0 +1,20 @@
+{
+    "tab_state_key": {
+        "0": "upcomingContestList",
+        "1": "liveContestList",
+        "2": "completedContestList"
+    },
+    "contest": {
+        "0": "upcoming",
+        "1": "live",
+        "2": "completed"
+    },
+    "contest_url": {
+        "upcoming": 0,
+        "live": 1,
+        "completed": 2
+    },
+    "Colors": {
+        "primary": "#FF0000"
+    }
+}

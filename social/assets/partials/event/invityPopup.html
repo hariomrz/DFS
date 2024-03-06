@@ -1,0 +1,37 @@
+<div class="modal fade" id="totalEventInvited" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="ficon-cross"></i></span></button>
+                <h4 class="modal-title" id="myModalLabel"><span ng-bind="lang.invitees"></span> (<span ng-bind="totalPopupInvites"></span>)</h4>
+            </div>
+            <div class="modal-body listing-space non-footer">
+                <div class="default-scroll scrollbar" when-scrolled="loadInviteesList();">
+                    <ul class="list-group removed-peopleslist">
+                        <li ng-repeat="ld in allInvityUserList" class="list-group-item">
+                            <div class="list-items-sm">
+                                <div class="list-inner">
+                                    <figure>
+                                        <a class="loadbusinesscard" entitytype="user" entityguid="{{ld.UserGUID}}" ng-href="{{ld.ProfileLink}}">
+                                            <img  ng-if="ld.ProfilePicture !== ''"  class="img-circle" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{ld.ProfilePicture}}" />
+                                            <span ng-if="ld.ProfilePicture == '' || ld.ProfilePicture=='user_default.jpg'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(ld.Name)"></span></span>
+                                        </a>
+                                    </figure>
+                                    <div class="list-item-body">
+                                        <h4 class="list-heading-xs">
+                                            <a class="loadbusinesscard" ng-href="{{ld.ProfileLink}}" entitytype="user" entityguid="{{ld.UserGUID}}" class="name" ng-bind="ld.Name"></a>
+                                        </h4>
+                                        <div>
+                                            <small class="location" ng-if="ld.location !== ''" ng-bind="ld.location"></small>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

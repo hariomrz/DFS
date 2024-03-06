@@ -1,0 +1,278 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/signup/index": {
+            "post": {
+                "tags": [
+                    "Signup"
+                ],
+                "summary": "This api is used to signup user.",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LocalityID",
+                        "in": "header",
+                        "description": "The Locality ID.",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Signup\\Index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/signup/check_mobile_exist": {
+            "post": {
+                "tags": [
+                    "Signup"
+                ],
+                "summary": "This api is used to check given mobile number exist or not.",
+                "description": "",
+                "operationId": "check_mobile_exist",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LocalityID",
+                        "in": "header",
+                        "description": "The Locality ID.",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Signup\\check_mobile_exist"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/signup/add_analytics": {
+            "post": {
+                "tags": [
+                    "Signup"
+                ],
+                "summary": "This api is used to add analytics.",
+                "description": "",
+                "operationId": "add_analytics",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LocalityID",
+                        "in": "header",
+                        "description": "The Locality ID.",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Signup\\add_analytics"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Signup\\Index": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "FullName": {
+                    "description": "User name",
+                    "type": "string",
+                    "example": "Suresh Patidar"
+                },
+                "DeviceType": {
+                    "description": "Device Type: IPhone or AndroidPhone",
+                    "type": "string",
+                    "example": "AndroidPhone"
+                },
+                "AppVersion": {
+                    "description": "App Version",
+                    "type": "string",
+                    "example": "1.0"
+                },
+                "Mobile": {
+                    "description": "Mobile Number",
+                    "type": "string",
+                    "example": "9827298272"
+                },
+                "Password": {
+                    "description": "Password",
+                    "type": "string",
+                    "example": "Vtech#2012"
+                },
+                "IsDevice": {
+                    "description": "Is Mobile App or web: 1 for App, 0 for web",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "DeviceID": {
+                    "description": "if IsDevice value is 1 then it is required field",
+                    "type": "string"
+                },
+                "HouseNumber": {
+                    "description": "House Number",
+                    "type": "string",
+                    "example": ""
+                }
+            }
+        },
+        "Inclusify\\Api\\Signup\\check_mobile_exist": {
+            "required": [
+                "Mobile"
+            ],
+            "properties": {
+                "Mobile": {
+                    "description": "Mobile Number",
+                    "type": "string",
+                    "example": "9827298272"
+                }
+            }
+        },
+        "Inclusify\\Api\\Signup\\add_analytics": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Latitude": {
+                    "description": "latitude",
+                    "type": "string",
+                    "example": "22.22"
+                },
+                "Longitude": {
+                    "description": "longitude",
+                    "type": "string",
+                    "example": "24.32"
+                },
+                "SessionID": {
+                    "description": "session id, which is return by server ",
+                    "type": "string",
+                    "example": "asfsd-dg-dfhgf-jdf"
+                },
+                "IPAddress": {
+                    "description": "User IP address",
+                    "type": "string",
+                    "example": "192.168.0.12"
+                },
+                "DeviceInfo": {
+                    "description": "Device Info, array of Device Info",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "manufacturer": {
+                                "type": "string",
+                                "example": "LGE"
+                            },
+                            "model": {
+                                "type": "string",
+                                "example": "Nexus 5X"
+                            },
+                            "deviceName": {
+                                "type": "string",
+                                "example": "Nexus 5X"
+                            },
+                            "version": {
+                                "type": "string",
+                                "example": "6.0.1"
+                            },
+                            "version_name": {
+                                "type": "string",
+                                "example": "LOLLIPOP_MR1"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        }
+    }
+}

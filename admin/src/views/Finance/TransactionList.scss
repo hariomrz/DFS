@@ -1,0 +1,95 @@
+.transaction-list {
+  margin-top: 1.5rem;
+
+  .react-datepicker-wrapper {
+    display: block;
+  }
+
+  .form-control {
+    border-color: #cccccc;
+  }
+
+  .form-check-input {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .user-name {
+    cursor: pointer;
+    text-decoration: underline;
+    a{
+      color: #030f09;
+    }
+  }
+
+  .table {
+    th {
+      vertical-align: middle;
+    }
+  }
+
+  .dropdown-menu.show {
+    left: -25px !important;
+  }
+  .pcode {
+    color: #F8436E;
+    font-family: "MuliBold";
+    font-size: 12px;
+  }
+}
+
+.email-modal {
+  label {
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+.balance-modal {
+  textarea {
+    resize: none;
+  }
+
+  input[type="radio"] {
+    z-index: 1;
+    margin-top: 0px;
+    left: 2px;
+    top: 5px;
+    cursor: pointer;
+  }
+
+  .space {
+    margin-top: 18px;
+    margin-bottom: 4px;
+  }
+
+  .custom-control-label {
+    font-family: $font-regular;
+  }
+}
+
+.wd-100 {
+  width: 100px;
+}
+
+.sort-b-usr {
+  float: right;
+  padding: 6px 19px;
+  cursor: pointer;
+  border: 1px solid #2b2e47;
+  opacity: 0.9;
+  border-radius: 18px;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15);
+  font-family: $font-bold;
+  color: $gray-5;
+  margin-right: 16px;
+
+  &.active {
+    border: 2px solid $secondary-color;
+  }
+}

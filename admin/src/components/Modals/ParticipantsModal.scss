@@ -1,0 +1,80 @@
+.comm-userlist-modal {
+  top: 10%;
+
+  .modal-content {
+    border-radius: 30px 30px 4px 4px;
+    background-color: transparent;
+    border: none;
+
+    .common-fixture {
+      margin: 0 auto;
+      padding: 14px 0;
+    }
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .common-fixture {
+    width: 410px;
+  }
+
+  .tbl-min-hgt {
+    min-height: 400px;
+  }
+
+  .details-header {
+    margin: 0 40px;
+    background-color: #EFEFEF;
+    border-radius: 28px 28px 0px 0px;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+    height: 96px;
+
+    .com-fixture-name span {
+      text-transform: uppercase;
+      margin: 0 10px;
+      vertical-align: middle;
+    }
+  }
+
+  .pickem-matchtype {
+    span {
+      color: #EB4A3C;
+    }
+  }
+
+  .participant-count {
+    padding: 20px;
+    color: #030F09;
+    font-family: $font-bold;
+    font-size: 16px;
+    background-color: $white;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .custom-pagination {
+    margin: 20px;
+    float: right;
+  }
+
+  .pt-card .pt-info {
+    background-color: transparent;
+    margin: 0 auto;
+  }
+}
+
+.match-p-m {
+  .dfst.common-fixture {
+    padding: 0;
+  }
+
+  .bg-card {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.text-click {
+  color: $text-color;
+}

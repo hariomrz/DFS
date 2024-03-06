@@ -1,0 +1,180 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/users/update_profile": {
+            "post": {
+                "tags": [
+                    "Update Profile"
+                ],
+                "summary": "This api is used to update user profile details.",
+                "description": "",
+                "operationId": "update_profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\update_profile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/save_user_info": {
+            "post": {
+                "tags": [
+                    "Update Profile"
+                ],
+                "summary": "This api is used to update user details.",
+                "description": "",
+                "operationId": "save_user_info",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\save_user_info"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Users\\update_profile": {
+            "required": [],
+            "properties": {
+                "FullName": {
+                    "description": "User name",
+                    "type": "string",
+                    "example": "Suresh Patidar"
+                },
+                "Address": {
+                    "description": "Address",
+                    "type": "string",
+                    "example": "31/2 OLD PALASIA"
+                },
+                "Occupation": {
+                    "description": "User Occupation",
+                    "type": "string",
+                    "example": "Designer"
+                },
+                "HouseNumber": {
+                    "description": "House Number",
+                    "type": "string",
+                    "example": ""
+                },
+                "AboutMe": {
+                    "description": "About user",
+                    "type": "string",
+                    "example": ""
+                },
+                "ProfessionID": {
+                    "description": "Profession ID",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\save_user_info": {
+            "required": [],
+            "properties": {
+                "UserGUID": {
+                    "description": "User GUID",
+                    "type": "string",
+                    "example": "8919a0c7-993c-0064-250f-375882f305eb"
+                },
+                "Gender": {
+                    "description": "Gender value, it may be 1 - Male, 2 - Female",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "IncomeLevel": {
+                    "description": "User Income Level, it may be 1 - Low, 2 - Medium, 3 - High",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "DOB": {
+                    "description": "User date of birth",
+                    "type": "string",
+                    "example": "2000-09-14"
+                },
+                "IsDOBApprox": {
+                    "description": "Is DOB Approx, it may be 0 - No, 1 - Yes",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        }
+    }
+}

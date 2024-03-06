@@ -1,0 +1,71 @@
+<div ng-class="'feed-act-' + data.ActivityGUID">
+  <div class="panel post-panel visual-post onFeed" ng-class="data.Params.BackgroundClass" style="{{(data.Album.length>0) ? 'background:url('+data.ImageServerPath+'upload/wall/'+data.Album[0].Media[0].ImageName+') no-repeat 0 0; background-size: cover;' : '' ;}}">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <ul class="feed-nav showonhover" ng-hide="LoginSessionKey==''">     
+          <li>
+            <i class="ficon-arrow-down" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+              <li>
+                <a ng-if="((data.IsArchive != 1) && (!data.ReminderData.ReminderGUID || (data.ReminderData.ReminderGUID && CheckReminderDate(data.ActivityGUID))))" ng-click="toggleArchiveEmit(data.ActivityGUID);">
+                    <span>Archive</span>
+                    <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed.">&nbsp;</i>
+                </a>
+                <a ng-if="((data.IsArchive != 1) && (data.ReminderData.ReminderGUID && !CheckReminderDate(data.ActivityGUID)))" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ARCHIVED');">
+                    <span>Archive</span>
+                    <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed.">&nbsp;</i>
+                </a>
+                <a ng-if="((data.IsArchive == 1) && data.ReminderData.ReminderGUID)" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ACTIVE');">Unarchive</a>
+                <a ng-if="((data.IsArchive == 1) && !data.ReminderData.ReminderGUID)" ng-click="toggleArchiveEmit(data.ActivityGUID);">Unarchive</a>
+              </li>
+              <li data-ng-if="IsNewsFeed == '1' && data.ModuleID !== '1' && data.Visibility == '1' && config_detail.IsSuperAdmin && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                <a ng-click="pin_to_top(data.ActivityGUID);data.IsFeatured=0" data-ng-if="data.IsPined == 0">Convert to Announcement</a>
+                <a ng-click="hideAnnouncement(data.ActivityGUID, 1)" data-ng-if="data.IsPined == 1">Remove Announcement for Everyone</a>
+              </li>
+              <li>
+                <a ng-click="toggleWatchlistStatus(data.ActivityGUID)" ng-bind="(data.IsWatchList == '1') ? 'Remove from Watchlist' : 'Add to Watchlist';"></a>
+              </li>
+              <li ng-if="(data.FavouriteAllowed == 1)">
+                <a ng-click="setFavouriteEmit(data.ActivityGUID);" ng-bind="(data.IsFavourite == '1') ? 'Remove from favorites' : 'Add to favorites'"></a>
+              </li>
+              <li data-ng-if="data.IsOwner == '1' && data.ActivityType != 'AlbumAdded' && data.ActivityType != 'AlbumUpdated'">
+                <a data-ng-click="editPost(data.ActivityGUID, $event)">Edit Post</a>
+              </li>
+              <li ng-click="seenDetailsEmit(data.ActivityGUID, 'ACTIVITY');"><a>Views</a></li>
+              <li ng-click="remove_feature(data.ActivityGUID, data.ModuleID, data.ModuleEntityID, data);" data-ng-if="config_detail.IsSuperAdmin && data.IsFeatured == 1 && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                  <a>Remove From Featured</a>
+              </li>
+              <li ng-click="mark_as_feature(data.ActivityGUID, data.ModuleID, data.ModuleEntityID, data);" data-ng-if="config_detail.IsSuperAdmin && data.IsFeatured == 0 && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                  <a>Mark As Featured</a>
+              </li>
+              <li data-ng-if="(data.CanRemove == '1' || data.IsOwner)">
+                <a ng-click="deleteEmit(data.ActivityGUID);">Remove Post</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <span class="text" ng-bind="data.PostTitle"></span>
+      </h3>
+    </div>             
+    <div class="panel-body">
+      <div class="post-panel-content">
+        <div class="content">
+          <h3 class="title" ng-bind="'“'+data.Facts+'“'"></h3>
+          <p ng-bind="data.PostContent"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="post-panel-bottom">              
+    <div class="activity-bar text-center">
+      <ul class="feed-actions">
+        <li>
+          <a ng-click="shareEmit(data.ActivityGUID);">
+            <span class="icon"><i class="ficon-share f-mlg"></i></span><span class="text">Share it now</span>
+          </a>
+        </li>
+      </ul>                  
+    </div>
+  </div>
+</div>

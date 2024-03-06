@@ -1,0 +1,78 @@
+.dfst-detail {
+  &.view-picks {
+    .live-comp-date {
+      height: 22px;
+      border-radius: 14px 14px 0 0;
+      background-color: $white;
+      color: #EB4A3C;
+      font-family: $font-black;
+      font-size: 9px;
+      padding-top: 4px;
+
+      &.pt-c-gray {
+        color: #B8B8B8;
+      }
+    }
+
+    .bg-container {
+      border-radius: 0 0 14px 14px;
+    }
+  }
+
+  .nav-item {
+    &:after {
+      content: "";
+      display: block;
+      line-height: 6px;
+      border-bottom: 2px solid $secondary-color;
+      padding-top: 9px;
+      width: 80%;
+      margin: 0 auto;
+
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+
+    &:hover:after {
+      transform: scaleX(1);
+    }
+
+    &.active {
+      border-bottom: 2px solid $secondary-color;
+    }
+  }
+
+  .dfst.common-fixture .bg-card {
+    border-radius: 14px 0 0 0 !important;
+  }
+
+  .dfst-parti-box {
+    height: 30px;
+    max-width: 345px;
+    border-radius: 0 0 14px 14px;
+    background-color: rgba(153, 153, 153, 0.2);
+    text-align: center;
+    padding: 4px 16px;
+    color: #00BFEB;
+    cursor: pointer;
+  }
+  .dfst-card 
+  {
+    width: 326px;
+  }
+  
+}
+.top-heading-sec{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .back-sec{
+    cursor: pointer;
+    margin-top: 2%;
+  }
+}
+
+.back-sec{
+  cursor: pointer;
+  margin-top: 2%;
+}

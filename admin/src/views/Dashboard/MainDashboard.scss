@@ -1,0 +1,155 @@
+.dashboard-main {
+  margin-top: 40px;
+
+  .name-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 130px;
+    display: block;
+    padding: 5px;
+    text-align: left;
+  }
+
+  .to-seprate {
+    margin: 0 8px;
+  }
+
+  .icon-info {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  .custom-graph {
+    span {
+      display: inline-block;
+      height: 18px;
+      color: $black;
+      font-family: $font-bold-italic;
+      text-align: center;
+      padding: 7px;
+      margin: 0 4px;
+      cursor: pointer;
+
+      &.active {
+        color: $white;
+        height: 32px;
+        border-radius: 4px;
+        background: $secondary-color;
+      }
+    }
+  }
+
+  span.rupee-btn {
+    height: 22px;
+    width: 28px;
+    border-radius: 4px;
+    background: $secondary-color;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    color: $white;
+    font-family: $font-bold;
+    font-size: 20px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .no-data-img {
+    width: 120px;
+    height: 104px;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 1280px) {
+    .graph-align {
+      margin-bottom: 10px;
+    }
+  }
+
+  .date-filter {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  .component-loader {
+    min-height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.dash-ldrboard {
+  margin-top: 40px;
+
+  .tab-pane {
+    padding: 0;
+  }
+
+  .view-all-box {
+    // margin-top: 22px;
+    background-color: #fff;
+    padding: 20px 20px 10px;
+
+    .view-all {
+      float: right;
+    }
+  }
+
+  .user-navigation {
+    background-color: $theme-color;
+    height: 60px;
+    .nav-tabs{
+      background-color: $theme-color;
+    }
+    .nav-link{
+      background: transparent;
+    }
+    .nav-item.active,
+    .nav-item.active .nav-link {
+      color: $white;
+      font-size: 16px;
+    }
+
+    .nav-link {
+      margin: 12px 24px 0;
+    }
+
+    .nav-item {
+      &.active::after {
+        border-bottom: 4px solid $secondary-color;
+        padding-top: 15px;
+      }
+
+      &:hover {
+        .nav-link {
+          color: $white;
+        }
+
+        &::after {
+          content: "";
+          border-bottom: 4px solid #f8436e;
+          padding-top: 15px;
+        }
+      }
+    }
+  }
+
+  .common-table .table {
+    thead {
+      background-color: #EFEFEF;
+      color: #666666;
+      .arrow-up,
+      .arrow-down{
+        border-bottom: 5px solid #666666;
+      }
+    }
+  }
+
+  .ldr-common {
+    background-color: $white;
+    margin-top: 0;
+  }
+}
+
+.mt20{
+  margin-top: 20px !important;
+}

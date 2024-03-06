@@ -1,0 +1,196 @@
+<div ng-controller="shareCtrl">
+    <div class="modal fade" id="sharemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">SHARE THIS POST</h4>
+                </div>
+                <div class="modal-body share-modal-body scrollbar">
+                    <div class="share-content-top">
+                        <div ng-hide="LoginSessionKey=='' || singleActivity.PostType=='8' || singleActivity.PostType=='9'" ng-cloak class="col-sm-6 col-md-6 col-xs-12">
+                            <div class="text-field-select">
+                                <select id="sharetype" onChange="changePopupShare(this.value)" data-chosen=""  data-disable-search="true">
+                                    <option value="own-wall">On your own wall</option>
+                                    <option value="friend-wall">On a friend's wall</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Social Share -->
+
+                        <div ng-if="LoginSessionKey=='' || singleActivity.PollData.length=='0'" class="col-sm-6 col-md-6 col-xs-12 social">
+                            <span ng-cloak ng-if="singleActivity.Album.length>0" data-dismiss="modal" ng-click="$emit('FacebookShareEmit', SiteURL+singleActivity.ActivityURL, singleActivity.PostContent, singleActivity.PostContent, ImageServerPath+'upload/'+singleActivity.Album[0].Media[0].MediaFolder+'/750x500/'+singleActivity.Album[0].Media[0].ImageName);">
+                                <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                                    <span class="stLarge" ng-style="{'background-image': 'url(' + AssetBaseUrl + 'img/facebook_32.png)'}"></span>
+                                </span>
+                            </span>
+                            <span ng-cloak ng-if="singleActivity.Album.length==0" data-dismiss="modal" ng-click="$emit('FacebookShareEmit', SiteURL+singleActivity.ActivityURL, singleActivity.PostContent, singleActivity.PostContent, '');">
+                                <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                                    <span class="stLarge" ng-style="{'background-image': 'url(' + AssetBaseUrl + 'img/facebook_32.png)'}"></span>
+                                </span>
+                            </span>
+                            <script type="text/javascript">
+                                if(LoginSessionKey!=='')
+                                {
+                                    window.fbAsyncInit = function() {
+                                        FB.init({
+                                            appId: FacebookAppId,
+                                            xfbml: true,
+                                            version: 'v2.9'
+                                        });
+                                    };
+                                    (function(d, s, id) {
+                                        var js, fjs = d.getElementsByTagName(s)[0];
+                                        if (d.getElementById(id)) {
+                                            return;
+                                        }
+                                        js = d.createElement(s);
+                                        js.id = id;
+                                        js.src = "//connect.facebook.net/en_US/all.js";
+                                        fjs.parentNode.insertBefore(js, fjs);
+                                    }(document, 'script', 'facebook-jssdk'));
+                                }
+                            </script>
+                            <span>
+                                <a target="_self" href="https://twitter.com/intent/tweet?text={{strip(singleActivity.PostContent)}}&url={{SiteURL+singleActivity.ActivityURL}}&via=vinfotech" onclick="popupCenter(this.href,'Twitter', 500, 300); return false;">
+                                    <span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton">
+                                        <span class="stLarge" ng-style="{'background-image': 'url(' + AssetBaseUrl + 'img/twitter_32.png)'}"></span>
+                                    </span>
+                                </a>
+                            </span>
+                            <span data-dismiss="modal" ng-click="$emit('showEmailPopupEmitOnShare', singleActivity);">
+                                <span class="stButton" data-target="#emailServiceModal" data-toggle="modal">
+                                    <span class="stLarge" ng-style="{'background-image': 'url(' + AssetBaseUrl + 'img/email_32.png)'}"></span>
+                                </span>
+                            </span>
+                        </div>
+                        <!-- Social Share Ends -->
+                    </div>
+                    <div ng-hide="LoginSessionKey=='' || singleActivity.PostType=='8' || singleActivity.PostType=='9'" ng-cloak class="own-wall share-wall" ng-class="(singleActivity.PollData.length > 0) ? 'poll-feed-listing' : '';">
+                        <div class="share-content-bottom">
+                            <div class="hide comments about-media about-name">
+                                <input type="text" class="form-control" id="friend-src" placeholder="Friend's name" value="" custom-autocomplete/>
+                            </div>
+                            <div id="FriendSearchResult"></div>
+                            <div class="comments about-media">
+                                <textarea class="form-control" id="PCnt" placeholder="Say something about this post"></textarea>
+                            </div>
+                            <!-- Poll Share Start -->
+                            <div ng-if="singleActivity.PollData.length > 0" class="share-image share-poll-feed">
+                                <div class="feed-content" ng-bind-html="textToLink(singleActivity.PostContent)"></div>
+                                <div class="poll-feed-description pollQuestion">
+                                    <ul class="poll-que-list">
+                                        <li ng-repeat="pdata in singleActivity.PollData[0].Options">
+                                            <div class="upload-view ">
+                                                <div class="upload-viewlist">
+                                                <span ng-repeat="media in pdata.Media" data-src="{{ImageServerPath + 'upload/poll/' + media.ImageName}}">
+                                                    <img ng-src="{{ImageServerPath + 'upload/poll/' + media.ImageName}}" >
+                                                </span>
+                                                </div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="radio">
+                                                    <label ng-bind="pdata.Value"></label>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Poll Share Ends -->
+                            <div ng-if="LoginSessionKey!='' && singleActivity.PollData.length == 0" class="media-block mediaPost media-photo" ng-class="layoutClass(singleActivity.mediaData)" ng-if="singleActivity.mediaData != undefined && singleActivity.mediaData !== ''">
+                                <figure class="media-thumbwrap" ng-repeat="media in singleActivity.mediaData">
+                                    <a target="_self" href="javascript:void(0);" ng-class="singleActivity.mediaData.length > 1 ? 'imgFill' : 'singleImg';" class="media-thumb media-thumb-fill">
+
+
+                                        <!-- Media Starts -->
+                                        <img ng-if="singleActivity.ActivityType!='ProfilePicUpdated' && singleActivity.ActivityType!='ProfileCoverUpdated' && singleActivity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Image'"   ng-src="{{ImageServerPath+'upload/album/750x500/'+media.ImageName}}" />
+                                        <img ng-if="singleActivity.ActivityType!='ProfilePicUpdated' && singleActivity.ActivityType!='ProfileCoverUpdated' && singleActivity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Image'"   ng-src="{{ImageServerPath+'upload/wall/750x500/'+media.ImageName}}" />
+
+                                        <img ng-if="singleActivity.ActivityType!='ProfilePicUpdated' && singleActivity.ActivityType!='ProfileCoverUpdated' && singleActivity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{ImageServerPath+'upload/album/750x500/'+  media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" />
+                                        <img ng-if="singleActivity.ActivityType!='ProfilePicUpdated' && singleActivity.ActivityType!='ProfileCoverUpdated' && singleActivity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{ImageServerPath+'upload/wall/750x500/'+ media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" />
+
+                                        <img ng-if="singleActivity.ActivityType=='ProfilePicUpdated'" ng-src="{{ImageServerPath+'upload/profile/220x220/'+media.ImageName}}" />
+                                        <img ng-if="singleActivity.ActivityType=='ProfileCoverUpdated'" ng-src="{{ImageServerPath+'upload/profilebanner/1200x300/'+media.ImageName}}" />
+                                        <!-- Media Ends -->
+                                        <i class="icon-n-video-big" ng-if="media.MediaType=='Video' && media.ConversionStatus=='Finished'"></i>
+                                        <!-- <div ng-if="$last && singleActivity.Album[0].TotalMedia > 4 && singleActivity.Album[0].Media.length > 1" class="more-content"><span ng-bind="'+' + (singleActivity.Album[0].TotalMedia - 3)"></span></div> -->
+                                    </a>
+                                    <div class="post-video" ng-if="media.MediaType=='Video' && media.ConversionStatus=='Pending'">
+                                        <div class="wall-video pending-rating-video">
+                                            <i class="icon-video-c"></i>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                            <div ng-if="LoginSessionKey!='' && singleActivity.PollData.length == 0 && singleActivity.PostType!='4'" class="share-content">
+                                <div class="share-inr-space tagging">
+                                    <a target="_self" href="javascript:void(0);" ng-if="singleActivity.PostType!=='7'" ng-bind="singleActivity.UserName"></a>
+                                    <a target="_self" href="javascript:void(0);" ng-if="singleActivity.PostType=='7'" ng-bind="singleActivity.EntityName"></a>
+                                    <p ng-bind-html="textToLink(singleActivity.PostContent)"></p>
+                                </div>
+                            </div>
+                            <div ng-if="LoginSessionKey!='' && singleActivity.PollData.length == 0 && singleActivity.PostType=='4'" class="thumbnail thumbnail-default">                     
+                                <div class="caption">
+                                  <div class="content">                      
+                                    <h4 class="title">
+                                        <a href="javascript:void(0);" ng-bind-html="getPostTitle(singleActivity)"></a>
+                                    </h4>
+                                    <p ng-bind-html="textToLink(singleActivity.PostContent,false,200)"></p>
+                                    <span class="permission">
+                                      <span class="text"><span class="regular">By</span>
+                                          <a href="javascript:void(0);" class="name" ng-bind="singleActivity.UserName"></a>
+                                      </span>
+                                    </span>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-hide="LoginSessionKey=='' || singleActivity.PostType=='8' || singleActivity.PostType=='9'" ng-cloak class="modal-footer">
+                    <div class="pull-right wall-btns" ng-init="SharePrivacyClass='ficon-globe'">
+
+                        <!-- Privacy Buttons -->
+                        <button id="shareComment" ng-click="shareCommentToggle();" class="own-wall-settings btn btn-default btn-icon btn-onoff on" type="button">
+                            <i class="ficon-comment f-lg"></i> <span>On</span>
+                        </button>
+                        <div class="btn-group custom-icondrop own-wall-settings own-wall-privacy">
+                            <button aria-expanded="false" data-toggle="dropdown" class="btn btn-default dropdown-toggle drop-icon" type="button"> <i ng-class="SharePrivacyClass"></i> <span class="caret"></span> </button>
+                            <ul role="menu" class="dropdown-menu pull-left dropdown-withicons">
+                                <li>
+                                    <a target="_self" onClick="$('#shareVisibleFor').val(1);" ng-click="SharePrivacyClass='ficon-globe'" href="javascript:void(0);">
+                                        <span class="mark-icon"><i class="ficon-globe"></i></span>
+                                        Everyone
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_self" onClick="$('#shareVisibleFor').val(3);" ng-click="SharePrivacyClass='ficon-friends'" href="javascript:void(0);">
+                                        <span class="mark-icon"><i class="ficon-friends"></i></span>Friends
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_self" onClick="$('#shareVisibleFor').val(4);" ng-click="SharePrivacyClass='ficon-user'" href="javascript:void(0);">
+                                        <span class="mark-icon"><i class="ficon-user"></i></span>Only Me
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Privacy Buttons -->
+                        <button class="btn btn-primary" ng-click="shareActivity()" type="button">SHARE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="ShareActivityGUID" value="" />
+    <input type="hidden" id="shareVisibleFor" value="1" />
+    <input type="hidden" id="shareCommentSettings" value="1" />
+    <input type="hidden" id="ShareModuleEntityGUID" value="" />
+    <input type="hidden" id="ShareEntityUserGUID" value="" />
+
+    <div ng-include="AssetBaseUrl + 'partials/wall/custom_email_popup.html'"></div>
+</div>

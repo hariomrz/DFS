@@ -1,0 +1,85 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+/* Start of file general_lang.php */
+$lang['sports_id'] = 'sports id';
+$lang['league_id'] = 'league id';
+$lang['league_id'] = 'league id';
+$lang['tournament_id'] = 'tournament id';
+$lang['season_id'] = 'Season Id';
+$lang['team_id'] = 'Team Id';
+$lang['user_tournament_id'] = 'User Tournament_id';
+$lang['tournament_already_started'] = 'Tournament already started';
+$lang['tournament_already_joined'] = 'You have already joined this tournament.';
+$lang['tournament_closed'] = 'Tournament Closed';
+$lang['not_enough_coins'] = 'Not enough coins';
+$lang["not_enough_balance"] = "Not enough balance.";
+$lang["state_banned_error"] = "Sorry, but players from {{STATE_LIST}} are not able to enter in paid contest.";
+$lang["problem_while_join_game"] = "Problem while join game.";
+$lang["join_tournament_success"] = "You have joined the tournament successfully.";
+$lang["no_change"] = "No change";
+$lang["pickem_success"] = "Prediction updated successfully";
+$lang["no_change"] = "No change";
+
+$lang['global_error'] = 'Please input valid parameters.';
+$lang['invalid_status'] = 'Invalid Status.';
+$lang['valid_leaderboard_type'] = 'Invalid leaderboard type.';
+$lang['collection_master_id'] = 'collection master id';
+$lang['cm_id'] = 'collection id';
+
+$lang['player_uid'] = 'player uid';
+$lang['player_team_id'] = 'player key';
+$lang['contest_id'] = 'contest id';
+$lang['contest_unique_id'] = 'contest unique id';
+$lang['lineup_master_id'] = 'lineup master id';
+$lang['lm_id'] = 'team id';
+$lang['lmc_id'] = 'contest team id';
+$lang['lineup_master_contest_id'] = 'lineup master contest id';
+$lang['season_game_uid'] = 'season game uid';
+$lang['no_of_match'] = 'number of matches';
+$lang['against_team'] = 'Against Team';
+$lang['promo_code'] = 'Promo Code';
+$lang['match_status'] = 'Match status';
+$lang['lineup'] = 'lineup';
+$lang['team_name'] = 'team name';
+$lang['players'] = "players";
+$lang['captain'] = "Captain";
+$lang['vice_captain'] = "Vice Captain";
+$lang['format'] = 'format';
+$lang['join_code'] = 'join code';
+$lang['prize_type'] = 'prize type';
+$lang['salary_cap'] = 'salary cap';
+$lang['size'] = 'size';
+$lang['size_min'] = 'min size';
+$lang['game_name'] = 'game name';
+$lang['game_desc'] = 'game desc';
+$lang['entry_fee'] = 'entry fee';
+$lang['prize_pool'] = 'prize pool';
+$lang['number_of_winners'] = 'number of winners';
+$lang['prize_distribution_detail'] = 'prize detail';
+$lang['multiple_lineup'] = 'multiple lineups';
+$lang['disable_private_contest'] = "currently this feature disabled by admin.";
+$lang["contest_added_success"] = "contest created successfully.";
+$lang["contest_added_error"] = "Problem while contest create. please try again.";
+$lang['currency_type'] = 'currency type';
+$lang["same_currency_prize_type"] = "currency type and prize type should be same.";
+
+$lang['image_invalid_ext']	= 'Invalid image type. allowed media type {media_type}';
+$lang['image_invalid_dim']	= 'Please upload image of size should be {max_width}x{max_height} .';
+$lang['image_invalid_size']	= 'Max allowed media file size is {size}MB.';
+$lang['file_upload_error'] = 'Sorry, there is some issue with file upload. please try again.';
+$lang['media_removed'] = "Media file removed successfully.";
+$lang['module_not_enabled'] = "Sorry, This module not enabled. please contact admin.";
+
+//admin
+$lang["no_change"] = "No change";
+$lang['file_not_found'] = 'You did not select a file to upload.';
+$lang['invalid_image_size'] = 'Please upload image file max 4MB size';
+$lang['invalid_image_ext'] = 'Please upload image with %s extension only';
+$lang["icon_upload_success"] = 'Image uploaded successfully';
+$lang["image_removed"] = "image removed successfully.";
+$lang["invalid_tie_breaker_status"] = "Merchandise prize type should always be in tie breaker.";
+$lang["tournament_save_success"] = "Tournament has been created successfully.";
+$lang['tournament_save_error'] = "Error while save tournament data.";
+
+$lang['score_predict'] = "Score predict";
+$lang['home_predict'] = "Home predict score";
+$lang['away_predict'] = "Away predict score";

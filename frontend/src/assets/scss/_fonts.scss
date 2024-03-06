@@ -1,0 +1,118 @@
+/* Geominist fonts */
+
+@font-face {
+    font-family: "PrimaryF-Bold";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/primary_font_bold.woff2") format("woff2"),
+    url("../fonts/primary_font_bold.woff") format("woff"),
+    url("../fonts/primary_font_bold.ttf") format("truetype"),
+}
+
+@font-face {
+    font-family: "PrimaryF-Medium";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/primary_font_Medium.woff2") format("woff2"),
+    url("../fonts/primary_font_Medium.woff") format("woff"),
+    url("../fonts/primary_font_Medium.ttf") format("truetype"),
+}
+
+@font-face {
+    font-family: "PrimaryF-Regular";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/primary_font_Regular.woff2") format("woff2"),
+    url("../fonts/primary_font_Regular.woff") format("woff"),
+    url("../fonts/primary_font_Regular.ttf") format("truetype"),
+}
+
+
+// Secondary font (Teko)
+@font-face {
+    font-family: "SecondaryF-Regular";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/secondary_font_Regular.woff2") format("woff2"),
+    url("../fonts/secondary_font_Regular.woff") format("woff"),
+    url("../fonts/secondary_font_Regular.ttf") format("truetype"),
+}
+
+@font-face {
+    font-family: "SecondaryF-Bold";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/secondary_font_bold.woff2") format("woff2"),
+    url("../fonts/secondary_font_bold.woff") format("woff"),
+    url("../fonts/secondary_font_bold.ttf") format("truetype"),
+}
+
+@font-face {
+    font-family: "SecondaryF-Medium";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/secondary_font_Medium.woff2") format("woff2"),
+    url("../fonts/secondary_font_Medium.woff") format("woff"),
+    url("../fonts/secondary_font_Medium.ttf") format("truetype"),
+}
+
+@font-face {
+    font-family: "Exo2-Black";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/Exo2-Black.woff2") format("woff2"),
+    url("../fonts/Exo2-Black.woff") format("woff"),
+    url("../fonts/Exo2-Black.ttf") format("truetype"),
+}
+@font-face {
+    font-family: "Exo2-Bold";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/Exo2-Bold.woff2") format("woff2"),
+    url("../fonts/Exo2-Bold.woff") format("woff"),
+    url("../fonts/Exo2-Bold.ttf") format("truetype"),
+}
+@font-face {
+    font-family: "Exo2-ExtraBold";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/Exo2-ExtraBold.woff2") format("woff2"),
+    url("../fonts/Exo2-ExtraBold.woff") format("woff"),
+    url("../fonts/Exo2-ExtraBold.ttf") format("truetype"),
+}
+@font-face {
+    font-family: "Exo2-Regular";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/Exo2-Regular.woff2") format("woff2"),
+    url("../fonts/Exo2-Regular.woff") format("woff"),
+    url("../fonts/Exo2-Regular.ttf") format("truetype"),
+}
+@font-face {
+    font-family: "Exo2-SemiBold";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/Exo2-SemiBold.woff2") format("woff2"),
+    url("../fonts/Exo2-SemiBold.woff") format("woff"),
+    url("../fonts/Exo2-SemiBold.ttf") format("truetype"),
+}
+@font-face {
+    font-family: "Exo2-Medium";
+    font-weight: normal;
+    font-display: swap;
+    src: url("../fonts/Exo2-Medium.woff2") format("woff2"),
+    url("../fonts/Exo2-Medium.woff") format("woff"),
+    url("../fonts/Exo2-Medium.ttf") format("truetype"),
+}
+
+// font ClashDisplay
+@font-face {
+    font-family: 'ClashDisplay-Bold';
+    src: url('../fonts/ClashDisplay-Bold.woff2') format('woff2'),
+         url('../fonts/ClashDisplay-Bold.woff') format('woff'),
+         url('../fonts/ClashDisplay-Bold.ttf') format('truetype');
+         font-weight: 700;
+         font-display: swap;
+         font-style: normal;
+  }
+  

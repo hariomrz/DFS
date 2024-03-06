@@ -1,0 +1,149 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/polls/vote": {
+            "post": {
+                "tags": [
+                    "Poll"
+                ],
+                "summary": "Poll Vote API",
+                "description": "",
+                "operationId": "vote",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Polls\\vote"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/polls/option_voter_list": {
+            "post": {
+                "tags": [
+                    "Poll"
+                ],
+                "summary": "Poll option voter list API",
+                "description": "",
+                "operationId": "vote",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Polls\\option_voter_list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Polls\\vote": {
+            "required": [
+                "OptionGUID"
+            ],
+            "properties": {
+                "OptionGUID": {
+                    "description": "poll Option guid",
+                    "type": "string",
+                    "example": "da2e2-asdsf2-3456sw-3543d"
+                }
+            }
+        },
+        "Inclusify\\Api\\Polls\\option_voter_list": {
+            "required": [
+                "OptionGUID"
+            ],
+            "properties": {
+                "OptionGUID": {
+                    "description": "poll Option guid",
+                    "type": "string",
+                    "example": "da2e2-asdsf2-3456sw-3543d"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        }
+    }
+}

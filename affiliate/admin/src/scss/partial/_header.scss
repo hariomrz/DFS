@@ -1,0 +1,59 @@
+.app-header {
+  position: relative;
+  flex-direction: row;
+  height: 60px;
+  border: none !important;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid;
+  background-color: $theme-color;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  .navbar-toggler {
+    min-width: 50px;
+    padding: 0.25rem 0;
+    position: relative;
+  }
+  .navbar-brand {
+    width: 250px;
+  }
+  .sports-selector-container {
+    .sports-seletor {
+      background-color: #212235;
+      height: auto;
+      width: 150px;
+
+      .Select-control {
+        background-color: transparent !important;
+        border: none;
+        margin: 0;
+
+        .Select-value-label {
+          color: $white !important;
+          line-height: 17px !important;
+        }
+
+        .Select-arrow {
+          &:after {
+            color: $white;
+          }
+        }
+      }
+      .Select-value {
+        background: transparent;
+      }
+    }
+  }
+  .nav-item {
+    min-width: 44px;
+  }
+  .top-navigation {
+    .nav-icon {
+      height: 22px;
+      width: 22px;
+    }
+    .btn.btn-default {
+      border: 1px solid $white;
+      margin: 0 20px 0 10px;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+/* Start of file general_lang.php */
+$lang['global_error'] = 'कृपया वैध पैरामीटर इनपुट करें।';
+$lang['invalid_status'] = 'अमान्य स्थिति.';
+$lang['sports_id'] = 'स्पोर्ट्स आईडी';
+$lang['league_id'] = 'लीग आईडी';
+$lang['season_id'] = 'मिलान आईडी';
+$lang['team_id'] = 'टीम आईडी';
+$lang['player_id'] = 'खिलाड़ी आईडी';
+$lang['player_team_id'] = 'खिलाड़ी कुंजी';
+$lang['contest_id'] = 'प्रतियोगिता आईडी';
+$lang['user_team_id'] = 'उपयोगकर्ता टीम आईडी';
+$lang['match_status'] = 'मैच स्थिति';
+$lang['लाइनअप'] = 'लाइनअप';
+$lang['team_name'] = 'टीम का नाम';
+$lang['प्रारूप'] = 'प्रारूप';
+$lang['join_code'] = 'कोड में शामिल हों';
+$lang['promo_code'] = 'प्रोमो कोड';
+
+
+$lang['खिलाड़ी'] = "खिलाड़ी";
+$lang['player_info'] = "कृपया सभी खिलाड़ियों की जानकारी प्रदान करें।";
+$lang['payout_type'] = 'भुगतान प्रकार';
+$lang['मुद्रा_प्रकार'] = 'मुद्रा प्रकार';
+$lang['prop_id'] = 'प्रोप आईडी';
+$lang['season_prop_id'] = 'सीजन प्रॉप आईडी';
+$lang['entry_fee'] = 'प्रवेश शुल्क';
+$lang['select_min_picks'] = 'कृपया न्यूनतम {min_picks} चयन चुनें।';
+$lang['invalid_team'] = 'अमान्य उपयोगकर्ता टीम';
+$lang['team_success'] = 'प्रविष्टि सफलतापूर्वक सहेजी गई।';
+$lang['join_entry_email_subject'] = 'प्रॉप्स फैनैट्सी जॉइनिंग एंट्री';
+$lang['min_max_bet_limit'] = 'दांव {min_bet} से कम और {max_bet} से अधिक नहीं होनी चाहिए।';
+$lang['wining_limit_exceed'] = 'आपने इस महीने के लिए अपनी जीत की सीमा समाप्त कर ली है जो कि {amount} है। यह अगले महीने की पहली तारीख को रीसेट हो जाएगा';
+$lang['payout_disabled_error'] = 'पेआउट अक्षम है, कृपया चयन का दूसरा सेट चुनें';
+$lang['remaining_wining_limit'] = 'आपकी प्रविष्टि संभावित जीत की सीमा को पार कर रही है। कृपया इसे {remaining_limit} के बराबर या उससे कम समायोजित करें';
+$lang['multi_sports_pl_error'] = 'कृपया केवल समान खेल वाले खिलाड़ियों का चयन करें।';
+$lang['contest_already_started'] = 'मैच पहले ही शुरू हो चुका है';
+//Admin
+
+$lang['invalid_league_id'] = "लीग विवरण नहीं मिला।";
+$lang['league_status_success'] = "लीग स्थिति सफलतापूर्वक अपडेट की गई।";
+$lang['league_status_error'] = "स्टेटस अपडेट करते समय कुछ गलत हो गया।";
+$lang['image_invalid_ext'] = 'अमान्य छवि प्रकार। अनुमत मीडिया प्रकार {media_type}';
+$lang['image_invalid_dim'] = 'कृपया छवि अपलोड करें जिसका आकार {max_width}x{max_height} होना चाहिए।';
+$lang['image_invalid_size_error'] = 'अधिकतम अनुमत मीडिया फ़ाइल आकार {size}एमबी है।';
+$lang['image_file_upload_error'] = 'क्षमा करें, फ़ाइल अपलोड में कुछ समस्या है। कृपया पुन: प्रयास करें।';
+$lang['media_removed'] = "मीडिया फ़ाइल सफलतापूर्वक हटा दी गई।";
+$lang['team_edit_success'] = "प्रविष्टि सफलतापूर्वक अद्यतन कर दी गई है!";
+$lang['team_edit_failure'] = "टीम अद्यतन विफल रहा।";
+$lang['player_edit_success'] = "प्लेयर छवि सफलतापूर्वक अपलोड की गई।";
+$lang['player_edit_failure'] = "छवि अपलोड करने में त्रुटि";
+$lang['payout_update_success'] = "पेआउट डेटा सफलतापूर्वक अपडेट किया गया।";
+$lang['invalid_payout_id'] = "भुगतान विवरण नहीं मिला।";
+$lang['payout_status_success'] = "भुगतान स्थिति सफलतापूर्वक अपडेट की गई।";
+$lang['payout_status_error'] = "स्टेटस अपडेट करते समय कुछ गलत हो गया।";
+$lang['user_status_error'] = "स्टेटस अपडेट करते समय कुछ गलत हो गया। कृपया पुनः प्रयास करें।";
+$lang['user_status_success'] = "उपयोगकर्ता स्थिति सफलतापूर्वक अपडेट की गई।";
+$lang['user_wining_limit_error'] = "जीत की सीमा अपडेट करते समय कुछ गलत हो गया। कृपया पुनः प्रयास करें।";
+$lang['user_wining_limit_success'] = "उपयोगकर्ता जीतने की सीमा सफलतापूर्वक अपडेट की गई।";
+$lang['pl_props_status_success'] = "प्लेयर प्रॉप्स स्टेटस सफलतापूर्वक अपडेट किया गया।";

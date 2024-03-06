@@ -1,0 +1,284 @@
+.tds-no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+        color: $body_text_color;
+        font-size: 24px;
+        font-family: $font-book;
+        letter-spacing: 0;
+        line-height: 26px;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+}
+
+.tds-wrapper {
+    margin: 25px 15px;
+
+    .tds-report-block-csv {
+        background-color: $white;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 20px 18px 25px;
+    }
+
+    .csv-head {
+        color: $body_text_color;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-family: $font-semibold;
+        margin: 0;
+
+        span {
+            font-family: $font-regular;
+        }
+    }
+
+    .csv-sub-head {
+        color: $primary;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 13px;
+    }
+
+    .csv-icon {
+
+        color: $primary;
+        cursor: pointer;
+
+        i {
+            font-size: 40px;
+        }
+    }
+
+    .tds-certificate-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 40px 0;
+
+        .certf-head {
+            color: $body_text_color;
+            font-size: 16px;
+            font-family: $font-sec-semibold;
+            letter-spacing: 0;
+            line-height: 17px;
+        }
+
+        .certf-count {
+            color: $body_text_color;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 13px;
+            text-align: right;
+            h4 {
+                color: $primary;
+                font-size: 24px;
+                font-weight: bold;
+                letter-spacing: 0;
+                line-height: 26px;
+                text-align: right;
+                font-family: $font-bold;
+            }
+        }
+    }
+
+    .tds-list-head {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: $body_text_color;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 13px;
+        text-align: center;
+        margin-bottom: 10px;
+        padding: 0 20px;
+
+        .shift-r {
+            margin-left: auto
+        }
+
+        .s-no {
+            margin-right: 40px;
+        }
+
+    }
+
+    .tds-list-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $white;
+        border-radius: 15px;
+        padding: 12px 20px;
+        margin-bottom: 15px;
+
+        .count-show {
+            background-color: $primary;
+            height: 28px;
+            width: 28px;
+            border-radius: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin-right: 40px;
+            padding: 5px 0;
+            span {
+                color: $white;
+                font-size: 14px;
+                text-align: center;
+            }
+
+        }
+
+        .tds-doc-info {
+            max-width: 56%;
+
+            h4 {
+                font-size: 16px;
+                letter-spacing: 0;
+                line-height: 17px;
+                margin: 0;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 92%;
+                white-space: nowrap;
+
+            }
+
+            p {
+                opacity: 0.7;
+                font-size: 12px;
+                letter-spacing: 0;
+                line-height: 13px;
+                margin: 5px 0 0 0;
+
+                span {
+                    font-family: $font-semibold;
+                }
+            }
+
+        }
+
+        .tds-action {
+            margin-left: auto;
+
+            i {
+                font-size: 16px;
+                color: $body_text_color;
+                font-weight: 600;
+                cursor: pointer;
+
+                +i {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+
+    .tds-support-txt {
+        text-align: center;
+        color: $help_text_color;
+        font-size: 10px;
+        letter-spacing: 0;
+        line-height: 15px;
+        text-align: center;
+        margin-top: 65px;
+
+        p {
+            margin: 0;
+        }
+
+        a {
+            color: $primary;
+        }
+    }
+}
+
+.modal-tds {
+    .modal-close {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        left: auto;
+    }
+
+    .tds-modal-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        line-height: 1.4;
+        .head-tds {
+            color: #000000;
+            font-size: 30px;
+            letter-spacing: 0;
+            width: 50%;
+            font-family: $font-bold;
+        }
+        .date-tds{
+            text-align: right;
+            margin-bottom: 4px;
+            span{
+                font-size: 12px;
+                letter-spacing: 0;
+                display: block;
+            }
+            time{
+                color: $primary_text_color;
+                font-size: 14px;
+                letter-spacing: 0;
+            }
+        }
+
+    }
+    .fram-border{
+        border: 1px solid $primary;
+        border-radius: 10px;
+    }
+    .btn{
+        border-radius: 22px
+    }
+    .multi-btn-f{
+        margin-top: 20px;
+        margin-bottom: 14px;
+        .btn{
+            width: calc(50% - 5px);
+            + .btn{
+                margin-left: 10px;
+            }
+        }
+    }
+}
+.btn-outline-border{
+    background-color: transparent;
+    border:1px solid $primary;
+    color: $primary;
+    &:active{
+        background-color: transparent;
+    }
+}
+.block-li{
+    display: block;
+}
+.custm-spac{
+    padding: 5px;
+    cursor: pointer;
+}
+.tax-net-info{
+   .tooltip-inner{
+ //   min-width: 250px;
+  //  max-width: 284px;
+    font-size: 10px;
+    font-family: $font-regular;
+   } 
+   @media (max-width:767px) {
+    left: 198px !important;
+   }
+}

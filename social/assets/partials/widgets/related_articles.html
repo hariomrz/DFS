@@ -1,0 +1,188 @@
+<div ng-if="SettingsData.m38 == '1'" class="modal fade" id="addRelatedArticles" tabindex="-1">
+    <div class="modal-dialog modal-xlg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true"><i class="icon-close"></i></span> </button>
+                <h4 class="modal-title" id="myModalLabel" ng-bind="::lang.add_rltd_artcl"></h4>
+            </div>
+            <div class="modal-body articleModal">
+                <div class="selected-articles">
+                    <div class="slected-from">
+                        <h4 ng-bind="local_article_data.PostTitle"></h4>
+                        <span>{{::lang.add_rltd_pstd}} <a target="_self" ng-bind="local_article_data.EntityName"></a></span>
+                    </div>
+                    <div class="selected-filter" ng-if="related_articles.length > 0">
+                        <label><span ng-bind="related_articles.length"></span> {{::lang.add_rltd_slctd}}</label>
+                        <div class=" selected-list bx-arrow-top bx-slider-fluid">
+                            <ul class="wiki-listing wiki-fav" id="wikislider">
+                                <li ng-repeat="article in related_articles" repeat-done="slider_init(); update_article_status();">
+                                    <div class="wiki-listing-content">
+                                        <div class="wiki-content">
+                                            <div class="wiki-lable" ng-bind="article.EntityName"></div>
+                                            <h2><a target="_self" ng-href="{{article.ActivityURL}}" ng-bind="article.PostTitle"></a></h2>
+                                        </div>
+                                    </div>
+                                    <a target="_self" class="list-close" ng-click="select_article(article.ActivityID)">
+                                        <span class="icon">
+                                            <i class="ficon-cross"></i>                                             
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="articles-filter">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label ng-bind="::lang.add_rltd_show_frm"></label>
+                                <div>
+                                    <tags-input on-tag-added="add_tag_article($tag)" on-tag-removed="remove_tag_article($tag)" ng-model="categorySelect" display-property="Name" add-from-autocomplete-only="true" placeholder="{{::lang.add_rltd_search_gfc}}" replace-spaces-with-dashes="false">
+                                        <auto-complete source="loadCategorylist($query)" min-length="0" load-on-focus="true" load-on-empty="true" max-results-to-show="4" template="groupTemplate"></auto-complete>
+                                    </tags-input>
+                                    <script type="text/ng-template" id="groupTemplate">
+                                        <a target="_self" class="m-u-list-name" ng-bind-html="$highlight($getDisplayText())"></a>
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>By</label>
+                                <div class="group-contacts">
+                                    <div class="input-group groups-tag">
+                                        <div class="form-control">
+                                            <tags-input ng-model="PostedByLookedMore" on-tag-added="filter_article()" on-tag-removed="filter_article()" display-property="Name" add-from-autocomplete-only="true" placeholder="{{::lang.add_rltd_by_usr}}" replace-spaces-with-dashes="false">
+                                                <auto-complete source="loadSearchUsersArticle($query)" min-length="0" load-on-focus="true" load-on-empty="true" max-results-to-show="1000" template="memberTemplate"></auto-complete>
+                                            </tags-input>
+                                            <script type="text/ng-template" id="memberTemplate">
+                                                <a target="_self" class="m-conv-list-thmb">
+                                                <figure>
+                                                <img err-Name="{{data.Name}}" ng-src="<?php echo IMAGE_SERVER_PATH ?>upload/profile/220x220/{{data.ProfilePicture}}" >
+                                                </figure>
+                                                </a>
+                                                <a target="_self" class="m-u-list-name" ng-bind-html="$highlight($getDisplayText())"></a>
+                                            </script>
+                                        </div>
+                                        <span class="input-group-addon">
+                                            <span class="icon">
+                                                <i class="ficon-user f-lg"></i> 
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label ng-bind="::lang.add_rltd_tgs"></label>
+                                <div class="group-contacts">
+                                    <div class="input-group groups-tag">
+                                        <div class="form-control">
+                                            <tags-input min-length="2" ng-model="search_tags" on-tag-added="filter_article()" on-tag-removed="filter_article()" display-property="Name" add-from-autocomplete-only="true" placeholder="{{::lang.add_rltd_srch_by_tgs}}" replace-spaces-with-dashes="false">
+                                                <auto-complete source="loadSearchTagsArticle($query)" min-length="0" load-on-focus="true" load-on-empty="true" max-results-to-show="4" template="byTags"></auto-complete>
+                                            </tags-input>
+                                            <script type="text/ng-template" id="byTags">
+                                                <a target="_self" class="m-u-list-name" ng-bind-html="$highlight($getDisplayText())"></a>
+                                            </script>
+                                        </div>
+                                        <span class="input-group-addon">
+                                            <span class="icon">
+                                                <i class="ficon-tag-cord f-lg"></i> 
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="articles-listing">
+                    <div class="wiki-suggested-listing p-h-sm">
+                        <div class="row" >
+                            <div class="col-md-4"  repeat-done="update_article_status()"  ng-repeat="article in article_list">
+                                <div class="thumbnail thumbnail-card translateY-0"  ng-class="(article.IsChecked == '1') ? 'selected' : '';" ng-click="select_article(article.ActivityID)">                                         
+                                    <div class="thumbnail-header">
+                                        <div class="thumbnail-icn">
+                                            <a class="icon" ng-if="article.IsChecked == '1'"><i class="ficon-checkmark f-blue f-mlg"></i></a>
+                                        </div>
+                                        <h5 class="thumbnail-subtitle">                                           
+                                                <span class="text" ng-bind="article.EntityName"></span>                                            
+                                        </h5>                                
+                                    </div>
+                                    <div class="thumbnail-body" >  
+                                        <div class="caption">      
+                                            <div class="content">           
+                                                <h4 class="thumbnail-title">
+                                                    <span  ng-if="article.PostTitle" ng-bind="slice_string(article.PostTitle, 50)"></span>
+                                                </h4>
+                                            </div>
+                                            <div class="member-list-block" ng-if="article.MembersTalking">
+                                                <ul class="member-list">
+                                                    <li class="member-item">                                                    
+                                                        <span class="thumb-item" 
+                                                              tooltip 
+                                                              title="{{member.Name}}" 
+                                                              data-container="body" 
+                                                              data-placement="bottom"
+                                                              ng-repeat="member in article.MembersTalking"
+                                                              >
+                                                            <img 
+                                                                err-SRC="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" 
+                                                                ng-src="{{ImageServerPath + 'upload/profile/220x220/' + member.ProfilePicture}}"                                                                                                                                                                                           
+                                                                />
+                                                        </span>                                                                                                                                     
+                                                    </li>
+                                                </ul>
+                                                <ul class="list-activites text-off">                                                                                                            
+                                                    <li  ng-bind-html="get_members_talking(article.MembersTalking)">                                                        
+                                                    </li> 
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="thumbnail-footer">
+                                        <div class="wiki-activites">
+                                            <ul class="feed-actions small">
+                                                <li>
+                                                    <span class="like-btn">
+                                                        <i class="ficon-heart sm" ng-click="likeEmitArticle(article.ActivityGUID, 'ACTIVITY', article.ActivityGUID);" ng-class="(article.IsLike == '1') ? 'active' : '';"></i>
+                                                        <abbr class="sm" ng-click="likeDetailsEmit(article.ActivityGUID, 'ACTIVITY');" ng-if="article.NoOfLikes > 0" ng-bind="article.NoOfLikes"></abbr>
+                                                    </span>
+                                                </li>                             
+                                                <li>
+                                                    <a ng-if="article.NoOfComments > 0" ng-href="{{BaseURL + article.ActivityURL}}" target="_self" ng-bind=" (article.NoOfComments > 0) ? lang.add_rltd_cmmt + ' (' + article.NoOfComments + ')' : 'Be the first to comment'"></a>
+                                                </li>    
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" ng-if="article_list.length == 0 && blankScreen" ng-cloak>
+                                <div class="blank-block">
+                                    <i class="view-icon">
+                                        <span class="icon">
+                                            <i class="ficon-knowledge"></i>
+                                        </span>
+                                    </i>
+                                    <h2 ng-bind="::lang.add_rltd_no_data"></h2>
+                                    <p ng-bind="::lang.add_rltd_404_msg"></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="loader text-lg" ng-if="viewLoader" ng-cloak style="display: block;"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-default" ng-click="dismiss_related_activity_popup()" ng-bind="::lang.add_rltd_cncl"></button>
+                    <button type="submit" class="btn btn-primary" ng-click="add_related_activity();" ng-bind="::lang.add_rltd_done"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+
+#common
+*/2 * * * * wget -O - -q -t 1 http://localhost/props/cron/update_match_playing_data
+
+1 */4 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_cricket/league
+5 */1 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_cricket/season
+10 */1 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_cricket/player
+*/5 * * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_cricket/score
+*/6 * * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_cricket/lineup
+
+
+5 */4 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_soccer/league
+10 */1 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_soccer/season
+15 */1 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_soccer/player
+*/6 * * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_soccer/score
+*/7 * * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_soccer/lineup
+
+
+5 */4 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_basketball/league
+11 */1 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_basketball/season
+16 */1 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_basketball/player
+*/7 * * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_basketball/score
+*/8 * * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_basketball/lineup
+
+*/10 * * * * wget -O - -q -t 1 http://localhost/props/cron/cron_queue/update_team_score
+*/15 * * * * wget -O - -q -t 1 http://localhost/props/cron/cron_queue/prize_distribution
+*/16 * * * * wget -O - -q -t 1 http://localhost/props/cron/cron_queue/prize_notification
+
+#Football
+
+8 */4 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_football/league
+14 */1 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_football/season
+19 */1 * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_football/player
+*/8 * * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_football/score
+*/8 * * * * wget -O - -q -t 1 http://localhost/props/feed/vinfotech_football/lineup
+
+
+

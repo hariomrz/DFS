@@ -1,0 +1,200 @@
+.h2h-card {
+    cursor: pointer;
+
+    .h2h-card-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 15px 15px 20px 0;
+
+        // @include media-breakpoint-down(md) {
+        //     padding: 15px;
+        // }
+
+        .info-hh {
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        img {
+            width: 32px;
+            margin-right: 10px;
+        }
+
+        h4 {
+            font-size: 12px;
+            font-family: $font-bold;
+            margin: 0;
+            color: $quiz-semi-black;
+            text-transform: uppercase;
+        }
+
+        P {
+            color: $body_text_color;
+            margin: 0;
+            font-size: 11px;
+        }
+
+        // @media (max-width:767px) {
+        //     padding: 12px 15px 15px 20px;
+        // }
+    }
+
+    // border: 1px solid $app_text_color;
+    border-radius: 20px;
+    //margin: 0 15px;
+
+    .h2h-card-body {
+        font-size: 12px;
+        color: $primary_text_color;
+        margin: 0;
+        padding: 0 15px 0 20px;
+    }
+
+    .btn {
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        font-size: 12px;
+        padding: 6px 12px;
+        font-family: $font-semibold;
+        margin-top: 10px;
+    }
+
+    .h2h-btm-box {
+        display: flex;
+        justify-content: space-between;
+
+        .left-box-h2h {
+            padding: 15px 10px;
+            width: 71.86%;
+            border-radius: 10px;
+            background-color: #EFF2F8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .icon-name {
+                margin: 0px !important;
+
+                i {
+                    font-size: 40px;
+                    margin-right: 10px;
+                    color: #93A3B1;
+                }
+
+
+            }
+
+            .name-contest {
+                // width: 48%;
+                color: #333333;
+                font-size: 18px;
+                font-weight: 600;
+                letter-spacing: -0.53px;
+                line-height: 25px;
+
+                span {
+                    display: flex;
+                }
+
+                div {
+                    width: fit-content;
+                    color: #333333 !important;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 1px;
+                }
+            }
+        }
+
+        .ef-btn {
+            cursor: pointer;
+            height: 30px;
+            width: 72px;
+            background-color: #5853C3;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 14px;
+        }
+
+        .rt-box-h2h {
+            width: 25%;
+            padding: 15px 10px;
+            border-radius: 10px;
+            background-color: #EFF2F8;
+            display: flex;
+            align-items: center;
+            color: #5853C3;
+
+            .vm-txt {
+                width: 50px;
+                color: #333333;
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0;
+                line-height: 17px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.upcoming-contest-title {
+    &.h2h {
+        margin-top: 20px;
+        font-family: $font-regular;
+        font-weight: normal;
+        color: $primary_text_color;
+        margin-bottom: 15px;
+    }
+}
+
+
+.is-mega-contest {
+    +.h2h-card {
+        margin-top: 20px;
+    }
+}
+
+.h2h-clist-shimmer {
+    .css-g3fk1c {
+        width: 50%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.h2h-bottom {
+    bottom: 0 !important;
+}
+
+.arrow-df {
+    display: flex;
+    margin-top: 17px;
+    margin-left: 10px;
+}
+
+.white-dv {
+    // color: #FFFFFF;
+}
+
+.clr3 {
+    display: flex;
+
+    div {
+        color: #333333 !important;
+        display: flex;
+        align-items: center;
+    }
+}
+.left-box-view-new{
+    display: flex;
+    align-items: center;
+}

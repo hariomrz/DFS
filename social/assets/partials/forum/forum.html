@@ -1,0 +1,398 @@
+<div ng-controller="ForumCtrl" id="ForumCtrl" ng-init="getForums();">
+        <div class="container wrapper"
+             infinite-scroll="loadMoreForums()" 
+             infinite-scroll-distance="2" 
+             infinite-scroll-use-document-bottom="true" 
+             infinite-scroll-disabled="forumLoadIsBusy">
+
+            <div class="row" ng-cloak ng-if="config_detail.IsSuperAdmin">
+                <div class="col-sm-12">
+                    <div class="btn-toolbar btn-toolbar-xs right m-b-sm">
+                        <a ng-if="forums.length > 1" class="btn btn-default" ng-click="openMngFturReorderModal('reOrderForum');" ng-bind="::lang.reorder_forum"></a>
+                        <a ng-cloak class="btn btn-default" ng-click="openSaveForumModal()" ng-bind="::lang.add_forum"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="forums.length==0" ng-cloak class="panel panel-info">
+                <div class="panel-body nodata-panel">
+                    <div class="nodata-text p-v-lg">
+                        <span class="nodata-media">
+                          <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-articles.png" >
+                        </span>
+                        <p class="text-off" ng-bind="lang.no_categories_created"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-info" ng-repeat-start="forum in forums" ng-cloak>
+                <div class="panel-body p-h-20">
+                    <div class="list-items-default">
+                        <ul class="list-icons"  ng-if="forum.Permissions.IsAdmin" tootip data-toggle="tooltip" data-placement="top" data-original-title="{{::lang.manage_forum}}">
+                            <li class="dropdown">
+                                <a class="icon" data-toggle="dropdown">
+                                    <i class="ficon-settings"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a ng-if="forum.CategoryData.length > 1" ng-click="openMngFturReorderModal('reOrderCategory', forum.ForumID);" ng-bind="::lang.re_order_category">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a ng-href="{{BaseUrl + 'community/manage_admin/' + forum.ForumID}}" ng-bind="::lang.manage_admin">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="openSaveFrmCatModal(forum);" ng-bind="::lang.add_category"></a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="openSaveForumModal(forum);"  ng-bind="::lang.edit_details">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="delete_forum(forum.ForumID)" ng-bind="::lang.delete_forum">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="list-item-body">
+                            <h4 class="list-heading-xxlg extra-bold" ng-bind="::forum.Name"></h4>
+                            <p ng-bind="::forum.Description"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body no-padding">
+                    <ul class="list-items-table list-items-category" ng-if="forum.CategoryData.length > 0">
+
+                        <li class="list-items-row"  ng-cloak ng-repeat="category_data in forum.CategoryData" ng-if="category_data.IsCategoryData == 1">
+                            <div class="list-items-cell">
+                                <div class="list-items-md">
+                                    <div class="list-inner">
+
+                                        <ul class="pull-right list-icons" ng-if="category_data.Permissions.IsAdmin" tootip data-toggle="tooltip" data-placement="top" data-original-title="{{::lang.manage_category}}">
+                                            <li class="dropdown">
+                                                <a class="icon" data-toggle="dropdown">
+                                                    <i class="ficon-settings"></i>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li ng-if="category_data.SubCategory.length > 0"  ng-click="openMngFturReorderModal('reOrderCategory', forum.ForumID, category_data.ForumCategoryID);" >
+                                                        <a ng-bind="::lang.re_order_sub_category"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{BaseUrl + 'community/members_settings/' + forum.ForumID + '/' + category_data.ForumCategoryID}}" ng-bind="::lang.member_settings"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a ng-click="openSaveFrmSubCatModal(forum, category_data);" ng-bind="::lang.add_sub_category"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a  ng-click="openSaveFrmCatModal(forum, category_data)" ng-bind="::lang.edit_details"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a ng-click="delete_category(category_data.ForumCategoryID)" ng-bind="::lang.delete_category"></a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                        <ul class="pull-right list-icons" ng-if="!category_data.Permissions.IsAdmin">
+                                            <li ng-click="follow_category(category_data.ForumCategoryID, forum.ForumID)" ng-if="!category_data.Permissions.IsMember">
+                                                <button class="btn btn-default btn-sm" ng-bind="::lang.follow"></button>
+                                            </li>
+                                            <li ng-click="unfollow_category(category_data.ForumCategoryID, forum.ForumID);"  ng-if="category_data.Permissions.IsMember" ng-cloak>
+                                                <button class="btn btn-primary btn-sm">
+                                                    <i class="ficon-check"></i>
+                                                    {{::lang.following}}
+                                                </button>
+                                            </li>
+                                        </ul>
+
+                                        <figure>
+                                            <a ng-href="{{BaseUrl + 'community/' + forum.URL + '/' + category_data.URL}}">
+                                                <img ng-src="{{ImageServerPath + 'upload/profile/220x220/' + category_data.ProfilePicture}}" err-SRC="{{ImageServerPath + 'upload/profile/220x220/category_default.png'}}" class="img-circle"  >
+                                            </a>
+                                        </figure>
+
+                                        <div class="list-item-body">
+                                            <h4 class="list-heading-md extra-bold">
+                                                <a ng-href="{{BaseUrl + 'community/' + forum.URL + '/' + category_data.URL}}"  ng-bind="category_data.Name" class="text-black"></a>
+                                            </h4>
+                                            <div ng-bind="category_data.Description"></div>
+
+                                            <ul ng-if="category_data.SubCategory.length > 0" class="list-activites list-icons-arrow text-off">
+                                                <li ng-repeat="subcat in category_data.SubCategory| limitTo:3">
+                                                    <span class="icon">
+                                                        <i class="ficon-arrow-right-sml"></i>
+                                                    </span>
+                                                    <a ng-href="{{BaseUrl + 'community/' + forum.URL + '/' + category_data.URL + '/' + subcat.URL}}" ng-bind="subcat.Name"></a>
+                                                </li>
+                                                <li ng-if="category_data.SubCategory.length > 3">
+                                                    <span ng-bind="::lang.and">
+
+                                                    </span>
+                                                    <a ng-href="{{BaseUrl + 'community/' + forum.URL + '/' + category_data.URL}}">
+                                                        <span data-toggle="tooltip" ng-init="callToolTip();" data-html="true" data-original-title="{{getSubCategoryTooltip(category_data.SubCategory)}}"  ng-bind="(category_data.SubCategory.length - 3) + ' more'" ></span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="list-items-cell" ng-if="::category_data.FeaturedPost.length > 0">
+                                <div class="list-items-default">
+                                    <div class="list-item-body">
+
+                                        <p class="text-sm">
+                                            <a ng-click="redirectToBaseLink(category_data.FeaturedPost[0].ActivityURL)" ng-bind-html="textToLink(category_data.FeaturedPost[0].PostContent, 1)"></a>
+                                        </p>
+                                        <div class="activity-bar p-t-xs">
+                                            <ul class="feed-actions small">
+                                                <li>
+                                                    <span class="like-btn">
+                                                        <i class="ficon-heart sm" ng-class="{'active' :category_data.FeaturedPost[0].IsLike == 1}"></i>
+                                                        <abbr class="sm" ng-if="category_data.FeaturedPost[0].NoOfLikes > 0" ng-bind="category_data.FeaturedPost[0].NoOfLikes"></abbr>
+                                                    </span>
+                                                </li>
+                                                <li ng-if="category_data.FeaturedPost[0].NoOfComments > 0" ng-bind="category_data.FeaturedPost[0].NoOfComments + ' Comment(s)'" ></li>
+                                            </ul>
+                                            <ul class="list-icons pull-right">
+                                                <li class="dropdown">
+                                                    <a class="icon" data-toggle="dropdown">
+                                                        <i class="ficon-info-outline f-lg"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-info">
+                                                        <li ng-if="::category_data.NoOfMembers > 0">
+                                                            <span class="icon"><i class="ficon-participate f-md"></i></span>
+                                                            <span class="text" ng-if="::category_data.NoOfMembers == 1" ng-bind="::category_data.NoOfMembers + ' Member'"></span>
+                                                            <span class="text" ng-if="::category_data.NoOfMembers > 1" ng-bind="::category_data.NoOfMembers + ' Members'"></span>
+                                                        </li>
+                                                        <li ng-if="::category_data.NoOfDiscussions > 0">
+                                                            <span class="icon"><i class="ficon-comment-discussion"></i></span>
+                                                            <span class="text" ng-if="::category_data.NoOfDiscussions == 1" ng-bind="::category_data.NoOfDiscussions + ' Discussion'"></span>
+                                                            <span class="text" ng-if="::category_data.NoOfDiscussions > 1" ng-bind="::category_data.NoOfDiscussions + ' Discussions'"></span>
+                                                        </li>
+                                                        <li ng-bind-html="::get_members_talking(category_data.Members)"></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="list-items-cell" ng-if="::category_data.FeaturedPost.length == 0">
+                                <div class="list-items-default">
+                                    <div class="list-item-body">
+                                        <ul class="list-activites text-off">
+                                            <li ng-if="::category_data.NoOfMembers > 0">
+                                                <span class="icon"><i class="ficon-participate f-lg"></i></span>
+                                                <span class="text" ng-if="::category_data.NoOfMembers == 1" ng-bind="::category_data.NoOfMembers + ' Member'"></span>
+                                                <span class="text" ng-if="::category_data.NoOfMembers > 1" ng-bind="::category_data.NoOfMembers + ' Members'"></span>
+                                            </li>
+                                            <li ng-if="::category_data.NoOfDiscussions > 0">
+                                                <span class="icon"><i class="ficon-comment-discussion"></i></span>
+                                                <span class="text" ng-if="::category_data.NoOfDiscussions == 1" ng-bind="::category_data.NoOfDiscussions + ' Discussion'"></span>
+                                                <span class="text" ng-if="::category_data.NoOfDiscussions > 1" ng-bind="::category_data.NoOfDiscussions + ' Discussions'"></span>
+                                            </li>
+                                        </ul>
+                                        <ul class="list-activites text-off">
+                                            <li ng-bind-html="::get_members_talking(category_data.Members)"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <div class="panel-footer more-category"  ng-cloak ng-if="forum.CategoryFollow.length > 0">
+
+                    <a ng-click="expandCategory(forum.ForumID)" ng-if=" forum.expandCat == '0'" class="link-more collapse-plus-minus" ng-class="{'collapsed':forum.expandCat == 0}">
+                        <span  class="text" >{{::lang.you_are_following}} <span  ng-bind="get_follow_category(forum.CategoryFollow)"></span></span>
+                    </a>
+                    <a ng-click="collapseCategory(forum.ForumID)" ng-if=" forum.expandCat == '1'" class="link-more collapse-plus-minus" ng-class="{'collapsed':forum.expandCat == 0}">
+                        <span class="text">{{::lang.you_are_following}} <span  ng-bind="get_follow_category(forum.CategoryFollow)"></span></span>
+                    </a>
+
+
+                    <div class="collapse in" id="collapse-e{{forum.ForumID}}">
+                        <ul class="list-items-table list-items-category"  ng-if=" forum.expandCat == '1'">
+                            <li class="list-items-row"  ng-cloak ng-repeat="category_data in forum.CategoryData" ng-if="category_data.IsCategoryData==0">
+                                <div class="list-items-cell">
+                                    <div class="list-items-md">
+                                        <div class="list-inner">
+
+                                            <ul class="pull-right list-icons" ng-if="category_data.Permissions.IsAdmin" tootip data-toggle="tooltip" data-placement="top" data-original-title="{{::lang.manage_category}}">
+                                                <li class="dropdown">
+                                                    <a class="icon" data-toggle="dropdown">
+                                                        <i class="ficon-settings"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li ng-if="category_data.SubCategory.length > 0"  ng-click="openMngFturReorderModal('reOrderCategory', forum.ForumID, category_data.ForumCategoryID);" >
+                                                            <a ng-bind="::lang.re_order_sub_category"></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{BaseUrl + 'community/members_settings/' + forum.ForumID + '/' + category_data.ForumCategoryID}}" ng-bind="::lang.member_settings"></a>
+                                                        </li>
+                                                        <li>
+                                                            <a ng-click="openSaveFrmSubCatModal(forum, category_data);" ng-bind="::lang.add_sub_category"></a>
+                                                        </li>
+                                                        <li>
+                                                            <a ng-click="openSaveFrmCatModal(forum, category_data)" ng-bind="::lang.edit_details"></a>
+                                                        </li>
+                                                        <li>
+                                                            <a ng-click="delete_category(category_data.ForumCategoryID)" ng-bind="::lang.delete_category"></a>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="pull-right list-icons" ng-if="!category_data.Permissions.IsAdmin">
+                                                <li ng-click="follow_category(category_data.ForumCategoryID, forum.ForumID)" ng-if="!category_data.Permissions.IsMember">
+                                                    <button class="btn btn-default btn-sm" ng-bind="::lang.follow"></button>
+                                                </li>
+                                                <li ng-click="unfollow_category(category_data.ForumCategoryID, forum.ForumID);"  ng-if="category_data.Permissions.IsMember" ng-cloak>
+                                                    <button class="btn btn-primary btn-sm">
+                                                        <span class="icons">
+                                                            <i class="ficon-check"></i>
+                                                        </span>
+                                                        {{::lang.following}}
+                                                    </button>
+                                                </li>
+                                            </ul>
+
+                                            <figure>
+                                                <a ng-href="{{BaseUrl + 'community/' + forum.URL + '/' + category_data.URL}}">
+                                                    <img ng-src="{{ImageServerPath + 'upload/profile/220x220/' + category_data.ProfilePicture}}" err-SRC="{{ImageServerPath + 'upload/profile/220x220/category_default.png'}}" class="img-circle"  >
+                                                </a>
+                                            </figure>
+
+                                            <div class="list-item-body">
+                                                <h4 class="list-heading-md extra-bold">
+                                                    <a ng-href="{{BaseUrl + 'community/' + forum.URL + '/' + category_data.URL}}"  ng-bind="category_data.Name" class="text-black"></a>
+                                                </h4>
+                                                <div ng-bind="category_data.Description"></div>
+
+                                                <ul ng-if="category_data.SubCategory.length > 0" class="list-activites list-icons-arrow text-off">
+                                                    <li ng-repeat="subcat in category_data.SubCategory| limitTo:3">
+                                                        <span class="icon">
+                                                            <i class="ficon-arrow-right-sml"></i>
+                                                        </span>
+                                                        <a ng-href="{{BaseUrl + 'community/' + forum.URL + '/' + category_data.URL + '/' + subcat.URL}}" ng-bind="subcat.Name"></a>
+                                                    </li>
+                                                    <li ng-if="category_data.SubCategory.length > 3">
+                                                        <span ng-bind="::lang.and">
+
+                                                        </span>
+                                                        <a ng-href="{{BaseUrl + 'community/' + forum.URL + '/' + category_data.URL}}">
+                                                            <span data-toggle="tooltip" ng-init="callToolTip();" data-html="true" data-original-title="{{getSubCategoryTooltip(category_data.SubCategory)}}"  ng-bind="(category_data.SubCategory.length - 3) + ' more'" ></span>
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="list-items-cell" ng-if="::category_data.FeaturedPost.length > 0">
+                                    <div class="list-items-default">
+                                        <div class="list-item-body">
+
+                                            <p class="text-sm">
+                                                <a ng-click="redirectToBaseLink(category_data.FeaturedPost[0].ActivityURL)" ng-bind-html="textToLink(category_data.FeaturedPost[0].PostContent, 1)"></a>
+                                            </p>
+                                            <div class="activity-bar p-t-xs">
+                                                <ul class="feed-actions small">
+                                                    <li>
+                                                        <span class="like-btn">
+                                                            <i class="ficon-heart sm" ng-class="{'active' :category_data.FeaturedPost[0].IsLike == 1}"></i>
+                                                            <abbr class="sm" ng-if="category_data.FeaturedPost[0].NoOfLikes > 0" ng-bind="category_data.FeaturedPost[0].NoOfLikes"></abbr>
+                                                        </span>
+                                                    </li>
+                                                    <li ng-if="category_data.FeaturedPost[0].NoOfComments > 0" ng-bind="category_data.FeaturedPost[0].NoOfComments + ' Comment(s)'" ></li>
+                                                </ul>
+                                                <ul class="list-icons pull-right">
+                                                    <li class="dropdown">
+                                                        <a class="icon" data-toggle="dropdown">
+                                                            <i class="ficon-info-outline f-lg"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-info">
+                                                            <li ng-if="::category_data.NoOfMembers > 0">
+                                                                <span class="icon"><i class="ficon-participate f-md"></i></span>
+                                                                <span class="text" ng-if="::category_data.NoOfMembers == 1" ng-bind="::category_data.NoOfMembers + ' Member'"></span>
+                                                                <span class="text" ng-if="::category_data.NoOfMembers > 1" ng-bind="::category_data.NoOfMembers + ' Members'"></span>
+                                                            </li>
+                                                            <li ng-if="::category_data.NoOfDiscussions > 0">
+                                                                <span class="icon"><i class="ficon-comment-discussion"></i></span>
+                                                                <span class="text" ng-if="::category_data.NoOfDiscussions == 1" ng-bind="::category_data.NoOfDiscussions + ' Discussion'"></span>
+                                                                <span class="text" ng-if="::category_data.NoOfDiscussions > 1" ng-bind="::category_data.NoOfDiscussions + ' Discussions'"></span>
+                                                            </li>
+                                                            <li ng-bind-html="::get_members_talking(category_data.Members)"></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="list-items-cell" ng-if="::category_data.FeaturedPost.length == 0">
+                                    <div class="list-items-default">
+                                        <div class="list-item-body">
+                                            <ul class="list-activites text-off">
+                                                <li ng-if="::category_data.NoOfMembers > 0">
+                                                    <span class="icon"><i class="ficon-participate f-lg"></i></span>
+                                                    <span class="text" ng-if="::category_data.NoOfMembers == 1" ng-bind="::category_data.NoOfMembers + ' Member'"></span>
+                                                    <span class="text" ng-if="::category_data.NoOfMembers > 1" ng-bind="::category_data.NoOfMembers + ' Members'"></span>
+                                                </li>
+                                                <li ng-if="::category_data.NoOfDiscussions > 0">
+                                                    <span class="icon"><i class="ficon-comment-discussion"></i></span>
+                                                    <span class="text" ng-if="::category_data.NoOfDiscussions == 1" ng-bind="::category_data.NoOfDiscussions + ' Discussion'"></span>
+                                                    <span class="text" ng-if="::category_data.NoOfDiscussions > 1" ng-bind="::category_data.NoOfDiscussions + ' Discussions'"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-activites text-off">
+                                                <li ng-bind-html="::get_members_talking(category_data.Members)"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div ng-if="$index < 3" ng-repeat-end ng-cloak>
+                <div ng-if="$index == 0" ng-show="active_users.length > 0" ng-include="AssetBaseUrl + 'partials/widgets/most_active_users.html' + app_version">
+
+                </div>
+                <div ng-if="$index == 1" ng-include="AssetBaseUrl + 'partials/widgets/suggested_groups_forum.html' + app_version">
+
+                </div>
+                <div ng-if="$index == 2 && SettingsData.m38=='1'" ng-show="article_list.length > 0"  ng-include="AssetBaseUrl + 'partials/widgets/suggested_articles_forum.html' + app_version">
+
+                </div>
+            </div>
+        </div>
+
+        <div ng-include="save_frm_cat_modal_tmplt"></div>
+        <div ng-include="save_forum_modal_tmplt"></div>
+        <div ng-include="save_frm_sub_cat_modal_tmplt"></div>
+        <div ng-include="mng_ftur_reorder_modal_tmplt"></div>
+
+        <input type="hidden" id="IsForum" value="1" />
+        <input type="hidden" id="CatMediaGUID" value="" />
+    </div>

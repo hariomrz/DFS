@@ -1,0 +1,1617 @@
+.contest-entry {
+    float: right;
+    font-family: $font-bold-italic;
+    font-size: $font-size-small;
+
+    span {
+        color: $gray-550;
+    }
+
+    p {
+        margin: 0;
+        color: $link;
+    }
+}
+
+.contest-list-wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .contest-list {
+        &.pinned {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.contest-list {
+    border-radius: 14px;
+    background: $white;
+    margin-bottom: 20px;
+    border: 1px solid $white;
+
+    &.pinned {
+        border: 1px solid $primary;
+        position: relative;
+
+        .contest-heading {
+            padding-left: 0;
+
+            .prize-pool-text {
+                font-size: $font-size-medium;
+                color: $help_text_color;
+                font-family: $font-bold;
+            }
+
+            .prize-pool-value {
+                color: $primary;
+                font-family: $font-bold;
+            }
+        }
+    }
+
+    .shimmer-container {
+        padding: 17px 15px;
+        position: relative;
+
+        .shimmer-top-view {
+            width: 100%;
+
+            .shimmer-image {
+                width: 30px;
+                height: 30px;
+                float: right;
+                margin: -5px 0;
+
+                &.predict {
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            .shimmer-line {
+                width: 85%;
+                margin-top: 4px;
+                float: left;
+                line-height: 17px;
+
+                @media screen and(max-width: 620px) {
+                    width: 83%;
+                }
+
+                @media screen and(max-width: 411px) {
+                    width: 77%;
+                }
+
+                @media screen and(max-width: 320px) {
+                    width: 68%;
+                }
+
+                &.predict {
+                    width: 100%;
+
+                    span span {
+                        border-radius: 8px;
+                        margin-bottom: 6px;
+                    }
+                }
+            }
+        }
+
+        .shimmer-bottom-view {
+            width: 100%;
+            margin-top: 70px;
+            line-height: 15px;
+            display: flex;
+            justify-content: space-between;
+
+            .shimmer-buttin {
+                width: 20%;
+                height: 30px;
+                border-radius: 15px;
+                overflow: hidden;
+                margin-top: -2px;
+
+                &.predict {
+                    width: 30%;
+                    margin-top: -4px;
+                }
+            }
+        }
+    }
+
+    .contest-list-header {
+        padding: 10px 15px;
+        padding-top: 24px;
+        cursor: pointer;
+
+        &.disabled-contest-card {
+            pointer-events: none;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    .contest-heading {
+        position: relative;
+        margin-bottom: 10px;
+
+        .img-coin-contest {
+            margin-top: 2px;
+            margin-left: 35px;
+            width: 14px;
+            height: 14px;
+
+        }
+
+        img {
+            width: auto;
+            height: auto;
+            max-height: 35px;
+            max-width: 35px;
+            position: absolute;
+            left: 0;
+        }
+
+        h3 {
+            font-size: $font-size-medium;
+            font-family: $font-bold-italic;
+            color: $gray-200;
+            margin: 0;
+
+            span {
+                .prize-pool-text {
+                    font-size: $font-size-medium;
+                    color: $help_text_color;
+                    font-family: $font-bold;
+                }
+
+                .prize-pool-value {
+                    color: $primary;
+                    font-family: $font-bold;
+                }
+
+                &.currency-span {
+                    margin-left: 0;
+                    margin-right: 4px;
+                }
+            }
+
+            i {
+                margin-left: 10px;
+                display: inline-block;
+                position: absolute;
+                right: 20px;
+                top: -16px;
+
+                &.icon-share {
+                    right: -4px;
+                }
+
+                &.icon-bonus {
+                    position: relative;
+                    top: -2px;
+                    right: 0;
+                    margin-left: 0px;
+                }
+            }
+
+            &.win-type {
+                i {
+                    &:not(.icon-share) {
+                        position: static;
+                    }
+                }
+
+                .prize-pool-text {
+                    font-size: $font-size-medium;
+                    color: $primary;
+                    font-family: $font-bold;
+                }
+
+                .img-coin {
+                    margin-top: -1px;
+                    margin-right: 3px;
+                    width: 14px;
+                    height: 14px;
+                    position: relative;
+
+                }
+
+                .img-bonus {
+                    margin-left: 32px;
+                    width: 14px;
+                    height: 14px;
+
+                }
+
+                span {
+                    color: $primary;
+                    font-family: $font-bold;
+
+                    i.icon-bonus {
+                        position: relative;
+                        top: -2px;
+                        right: 0;
+                        margin-left: 4px;
+                    }
+
+                    &.currency-span {
+                        margin-left: 4px;
+                        margin-right: 4px;
+                    }
+
+                    &.contest-prizes {
+                        padding: 0;
+                    }
+
+                    &.h2h {
+                        color: $white;
+
+                    }
+                }
+            }
+        }
+
+        .contest-pin {
+            position: absolute;
+            top: -25px;
+            left: -16px;
+
+            i {
+                border-radius: 90px;
+                // background: $primary;
+                color: $primary;
+                font-size: 22px;
+            }
+        }
+
+    }
+
+    .contest-name {
+        font-size: $font-size-small;
+        color: $primary_text_color;
+        font-family: $font-bold-italic;
+        margin-bottom: 5px;
+    }
+
+    .progress-bar-default {
+        width: 75%;
+    }
+
+    .entry-criteria {
+        text-align: right;
+
+        .btn {
+            font-family: $font-bold;
+            width: 90px;
+            padding: 8px;
+            // padding: 4px 8px 7px;
+            border-radius: 16px;
+            font-size: $font-size-small;
+
+            &.coin-cont {
+                // padding: 11px 7px 8px;
+                padding: 8px 7px 8px;
+
+                img.img-coin {
+                    position: relative;
+                    // top: -1px;
+                }
+            }
+
+            span {
+                font-size: $font-size-medium;
+                position: relative;
+                top: 2px;
+                left: -4px;
+            }
+
+            img.img-coin {
+                max-width: 13px;
+                margin-right: 4px;
+                vertical-align: -2px;
+            }
+
+            &.btn-rookie {
+                overflow: visible;
+                padding: 7px 7px 3px;
+            }
+        }
+    }
+
+    .contest-list-footer {
+        border-top: 1px solid $border-light;
+        text-align: center;
+        font-size: $font-size-small;
+        padding: 5px;
+        font-family: $font-bold-italic;
+        color: $gray-550;
+    }
+
+    &.alreay-joined {
+        background: $gray-75;
+
+        .contest-list-footer {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.rookie-img {
+    position: absolute;
+    width: 30px;
+    height: 24px;
+    top: -22px;
+    left: 50%;
+    z-index: 1;
+    object-fit: contain;
+    transform: rotate(-15deg) translateX(-50%);
+
+    &.img-dis {
+        filter: gray;
+        /* IE6-9 */
+        -webkit-filter: grayscale(1);
+        /* Google Chrome, Safari 6+ & Opera 15+ */
+        filter: grayscale(1);
+        /* Microsoft Edge and Firefox 35+ */
+        opacity: 0.5;
+        user-select: none;
+        pointer-events: none;
+    }
+}
+
+.help-section {
+    padding: 0 15px;
+    text-align: center;
+
+    a {
+        display: inline-block;
+        text-decoration: underline;
+        background: transparent;
+        padding: 6px 5px;
+        font-family: $font-bold;
+        font-size: $font-size-small;
+        color: $primary_text_color;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+
+.league-list-all {
+    border-bottom: 1px solid $disabled_text_color;
+    margin-bottom: 10px;
+
+    &.no-margin {
+        margin-bottom: none;
+
+    }
+
+    .sort-contest-wrapper {
+        margin-left: 15px;
+        margin-right: 15px;
+
+        &.less-margin {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+}
+
+.sort-contest-section {
+    font-size: $font-size-small;
+    font-family: $font-bold;
+    color: $primary_text_color;
+    padding: 6px 16px;
+    background: $white;
+    border-radius: 7px;
+    position: relative;
+    cursor: pointer;
+
+    p {
+        color: $help_text_color;
+        text-transform: none;
+        font-size: $font-size-h6;
+        font-family: $font-regular;
+        margin-bottom: 0;
+    }
+
+    .verity-count {
+        background: $primary;
+        color: $white;
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        font-weight: bold;
+        text-align: center;
+        padding: 4px 13px;
+        border-radius: 20px;
+        position: absolute;
+        top: 50%;
+        right: 36px;
+        transform: translateY(-50%);
+        line-height: 18px;
+    }
+
+    i {
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+        color: $gray-550;
+        font-size: $font-size-small;
+        cursor: pointer;
+
+        &.icon-next-arrow {
+            transform: translateY(-50%) rotate(90deg);
+        }
+    }
+}
+
+.contest-list-wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .contest-listing-card {
+        padding: 0;
+
+        .contest-listing-card-header {
+            position: relative;
+            text-align: left;
+            color: $help_text_color;
+            padding: 10px 0 10px 62px;
+            border-radius: 14px 14px 0 0;
+            font-size: $font-size-xsmall;
+            font-family: $font-regular;
+            margin-left: 10px;
+            margin-right: 10px;
+            background: $disabled_text_color;
+
+            img.contest-img {
+                position: absolute;
+                left: 15px;
+                width: 32px;
+                height: 32px;
+                top: 50%;
+                transform: translateY(-50%);
+
+                &.free-contest-img {
+                    width: 39px;
+                    height: 28px;
+                }
+            }
+
+            .contest-name-heading {
+                color: $primary_text_color;
+                font-size: $font-size-small;
+                margin: 0;
+                font-family: $font-bold;
+
+                .info-rookie {
+                    padding: 5px;
+                    margin-top: -1px;
+                    display: inline-block;
+                }
+            }
+
+            .contest-name-heading-description {
+                font-family: $font-regular;
+                color: $help_text_color;
+                font-size: $font-size-h6;
+            }
+        }
+
+        .contest-list {
+            position: relative;
+            // z-index: 0;
+            z-index: 1;
+
+            .contest-heading {
+                padding-left: 0;
+            }
+        }
+
+        .show-more-contest {
+            cursor: pointer;
+            border-radius: 0 0 14px 14px;
+            background: $white;
+            background: $disabled_text_color;
+            margin-top: -30px;
+            padding: 16px 0 6px;
+            font-size: $font-size-small;
+            font-family: $font-regular;
+            font-weight: bold;
+            color: $primary;
+
+            i {
+                color: $help_text_color;
+                display: inline-block;
+                margin-left: 5px;
+            }
+        }
+
+        .bg-game-center {
+            cursor: pointer;
+            margin-top: 20px;
+            height: 88px;
+
+            .bg-image {
+                height: 100%;
+                background: url('../img/contest-listing-gc.png') no-repeat;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .go-to-game-center-of {
+                    text-align: left;
+                    color: $white;
+                    font-family: $font-bold;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-left: 30px;
+                    margin-right: 10px;
+                    width: 250px;
+
+                    @media (max-width: 360px) {
+                        margin-left: 20px;
+                    }
+
+                    &.no-uppercase {
+                        text-transform: none;
+
+                    }
+                }
+            }
+
+        }
+    }
+
+    &.sorted-contest-listing {
+        .contest-list .contest-heading {
+            padding-left: 0;
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 30px !important;
+    }
+}
+
+.contest-heading {
+    i.contest-type {
+        margin-left: 10px;
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: -16px;
+        font-size: $font-size-medium;
+
+        ~i.contest-type {
+            right: 40px;
+
+            ~i.contest-type {
+                right: 60px;
+            }
+        }
+    }
+}
+
+.contest-list {
+    .contest-heading {
+        .contest-type-img {
+            max-width: 16px;
+            max-height: 16px;
+            position: absolute;
+            right: 20px;
+            top: -16px;
+            left: auto;
+
+            ~.contest-type-img {
+                right: 40px;
+
+                ~.contest-type-img {
+                    right: 60px;
+                }
+            }
+        }
+    }
+}
+
+.contest-card-body-header {
+    .share-contest {
+
+        ~i.contest-type,
+        ~.featured-image {
+            margin-left: 10px;
+            display: inline-block;
+            position: absolute;
+            font-size: $font-size-medium;
+            top: 13px;
+            right: 35px;
+
+            ~i.contest-type,
+            ~.featured-image {
+                right: 55px;
+
+                ~i.contest-type,
+                ~.featured-image {
+                    right: 75px;
+                }
+            }
+        }
+    }
+
+    i.contest-type {
+        margin-left: 10px;
+        display: inline-block;
+        position: absolute;
+        font-size: $font-size-medium;
+        top: 13px;
+        right: 12px;
+
+        ~i.contest-type {
+            right: 32px;
+
+            ~i.contest-type {
+                right: 52px;
+            }
+        }
+    }
+
+    i.icon-share {
+        top: 10px;
+        right: -4px;
+    }
+}
+
+.contest-collection-slider {
+    position: relative;
+    background: $white;
+    border-radius: 0;
+    z-index: 1;
+
+    .collection-list {
+        .display-table-cell {
+            @media (max-width: 767px) {
+                .team-img {
+                    max-width: 25px;
+                    max-height: 25px;
+                }
+            }
+        }
+    }
+
+    .slick-arrow.slick-next,
+    .slick-arrow.slick-prev {
+        display: none !important;
+    }
+
+    &.fixture-list-content {
+        padding-top: 6px;
+        background: $app_bg_color;
+
+        .collection-list-slider .collection-list {
+            padding: 0 5px;
+
+            @media (max-width:767px) {
+                padding: 0 5px !important;
+            }
+
+            >.display-table {
+                padding: 5px 0;
+
+                .team-block {
+                    line-height: 1;
+                    margin-top: 3px;
+                }
+
+                .verses {
+                    font-size: $font-size-small;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+}
+
+.contest-collection-slider-roster {
+    position: relative;
+    background: transparent;
+    border-radius: 0;
+
+    .collection-list {
+        width: 70%;
+
+        .display-table-cell {
+            @media (max-width: 767px) {
+                .team-img {
+                    max-width: 25px;
+                    max-height: 25px;
+                }
+            }
+        }
+    }
+
+    position: relative;
+
+    .slick-arrow.slick-next,
+    .slick-arrow.slick-prev {
+        display: none !important;
+    }
+
+}
+
+.collection-info-section {
+    cursor: pointer;
+    background: $primary;
+    height: 25px;
+    text-align: center;
+    color: $white;
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    padding: 2px;
+    font-family: $font-bold;
+    letter-spacing: 1px;
+
+    span {
+        position: relative;
+        top: 3px;
+    }
+
+    i {
+        position: relative;
+        top: 4px;
+        display: inline-block;
+        margin-left: 5px;
+        vertical-align: top;
+        font-size: 13px;
+    }
+
+    img {
+        transform: rotate(90deg);
+        display: inline-block;
+        transform-origin: 20px 23px;
+    }
+}
+
+.contest-listing-web-conatiner {
+    .fixture-list-content {
+        margin-bottom: 0;
+
+        .collection-list-slider .collection-list {
+            @media (max-width: 767px) {
+                padding: 0 5px 5px;
+            }
+
+            >.display-table {
+                border: none;
+            }
+        }
+    }
+}
+
+.contest-listing-web-collection {
+    .app-header-style .header-content .team-header-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.contest-list-wrapper {
+    .contest-listing-card {
+        .contest-heading {
+            .text-small-italic {
+                font-size: $font-size-small;
+                font-family: $font-regular;
+            }
+
+        }
+    }
+}
+
+.team-name-style {
+    color: $primary;
+}
+
+.contest-card-footer {
+    padding: 0px 0px;
+    margin-top: 5px;
+    color: $help_text_color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.height-sponsor-strip {
+        height: 31px;
+    }
+
+    .sponser-by-text {
+        font-size: $font-size-small;
+        font-family: $font-regular;
+        width: 50%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 200px;
+
+        @media (max-width: 767px) {
+            max-width: 140px;
+        }
+    }
+
+    .sponsor-logo-section {
+        font-family: $font-bold;
+        font-size: $font-base;
+
+        span {
+            color: $primary;
+        }
+
+        display: block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: 0 0 14px 14px;
+        overflow: hidden;
+
+        a {
+            display: block;
+            width: 100%;
+
+            .lobby_sponser-image {
+                width: 100%;
+            }
+        }
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+
+}
+
+.my-contest-style {
+    .contest-collection-slider.fixture-list-content {
+        background: $white;
+    }
+}
+
+.web-container.contest-listing-web-conatiner {
+    &.ML-contest-listing {
+        .app-header-style .section-middle {
+
+            .team-home,
+            .team-away {
+                text-transform: capitalize;
+            }
+        }
+
+        .contest-collection-slider.fixture-list-content.pl5 {
+            padding-left: 0 !important;
+
+            @media (max-width: 400px) {
+                padding-left: 5px !important;
+            }
+        }
+    }
+}
+
+
+// changes for dark theme overall
+.body-dark-theme {
+    .contest-listing-new .my-team-root .create-team-button {
+        border-color: $darkT_primary;
+    }
+
+    .contest-listing-web-conatiner {
+        .fixture-list-content {
+            .collection-list-slider .collection-list {
+                >.display-table {
+                    border: 1px solid $darkT_border_color2;
+                }
+            }
+        }
+    }
+
+    .private-contest-box {
+        border-top: 1px solid $darkT_view_bg_color;
+
+        .left-content {
+            color: $darkT_primary_text_color;
+
+            .private-logo {
+                background-color: transparent;
+                color: $darkT_primary_text_color;
+            }
+        }
+
+        .creator-info {
+            color: $darkT_primary_text_color;
+
+            .name {
+                color: $darkT_primary_text_color;
+            }
+        }
+    }
+}
+
+.chat-icon {
+    position: absolute;
+    right: 75px;
+    top: -10px;
+    cursor: pointer;
+
+    &.no-multi {
+        right: 55px;
+    }
+
+    &.no-multi-guranteed {
+        right: 25px;
+    }
+}
+
+.contest-footer {
+    border-top: 1px solid $border-light;
+    color: $text_color;
+    font-size: $font-base;
+    font-family: $font-regular;
+    padding: 6px 18px 6px 12px;
+
+    .p-circle {
+        border-radius: 100%;
+        border: 1px solid $border-light;
+        color: $primary_text_color;
+        text-align: center;
+        width: 19px;
+        height: 19px;
+        line-height: 19px;
+        text-transform: capitalize;
+        font-family: $font-bold;
+        background: $white;
+        font-size: $font-size-xsmall;
+        display: inline-block;
+    }
+
+    .created-by {
+        float: right;
+        position: relative;
+        top: -1px;
+
+        span.name {
+            max-width: 120px;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+        }
+
+        img {
+            width: 24px;
+            height: 24px;
+            border-radius: 100%;
+            margin-left: 3px;
+            object-fit: cover;
+            position: relative;
+            top: -1px;
+        }
+    }
+}
+
+.private-contest-box {
+    // margin-top: 20px;
+    // padding: 4px 10px 3px;
+    padding: 0;
+    font-size: $font-base;
+    line-height: 1;
+    // &.live-box{
+    //     padding: 10px;
+    // }
+    border-top: 1px solid $app_text_color;
+    display: flex;
+
+    .left-content {
+        width: 40%;
+        text-align: left;
+        padding-top: 4px;
+        line-height: 1;
+        position: relative;
+        padding: 9px 5px 9px 36px;
+
+        .private-logo {
+            vertical-align: middle;
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            background: #FFFFFF;
+            color: #212121;
+            font-family: "PrimaryF-Bold";
+            text-transform: capitalize;
+            font-size: 9px;
+            text-align: center;
+            border: 1px solid #BDBDBD;
+            border-radius: 50%;
+            line-height: 1.8;
+            margin-right: 5px;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .creator-info {
+        line-height: 1;
+        width: 60%;
+        text-align: right;
+        color: $text_color;
+        font-size: 14px;
+        font-family: $font-regular;
+        position: relative;
+        padding: 9px 44px 9px 5px;
+
+        // img{
+        //     width: 24px;
+        //     height: 24px;
+        //     border-radius: 100%;
+        //     margin-left: 3px;
+        //     object-fit: cover;
+        //     position: relative;
+        //     top: -1px;
+        // }
+        .img-wrp {
+            width: 24px;
+            height: 24px;
+            border-radius: 100%;
+            margin-left: 8px;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            background: #f2f2f2;
+            display: inline-block;
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+                // width: 24px;
+                // height: 24px;
+                // margin-left: 3px;
+                // object-fit: cover;
+                // position: relative;
+                // top: -1px;
+            }
+        }
+    }
+
+    .box-text {
+        line-height: 1;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: 2px;
+    }
+}
+
+// reverse fantasy related styling
+.reverse-fantasy-sort-wrap {
+    padding: 25px 25px 15px;
+    border-bottom: 1px solid $border_color;
+    cursor: pointer;
+
+    .rev-fant-sort-inner-wrap {
+        position: relative;
+        // background: $disabled_text_color;
+        padding-left: 39px;
+        border-radius: 14px;
+    }
+
+    img {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+    }
+
+    .label {
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        color: $primary_text_color;
+    }
+
+    .desc {
+        font-size: $font-size-h6;
+        font-family: $font-regular;
+        color: $help_text_color;
+    }
+
+    .view-rev-fan {
+        color: $primary;
+        background: $white;
+        border-radius: 22px;
+        text-transform: uppercase;
+        font-size: $font-size-small;
+        padding: 7px 20px 5px;
+        font-family: $font-bold;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 1px solid $border-color;
+    }
+
+    &.dfs-card-wrap {
+        .dfs-card {
+            margin-bottom: 0;
+            height: 56px;
+            background: $dfs_banner_bg;
+            box-shadow: none;
+
+            .img-dfs-shape {
+                width: 30px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                left: auto;
+                transform: translate(0);
+            }
+
+            .dfs-c {
+                width: 97%;
+                display: block;
+                position: relative;
+                padding-left: 110px;
+                padding-right: 15px;
+
+                @media (max-width: 767px) {
+                    padding-left: 90px;
+                }
+
+                .img-dfs {
+                    width: 50%;
+                    max-width: 130px;
+                    top: -10px;
+                    transform: translate(0);
+                    left: -35px;
+
+                    @media (max-width: 767px) {
+                        top: -11px;
+                        left: -45px;
+                    }
+                }
+
+                p {
+                    font-size: $font-size-medium;
+                    text-transform: none;
+                    line-height: 16px;
+                    max-width: 100%;
+
+                    @media (max-width: 767px) {
+                        font-size: $font-size-medium - 1;
+                    }
+
+                    @media (max-width: 360px) {
+                        font-size: $font-base;
+                    }
+                }
+
+                @media (max-width: 320px) {
+                    padding-left: 70px;
+
+                    p {
+                        font-size: $font-size-small;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// changes for dark theme overall
+.body-dark-theme {
+    .reverse-fantasy-sort-wrap {
+        border-bottom: 1px solid $darkT_border_color2;
+
+        .label {
+            color: $darkT_primary_text_color;
+        }
+
+        .view-rev-fan {
+            background: transparent;
+            border-color: $darkT_border_color2;
+            color: $darkT_primary;
+        }
+    }
+
+    .reverse-heading {
+        background: $darkT_app_bg_color;
+        color: $darkT_primary_text_color;
+    }
+}
+
+.sel-tm-info {
+    padding: 16px 16px 0 16px;
+    font-size: $font-size-small;
+    color: $primary_text_color;
+    font-family: $font-semibold;
+    line-height: 1;
+}
+
+.contest-list-wrapper .contest-list {
+    &.pinned {
+        .text-small-italic {
+            font-family: $font-semibold;
+            font-size: 12px;
+        }
+    }
+
+    .progress-bar-default {
+        .progress-bar-value {
+            font-size: 12px;
+            font-family: $font-regular;
+            color: $body_text_color;
+        }
+
+        .min-entries {
+            color: $body_text_color;
+        }
+
+        .progress {
+            width: 90%
+        }
+    }
+}
+
+.rookie-contest-view {
+    display: flex;
+    justify-content: space-between;
+
+    .htp-rookie-text {
+        padding-top: 10px;
+        color: $primary;
+        font-family: $font-exo-semibold;
+        font-size: $font-size-small;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.rookie-contest-htp-view {
+    .header-sec i {
+        top: 20px !important;
+    }
+
+    .rookie-contest-img {
+        height: 86px;
+        width: 109px;
+        object-fit: contain;
+        margin-top: 25px;
+        // margin-right: 20px;
+        margin-left: 30px;
+    }
+
+    .exclusive-contest-view {
+        position: relative;
+        margin: 20px;
+
+        img {
+            position: absolute;
+            right: 0px;
+            // height: 212px;
+            // width: 328px;s
+            top: 50px;
+
+            @media (max-width : "550px") {
+                right: -20px;
+            }
+        }
+
+        .exclusive-text {
+            max-width: 300px;
+            width: 100%;
+            color: #1F2837;
+            font-family: $font-sec-semibold;
+            font-size: 60px;
+            letter-spacing: -0.9px;
+            line-height: 52px;
+            position: relative;
+            z-index: 1;
+            margin-left: 28px;
+        }
+
+    }
+
+    .rookie-bg-img {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .rookie-winner-view {
+        position: relative;
+
+        .rookie-winner-img {
+            position: absolute;
+            right: 0;
+            height: 240px;
+            width: 240px;
+            top: 40px;
+        }
+    }
+
+    .rookie-text-view {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: end;
+        text-align: right;
+        margin-right: 43px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+        .rookie-help-text {
+            color: #1F2837;
+            font-family: $font-sec-semibold;
+            font-size: 40px;
+            letter-spacing: -0.6px;
+            line-height: 37px;
+            max-width: 235px;
+        }
+
+        .rookie-compete-text {
+            color: #787878;
+            font-family: $font-exo-regular;
+            font-size: $font-size-h4;
+            letter-spacing: -0.3px;
+            line-height: 33px;
+            max-width: 290px;
+            margin-top: 17px;
+        }
+    }
+
+    .rookie-game-img {
+        text-align: center;
+        margin-top: 54px;
+
+        img {
+            width: 315px;
+        }
+    }
+
+    .play-now-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+
+        .button-view {
+            cursor: pointer;
+            width: 300px;
+            border-radius: 35px;
+            background-color: $primary;
+            text-align: center;
+            padding: 17px;
+            color: #FFFFFF;
+            font-family: $font-exo-bold;
+            font-size: $font-size-h3;
+            text-transform: uppercase;
+        }
+    }
+
+    .frequently-questions-view {
+        margin: 74px 45px 50px;
+        max-width: 235px;
+        color: #1F2837;
+        font-family: $font-sec-semibold;
+        font-size: 40px;
+        letter-spacing: -0.6px;
+        line-height: 37px;
+    }
+
+    .rookie-question-view {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 38px 13px 45px;
+
+        .rookie-question {
+            color: #787878;
+            font-family: $font-exo-regular;
+            font-size: $font-size-h4;
+            letter-spacing: -0.3px;
+            line-height: 33px;
+        }
+
+        i {
+            font-size: $font-size-h4;
+            color: #787878;
+            cursor: pointer;
+        }
+
+        .icon-remove {
+            color: $primary;
+        }
+    }
+
+    .answer-container-rookie {
+        margin: 0 38px 40px 60px;
+        color: $body_text_color2;
+        font-family: $font-exo-regular;
+        font-size: $font-size-medium;
+        letter-spacing: -0.24px;
+    }
+
+    .tearms-condtions-view {
+        color: #787878;
+        font-family: $font-exo-regular;
+        font-size: $font-size-h4;
+        letter-spacing: -0.3px;
+        line-height: 33px;
+        text-align: center;
+        margin-top: 40px;
+        text-decoration: underline;
+        cursor: pointer;
+
+        a {
+            color: #787878;
+        }
+    }
+}
+
+.filter-menu-view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $app_bg_color2;
+    height: 36px;
+    padding: 0px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    .sort-by-text {
+        font-size: $font-size-h6;
+        color: $body_text_color2;
+        font-family: $font-bold;
+    }
+
+    .sports-prizepool-text {
+        font-size: $font-size-h6;
+        color: $lf-text-color;
+        font-family: $font-regular;
+
+        &.active {
+            font-family: $font-semibold;
+        }
+    }
+
+    .filter-icon-view {
+        position: relative;
+
+        i {
+            font-size: $font-size-medium;
+        }
+
+        span {
+            color: $primary;
+            position: absolute;
+            right: -1px;
+            font-size: 5px;
+            top: 3px;
+            z-index: 1;
+        }
+    }
+
+    .lft-part {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+.filter-body-new {
+    background-color: $white !important;
+
+    .entry-fee-view-con {
+        margin: 20px 20px 30px;
+
+        .entry-fee-text {
+            color: $gray-900;
+            font-family: $font-bold;
+            font-size: $font-base;
+            text-transform: uppercase;
+        }
+
+        .entry-fee-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .entry-fee-view {
+                border-radius: 8px;
+                background-color: $app_bg_color;
+                padding: 5px 8px;
+                color: $gray-900;
+                font-size: $font-size-small;
+            }
+
+            .selected-entry-fee {
+                background-color: $primary;
+                color: $white;
+            }
+        }
+    }
+}
+
+.contest-listing-new .filter-applied-sec {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px 5px;
+    font-size: 11px;
+    color: $help_text_color;
+    font-family: $font-semibold;
+    align-items: center;
+    line-height: 1;
+
+    a {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+        color: #666;
+        text-transform: uppercase;
+    }
+}
+
+.my-contest-list-wrap {
+    .private-contest-box .box-text {
+        vertical-align: 4px;
+    }
+}
+
+.tooltip-view-second {
+    position: fixed;
+    left: 370px;
+    bottom: 150px;
+    width: 160px;
+    border-radius: 3px;
+    background-color: #000000;
+    font-size: 11px;
+    font-family: $font-exo-regular;
+    padding: 8px;
+    color: $white;
+
+    @media (max-width: "550px") {
+        right: 15px;
+        left: auto;
+    }
+}
+
+.second-inning-view {
+    position: fixed;
+    bottom: 50px;
+    left: 448px;
+
+    @media (max-width: "550px") {
+        right: -15px;
+        left: auto;
+        bottom: 70px;
+    }
+}
+
+.overlay-fixed-view{
+    z-index: 1;
+}

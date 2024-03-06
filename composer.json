@@ -1,0 +1,18 @@
+{
+    "require": {
+        "facebook/graph-sdk": "^5.4",
+        "google/apiclient": "2.4",
+        "php-amqplib/php-amqplib": "^2.9",
+        "vlucas/phpdotenv": "^2.2",
+        "mongodb/mongodb": "^1.4",
+        "aws/aws-sdk-php": "^3.133",
+        "aporat/store-receipt-validator": "^2.0 || 4.*",
+        "google/analytics-data": "^0.4.0",
+        "stripe/stripe-php": "^7.91"
+    },
+    "config": {
+        "platform": {
+            "ext-mongo": "1.6.16"
+        }
+    }
+}

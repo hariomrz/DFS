@@ -1,0 +1,113 @@
+<!-- <section class="news-feed" ng-cloak infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'> -->
+<div class="panel panel-info" ng-if="LoginSessionKey !== '' && config_detail.IsAdmin && config_detail.ModuleID != '1' && config_detail.ModuleID != '18' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+            </span>
+            <h5>{{lang.wall_empty_heading}}</h5>
+            <p class="text-off">{{lang.wall_empty_message}}</p>
+            <a ng-click="slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();" ng-hide="(config_detail.ModuleID == '14' && EventDetail.CanPostOnWall == '0') || (config_detail.ModuleID == '1' && !GroupDetails.Permission.IsMember)">Write something!</a>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-if="LoginSessionKey !== '' && !config_detail.IsAdmin && config_detail.ModuleID != '1' && config_detail.ModuleID != '18' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+            </span>
+            <p class="text-off">{{FirstName}} {{lang.others_wall_empty}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-if="LoginSessionKey == '' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+            </span>
+            <p class="text-off">{{lang.others_wall_empty_guest}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-if="LoginSessionKey !== '' && config_detail.IsAdmin && config_detail.ModuleID == '1' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+            </span>
+            <h5>{{lang.group_wall_empty_heading}}</h5>
+            <p class="text-off">{{lang.group_wall_empty_message}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-if="LoginSessionKey !== '' && !config_detail.IsAdmin && config_detail.ModuleID == '1' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+            </span>
+            <h5>{{lang.group_wall_empty_heading}}</h5>
+            <p class="text-off">{{lang.group_wall_empty_message}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-if="LoginSessionKey !== '' && config_detail.IsAdmin && config_detail.ModuleID == '18' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+            </span>
+            <h5>{{lang.page_wall_empty_heading}}</h5>
+            <p class="text-off">{{lang.page_wall_empty_message}}</p>
+            <a ng-cloak ng-hide="config_detail.ModuleID == '18' && pageDetails.IsFollowed == '0'" ng-click="slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();">Write something.</a>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-if="LoginSessionKey !== '' && !config_detail.IsAdmin && config_detail.ModuleID == '18' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+            </span>
+            <h5>Let's start posting.</h5>
+            <p ng-cloak ng-hide="config_detail.ModuleID == '18' && pageDetails.IsFollowed == '0'" class="text-off">Make the first post and start some interesting discussions</p>
+            <p ng-cloak ng-if="config_detail.ModuleID == '18' && pageDetails.IsFollowed == '0'" class="text-off">Follow this page to make a post</p>
+            <a ng-cloak ng-hide="config_detail.ModuleID == '18' && pageDetails.IsFollowed == '0'" ng-click="slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();">Write something.</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-info" ng-if="LoginSessionKey !== '' && IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-my-desk.png" >
+            </span>
+            <h5>{{lang.my_desk_empty_heading}}</h5>
+            <p class="text-off">
+                {{lang.my_desk_empty_message}}
+            </p>
+            <!-- <a onclick="$('#mydesktoggle').trigger('click')">Here's something interesting!</a> -->
+        </div>
+    </div>
+</div>     
+
+<div class="panel panel-info"  ng-if="(tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost !== 0" ng-cloak>
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+            </span>
+            <p class="text-off">The content you requested cannot be displayed right now. <br>Its not accessible for you.</p>
+        </div>
+    </div>
+</div> 

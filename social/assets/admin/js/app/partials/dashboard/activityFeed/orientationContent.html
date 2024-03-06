@@ -1,0 +1,26 @@
+<div class="list-group-bottom">
+    <div ng-if="activityData.activity.PostTitle!=''" id="std-{{activityData.activity.ActivityGUID}}" class="post-type-title">    
+        <p >
+            <a ng-bind="activityData.activity.PostTitle" ng-click="open_activity_details_popup_orientation(activityData);" class="a-link"></a>
+            <!-- {{activityData.activity.PostTitle}} -->
+        </p>       
+    </div>
+    <div class="list-group-footer">
+        <ul class="list-group-inline">
+            <li>
+                <a class="bullet">
+                    <i class="ficon-heart"></i>
+                </a>
+                <a ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID] && ( ( activityData.activity.NoOfLikes != '' ) && ( activityData.activity.NoOfLikes > 0 ) )" class="text" ng-bind="activityData.activity.NoOfLikes"></a>
+                </li>
+            <li ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID]">
+                <a class="bullet">
+                    <i class="ficon-comment"></i>
+                </a>
+                <a class="text" ng-if="( ( activityData.activity.NoOfComments != '' ) && ( activityData.activity.NoOfComments > 0 ) )" ng-bind="activityData.activity.NoOfComments"></a>
+            </li>
+        </ul>
+    </div>
+
+    
+</div>

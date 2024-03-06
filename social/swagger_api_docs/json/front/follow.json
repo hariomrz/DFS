@@ -1,0 +1,321 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/follow/index": {
+            "post": {
+                "tags": [
+                    "Follow / Un-follow User"
+                ],
+                "summary": "This api is used to Follow / Un-Follow user.",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Follow\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/follow/following": {
+            "post": {
+                "tags": [
+                    "Following"
+                ],
+                "summary": "This api is used to get user following user list.",
+                "description": "",
+                "operationId": "following",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Follow\\following"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/follow/followers": {
+            "post": {
+                "tags": [
+                    "Followers"
+                ],
+                "summary": "This api is used to get user followers list.",
+                "description": "",
+                "operationId": "followers",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Follow\\followers"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/follow/suggestion": {
+            "post": {
+                "tags": [
+                    "Follow Suggestion"
+                ],
+                "summary": "This api is used to get user suggestion for follow.",
+                "description": "",
+                "operationId": "suggestion",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Follow\\suggestion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Follow\\index": {
+            "required": [
+                "UserGUID"
+            ],
+            "properties": {
+                "UserGUID": {
+                    "description": "User GUID",
+                    "type": "string",
+                    "example": "9d6937c6-5350-ee50-0670-2e3d9d84ab51"
+                }
+            }
+        },
+        "Inclusify\\Api\\Follow\\following": {
+            "required": [
+                "UserGUID"
+            ],
+            "properties": {
+                "UserGUID": {
+                    "description": "User GUID",
+                    "type": "integer",
+                    "example": "9d6937c6-5350-ee50-0670-2e3d9d84ab51"
+                },
+                "PageNo": {
+                    "description": "PageNo",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "PageSize",
+                    "type": "string",
+                    "example": "10"
+                },
+                "Keyword": {
+                    "description": "Keyword",
+                    "type": "string",
+                    "example": "ram"
+                },
+                "OrderBy": {
+                    "description": "Name or Recent",
+                    "type": "string",
+                    "example": "Recent"
+                },
+                "SortBy": {
+                    "description": "ASC or DESC",
+                    "type": "string",
+                    "example": "DESC"
+                }
+            }
+        },
+        "Inclusify\\Api\\Follow\\followers": {
+            "required": [
+                "UserGUID"
+            ],
+            "properties": {
+                "UserGUID": {
+                    "description": "User GUID",
+                    "type": "integer",
+                    "example": "9d6937c6-5350-ee50-0670-2e3d9d84ab51"
+                },
+                "PageNo": {
+                    "description": "PageNo",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "PageSize",
+                    "type": "string",
+                    "example": "10"
+                },
+                "Keyword": {
+                    "description": "Keyword",
+                    "type": "string",
+                    "example": "ram"
+                },
+                "OrderBy": {
+                    "description": "Name or Recent",
+                    "type": "string",
+                    "example": "Recent"
+                },
+                "SortBy": {
+                    "description": "ASC or DESC",
+                    "type": "string",
+                    "example": "DESC"
+                }
+            }
+        },
+        "Inclusify\\Api\\Follow\\suggestion": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "PageNo",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "PageSize",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "Type": {
+                    "description": "Type of suggestion, 0 For Top Contributors, 1 For VIP, 1 For Association",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        }
+    }
+}

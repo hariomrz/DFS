@@ -1,0 +1,88 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/admin_api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/users/user_search": {
+            "post": {
+                "tags": [
+                    "User Search"
+                ],
+                "summary": "This api is used to search user",
+                "description": "This api is used to search user",
+                "operationId": "user_search",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to search user.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Users\\user_search"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\AdminApi\\Users\\user_search": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page no",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "SearchKeyword": {
+                    "description": "Search Keyword",
+                    "type": "string",
+                    "example": "su"
+                }
+            }
+        }
+    }
+}

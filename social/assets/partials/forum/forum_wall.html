@@ -1,0 +1,53 @@
+
+
+    <div ng-include="AssetBaseUrl + 'partials/widgets/breadcrumb.html' + app_version"></div>
+    <div ng-include="AssetBaseUrl + 'partials/widgets/category_details.html' + app_version"></div>
+
+    <div class="nav-tab-nav" data-scrollfix="scrollFix">
+        <!--  secondary-nav -->
+        <div class="container">
+            <div class="nav-tab-filter">
+                <div class="filter-fixed ng-hide" ng-show="filterFixed" ng-cloak>
+                    <button class="btn btn-default close-filter" ng-if="LoginSessionKey" ng-cloak ng-click="setFilterFixed(false)">
+                            <span class="icon">
+                                <i class="ficon-cross"></i>
+                            </span>
+                    </button>
+                    <div class="main-filter-nav">
+                        <nav class="navbar navbar-static">
+                            <div ng-include="AssetBaseUrl + 'partials/forum/filter_options.html' + app_version"></div>
+                        </nav>
+                    </div>
+                </div>
+                <!-- //Filter Name -->
+                <div ng-include="AssetBaseUrl + 'partials/forum/nav.html' + app_version"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container wrapper">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12 pull-right" data-scroll="fixed">
+                <div ng-include="AssetBaseUrl + 'partials/widgets/more_in_category.html' + app_version"></div>
+                <div ng-include="AssetBaseUrl + 'partials/widgets/forum_category_expert.html' + app_version"></div>
+                <div ng-include="AssetBaseUrl + 'partials/widgets/forum_top_member.html' + app_version"></div>
+                <div ng-if="LoginSessionKey!='' && SettingsData.m10=='0'" ng-include="AssetBaseUrl + 'partials/widgets/people_you_may_follow.html' + app_version"></div>
+                <div ng-if="LoginSessionKey!='' && SettingsData.m10=='1'" ng-include="AssetBaseUrl + 'partials/widgets/people_you_may_know.html' + app_version"></div>
+                <div ng-include="AssetBaseUrl + 'partials/widgets/popular_tags.html' + app_version"></div>
+            </div>
+            <div ng-show="category_detail.Name" ng-cloak class="col-md-8 col-sm-8 col-xs-12 pull-left">
+                <!-- // secondary-nav -->
+                <!-- Post Activity-->
+                <div ng-show="(category_detail.CanPostOnWall=='1' || !category_detail.Permissions.IsMember) && category_detail.IsDiscussionAllowed=='1'">
+                    <div ng-include="AssetBaseUrl + 'partials/include/post/forum_category.html' + app_version"></div>
+                </div>
+                <!-- //Post Activity-->
+                <div ng-include="AssetBaseUrl + 'partials/forum/wall.html' + app_version"></div>
+            </div>
+            <!-- Right side bar -->
+        </div>
+    </div>
+    <div ng-include="save_frm_cat_modal_tmplt"></div>
+    <div ng-include="save_forum_modal_tmplt"></div>
+    <div ng-include="save_frm_sub_cat_modal_tmplt"></div>
+    <div ng-include="mng_ftur_reorder_modal_tmplt"></div>

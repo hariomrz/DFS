@@ -1,0 +1,1272 @@
+.tabs-primary .nav li.live-contest.active a span:not(.live-indicator):before{
+  display: none;
+}
+.prediction-wrap-v .status-live .live-indicator,
+.bg-game-center .bg-image .live-container .image{
+  animation: zoom-in-out 2s ease-out infinite;
+  animation-fill-mode: both;
+}
+.fantasy-ref-l .date-l-view .date-view .leader-status span,
+.tabs-primary .nav li.live-contest.active a .live-indicator{
+    position: relative;    
+    width: 6px;
+    height: 6px;
+    animation: zoom-in-out 2s ease-out infinite;
+    animation-fill-mode: both;
+    display: inline-block;
+}
+@keyframes zoom-in-out {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.5, 1.5);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.lobby-web-container{
+    .fixture-card-wrapper{
+        transition: box-shadow 0.3s ease-in-out;
+        &:hover{
+            box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+        }
+    }
+}
+.contest-list-wrapper .contest-listing-card .contest-list{
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover{
+      box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+  }
+}
+
+.how-earn-coins .list-type{
+    li{
+        position: relative;
+        animation: listAni 0.5s linear;
+        animation-fill-mode: both;
+    }
+    // Set delay per List Item
+    @for $i from 1 through 7 {
+        li:nth-child(#{$i}) {
+            animation-delay: .25s * $i;
+        }
+    }
+}
+// Keyframe animation
+@keyframes listAni {
+    0% {
+      opacity: 0;
+      top: 100px;
+    }
+    75% {
+      opacity: 0.5;
+      top: 0px;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+  
+
+
+// ani style
+@keyframes loading {
+    0%   { cy: 10; }
+    25%  { cy: 3; }
+    50%  { cy: 10; }
+  }
+  
+button.ani-btn {
+    background: none;
+    border: none;
+    color: #f4f7ff;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    left: 50%;
+    outline: none;
+    overflow: hidden;
+    padding: 0 10px;
+    position: relative;
+    // position: fixed;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+    width: 190px;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1;
+  padding: 0 !important;
+  font-size: $font-size-h4;
+  font-family: $font-bold;
+  text-transform: uppercase;
+  height: 44px;
+    &::before {
+      background: $white;
+      border-radius: 50px;
+      content: '';
+      display: block;
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      transition: width .2s cubic-bezier(.39,1.86,.64,1) .3s;
+      width: 100%;
+    }
+  }
+  
+  // READY STATE
+  button.ani-btn.ready {
+    .submitMessage svg {
+      opacity: 1;
+      top: 1px;
+      transition: top .4s ease 600ms, opacity .3s linear 600ms;
+    }
+  
+    .submitMessage .button-text span {
+      top: 0;
+      opacity: 1;
+      transition: all .2s ease calc(var(--dr) + 600ms);
+    }
+  }
+  
+  // LOADING STATE
+  button.ani-btn.loading {
+    &::before {
+      transition: width .3s ease;
+      width: 80%;
+    }
+  
+    .loadingMessage {
+      opacity: 1;
+    }
+  
+    .loadingCircle {
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-name: loading;
+      cy: 10;
+    }
+  }
+  
+  // COMPLETE STATE
+  button.ani-btn.complete {
+    .submitMessage svg {
+      top: -30px;
+      transition: none;
+    }
+  
+    .submitMessage .button-text span {
+      top: -8px;
+      transition: none;
+    }
+  
+    .loadingMessage {
+      top: 80px;
+    }
+  
+    .successMessage .button-text span {
+      left: 0;
+      opacity: 1;
+      transition: all .2s ease calc(var(--d) + 1000ms);
+    }
+  
+    .successMessage svg { 
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset .3s ease-in-out 1.4s;
+    }
+  }
+  
+  .button-text span {
+    opacity: 0;
+    position: relative;
+    font-size: $font-size-h4;
+    font-family: $font-bold;
+    text-transform: uppercase;    
+    position: relative;
+    top: 2px;
+  }
+  
+
+.message {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding-top: 3px;
+  }
+  
+  .message svg {
+    display: inline-block;
+    fill: none;
+    margin-right: 5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+  
+  .submitMessage {
+    .button-text span {
+      top: 8px;
+      transition: all .2s ease var(--d);
+    }
+  
+    svg {
+      color: #5c86ff;
+      margin-left: -1px;
+      opacity: 0;
+      position: relative;
+      top: 30px;
+      transition: top .4s ease, opacity .3s linear;
+      width: 14px;
+    }
+  }
+  
+  .loadingMessage {
+    opacity: 0;
+    transition: opacity .3s linear .3s, top .4s cubic-bezier(.22,0,.41,-0.57);
+  
+    svg {
+      fill: #5c86ff;
+      margin: 0;
+      width: 22px;
+    }
+  }
+  
+  .successMessage {
+    .button-text span {
+      left: 5px;
+      transition: all .2s ease var(--dr);
+    }
+    
+    svg {
+      color: $alert_success_color;
+      stroke-dasharray: 20;
+      stroke-dashoffset: 20;
+      transition: stroke-dashoffset .3s ease-in-out;
+      width: 14px;
+    }
+  }
+  
+  .loadingCircle:nth-child(2) { animation-delay: .1s }
+  .loadingCircle:nth-child(3) { animation-delay: .2s }
+  
+
+.Ftp-header .row-container .section-left.coin-wall-ani{
+  display: block;
+}
+  
+.app-header-style .coin-wall-ani,
+.Ftp-header .row-container .section-left.coin-wall-ani{
+  height: 30px;
+  width: 80px;
+  overflow: hidden;
+  .header-action.coin-wall-ani{
+      padding-top: 3px;
+      display: block;
+      position: relative;
+      display: inline-block;
+      margin-right: 2px;
+      margin-bottom: 2px;
+      width: 160px;
+      transform-origin: 0 0;
+      animation: rotateSec 4s infinite;
+      span{ 
+          display: inline-block;
+          height: 100%;
+          text-align: left;
+          &.backspan{
+            width: 80px;
+            font-family: $font-bold;
+              img{
+                  width: 12px;  
+              }
+          }
+          &.frontspan{
+            width: 80px;
+            text-align: left;
+            i{
+              position: relative;
+              top: -1px;
+            }
+          }
+      }
+  }
+}
+@keyframes rotateSec {
+  0%,
+  40% {
+    transform: translateX(5%);
+  }
+  50%,
+  90% {
+    transform: translateX(-45%);
+  }
+  100% {
+    transform: translateX(5%);
+  }
+}
+
+// coin bounse animation
+
+.header-fixed-strip div a .coin-img{
+    -webkit-animation-duration: 2s; 
+    animation-duration: 2s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    animation-iteration-count:infinite; 
+    -webkit-animation-iteration-count:infinite;  
+    -webkit-animation-name: bounce; 
+    animation-name: bounce; 
+}
+
+.header-fixed-strip div a.add-ani .coin-img{
+  -webkit-animation-duration: 2s; 
+  animation-duration: 2s; 
+  -webkit-animation-fill-mode: both; 
+  animation-fill-mode: both; 
+  animation-iteration-count:infinite; 
+  -webkit-animation-iteration-count:infinite;  
+  -webkit-animation-name: bounce1; 
+  animation-name: bounce1; 
+}
+
+    /*
+ * Animation for webkit
+*/
+
+@keyframes bounce { 
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+  40% {transform: translateY(-12px);} 
+  60% {transform: translateY(-5px);} 
+} 
+@keyframes bounce1 { 
+  0%, 20%, 50%, 80%, 100% {transform: translateY(-2px);} 
+  40% {transform: translateY(-12px);} 
+  60% {transform: translateY(-5px);} 
+} 
+
+
+/// type writer animation
+.header-fixed-strip div a.add-ani span{
+  width: 57px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typewriter 1s steps(10) 2s 1 normal both;
+  text-transform: capitalize;
+  float: none;
+  display: inline-block;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 57px;}
+}
+
+// coin rotate animation
+.earn-coin-link img,
+.how-earn-coins.how-earn-coins-new .top-profile .coins-v .c-balance img,
+.game-center-wrap .played-contanier .coin-balance-container .coin-value .coin-img,
+.modal-pred-confirm .container .available-bal img{
+  animation: coin-anim 2s linear;
+  animation-iteration-count:infinite; 
+  -webkit-animation-iteration-count:infinite;  
+  animation-fill-mode: both;
+  transform: rotateY(-90deg);
+  transition: all 0.2s cubic-bezier(.36, -0.64, .34, 1.76);
+}
+@keyframes coin-anim {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+
+  }
+
+  50% {
+    opacity: 1;
+    transform: none;
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+  }
+
+  100%{
+    opacity: 0;
+    transform: rotateY(-90deg);
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+  }
+}
+
+// on hover animation button when its position is not static
+// .wallet-wrapper button.button-abs.button-primary-rounded-xs,
+.sports-hub-c.new-sport-hub .dashboard-container .card-v:not(.big-card) .game-v .p-now{
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  &:hover {
+      transform: scale(1.06, 1.06);
+      &:after {
+          opacity: 1;
+      }
+  }
+}
+
+// on hover animation button
+.contest-list .entry-criteria .btn:not(:disabled),
+.contest-action.single-btn-contest-action .btn,
+.button.button-primary-rounded-sm:not(.button-disabled),
+.fixture-card-body.sec-innig .match-info-section .btnStyle,
+.upcoming-contest-card-new .contest-progress-block .btn-primary:not(:disabled),
+.promo-code-section .promocode .apply,
+.add-funds-body .button-block,
+.booster-card .booster-inner-container .inner-layout .apply-container .apply,
+.booster-footer .btn-wrap .btn-primary{
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  &:after {
+      content: "";
+      border-radius: 30px;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  &:hover {
+      transform: scale(1.06, 1.06);
+      z-index: 2;
+      position: relative;
+      &:after {
+          opacity: 1;
+      }
+  }
+}
+
+// single button wave animation
+// use when background is dark
+.sports-hub-c.new-sport-hub .dashboard-container .card-v.big-card .game-v .p-now,
+.custom-bg-modal-dialog.modal .custom-bg-modal .modal-body .join-now,
+.header-section-contest-entry .entry-fee-btn,
+.quiz-modal-custom .welcome-holder .isbtn,
+.modal-pred-confirm .container .make-prediction-btn.active,
+.custom-bg-modal-dialog.modal .custom-bg-modal .modal-body .play-pre-btn{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.05);
+    animation: shadow-pulse 1.5s infinite;
+    animation-delay:  0.5s;
+    cursor:pointer;
+}
+@keyframes shadow-pulse{
+     0% {
+          box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.2);
+     }
+     100% {
+          box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+     }
+}
+
+// single button wave animation dark 
+// use when backgound is white
+.quiz-question .lets-play .isbtn,
+.confirmation-modal.confirmation-modal-contestlist.header-circular-modal .custom-modal-footer.dual-btn-footer .joinContestConfirm.single-text,
+.no-data-container .no-data-button,
+.bench-intro-modal .text-sec .btn,
+.modal-dialog.booster-gameon-modal .modal-body .body-contents .booster-circular.booster-layout .booster-layout-header .apply-btn,
+.button.button-primary-rounded.btn-verify:not(.disabled),
+.header-circular-modal.rules-scoring-modal .modal-content .modal-body .webcontainer-inner .save-booster .confirm-btn,
+.roster-modal-info .main-container-popup .okay-btn,
+.quiz-question .isbtn,
+.game-center-wrap .played-contanier .content-layout .predict-now,
+.sport-pred-lobby .no-content-layout .predict-now{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.05);
+  animation: shadow-pulse-dark 1.5s infinite;
+  animation-delay:  0.5s;
+  cursor:pointer;
+}
+@keyframes shadow-pulse-dark{
+  0% {
+       box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+       box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+  }
+}
+
+
+.input-action-btn.button.button-primary-rounded-sm:not(.button-disabled),
+.input-action-btn.button.button-primary-rounded-sm{
+  position: absolute;
+}
+
+.dashboard-container .sports-tab-nav.sports-tab-slider,
+.fantasy-ref-l .sports-tab-rules,
+.new-game-wrap .game-tp-slider,
+.new-game-wrap .gametp-banr-slider{
+  .slick-prev:not(.slick-disabled), 
+  .slick-next:not(.slick-disabled){
+    // animation: bg-change 4s infinite;
+    // animation-delay: 2s;
+    animation: heartbeat 1.5s ease-in-out infinite both;
+  }
+  // @keyframes bg-change{
+  //   0% {
+  //     background: rgba(255, 255, 255, 0.6);
+  //     background-color: rgba(255, 255, 255, 0.6);
+  //   }
+  //   50% {
+  //     background: rgba(0,0,0, 0.1);
+  //     background-color: rgba(0,0,0, 0.1);
+  //   }
+  // }
+}
+@keyframes heartbeat {
+  from {background: rgba(255, 255, 255, 0.6);
+    // transform: scale(1);
+    // transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {background: rgba(255, 255, 255,0.1);
+    // transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  20% {background: rgba(0,0,0, 0.1);
+    // transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  40% {background: rgba(255, 255, 255,0.1);
+    // transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  55% {background: rgba(255, 255, 255, 0.6);
+    // transform: scale(1.2);
+    animation-timing-function: ease-out;
+  }
+}
+
+
+
+
+.dashboard-container .dasboard-footer-tabs > .nav-tabs li a .isCoin .position-relative ,.flip-fix{
+  position: relative;
+    >.front,
+    >.back {
+        display: block;
+        animation-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+        animation-iteration-count: infinite;
+        animation-duration: 4s;
+        animation-property: transform, opacity;
+        background-color: $white;
+        border-radius: 30px 30px 0 0;
+    }
+    >.front {
+        animation-name: rotateFront;
+    }
+    >.back {
+        position: absolute;
+        opacity: 0;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        animation-name: rotateBack;
+    }
+
+  @keyframes rotateFront {
+    0%,
+    15% {
+      transform: rotateY(0deg);
+    }
+    50%,
+    66% {
+      transform: rotateY(180deg);
+    }
+    90%,
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+  @keyframes rotateBack {
+    0%,
+    15% {
+      opacity: 0;
+          transform: rotateY(-180deg);
+    }
+    50%,
+    66% {
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+    90%,
+    100% {
+      opacity: 0;
+          transform: rotateY(-180deg);
+    }
+  }
+}
+
+
+.roster-footer .btn-wrap .completed-league-preview{
+  background-color: $white;
+  color: $primary;
+  // background-color: $primary;
+  // color: $white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.05);
+  animation: shadow-pulse-dark 1.5s infinite;
+  animation-delay:  0.5s;
+  cursor:pointer;
+}
+@keyframes shadow-pulse-dark{
+  0% {
+       box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+       box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+  }
+}
+.spinBtn{
+  background: linear-gradient(90deg, $primary 0%, $primary 60%, $primary 90%);
+  line-height: 1.3;
+  color: $white;
+  font-family: $font-bold;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 11px 10px 10px;
+}
+
+
+
+// game center module animation
+
+.arrow-icon-container {
+  .icon-arrow-right{
+          display: block;
+          margin-left: -6px;
+          animation: animate 1.5s infinite;
+          &:nth-child(2){
+              animation-delay: -0.2s;
+          }
+          &:nth-child(3){
+              animation-delay: -0.4s;
+          }
+    }
+    @keyframes animate {
+        0%{
+            opacity: 0;
+            transform: rotate(90deg) translate(0,10px);
+          //   transform: rotate(45deg) translate(-20px,-20px);
+        }
+        50%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+            transform: rotate(90deg) translate(0,-10px);
+        }
+    }
+}
+
+.game-center-wrap .gc-container .fixture-container{
+  .home-conatiner,.away-conatiner{
+      .white-rect{
+          width: 35px;
+          animation: widthSlide .3s linear .2s both;
+      }
+      .score-container {
+          .team-name,
+          .team-score,
+          .team-over{
+              opacity: 1;
+              animation: fade .6s linear .5s  both;
+          }
+      }
+  }
+  .live-score-conatiner .status{
+      opacity: 1;
+      animation: fade .6s linear .5s  both;
+  }
+  @keyframes widthSlide {
+      0%{
+          width: 0;
+      }
+      100%{
+          width: 35px;
+      }
+  }
+  @keyframes fade {
+      0%{ opacity: 0 }
+      100% { opacity: 1 }
+  }
+}
+.game-center-wrap .bottom-live-conatiner.ani .conatiner-live-match .flag-text-container.animate{
+  opacity: 1;
+  animation: fade .6s linear both;
+  @keyframes fade {
+      0%{ opacity: 0 }
+      100% { opacity: 1 }
+  }
+}
+
+.game-center-wrap .bottom-live-conatiner .conatiner-live-match .live-text-arrow{
+  .live-indicator{
+      width: 6px;
+      height: 6px;
+      animation: zoom-in-out 2s ease-out infinite;
+      animation-fill-mode: both;
+      display: inline-block;
+      vertical-align: middle;
+  }
+  @keyframes zoom-in-out {
+      0% {
+          transform: scale(.8, .8);
+      }
+      50% {
+          transform: scale(1.2, 1.2);
+      }
+      100% {
+          transform: scale(.8, .8);
+      }
+  }
+}
+.live-fantasy-over-result .bottom-live-over-conatiner.conatiner-live-match .live-text-arrow{
+  .icon-arrow-right{
+    color: $help_text_color;
+  }
+  @keyframes zoom-in-out {
+    0% {
+        transform: scale(.8, .8);
+    }
+    50% {
+        transform: scale(1.2, 1.2);
+    }
+    100% {
+        transform: scale(.8, .8);
+    }
+}
+}
+.game-center-wrap .gc-container .fixture-container .live-score-conatiner .status .container-inner{
+  .oval{
+    width: 6px;
+    height: 6px;
+    animation: zoom-in-out 2s ease-out infinite;
+    animation-fill-mode: both;
+  }
+  @keyframes zoom-in-out {
+      0% {
+          transform: scale(.8, .8);
+      }
+      50% {
+          transform: scale(1.2, 1.2);
+      }
+      100% {
+          transform: scale(.8, .8);
+      }
+  }
+}
+.game-center-wrap .join-contest-slider .bottom-detail-container{
+  position: relative;
+  &:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    // background: linear-gradient(white 5%, transparent 95%, white 100%);linear-gradient(180deg, #ECECEC 0%, #FFFFFF 100%)
+    // background: linear-gradient(#fff 10%,transparent 15%,transparent 90%, #fff 100%);
+    // background: linear-gradient(#fff,transparent , #fff );
+    z-index: 3;
+  }
+  .prize-conatiner,
+  .team-conatiner,
+  .rank-conatiner { animation: slide-in-out 5s linear;
+    animation-fill-mode: both;
+  }
+  @keyframes slide-in-out {
+    0% {
+      transform: translateY(100%)
+    }
+    15%,85%{
+      transform: translateY(0)
+    }
+    100% {
+      transform: translateY(-100%)
+    }
+  }
+}
+
+.game-center-wrap .bottom-live-conatiner.ani{
+  .conatiner-live-match{
+    position: relative;
+    &::before{
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        // background: linear-gradient(white 5%, transparent 95%, white 100%);linear-gradient(180deg, #ECECEC 0%, #FFFFFF 100%)
+        // background: linear-gradient(#fff 10%,transparent 15%,transparent 90%, #fff 100%);
+        background: linear-gradient(#fff,transparent , #fff );
+        z-index: 3;
+    }
+  }
+  .conatiner-live-match .flag-text-container{ 
+    animation: slide-in-out 2s linear;
+    animation-fill-mode: both;
+  }
+  @keyframes slide-in-out {
+    0% {
+      transform: translateY(100%)
+    }
+    15%,85%{
+      transform: translateY(0)
+    }
+    100% {
+      transform: translateY(-100%)
+    }
+  }
+}
+.prediction-wrap-v .list-pred{
+  li{
+    position: relative;
+    animation: listAni2 0.5s linear;
+    animation-fill-mode: both;
+  }
+  @for $i from 1 through 5 {
+      li:nth-child(#{$i}) {
+          animation-delay: .1s * $i;
+      }
+  }
+  @keyframes listAni2 {
+    0% {
+        opacity: 0;
+        left: -100px;
+    }
+    75% {
+        opacity: 0.5;
+        left: 0px;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+}
+
+// lobby banner live fixture change animation
+.bg-game-center .bg-image .go-to-game-center-of:not(.no-ani) .h-a-container {
+  // .verses-h-a
+  animation: slide-zm-in 3.5s linear;
+  animation-fill-mode: both;
+  @keyframes  slide-zm-in {
+    0% {
+      transform: scale(.7, .7);
+      opacity: 0;
+    }
+    50% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+    95%{
+      opacity: 1;
+    }
+    100% {
+        // transform: scale(.7, .7);
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+  }
+}
+.new-pred-lobby.prediction-wrap-v .list-pred{
+  li{
+      position: relative;
+      animation: listAni 0.5s linear;
+      animation-fill-mode: both;
+  }
+  // Set delay per List Item
+  @for $i from 1 through 7 {
+      li:nth-child(#{$i}) {
+          animation-delay: .25s * $i;
+      }
+  }
+}
+// Keyframe animation
+@keyframes listAni {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  75% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+.nav-btn-sec{
+  position: fixed;
+  z-index: 1000;
+  left: 238px;
+  bottom: 4px;
+  right: auto;
+  margin: 0;
+  width: 70px;
+  height: 70px;
+  list-style: none;
+  padding: 0;
+  .menu-button {
+    display: block;
+    width: 75px;
+    height: 75px;
+    border-radius: 50% 50% 0 0;
+    background: $white;
+    background-size: 100%;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    &.menu-btn-open{
+      background-color: $white;
+      padding: 13px 10px;
+      border-radius: 50%;
+      top: -6px;
+      i{
+        color: $primary;
+        font-size: 50px;
+      }
+    }
+    >.front,
+    >.back {
+        display: block;
+        animation-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+        animation-iteration-count: infinite;
+        animation-duration: 6s;
+        animation-property: transform, opacity;
+        background-color: $white;
+        border-radius: 30px 30px 0 0;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+        img{
+          width: 97%;
+          object-fit: contain;
+        }
+    }
+    >.front {
+        animation-name: rotateFront;
+    }
+    >.back {
+        position: absolute;
+        opacity: 0;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        animation-name: rotateBack;
+        .position-relative{
+          width: 100%;
+          height: 20px;
+          display: inline-block;
+          top: -3px;
+        }
+        .coins-tab-label{
+            position: absolute;
+            bottom: 22px;
+            // left: 19px;
+            left: 50%;
+            font-size: 8px;
+            font-family: $font-bold;
+            color: $white;
+            // transform: rotate( -3deg);
+            transform: rotate(-3deg) translateX(-50%);
+            letter-spacing: -.4px;
+            z-index: 2;
+            width: 100%;
+        }
+    }
+  
+    @keyframes rotateFront {
+      0%,
+      15% {
+        transform: rotateY(0deg);
+      }
+      50%,
+      66% {
+        transform: rotateY(180deg);
+      }
+      90%,
+      100% {
+        transform: rotateY(0deg);
+      }
+    }
+    @keyframes rotateBack {
+      0%,
+      15% {
+        opacity: 0;
+            transform: rotateY(-180deg);
+      }
+      50%,
+      66% {
+        opacity: 1;
+        transform: rotateY(0deg);
+      }
+      90%,
+      100% {
+        opacity: 0;
+            transform: rotateY(-180deg);
+      }
+    }
+  }
+  .menu-item {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    line-height: 5px;
+    // margin: -50px 0 0 -50px;
+    border-radius: 50%;
+    background-color: $white;
+    transform: translate(0px, 0px) scale(0.7);
+    transition: transform 500ms;
+    transition: .5s;
+    z-index: -2;
+    text-align: center;
+
+    &.switch-menu-item {
+      transform: translate(0px, 0px) scale(0.01);
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    @media (max-width: 550px){ 
+      height: 74px;
+      width: 74px;
+    }
+    a {
+      // background-color: $primary;
+      position: relative;  
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 12px 5px;
+      text-align: center;
+      text-decoration: none;
+      // transform: scale(0.7);
+      img{
+        width: 97%;
+        max-height: 54px;
+      }
+      .position-relative{
+        width: 100%;
+        height: 20px;
+        display: inline-block;
+      }
+      .coins-tab-label{
+        position: absolute;
+        bottom:25px;
+        left: 15px;
+        font-size: 8px;
+        font-family: $font-bold;
+        color: $white;
+        transform: rotate( -3deg);
+        letter-spacing: -.4px;
+        z-index: 2;
+      } 
+    }
+    &.shw-ani1{
+      transform: rotate(30deg) translateY(-110px) rotate(-30deg) scale(1);
+      transition-delay: 0s;
+      // a{
+      //   transform: scale(1);
+      // }
+      &:hover{
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      }  
+    }
+    
+    &.shw-ani2{
+      transform: rotate(-30deg) translateY(-110px) rotate(30deg) scale(1);
+      transition-delay: 0.1s;
+      &:hover{
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      }
+      // a{
+      //   transform: scale(1);
+      // } 
+    }
+  }
+  @media (max-width: 550px){
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 64px;
+    width: 64px;
+    bottom: 9px;
+    .menu-button {
+      height: 64px;
+      width: 62px;
+      // left: -1px;
+      margin: 0 auto 0 2px;
+      >.front,
+      >.back {
+        height: 64px;
+        width: 62px;
+      }
+      &.menu-btn-open{
+        background-color: $white;
+        padding: 6px 3px;
+      }
+      >.back .coins-tab-label{
+        bottom: 20px;
+      }
+    }
+    .menu-item{
+      a{
+        top: 0;
+        display: block;
+        width: 100%;
+        border-radius: 50%;
+        text-align: center;
+        height: 100%;
+        padding: 12px 0 9px 1px;
+        img{
+          width: 85%;
+        }
+      }
+      &.shw-ani2{
+        .coins-tab-label{
+            bottom: 24px;
+            left: 14px;
+            font-size: 8px;
+        }
+      }
+      >.back .position-relative .coins-tab-label{
+        bottom: 19px;
+        left: 14px;
+      }
+    }
+  }
+}
+.over-status .arw-cont{
+  display: inline-block;
+  margin-left: 7px;
+  .icon-arrow-right{
+      margin-left: -8px;
+      animation: animate 1.5s infinite;
+      display: inline-block;
+      &:nth-child(2){
+          animation-delay: -0.2s;
+      }
+  }
+  @keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(90deg) translate(0,2px);
+      //   transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(90deg) translate(0,-10px);
+    }
+  }
+}
+
+
+
+
+
+
+// changes for dark theme overall
+.body-dark-theme {
+  .lobby-web-container .fixture-card-wrapper:hover,
+  .contest-list-wrapper .contest-listing-card .contest-list:hover{
+    box-shadow: 0 5px 8px rgba(255,255,255,0.1);
+  }
+  .modal-dialog.booster-gameon-modal .modal-body .body-contents .booster-circular.booster-layout .booster-layout-header .apply-btn,
+  .no-data-container .no-data-button{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.05);
+    animation: shadow-pulse 1.5s infinite;
+    animation-delay:  0.5s;
+    cursor:pointer;
+  }
+  .nav-btn-sec{
+    .menu-button{
+      background: $darkT_app_bg_color;
+      & > .front, & > .back{
+        background: $darkT_app_bg_color;
+      }
+      &.menu-btn-open i{
+        color: $darkT_primary;
+      }
+    }
+    .menu-item{
+      background-color: $darkT_app_bg_color;
+    }
+  }
+}
+
+.prediction-wrap-v .list-pred li .header-game-center-pred .player-count-slider div{
+  &.active,&.active-sell {
+    &:before{
+      animation: fillColor 0.6s linear;
+      -webkit-animation: fillColor 0.6s linear;
+    }
+    @keyframes fillColor {
+      0% {
+        width: 0;
+      }
+
+      100% {
+        width: calc(100% + 1px);
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.nav-btn-sec.switch-nav-wrap {
+  width: 75px;
+  height: 75px;
+  .menu-button  {
+    overflow: visible;
+    background-color: transparent;
+  }
+  .front,
+  .back {
+    background-color: transparent;
+  }
+  .single-sport-icon {
+    display: block;
+    width: 63px;
+    height: 58px;
+    object-fit: cover;
+    margin: auto;
+    max-height: inherit;
+    &.ani {
+      animation: bounce 1s infinite alternate;
+    }
+  }
+}

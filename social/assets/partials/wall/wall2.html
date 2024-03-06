@@ -1,0 +1,58 @@
+<a ng-cloak ng-hide="IsSingleActivity || LoginSessionKey == '' || (config_detail.ModuleID == '3' && !isFriend()) || (config_detail.ModuleID == '18' && pageDetails.IsFollowed == '0') || (config_detail.ModuleID == '14' && EventDetail.CanPostOnWall == '0') || (config_detail.ModuleID == '1' && GroupDetails.Permission.CanPostOnWall == '0')" data-toggle="tooltip" data-placement="left" data-original-title="Create New Post" ng-click="setEditVariable(false);slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();" class="btn-floating btn-gotop">    
+    <i class="btn-floating-add ficon-pencil"></i>
+    <i class="btn-floating-edit ficon-pencil"></i>
+</a>
+
+
+<aside>
+
+    <div ng-cloak ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.page_name == 'group'"  ng-include="AssetBaseUrl + 'partials/include/post/group.html'"></div>
+    
+    <div ng-cloak ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.page_name != 'group'"  ng-include="AssetBaseUrl + 'partials/include/post/newsfeed.html'"></div>
+
+    <div ng-cloak ng-if="wlEttDt.ModuleEntityGUID"  ng-show="IsMyDeskTab" ng-include="AssetBaseUrl + 'partials/widgets/wall/mydesk-filter.html'"></div>
+
+    <div class="stiky-overlay" ng-class="{'active': isOverlayActive}" ng-click="toggleStickyPopup('close', popupType);"></div>
+
+    <div>
+        <div role="tabpanel">
+            <div class="tab-content">
+                <div ng-cloak ng-show="IsReminder == 1 && ReminderFilter == 1" class="reminder-filter-view">
+                    <ul class="filter-tags">
+                        <li ng-repeat="RFD in ReminderFilterDate">
+                            <span ng-bind="getReminderDateFormat(RFD)"></span>
+                            <i ng-click="clearReminderFilter(RFD);" class="icon-n-close">&nbsp;</i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-if="!IsSingleActivity && wlEttDt.ModuleEntityGUID && wlEttDt.page_name == 'userprofile'" ng-include="AssetBaseUrl + 'partials/widgets/wall/user_profilewidgets.html'" ></div>
+
+                <div ng-if="!IsSingleActivity && wlEttDt.ModuleEntityGUID && !wlEttDt.ActivityGUID && wlEttDt.IsNewsFeed == 1" ng-include="AssetBaseUrl + 'partials/widgets/wall/popular-feeds.html'" ></div>
+
+                <div ng-if="!IsSingleActivity && wlEttDt.ModuleEntityGUID && !wlEttDt.ActivityGUID && wlEttDt.ModuleID == 1" ng-include="AssetBaseUrl + 'partials/widgets/wall/announcements.html'" ></div>
+
+                <div ng-if="!IsSingleActivity && wlEttDt.ModuleEntityGUID && !wlEttDt.ActivityGUID && wlEttDt.IsNewsFeed == 1 && wlEttDt.ModuleID == 3 && LoginSessionKey!==''"  ng-include="AssetBaseUrl + 'partials/widgets/wall/announcement_newsfeed.html'" ></div>
+
+                <div ng-include="AssetBaseUrl + 'partials/widgets/wall/empty_wall_messages.html'" ></div>
+
+                <div ng-include="AssetBaseUrl + 'partials/widgets/wall/load_wall.html'" ></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.IsGroup == 1" ng-include="AssetBaseUrl + 'partials/group/group_invite.html'" ></div>                               
+
+</aside>
+
+
+<div ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.ModuleID == 18" ng-include="AssetBaseUrl + 'partials/include/flag-modal.html'" ></div>          
+
+<div ng-if="wlEttDt.ModuleEntityGUID" ng-include="AssetBaseUrl + 'partials/include/wall-modal.html'" ></div>
+
+<div ng-if="wlEttDt.ModuleEntityGUID && SettingsData.m30 == '1'" ng-include="AssetBaseUrl + 'partials/poll/invite_popup.html'" ></div>
+
+<div ng-if="wlEttDt.ModuleEntityGUID" ng-include="AssetBaseUrl + 'partials/include/invite-modal-popup.html'" ></div>
+
+

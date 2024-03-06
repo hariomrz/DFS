@@ -1,0 +1,70 @@
+<div class="panel panel-info panel-editor">
+    <div class="panel-heading">
+        <h3 class="panel-title">DESCRIPTION</h3>
+    </div>
+    <div class="panel-body">         
+        <p>
+<!--            <span class="map map-view" id="map_view"></span>-->
+            <span ng-bind-html="EventDetail.Description"></span>
+        </p> 
+    </div>
+</div>
+
+
+<div class="panel panel-info" ng-cloak ng-if="map_url">
+  	<div class="panel-heading">
+		<h3 class="panel-title" >PLACES COVERED</h3>
+  	</div>
+  	<div class="panel-body no-padding map-location">
+   		<iframe ng-src="{{map_url | trustAsResourceUrl}}"></iframe>
+  	</div>
+</div>
+
+<div ng-init="GetWallPostInit()">
+    <a ng-cloak ng-hide="IsSingleActivity || LoginSessionKey == '' || (config_detail.ModuleID == '3' && !isFriend()) || (config_detail.ModuleID == '18' && pageDetails.IsFollowed == '0') || (config_detail.ModuleID == '14' && EventDetail.CanPostOnWall == '0') || (config_detail.ModuleID == '1' && GroupDetails.Permission.CanPostOnWall == '0')" data-toggle="tooltip" data-placement="left" data-original-title="Create New Post" ng-click="slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();" class="btn-floating btn-gotop">    
+        <i class="btn-floating-add ficon-pencil"></i>
+        <i class="btn-floating-edit ficon-pencil"></i>
+    </a>
+    <aside>
+        <div role="tabpanel">
+            <div class="tab-content">
+                <div ng-include="AssetBaseUrl + 'partials/widgets/wall/empty_wall_messages.html'" ></div>
+
+                <section
+                    class="news-feed" 
+                    ng-cloak  
+                    ng-controller="NewsFeedCtrl"
+                    id="NewsFeedCtrl">
+
+                    <div 
+                        ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.IsForumPost == 0"
+                        id="activityFeedId-{{ $index}}" 
+                        ng-repeat="data in activityData track by $index"
+                        repeat-done="wallRepeatDone();" 
+                        ng-init="SettingsFn(data.ActivityGUID); FeedIndex = $index; initTagsItem($index);"  
+                        ng-class="getCollpaseClass(data, 'feed-list')"
+                        class="news-feed-listing feed-list activitywrapper" 
+                        viewport-watch ng-attr-data-guid="act-{{data.ActivityGUID}}"
+                        >
+                        <div class="inner-wall-post" ng-include="getTemplateUrl(data)" ></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </aside>  
+
+    <div ng-if="wlEttDt.ModuleEntityGUID" ng-include="AssetBaseUrl + 'partials/include/wall-modal.html'" ></div>
+
+    <div ng-if="wlEttDt.ModuleEntityGUID && SettingsData.m30 == '1'" ng-include="AssetBaseUrl + 'partials/poll/invite_popup.html'" ></div>
+
+    <div ng-if="wlEttDt.ModuleEntityGUID" ng-include="AssetBaseUrl + 'partials/include/invite-modal-popup.html'" ></div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-footer p-v">
+        <a class="text-primary semi-bold" ng-href="{{eventWallUrl}}">
+            <span class="text">See All Discussions</span>
+            <span class="icon"><i class="ficon-arrow-long-right text-primary"></i></span>
+        </a>
+    </div>
+</div>   

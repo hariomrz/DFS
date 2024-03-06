@@ -1,0 +1,117 @@
+.spCloseMatch {
+    .h2-cls {
+      float: left;
+    }
+  
+    .s-logo .img-cover {
+      border-radius: 100%;
+      height: 55px;
+      width: 55px;
+    }
+  
+    .sf-close-btn {
+      margin-bottom: 58px;
+  
+      .btn {
+        float: right;
+        height: 36px;
+        width: 220px;
+        margin-left: 20px;
+      }
+  
+      .linup-info-text {
+        height: auto;
+        color: red;
+      }
+    }
+  
+    .sf-close-d {
+      float: left;
+      display: block;
+      width: 100%;
+      font-size: 24px;
+      font-family: $font-bold;
+    }
+  
+    .form-control {
+      text-align: center;
+    }
+  
+    .sf-active {
+      background-color: rgba(12, 191, 235, 0.2) !important;
+    }
+  
+    .sf-edit {
+      .form-control {
+        border: none;
+        pointer-events: none;
+      }
+    }
+  
+    .sf-update-btn {
+      text-align: center;
+      margin: 50px 0;
+    }
+  
+    .spUpText {
+      color: #6D7278;
+      font-family: $font-regular;
+      font-size: 18px;
+      float: left;
+      margin-top: 4px;
+      margin-right: 10px;
+    }
+  
+    .SpRateDD {
+      height: 40px;
+      width: 136px;
+      float: left;
+  
+      .Select-control {
+        border-radius: 20px;
+  
+        .Select-value,
+        .Select-placeholder {
+          line-height: 36px !important;
+        }
+      }
+    }
+  
+    .SpStockRateDate {
+      width: 136px;
+      height: 36px;
+      border-radius: 18px;
+      border: none;
+      text-align: center;
+      font-family: $font-bold;
+      color: #999999;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  
+    .SpDateBox {
+      >div {
+        float: left;
+      }
+    }
+  
+    .react-time-input-picker-wrapper {
+      background-color: $white;
+      padding: 0;
+      margin: 0;
+      border-radius: 18px;
+    }
+  
+    .arrow-down {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $black;
+      height: auto !important;
+      margin-top: 12px;
+    }
+  
+    .inputWrapper__dropdown {
+      z-index: 1;
+    }
+  }
+  

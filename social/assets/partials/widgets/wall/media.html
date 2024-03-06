@@ -1,0 +1,28 @@
+<div class="panel panel-info" ng-cloak ng-show="user_media.length>0" ng-init="get_entity_media();">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <span class="text">MEDIA</span> 
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row gutter-5">
+            <div class="col-sm-3 col-xs-6" ng-repeat="um in user_media" ng-click="$emit('showMediaPopupGlobalEmit',um.MediaGUID,'','all');">
+                <div class="thumbnail thumbnail-media">
+                    <figure class="img-panel" ng-class="(um.MediaType == 'Video' && um.ConversionStatus == 'Pending' ) ?  'processing-red' : ''">
+                        <a class="block overlay-2">
+                            <img src="{{AssetBaseUrl}}img/blank-1x1.png"  class="img-full">
+                            <img ng-if="um.MediaType!=='Video'" ng-src="{{ ImageServerPath + 'upload/'+um.MediaFolder+'/220x220/'+um.ImageName}}"  class="main-img" /> 
+                            <img ng-if="um.MediaType=='Video' && um.ConversionStatus=='Finished'"   ng-src="{{ImageServerPath + 'upload/'+um.MediaFolder+'/220x220/'+um.ImageName.substr(0, um.ImageName.lastIndexOf('.')) + '.jpg'}}" class="main-img"/> 
+                            <span class="media-ctrl" ng-if="um.MediaType=='Video' && um.ConversionStatus=='Finished'">    
+                                <i class="ficon-play"></i> 
+                            </span>                         
+                            <div class="media-ctrl" ng-if="um.MediaType=='Video' && um.ConversionStatus=='Pending'">
+                                <i class="ficon-play"></i>
+                            </div> 
+                        </a>
+                    </figure>
+               </div>  
+            </div>
+        </div>
+    </div>
+</div>

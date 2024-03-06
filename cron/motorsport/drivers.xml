@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<standings sport="formula 1">
+  <drivers>
+    <driver pos="1" name="Max Verstappen (NED)" driver_id="2291" team="Red Bull" team_id="1019" points="69" />
+    <driver pos="2" name="Sergio Perez (MEX)" driver_id="2013" team="Red Bull" team_id="1019" points="54" />
+    <driver pos="3" name="Fernando Alonso (ESP)" driver_id="1015" team="Aston Martin" team_id="1029" points="45" />
+    <driver pos="4" name="Lewis Hamilton (ENG)" driver_id="1057" team="Mercedes" team_id="1021" points="38" />
+    <driver pos="5" name="Carlos Sainz Jr (ESP)" driver_id="2290" team="Ferrari" team_id="1011" points="20" />
+    <driver pos="6" name="Lance Stroll (CAN)" driver_id="2297" team="Aston Martin" team_id="1029" points="20" />
+    <driver pos="7" name="George Russel (ENG)" driver_id="3024" team="Mercedes" team_id="1021" points="18" />
+    <driver pos="8" name="Lando Norris (GBR)" driver_id="3014" team="McLaren" team_id="1024" points="8" />
+    <driver pos="9" name="Nico Hulkenberg (GER)" driver_id="1068" team="Haas" team_id="1034" points="6" />
+    <driver pos="10" name="Charles Leclerc (MON)" driver_id="3009" team="Ferrari" team_id="1011" points="6" />
+    <driver pos="11" name="Valtteri Bottas (FIN)" driver_id="2258" team="Alfa Romeo" team_id="1026" points="4" />
+    <driver pos="12" name="Esteban Ocon (FRA)" driver_id="2289" team="Alpine" team_id="1016" points="4" />
+    <driver pos="13" name="Pierre Gasly (FRA)" driver_id="3010" team="Alpine" team_id="1016" points="4" />
+    <driver pos="14" name="Oscar Piastri (AUS)" driver_id="4016" team="McLaren" team_id="1024" points="4" />
+    <driver pos="15" name="Zhou Guanyu (CHN)" driver_id="4012" team="Alfa Romeo" team_id="1026" points="2" />
+    <driver pos="16" name="Kevin Magnussen (DEN)" driver_id="2271" team="Haas" team_id="1034" points="1" />
+    <driver pos="17" name="Alexander Albon (THA)" driver_id="3023" team="Williams" team_id="1010" points="1" />
+    <driver pos="18" name="Yuki Tsunoda (JAP)" driver_id="4010" team="AlphaTauri" team_id="2031" points="1" />
+    <driver pos="19" name="Logan Sargeant (USA)" driver_id="3013" team="Williams" team_id="1010" points="0" />
+    <driver pos="20" name="Nyck de Vries (NED)" driver_id="4014" team="AlphaTauri" team_id="2031" points="0" />
+  </drivers>
+</standings>

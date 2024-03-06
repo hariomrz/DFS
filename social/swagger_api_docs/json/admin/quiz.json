@@ -1,0 +1,1201 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/admin_api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/quiz/add": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to add quiz.",
+                "description": "This api is used to quiz.",
+                "operationId": "add",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\add"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/update": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to update quiz.",
+                "description": "This api is used to update quiz.",
+                "operationId": "update",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\update"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/add_rules": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to add quiz rules.",
+                "description": "This api is used to add quiz rules.",
+                "operationId": "add_rules",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\add_rules"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/set_prizes": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to set prizes for quiz.",
+                "description": "This api is used to set prizes for quiz.",
+                "operationId": "set_prizes",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\set_prizes"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/delete": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to delete quiz.",
+                "description": "This api is used to delete quiz.",
+                "operationId": "delete",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\delete"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/upload_image": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to upload image.",
+                "description": "This api is used to upload image.",
+                "operationId": "upload_image",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\upload_image"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/index": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to get quiz list.",
+                "description": "This api is used to get quiz list",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/details": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to quiz details.",
+                "description": "This api is used to quiz details.",
+                "operationId": "details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\details"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/announce_winner": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to announce quiz winner.",
+                "description": "This api is used to announce quiz winner.",
+                "operationId": "announce_winner",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\announce_winner"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/add_prediction": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to add prediction for particular quiz.",
+                "description": "This api is used to add prediction for particular quiz.",
+                "operationId": "add_prediction",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\add_prediction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/update_prediction": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to update prediction.",
+                "description": "This api is used to update prediction.",
+                "operationId": "update_prediction",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\update_prediction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/get_predictions": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to get predictions.",
+                "description": "This api is used to get predictions.",
+                "operationId": "get_predictions",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\get_predictions"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/submit_prediction_answer": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to submit prediction answer.",
+                "description": "This api is used to submit prediction answer.",
+                "operationId": "submit_prediction_answer",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\submit_prediction_answer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/delete_prediction": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to delete prediction.",
+                "description": "This api is used to delete prediction.",
+                "operationId": "delete_prediction",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\delete_prediction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/get_prediction_participants": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to get prediction participants.",
+                "description": "This api is used to get prediction participants.",
+                "operationId": "get_prediction_participants",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Quiz\\get_prediction_participants"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\AdminApi\\Quiz\\add": {
+            "required": [
+                "SponsorGUID",
+                "Title",
+                "StartDate",
+                "EndDate",
+                "MaximumQuestion",
+                "MaximumPost"
+            ],
+            "properties": {
+                "SponsorGUID": {
+                    "description": "Sponsor guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "SponsorAbout": {
+                    "description": "Sponsor about",
+                    "type": "string",
+                    "example": "Details about sponsor"
+                },
+                "Title": {
+                    "description": "Quiz Title",
+                    "type": "string",
+                    "example": "Potato was introduced to Europe by?"
+                },
+                "Description": {
+                    "description": "Quiz Description",
+                    "type": "string",
+                    "example": "Potato was introduced to Europe by?"
+                },
+                "StartDate": {
+                    "description": "Quiz Start Date",
+                    "type": "string",
+                    "example": "2021-03-23 12:30:00"
+                },
+                "EndDate": {
+                    "description": "Quiz Expiry Date",
+                    "type": "string",
+                    "example": "2021-03-28 12:30:00"
+                },
+                "MaximumPost": {
+                    "description": "Maximum allowed post",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "MaximumQuestion": {
+                    "description": "Maximum allowed question",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "LogoID": {
+                    "description": "Logo ID",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "PreviewID": {
+                    "description": "Preview ID",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "BannerID": {
+                    "description": "Banner ID",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "AboutImageID": {
+                    "description": "About Image ID",
+                    "type": "integer",
+                    "example": "5"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\update": {
+            "required": [
+                "QuizGUID",
+                "Title",
+                "StartDate",
+                "EndDate",
+                "MaximumQuestion",
+                "MaximumPost"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "Quiz guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "SponsorAbout": {
+                    "description": "Sponsor about",
+                    "type": "string",
+                    "example": "Details about sponsor"
+                },
+                "Title": {
+                    "description": "Quiz Title",
+                    "type": "string",
+                    "example": "Potato was introduced to Europe by?"
+                },
+                "Description": {
+                    "description": "Quiz Description",
+                    "type": "string",
+                    "example": "Potato was introduced to Europe by?"
+                },
+                "StartDate": {
+                    "description": "Quiz Start Date",
+                    "type": "string",
+                    "example": "2021-03-23 12:30:00"
+                },
+                "EndDate": {
+                    "description": "Quiz Expiry Date",
+                    "type": "string",
+                    "example": "2021-03-28 12:30:00"
+                },
+                "MaximumPost": {
+                    "description": "Maximum allowed post",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "MaximumQuestion": {
+                    "description": "Maximum allowed question",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "LogoID": {
+                    "description": "Logo ID",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "PreviewID": {
+                    "description": "Preview ID",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "BannerID": {
+                    "description": "Banner ID",
+                    "type": "integer",
+                    "example": "5"
+                },
+                "AboutImageID": {
+                    "description": "About Image ID",
+                    "type": "integer",
+                    "example": "5"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\add_rules": {
+            "required": [
+                "QuizGUID",
+                "Rules"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "Quiz guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "Rules": {
+                    "description": "Array of quiz rules",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "Title": {
+                                "type": "string",
+                                "example": "Title"
+                            },
+                            "Description": {
+                                "type": "string",
+                                "example": "Description"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\set_prizes": {
+            "required": [
+                "QuizGUID",
+                "DistributionDetail",
+                "AllowPrize"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "Quiz guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "AllowPrize": {
+                    "description": "Allow Prize 0 - No, 1 - Yes",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "DistributionDetail": {
+                    "description": "Prize distribution detail",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "min": {
+                                "type": "integer",
+                                "example": "1"
+                            },
+                            "max": {
+                                "type": "integer",
+                                "example": "1"
+                            },
+                            "amount": {
+                                "type": "string",
+                                "example": "DSLR Camera"
+                            },
+                            "prize_type": {
+                                "description": "1-Real Cash, 2-Voucher, 3- Certificate",
+                                "type": "integer",
+                                "example": "1"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\delete": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "Quiz guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\upload_image": {
+            "required": [
+                "ImageData"
+            ],
+            "properties": {
+                "ImageData": {
+                    "description": "image raw data",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\index": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\details": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "To get particular quiz details",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\announce_winner": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "Quiz GUID",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\add_prediction": {
+            "required": [
+                "QuizGUID",
+                "Title",
+                "EndDate",
+                "Options"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "Quiz guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "Title": {
+                    "description": "Question Title",
+                    "type": "string",
+                    "example": "Potato was introduced to Europe by?"
+                },
+                "Description": {
+                    "description": "Question Description",
+                    "type": "string",
+                    "example": "Potato was introduced to Europe by"
+                },
+                "EndDate": {
+                    "description": "Question Expiry Date",
+                    "type": "string",
+                    "example": "2021-03-08 12:30:00"
+                },
+                "Options": {
+                    "description": "Options, array of question options",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "text": {
+                                "type": "string",
+                                "example": "php"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\update_prediction": {
+            "required": [
+                "QuestionGUID",
+                "Title",
+                "EndDate",
+                "Options"
+            ],
+            "properties": {
+                "QuestionGUID": {
+                    "description": "Question guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "Title": {
+                    "description": "Question Title",
+                    "type": "string",
+                    "example": "Potato was introduced to Europe by?"
+                },
+                "Description": {
+                    "description": "Question Description",
+                    "type": "string",
+                    "example": "Potato was introduced to Europe by"
+                },
+                "EndDate": {
+                    "description": "Question Expiry Date",
+                    "type": "string",
+                    "example": "2021-03-08 12:30:00"
+                },
+                "Options": {
+                    "description": "Options, array of question options",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "text": {
+                                "type": "string",
+                                "example": "php"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\get_predictions": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "To get particular quiz details",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\submit_prediction_answer": {
+            "required": [
+                "QuestionGUID",
+                "OptionGUID"
+            ],
+            "properties": {
+                "QuestionGUID": {
+                    "description": "Question guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "OptionGUID": {
+                    "description": "Option guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "ProofDescription": {
+                    "description": "Proof description",
+                    "type": "string",
+                    "example": "Description for correct answer"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\delete_prediction": {
+            "required": [
+                "QuestionGUID"
+            ],
+            "properties": {
+                "QuestionGUID": {
+                    "description": "Question guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Quiz\\get_prediction_participants": {
+            "required": [
+                "QuestionGUID"
+            ],
+            "properties": {
+                "QuestionGUID": {
+                    "description": "Question guid",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        }
+    }
+}

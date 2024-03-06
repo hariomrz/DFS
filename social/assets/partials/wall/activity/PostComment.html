@@ -1,0 +1,104 @@
+<div class="post-comment post-detail" id="cmt-div-{{data.ActivityGUID}}" ng-if="data.IsDeleted == 0 && data.CommentsAllowed == 1 && data.StatusID !== '10'">
+    <figure class="thumb-md">
+            <img ng-if="LoggedInProfilePicture" err-src="{{data.ImageServerPath + 'upload/profile/220x220/' + LoggedInProfilePicture}}" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+LoggedInProfilePicture}}" class="img-circle"  >
+            <img ng-if="+LoggedInProfilePicture==0 && LoginSessionKey==''" ng-src="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" class="img-circle"  >
+            <span class="thumb-alpha" ng-if="LoginSessionKey!='' && (LoggedInProfilePicture=='' || LoggedInProfilePicture=='user_default.jpg')">
+                <span ng-style="RandomBG" class="default-thumb">
+                    <span class="default-thumb-placeholder" ng-bind="getInitials(LoggedInFirstName,LoggedInLastName)"></span>
+                </span>
+            </span>         
+        
+    </figure>
+    <div class="comment-on-post" ng-class="(SettingsData.m40=='1') ? '' : 'no-editor' ;">
+        <div ng-if="SettingsData.m40=='0' && show_comment_box == data.ActivityGUID" class="post-footer">
+            <div class="post-footer-inner">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="post-buttons">           
+                            <li ng-cloak ng-if="activityData[FeedIndex].commentMediaCount==0">
+                                <a class="btn btn-default btn-sm" ngf-select="uploadFiles($files, $invalidFiles, data.ActivityGUID, FeedIndex, 0, 1)"  ngf-validate-async-fn="validateFileSize($file);"  onclick="$('#fileAttach').trigger('click');" accept=".png, .jpg, .jpeg" >
+                                    <span class="icon"> 
+                                      <i class="ficon-image-media f-md"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="btn-group">
+                                    <a ng-disabled="postCommentDisableBtn" id="PostBtn-{{data.ActivityGUID}}" 
+                                        data-ng-click="commentEmit($event, data.ActivityGUID, FeedIndex, '.feed-act-' + data.ActivityGUID + ' ', data)"  
+                                        class="btn btn-default btn-sm">
+                                            <span class="icon"> 
+                                              <i class="ficon-send f-lg f-primary"></i>
+                                            </span>
+                                        </a>
+                                    <!-- <span class="loader" ng-if="data.postingCommentsStatus">&nbsp;</span> -->
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="textarea" ng-init="data.comment = ''; data.showeditor = false;">
+            <textarea ng-if="LoginSessionKey=='' && !data.showeditor && show_comment_box != data.ActivityGUID" ng-click="loginRequired();" placeholder="{{(data.PostType == '2') ? 'Write an answer...' : 'Write a comment...'}}" class="form-control"></textarea>
+            <textarea ng-if="LoginSessionKey!='' && !data.showeditor && show_comment_box != data.ActivityGUID" ng-click="postCommentEditor(data.ActivityGUID, FeedIndex)" placeholder="{{(data.PostType == '2') ? 'Write an answer...' : 'Write a comment...'}}" class="form-control"></textarea>
+            <button class="btn btn-default btn-md quote-btn" ng-if="Settings.m40 == '1' && show_comment_box == data.ActivityGUID && data.PostContent !== '' && data.ActivityType!='RatingAdded' && data.ActivityType!='RatingUpdated'" ng-click="insert_to_editor(data.ActivityGUID, data.PostContent, FeedIndex)">Quote Text</button>
+            <summernote ng-if="show_comment_box == data.ActivityGUID" on-keyup="breakquote(evt); checkEditorData(evt, FeedIndex);" data-posttype="Comment" on-init="setSid(data.ActivityGUID)" data-guid="{{data.ActivityGUID}}" on-image-upload="imageUpload(files)" id="cmt-{{data.ActivityGUID}}" config="commentOptions" placeholder="Write a comment" on-focus="focus(evt)" editable="editable" editor="editor" on-blur="CheckBlur(data.ActivityGUID)" on-change="saveRange(data.ActivityGUID);"></summernote>
+            <span class="absolute loader commentEditorLoader" style="top: 30%; display: none;">&nbsp;</span>
+        </div>
+        <div ng-if="show_comment_box == data.ActivityGUID" class="attached-list clearfix" id="attachments-cmt-{{ data.ActivityGUID}}" ng-cloak ng-show="activityData[FeedIndex].commentMediaCount > 0">
+            <ul class="attache-listing"> 
+                <li ng-repeat=" ( mediaIndex, media ) in activityData[FeedIndex].medias">
+                    <img ng-show="media.progress" ng-show="media.progress" ng-src="{{media.data.ImageServerPath}}/220x220/{{media.data.ImageName}}" err-src="{{media.data.ImageServerPath}}/220x220/{{media.data.ImageName}}" > 
+                    <i ng-show="media.progress" class="ficon-cross" ng-click="removeAttachement('media', mediaIndex, FeedIndex);"></i>
+<!--                    <span ng-hide="media.progress" class="loader" style="display: block;"></span>-->
+
+                    <span ng-if="(media.data.MediaType == 'VIDEO')" ng-show="media.progress" class="videoprocess" style="background: #ddd;"></span>                    
+                    <span ng-if="(media.MediaType == 'Video')" ng-show="media.progress" class="videoprocess" style="background: #ddd;"></span>
+                    
+                    <i ng-if="media.progressPercentage && media.progressPercentage < 101" class="ficon-cross" ng-click="removeAttachement('media', mediaIndex, FeedIndex);"></i>
+                    <div ng-if="media.progressPercentage && media.progressPercentage < 101" data-percentage="{{media.progressPercentage}}" upload-progress-bar-cs></div>
+                </li>
+            </ul>
+        </div>
+        <div class="post-file-list" ng-cloak ng-show="activityData[FeedIndex].commentFileCount > 0">
+            <ul class="attache-file-list"> 
+                <li ng-repeat="(fileKey, file) in activityData[FeedIndex].files">
+<!--                    <div ng-hide="file.progress" class="loader" style="display: block;"></div>-->
+                    <div ng-if="file.progressPercentage && file.progressPercentage < 101" data-percentage="{{file.progressPercentage}}" upload-progress-bar-cs></div>
+                    <i  class="ficon-file-type" ng-class="file.data.MediaExtension || file.ext"><span ng-bind="'.' + (file.data.MediaExtension || file.ext)"></span></i>
+                    <span  class='file-name' ng-bind="file.data.OriginalName || file.name"></span>
+                    <i class="ficon-cross" ng-show="file.progress" ng-click="removeAttachement('file', fileIndex, FeedIndex);"></i>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="SettingsData.m40=='1' && show_comment_box == data.ActivityGUID" class="post-footer">
+            <div class="post-footer-inner">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="post-buttons">                            
+                            <li class="attachment">
+                                <button class="btn btn-default" ngf-select="uploadFiles($files, $invalidFiles, data.ActivityGUID, FeedIndex, 0, 1)"  ngf-validate-async-fn="validateFileSize($file);" type="button" onclick="$('#fileAttach').trigger('click');" accept=".png, .jpg, .jpeg" ><i class="ficon-attachment"></i></button>
+                            </li>
+                            <li>
+                                <div class="btn-group">
+                                    <button id="PostBtn-{{data.ActivityGUID}}" 
+                                        data-ng-click="commentEmit($event, data.ActivityGUID, FeedIndex, '.feed-act-' + data.ActivityGUID + ' ', data)"  
+
+                                        ng-disabled="postCommentDisableBtn"
+                                        type="button" class="btn btn-primary" >Post</button>
+                                    <span class="loader" ng-if="data.postingCommentsStatus"> &nbsp; </span>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn btn-default btn-md " ng-click="cancelPostComment(data)">
+                                    Cancel
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

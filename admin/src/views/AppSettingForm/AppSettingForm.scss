@@ -1,0 +1,71 @@
+.as-setting {
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 30px;
+  @media (max-width: 1366px) {
+    width: 90%;
+  }
+  .as-label{
+    margin-top: 8px;
+  }
+  .as-heading {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .as-label {
+    font-family: $font-bold;
+  }
+
+  .as-form {
+    background-color: $white;
+    padding: 30px 30px;
+    border-radius: 6px;
+  }
+
+  .input-box {
+    width: 100%;
+    padding: 0;
+
+    .form-control {
+      background-color: $white;
+      border: 1px solid #e4e7ea;
+    }
+
+    .coupons-option-list:after {
+      border-bottom: none;
+    }
+
+    .coupons-option-item .custom-control-label {
+      &::before {
+        width: 22px;
+        height: 22px;
+      }
+
+      &::after {
+        width: 32px;
+        height: 32px;
+        top: -5px;
+        left: -5px;
+      }
+    }
+  }
+
+  .Select-control {
+    border-color: #e4e7ea;
+    .Select-clear-zone{
+      display: none;
+    }
+    .Select-placeholder,
+    .Select-value {
+      line-height: 36px;
+    }
+  }
+
+  .btn-secoundary-outline {
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+  }
+
+}

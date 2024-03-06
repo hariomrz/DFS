@@ -1,0 +1,43 @@
+.action-request {
+    .modal-header {
+      clip-path: ellipse(55% 80% at 50% 10%);
+      height: 150px;
+    }
+    &.modal-dialog{
+      top: 25%;
+    }
+    .modal-title {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 50px;
+    }
+    .modal-body {
+      text-align: center;
+      padding: 10px 20px 0;
+      .info-text {
+        color: $black;
+        font-family: $font-bold;
+        font-size: 20px;
+        font-style: italic;
+      }
+    }
+    .request-footer {
+      border: 0;
+      justify-content: center;
+      padding: 27px;
+      button{
+          width: 100px;
+      }
+      .no-btn {
+        border-color: #9398a0;
+        color: #9398a0;
+        &:hover {
+          border-color: #9398a0;
+          background-color: #9398a0;
+          color: $white;
+          box-shadow: 0 5px 15px rgba(147, 152, 160, 0.48)
+        }
+      }
+    }
+  }

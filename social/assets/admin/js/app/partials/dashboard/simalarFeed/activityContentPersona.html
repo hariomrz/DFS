@@ -1,0 +1,35 @@
+<div class="list-group-bottom">
+    <div  ng-cloak  ng-if="similarActivityData.activity_log_details.ActivityTypeID == 20" class="list-group-body">
+        <figure class="list-figure">
+            <a class="thumb-48" entitytype="page" entityguid="{{similarActivityData.activity_user.UserGUID}}" ng-href="{{baseUrl + 'page/' + similarActivityData.activity_user.UserProfileURL}}">
+                <img err-name="{{similarActivityData.activity_user.UserName}}" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + similarActivityData.activity_user.ProfilePicture}}">
+            </a>
+        </figure>
+        <div class="list-group-content" ng-init="activityTitleMessage='';">
+            <h6 class="list-group-item-heading" create-title-message parent-comment-id="similarActivityData.parent_comment_details.PostCommentID" group-profile="similarActivityData.group_profile" original-post="true" page-profile="similarActivityData.page_profile" event-profile="similarActivityData.event_profile" user-profile="similarActivityData.user_profile" poll-data="similarActivityData.PollData" activity-log-details="similarActivityData.activity_log_details" subject-user="similarActivityData.subject_user" activity-user="similarActivityData.activity_user" parent-comment-user="similarActivityData.parent_comment_user" activity="similarActivityData.activity" parent-activity="similarActivityData.parent_activity" parent-activity-user="similarActivityData.parent_activity_user" activity-title-message="activityTitleMessage" activity-post-type="activityPostType">
+                    </h6>
+            <ul class="list-activites">
+                <li ng-if="similarActivityData.activity_log_details.ActivityTypeID=='20'" ng-bind="createDateObject(similarActivityData.comment_details.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+            </ul>
+        </div>
+    </div>
+    <p class="list-group-item-text" ng-bind-html="textToLink(similarActivityData.activity.PostContent)"></p>
+    <ng-include ng-init="isCommentAttachment = false; attachmentMedia = similarActivityData.activity.Album[0].Media; attachmentFile = similarActivityData.activity.Files;" src="partialPageUrl + '/dashboard/simalarFeed/activityAttachments.html'"></ng-include>
+    <div class="list-group-footer">
+        <ul class="list-group-inline">
+            <li>
+                <a class="bullet">
+                    <i class="ficon-heart"></i>
+                </a>
+                <a ng-if="( ( similarActivityData.activity.NoOfLikes != '' ) && ( similarActivityData.activity.NoOfLikes > 0 ) )" class="text" ng-bind="similarActivityData.activity.NoOfLikes"></a>
+                <a ng-if="( similarActivityData.activity_log_details.ActivityTypeID == 20 ) && ( ( similarActivityData.comment_details.NoOfLikes != '' ) && ( similarActivityData.comment_details.NoOfLikes > 0 ) )" class="text" ng-bind="similarActivityData.comment_details.NoOfLikes"></a>
+            </li>
+            <li>
+                <a class="bullet">
+                    <i class="ficon-comment"></i>
+                </a>
+                <a class="text" ng-if="( ( similarActivityData.activity.NoOfComments != '' ) && ( similarActivityData.activity.NoOfComments > 0 ) )" ng-bind="similarActivityData.activity.NoOfComments"></a>
+            </li>
+        </ul>
+    </div>
+</div>

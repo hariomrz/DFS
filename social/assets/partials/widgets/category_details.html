@@ -1,0 +1,82 @@
+<div class="white-container" ng-init="initScrollFix()">
+    <div class="container">
+        <div class="community-detail">
+            <div class="row" ng-cloak id="CategoryDetails" ng-init="get_category_details();">
+                <div class="col-md-9 col-sm-8">
+                    <div class="list-items-xlg">
+                        <div class="list-inner">
+                            <figure>
+                                <a><img err-SRC="{{ImageServerPath + 'upload/profile/220x220/category_default.png'}}" ng-src="{{ImageServerPath + 'upload/profile/220x220/' + category_detail.ProfilePicture}}" class="img-circle" alt="" title=""></a>
+                            </figure>
+                            <div class="list-item-body">
+                                <h4 class="list-heading-xlg m-b-xs">{{category_detail.Name}}</h4>
+                                <ul class="list-activites list-icons-disc text-off" ng-cloak ng-if="category_detail.Visible=='0'">
+                                    <li>
+                                        <span class="count" id="DiscussionCount" ng-bind="category_detail.NoOfDiscussions"></span>
+                                        <span class="text" ng-if="category_detail.NoOfDiscussions <= 1" ng-bind="(category_detail.Visible=='1') ? 'Discussion' : 'Voice Heard' ;"></span>
+                                        <span class="text" ng-if="category_detail.NoOfDiscussions > 1" ng-bind="(category_detail.Visible=='1') ? 'Discussions' : 'Voices Heard' ;"></span>
+                                    </li>
+                                    <li>
+                                        <span class="count" ng-bind="category_detail.NoOfMembers"></span>
+                                        <span class="text" ng-if="category_detail.NoOfMembers <= 1">Member</span>
+                                        <span class="text" ng-if="category_detail.NoOfMembers > 1">Members</span>
+                                    </li>
+                                </ul>
+                                <ul class="list-activites list-icons-disc" ng-cloak ng-if="category_detail.Visible=='1'">
+                                    <li>
+                                        <span class="count" ng-bind="category_detail.NoOfMembers"></span>
+                                        <span class="text" ng-if="category_detail.NoOfMembers <= 1">Member</span>
+                                        <span class="text" ng-if="category_detail.NoOfMembers > 1">Members</span>
+                                    </li>
+                                    <li>
+                                        <span class="count" id="DiscussionCount" ng-bind="category_detail.NoOfDiscussions"></span>
+                                        <span class="text" ng-if="category_detail.NoOfDiscussions <= 1" ng-bind="(category_detail.Visible=='1') ? 'Discussion' : 'Voice Heard' ;"></span>
+                                        <span class="text" ng-if="category_detail.NoOfDiscussions > 1" ng-bind="(category_detail.Visible=='1') ? 'Discussions' : 'Voices Heard' ;"></span>
+                                    </li>
+                                </ul>
+                                <ul class="list-activites text-off" ng-cloak ng-if="category_detail.Members.length>0">
+                                    <li class="members-talking" ng-bind-html="::get_members_talking(category_detail.Members)"></li>
+                                </ul>
+                                <p class="hidden-xs" ng-bind="category_detail.Description"></p>
+                                 
+                            </div>
+                        </div>
+                        <p class="visible-xs" ng-bind="category_detail.Description"></p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <div class="btn-toolbar-vertical row">
+                        <div class="col-xs-6 col-sm-12">
+                            <button class="btn btn-default btn-block btn-lg" ng-click="follow_category(category_detail.ForumCategoryID, category_detail.ForumID, 2)" ng-if="!category_detail.Permissions.IsMember && !category_detail.Permissions.IsAdmin" ng-cloak>
+                                <span ng-cloak ng-if="category_detail.Visible=='1'" class="icon">
+                                    <i class="ficon-plus f-lg"></i>
+                                </span>
+                                <span ng-cloak ng-if="category_detail.Visible=='1'" class="text">Follow</span>
+                                <span ng-cloak ng-if="category_detail.Visible=='0'" class="text">Stay Updated</span>
+                            </button>
+
+
+                            <button class="btn btn-default btn-block btn-lg " ng-click="unfollow_category(category_detail.ForumCategoryID, forum.ForumID, 2);" ng-if="category_detail.Permissions.IsMember && !category_detail.Permissions.IsAdmin" ng-cloak>
+                                <span class="icon">
+                                    <i class="ficon-check f-lg"></i>
+                                </span>
+                                <span class="text" ng-bind="::lang.following"></span>
+                            </button>
+                            <a class="xlink-contest btn btn-block btn-lg btn-default" ng-if="LoginSessionKey!='' && category_detail.Visible=='0' && hasCreateContestPermission" ng-cloak ng-click="updateIsContest(1); showNewsFeedPopup();">
+                                <span class="icon"><i class="ficon-trophy f-orange"></i></span><span class="text">Create a contest</span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-12">
+                            <button ng-cloak ng-show="LoginSessionKey==''" ng-click="loginRequired()" class="btn btn-primary btn-block btn-lg" ng-bind="(category_detail.Visible=='1') ? 'Start a Discussion' : 'Make yourself heard' ;"></button>
+                            <button ng-cloak ng-show="LoginSessionKey!='' &&  (category_detail.CanPostOnWall=='1' || !category_detail.Permissions.IsMember) && category_detail.IsDiscussionAllowed=='1'" ng-click="setEditVariable(false);slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();" class="btn btn-primary btn-block btn-lg" ng-bind="(category_detail.Visible=='1') ? 'Start a Discussion' : 'Make yourself heard' ;"></button>
+                            
+<!--                            <div class="panel panel-info btn btn-block" >
+                                
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,323 @@
+<div class="panel panel-info" ng-cloak>
+  	<div class="panel-heading no-border" ng-if="overallTotal > 0">
+        <div class="row">
+			<div class="col-sm-6 col-md-5">
+				<h3 class="panel-title">
+					<span class="text" ng-show="overallTotal == 0 || overallTotal == 1">{{lang.event}} <span ng-if="overallTotal > 0" ng-bind="'('+overallTotal+')'"></span></span>
+					<span class="text" ng-show="overallTotal > 1">{{lang.events}} <span ng-bind="'('+overallTotal+')'"></span></span>
+				</h3>
+			</div>
+			
+			<div class="col-sm-6 col-md-7" ng-if="overallTotal > 1 || groupEventSearch.length > 0">
+				<div class="row">
+				  <div class="col-lg-6 col-lg-offset-6 col-md-10 col-md-offset-2">
+				    <div class="panel-right-action">
+				      <ul class="action-list">
+				        <li>     
+				          <div class="input-group form-group">
+				            <input type="text" placeholder="Search, Events, Category" class="form-control" ng-model="search.searchKeyword" ng-keyup="SearchGroupEvent(currentTab)" on-focus>
+				            <a class="input-group-addon addon-white">
+				              <i class="ficon-search" ng-if="groupEventSearch.length == 0"></i>
+				              <i class="ficon-cross" ng-click="clearGroupEventKeyword(currentTab);" ng-if="groupEventSearch.length > 0"></i>
+				            </a>
+				          </div>                                              
+				        </li>
+				      </ul>
+				    </div>
+				  </div>
+				</div>
+			</div>
+        </div>
+  	</div>
+
+  	<div class="panel-body no-padding">
+        <div class="nav-tabs-default">
+          	<ul class="nav nav-tabs nav-tabs-liner nav-tabs-scroll" role="tablist">
+
+	          	<li role="presentation" class="active" ng-if="GroupDetails.IsCreator" ng-init="getGroupEvent('manage',1);" infinite-scroll="getGroupEvent('manage',1);"  infinite-scroll-use-document-bottom="true" infinite-scroll-disabled="isManageGroupEvent">
+	            	<a data-target="#eventManage" role="tab" data-toggle="tab" ng-click="changeTabPara('manage');" ng-if="totalManage > 0">
+	            		<span ng-if="totalManage > 1">{{lang.events_i_manage}} ({{totalManage}})</span>
+	            		<span ng-if="totalManage == 0 || totalManage == 1">{{lang.event_i_manage}} 
+	            			<span ng-if="totalManage > 0">({{totalManage}})</span>
+	            		</span>
+	            	</a>
+	            </li>
+
+	            <li role="presentation" class="active" ng-if="!GroupDetails.IsCreator" ng-init="getGroupEvent('all',1);" infinite-scroll="getGroupEvent('all',1);"  infinite-scroll-use-document-bottom="true" infinite-scroll-disabled="isAllGroupEvent">
+	            	<a data-target="#eventAll" role="tab" data-toggle="tab" ng-click="changeTabPara('all');" ng-if="totalAll > 0">
+	            		<span ng-if="totalAll > 1">{{lang.all_events}} ({{totalAll}})</span>
+	            		<span ng-if="totalAll == 0 || totalAll == 1">{{lang.all_event}} 
+	            			<span ng-if="totalAll > 0">({{totalAll}})</span>
+	            		</span>
+	            	</a>
+	            </li>
+
+	            <li role="presentation" ng-if="(!GroupDetails.IsCreator && GroupDetails.IsAdmin)" ng-init="getGroupEvent('create',0);" infinite-scroll="getGroupEvent('create',1);"  infinite-scroll-use-document-bottom="true" infinite-scroll-disabled="isCreatedGroupEvent">
+	            	<a data-target="#eventCreate" role="tab" data-toggle="tab" ng-click="changeTabPara('create');" ng-if="totalCreated > 0">
+	            		<span ng-if="totalCreated > 1">{{lang.events_i_created}} ({{totalCreated}})</span>
+	            		<span ng-if="totalCreated == 0 || totalCreated == 1">{{lang.event_i_created}} 
+	            			<span ng-if="totalCreated > 0">({{totalCreated}})</span>
+	            		</span>
+	            	</a>
+	            </li>
+
+	            <li role="presentation" ng-if="(GroupDetails.Permission.IsMember && !GroupDetails.IsCreator)" ng-init="getGroupEvent('attend',0);" infinite-scroll="getGroupEvent('attend',1);"  infinite-scroll-use-document-bottom="true" infinite-scroll-disabled="isAttendGroupEvent">
+	            	<a data-target="#eventAttend" role="tab" data-toggle="tab" ng-click="changeTabPara('attend');" ng-if="totalAttend > 0">
+	            		<span ng-if="totalAttend > 1">{{lang.events_i_attend}} ({{totalAttend}})</span>
+	            		<span ng-if="totalAttend == 0 || totalAttend == 1">{{lang.event_i_attend}} 
+	            			<span ng-if="totalAttend > 0">({{totalAttend}})</span>
+	            		</span>
+	            	</a>
+	            </li>
+          	</ul>
+        </div>
+
+        <div class="tab-default-content">
+          <div class="tab-content">
+
+          	<span ng-if="isGroupLoading" class="loader text-lg" style="display:block;">&nbsp;</span>
+
+          	<div role="tabpanel" class="tab-pane active" id="eventManage" ng-if="GroupDetails.IsCreator">
+              <ul class="cart-list">
+                <li class="cart-item row" ng-repeat="Event in listIManage" ng-if="totalManage > 0">
+                  <div class="col-lg-10">
+                    <div class="cards cards-event">
+                      	<div class="cards-image">
+			                <img src="{{lang.image_server_path}}upload/profilebanner/220x220/event_banner.jpg"  class="img-effect" ng-if="Event.IsCoverExists == '0'">
+			                <img ng-src="{{Event.ProfileBanner}}"  class="img-effect" ng-if="Event.IsCoverExists == '1'">
+			                <div class="cards-image-desc">
+			                  <span class="invite-status" ng-if="Event.loggedUserPresence == 'ATTENDING' || Event.loggedUserPresence == 'INVITED'" ng-bind="Event.loggedUserPresence"></span>
+			                </div>
+			            </div>
+                      	<div class="cards-content">
+                            <div class="event-date" ng-bind="Event.EventDateTime+' at '+Event.StartTime"></div>
+                            <a entitytype="event" entityguid="{{Event.EventGUID}}" class="name a-link loadbusinesscard" ng-href="{{Event.EventUrl}}" target="_self">
+			                  <h2 class="cards-title" ng-bind="Event.Title"></h2>
+			                </a>
+                            <div class="event-venue" ng-bind="Event.Venue"></div>
+                            <div class="event-location" ng-bind="Event.Location.Location"></div>
+                            <ul class="thumbnail-list" ng-show="Event.EventUsers.length > 0">
+			                  <li ng-repeat="user in Event.EventUsers | limitTo:DisplayUserCount" >
+			                    <a entitytype="user" ng-href="{{user.ProfileLink}}" entityguid="{{user.UserGUID}}" class="loadbusinesscard" > 
+			                      	<img ng-if="user.ProfilePicture != ''" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{user.ProfilePicture}}"/>
+
+			                        <span ng-if="user.ProfilePicture == '' || user.ProfilePicture == 'user_default.jpg'" class="default-thumb">
+			                          <span ng-bind="getDefaultImgPlaceholder(user.FullName)"></span>
+			                        </span>
+			                    </a>  
+			                  </li>
+			                  <li class="more" ng-show="Event.MemberCount > DisplayUserCount">
+			                    <a href="#">+{{Event.MemberCount - Event.EventUsers.length}}</a>
+			                  </li>
+			                </ul>
+			                <ul class="event-tags">
+			                  <li ng-bind="'#'+Event.CategoryName"></li>
+			                </ul>
+                      	</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2">
+                    <div class="cards-action-toolbar">
+                      <a class="btn btn-primary btn-block btn-lg" href="{{Event.EventUrl}}" target="_self"><span class="sml" ng-bind="lang.view_detail"></span></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="cart-item row" ng-if="totalManage == 0">
+                	<div class="nodata-panel">
+					    <div class="nodata-text p-v-elg">
+					      	<span class="nodata-media">
+					        	<img src="{{AssetBaseUrl}}img/event/empty-no-event-created.png" >
+					      	</span>
+					      	<h5 ng-bind="lang.no_event"></h5>
+					      	<p ng-if="(GroupDetails.IsCreator || GroupDetails.IsAdmin)" class="text-off"  ng-bind="lang.no_event_text"></p>
+					    </div>
+				  	</div>
+                </li>
+              </ul>
+            </div>
+
+            <div role="tabpanel" class="tab-pane active" id="eventAll" ng-if="!GroupDetails.IsCreator" ng-init="getGroupEvent('all');">
+              <ul class="cart-list">
+                <li class="cart-item row" ng-repeat="Event in listAll" ng-if="totalAll > 0">
+                  <div class="col-lg-10">
+                    <div class="cards cards-event">
+                      	<div class="cards-image">
+			                <img src="{{lang.image_server_path}}upload/profilebanner/220x220/event_banner.jpg"  class="img-effect" ng-if="Event.IsCoverExists == '0'">
+			                <img ng-src="{{Event.ProfileBanner}}"  class="img-effect" ng-if="Event.IsCoverExists == '1'">
+			                <div class="cards-image-desc">
+			                  <span class="invite-status" ng-if="Event.loggedUserPresence == 'ATTENDING' || Event.loggedUserPresence == 'INVITED'" ng-bind="Event.loggedUserPresence"></span>
+			                </div>
+			            </div>
+                      	<div class="cards-content">
+                            <div class="event-date" ng-bind="Event.EventDateTime+' at '+Event.StartTime"></div>
+                            <a entitytype="event" ng-href="{{Event.EventUrl}}" entityguid="{{Event.EventGUID}}" class="name a-link loadbusinesscard" target="_self">
+			                  <h2 class="cards-title" ng-bind="Event.Title"></h2>
+			                </a>
+                            <div class="event-venue" ng-bind="Event.Venue"></div>
+                            <div class="event-location" ng-bind="Event.Location.Location"></div>
+                            <ul class="thumbnail-list" ng-show="Event.EventUsers.length > 0">
+			                  <li ng-repeat="user in Event.EventUsers | limitTo:DisplayUserCount">
+			                    <a entitytype="user" ng-href="{{user.ProfileLink}}" entityguid="{{user.UserGUID}}" class="loadbusinesscard"> 
+			                      	<img ng-if="user.ProfilePicture != ''" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{user.ProfilePicture}}"/>
+
+			                        <span ng-if="user.ProfilePicture == '' || user.ProfilePicture == 'user_default.jpg'" class="default-thumb">
+			                          <span ng-bind="getDefaultImgPlaceholder(user.FullName)"></span>
+			                        </span>
+			                    </a>  
+			                  </li>
+			                  <li class="more" ng-show="Event.MemberCount > DisplayUserCount">
+			                    <a href="#">+{{Event.MemberCount - Event.EventUsers.length}}</a>
+			                  </li>
+			                </ul>
+			                <ul class="event-tags">
+			                  <li ng-bind="'#'+Event.CategoryName"></li>
+			                </ul>
+                      	</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2">
+                    <div class="cards-action-toolbar">
+                      <a class="btn btn-primary btn-block btn-lg" href="{{Event.EventUrl}}"><span class="sml" ng-bind="lang.view_detail" target="_self"></span></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="cart-item row" ng-if="totalAll == 0">
+                	<div class="nodata-panel">
+					    <div class="nodata-text p-v-elg">
+					      	<span class="nodata-media">
+					        	<img src="{{AssetBaseUrl}}img/event/empty-no-event-created.png" >
+					      	</span>
+					      	<h5 ng-bind="lang.no_event"></h5>
+					      	<p ng-if="(GroupDetails.IsCreator || GroupDetails.IsAdmin)" class="text-off"  ng-bind="lang.no_event_text"></p>
+					    </div>
+				  	</div>
+                </li>
+              </ul>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="eventCreate" ng-if="(!GroupDetails.IsCreator && GroupDetails.IsAdmin)">
+              <ul class="cart-list">
+                <li class="cart-item row" ng-repeat="Event in listICreated" ng-if="totalCreated > 0">
+                  <div class="col-lg-10">
+                    <div class="cards cards-event">
+                      	<div class="cards-image">
+			                <img src="{{lang.image_server_path}}upload/profilebanner/220x220/event_banner.jpg"  class="img-effect" ng-if="Event.IsCoverExists == '0'">
+			                <img ng-src="{{Event.ProfileBanner}}"  class="img-effect" ng-if="Event.IsCoverExists == '1'">
+			                <div class="cards-image-desc">
+			                  <span class="invite-status" ng-if="Event.loggedUserPresence == 'ATTENDING' || Event.loggedUserPresence == 'INVITED'" ng-bind="Event.loggedUserPresence"></span>
+			                </div>
+			            </div>
+                      	<div class="cards-content">
+                            <div class="event-date" ng-bind="Event.EventDateTime+' at '+Event.StartTime"></div>
+                            <a entitytype="event" ng-href="{{Event.EventUrl}}" entityguid="{{Event.EventGUID}}" class="name a-link loadbusinesscard" target="_self">
+			                  <h2 class="cards-title" ng-bind="Event.Title"></h2>
+			                </a>
+                            <div class="event-venue" ng-bind="Event.Venue"></div>
+                            <div class="event-location" ng-bind="Event.Location.Location"></div>
+                            <ul class="thumbnail-list" ng-show="Event.EventUsers.length > 0">
+			                  <li ng-repeat="user in Event.EventUsers | limitTo:DisplayUserCount">
+			                    <a entitytype="user" ng-href="{{user.ProfileLink}}" entityguid="{{user.UserGUID}}" class="loadbusinesscard"> 
+			                      	<img ng-if="user.ProfilePicture != ''" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{user.ProfilePicture}}"/>
+
+			                        <span ng-if="user.ProfilePicture == '' || user.ProfilePicture == 'user_default.jpg'" class="default-thumb">
+			                          <span ng-bind="getDefaultImgPlaceholder(user.FullName)"></span>
+			                        </span>
+			                    </a>  
+			                  </li>
+			                  <li class="more" ng-show="Event.MemberCount > DisplayUserCount">
+			                    <a href="#">+{{Event.MemberCount - Event.EventUsers.length}}</a>
+			                  </li>
+			                </ul>
+			                <ul class="event-tags">
+			                  <li ng-bind="'#'+Event.CategoryName"></li>
+			                </ul>
+                      	</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2">
+                    <div class="cards-action-toolbar">
+                      <a class="btn btn-primary btn-block btn-lg" href="{{Event.EventUrl}}"><span class="sml" ng-bind="lang.view_detail" target="_self"></span></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="cart-item row" ng-if="totalCreated == 0">
+                	<div class="nodata-panel">
+					    <div class="nodata-text p-v-elg">
+					      	<span class="nodata-media">
+					        	<img src="{{AssetBaseUrl}}img/event/empty-no-event-created.png" >
+					      	</span>
+					      	<h5 ng-bind="lang.no_event"></h5>
+					      	<p ng-if="(GroupDetails.IsCreator || GroupDetails.IsAdmin)" class="text-off"  ng-bind="lang.no_event_text"></p>
+					    </div>
+				  	</div>
+                </li>
+              </ul>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="eventAttend" ng-if="(GroupDetails.Permission.IsMember && !GroupDetails.IsCreator)">
+              <ul class="cart-list">
+                <li class="cart-item row" ng-repeat="Event in listIAttend" ng-if="totalAttend > 0">
+                  <div class="col-lg-10">
+                    <div class="cards cards-event">
+                      	<div class="cards-image">
+			                <img src="{{lang.image_server_path}}upload/profilebanner/220x220/event_banner.jpg"  class="img-effect" ng-if="Event.IsCoverExists == '0'">
+			                <img ng-src="{{Event.ProfileBanner}}"  class="img-effect" ng-if="Event.IsCoverExists == '1'">
+			                <div class="cards-image-desc">
+			                  <span class="invite-status" ng-if="Event.loggedUserPresence == 'ATTENDING' || Event.loggedUserPresence == 'INVITED'" ng-bind="Event.loggedUserPresence"></span>
+			                </div>
+			            </div>
+                      	<div class="cards-content">
+                            <div class="event-date" ng-bind="Event.EventDateTime+' at '+Event.StartTime"></div>
+                            <a entitytype="event" ng-href="{{Event.EventUrl}}" entityguid="{{Event.EventGUID}}" class="name a-link loadbusinesscard" target="_self">
+			                  <h2 class="cards-title" ng-bind="Event.Title"></h2>
+			                </a>
+                            <div class="event-venue" ng-bind="Event.Venue"></div>
+                            <div class="event-location" ng-bind="Event.Location.Location"></div>
+                            <ul class="thumbnail-list" ng-show="Event.EventUsers.length > 0">
+			                  <li ng-repeat="user in Event.EventUsers | limitTo:DisplayUserCount">
+			                    <a entitytype="user" ng-href="{{user.ProfileLink}}" entityguid="{{user.UserGUID}}" class="loadbusinesscard"> 
+			                      	<img ng-if="user.ProfilePicture != ''" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{user.ProfilePicture}}"/>
+
+			                        <span ng-if="user.ProfilePicture == '' || user.ProfilePicture == 'user_default.jpg'" class="default-thumb">
+			                          <span ng-bind="getDefaultImgPlaceholder(user.FullName)"></span>
+			                        </span>
+			                    </a>  
+			                  </li>
+			                  <li class="more" ng-show="Event.MemberCount > DisplayUserCount">
+			                    <a href="#">+{{Event.MemberCount - Event.EventUsers.length}}</a>
+			                  </li>
+			                </ul>
+			                <ul class="event-tags">
+			                  <li ng-bind="'#'+Event.CategoryName"></li>
+			                </ul>
+                      	</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2">
+                    <div class="cards-action-toolbar">
+                      <a class="btn btn-primary btn-block btn-lg" href="{{Event.EventUrl}}"><span class="sml" ng-bind="lang.view_detail" target="_self"></span></a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="cart-item row" ng-if="totalAttend == 0">
+                	<div class="nodata-panel">
+					    <div class="nodata-text p-v-elg">
+					      	<span class="nodata-media">
+					        	<img src="{{AssetBaseUrl}}img/event/empty-no-event-created.png" >
+					      	</span>
+					      	<h5 ng-bind="lang.no_event"></h5>
+					      	<p ng-if="(GroupDetails.IsCreator || GroupDetails.IsAdmin)" class="text-off"  ng-bind="lang.no_event_text"></p>
+					    </div>
+				  	</div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+  	</div>
+</div>

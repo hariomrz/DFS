@@ -1,0 +1,249 @@
+.how_to_play_view {
+  .How_header_text {
+    color: $darkT_ternary;
+    font-family: $font-black;
+    font-size: $font-base;
+    line-height: 34px;
+    text-align: center;
+    padding-top: 20px;
+  }
+  .How_play_img {
+    margin: 28px 20px 26px 20px;
+    display: flex;
+    justify-content: center;
+    img {
+      height: 426px;
+      width: auto;
+    }
+  }
+  .bottom_text {
+    padding: 0px 36px 0px 30px;
+    .text_heading_bottom {
+      color: $body_text_color2;
+      font-family: $font-black;
+      font-size: 24px;
+      line-height: 29px;
+    }
+    .text_detai_bottom {
+      margin-top: 21px;
+      color: $darkT_body_text_color2;
+      font-family: $font-regular;
+      font-size: $font-size-medium;
+      line-height: 20px;
+    }
+  }
+}
+
+
+.slider-bottom {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 26px 0 0 30px;
+  .slider-number {
+    
+    color: $darkT_help_text_color;
+    font-family: $font-regular;
+    font-size: $font-base;
+    line-height: 17px;
+    .stock_predict_number {
+      color: $primary;
+    }   
+    .stock_fantasy_number{
+      color: $primary;
+    }
+    .pickem_number{
+      color: $primary;
+    }
+    .picks_fantasy_number{
+      color: $primary;
+    } 
+   
+  }
+  .buttons {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    .button-prev {
+      background: none;
+      border: none;
+      margin: 0px 34px 5px 0;
+      font-size: 17px;
+      color: $primary;
+      cursor: pointer;
+    }
+    .button-prev:disabled,
+    .button-prev[disabled] {
+      color: #d7d7d7;
+    }
+    
+    .button-next {
+      border: none;
+      background: none;
+      font-size: 17px;
+      color: $primary;
+      background-image: url("../img/curve.png");
+      height: 150px;
+      width: 70.67px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      i {
+        transform: rotate(180deg);
+      }
+    }
+    .button-next:disabled,
+    .button-next[disabled] {
+      color: #d7d7d7;
+    }
+  }
+  .buttons_stock_fantasy {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    .button_prev_stock_fantasy {
+      background: none;
+      border: none;
+      margin: 0px 34px 5px 0;
+      font-size: 17px;
+      color: $primary;
+      cursor: pointer;
+    }
+    .button_prev_stock_fantasy:disabled,
+    .button_prev_stock_fantasy[disabled] {
+      color: #d7d7d7;
+    }
+    .button_next__stock_fantasy {
+      border: none;
+      background: none;
+      font-size: 17px;
+      color: $primary;
+      background-image: url("../img/curve.png");
+      height: 150px;
+      width: 70.67px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      i {
+        transform: rotate(180deg);
+      }
+    }
+    .button_next__stock_fantasy:disabled,
+    .button_next__stock_fantasy[disabled] {
+      color: #d7d7d7;
+    }
+  }
+
+  .buttons_pickem {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    .button_prev_pickem {
+      background: none;
+      border: none;
+      margin: 0px 34px 5px 0;
+      font-size: 17px;
+      color: $primary;
+      cursor: pointer;
+    }
+    .button_prev_pickem:disabled,
+    .button_prev_pickem[disabled] {
+      color: #d7d7d7;
+    }
+    .button_next_pickem {
+      border: none;
+      background: none;
+      font-size: 17px;
+      color: $primary;
+      background-image: url("../img/curve.png");
+      height: 150px;
+      width: 70.67px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      i {
+        transform: rotate(180deg);
+      }
+    }
+    .button_next_pickem:disabled,
+    .button_next_pickem[disabled] {
+      color: #d7d7d7;
+    }
+  }
+
+  .buttons_picks_fantasy {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    .button_prev_picks_fantasy {
+      background: none;
+      border: none;
+      margin: 0px 34px 5px 0;
+      font-size: 17px;
+      color: $primary;
+      cursor: pointer;
+    }
+    .button_prev_picks_fantasy:disabled,
+    .button_prev_picks_fantasy[disabled] {
+      color: #d7d7d7;
+    }
+    .button_next__picks_fantasy {
+      border: none;
+      background: none;
+      font-size: 17px;
+      color: $primary;
+      background-image: url("../img/curve.png");
+      height: 150px;
+      width: 70.67px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      i {
+        transform: rotate(180deg);
+      }
+    }
+    .button_next__picks_fantasy:disabled,
+    .button_next__picks_fantasy[disabled] {
+      color: #d7d7d7;
+    }
+  }
+
+}
+.bottom-text-view {
+  margin: 47px 0 20px 30px;
+  color: $darkT_help_text_color;
+  font-family: $font-regular;
+  font-size: $font-size-small;
+  line-height: 14px;
+  span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+
+

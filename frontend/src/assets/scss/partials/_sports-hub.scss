@@ -1,0 +1,2049 @@
+.sports-hub-c {
+    padding-bottom: 65px !important;
+    background: $white !important;
+
+    .app-header-style {
+        .app-header-text {
+            margin-top: 2px;
+        }
+    }
+
+    .dashboard-container {
+        margin-top: 85px !important;
+
+        .sports-tab-nav {
+            background: $primary;
+            padding: 0 30px;
+            height: 30px;
+
+            @media (max-width: 414px) {
+                padding: 0 16px;
+            }
+        }
+
+        .nav {
+            padding: 0 5%;
+            background-color: $white;
+            height: 44px !important;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.05);
+            margin-top: 7px;
+
+            li {
+                min-width: auto !important;
+                margin: 0 8% 0 0;
+
+                a {
+                    padding: 10px 6px 8px !important;
+
+                    .animated-tab-div {
+                        position: relative;
+                        top: 0;
+                        animation: fadein-slide 1s;
+                        opacity: 1;
+
+                        @keyframes fadein-slide {
+                            0% {
+                                opacity: 0;
+                                top: -18px;
+                            }
+
+                            20% {
+                                opacity: 0;
+                            }
+
+                            100% {
+                                opacity: 1;
+                                top: 0px;
+                            }
+                        }
+                    }
+
+                    i {
+                        font-size: 26px;
+                    }
+
+                    &::after {
+                        height: 3px !important;
+                        border-radius: 1.5px;
+                        min-width: 38px;
+                    }
+                }
+
+                &.active {
+                    a {
+                        .animated-tab-div {
+                            animation: fadein-slide1 1s;
+                            opacity: 1;
+
+                            @keyframes fadein-slide1 {
+                                0% {
+                                    opacity: 0;
+                                    top: 18px;
+                                }
+
+                                20% {
+                                    opacity: 0;
+                                }
+
+                                100% {
+                                    opacity: 1;
+                                    top: 0px;
+                                }
+                            }
+                        }
+
+                        i {
+                            color: $primary-text-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .pick-type {
+            background-color: $primary;
+            padding: 25px 8% 45px;
+
+            .pick-type-title {
+                font-size: $font-size-h4;
+                color: $white;
+                font-family: $font-bold;
+                margin-bottom: 8px;
+                position: relative;
+                left: 0;
+                animation: slide-left 0.9s ease-in-out;
+
+                @keyframes slide-left {
+                    0% {
+                        left: -100%;
+                        opacity: 0;
+                    }
+
+                    40% {
+                        left: -60%;
+                    }
+
+                    100% {
+                        left: 0;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .pick-type-detail {
+                font-size: $font-size-small;
+                color: $white;
+                max-width: 295px;
+                position: relative;
+                right: 0;
+                animation: slide-right 0.9s ease-in-out;
+
+                @keyframes slide-right {
+                    0% {
+                        right: -150%;
+                        opacity: 0;
+                    }
+
+                    40% {
+                        right: -120%;
+                    }
+
+                    100% {
+                        right: 0;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .card-container {
+            padding: 40px 0 0;
+            margin: 0 auto;
+            max-width: 510px;
+
+            .card-v {
+                margin: 0 8% 20px;
+
+                @media (min-width: 450px) {
+                    margin: 0 9% 20px;
+                }
+
+                background-color: $white;
+                border-radius: $border-radius-lg;
+                overflow: hidden;
+                list-style: none;
+                cursor: pointer;
+                perspective: 100px;
+                box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
+
+                &.new-op {
+                    margin: 0 0 20px;
+                    padding: 20px 8% 12px;
+
+                    @media (min-width: 450px) {
+                        padding: 20px 9% 12px;
+                    }
+
+                    border-radius: 0;
+                    box-shadow: none;
+                    overflow: unset;
+
+                    img {
+                        background-color: transparent;
+                        max-height: unset;
+                        object-fit: fill;
+                    }
+
+                    .game-v {
+                        position: absolute;
+                        top: 25%;
+                        left: 38%;
+
+                        @media (min-width: 414px) {
+                            top: 27%;
+                            left: 40%;
+                        }
+
+                        .game-v-title {
+                            color: $primary;
+                            max-width: 130px;
+
+                            @media (min-width: 414px) {
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                        .game-v-detail {
+                            color: $primary-text-color;
+                            font-size: $font-size-small;
+                            font-family: $font-book;
+                            max-width: 132px;
+                        }
+                    }
+
+                    .p-now {
+                        display: block;
+                        position: absolute;
+                        left: 50%;
+                        bottom: 10px;
+                        padding: 7px 20px 4px;
+                        background: $primary;
+                        border-radius: 15px;
+                        color: $white;
+                        font-family: $font-bold;
+                        font-size: $font-size-small;
+                        text-transform: uppercase;
+                    }
+
+
+                    .bg-abs {
+                        position: absolute;
+                        top: 0;
+                        left: -20px;
+                        width: calc(100% + 40px);
+                        height: 100%;
+                        @include background-opacity($primary, 0.22);
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+
+                    // .non-sports {
+                    //     mask: url('../img/non-Sports-label.svg') no-repeat;
+                    //     mask-size: cover;
+                    //     background: $primary;
+                    //     width: 20px;
+                    //     height: 87px;
+                    //     position: relative;
+                    //     left: 20px;
+
+                    //     @media (min-width: 525px) {
+                    //         left: 0px;
+                    //     }
+
+                    //     span {
+                    //         font-family: $font-bold;
+                    //         font-size: $font-size-xsmall;
+                    //         color: $white;
+                    //         line-height: 13px;
+                    //         transform: rotate(-90deg);
+                    //         white-space: nowrap;
+                    //         display: block;
+                    //         position: relative;
+                    //         top: 54px;
+                    //         left: 1px;
+                    //     }
+                    // }
+                }
+
+                &.big-card {
+                    background-color: transparent;
+                    box-shadow: none;
+                    border-radius: 35px;
+
+                    img {
+                        max-height: 555px;
+                        height: 100%;
+                        object-position: top;
+                        background-color: transparent;
+                        min-height: 410px;
+                        background-color: $primary_dark;
+                    }
+
+                    .game-v {
+                        position: absolute;
+                        top: 90px;
+                        height: calc(100% - 90px);
+                        width: 100%;
+                        padding: 17px 26px 14px;
+
+                        @media (max-width: 320px) {
+                            padding: 8px 24px 14px;
+                        }
+
+                        &.pickem-type {
+                            top: 100px;
+                            height: calc(100% - 100px);
+
+                            @media (max-width: 450px) {
+                                top: 70px;
+                                height: calc(100% - 70px);
+                            }
+
+                            .game-v-title {
+                                max-width: 200px;
+                                margin: 0 0 20px 0;
+                            }
+                        }
+
+                        .game-v-title {
+                            color: $white;
+                            font-size: 34px;
+                            line-height: 42px;
+                            max-width: 230px;
+                            margin: 0 0 35px 0;
+                            text-transform: capitalize;
+
+                            @media (max-width: 320px) {
+                                margin-bottom: 15px;
+                            }
+                        }
+
+                        .game-v-detail {
+                            color: $white;
+                            margin: 0;
+                            line-height: 16px;
+                            font-size: $font-size-small;
+                            font-family: $font-bold;
+                            max-width: 300px;
+                        }
+
+                        .p-now {
+                            top: unset;
+                            right: unset;
+                            bottom: 30px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            font-size: $font-base;
+                            padding: 11px 0 8px;
+                            width: calc(100% - 50px);
+                            text-align: center;
+                            border-radius: 20px;
+                            margin-top: 30px;
+                            border: none;
+                        }
+
+                        .ava-sport-sec {
+                            margin-top: 10px;
+                            max-width: 280px;
+                            height: 54px;
+
+                            @media (max-height:320px) {
+                                height: 74px;
+                            }
+
+                            span {
+                                margin-top: 5px;
+                                font-family: $font-book;
+                                font-size: $font-base;
+                                color: $white;
+                                border: 1px solid $white;
+                                padding: 2px 5px;
+                                border-radius: 4px;
+                                line-height: 1;
+                                margin-right: 5px;
+                                text-transform: capitalize;
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+
+                img {
+                    min-width: 100%;
+                    width: 100%;
+                    max-height: 180px;
+                    min-height: 135px;
+                    object-fit: cover;
+                    object-position: bottom;
+                    background-color: $border_color;
+                }
+
+                .game-v {
+                    padding: 17px 20px 14px;
+                    position: relative;
+
+                    .p-now {
+                        display: block;
+                        position: absolute;
+                        right: 15px;
+                        top: -15px;
+                        padding: 7px 15px 4px;
+                        background: $primary;
+                        border-radius: 15px;
+                        color: $white;
+                        font-family: $font-bold;
+                        font-size: $font-size-small;
+                        text-transform: uppercase;
+                        border: 1px solid $white;
+                    }
+
+                    .game-v-title {
+                        font-size: $font-size-medium;
+                        color: $primary-text-color;
+                        font-family: $font-bold;
+                        text-transform: uppercase;
+                        margin: 0 0 5px;
+                        line-height: 19px;
+                    }
+
+                    .game-v-detail {
+                        color: $help_text_color;
+                        margin: 0;
+                        line-height: 14px;
+                        font-size: $font-size-small;
+                    }
+                }
+
+            }
+
+            // @for $i from 1 through 10 {
+            //     li:nth-child(#{$i}) {
+            //         animation-delay: .10s * $i;
+            //     }
+            // }
+        }
+        .featured-new-league{
+            display: flex !important;
+            align-items: center;
+            background-color: $white;
+            box-shadow: 0 5px 15px 0 rgba(0,0,0,0.14);
+            // box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+            // border-bottom: 0.2px solid rgba(0, 0, 0, 0.2);
+            width: 200px !important;
+            // min-height: 101px !important;
+            // height: 100% !important;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-radius: 15px;
+            position: relative;
+            margin-top: 20px;
+            min-height: 86px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            img{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+            .f-league{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 65%;
+                .league{
+                    margin: auto 0;
+                    font-size: 14px;
+                    width: 120px;
+                    font-family: $font-exo-extrabold;
+                    text-transform: uppercase;
+                    color: $body_text_color;
+                    padding-left: 10px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+    .hub-ad-left{ 
+        display: none;
+        @media (max-width: 767px){
+            display: none;
+        }
+    }
+}
+
+.sports-hub-footer-tabs {
+    background-color: $white;
+    box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-height: 30px;
+    max-width: $window_width;
+
+    .coins-tab-label {
+        position: absolute;
+        bottom: 9px;
+        font-size: 8px;
+        font-family: $font-bold;
+        color: $white;
+        transform: rotate(-3deg);
+        letter-spacing: -0.4px;
+        z-index: 2;
+
+        &.marque {
+            -webkit-animation: left-marquee linear infinite 3s normal;
+            -moz-animation: left-marquee linear infinite 3s normal;
+            animation: left-marquee linear infinite 3s normal;
+            width: 140%;
+        }
+    }
+
+    @-webkit-keyframes left-marquee {
+        0% {
+            left: 120%;
+        }
+
+        100% {
+            left: -50px;
+        }
+    }
+
+    @-moz-keyframes left-marquee {
+        0% {
+            left: 120%;
+        }
+
+        100% {
+            left: -50px;
+        }
+    }
+
+    @keyframes left-marquee {
+        0% {
+            left: 120%;
+        }
+
+        100% {
+            left: -50px;
+        }
+    }
+
+    .isCoin {
+        height: 65px;
+        width: 64px;
+        background: $white;
+        border-radius: 100%;
+        box-shadow: 0 -8px 20px 0 rgba(0, 0, 0, 0.1);
+        top: -34px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .shadow-v {
+        position: absolute;
+        bottom: 0px;
+        height: 30px;
+        width: 75px;
+        background: $white;
+    }
+
+    .dot-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 35%;
+
+        span {
+            width: 6px;
+            height: 6px;
+            background: $disabled_text_color;
+            border-radius: 100%;
+            animation: dots 2s infinite;
+            opacity: 1;
+
+            @keyframes dots {
+                0% {
+                    opacity: 0.1;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.left {
+
+            span:nth-child(6) {
+                animation-delay: 0;
+            }
+
+            span:nth-child(5) {
+                animation-delay: 0.2s;
+                animation-duration: 1.8;
+            }
+
+            span:nth-child(4) {
+                animation-delay: 0.3s;
+                animation-duration: 1.7;
+            }
+
+            span:nth-child(3) {
+                animation-delay: 0.4s;
+                animation-duration: 1.6;
+            }
+
+            span:nth-child(2) {
+                animation-delay: .5s;
+                animation-duration: 1.5;
+            }
+
+            span:nth-child(1) {
+                animation-delay: .6s;
+                animation-duration: 1.4;
+            }
+        }
+
+        &.right {
+
+            span:nth-child(1) {
+                animation-delay: 0;
+            }
+
+            span:nth-child(2) {
+                animation-delay: 0.2s;
+                animation-duration: 1.8;
+            }
+
+            span:nth-child(3) {
+                animation-delay: 0.3s;
+                animation-duration: 1.7;
+            }
+
+            span:nth-child(4) {
+                animation-delay: 0.4s;
+                animation-duration: 1.6;
+            }
+
+            span:nth-child(5) {
+                animation-delay: .5s;
+                animation-duration: 1.5;
+            }
+
+            span:nth-child(6) {
+                animation-delay: .6s;
+                animation-duration: 1.4;
+            }
+        }
+    }
+}
+
+.sports-hub-c {
+    &.new-sport-hub {
+        background: $white !important;
+
+        .slick-initialized .slick-slide {
+            // &:first-child{
+            //     padding-left: 0;
+            // }
+            padding-left: 10px;
+        }
+
+        .dashboard-container {
+            margin-top: 56px !important;
+
+            .sports-tab-nav {
+                background: transparent;
+            }
+
+            .card-container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .card-v {
+                margin: 0 20px 20px;
+                box-shadow: none;
+
+                @media (min-width: 450px) {
+                    margin: 0 20px 20px;
+                }
+
+                border-radius: 10px;
+
+                .game-v {
+                    .sport-img {
+                        position: absolute;
+                        ;
+                        right: 0;
+                        top: 0;
+                        max-width: 120px;
+                        max-height: 100%;
+                        height: auto;
+                        min-width: auto;
+                        min-height: auto;
+
+                        @media (max-width: 400px) {
+                            right: -10px;
+                        }
+
+                        @media (max-width: 360px) {
+                            right: -10px;
+                            max-width: 110px;
+                        }
+                    }
+
+                    padding: 17px 20px 21px;
+
+                    .game-v-title {
+                        max-width: 220px;
+                        color: $primary;
+                        text-transform: capitalize;
+                        position: relative;
+                        z-index: 2;
+
+                        @media (max-width: 320px) {
+                            max-width: 190px;
+                        }
+                    }
+
+                    .game-v-detail {
+                        color: $body_text_color;
+                        font-family: $font-semibold;
+                        max-width: 360px;
+
+                        @media (max-width: 500px) {
+                            max-width: 210px;
+                        }
+
+                        @media (max-width: 360px) {
+                            max-width: 190px;
+                        }
+
+                        position: relative;
+                        z-index: 2;
+
+                        @media (max-width: 320px) {
+                            right: 0px;
+                            max-width: 170px;
+                        }
+                    }
+
+                    .p-now {
+                        background: $black;
+                        bottom: 10px;
+                        top: auto;
+                        text-transform: capitalize;
+                        padding: 6px 12px 4px;
+                        text-align: center;
+                        width: 80px;
+                        font-size: $font-base;
+                        font-family: $font-bold;
+                        border: 1.5px solid $white;
+
+                        @media (max-width: 550px) {
+                            border: 1px solid $white;
+                        }
+                    }
+                }
+
+                .ava-sport {
+                    border-top: 1px solid $border-color;
+                    padding: 7px 10px;
+
+                    .sport-text {
+                        border-radius: 4px;
+                        background: $app_bg_color;
+                        padding: 7px 6px 6px;
+                        text-transform: capitalize;
+                        color: $primary_text_color;
+                        font-size: $font-size-small - 1;
+                        font-family: $font-semibold;
+                        line-height: 1;
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                }
+
+                &.big-card {
+                    margin: 0;
+                    border-radius: 30px;
+                    margin-bottom: 20px;
+
+                    &.big-card-single {
+                        margin: 0 20px 20px;
+                    }
+
+                    img {
+                        max-height: 420px;
+
+                        @media (max-width: 550px) {
+                            max-width: 100%;
+                            width: auto;
+                        }
+                    }
+
+                    .game-v {
+                        top: 45px;
+                        height: calc(100% - 45px);
+                        padding: 0 42px 14px;
+
+                        .game-v-title {
+                            margin: 0;
+                            color: $white;
+                            height: 126px;
+                            max-width: 170px;
+
+                            @media (max-width: 500px) {
+                                max-width: 140px;
+                            }
+                        }
+
+                        .game-v-detail {
+                            font-size: $font-size-medium;
+                            line-height: 1.3;
+                            margin-top: 15px;
+                            font-family: $font-book;
+                            max-width: 250px;
+                            color: $white;
+
+                            @media (max-width: 550px) {
+                                max-width: 210px;
+                            }
+                        }
+
+                        @media (max-width: 360px) {
+                            top: 65px;
+                            height: calc(100% - 65px);
+                            padding-top: 5px;
+
+                            .game-v-title {
+                                font-size: 32px;
+                                line-height: 37px;
+                                max-width: 130px;
+                                height: 106px;
+                            }
+                        }
+
+                        @media (max-width: 320px) {
+
+                            .game-v-title {
+                                font-size: 28px;
+                                line-height: 34px;
+                                max-width: 130px;
+                            }
+
+                            .game-v-detail {
+                                font-size: $font-base;
+                                margin-top: 12px;
+                                max-width: 180px;
+                            }
+                        }
+
+                        .p-now {
+                            margin-top: 36px;
+                            background: $primary;
+                            bottom: unset;
+                            top: unset;
+                            text-transform: uppercase;
+                            padding: 13px 0 10px;
+                            position: relative;
+                            width: 80%;
+                            margin-top: 56px;
+
+                            @media (max-width: 500px) {
+                                width: 252px;
+                            }
+                        }
+
+                        .ava-sport-sec {
+                            margin-top: 20px;
+                            text-align: center;
+                            height: auto;
+                            margin: 20px auto 0;
+
+                            span {
+                                font-family: $font-bold;
+                                border: none;
+                                @include background-opacity($white, 0.2);
+                                padding: 8px 7px 5px;
+                                font-size: $font-size-xsmall + 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .app-header-style.coin-headr {
+            background: transparent;
+        }
+
+        .blue-bg-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 550px;
+            width: 100%;
+            height: 520px;
+            background: $primary;
+
+            img {
+                display: none;
+                width: 100%;
+                max-height: 500px;
+                margin-top: 20px;
+            }
+        }
+
+        &.sport-hub-scroll {
+            .dashboard-container {
+                .sports-tab-nav {
+                    background-color: $primary;
+                }
+            }
+
+            .app-header-style.coin-headr {
+                background-color: $primary;
+            }
+        }
+
+        .app-header-style {
+            .section-middle {
+                .center-container {
+                    width: 142px;
+                }
+            }
+
+            .header-brand-logo {
+                width: 100%;
+                max-width: 142px;
+                height: auto;
+            }
+
+            .row-container {
+                padding: 0 20px;
+            }
+        }
+    }
+}
+
+.sports-hub-c .dashboard-container .card-container {
+    .pickem-prediction-outer-card.card-v {
+        &.banner-card {
+            margin: 0 20px 20px;
+            padding-top: 0;
+            perspective: 100px;
+            list-style: none;
+            border-radius: 0;
+            box-shadow: none;
+            background: transparent;
+
+            .dfs-card {
+                height: 166px;
+                margin-bottom: 0;
+                background: $refer_banner_bg;
+                box-shadow: none;
+
+                // border-radius: 0;
+                img {
+                    width: 70px;
+                    min-width: 1px;
+                    min-height: 1px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    background-color: transparent;
+
+                    @media (max-width: 500px) {
+                        max-width: 50px;
+                    }
+                }
+
+                .dfs-c {
+                    img.img-dfs {
+                        max-width: 130px;
+                        position: relative;
+                        bottom: -8px;
+                        max-height: 100%;
+                        min-height: 1px;
+                        width: 38%;
+                        min-width: 1px;
+                        right: auto;
+                        top: auto;
+                        left: -12px;
+
+                        @media (max-width: 400px) {
+                            width: 42%;
+                            max-width: 160px;
+                            left: -7px;
+                        }
+                    }
+
+                    p {
+                        color: $banner_text_color;
+                        font-size: $font-size-medium;
+                        text-transform: none;
+                        max-width: 58%;
+
+                        .button {
+                            background: $primary_text_color;
+                            color: $white;
+                            font-size: 14px;
+                            border-radius: 6px;
+                            width: 120px;
+                            height: 30px;
+                            display: block;
+                            padding: 6px 6px 4px;
+                            text-align: center;
+                            margin-top: 15px;
+                            text-transform: uppercase;
+
+                            @media (max-width: 550px) {
+                                padding: 8px 6px 4px;
+                            }
+                        }
+                    }
+                }
+
+                .dfs-c-new {
+                    display: table;
+                    width: 100%;
+                    padding: 32px 27px;
+                }
+
+                .dfs-c-inner {
+                    display: table-cell;
+                    width: 40%;
+
+                    @media (max-width: 767px) {
+                        width: 50%;
+                    }
+
+                    vertical-align: middle;
+
+                    &.dfs-c-inner-left {
+                        // text-align: center;
+                        min-width: 128px;
+                    }
+
+                    &.dfs-c-inner-right {
+                        text-align: center;
+                    }
+
+                    p {
+                        color: $banner_text_color;
+                        font-size: $font-size-h3;
+                        line-height: 1.2;
+                        font-family: $font-semibold;
+                        margin-bottom: 0;
+
+                        @media (max-width: 767px) {
+                            line-height: 1.3;
+                            font-size: $font-size-h5;
+                            max-width: 128px;
+                        }
+                    }
+
+                    img {
+                        width: 220px;
+                        max-width: 220px;
+
+                        @media (max-width: 767px) {
+                            width: 160px;
+                            max-width: 160px;
+                        }
+
+                        position: relative;
+                        right: -10px;
+                        top: auto;
+                    }
+
+                    @media (max-width: 360px) {
+                        &.dfs-c-inner-left {
+                            min-width: 108px;
+                        }
+
+                        p {
+                            font-size: $font-size-medium;
+                        }
+
+                        img {
+                            max-width: 140px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.new-game-wrap {
+    padding: 20px 0 10px;
+
+    .slick-track {
+        margin: 0;
+    }
+
+    .slick-prev {
+        left: 0;
+    }
+
+    .gametp-banner-sec {
+        padding: 0 20px 20px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .gametp-banr-slider {
+        padding-left: 10px;
+        padding-bottom: 17px;
+
+        .slick-arrow.slick-next {
+            right: 10px;
+        }
+
+        .slick-arrow.slick-prev {
+            padding: 3px 0;
+        }
+
+        .slick-arrow.slick-next {
+            padding: 3px 5px;
+        }
+
+        .slick-arrow.slick-next,
+        .slick-arrow.slick-prev {
+            display: inline-block !important;
+            @include background-opacity($white, 0.6);
+            // padding: 3px 5px;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 50%;
+
+            &:before {
+                font-size: $font-size-small;
+            }
+
+            @media (max-width: 767px) {
+                display: none !important;
+            }
+        }
+    }
+
+    .gametp-banr-itm {
+        cursor: pointer;
+
+        img {
+            // height: 150px;
+            height: 100px;
+            width: 100%;
+            border-radius: 10px;
+            // max-height: 150px;
+            max-height: 100px;
+
+            @media (max-width: 990px) {
+                height: auto;
+            }
+        }
+    }
+
+    .game-tp-heading {
+        font-size: $font-size-medium;
+        font-family: $font-semibold;
+        color: $primary-text-color;
+        text-transform: capitalize;
+        margin: 0 20px 10px 20px;
+        line-height: 1;
+        position: relative;
+
+        &:after {
+            content: "";
+            display: inline-block;
+            height: 0.5em;
+            vertical-align: bottom;
+            width: 100%;
+            margin-right: -100%;
+            margin-left: 10px;
+            border-top: 1px dashed $black;
+        }
+    }
+
+    .game-tp-slider {
+        padding: 0 0 15px 10px;
+
+        &.single-itm {
+            .slick-track {
+                margin: 0;
+            }
+        }
+
+        .new-game-card {
+            height: 150px;
+            border-radius: 10px;
+            // background-color: #3667CB;
+            position: relative;
+            cursor: pointer;
+
+            .ngame-card-inn {
+                height: 100%;
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            .card-inn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+
+            .gt-img {
+                margin-bottom: 26px;
+                height: 60px;
+
+                img {
+                    display: none;
+                    width: auto;
+                    height: 60px;
+                    margin: 0 auto;
+                }
+            }
+
+            .gt-lbl {
+                margin: 0 auto;
+                max-width: 130px;
+                text-align: center;
+                font-size: $font-size-medium;
+                font-family: $font-bold;
+                text-transform: uppercase;
+                color: $white;
+                line-height: 1.1;
+            }
+
+            // background: url('../img/DFSBG.png') no-repeat;
+            // background-size: cover;
+            // &.gt-mg{
+            //     background: url('../img/MGBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-f2p{
+            //     background: url('../img/F2PBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-prd{
+            //     background: url('../img/PrdWinBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-pickm{
+            //     background: url('../img/PicmBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-op{
+            //     background: url('../img/OpenPreBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-oplead{
+            //     background: url('../img/OpenPreLdBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-stkf{
+            //     background: url('../img/StBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-stkf-eq{
+            //     background: url('../img/StEqBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-stk-prd{
+            //     background: url('../img/StPrdBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+            // &.gt-live-f{
+            //     background: url('../img/LiveFanBG.png') no-repeat;
+            //     background-size: cover;
+            // }            
+        }
+
+        .slick-arrow.slick-next {
+            right: 10px;
+        }
+
+        .slick-arrow.slick-prev {
+            padding: 3px 0;
+        }
+
+        .slick-arrow.slick-next {
+            padding: 3px 5px;
+        }
+
+        .slick-arrow.slick-next,
+        .slick-arrow.slick-prev {
+            display: inline-block !important;
+            @include background-opacity($white, 0.6);
+            // padding: 3px 5px;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 50%;
+
+            &:before {
+                font-size: $font-size-small;
+            }
+
+            @media (max-width: 767px) {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.sports-hub-c.new-sport-hub {
+    .sports-hub-footer-tab {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            max-width: $window_width;
+            border: 0;
+            bottom: 0;
+            background-color: $white;
+            box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.1);
+            bottom: 0;
+            position: fixed;
+            z-index: 999;
+            width: 100%;
+            // display: flex;
+            // flex-direction: row;
+            // justify-content: space-around;
+            max-height: 56px;
+            display: table;
+
+            // @media screen and (max-width:414px) {
+            //     justify-content: space-between;
+            // }
+            li {
+                min-width: 70px;
+                display: table-cell;
+                vertical-align: middle;
+                width: 20%;
+                height: 56px;
+
+                @media screen and (max-width:414px) {
+                    min-width: 56px;
+                }
+
+                a {
+                    height: 56px;
+                    color: $help_text_color;
+                    font-family: $font-semibold;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    font-size: $font-size-h6;
+
+                    &.disabled {
+                        @include color-opacity($help_text_color, 0.7);
+                    }
+
+                    @media screen and (max-width:375px) {
+                        font-size: $font-size-xsmall;
+                    }
+
+                    @media screen and (max-width:320px) {
+                        font-size: $font-size-xsmall - 1;
+                    }
+
+                    // height: 100%;
+                    i {
+                        font-size: 20px;
+
+                        &.icon-profile {
+                            font-size: $font-size-h5;
+                            margin-bottom: 2px;
+                            display: inline-block;
+                        }
+                    }
+
+                    .tab-label {
+                        position: relative;
+                        top: 3px;
+                    }
+
+                    .coins-tab-label {
+                        position: absolute;
+                        bottom: 11px;
+                        font-size: 8px;
+                        color: $white;
+                        transform: rotate(-3deg);
+                        letter-spacing: -0.4px;
+                        z-index: 2;
+                        font-family: $font-bold;
+
+                        @media screen and (max-width:414px) {
+                            font-size: 8px;
+                            bottom: 10px;
+                        }
+                    }
+
+                    .isCoin {
+                        height: 70px;
+                        width: 70px;
+                        background: $white;
+                        border-radius: 100%;
+                        box-shadow: 0 -8px 18px 0 rgba(0, 0, 0, 0.1);
+                        top: -30px;
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0 auto;
+
+                        img {
+                            width: 90%; //100%;
+                        }
+
+                        .upload-img {
+                            img {
+                                width: 80%;
+                                border-radius: 100%;
+                                overflow: hidden;
+                            }
+                        }
+
+                        @media screen and (max-width:414px) {
+                            height: 64px;
+                            width: 64px;
+                            top: -28px;
+                        }
+                    }
+
+                    .shadow-v {
+                        position: absolute;
+                        top: 20px;
+                        height: 50px;
+                        width: 80px;
+                        background: $white;
+                        width: 100px;
+                        pointer-events: none;
+                        height: 35px;
+
+                        &.logo-hub {
+                            height: 35px;
+                        }
+
+                        @media screen and (max-width:414px) {
+                            top: 18px;
+                        }
+                    }
+                }
+
+                &.active {
+                    a {
+                        .animated-tab-div {
+                            animation: fadein-slide1 0.8s;
+                            opacity: 1;
+                            position: relative;
+                            transform: scale(1.01);
+
+                            @keyframes fadein-slide1 {
+                                0% {
+                                    opacity: 1;
+                                    top: 0;
+                                    color: $help_text_color;
+                                    transform: scale(1);
+                                }
+
+                                15% {
+                                    opacity: 1;
+                                    color: $help_text_color;
+                                }
+
+                                45% {
+                                    opacity: 0;
+                                    top: -10px;
+                                    color: $help_text_color;
+                                    transform: scale(0.95);
+                                }
+
+                                50% {
+                                    opacity: 0;
+                                    top: 20px;
+                                    color: $help_text_color;
+                                    transform: scale(0.95);
+                                }
+
+                                55% {
+                                    opacity: 0;
+                                    top: 20px;
+                                    color: $help_text_color;
+                                    transform: scale(0.95);
+                                }
+
+                                70% {
+                                    opacity: 0;
+                                }
+
+                                100% {
+                                    opacity: 1;
+                                    top: 0;
+                                    transform: scale(1.01);
+                                }
+                            }
+                        }
+
+                        color: $primary;
+                        font-size: $font-size-h6;
+
+                        @media screen and (max-width:375px) {
+                            font-size: $font-size-xsmall;
+                        }
+
+                        position: relative;
+
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            height: 0px;
+                            width: 100%;
+                            background: $white;
+                            bottom: 0px;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+// changes for dark theme overall
+.body-dark-theme {
+    .sports-hub-footer-tabs {
+        background: $darkT_app_bg_color;
+
+        .isCoin,
+        .shadow-v {
+            background: $darkT_app_bg_color;
+        }
+    }
+
+    .sports-hub-c .dashboard-container .card-container .card-v img {
+        background: transparent;
+    }
+
+    .sports-hub-c.new-sport-hub {
+        background: $darkT_view_bg_color !important;
+
+        .blue-bg-section {
+            background: $darkT_primary;
+        }
+
+        &.sport-hub-scroll .app-header-style.coin-headr {
+            background-color: $darkT_primary;
+        }
+
+        .dashboard-container {
+            .card-container .card-v {
+                background: $darkT_app_bg_color;
+
+                .game-v-detail {
+                    color: $darkT_primary_text_color;
+                }
+
+                .ava-sport {
+                    border-top-color: $darkT_border_color2;
+
+                    .sport-text {
+                        color: $darkT_primary_text_color;
+                        @include background-opacity($white, 0.2);
+                    }
+                }
+            }
+
+            .card-v {
+                &.big-card .game-v {
+                    .game-v-title {
+                        color: $darkT_primary_text_color;
+                    }
+
+                    .p-now {
+                        background: $darkT_primary;
+                        color: $darkT_secondary_text_color;
+                    }
+                }
+
+                .game-v {
+                    .game-v-title {
+                        color: $darkT_primary;
+                    }
+                }
+            }
+        }
+    }
+
+    .dot-list {
+        span {
+            background-color: $darkT_view_bg_color;
+        }
+    }
+}
+
+.dashboard-container {
+    .game-sports-heading-name {
+        font-size: $font-size-medium;
+        font-family: $font-semibold;
+        color: $primary_text_color;
+        text-transform: uppercase;
+        margin: 0px 20px 17px 20px;
+        line-height: 1;
+        position: relative;
+
+        &:after {
+            content: "";
+            display: inline-block;
+            height: 0.5em;
+            vertical-align: bottom;
+            width: 100%;
+            margin-right: -100%;
+            margin-left: 10px;
+            border-top: 1px dashed $darkT_help_text_color;
+        }
+    }
+
+    .app-modules {
+        margin: 5px 20px 0;
+        columns: 155px 2;
+        column-gap: 20px;
+    }
+
+    .app-module-view {
+        display: block !important;
+    }
+
+    .app-modules-item {
+        height: 188px;
+        margin: 0 0 20px;
+        display: inline-block;
+        width: 100%;
+        border-radius: 10px;
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 315px;
+
+        &:first-child {
+            background-size: 550px 280px;
+        }
+
+        cursor: pointer;
+
+        &.banner {
+            background: url('../img/staticImg.png');
+            height: 40px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        &.b-left {
+            margin-left: -22px;
+            width: calc(100% + 20px);
+            border-radius: 0 10px 10px 0;
+        }
+
+        &.b-right {
+            margin-right: -20px;
+            width: calc(100% + 20px);
+            border-radius: 10px 0 0 10px;
+        }
+
+        &.full {
+            column-span: all;
+            width: inherit;
+            display: block;
+        }
+
+        .play-button {
+            color: $white;
+            font-size: $font-size-small;
+            font-family: $font-bold;
+            text-transform: uppercase;
+            position: absolute;
+            bottom: 35px;
+            left: 30px;
+            width: 98px;
+            border-radius: 5px;
+            background-color: #2C5EDB;
+            padding: 5px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            line-height: 20px;
+            cursor: pointer;
+
+            .arrow-icon-container {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                align-items: center;
+                margin-left: 5px;
+
+                .iocn-first {
+                    font-size: $font-size-small;
+                    color: rgba(#fff, 0.1);
+                }
+
+                .iocn-second {
+                    font-size: $font-size-small;
+                    color: rgba(#fff, 0.5);
+                }
+
+                .iocn-third {
+                    font-weight: bold;
+                    font-size: $font-size-small;
+                    color: rgba(#fff, 0.7);
+                }
+            }
+        }
+    }
+
+}
+
+
+.new-sports-hub-changes {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+
+    .sports-hub-img-view {
+        height: 288px;
+        width: calc(100% - 40px);
+        margin: 0 20px 20px;
+        border-radius: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        cursor: pointer;
+        background-size: cover;
+        @media (min-width: 550px) {
+            zoom: 1.5;
+        }
+
+        i {
+            position: absolute;
+            right: 16px;
+            top: 14px;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.4);
+            font-size: 16px;
+            z-index: 1;
+        }
+    }
+}
+
+.info-details-modal-view {
+    .modal-body {
+        background-color: $white !important;
+    }
+
+    .modal-img-wrap {
+        background-color: $white !important;
+
+        .wrap {
+            background-color: $primary !important;
+        }
+    }
+
+    .modal-header {
+        padding: 60px 1.2rem 15px !important;
+        background: $white !important;
+        color: #212121 !important;
+        font-family: $font-exo-extrabold !important;
+        font-size: 20px !important;
+        position: relative !important;
+        border-bottom: 1px dashed $black !important;
+
+        &::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: url('../img/quizbgImg.png') no-repeat;
+            width: 22px;
+            height: 22px;
+            top: 95px;
+            left: -10px;
+            z-index: 1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: url('../img/quizbgImg.png') no-repeat;
+            width: 22px;
+            height: 22px;
+            top: 95px;
+            right: -10px;
+            z-index: 1;
+        }
+    }
+
+    .innner-text-info {
+        padding: 30px !important;
+
+        .inner-text-info-one {
+            font-size: 16px;
+            font-family: $font-exo-regular;
+            color: $body_text_color2;
+            line-height: 24px;
+        }
+
+        .inner-text-info-two {
+            font-size: 16px;
+            font-family: $font-exo-regular;
+            color: $body_text_color2;
+            line-height: 24px;
+            margin-top: 30px;
+        }
+    }
+
+    .start-playing-button-view {
+        display: flex;
+        justify-content: center;
+        margin: 55px 0 10px;
+
+        .start-playing-button {
+            cursor: pointer;
+            height: 44px;
+            width: 238px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 22px;
+            background-color: $primary;
+            color: $white;
+            font-size: 16px;
+            font-family: $font-exo-bold;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.second-ing-quiz-refer-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px 20px;
+
+    .quiz-view {
+        width: 48%;
+        position: relative;
+        cursor: pointer;
+        // padding-top: 100%;
+        height: 4.18%;
+
+        .images-xp-quiz {
+            width: 100%;
+            // height: 160px;
+            border-radius: 15px;
+            // position: absolute;
+            // top: 0;
+        }
+
+        .quix-text-view {
+            width: 95px;
+            color: $white;
+            font-family: $font-exo-black;
+            font-size: $font-size-medium;
+            text-transform: uppercase;
+            line-height: 19px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+    }
+
+
+
+
+    .xp-changes-view {
+        cursor: pointer;
+        // height: 160px;
+        width: 48%;
+        // height: 4.18%;
+        border-radius: 15px;
+        padding: 10px 14px;
+        background: linear-gradient(315.3deg, #b49af4, #c0a4fc 26.98%, #a66eef 64.93%, #a58ae9 88.21%, #c2a9ff);
+
+      
+        .text-for-current-level {
+            width: 95px;
+            color: $white;
+            font-family: $font-exo-black;
+            font-size: $font-size-medium;
+            text-transform: uppercase;
+            line-height: 19px;
+        }
+
+        .sports-card-slider {
+            border-radius: 32px;
+            background-color: #eaeaea;
+            height: 20px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+
+            span {
+                position: absolute;
+                font-size: 18px;
+                font-family: $font-exo-semibold;
+                color: #212121;
+                left: 10px;
+                top: -4px;
+            }
+
+            .next-lvl {
+                right: 10px;
+                left: auto;
+            }
+
+            .progress-bar {
+                background: #01f0c8;
+                border-radius: 32px;
+                height: 20px;
+                width: 0;
+                top: 0;
+                left: 0;
+                position: absolute;
+                -webkit-animation: fill-c 1.5s ease-in-out;
+                animation: fill-c 1.5s ease-in-out;
+
+                @keyframes fill-c {
+                    0% {
+                        width: 0%;
+                        opacity: 0;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+
+            }
+        }
+
+        .earn-button {
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 16px;
+                margin-right: 2px;
+            }
+
+            .button-view {
+                height: 30px;
+                width: 105px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 15px;
+                background-color: $primary;
+                color: $white;
+                font-family: $font-exo-bold;
+                font-size: $font-size-small;
+                text-transform: uppercase;
+            }
+        }
+    }
+    @media (min-width: 550px) {
+        zoom: 1.5;
+    }
+}
+.gametp-banr-slider-new{
+    width: calc(100% - 20px);
+}
+.spotlight-heading{
+    position: relative;
+    span{
+    margin: 0 20px 20px;
+    color: $body_text_color;
+    font-family: $font-bold;
+    text-transform: uppercase;
+    font-size: $font-base;
+    }
+}
+.spotlight-heading:after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 95px;
+    right: 0;
+    height: 0.5em;
+    // border-top: 2px dotted #CDCCCC;
+    height: 1px;
+    background: linear-gradient(to right, transparent 50%, #CDCCCC 50%);
+    background-size: 10px 2px, 100% 2px;
+    // z-index: -1;
+}
+.view-more-f{
+    text-align: center;
+    cursor: pointer;
+    color: $primary;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: $font-base;
+    // margin-bottom: 20px;
+    &.add{
+        position: absolute;
+        bottom: 43px;
+        left: 50%;
+    }
+}
+.gametp-banr-slider-league{
+    padding-bottom: 0 !important;
+    .slick-slide{
+        width: 214px !important;
+    }
+    .gametp-banr-slider {
+        padding-bottom: 7px;
+        padding-left: 21px;
+    }
+}
+.view-more-container{
+    display: flex;
+    justify-content: center;
+}

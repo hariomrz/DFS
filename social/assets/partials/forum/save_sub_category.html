@@ -1,0 +1,113 @@
+<!-- Add Sub Category Modal -->
+<div class="modal fade" id="addSubCategory" ng-controller="saveFrmSubCatCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="resetFormdata();">
+                    <span aria-hidden="true"><i class="icon-close"></i></span>
+                </button>
+                <h4 class="modal-title" ng-show="SubCat.Name == ''" ng-bind="::lang.add_sub_category"></h4>
+                <h4 class="modal-title" ng-show="SubCat.Name != ''" ng-bind="::lang.edit_subcategory"></h4>
+            </div>
+            <div class="modal-body">
+                <form ng-hide="subcategory" id="AddSubCatForm" name="AddSubCatForm" ng-cloak>
+                    <div class="form-group">
+                        <aside class="profile-pic set-profile-pic browse-camra">
+                            <figure class="user-wall-thumb">
+                                <img id="SubCatMediaGUID" ng-src="{{ImageServerPath + 'upload/profile/220x220/' + SubCat.ProfilePicture}}" err-SRC="{{ImageServerPath + 'upload/profile/220x220/category_default.png'}}" alt="User" title="User" class="img-circle">
+                            </figure>
+                            <div class="dropdown thumb-dropdown">
+                                <a class="edit-profilepic dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ficon-camera"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a  ngf-select="uploadProfilePicture($file, $invalidFiles);" accept="image/*" ngf-validate-async-fn="validateFileSize($file);">
+                                            <span class="space-icon"><i class="ficon-upload"></i></span> {{::lang.upload_new}}
+                                        </a>
+                                    </li>
+                                    <li ng-if="SubCat.ProfilePicture">
+                                        <a ng-click="remove_subcategory_picture();">
+                                            <span class="space-icon"><i class="ficon-cross"></i></span> {{::lang.remove}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="form-group" ng-class="(!SubCat.ParentCategoryID && !AddSubCatForm.CatID.$pristine) ? 'has-error' : '' ;">
+                        <label ng-bind="::lang.parent_category"> </label>
+                        <select name="CatID" ng-model="SubCat.ParentCategoryID" ng-options="key as value for (key , value) in forum_categories_list" data-chosen=""  data-disable-search="true">
+                        </select>
+                        <span class="block-error" ng-bind="lang.select_parent_category"></span>
+                    </div>
+                    <div class="form-group" ng-class="(!SubCat.Name && !AddSubCatForm.SubCatName.$pristine) ? 'has-error' : '' ;">
+                        <label class="control-label">
+                            <span ng-bind="::lang.sub_category_name"></span>
+                            <span class="help-block" ng-bind="(100 - SubCat.Name.length)"></span>
+                        </label>
+                        <input ng-keyup="prefill_url_scat(SubCat.Name)" ng-model="SubCat.Name" data-req-minlen="2" maxlength="100" data-req-maxlen="100" class="form-control" value="" name="SubCatName" placeholder="Enter Subcategory">
+                        <span class="block-error" ng-bind="lang.s_r_sub_category_name"></span>
+                    </div>
+                    <div class="form-group" ng-class="(!SubCat.Description && !AddSubCatForm.SubCatDescription.$pristine) ? 'has-error' : '' ;">
+                        <label class="control-label">
+                            <span ng-bind="::lang.description"></span>
+                            <span class="help-block" ng-bind="(200 - SubCat.Description.length)"></span>
+                        </label>
+                        <textarea maxcount="200" rows="3" maxlength="200" class="form-control" id="cat_description" name="SubCatDescription" ng-model="SubCat.Description" placeholder=" {{::lang.enter_description}}"></textarea>
+                        <span class="block-error" ng-bind="lang.s_r_sub_category_description"></span>
+                    </div>
+                    <div class="form-group" ng-class="(!SubCat.URL && !AddSubCatForm.SubCatUrl.$pristine) ? 'has-error' : '' ;">
+                        <label ng-bind="::lang.url"></label>
+                        <input ng-model="SubCat.URL" data-req-minlen="2" maxlength="40" data-req-maxlen="40" class="form-control" type="text" value="" name="SubCatUrl" placeholder="{{::lang.enter_url}}">
+                        <span class="block-error" ng-bind="lang.s_r_sub_category_url"></span>
+                    </div>
+                </form>
+                <form ng-show="subcategory" ng-cloak>
+                    <div class="form-group">
+                        <label class="text-off" ng-bind="::lang.sub_category_privacy"></label>
+                        <div class="privat-lisitng">
+                            <ul class="list-group">
+                                <li class="list-group-item" >
+                                    <div class="radio" ng-click="SubCat.Visibility = 1">
+                                        <input id="open" type="radio"   name="category" value="1" ng-model="SubCat.Visibility" >
+                                        <label for="open"> <i class="icon-n-global"></i> {{::lang.open}}</label>
+                                        <p ng-bind="::lang.category_visible_info"></p>
+                                    </div>
+                                </li>
+                                <li class="list-group-item" >
+                                    <div class="radio" ng-click="SubCat.Visibility = 2">
+                                        <input id="secret" type="radio" value="2" name="category" ng-model="SubCat.Visibility" >
+                                        <label for="secret"><i class="icon-n-group-secret"></i> {{::lang.restricted}}  </label>
+                                        <p ng-bind="::lang.category_restricted_visible_info"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-off" ng-bind="::lang.sub_category_content"></label>
+                        <ul class="treeview">
+                            <li>
+                                <label class="checkbox">
+                                    <input type="checkbox" ng-model="SubCat.CanAllMemberPost" ng-true-value="'1'" ng-false-value="'2'">
+                                    <span class="label"> {{::lang.all_members_can_post}}
+                                        <p class="text-off" ng-bind="::lang.all_members_can_post_info"></p>
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">           
+                <div class="pull-right">                                 
+                    <button ng-disabled="SubCat.ParentCategoryID=='' || SubCat.Name=='' || SubCat.Description =='' || SubCat.URL==''" type="submit" class="btn btn-default" ng-click="subcategory = !subcategory">
+                        {{subcategory?'PREVIOUS':'NEXT'}}
+                    </button>
+                    <button ng-show="subcategory" type="submit" ng-click="subcategory = !subcategory; CreateUpdateSubCategory();" class="btn btn-primary" ng-bind="::lang.done"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

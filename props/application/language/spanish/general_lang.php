@@ -1,0 +1,60 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+/* Start of file general_lang.php */
+$lang['global_error'] = 'Ingrese parámetros válidos.';
+$lang['invalid_status'] = 'Estado inválido.';
+$lang['sports_id'] = 'id de deportes';
+$lang['league_id'] = 'id de la liga';
+$lang['temporada_id'] = 'id del partido';
+$lang['team_id'] = 'id del equipo';
+$lang['player_id'] = 'id del jugador';
+$lang['player_team_id'] = 'clave del jugador';
+$lang['contest_id'] = 'id del concurso';
+$lang['user_team_id'] = 'id del equipo de usuario';
+$lang['match_status'] = 'Estado de la coincidencia';
+$lang['alineación'] = 'alineación';
+$lang['team_name'] = 'nombre del equipo';
+$lang['formato'] = 'formato';
+$lang['join_code'] = 'código de unión';
+$lang['promo_code'] = 'Código promocional';
+
+$lang['jugadores'] = "jugadores";
+$lang['player_info'] = "Proporcione toda la información del jugador.";
+$lang['payout_type'] = 'Tipo de pago';
+$lang['currency_type'] = 'Tipo de moneda';
+$lang['prop_id'] = 'Id de la propiedad';
+$lang['season_prop_id'] = 'Id. de utilería de temporada';
+$lang['entry_fee'] = 'Tarifa de entrada';
+$lang['select_min_picks'] = 'Seleccione un mínimo de {min_picks} selecciones.';
+$lang['invalid_team'] = 'Equipo de usuario no válido';
+$lang['team_success'] = 'Equipo guardado con éxito.';
+$lang['join_entry_email_subject'] = 'Props Fanatsy Joining Entry';
+$lang['min_max_bet_limit'] = 'La apuesta no debe ser inferior a {min_bet} ni superior a {max_bet}.';
+$lang['winning_limit_exceed'] = 'Ha agotado su límite de ganancias para este mes, que es {amount}. Se restablecerá el primer día del próximo mes';
+$lang['payout_disabled_error'] = 'El pago está deshabilitado, seleccione otro conjunto de pronósticos';
+$lang['remaining_winning_limit'] = 'Su participación supera el límite de probabilidades de ganar. Amablemente ajústelo para que sea igual o menor que {remaining_limit}';
+$lang['multi_sports_pl_error'] = 'Por favor seleccione jugadores con los mismos deportes solamente.';
+$lang['contest_already_started'] = 'La partida ya comenzó';
+
+
+//Admin
+$lang['invalid_league_id'] = "No se encontraron los detalles de la liga.";
+$lang['league_status_success'] = "Estado de la liga actualizado con éxito.";
+$lang['league_status_error'] = "Algo salió mal al actualizar el estado.";
+$lang['image_invalid_ext'] = 'Tipo de imagen no válido. tipo de medio permitido {media_type}';
+$lang['image_invalid_dim'] = 'Suba una imagen cuyo tamaño debe ser {max_width}x{max_height} .';
+$lang['image_invalid_size_error'] = 'El tamaño máximo de archivo multimedia permitido es {tamaño} MB.';
+$lang['image_file_upload_error'] = 'Lo siento, hay un problema con la carga del archivo. Inténtalo de nuevo.';
+$lang['media_removed'] = "El archivo multimedia se eliminó con éxito.";
+$lang['team_edit_success'] = "Equipo actualizado con éxito.";
+$lang['team_edit_failure'] = "Falló la actualización del equipo.";
+$lang['player_edit_success'] = "La imagen del jugador se cargó con éxito.";
+$lang['player_edit_failure'] = "Error al subir la imagen.";
+$lang['payout_update_success'] = "Los datos de pago se actualizaron correctamente.";
+$lang['invalid_payout_id'] = "No se encontraron los detalles del pago.";
+$lang['payout_status_success'] = "Estado de pago actualizado con éxito.";
+$lang['payout_status_error'] = "Algo salió mal al actualizar el estado.";
+$lang['user_status_error'] = "Algo salió mal al actualizar el estado. Vuelva a intentarlo.";
+$lang['user_status_success'] = "Estado de usuario actualizado con éxito.";
+$lang['user_winning_limit_error'] = "Algo salio mal al actualizar el limite de ganancias. Vuelva a intentarlo.";
+$lang['user_winning_limit_success'] = "El límite de ganancias del usuario se actualizó correctamente.";
+$lang['pl_props_status_success'] = "El estado de los accesorios del jugador se actualizó correctamente.";

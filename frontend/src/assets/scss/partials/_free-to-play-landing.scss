@@ -1,0 +1,327 @@
+.bg-image{
+    overflow: hidden;
+    height: 400px;
+    width: 100%;
+    border-radius: $border-radius-lg;
+    background-size: contain;
+    margin-bottom: 20px;
+    
+    @media (max-height: 767px) {
+        height: 400px
+      }
+      @media screen and (max-height: 360px){
+        height: 400px
+  
+    }
+    @media (max-height: 320px) {
+        height: 400px
+    }
+
+}
+
+.no-bg-container{
+    .top-holder {
+        background-color:white;
+        border-radius: $border-radius-lg;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 20px;
+        display: grid;
+    
+        @media (max-height: 767px) {
+            height: 400px
+          }  
+            
+        
+      } 
+}
+
+  
+
+
+  
+  .epl-label{
+    color: $primary_text_color;
+    font-family: $font-bold;
+    font-size: 30px;
+    text-transform:capitalize;
+    font-weight: bold;
+    letter-spacing: 0;
+  }
+  .d-star-holder{
+    display: flex;
+    justify-content: flex-end;
+    // /margin-right: 10px; /
+    margin-right: 0px;
+    margin-top: 0px;
+  }
+  
+  .star-image{
+    margin-top: 15px;
+    margin-right: 20px;
+  }
+  .football-image{
+    margin-top: 40px;
+    padding-bottom:10px;
+    
+  }
+  
+  .epl-label-div{
+    position: absolute;
+    margin-top: 8%;
+    margin-left: 34px;
+    width: 230px;
+    margin-right: 30px;
+    text-align: left;
+    
+   
+  }
+  
+  .epl-label-div-2{
+    position: absolute;
+    margin-top: 37%;
+    margin-left: 34px;
+    @media (max-width: 767px) {
+      margin-top: 55%;
+    }
+  }
+  
+  
+    .english-premier-leag {
+  
+      color: $help_text_color;
+      font-family: $font-regular;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: 14px;
+    }
+    .amazon{
+      position: absolute;
+      margin-top: 45%;
+      margin-left: 32px;
+      @media (max-width: 767px) {
+        margin-top: 65%;
+      }
+      .lobby_sponser-image{
+        width: auto;
+        height: 30px;
+        background-size: cover;
+        &.sponser-card-image{
+            height: 44px;
+    
+        }
+    }
+    }
+  .play-now-landing {
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+    margin-left: 32px;
+    height: 40px;
+    width: 132px;
+    /* top: -15px; */
+    padding: 11px 24px 6px;
+    background: $primary;
+    border-radius: 25px;
+    color: $white;
+    font-family: $font-bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+.Ftp-header-lobby{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $primary;
+  max-width: $window_width;
+  height: 56px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  z-index: 1005;
+  &.less-height{
+      height: 45px;
+
+  }
+  .app-header-text{
+      color:$white;
+      font-family: $font-bold;
+      font-weight: bold;
+      font-size: $font-base;
+      text-align: center;
+      // text-transform: uppercase;
+
+      @media screen and (max-width: 360px){
+          font-size: 14px;        
+          margin-top: 4px;    
+      }
+  }
+
+  .row-container{
+      height: 56px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 15px;
+      .header-action{
+          font-size: 18px;
+          color:$white;   
+          height: 24px;
+          width: 24px;
+          position: relative;
+          display: block;
+      }
+      .section-left{
+          z-index: 10;
+          display: flex;
+          height: 56px;
+          align-items: center;
+          
+          
+      }
+      .section-right{
+          display: flex;
+          height: 56px;
+          align-items: center;
+      }
+     
+  }
+}
+.sponser-by-section-lobby{
+  padding: 0 30px;
+  background: $primary;
+  .sponser-by-inner-section-lobby{
+    height: 50px;
+       
+  }
+
+}
+
+.card-container {
+  padding: 40px 0 0;
+  margin: 0 auto;
+  max-width: 510px;
+
+  .card-v {
+      margin: 0 8% 20px;
+
+      @media (min-width: 450px) {
+          margin: 0 9% 20px;
+      }
+
+      background-color: $white;
+      border-radius: $border-radius-lg;
+      overflow: hidden;
+      list-style: none;
+      cursor: pointer;
+
+      // perspective: 100px;
+      box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
+
+      &.big-card {
+          background-color: transparent;
+          box-shadow: none;
+          border-radius: 35px;
+
+          img {
+              max-height: 555px;
+              height: 100%;
+              object-position: top;
+              background-color: transparent;
+          }
+
+          .game-v {
+              position: absolute;
+              top: 90px;
+              height: calc(100% - 90px);
+              width: 100%;
+              padding: 17px 24px 14px;
+              @media (max-width: 320px) {
+                  padding: 8px 24px 14px;
+              }
+
+              .game-v-title {
+                  color: $white;
+                  font-size: 34px;
+                  line-height: 42px;
+                  max-width: 230px;
+                  margin: 0 0 35px 0;
+                  @media (max-width: 320px) {
+                      margin-bottom: 15px;
+                  }
+              }
+
+              .game-v-detail {
+                  color: $white;
+                  margin: 0;
+                  line-height: 16px;
+                  font-size: $font-size-small;
+                  font-family: $font-bold;
+              }
+
+              .p-now {
+                  top: unset;
+                  right: unset;
+                  bottom: 30px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  font-size: $font-base;
+                  padding: 11px 0 8px;
+                  width: calc(100% - 50px);
+                  text-align: center;
+                  border-radius: 20px;
+              }
+          }
+      }
+
+      img {
+          min-width: 100%;
+          width: 100%;
+          max-height: 180px;
+          min-height: 135px;
+          object-fit: cover;
+          object-position: bottom;
+          background-color: $border_color;
+      }
+
+      .game-v {
+          padding: 17px 20px 14px;
+          position: relative;
+
+          .p-now {
+              display: block;
+              position: absolute;
+              right: 15px;
+              top: -15px;
+              padding: 7px 15px 4px;
+              background: $primary;
+              border-radius: 15px;
+              color: $white;
+              font-family: $font-bold;
+              font-size: $font-size-small;
+              text-transform: uppercase;
+          }
+
+          .game-v-title {
+              font-size: $font-size-medium;
+              color: $primary-text-color;
+              font-family: $font-bold;
+              text-transform: uppercase;
+              margin: 0 0 5px;
+              line-height: 19px;
+          }
+
+          .game-v-detail {
+              color: $help_text_color;
+              margin: 0;
+              line-height: 14px;
+              font-size: $font-size-small;
+          }
+      }
+
+  }
+}

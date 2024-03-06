@@ -1,0 +1,72 @@
+<div class="list-group-bottom">
+    <div id="std-{{similarActivityData.activity.ActivityGUID}}" class="post-type-title">    
+        <p ng-if="similarActivityData.activity.PostTitle!=''">
+            {{similarActivityData.activity.PostTitle}}
+        </p>
+            <!-- <a class="ficon-edit" ng-click="open_edit_title_popup(similarActivityData.activity);" uib-tooltip="Edit Title" tooltip-append-to-body="true"></a> -->
+            <!-- <span class="action" ng-if="similarActivityData.activity_log_details.ActivityTypeID!=20">
+                <a class="ficon-edit" ng-click="show_title_form(similarActivityData.activity);" uib-tooltip="Edit Title" tooltip-append-to-body="true"></a>
+                <a class="ficon-bin" ng-click="delete_title(similarActivityData.activity);" uib-tooltip="Delete Title" tooltip-append-to-body="true"></a>
+             </span> -->
+        <!-- <a ng-if="similarActivityData.activity.PostTitle=='' && similarActivityData.activity_log_details.ActivityTypeID!=20" href="javascript:void(0)" ng-click="show_title_form(similarActivityData.activity);" id="add-{{similarActivityData.activity.ActivityGUID}}" class="a-link">Add Title</a> -->
+        
+    </div>
+    <div ng-if="similarActivityData.activity_log_details.ActivityTypeID!=20" class='row' id="atd-{{similarActivityData.activity.ActivityGUID}}" style="display: none;">
+        <div class="col-sm-8">
+            <input class="form-control" type="text" maxlength="60" id="title-{{similarActivityData.activity.ActivityGUID}}" value="{{similarActivityData.activity.PostTitle}}"  >
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-sm btn-primay" id="btnSaveIp" ng-click="submit_title_form(similarActivityData.activity);">Submit</button>
+            <button class="btn btn-sm btn-default" ng-click="reset_title_form(similarActivityData.activity);">Cancel</button>
+            
+        </div>
+        
+        
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-xs-10">
+            <p ng-if="activityPostType[similarActivityData.activity_log_details.ActivityTypeID]" class="list-group-item-text" ng-bind-html="textToLink(similarActivityData.activity.PostContent)"></p>
+        </div>
+        <!-- <div class="col-sm-2 col-xs-2">
+            <span class="action" ng-if="similarActivityData.activity_log_details.ActivityTypeID != '20' && similarActivityData.activity.PostContent!=''" style="float: right;">
+                <a class="ficon-edit" ng-click="edit_post_content(similarActivityData.activity);" uib-tooltip="Edit Content" tooltip-append-to-body="true"></a>
+            </span>
+        </div> -->
+    </div>
+    <p ng-if="( similarActivityData.activity_log_details.ActivityTypeID == 20 )" class="list-group-item-text" ng-bind-html="textToLink(similarActivityData.comment_details.PostComment)"></p>
+    <ng-include ng-if="activityPostType[similarActivityData.activity_log_details.ActivityTypeID]" ng-init="isCommentAttachment = false; attachmentMedia = similarActivityData.activity.Album[0].Media; attachmentFile = similarActivityData.activity.Files;" src="partialPageUrl + '/dashboard/simalarFeed/activityAttachments.html'"></ng-include>
+    <ng-include ng-if="( similarActivityData.activity_log_details.ActivityTypeID == 20 )" ng-init="isCommentAttachment = true; attachmentMedia = similarActivityData.comment_details.Media; attachmentFile = similarActivityData.comment_details.Files;" src="partialPageUrl + '/dashboard/simalarFeed/activityAttachments.html'"></ng-include>
+    <div class="list-group-footer">
+        <ul class="list-group-inline">
+            <li>
+                <a class="bullet">
+                    <i class="ficon-heart"></i>
+                </a>
+                <a ng-if="activityPostType[similarActivityData.activity_log_details.ActivityTypeID] && ( ( similarActivityData.activity.NoOfLikes != '' ) && ( similarActivityData.activity.NoOfLikes > 0 ) )" class="text" ng-bind="similarActivityData.activity.NoOfLikes"></a>
+                <a ng-if="( similarActivityData.activity_log_details.ActivityTypeID == 20 ) && ( ( similarActivityData.comment_details.NoOfLikes != '' ) && ( similarActivityData.comment_details.NoOfLikes > 0 ) )" class="text" ng-bind="similarActivityData.comment_details.NoOfLikes"></a>
+            </li>
+            <li ng-if="activityPostType[similarActivityData.activity_log_details.ActivityTypeID]">
+                <a class="bullet">
+                    <i class="ficon-comment"></i>
+                </a>
+                <a class="text" ng-if="( ( similarActivityData.activity.NoOfComments != '' ) && ( similarActivityData.activity.NoOfComments > 0 ) )" ng-bind="similarActivityData.activity.NoOfComments"></a>
+            </li>
+            <li ng-if="( similarActivityData.activity_log_details.ActivityTypeID == 20 && !similarActivityData.parent_comment_details.PostCommentID )">
+                <a class="bullet">
+                    <i class="ficon-reply"></i>
+                </a>
+                <a  class="text" ng-if="( ( similarActivityData.comment_details.NoOfReplies != '' ) && ( similarActivityData.comment_details.NoOfReplies > 0 ) )" ng-bind="similarActivityData.comment_details.NoOfReplies"></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <div ng-if="similarActivityData.activity_log_details.ActivityTypeID == 20" class="list-group-content" ng-init="activityTitleMessage='';">
+        <h6 class="list-group-item-heading" create-title-message parent-comment-id="similarActivityData.parent_comment_details.PostCommentID" group-profile="similarActivityData.group_profile" page-profile="similarActivityData.page_profile" event-profile="similarActivityData.event_profile" user-profile="similarActivityData.user_profile" poll-data="similarActivityData.PollData" activity-log-details="similarActivityData.activity_log_details" subject-user="similarActivityData.subject_user" activity-user="similarActivityData.activity_user" parent-comment-user="similarActivityData.parent_comment_user" activity="similarActivityData.activity" parent-activity="similarActivityData.parent_activity" parent-activity-user="similarActivityData.parent_activity_user" activity-title-message="activityTitleMessage" activity-post-type="activityPostType">
+                </h6>
+        <ul class="list-activites">
+            <li ng-if="similarActivityData.activity_log_details.ActivityTypeID=='20'" ng-bind="createDateObject(similarActivityData.comment_details.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+            <li ng-if="similarActivityData.activity_log_details.ActivityTypeID!=='20'" ng-bind="createDateObject(similarActivityData.activity.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+        </ul>
+    </div> -->
+    <ng-include ng-if="similarActivityData.activity_log_details.ActivityTypeID == 20" src="partialPageUrl + '/dashboard/simalarFeed/activityContentPersona.html'"></ng-include>
+</div>

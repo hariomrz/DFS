@@ -1,0 +1,145 @@
+<div ng-if="data.CardType=='activity'" class="business-card card-default" data-type="cardTip">
+    <div class="card-content-wrap">
+        <div class="card-body">
+            <div class="content">
+               <span class="label-text label-default" ng-bind="data.EntityName"></span>
+               <h4 class="card-title" ng-bind="data.PostTitle"></h4>
+               <p ng-bind-html="textToLink(data.PostContent,1)"></p>
+           </div>
+        </div>
+        <div class="card-footer">
+            <ul class="feed-like-nav">
+                <li>
+                    <span class="like-btn">
+                        <i tooltip data-placement="top" data-container="body" ng-attr-data-original-title="{{(data.IsLike == '1') ? 'Unlike' : (data.NoOfLikes=='0') ? 'Be the first to like' : 'Like' ;}}" ng-click="likeEmit(data.ActivityGUID,'Activity')" ng-class="data.IsLike == '1' ? 'ficon-heart active' : 'ficon-heart'" ></i>
+                    </span>
+                </li>
+                <li ng-if="data.CommentsAllowed == 0 && data.NoOfComments > 0">
+                    <a ng-if="data.PostType !== '2'" ng-bind="'Comments (' + data.NoOfComments + ')'"></a>
+                    <a ng-if="data.PostType == '2'" ng-bind="'Answers (' + data.NoOfComments + ')'"></a>
+                </li>
+                <li ng-if="data.CommentsAllowed == 0 && data.NoOfComments == 0">
+                    <a ng-if="data.PostType !== '2'" ng-bind="Comments"></a>
+                    <a ng-if="data.PostType == '2'" ng-bind="Answers"></a>
+                </li>
+            </ul>
+            <button ng-if="data.IsSubscribed=='1'" ng-cloak ng-click="subscribe_article(data.ActivityGUID)" class="btn btn-default btn-xs">Unfollow</button>
+            <button ng-if="data.IsSubscribed=='0'" ng-clock ng-click="subscribe_article(data.ActivityGUID)" class="btn btn-default btn-xs">Follow</button>
+        </div>
+    </div>
+</div>
+
+<!-- original -->
+<div ng-if="data.CardType!=='activity'" class="business-card" data-type="cardTip">
+    <div class="card-content-wrap">
+        <div class="notification-loader" ng-if="data.bloader==1" style="left:50%; top:50%;">
+            <div class="spinner32"></div>
+        </div>
+        <div class="card-banner">
+            <div class="b-banner-img">
+                <a target="_self" ng-cloak ng-if="data.ProfileCover!=''" style="background-image: url({{data.ImageServerPath+'upload/profilebanner/1200x300/'+data.ProfileCover}});"></a>
+            </div>
+            <div class="arrow">
+                <div ng-cloak class="arrow-content" ng-if="data.ProfileCover!=''" style="background-image: url({{data.ImageServerPath+'upload/profilebanner/1200x300/'+data.ProfileCover}});"></div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-content"> 
+                <a target="_self" class="user-thumb-card" ng-href="{{data.SiteUrl+data.ProfileURL}}">
+                    
+                    <img ng-if="data.show_image && (data.CardType=='user' || data.CardType=='User') && (data.ProfilePicture=='' || data.ProfilePicture=='user_default.jpg')" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'}}" err-Name="{{data.Name}}" >
+
+                    <img ng-if="data.show_image && (data.CardType=='user' || data.CardType=='User') && data.ProfilePicture!='' && data.ProfilePicture!='user_default.jpg'" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.ProfilePicture}}" >
+                    
+                    <img err-SRC="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" ng-if="data.show_image && (data.CardType!='group' && data.CardType!='Group') || data.Type=='FORMAL'" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.ProfilePicture}}" >
+                   
+
+                    <img ng-if="data.Type=='INFORMAL' && data.ProfilePicture!='' && data.ProfilePicture!='group-no-img.jpg'" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.ProfilePicture}}" class="img-circle"  >
+                    <div ng-if="data.Type=='INFORMAL' && data.ProfilePicture=='group-no-img.jpg'" ng-class="(data.EntityMembers.length>2) ? 'group-thumb' : 'group-thumb-two' ;" class="m72 ng-scope group-thumb" ng-if="thread.ThreadImageName==''">
+                        <span ng-repeat="recipients in data.EntityMembers" class="ng-scope">
+                        <img  ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+recipients.ProfilePicture}}" entitytype="user" ng-if="$index<=2" class="ng-scope">
+                      </span>
+                    </div>
+                </a>
+                <a target="_self" class="user-name-card ellipsis" ng-href="{{data.SiteUrl+data.ProfileURL}}">
+                    <span ng-if="(data.CardType!='group' || data.CardType!='Group') || data.Type=='FORMAL'" ng-bind="data.Name"></span>
+                    <span ng-if="(data.CardType=='group' || data.CardType=='Group') && data.Type=='INFORMAL'">
+                    <span ng-repeat="Member in data.EntityMembers"><span ng-bind="Member.FirstName" ng-if="$index<=2"></span><span ng-if="$index<2 && data.EntityMembers.length>=3">,</span><span ng-if="$index<(data.EntityMembers.length-1) && data.EntityMembers.length<3">,</span> </span>
+                    <span ng-if="data.EntityMembers.length>3">and {{data.EntityMembers.length-3}} others</span>
+                    </span>
+                    <i ng-if="data.CardType=='Group' && data.Privacy==0" class="icon-n-closed"></i>
+                    <i ng-if="data.CardType=='Group' && data.Privacy==2" class="icon-n-group-secret"></i>
+                    <i ng-if="data.CardType=='Group' && data.Privacy==1" class="icon-n-global"></i>
+                    <i class="icon-lock" ng-if="data.CardType=='event'" ng-class="{'icon-lock':data.Privacy=='PUBLIC','icon-unlock':data.Privacy=='PRIVATE','icon-msgm':data.Privacy=='INVITE_ONLY'}"></i>
+                </a>
+                <ul class="card-detail">
+                    <li ng-if="data.About && data.About!==''"><i class="icon-n-bio"></i> <span ng-bind="data.About | limitTo:50"></span><span ng-if='data.About.length > 50'>...</span></li>
+                    <li ng-if="data.MutualFriend.length">
+                        <i class="icon-n-friends"></i>
+                        <a target="_self" ng-repeat="mf in data.MutualFriend" ng-bind="!$last?mf.FirstName+' '+mf.LastName+', ':mf.FirstName+' '+mf.LastName" ng-href="{{mf.ProfileURL}}"></a>
+                        <span ng-if="data.MutualFriendCount > 2">and <a>{{data.MutualFriendCount-2}} others</a> are Mutual friends</span>
+                    </li>
+                    <li ng-if="!data.MutualFriend.length && data.CardType=='user' && data.TotalFriends > 0"><i class="icon-n-friends"></i>
+                        <a target="_self" ng-bind="data.TotalFriends"></a> friends</li>
+                    <li ng-if="data.Members.length">
+                        <i class="icon-n-friends"></i>
+                        <a target="_self" ng-repeat="member in data.Members" ng-href="{{member.SiteUrl+member.ProfileURL}}" ng-bind="!$last?member.FirstName+' '+member.LastName+', ':member.FirstName+' '+member.LastName"></a>
+                    </li>
+                    <li ng-if="!data.Members.length && data.CardType=='Group'"><i class="icon-n-friends"></i>
+                        <a target="_self" ng-bind="data.TotalMembers"></a> member<span ng-if="data.TotalMembers>1">s</span></li>
+                    <li ng-if="!data.Members.length && data.CardType=='event'"><i class="icon-n-friends"></i>
+                        <a target="_self" ng-bind="data.TotalMembers"></a> attendee<span ng-if="data.TotalMembers>1">s</span></li>
+                    <li ng-if="!data.Members.length && data.CardType=='page'"><i class="icon-n-friends"></i>
+                        <a target="_self" ng-bind="data.TotalMembers"></a> follower<span ng-if="data.TotalMembers>1">s</span></li>
+                    <li ng-hide="!data.Category || data.Category==''"><i class="icon-n-page-follow"></i> <span ng-bind="data.Category"></span></li>
+                    <li ng-if="data.StartDateTime && data.CardType=='event'">
+                        <i class="icon-datepkr">&nbsp;</i>
+                        <span ng-bind="data.StartDateTime"></span>
+                    </li>
+                    <li ng-if="data.Location && data.Location.Location !== ''"><i class="icon-n-location"></i> <span ng-bind="data.Location.Location"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-footer">
+            <span class="pull-right" ng-controller="UserListCtrl" ng-if="data.CardType=='User' || data.CardType=='user'">
+                
+            <button type="button" ng-if="data.ShowMessageBtn=='1'" class="btn btn-default"  ng-click="messageModal(data.Name,data.EntityGUID);" > 
+                <span class="icon"><i class="ficon-envelope f-lg"></i></span> <span class="text">Message</span>
+            </button>
+            <button type="button" ng-if="data.FriendStatus=='4' && data.ShowFriendsBtn=='1'" ng-click="sendRequest(data.EntityGUID,1);removebusinessCardCache(data.EntityGUID);" class="btn btn-default"> 
+                <span class="icon"><i class="ficon-addfriend"></i></span><span class="text">Add Friend</span>
+            </button>
+            <button type="button" ng-cloak ng-if="data.ShowFollowBtn==1 && data.follow!==''" class="btn btn-default btn-small" id="followmem{{data.EntityGUID}}" ng-click="follow(data.EntityGUID)" ng-bind="data.follow"></button> 
+            <button type="button" class="btn btn-default btn-small addfrnds" lang="{{data.UserID}}" ng-cloak ng-if="data.FriendStatus=='1' && data.ShowFriendsBtn=='1'" ng-click="removeFriend(data.EntityGUID,1);removebusinessCardCache(data.EntityGUID);">Unfriend</button>
+            <button type="button" class="btn btn-default btn-small addfrnds" lang="{{data.UserID}}" ng-cloak ng-if="data.FriendStatus=='2' && data.ShowFriendsBtn=='1'" ng-click="rejectRequest(data.EntityGUID,1);removebusinessCardCache(data.EntityGUID);">Cancel Request</button>
+            <button type="button" class="btn btn-default btn-small addfrnds" lang="{{data.UserID}}" ng-cloak ng-if="data.FriendStatus=='3'" ng-click="acceptRequest(data.EntityGUID,1);removebusinessCardCache(data.EntityGUID);">Accept</button>
+            <button type="button" class="btn btn-default btn-small addfrnds" lang="{{data.UserID}}" ng-cloak ng-if="data.FriendStatus=='3'" ng-click="denyRequest(data.EntityGUID,1);removebusinessCardCache(data.EntityGUID);">Deny</button>
+        </span>
+
+            <span class="pull-right" id="eventScope" ng-controller="EventPopupFormCtrl" ng-show="data.CardType=='event' || data.CardType=='Event'">
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.Presence!=='Arrived' && data.Presence!=='Attending' && data.Presence!=='Invited' && data.IsMember == false && data.CardType=='event'" ng-click="JoinEvent(data.EntityGUID,false,'businesscard');removebusinessCardCache(data.EntityGUID);" class="btn btn-default eventJoinBCard{{data.EntityGUID}}" ng-bind="lang.attend_now"></button>
+            <button class="btn btn-default dropdown-toggle" type="button" ng-cloak ng-if="data.Presence && data.Presence!='Arrived' && data.IsCreator=='1' && data.EventStatus=='Past'" > <span class="text"  ><span ng-bind="data.Presence"></span></span>
+            </button>
+            <button data-toggle="dropdown" ng-cloak class="btn btn-default dropdown-toggle" type="button" ng-show="data.Presence && data.Presence!='Arrived' && data.IsCreator=='1' && data.EventStatus!=='Past'"> <span class="text" ng-bind="data.Presence"></button>
+            <button  data-toggle="dropdown" ng-cloak class="btn btn-default dropdown-toggle" type="button" ng-show="data.Presence && data.Presence!='Arrived' && data.IsCreator!='1' && data.EventStatus!=='Past'"> <span class="text" ng-bind="data.Presence"></span> <i class="caret"></i></button>
+            <ul role="menu" class="dropdown-menu" ng-cloak ng-if="data.Presence && data.Presence!='Arrived' && data.IsCreator!='1'">
+                <li><a target="_self" href="javascript:void(0);" ng-if="data.Presence!='Not Attending'" data-ng-click="UpdateUsersPresence('NOT_ATTENDING','Not Attending',data.EntityGUID,'businesscard');removebusinessCardCache(data.EntityGUID);">Not Attending</a></li>
+                <li><a target="_self" href="javascript:void(0);" ng-if="data.Presence!='Attending' || data.Presence=='Invited'" data-ng-click="UpdateUsersPresence('ATTENDING','Attending',data.EntityGUID,'businesscard');removebusinessCardCache(data.EntityGUID);">Attending</a></li>
+            </ul>
+            </span>
+            <span class="pull-right" ng-controller="PageCtrl" ng-if="data.CardType=='page' || data.CardType=='Page'">
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.IsFollowed == '1' && data.CardType=='page'" ng-click="toggleFollow(data.EntityGUID,'BusinessCard',data.EntityGUID);removebusinessCardCache(data.EntityGUID);" class="btn btn-default following btn-text eventJoinBCard{{data.EntityGUID}}"><span class="text"><span>Following</span></span></button>
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.IsFollowed == '0' && data.CardType=='page'" ng-click="toggleFollow(data.EntityGUID,'BusinessCard',data.EntityGUID);removebusinessCardCache(data.EntityGUID);" class="btn btn-default eventJoinBCard{{data.EntityGUID}}">Follow</button>
+        </span>
+            <span ng-controller="GroupPageCtrl" class="pull-right" ng-if="data.CardType=='Group' || data.CardType=='group'">
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.IsInvited!='1' && data.IsActiveMember!='1' &&  data.Privacy=='1' && (data.CardType=='Group' || data.CardType=='group')" ng-click="joinPublicGroup(data.EntityGUID,'BusinessCard');removebusinessCardCache(data.EntityGUID);" class="btn btn-default groupJoinBCard{{data.EntityGUID}}"> Join Group</button>
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.IsActiveMember == true && (data.CardType=='Group' || data.CardType=='group')" ng-click='groupDropOutAction(data.EntityGUID,"");removebusinessCardCache(data.EntityGUID);'; class="btn btn-default eventJoinBCard{{data.EntityGUID}}"> Leave Group</button>
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.IsInvited!='1' && data.IsActiveMember!='1' &&  data.IsInviteSent=='1' &&  data.Privacy=='0' &&  (data.CardType=='Group' || data.CardType=='group')" ng-click="cancelInvite(data.EntityGUID);removebusinessCardCache(data.EntityGUID);" class="btn btn-default groupJoinBCard{{data.EntityGUID}}"> Cancel Request</button>
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.IsInvited!='1' && data.IsActiveMember!='1' &&  data.IsInviteSent=='0' &&  data.Privacy=='0' &&  (data.CardType=='Group' || data.CardType=='group')" ng-click="requestInvite(data.EntityGUID);removebusinessCardCache(data.EntityGUID);" class="btn btn-default groupJoinBCard{{data.EntityGUID}}"> Request Invite</button>
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.IsInvited=='1' && (data.CardType=='Group' || data.CardType=='group')" ng-click="groupAcceptDenyRequest(data.EntityGUID,'2','');removebusinessCardCache(data.EntityGUID);" class="btn btn-default groupJoinBCard{{data.EntityGUID}}"> Accept</button>
+            <button type="button" ng-disabled="data.btnDisabled" ng-if="data.IsInvited=='1' && (data.CardType=='Group' || data.CardType=='group')" ng-click="groupAcceptDenyRequest(data.EntityGUID,'13','');removebusinessCardCache(data.EntityGUID);" class="btn btn-default groupJoinBCard{{data.EntityGUID}}"> Deny</button>
+        </span>
+            <div class="arrow"></div>
+        </div>
+    </div>
+</div>

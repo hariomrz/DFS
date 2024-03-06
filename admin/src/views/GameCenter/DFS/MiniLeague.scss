@@ -1,0 +1,110 @@
+.ml-container {
+  .ml-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    grid-gap: 24px;
+
+    @media (max-width: 1366px) {
+      grid-template-columns: auto auto auto;
+    }
+  }
+
+  .ml-grid-item {
+    height: 160px;
+    position: relative;
+    background-color: $white;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 14px;
+    .ml-grid-item-pd {
+      padding: 30px;
+
+      @media (max-width: 1366px) {
+        padding: 30px 22px;
+      }
+    }
+
+    .icon-edit {
+      cursor: pointer;
+      height: 30px;
+      width: 40px;
+      opacity: 0.9;
+      border-radius: 22px;
+      background-color: #2A2E49;
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: block;
+      font-size: 16px;
+      color: $white;
+      padding: 4px 16px;
+      border-bottom-left-radius: 100px;
+      border-top-right-radius: 24px; 
+      transition: font-size .5s;
+      &:hover {
+        font-size: 18px;
+      }
+  }
+
+  .h2-cls {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 300px;
+    margin: 0 auto -12px;
+    user-select: none;
+
+    @media screen and (min-width: 1280px) and (max-width: 1367px) {
+      width: 252px;
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1282px) {
+      width: 252px;
+    }
+  }
+
+  &.add-mleague {
+    color: $secondary-color;
+    background-color: #E3E3E3;
+    box-shadow: none;
+    cursor: pointer;  
+    &:hover .h3-cls {
+      text-decoration: underline;
+      font-size: 20px;
+    }
+    .h3-cls {
+      margin-top: 18px;
+      transition: font-size .6s;
+      .icon-plus {
+        height: 24px;
+        width: 24px;
+        color: $white;
+        background-color: $secondary-color;
+        border-radius: 100%;
+        padding: 5px;
+        font-size: 14px;
+        vertical-align: baseline;
+        margin-right: 6px;
+      }
+    }
+
+  }
+}
+
+.total-matches {
+  color: #4157D8;
+  font-family: $font-bold;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: underline;
+  user-select: none;
+  transition: font-size .5s;
+  &:hover{
+    font-size: 14px;
+  }
+}
+}
+.mini-tab {
+.border-bottom { margin-top: 10px;}
+}

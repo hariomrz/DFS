@@ -1,0 +1,227 @@
+
+.modal-dialog{
+    background-color: transparent;
+    &.my-team-view-all-modal {
+        max-width: $window_width;
+        min-height: 100vh;
+        margin: 0 auto;
+        @media (max-width: 767px){
+            margin: 0;
+        }
+        .modal-content{
+            border: 0;
+            border-radius: 0;
+        }
+        .modal-header{
+            padding: 8px 10px;
+            border: 0;
+            .close {
+                top: 50%;
+                transform: translateY(-50%);
+                left: 15px;
+                font-size: 12px;
+                right: auto;
+            }
+            .modal-title{
+                line-height: 1;
+
+                .name-container{
+                    text-align: center;
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                    .team-name {
+                        color: $primary_text_color;
+                        font-family: $font-regular;
+                        font-size: 16px;
+                        font-weight: 800;
+                        line-height: 20px;
+                        text-align: center;
+                    }
+
+                    .contests-joined {
+                        color: $help_text_color;
+                        font-family: $font-regular;
+                        font-size: 11px;
+                        font-weight: bold;
+                        line-height: 14px;
+                        text-align: center;
+                    }
+                }
+            }
+        } 
+        .modal-body{
+            padding: 0;
+            background: $app_bg_color;
+            height: calc(100vh - 74px);
+            position: relative;          
+
+            .player-list-container{
+                .player-list-item{
+                    .item-header{
+                        padding: 7px;
+                        text-align: center;
+                        background-color: $app_bg_color;
+                        box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.1);
+
+                        color: $primary_text_color;
+                        font-family: $font-regular;
+                        font-weight: bold;
+                        font-size: 12px;
+                        letter-spacing: -0.1px;
+                        line-height: 15px;
+                        text-align: center;
+                        & ~ .item table tr td{
+                            border-top: 0;
+                        }
+                    }
+                    .item{
+                        table{
+                            border: 0px;
+                            padding: 0px;
+                            margin: 0px;
+                            .captain-vice-captain{
+                                background-color: $gray-125;
+                                box-shadow: 0 16px 16px 0 rgba(0,0,0,0.05);
+                            }
+                            tr{
+                                background-color: $white;
+                                
+                                td{
+                                    border-top: 1px solid $border-light;
+                                    padding: 4px 15px;
+                                    &.left{
+                                        text-align: left;
+                                        vertical-align: middle;
+                                    }
+
+                                    &.right{
+                                        text-align: right;
+                                        vertical-align: middle;
+                                    }
+
+                                    .image-container{
+                                        display: inline-block;
+                                        width: 58px;
+                                        position: relative;
+                    
+                                        .player-image{
+                                            height: 40px;
+                                            width: 40px;
+                                            border-radius: 50%;
+                                        }
+                    
+                                        .player-post{
+                                            height: 15px;
+                                            width: 15px;
+                                            border-radius: 50%;
+                                            position: absolute;
+                                            bottom: 0;
+                                            right: 16px;
+                                            color: $white;
+                                            text-align: center;
+                                            background-color: $primary;
+                                            font-size: 10px;       
+                                            font-family: $font-regular;
+                                            font-weight: 800;         
+                                            display: inline-block;
+                                            vertical-align: middle;
+                                            line-height: 15px;                            
+                                        }
+                                    }
+                                    
+                                    .player-name-container{
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        margin-left: 7px;
+                                        
+                                        .player-name{
+                                            color: $primary_text_color;
+                                            font-family: $font-regular;
+                                            font-weight: bold;
+                                            font-size: 14px;
+                                            letter-spacing: -0.12px;
+                                            line-height: 18px;
+                                        }
+                                        .team-vs-team{
+                                            color: $help_text_color;
+                                            font-family: $font-regular;
+                                            font-weight: bold;
+                                            font-size: 10px;
+                                            letter-spacing: -0.07px;
+                                            line-height: 13px;
+                                            margin-top: 4px;
+                                        }
+                                    }
+
+                                    .credit-container{
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        margin-left: 7px;
+                                        
+                                        .credit-amount{
+                                            font-family: $font-regular;                        
+                                            color: $primary_text_color;
+                                            font-size: 14px;
+                                            line-height: 18px;
+                                            text-align: right;
+                                            font-weight: bold;
+                                        }
+                                        .credit-text{
+                                            font-family: $font-bold;
+                                            color: $help_text_color;
+                                            font-size: 10px;
+                                            letter-spacing: -0.07px;
+                                            line-height: 13px;
+                                            text-align: right;
+                                        }
+
+                                        @media screen and(max-width: 420px) {
+                                            .player-name{
+                                                font-size: 12px;
+                                            }
+                                            .team-vs-team{
+                                                font-size: 11px;                            
+                                            }
+                                        }
+                                        @media screen and(max-width: 320px) {
+                                            .player-name{
+                                                font-size: 10px;
+                                            }
+                                            .team-vs-team{
+                                                font-size: 9px;                            
+                                            }
+                                        }
+                                    }
+                    
+                                }
+                            }
+                    
+                        }
+                    }
+                    &:last-child{
+                        border-bottom: 1px solid $border-light;
+                    }
+                }
+            }
+        }
+        .modal-footer{
+            padding: 0;
+            border: 0;
+            .btn{
+                border-radius: 0;
+                font-size: 14px;
+            }
+        }
+        
+        &.contest-detail-with-btn{
+            .modal-body{
+                height: calc(100vh - 50px);
+            }
+        }
+    }    
+}
+.my-team-view-all-modal{
+    .icon-close{
+        color: $primary_text_color;
+    }
+}

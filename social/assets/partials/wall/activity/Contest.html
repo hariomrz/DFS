@@ -1,0 +1,138 @@
+<div ng-class="'feed-act-' + data.ActivityGUID">
+  <div class="panel post-panel contest-post onFeed" ng-class="data.Params.BackgroundClass" style="{{(data.Album.length>0) ? 'background:url('+data.ImageServerPath+'upload/wall/'+data.Album[0].Media[0].ImageName+') no-repeat 0 0; background-size: cover;' : '' ;}}">
+    <div class="panel-heading">
+      <h3 class="panel-title">  
+        <ul class="feed-nav showonhover" ng-hide="LoginSessionKey==''">     
+          <li>
+            <i class="ficon-arrow-down" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+              <li>
+                <a ng-if="((data.IsArchive != 1) && (!data.ReminderData.ReminderGUID || (data.ReminderData.ReminderGUID && CheckReminderDate(data.ActivityGUID))))" ng-click="toggleArchiveEmit(data.ActivityGUID);">
+                    <span>Archive</span>
+                    <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed.">&nbsp;</i>
+                </a>
+                <a ng-if="((data.IsArchive != 1) && (data.ReminderData.ReminderGUID && !CheckReminderDate(data.ActivityGUID)))" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ARCHIVED');">
+                    <span>Archive</span>
+                    <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed.">&nbsp;</i>
+                </a>
+                <a ng-if="((data.IsArchive == 1) && data.ReminderData.ReminderGUID)" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ACTIVE');">Unarchive</a>
+                <a ng-if="((data.IsArchive == 1) && !data.ReminderData.ReminderGUID)" ng-click="toggleArchiveEmit(data.ActivityGUID);">Unarchive</a>
+              </li>
+              <li ng-if="config_detail.IsSuperAdmin == '0'">
+                <a ng-click="toggleWatchlistStatus(data.ActivityGUID)" ng-bind="(data.IsWatchList == '1') ? 'Remove from Watchlist' : 'Add to Watchlist';"></a>
+              </li>
+              <li ng-if="config_detail.IsSuperAdmin == '0'">
+                <a ng-click="setFavouriteEmit(data.ActivityGUID);" ng-bind="(data.IsFavourite == '1') ? 'Remove from favorites' : 'Add to favorites'"></a>
+              </li>
+              <li data-ng-if="data.Settings.m17 == '1' && config_detail.IsSuperAdmin == '0' && data.ActivityType=='ContestEnd'">
+                <a ng-cloak ng-click="subscribeEmit('ACTIVITY', data.ActivityGUID);" ng-show="data.IsSubscribed == '1'">
+                    <span>Unsubscribe from this Post</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Click here if you do not wish to recieve any notifications regarding this post.">&nbsp;</i>
+                </a>
+                <a ng-cloak ng-click="subscribeEmit('ACTIVITY', data.ActivityGUID);" ng-show="data.IsSubscribed == '0'">
+                    <span>Subscribe to this Post</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Click here if you wish to recieve notifications regarding this post.">&nbsp;</i>
+                </a>
+              </li>
+              <li data-ng-if="config_detail.IsSuperAdmin == '1' && data.ActivityType != 'AlbumAdded' && data.ActivityType != 'AlbumUpdated' && !data.Params.NoOfParticipants">
+                <a data-ng-click="editPost(data.ActivityGUID, $event)">Edit Post</a>
+              </li>
+              <li data-ng-if="config_detail.IsSuperAdmin == '1' && data.ActivityType != 'AlbumAdded' && data.ActivityType != 'AlbumUpdated' && data.Params.NoOfParticipants>0">
+                <a data-ng-click="showMessage('edit');">Edit Post</a>
+              </li>
+              <li ng-click="seenDetailsEmit(data.ActivityGUID, 'ACTIVITY');"><a>Views</a></li>
+              <li data-ng-if="(data.CanRemove == '1' || data.IsOwner || config_detail.IsSuperAdmin=='1') && !data.Params.NoOfParticipants">
+                <a ng-click="deleteEmit(data.ActivityGUID);">Remove Post</a>
+              </li>
+              <li data-ng-if="(data.CanRemove == '1' || data.IsOwner || config_detail.IsSuperAdmin=='1') && data.Params.NoOfParticipants>0">
+                <a ng-click="showMessage('delete');">Remove Post</a>
+              </li>
+            </ul>
+          </li>
+        </ul>              
+        <span class="text" ng-bind="data.PostTitle"></span>
+      </h3>
+    </div>             
+    <div class="panel-body">
+      <div class="post-panel-content">
+        <div class="content">
+          <div class="row">
+            <div class="col-md-8" ng-if="data.IsWinnerAnnounced=='0'" ng-cloak>
+                <h3 class="title" ng-bind="data.PostContent"></h3>
+                <a ng-if="data.IsParticipating=='0'" ng-cloak class="btn btn-default btn-block text-primary" ng-click="joinContest(data.ActivityID)" ng-bind="data.Params.ButtonText">Enter to Contest</a>
+                <p ng-if="data.IsParticipating=='0'" ng-cloak><span ng-bind="timeRemainingForContest(data.ContestEndDate,1)"></span> <b ng-bind="timeRemainingForContest(data.ContestEndDate)"></b><!-- <b>12D : 13H : 31M</b> --></p>
+                <h4 ng-if="data.IsParticipating=='1'" ng-cloak class="subtitle fadeInUp">Thanks for your participation</h3>
+            </div>
+            <div class="col-sm-10" ng-if="data.IsWinnerAnnounced=='1'" ng-cloak>
+              <h3 class="title">Congratulations</h3>
+              <p class="text-lg" ng-bind-html="getWinnerText(data)"></p>
+            </div>
+            <div class="col-md-10" ng-if="data.IsWinnerAnnounced=='0' && data.IsParticipating=='1'" ng-cloak>
+              <p class="text-lg">
+                Stay tuned for the winners announcement on 
+                <span ng-bind="getContestDate(data.ContestEndDate)"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="post-panel-bottom">             
+    <div class="activity-bar" ng-if="data.Params.NoOfParticipants && data.Params.NoOfParticipants>0">
+      <ul class="feed-actions" ng-if="data.IsWinnerAnnounced=='0'">
+        <li>
+          <a ng-cloak ng-if="data.Params.NoOfParticipants && data.Params.NoOfParticipants>0">
+            <span class="icon"><i class="ficon-participate f-mlg"></i></span>
+            <span ng-click="participateDetailsEmit(data.ActivityID, 'ACTIVITY')" ng-bind-html="get_participants_line(data)" class="text"></span>
+          </a>
+        </li>
+        <li class="pull-right">
+          <a ng-click="shareEmit(data.ActivityGUID);">
+            <span class="icon"><i class="ficon-share f-mlg"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="feed-actions" ng-if="data.IsWinnerAnnounced=='1'">
+        <li>
+          <span class="like-btn">
+            <i tooltip data-placement="top" data-container="body" ng-attr-data-original-title="{{(data.IsLike == '1') ? 'Unlike' : (data.NoOfLikes=='0') ? 'Be the first to like' : 'Like' ;}}" ng-click="likeEmit(data.ActivityGUID, 'ACTIVITY', data.ActivityGUID);" ng-class="data.IsLike == '1' ? 'ficon-heart active' : 'ficon-heart'" ></i>
+            <abbr ng-if="data.NoOfLikes > 0" ng-bind="data.NoOfLikes" ng-click="likeDetailsEmit(data.ActivityGUID, 'ACTIVITY');"></abbr>
+          </span>
+        </li>
+        <li>
+          <a ng-click="postCommentEditor(data.ActivityGUID, FeedIndex);  data.showeditor = true;" ng-if="LoginSessionKey!='' && data.NoOfComments == 0">
+              Be the first to comment
+          </a>
+          <a ng-if="data.NoOfComments > 0" ng-bind="'Comments (' + data.NoOfComments + ')'" ng-click="(data.ShowComments == 1) ? data.ShowComments = 0 : data.ShowComments = 1;"></a>
+        </li>
+      </ul>                  
+    </div>
+
+    <div class="activity-bar text-center" ng-if="!data.Params.NoOfParticipants || data.Params.NoOfParticipants==0">
+      <ul class="feed-actions" ng-if="data.IsWinnerAnnounced=='0'">
+        <li>
+          <a ng-click="shareEmit(data.ActivityGUID);">
+            <span class="icon"><i class="ficon-share f-mlg"></i></span>
+            <span class="text" ng-if="!data.Params.NoOfParticipants" ng-cloak>Share it now</span>
+          </a> 
+        </li>
+      </ul>
+      <ul class="feed-actions" ng-if="data.IsWinnerAnnounced=='1'">
+        <li>
+          <span class="like-btn">
+            <i tooltip data-placement="top" data-container="body" ng-attr-data-original-title="{{(data.IsLike == '1') ? 'Unlike' : (data.NoOfLikes=='0') ? 'Be the first to like' : 'Like' ;}}" ng-click="likeEmit(data.ActivityGUID, 'ACTIVITY', data.ActivityGUID);" ng-class="data.IsLike == '1' ? 'ficon-heart active' : 'ficon-heart'" ></i>
+            <abbr ng-if="data.NoOfLikes > 0" ng-bind="data.NoOfLikes" ng-click="likeDetailsEmit(data.ActivityGUID, 'ACTIVITY');"></abbr>
+          </span>
+        </li>
+        <li>
+          <a ng-click="postCommentEditor(data.ActivityGUID, FeedIndex);  data.showeditor = true;" ng-if="LoginSessionKey!='' && data.NoOfComments == 0">
+              Be the first to comment
+          </a>
+          <a ng-if="data.NoOfComments > 0" ng-bind="'Comments (' + data.NoOfComments + ')'" ng-click="(data.ShowComments == 1) ? data.ShowComments = 0 : data.ShowComments = 1;"></a>
+        </li>
+      </ul>                  
+    </div>
+  </div>
+  <div class="feed-footer" ng-hide="(data.IsWinnerAnnounced=='0' || data.NoOfComments == '0') && !data.showeditor" ng-class="(data.NoOfComments > 0) ? 'is-comments' : '';">
+    <span ng-include src="partialURL+'activity/Comments.html'+app_version" ></span>
+  </div>
+</div>

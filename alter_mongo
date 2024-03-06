@@ -1,0 +1,4 @@
+Mongo Changes
+
+Add transaction_messages collection from dev.vinfotech.org mongo server
+add earn_coins collection from dev.vinfotech.org mongo server

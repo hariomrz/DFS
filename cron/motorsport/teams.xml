@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<standings sport="formula 1">
+  <teams>
+    <team post="1" name="Red Bull" id="1019" points="111" />
+    <team post="2" name="Aston Martin" id="1029" points="65" />
+    <team post="3" name="Mercedes" id="1021" points="56" />
+    <team post="4" name="Ferrari" id="1011" points="26" />
+    <team post="5" name="McLaren" id="1024" points="12" />
+    <team post="6" name="Alpine" id="1016" points="8" />
+    <team post="7" name="Haas" id="1034" points="7" />
+    <team post="8" name="Alfa Romeo" id="1026" points="6" />
+    <team post="9" name="Williams" id="1010" points="1" />
+    <team post="10" name="AlphaTauri" id="2031" points="0" />
+  </teams>
+</standings>

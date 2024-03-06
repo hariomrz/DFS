@@ -1,0 +1,43 @@
+.user-pc {
+  &.contestlist-dashboard {
+    .card-body {
+      padding: 0px;
+    }
+
+    .table {
+      width: auto;
+
+      th,
+      td {
+        width: 10%;
+      }
+    }
+
+    .table-responsive {
+
+      th,
+      td {
+        width: 4%;
+        padding: 9px 0px;
+        @media (max-width: 1366px) {
+          width: 8%;
+        }
+      }
+    }
+  }
+}
+.user-pc{
+  &.contestlist-dashboard{
+    .contest-dashboard-btn{
+      font-size: 14px;
+      padding: 0;
+    }
+    .contest-table-p .line-text-ellipsis{
+      display: initial;
+      font-size: 14px;
+    }
+    .table td{
+      font-size: 14px;
+    }
+  }
+}

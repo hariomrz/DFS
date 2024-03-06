@@ -1,0 +1,12 @@
+------- fantasy ------
+http://framework.vinfotech.org/fantasy/migration/do_migration
+
+058_rookie_group.php
+
+after migration hit add group_id from master_group table for rookie group to app config from admin
+
+http://framework.vinfotech.org/user/migration/do_migration
+
+093_rookie_contest.php
+
+

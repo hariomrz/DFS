@@ -1,0 +1,91 @@
+.qz-report-list {
+  .pre-heading {
+    color: #030F09;
+    font-family: $font-black;
+    font-size: 24px;
+    margin: 24px 0 20px;
+  }
+
+  .qw-date {
+    float: left;
+    color: #333333;
+    font-family: $font-bold;
+    margin-top: 14px;
+  }
+
+  .qw-btns {
+    float: right;
+
+    :last-child {
+      margin-left: 18px;
+    }
+  }
+
+  .qz-act-icn {
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px 8px;
+
+    .icon-ic-play {
+      color: $green;
+      font-weight: bold;
+    }
+
+    .icon-pause {
+      color: $red;
+      font-weight: bold;
+    }
+  }
+
+  .qz-dtl-box {
+    background-color: #F4F6F8;
+  }
+
+  .qz-dtl-num {
+    color: $secondary-color;
+  }
+
+  .icon-bonus {
+    color: #FA717B;
+  }
+
+  .qzSelGainer {
+    .Select-control {
+      height: 36px;
+      width: 197px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+      border: none;
+
+      .Select-value {
+        line-height: 36px !important;
+      }
+    }
+  }
+
+  .grpCstmLgnd {
+    display: block;
+    height: 26px;
+    width: 26px;
+    border-radius: 6px;
+    float: left;
+    margin-right: 6px;
+  }
+
+  .grpCstmLgndTitle {
+    margin-top: 2px;
+    display: block;
+  }
+
+  .highcharts-legend{
+    .highcharts-legend-item{
+      > span{
+        width: 80px !important;
+      }
+    }
+  }
+}
+
+.qzAllLrdBrd {
+  margin-top: 30px;
+}

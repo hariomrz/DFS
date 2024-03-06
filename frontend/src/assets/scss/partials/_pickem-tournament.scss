@@ -1,0 +1,1280 @@
+.pickem-card-shimmer{
+    background: $white;
+    .shimmer-bottom-view{
+        border-top: 1px solid rgb(238, 238, 238);
+        .display-table-cell{
+            height: 126px;
+            text-align: center;
+            &:first-child{
+                border-right: 1px solid rgb(238, 238, 238);
+            }
+        }
+    }
+}
+.header-fixed-strip div.strip-content{
+    &.strip-content-shadow{
+        box-shadow: 0px 2px 16px 0 rgba(0,0,0,0.2);
+    }
+}
+.leaderboard-new-web-container.tour-pick-leaderboard .app-header-style .row-container .section-right.section-min{
+    width: auto;
+}
+.pick-tour-conatiner{
+    .pickem-prediction-outer-card{
+        margin-bottom: 20px;
+    }
+}
+.tour-pick-leaderboard,
+.pick-tour-conatiner,
+.pickem-participants-wrap{
+    .app-header-style .row-container {
+        .section-middle .section-middle{
+            .match-timing{
+                line-height: 1;
+                font-family: $font-semibold;
+            }
+            .team-home{
+                text-transform: capitalize;
+                max-width: 300px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 1;
+                @media (max-width: 767px){
+                    max-width: 200px;
+                }
+                @media (max-width: 320px){
+                    max-width: 150px;
+                }
+            }
+            .vs-text{
+                vertical-align: middle;
+            }
+        }
+    }
+}
+.pick-live-list-wrap{
+    &.pick-tour-conatiner .tour-live-sec .pickem-prediction-outer-card{
+        padding: 0 15px;
+    }
+}
+.pick-tour-conatiner{
+    padding-top: 56px;
+    .pickem-prediction-card .option-section .option-info.correct-option{
+        border-bottom: none;
+        &:before{
+            display: none;
+        }
+    }
+    .app-header-style .row-container {
+        .section-right .header-action{
+            &:last-child.status{
+                border-radius: 10px;
+                background: $alert_danger_color;
+                padding: 5px;
+                width: 51px;
+                font-size: $font-size-small;
+                line-height: 1;
+                height: 20px;         
+                text-align: center;
+            }
+            .live-indicator{
+                background: $white;
+                margin-right: 0;
+            }
+            .status-text{
+                color: $white;
+                font-family: $font-bold;   
+                &.live{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .pick-tour-header{  
+        padding: 8px 15px;
+        position: relative;
+        .primary-head-bg{
+            position: absolute;
+            width: 100%;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: $primary;
+            height: 50%;
+        }
+        .tour-data{
+            background: $white;
+            border-radius: 10px;
+            position: relative;
+        }
+        .tour-data-body{
+            padding: 7px 15px 4px; 
+            .table{
+                width: 100%;
+                display: table;
+                margin-bottom: 0;
+                .table-cell{
+                    display: table-cell;
+                    width: 20%;
+                    vertical-align: middle;
+                    .value{
+                        font-size: $font-size-medium;
+                        font-family: $font-bold;
+                        color: $primary;
+                        line-height: 1.1;
+                    }
+                    .label{
+                        font-size: $font-size-xsmall - 1;
+                        color: $help_text_color;
+                        text-transform: capitalize;
+                        font-family: $font-semibold;
+                    }
+                    &.usernm{
+                        width: 60%;
+                        .value{
+                            color: $primary_text_color;
+                            font-size: $font-base;
+                        }
+                    }
+                }
+            }
+            .won-sec{
+                background: $alert_success_color;
+                color: $white;
+                font-family: $font-semibold;
+                font-size: $font-size-medium;
+                border-radius: 7px;
+                text-align: center;
+                padding: 5px 0 3px;
+                margin-top: 4px;
+                span{
+                    font-family: $font-bold;
+                }
+            }
+        }
+        .tour-data-header{
+            border-bottom: 1px solid $border-color;
+            padding: 11px 18px 9px;
+            a{
+                color: $primary;
+                font-size: $font-size-small;
+                font-family: $font-semibold;
+                text-transform: capitalize;
+            }
+            span.circle{
+                display: inline-block;
+                border: 1px solid $help_text_color;
+                border-radius: 100%;
+                width: 5px;
+                height: 5px;
+                margin: 0 22px;
+                @media (max-width: 360px){
+                    margin: 0 8px;
+                }
+            }
+            .tour-img{
+                width: 65px;
+                height: 33px;
+                float: right;
+                position: relative;
+                top: -7px;
+                text-align: center;
+                right: -8px;
+                img{
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+                @media (max-width: 320px){
+                    top: -28px;
+                }
+            }
+        }
+    }
+    .tour-tab-prd-wrap{
+        padding: 15px;
+        .pickem-prediction-outer-card{
+            &.disabled{
+                opacity: .68;
+                pointer-events: none;
+                filter: grayscale(100%);
+            }
+        }
+    }
+    .tour-live-sec{
+        padding: 10px 0 0;
+        background: $disabled_text_color;
+        .tour-tab-prd-wrap{
+            padding: 10px 0px 0px;
+        }
+        .pickem-prediction-outer-card{
+            padding-right: 7px;
+        }
+        .timer-section a{
+            color: $primary;
+        }
+        .pickem-prediction-card .option-section .option-info{
+            &:first-child,
+            &:last-child{
+                border-radius: 0;
+            }
+            &.selected-option{
+                border-radius: 0;
+                :before{
+                    height: 2px;
+                }
+            }
+        }
+        .head{
+            padding: 0 15px 3px;
+            font-size: $font-size-base;
+            color: $primary_text_color;
+            .live-head{
+                display: inline-block;
+                position: relative;
+                font-family: $font-bold;
+                span{
+                    border-radius: 50%;
+                    width: 6px;
+                    height: 6px;
+                    background: $alert_danger_color;
+                    display: inline-block;
+                    margin-right: 5px;
+                }
+                &:before{
+                    content: '';
+                    position: absolute;
+                    background: $primary;
+                    height: 3px;
+                    width: 3px;
+                    bottom: 0;
+                    left: 0;
+                    -webkit-animation : pulse 1.5s infinite;
+                    -moz-animation    : pulse 1.5s infinite;
+                    -o-animation      : pulse 1.5s infinite;
+                    animation         : pulse 1.5s infinite;
+                    animation-timing-function: linear;
+                }
+            }
+            a{
+                float: right;
+                text-transform: capitalize;
+                color: $primary;
+                text-decoration: underline;
+                font-size: $font-size-small;
+                font-family: $font-semibold;
+            }
+        }
+    }
+    .my-contest-pre-card.pickem-prediction-outer-card .timer-section{
+        &.comp-timer-section{
+            color: $help_text_color;
+            .pts-score{
+                color: $help_text_color;
+            }
+        }
+    }
+    .pickem-prediction-card .option-section .option-info{
+        &.correct-option,
+        &.wrong-selected,
+        &.correct-selected{
+            border-radius: 0;
+        }
+    }
+    .pickem-comp-list{
+        .pickem-prediction-outer-card .pickem-prediction-card .option-section .option-img{
+            background: transparent;
+            border-radius: 0;
+            padding-top: 0;
+            height: 33px;
+            width: 33px;
+        }
+    }
+    .pickem-prediction-card .option-section .option-info.selected-option{
+        border-radius: 0;
+    }
+}
+
+@keyframes pulse {
+    from {
+        left: 0;
+        width: 3px;
+    }
+    25% {
+        left: 42%;
+        width: 20px;
+    }
+    50% {
+        left: 95%;
+        width: 3px;
+    }
+    75% {
+        left: 42%;
+        width: 20px;
+    }
+    to {
+        left: 0;
+        width: 3px;
+    }
+}
+.tour-tab-wrap{
+    .my-contest-tab{
+        .nav{
+            justify-content: center;
+            li{
+                padding: 10px 20px;
+                a{
+                    font-size: $font-size-medium;
+                    color: $help_text_color;
+                    text-transform: uppercase;
+                    font-family: $font-bold;
+                    padding: 8px;
+                }
+                &.active{
+                    a{
+                        color: $primary;
+                        position: relative;
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            width: 50%;
+                            height: 3px;
+                            border-radius: 1.5px;
+                            left: 0;
+                            right: 0;
+                            margin: 0 auto;
+                            bottom: 0;
+                            background: $primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .scoring-sec{
+        padding: 8px 15px 5px;
+        margin-top: 10px;
+        background: $disabled_text_color;
+        .scoring-text{
+            font-size: $font-size-small;
+            color: $help_text_color;
+            font-family: $font-regular;
+            display: inline-block;
+            width: 50%;
+            span{
+                font-family: $font-bold;    
+            }
+            &.correct{
+                span{
+                    color: $alert_success_color;
+                }
+            }
+            &.incorrect{
+                text-align: right;
+                span{
+                    color: $alert_danger_color;
+                }
+            }
+        }
+    }
+}
+.full-screen-modal{
+    .custom-modal.tour-rules-modal{
+        height: 100%;
+        width: 100%;
+        max-width: 550px;
+        border-radius: 0;
+        .tour-sponser-wrap{
+            padding: 14px 0 26px;
+            text-align: center;
+            margin: 0 auto;
+            max-width: calc(100% - 40px);
+            &.single-tour-sponser-wrap{
+                max-width: calc(100% - 40px);
+            }
+        }
+        .modal-content{
+            height: 100%;
+            width: 100%;
+            border-radius: 0;
+        }
+        .modal-header{
+            border-bottom: none;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: $white;
+            max-width: 550px;
+            z-index: 1;
+            a{
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .Confirm-header{
+                text-align: center;
+                .label{
+                    line-height: 1;
+                    color: $primary_text_color;
+                    font-family: $font-bold;
+                    font-size: $font-base;
+                        max-width: 300px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        display: inline-block;
+                        @media (max-width: 767px){
+                            max-width: 200px;
+                        }
+                        @media (max-width: 320px){
+                            max-width: 150px;
+                        }
+                }
+                .contest-date{
+                    line-height: 1;
+                    font-size: $font-size-xsmall;
+                    font-family: $font-bold;
+                    color: $help_text_color;
+                }
+            }
+        }
+        .modal-body{
+            background-color: $white;
+            padding: 0;
+            padding-top: 69px;
+            .rules-scroll-div{
+                max-height: calc(100vh - 112px);
+                overflow-y: auto;
+            }
+            ul.nav{
+                border-bottom: 1px solid $app_bg_color;
+                justify-content: center;
+                align-items: center;
+                li{
+                    a{
+                        color: $help_text_color;
+                        text-transform: uppercase;
+                        font-size: $font-base;
+                        font-family: $font-bold;
+                        padding: 14px 30px;
+                        display: block;
+                        line-height: 1;
+                    }
+                    &.active{
+                        a{
+                            color: $primary_text_color;
+                            position: relative;
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                bottom: 0;
+                                height: 3px;
+                                width: 70%;
+                                background: $primary;
+                                border-radius: 1.5px;
+                                left: 0;
+                                right: 0;
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                }
+            }
+            .tab-wrap{
+                padding: 15px 0;
+                td{
+                    width: 50%;
+                    i{
+                        color: $primary;
+                        position: relative;
+                        top: -1px;
+                    }
+                    .currency-icon-prize{
+                        color: $primary;
+                    }
+                }
+            }
+            .spon-banner{
+                height: 60px;
+                border-radius: 6px;
+                background-color: #020202;
+                width: calc(100% - 40px);
+                margin: 0 auto;
+            }
+            .desc-text-sec{
+                margin: 16px 20px 20px;
+                background: $app_bg_color2;
+                padding: 9px 15px 6px;
+                color: $body_text_color;
+                font-size: $font-base;
+                font-family: $font-regular;
+                border-radius: 8px;
+                line-height: 1.4;
+            }
+            .rules-que-wrap{
+                padding: 0 25px;
+                .text-label{
+                    font-size: $font-base;
+                    font-family: $font-bold;
+                    padding-bottom: 5px;
+                    margin-top: 20px;
+                    color: $body_text_color;
+                }
+                p{
+                    font-size: $font-base;
+                    font-family: $font-regular;
+                    color: $body_text_color;
+                    margin-bottom: 0;
+                }
+                ul{
+                    padding: 0 0 0 15px;
+                    margin: 0;
+                }
+                .rules-que{
+                    position: relative;
+                    padding-left: 45px;
+                    margin-bottom: 15px;
+                    i{
+                        font-size: 20px;
+                        position: absolute;
+                        left: 10px;
+                        top: 3px;
+                        color: $help_text_color;
+                    }
+                    .head{
+                        font-size: $font-base;
+                        font-family: $font-bold;
+                        padding-bottom: 4px;
+                        color: $body_text_color;
+                    }
+                    .ans{
+                        font-size: $font-base;
+                        font-family: $font-regular;
+                        color: $body_text_color;
+                    }
+                }
+            }
+        }
+        .prizes-sec{
+            .prize-strip{
+                position: relative;
+                text-align: center;
+                &:before{
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 1px;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: $app_bg_color;
+                }
+                span{
+                    border-radius: 15px;
+                    color: $primary_text_color;
+                    background: $app_bg_color;
+                    padding: 7px 54px 5px;
+                    text-align: center;
+                    display: inline-block;
+                    margin: 0 auto;
+                    text-transform: capitalize;
+                    position: relative;
+                    font-family: $font-bold;
+                    font-size: $font-size-small;
+                }
+            }
+            .table-wrap{
+                padding: 15px 30px 15px 36px;
+            }
+            table{
+                width: 100%;
+                tr{
+                    td{
+                        width: 50%;
+                        font-size: $font-size-small;
+                        font-family: $font-regular;
+                        padding: 8px 0;
+                        vertical-align: middle;
+                        &:nth-child(2){
+                            width: 50%;
+                            font-family: $font-bold;
+                            img{
+                                width: 13px;
+                                height: 13px;
+                                position: relative;
+                                top: -1px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pick-tour-card{
+    border-radius: 14px;
+    background-color: $white;
+    .tour-body{
+        padding: 19px 12px 15px 15px;
+        position: relative;
+        .showstatus{
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            color: $alert_danger_color;
+            font-family: $font-bold;
+            font-size: $font-size-xsmall;
+            text-transform: uppercase;
+            span{
+                background: $alert_danger_color;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: 1px;
+                position: relative;
+                top: -1px;
+            }
+        }
+        .spon-img-sec{
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid $border-color;
+            border-radius: 10px;
+            width: 62px;
+            height: 62px; 
+            text-align: center;
+            position: relative;
+            @media (max-width: 360px){
+                width: 50px;
+                height: 50px;
+            }
+            img{
+                max-width: 95%;
+                max-height: 95%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+        .tour-info-text{
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 65px);
+            padding-left: 15px;
+            position: relative;
+            .tour-btn{
+                border: 1px solid $primary;
+                border-radius: 15px;
+                color: $primary;
+                font-size: $font-base;
+                text-transform: capitalize;
+                font-family: $font-bold;
+                padding: 5px 16px 2px;
+                position: absolute;
+                right: 0;
+                bottom: -6px;
+                &.tour-btn-result{
+                    padding: 3px 10px 0px;
+                }
+            }
+            @media (max-width: 360px){
+                width: calc(100% - 55px);
+                padding-left: 10px;
+                .tour-btn,
+                .tour-btn.tour-btn-result{
+                    padding: 3px 6px 0px;
+                    font-size: $font-size-small;
+                    right: -5px;
+                    bottom: 0px;
+                }
+            }
+            a.pick-tour-rules{
+                color: $primary;
+                text-transform: uppercase;
+                padding: 2px 5px;
+                font-size: $font-size-xsmall - 2;
+                font-family: $font-bold;
+                border-radius: 3px;
+                border: .5px solid $primary;
+            }
+            .tour-nm{
+                font-size: $font-base;
+                font-family: $font-bold;
+                color: $primary_text_color;
+                line-height: 1.3;
+                margin-top: 3px;
+                &.show-ellip{
+                    line-height: 1.5;                    
+                    max-width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+            .pick-tour-text{
+                color: $help_text_color;
+                font-family: $font-bold;
+                font-size: $font-size-xsmall - 2;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+            .fixture-info{
+                color: $help_text_color;
+                font-size: $font-size-xsmall;
+                .countdown-timer-section{
+                    display: inline-block;
+                    color: $alert_danger_color;
+                    font-family: $font-bold;
+                }
+                .tour-status{
+                    color: $help_text_color;
+                    text-transform: capitalize;
+                    display: inline-block;
+                    font-family: $font-regular;
+                    text-transform: capitalize;
+                    span{
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 100%;
+                        display: inline-block;
+                        margin-right: 5px;
+                    }
+                }
+                &.live-status{
+                    .tour-status{
+                        color: $alert_danger_color;
+                        text-transform: uppercase;
+                        font-family: $font-bold;
+                        span{
+                            background: $alert_danger_color;
+                        }
+                    }
+                }
+                &.comp-status{
+                    .tour-status{
+                        color: $alert_success_color;
+                        // text-transform: uppercase;
+                        font-family: $font-bold;
+                        span{
+                            background: $alert_success_color;
+                        }
+                    }
+                }
+                .slash{
+                    margin: 0 8px;
+                    @media (max-width: 320px){
+                        margin: 0 4px;
+                    }
+                }
+                .no-of-fix{
+                    font-family: $font-regular;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+    .tour-footer{
+        border-top: 1px solid $border-color;
+        padding: 6px 20px 4px;
+        color: $help_text_color;
+        font-size: $font-size-small;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 1;
+        &.tour-footer-winning-sec{
+            padding: 10px 20px 8px;
+            .league-name{
+                position: relative;
+                top: -2px;
+            }
+            img{
+                display: inline-block;
+            }
+        }
+        .rank-sec{
+            text-align: right;
+            span{
+                font-size: $font-size-h4;
+                color: $primary;
+                font-family: $font-bold;
+                margin-left: 5px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            &.winning-sec{
+                span{
+                    font-size: $font-size-small;
+                }
+            }
+        }
+    }
+    .entry-btn{
+        padding: 0 15px 15px;
+        a{
+            display: block;
+            padding: 9px 15px 6px;
+            font-size: 12px;
+            &:hover,&:focus,&:active{
+                color: $white
+            }
+        }
+    }
+}
+.web-container.web-container-fixed{
+    &.pick-tour-list{
+        padding: 75px 15px 15px;
+        .pick-tour-card{
+            margin-bottom: 20px;
+        }
+    }
+}
+.tour-slider-wrapper{
+    margin-top: 10px;
+    padding: 15px 0;
+    background: $disabled_text_color;
+    .label-text{
+        padding: 0 20px 10px;
+        font-family: $font-bold;
+        color: $primary_text_color;
+        text-transform: uppercase;
+        a{
+            float: right;
+            text-transform: capitalize;
+            text-decoration: underline;
+            color: $primary;
+            font-size: $font-size-small;
+        }
+    }
+    .pick-tour-card-wrap{
+        padding-right: 6px;
+    }
+}
+.tour-sponser-wrap{
+    .slider-banner-item{
+        padding: 0 4px;
+        .slider-inner-item{
+            border-radius: 6px;
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+            background: $app_bg_color;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    &.single-tour-sponser-wrap{
+        padding: 0 13px;
+    }
+}
+.pickem-tour-user-history{
+    .participants-list .header-table .dtr.dth .dtc{
+        padding: 12px 6px 8px;
+        &.part-name{
+            padding-left: 20px;
+            width: 75%;
+        }
+        &.part-pick{
+            // width: 12%;
+            width: 25%;
+        }
+    }
+    .participants-list .all-part-table .dtr.dtb .dtc{
+        padding: 8px 5px 7px;
+        &.part-name{
+            padding-left: 20px;
+            width: 75%;
+            span{
+                font-size: $font-regular;
+                &.nm{
+                    font-family: $font-semibold;
+                    font-size: $font-size-small;
+                    color: $primary_text_color;    
+                    line-height: 1;
+                    max-width: 160px;
+                }
+                &.date{
+                    display: block;
+                    color: $help_text_color;
+                    font-size: $font-size-xsmall;    
+                    line-height: 1;
+                }
+            }
+        }
+        &.part-est-win{
+            font-family: $font-bold;
+            // width: 12%;
+            width: 25%;
+        }
+    }
+    .total-fixed-btn{
+        position: fixed;
+        bottom: 0;
+        max-width: 550px;
+        width: 100%;
+        left: 0;
+        background: $primary;
+        color: $white;
+        font-family: $font-bold;
+        display: table;
+        .tot-pts{
+            padding: 14px 20px 10px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .tot-scr{
+            padding: 14px 20px 10px;
+            display: table-cell;
+            vertical-align: middle;
+            width: 25%;
+            font-family: $font-bold;
+            font-size: $font-size-medium;
+        }
+    }
+}
+.app-header-style .row-container .section-middle .section-middle{
+    .userinfo-sec{
+        text-align: center;
+        color: $white;
+        .usr-nm{
+            font-family: $font-bold;
+            font-size: $font-base;
+        }
+        .user-data{
+            font-family: $font-bold;
+            font-size: $font-size-xsmall;
+            text-transform: capitalize;
+            display: block;
+        }
+    }
+}
+.pickem-participants-wrap{
+    .participants-list.live-particiapnt-list .all-part-table{
+        // margin-top: 34px;
+    }
+    &.pickem-tourparticipants{
+        .participants-list .all-part-table .dtr.dtb .dtc.part-name span.nm{
+            max-width: 460px;
+            @media (max-width: 550px){
+                max-width: 300px;
+            }
+            @media (max-width: 360px){
+                max-width: 380px;
+            }
+            @media (max-width: 320px){
+                max-width: 240px;
+            }
+        }
+    }
+}
+.tour-pick-leaderboard{
+    &.leaderboard-new-wrap .score-card .top-three-user .top-user-detail .won-amt .contest-prizes{
+        font-family: $font-bold;
+    }
+}
+.thank-you-modal.modal-dialog.confirmation-modal-contestlist{
+    &.pick-confirm-alert{
+        .modal-body{
+            padding: 48px 30px;
+        }
+        .my-alert-message-text{
+            width: 208px;
+            margin: 20px auto 105px;
+            min-height: 10px;
+            span{
+                position: static;
+                padding: 0;
+                font-size: $font-size-h4;
+                color: $primary_text_color;
+            }
+        }
+        .footer-actn-btn{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            align-items: center;
+            a{
+                font-family: $font-bold;
+                font-size: $font-size-h4;
+                color: $primary;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+
+
+// changes for dark theme overall
+.body-dark-theme{
+    .tour-tab-wrap{
+        .scoring-sec{
+            background: $darkT_app_bg_color;
+        }
+        .my-contest-tab{
+            .nav li.active a{
+                color: $darkT_primary;
+                &:before{
+                    background: $darkT_primary;
+                }
+            }
+        }
+    }
+    .pick-tour-conatiner{
+        .tour-live-sec{
+            .timer-section a{
+                color: $darkT_primary;
+            }
+            .head{
+                color: $darkT_primary_text_color;
+                a{
+                    color: $darkT_primary;
+                }
+                .live-head:before{
+                    background: $darkT_primary;
+                }
+            }
+        }
+        .pick-tour-header{
+            .primary-head-bg{
+                background: $darkT_primary;
+            }
+            .tour-data{
+                background: $white;
+            }
+            .tour-data-header{
+                border-bottom: 1px solid $darkT_border_color;
+                a{
+                    color: $darkT_primary;
+                }
+            }
+        }
+        .pick-tour-header{
+            .tour-data{
+                background: $darkT_app_bg_color;
+            }
+            .tour-data-body{
+                .table{
+                    .table-cell{
+                        .value{
+                            color: $darkT_primary;
+                        }
+                        &.usernm{
+                            .value{
+                                color: $darkT_primary_text_color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pick-tour-card{
+        background: $darkT_app_bg_color;
+        .tour-body{
+            .spon-img-sec{
+                border-color: $darkT_border_color;
+            }
+            .tour-info-text{
+                .tour-nm{
+                    color: $darkT_primary_text_color;
+                }
+                a.pick-tour-rules{
+                    border-color: $darkT_primary;
+                    color: $darkT_primary;
+                }
+                .tour-btn{
+                    border-color: $darkT_primary;
+                    color: $darkT_primary;
+                }
+            }
+        }
+        .tour-footer{
+            border-top-color: $darkT_border_color;
+            .rank-sec{
+                span,
+                .winning-sec span{
+                    color: $darkT_primary;
+                }
+            }
+        }
+        .entry-btn a{
+            &:hover,&:focus,&:active{
+                color: $darkT_secondary_text_color;
+            }
+        }
+    }
+    .tour-slider-wrapper{
+        background: transparent;
+        .label-text {
+            color: $darkT_primary_text_color;
+            a{
+                color: $darkT_primary;
+            }
+        }
+    }
+    .full-screen-modal{
+        .custom-modal.tour-rules-modal{
+            background: $darkT_view_bg_color;
+            .modal-header{
+                background: $darkT_view_bg_color;
+                .Confirm-header {
+                    .label,.contest-date{
+                        color: $darkT_primary_text_color;
+                    }
+                }
+            }
+            .modal-content{
+                background: $darkT_view_bg_color;
+            }
+            .modal-body{
+                background: $darkT_view_bg_color;
+                ul.nav{
+                    border-bottom-color: $darkT_secondary_border_color;
+                    li.active a{
+                        color: $darkT_primary;
+                        &:before{
+                            background: $darkT_primary;
+                        }
+                    }
+                }
+                .tab-wrap{
+                    td{
+                        i,.currency-icon-prize{
+                            color: $darkT_primary;
+                        }
+                    }
+                }
+                .desc-text-sec{
+                    background: $darkT_app_bg_color;
+                    color: $darkT_primary_text_color;
+                }
+                .rules-que-wrap{
+                    .rules-que{
+                        i,.head,.ans{
+                            color: $darkT_primary_text_color;
+                        }
+                    }
+                }
+            }
+            .prizes-sec{
+                .prize-strip {
+                    span{
+                        background: $darkT_app_bg_color;
+                        color: $darkT_primary_text_color;
+                    }
+                    &:before{
+                        background: $darkT_app_bg_color;
+                    }
+                }
+                table tr td{
+                    color: $darkT_primary_text_color;
+                }
+            }
+        }
+    }
+    .leaderboard-new-wrap .score-card .top-three-user .top-user-detail:nth-child(2) .top-user-img .rank-section{
+        background: $darkT_primary;
+    }
+    .pickem-tour-user-history{
+        .total-fixed-btn{
+            background: $darkT_primary;
+        }
+        .participants-list .all-part-table .dtr.dtb .dtc.part-name span.nm{
+            color: $darkT_primary_text_color;
+        }
+    }
+    .pickem-card-shimmer{
+        background: $darkT_app_bg_color;
+        .shimmer-bottom-view{
+            border-top: 1px solid $darkT_border_color;
+            .display-table-cell{
+                &:first-child{
+                    border-right: 1px solid $darkT_border_color;
+                }
+            }
+        }
+    }
+    .pick-highlight .label-text{
+        color: $darkT_primary_text_color;
+    }
+}
+.tie-breaker {
+    width: 93%;
+    height: 105px;
+    margin: 0 auto;
+    padding: 12px 15px;
+    background-color: #E7E7E7;
+    border-radius: 14px;
+
+    .tb-tag {
+        box-sizing: border-box;
+        height: 13px;
+        width: 59px;
+        border: 0.5px solid #93A3B1;
+        border-radius: 2px;
+        background-color: #FFFFFF;
+        color: #93A3B1;
+        text-transform: uppercase;
+        font-size: 8px;
+        line-height: 13px;
+        text-align: center;
+        font-family: $font-exo-bold;
+    }
+
+    .title-tx {
+        color: #212121;
+        font-family: $font-exo-regular;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 17px;
+        margin: 5px 0;
+    }
+
+    .flex-tb-div {
+        display: flex;
+
+        .mid-line {
+            height: 32px;
+            width: 1px;
+            border-radius: 10px;
+            background-color: #D1D1D1;
+            margin: 0 25px;
+            margin-top: 5px;
+        }
+
+        .point-counts {
+            color: #333333;
+            font-family: $font-exo-regular;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 14px;
+            text-transform: capitalize;
+
+            span {
+                font-size: 18px;
+                font-family: $font-exo-bold;
+                letter-spacing: -0.45px;
+                line-height: 22px;
+            }
+        }
+    }
+}
+.w-fix{
+    font-size: 16px;
+    font-family: $font-exo-bold;
+ }
+ .font-f{
+     font-family: $font-exo-regular;
+     font-size: 16px;
+ }

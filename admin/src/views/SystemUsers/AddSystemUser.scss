@@ -1,0 +1,395 @@
+// Keyframe animation
+@keyframes flip-animation {
+  0% {
+
+    transform: rotateY(-90deg);
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+
+  }
+
+  100% {
+
+    transform: none;
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+  }
+}
+
+.flip-transition {
+  animation: flip-animation 0.4s linear;
+  animation-fill-mode: both;
+  transform: rotateY(-90deg);
+  transition: all 0.2s cubic-bezier(.36, -0.64, .34, 1.76);
+}
+
+.common-fixture {
+  @extend .flip-transition;
+  min-height: 110px;
+  max-width: 100%;
+  width: 330px;
+  margin-right: 22px;
+  box-shadow: none;
+  padding: 20px 10px !important;
+
+  .com-fixture-flag {
+    height: 68px;
+    width: 68px;
+  }
+
+  .com-fixture-name {
+    color: #212121;
+    font-family: $font-black;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .com-fixture-time {
+    color: #9398A0;
+    font-family: $font-bold;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .com-fixture-title {
+    color: #9398A0;
+    font-family: $font-bold;
+    text-align: center;
+    font-size: 11px;
+  }
+}
+
+.common-contest {
+  @extend .flip-transition;
+  height: 130px;
+  width: 345px;
+  border-radius: 14px;
+  background-color: $white;
+  box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+  padding: 16px 20px 8px;
+
+  .com-contest-name {
+    color: #00BFEB;
+    font-family: $font-black;
+    font-size: 16px;
+  }
+
+  .contest-name {
+    float: left;
+    cursor: pointer;
+  }
+
+  .con-action-list {
+    float: right;
+    margin-bottom: 0;
+
+    .action-item {
+      display: inline-block;
+      margin-left: 6px;
+
+      i {
+        font-size: 20px;
+        color: #20a8d8;
+      }
+    }
+  }
+
+  .com-contest-subtitle {
+    color: $gray-9;
+    font-family: $font-regular;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .com-contest-entries {
+    color: $gray-9;
+    font-family: $font-regular;
+    font-size: 12px;
+
+    >span {
+      color: #212121;
+      font-family: $font-bold;
+      font-size: 12px;
+    }
+  }
+
+  .con-contest-fee {
+    height: 30px;
+    width: 88px;
+    background-color: #0CBFEB;
+    color: $white;
+    font-family: $font-bold;
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 7px 0;
+    text-align: center;
+  }
+
+  .icon-rupess {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+
+  .all-u-progress {
+    height: 4px;
+    margin-bottom: 4px;
+
+    .progress-bar {
+      background-color: #5DBE7D;
+    }
+  }
+
+  .com-contest-mul-progress {
+    height: 4px;
+    margin-bottom: 4px;
+  }
+}
+
+.linup-info-text {
+  margin: 20px 0 10px;
+  height: 36px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background-color: rgba(12, 191, 235, 0.1);
+  color: #27272D;
+  font-family: $font-regular;
+  font-size: 16px;
+
+  &.war-text {
+    color: #ff0000;
+  }
+
+  span {
+    color: #CB0000;
+    font-weight: bold;
+  }
+}
+
+.add-system-user {
+  margin: 20px 0 200px;
+
+  .common-fixture {
+    padding: 20px 10px;
+  }
+
+  .table-responsive {
+    overflow-x: inherit;
+
+    .pr-28 {
+      padding-right: 28px;
+    }
+
+    .Select-control {
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: none;
+      }
+
+      .Select-value-label {
+        line-height: 36px;
+      }
+
+      .Select-clear-zone {
+        display: none;
+      }
+    }
+
+    .Select-arrow {
+      height: 10px;
+      width: 12px;
+      border-color: #CBC9C9 transparent transparent;
+    }
+
+    .select-wtd {
+      width: 300px;
+    }
+
+    .table tbody {
+
+
+      &:nth-child(odd) {
+
+        .Select-value,
+        .Select-placeholder {
+          background-color: #EFEFEF;
+        }
+      }
+
+      .is-focused .Select-placeholder {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .view-submitted-su {
+    float: right;
+    color: $secondary-color  !important;
+    font-family: $font-regular;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 2px solid rgba(248, 67, 110, 0.6);
+    cursor: pointer;
+  }
+
+  .linup-info-text {
+    &.mx-text-wd {
+      width: 390px;
+    }
+
+    &.p11-text-wd {
+      width: 190px;
+    }
+
+    i {
+      margin-right: 6px;
+    }
+  }
+
+  .icon-delete {
+    font-size: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 100%;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #666;
+      color: $white;
+    }
+  }
+
+  .linup-action {
+    height: 26px;
+    width: 26px;
+    display: inline-block;
+    border-radius: 100%;
+    color: $white;
+    background-color: #BABABA;
+    padding: 0 5px;
+    cursor: pointer;
+  }
+
+  .lineup-control {
+    >span {
+      margin-right: 20px;
+      user-select: none;
+    }
+  }
+
+  .linup-count {
+    font-family: $font-bold;
+  }
+
+  .addmore-container {
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 18px;
+  }
+
+  .submit-container {
+    width: 100%;
+    text-align: center;
+
+    .btn {
+      height: 36px;
+      width: 166px;
+    }
+  }
+
+  .asu {
+    box-sizing: border-box;
+    height: 128px;
+    border: 1px dashed #979797;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .common-fixture {
+    background-color: $white;
+    border-radius: 14px;
+    margin-right: 12px;
+    // @media (max-width: 1366px) {
+    //   width: 320px;
+    //   min-width: 320px;
+    //   margin-right: 12px;
+    //   padding: 20px 10px;
+    // }
+  }
+
+  .common-contest {
+    width: 360px;
+    min-width: 360px;
+    // @media (max-width: 1366px) {
+    //   width: 320px;
+    //   min-width: 320px;
+
+    //   .con-contest-fee {
+    //     width: 100%;
+    //   }
+    // }
+  }
+
+  .common-fixture {
+    min-height: 130px;
+    padding: 30px 10px;
+  }
+}
+
+.linup-info-text.fx-text-wd {
+  max-width: 650px;
+}
+
+.su-progress {
+  background-color: #F08C42;
+}
+
+.com-count-cls {
+  font-size: 12px;
+  position: absolute;
+  top: -19px;
+  color: $gray-9;
+}
+
+.com-count-after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  margin-right: 4px;
+}
+
+.su-count {
+  @extend .com-count-cls;
+  left: auto;
+
+  &::before {
+    @extend .com-count-after;
+    background-color: #F08C42;
+  }
+}
+
+.total-u-count {
+  @extend .com-count-cls;
+
+  &::before {
+    @extend .com-count-after;
+    background-color: #20a8d8;
+  }
+
+  right: 0;
+}
+
+.sys-usr-box {
+  .btn-p {
+    font-family: $font-regular;
+    padding: 4px 6px;
+    width: 120px;
+    margin: 2px 0;
+  }
+}

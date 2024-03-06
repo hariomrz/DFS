@@ -1,0 +1,77 @@
+//////*******NAV AND SIDE BAR********\\\\\\\\\\\\\\\
+
+html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .main{
+@media (min-width: $width-992){
+        margin-left: $sidebar-width;
+    }
+}
+.app-body{
+    @media (max-width: $width-992){
+        margin-top: 0;
+    }
+}
+.sidebar-fixed .sidebar{
+    position: fixed;
+    width: $sidebar-width;
+    background-color: $theme-color;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);   
+    
+    .ps-container{
+    >.nav{
+        margin-top: 10px;
+            .open{
+                background-color: #2B2E47;  
+            }
+        > .nav-item{   
+            margin-top: 20px;   
+            transition: 1s; 
+                  
+              >  .nav-link{
+                    background-color: #212235;
+                    border-radius: 100px 0 0 100px;
+                    margin-left: 20px;
+                    font-size: 16px;
+                    height: 40px;
+                    width: 229px;                    
+                    display: flex;
+                    align-items: center;
+                    font-family: $font-bold;
+                    transition: 1s;
+                    margin-top: 0;
+                    padding-left: 0;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        top: 40%;
+                        right: 1rem;                        
+                        width: 16px;
+                        height: 16px;                         
+                        transform: rotate(-180deg);                        
+                    }
+                }           
+        } 
+        .nav-dropdown-items 
+            {   
+                transition: max-height 1s ease-in-out;                    
+            .nav-link
+            {
+                opacity: 0.5;
+                transition: opacity 0.3s;
+                &:hover{
+                        background: none; 
+                        opacity: 1;
+                        font-family: $font-bold;
+                } 
+                &.active
+                {
+                    color: $white;
+                    background-color: transparent;
+                    opacity: 1;
+                    font-family: $font-bold;            
+                } 
+            }
+        }
+    }
+
+} 
+}

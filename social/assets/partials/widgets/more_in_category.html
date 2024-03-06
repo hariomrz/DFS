@@ -1,0 +1,79 @@
+<div class="panel panel-widget" ng-cloak ng-if="category_detail.nonFollowCat.length>0 || category_detail.FollowedCat.length >0">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="text">More in {{category_detail.Name}}</span></h3>
+    </div>
+
+    <div class="panel-body no-padding">
+        <div class="mCustomScrollbar max-ht230 global-scroll">
+            <ul class="list-items-hovered list-items-borderd" ng-if="category_detail.nonFollowCat.length >0">
+                <li ng-repeat="(key,subCat) in category_detail.nonFollowCat" class="items">
+                    <div class="list-items-sm">
+                        <div class="actions" ng-if="!subCat.Permissions.IsAdmin">
+                            <a target="_self" class="btn btn-xs btn-default" ng-click="follow_category(subCat.ForumCategoryID,subCat.ForumID,1)" ng-if="!subCat.Permissions.IsMember" ng-cloak>
+                                <span class="icon"><i class="ficon-followers"></i></span><span class="text">Follow</span>
+                            </a>
+                            <a target="_self" class="btn btn-primary btn-xs btn-text btn-text-lg following btn-xs-padding" ng-cloak ng-click="unfollow_category(subCat.ForumCategoryID,forum.ForumID,1);" ng-if="subCat.Permissions.IsMember && !subCat.Permissions.IsAdmin" ng-cloak>
+                                <span class="icon"><i class="ficon-check"></i></span>
+                                <span class="text"><span ng-bind="::lang.following"></span></span>
+                            </a>
+                        </div>
+                        <div class="list-inner">
+                            <figure>
+                                <a target="_self" ng-href="{{BaseURL+subCat.FullURL}}">
+                                    <img err-SRC="{{ImageServerPath+'upload/profile/220x220/category_default.png'}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+subCat.ProfilePicture}}" class="img-circle"  >
+                                </a>
+                            </figure>
+                            <div class="list-item-body">
+                                <h4 class="list-heading-xs"><a target="_self" ng-href="{{BaseURL+subCat.FullURL}}" ng-bind="subCat.Name"></a></h4>
+                                <ul class="list-activites text-xs text-off">
+                                    <li ng-if="subCat.NoOfDiscussions > 1" ng-bind="subCat.NoOfDiscussions+' Discussions'"></li>
+                                    <li ng-if="subCat.NoOfDiscussions <= 1" ng-bind="subCat.NoOfDiscussions+' Discussion'"></li>
+                                    <li ng-if="subCat.NoOfMembers > 1" ng-bind="subCat.NoOfMembers+' Members'"> </li>
+                                    <li ng-if="subCat.NoOfMembers <= 1" ng-bind="subCat.NoOfMembers+' Member'"> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel-footer" ng-if="category_detail.FollowedCat.length>0">
+        <a target="_self" class="view-link link-underline"  data-toggle="collapse" data-target="#followingCategories" ng-bind="category_detail.FollowedCatMoreText"></a>
+    </div>
+    <div class="panel-body no-padding" ng-if="category_detail.FollowedCat.length >0">
+        <div class="mCustomScrollbar max-ht230 global-scroll">
+            <div class="collapse" id="followingCategories">
+                <ul class="list-items-hovered list-items-borderd">
+                    <li ng-repeat="(key,subCat) in category_detail.FollowedCat" class="items">
+                        <div class="list-items-sm">
+                            <div class="actions" ng-if="!subCat.Permissions.IsAdmin">
+                                <a target="_self" class="btn btn-xs btn-default" ng-click="follow_category(subCat.ForumCategoryID,subCat.ForumID,1)" ng-if="!subCat.Permissions.IsMember" ng-cloak>
+                                    <span class="icon"><i class="ficon-followers"></i></span><span class="text">Follow</span>
+                                </a>
+                                <a target="_self" class="btn btn-primary btn-xs btn-text btn-text-lg following btn-xs-padding" ng-cloak ng-click="unfollow_category(subCat.ForumCategoryID,forum.ForumID,1);" ng-if="subCat.Permissions.IsMember && !subCat.Permissions.IsAdmin" ng-cloak>
+                                    <span class="icon"><i class="ficon-check"></i></span>
+                                    <span class="text"><span ng-bind="::lang.following"></span></span>
+                                </a>
+                            </div>
+                            <div class="list-inner">
+                                <figure>
+                                    <a target="_self" ng-href="{{BaseURL+subCat.FullURL}}">
+                                        <img err-SRC="{{ImageServerPath+'upload/profile/220x220/category_default.png'}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+subCat.ProfilePicture}}" class="img-circle"  >
+                                    </a>
+                                </figure>
+                                <div class="list-item-body">
+                                    <h4 class="list-heading-xs"><a target="_self" ng-href="{{BaseURL+subCat.FullURL}}" ng-bind="subCat.Name"></a></h4>
+                                    <ul class="list-activites text-xs text-off">
+                                        <li ng-bind="subCat.NoOfDiscussions+' Discussions'"></li>
+                                        <li ng-bind="subCat.NoOfMembers+' Members'"> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

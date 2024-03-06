@@ -1,0 +1,96 @@
+.ldr-common {
+  margin-top: 24px;
+
+  .ldr-title {
+    color: #030F09;
+    font-family: $font-bold;
+    font-size: 32px;
+    float: left;
+  }
+
+  .ldr-subtitle {
+    color: #A8A8A8;
+    font-family: $font-bold;
+    font-size: 18px;
+  }
+
+  .ldr-tot-heading {
+    color: $gray-5;
+    font-family: $font-regular;
+    font-size: 16px;
+  }
+
+  .ldr-tot-count {
+    color: #030F09;
+    font-family: $font-bold;
+    font-size: 24px;
+  }
+
+  .ldr-tot-container {
+    display: inline-block;
+    width: 20%;
+  }
+
+  .ldr-fil-box {
+    margin-top: 24px;
+  }
+
+  .ldr-search {
+    box-sizing: border-box;
+    height: 40px;
+    max-width: 340px;
+    border: 1px solid #D2DFEC;
+    border-radius: 4px;
+  }
+
+  .ldr-select {
+    height: 40px;
+    max-width: 340px;
+    border: 1px solid #D2DFEC;
+    border-radius: 4px;
+
+    .Select-control {
+      height: 38px;
+      border: none;
+    }
+
+    .Select-placeholder,
+    .Select-value {
+      line-height: 36px !important;
+    }
+  }
+
+  label {
+    color: $gray-5;
+    font-family: $font-bold;
+    margin-bottom: 4px;
+  }
+
+  .common-table {
+
+    th,
+    td {
+      user-select: none;
+      text-align: center !important;
+    }
+  }
+
+  .ldr-uname a {
+    color: #030F09;
+    font-family: $font-bold;
+    font-size: 16px;
+    text-decoration: underline;
+    float: left;
+  }
+
+  .ldr-img {
+    height: 32px;
+    width: 32px;
+    float: left;
+    margin-right: 8px;
+    border-radius: 100%;
+    .img-cover{
+      border-radius: 100%;
+    }
+  }
+}

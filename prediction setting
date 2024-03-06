@@ -1,0 +1,37 @@
+#prediction crons
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/7
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/8
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/5
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/4
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/2
+
+
+.env add below variable
+ALLOW_PREDICTION_SYSTEM =1
+
+PREDICTION_DBHOSTNAME=framework-optimize.c8qm9cncopow.ap-south-1.rds.amazonaws.com
+PREDICTION_DBUSERNAME=admin
+PREDICTION_DBPASSWORD=0ZhhGRoCy6FJtCmXKs6s5hSFf
+PREDICTION_DBNAME=framework_prediction
+
+NODE_BASE_URL=http://192.168.5.76:4000/
+
+#supervisor scripts
+
+[program:processpredictionscript]
+command=php /var/www/html/cron/index.php prediction_worker process_prediction --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pushscript.err.log
+stdout_logfile=/var/log/pushscript.out.log
+
+[program:processpredictionrefundscript]
+command=php /var/www/html/cron/index.php prediction_worker process_prediction_refund --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pushscript.err.log
+stdout_logfile=/var/log/pushscript.out.log
+
+http://framework.vinfotech.org/prediction/migration/do_migration
+
+

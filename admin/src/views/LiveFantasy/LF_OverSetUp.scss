@@ -1,0 +1,194 @@
+.fkOverSetUp {
+  margin-top: 40px;
+
+  .osInnings {
+    border-radius: 10px;
+    background-color: $white;
+  }
+
+  .osBoxShadow {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .osInnings {
+    padding: 40px 36px;
+    width: 100%;
+
+    .form-control {
+      background-color: #ededed;
+      border: none;
+    }
+
+    label {
+      margin-bottom: 4px;
+      color: #9398a0;
+      font-family: $font-bold;
+      display: block;
+    }
+
+    .coupons-option-list {
+      list-style-type: none;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .coupons-option-item {
+      display: inline-block;
+      margin-right: 100px;
+      position: relative;
+
+      .custom-control-input {
+        z-index: 1;
+      }
+
+      .custom-radio {
+        input[type="radio"] {
+          border: 0px;
+          width: 16px;
+          height: 16px;
+          left: 0;
+          top: 0;
+          cursor: pointer;
+        }
+      }
+
+      .custom-control-label {
+        color: #555555;
+        font-family: $font-regular;
+        padding-top: 2px;
+
+        .input-text {
+          margin-left: 24px;
+        }
+
+        &::before {
+          top: 4px;
+          left: 0;
+          width: 16px;
+          height: 16px;
+        }
+
+        &::after {
+          width: 12px;
+          height: 12px;
+          top: 6px;
+          left: 2px;
+          // background: inherit;
+        }
+      }
+    }
+  }
+
+  .osSlectInn {
+    color: #111010;
+    font-family: $font-regular;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .osSelectOver {
+    border-radius: 10px;
+    background-color: $white;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+
+  .osSelectOpt {
+    padding: 0 40px 30px;
+
+    .com-chekbox-container {
+      font-size: 0;
+      margin-bottom: 30px;
+    }
+
+    .com-chekbox-checkmark {
+      height: 20px;
+      width: 20px;
+      margin-top: 2px;
+
+      &::after {
+        left: 6px;
+        top: 2px;
+      }
+    }
+
+    input[disabled]+span.com-chekbox-checkmark {
+      background-color: #979797;
+      border: 1px solid #979797 !important;
+
+      &::after {
+        border-color: $white;
+      }
+    }
+  }
+
+  .opt-text {
+    color: #444444;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .osConfirmBtn {
+    text-align: center;
+    margin-top: 40px;
+
+    .btn {
+      height: 36px;
+      width: 186px;
+    }
+  }
+
+  .common-fixture {
+    background-color: $white;
+    border-radius: 10px;
+    padding-top: 18px;
+    margin-bottom: 20px;
+  }
+
+  .osMutiTxt {
+    color: #6D7278;
+    font-family: $font-bold;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+
+  .osMutiNo {
+    color: $secondary-color;
+  }
+
+  .osBallpoint {
+    color: #111010;
+    font-family: $font-regular;
+    font-weight: 800;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+
+  .osMultiBox {
+    margin-top: 30px;
+    div {
+      margin-right: 70px;
+      display: inline-block;
+    }
+
+    label {
+      float: left;
+      color: #111111;
+      font-family: $font-bold;
+      font-size: 16px;
+      margin-right: 16px;
+      margin-top: 6px;
+    }
+
+    .form-control {
+      float: left;
+      height: 40px;
+      width: 162px;
+      &[disabled] {
+        background-color: #979797;
+      }
+    }
+  }
+}

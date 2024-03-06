@@ -1,0 +1,598 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/quiz/index": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to get quiz list.",
+                "description": "This api is used to get quiz list",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/details": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to quiz details.",
+                "description": "This api is used to quiz details.",
+                "operationId": "details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\details"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/short_link": {
+            "post": {
+                "tags": [
+                    "Quiz"
+                ],
+                "summary": "This api is used to get quiz url.",
+                "description": "This api is used to get quiz url.",
+                "operationId": "short_link",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\short_link"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/get_predictions": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to get predictions.",
+                "description": "This api is used to get predictions.",
+                "operationId": "get_predictions",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\get_predictions"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/make_prediction": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to make prediction.",
+                "description": "This api is used to make prediction.",
+                "operationId": "make_prediction",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\make_prediction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/get_unread_prediction_count": {
+            "post": {
+                "tags": [
+                    "Prediction"
+                ],
+                "summary": "This api is used to get unread prediction count.",
+                "description": "This api is used to get unread prediction count.",
+                "operationId": "get_unread_prediction_count",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\get_unread_prediction_count"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/toggle_follow": {
+            "post": {
+                "tags": [
+                    "Follow/Unfollow"
+                ],
+                "summary": "This api is used to follow/unfollow quiz.",
+                "description": "This api is used to follow/unfollow quiz.",
+                "operationId": "toggle_follow",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\toggle_follow"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/leaderboard": {
+            "post": {
+                "tags": [
+                    "Leaderboard"
+                ],
+                "summary": "This api is used to quiz leaderboard.",
+                "description": "This api is used to quiz leaderboard.",
+                "operationId": "leaderboard",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\leaderboard"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/quiz/user_predicted_prediction": {
+            "post": {
+                "tags": [
+                    "User Predicted Prediction"
+                ],
+                "summary": "This api is used to get user predicted prediction.",
+                "description": "This api is used to get user predicted prediction.",
+                "operationId": "user_predicted_prediction",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Quiz\\user_predicted_prediction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Quiz\\index": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "Filter": {
+                    "description": "Filter quiz list, 0 - Upcoming, 1 - Completed, 2 - All",
+                    "type": "integer",
+                    "example": "0"
+                }
+            }
+        },
+        "Inclusify\\Api\\Quiz\\short_link": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "To get particular quiz short url",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\Api\\Quiz\\details": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "To get particular quiz details",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\Api\\Quiz\\get_predictions": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "To get particular quiz details",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\Api\\Quiz\\make_prediction": {
+            "required": [
+                "QuestionGUID",
+                "OptionGUID"
+            ],
+            "properties": {
+                "QuestionGUID": {
+                    "description": "Question GUID",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "OptionGUID": {
+                    "description": "Option GUID",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\Api\\Quiz\\get_unread_prediction_count": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "To get unread prediction count",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\Api\\Quiz\\toggle_follow": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "To follow/unfollow quiz",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\Api\\Quiz\\leaderboard": {
+            "required": [
+                "QuizGUID"
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "QuizGUID": {
+                    "description": "To get particular quiz details",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                }
+            }
+        },
+        "Inclusify\\Api\\Quiz\\user_predicted_prediction": {
+            "required": [
+                "QuizGUID",
+                "UserGUID"
+            ],
+            "properties": {
+                "QuizGUID": {
+                    "description": "Quiz GUID",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "UserGUID": {
+                    "description": "User GUID",
+                    "type": "string",
+                    "example": "e3218947d111-6703-aefb-dbc8-1ebb78a8"
+                }
+            }
+        }
+    }
+}

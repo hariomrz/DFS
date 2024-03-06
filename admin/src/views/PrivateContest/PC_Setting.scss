@@ -1,0 +1,77 @@
+.PC-setting {
+  .pc-headbox-item {
+    width: 310px;
+    height: 148px;
+
+    .pc-b-title {
+      line-height: 22px;
+      margin-top: -10px
+    }
+
+    .btn {
+      padding: 1px 13px;
+      margin-top: 12px;
+    }
+  }
+
+  .pcv-text {
+    color: $black;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .common-cus-checkbox .com-chekbox-checkmark {
+    top: 7px;
+  }
+
+  .input-box {
+    padding-left: 0;
+
+    .coupons-option-list {
+      &::after {
+        content: unset;
+      }
+    }
+
+    .coupons-option-item {
+      margin-right: 60px;
+
+      .custom-control-label::after {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+
+  .pc-b-count {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pc-comm-inp {
+    padding: 0;
+    height: 38px;
+    font-size: 30px;
+    text-align: center;
+    max-width: 84px;
+    color: $secondary-color;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.23);
+    border-radius: 0;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .pc-b-count {
+    font-size: 30px;
+    margin-top: 8px;
+  }
+
+  .pc-percent {
+    line-height: 36px;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.23);
+    user-select: none;
+  }
+}

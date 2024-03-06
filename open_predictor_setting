@@ -1,0 +1,48 @@
+
+#create database
+open_predictor
+
+#open prediction crons
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/open_predictor/update_lobby_fixture_data
+
+.env add below variable
+ALLOW_OPEN_PREDICTOR =1
+
+OPEN_PREDICTOR_DBHOSTNAME=
+OPEN_PREDICTOR_DBUSERNAME=
+OPEN_PREDICTOR_DBPASSWORD=
+OPEN_PREDICTOR_DBNAME=open_predictor
+
+NODE_BASE_URL=http://192.168.5.76:4000/
+
+#create queues
+open_predictor
+open_predictor_refund
+
+#supervisor scripts
+
+[program:processopenpredictionscript]
+command=php /var/www/html/cron/index.php open_predictor_worker process_prediction --env testing
+autostart=true
+stderr_logfile=/var/log/processopenpredictionscript.err.log
+stdout_logfile=/var/log/processopenpredictionscript.out.log
+
+[program:processopenpredictionrefundscript]
+command=php /var/www/html/framework/cron/index.php open_predictor_worker process_prediction_refund --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/processopenpredictionrefundscript.err.log
+stdout_logfile=/var/log/processopenpredictionrefundscript.out.log
+
+sudo service supervisor restart
+
+
+
+#run migration script
+http://framework.vinfotech.org/user/migration/do_migration
+http://framework.vinfotech.org/prediction/migration/do_migration
+
+#go to node_app folder and run below command  enviorment will be production live mode
+pm2 restart ecosystem.config.js --env testing
+
+sync notification_description and transaction_messages from mysql to mongo db

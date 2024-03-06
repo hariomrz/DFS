@@ -1,0 +1,53 @@
+.edit-level {
+    margin-top: 30px;
+  
+    .common-table {
+      th {
+        cursor: pointer;
+      }
+  
+      td,
+      th {
+        text-align: inherit;
+      }
+      .table{
+        tbody{
+            box-shadow: none;
+            &:nth-child(odd){
+                background-color: $white;
+            }
+             td{
+                 border-top: 1px solid $body-bg;
+                 font-family: "MuliBold";
+                 text-align: inherit;
+             }
+        }
+      }
+    }
+    .input-box{
+        width: auto;
+        text-align: center;
+        margin: 0 auto;
+        float: none;
+        max-width: 150px;
+        .form-control{
+            text-align: center;
+        }
+   
+  }
+  .icon-delete{
+    font-size: 24px;
+    padding: 4px 8px;
+    &:hover {
+      background-color: $theme-color;
+      color: $white !important;
+      border-radius: 100%;
+      padding: 4px 8px;
+      border-radius: 100%;
+      transition: background-color 0.3s;
+    }
+  }
+  }
+  .white-container{
+      background-color: $white;
+  }

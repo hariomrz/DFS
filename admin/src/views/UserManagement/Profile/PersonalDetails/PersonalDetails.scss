@@ -1,0 +1,139 @@
+.user-navigation {
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    position: inherit;
+  }
+}
+
+.common-box {
+  margin: 0px;
+  border-radius: 6px;
+  background-color: $white;
+  box-shadow: 0 13px 26px 0 rgba(0, 0, 0, 0.1);
+}
+
+.box-heading {
+  color: $text-color;
+  font-family: $font-bold;
+  font-size: 18px;
+  margin-bottom: 10px;  
+  color: $text-color;
+}
+
+.personal-box {
+  margin-top: 30px;
+  .m-t-30 {
+    margin-top: 60px;
+  }
+
+  .btn-update-container {
+    text-align: right;
+    margin-top: 30px;
+  }
+
+  .btn-update {
+    box-sizing: border-box;
+    height: 30px;
+    width: 80px;
+    border: 1px solid #F8436E !important;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 45px 0 rgba(0, 0, 0, 0.25);
+
+    color: $text-color;
+    font-family: $font-bold;
+
+  }
+}
+
+.verification-box {
+  @extend .common-box;
+  // height: 48px;
+    min-height: 48px;
+    max-height: 72px;
+    padding: 12px 0;
+    text-align: center;
+
+  .verify-item {
+    color: $text-color;
+    font-family: $font-bold;
+    font-size: 16px;
+
+    img {
+      margin-left: 30px;
+    }
+  }
+}
+
+.details-box {
+  @extend .common-box;  
+  padding: 22px 26px 30px;
+  margin-bottom: 26px;
+  
+}
+
+.box-items {
+  label {
+    color: #81898D;
+    font-family: $font-bold;
+    font-style: inherit;
+    margin: 0;
+  }
+
+  .user-value {
+    color: #2C2F3A;
+    font-family: $font-bold;
+    font-size: 16px;
+    width: 100%;
+  }
+}
+
+.notes-box {
+  margin-bottom: 76px;
+  .flagged{
+    height: 16px;
+    width: 12px;
+    margin-left: 0.5rem;
+  }
+  .notes-heading {
+    color: $text-color;
+    font-family: $font-bold;
+    font-size: 18px;
+  }
+  .add-notes{
+    color: #F8436E;
+    font-family: $font-bold;
+    text-decoration: underline;
+    float: right;
+    cursor: pointer;
+  }
+  .notes-container {
+    border-radius: 5px;
+    background-color: $white;
+    
+    padding: 10px 14px;
+    margin-top: 12px;    
+  }
+  :nth-child(2).notes-container {
+    margin-bottom: 30px;
+  }
+  .notes-title {
+    color: $text-color;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .notes-date {
+    color: #A8A8A8;
+    font-family: $font-regular;
+    font-size: 12px;
+  }
+
+  .notes-desc {
+    font-family: $font-regular;
+    color: #555555;
+    margin-top: 10px;
+    line-height: 18px;
+  }
+}

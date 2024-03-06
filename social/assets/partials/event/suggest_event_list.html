@@ -1,0 +1,26 @@
+<div class="panel panel-widget panel-similarEvents" ng-if="eventSuggest.length > 0">
+	<div class="panel-heading">
+		<h3 class="panel-title" ng-bind="lang.suggested_events"></h3>
+	</div>
+	<div class="panel-body no-padding">
+		<ul class="list-items-hovered list-items-borderd">
+		  	<li class="items" ng-repeat="event in eventSuggest">
+		    	<div class="list-items-xmd">
+			      	<div class="list-inner">
+				        <figure>
+							<a entitytype="event" entityguid="{{event.EventGUID}}" class="loadbusinesscard" ng-href="{{event.EventUrl}}">
+								<img ng-src="{{lang.image_server_path}}upload/profile/220x220/{{event.ProfilePicture}}" class="img-circle"   ng-if="event.ProfilePicture != '' && event.ProfilePicture != 'event-placeholder.png'">
+								<img ng-src="{{lang.image_server_path}}upload/profile/220x220/event-placeholder.png" class="img-circle"   ng-if="event.ProfilePicture == '' || event.ProfilePicture == 'event-placeholder.png'">
+							</a>
+            			</figure>
+				        <div class="list-item-body">
+				          	<small class="event-time" ng-bind="event.EventShortDayTime+' at '+event.StartTime"></small>
+				          	<h4 class="list-heading-sm ellipsis"><a ng-bind="event.Title" entitytype="event" entityguid="{{event.EventGUID}}" class="loadbusinesscard" ng-href="{{event.EventUrl}}"></a></h4>
+				          	<div><small ng-bind="event.Venue"></small></div>
+				        </div>
+			      	</div>
+		    	</div>
+		  	</li>
+		</ul>
+	</div>
+</div>

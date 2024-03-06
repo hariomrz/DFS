@@ -1,0 +1,56 @@
+<div ng-if="SettingsData.m1=='1'" class="panel panel-info warning" ng-cloak ng-controller="GroupPageCtrl" id="GroupPageCtrl" ng-init="suggestedGroupList(6, '0', 0)" ng-show="suggestedlist.length > 0" ng-init="callIsotope()">
+  <div class="panel-heading p">
+    <div class="list-items-default">
+      <div class="list-item-body">
+        <h4 class="list-heading-sm extra-bold" ng-bind="lang.w_suggested_groups_small"></h4>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body no-padding">
+    <ul class="list-items-members">
+      <li ng-repeat="group in listObj = suggestedlist" id="grp{{list.GroupGUID}}">
+          <div class="list-items-md">
+            <div class="list-inner">
+              <ul class="pull-right list-icons">
+                <li>
+                  <button ng-if="group.Permission.IsInvited != 1 && group.Permission.IsActiveMember != 1 && group.IsPublic == 1" class="btn btn-default btn-sm" ng-click="joinPublicGroup(group.GroupGUID, 'discoverslider')" ng-bind="lang.join"></button>
+                </li>
+              </ul>
+              <figure>
+                <a><img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" class="img-circle"  ></a>
+              </figure>
+              <div class="list-item-body">
+                <h4 class="list-heading-sm extra-bold"><a class="text-black" href="{{SiteURL+group.ProfileURL}}" ng-bind="group.GroupName"></a></h4>
+                <div class="ellipsis text-sm-muted" ng-if="group.GroupDescription!=''" ng-bind="group.GroupDescription"></div>
+                <ul class="list-activites list-icons-disc text-off">
+                  <li ng-cloak ng-if="group.MemberCount=='1'" class="text" ng-bind="'1 Member'"></li>
+                  <li ng-cloak ng-if="group.MemberCount>1" class="text" ng-bind="group.MemberCount+' Members'"></li>
+                  <li ng-cloak ng-if="group.DiscussionCount=='1'" class="text" ng-bind="'1 Discussion'"></li>
+                  <li ng-cloak ng-if="group.DiscussionCount>1" class="text" ng-bind="group.DiscussionCount+' Discussions'"></li>
+                </ul>
+                <div class="member-list-block" ng-if="group.MembersList.length>0">
+                  <ul class="member-list">
+                      <li class="member-item">                                           
+                        <a ng-repeat="member in group.MembersList" ng-if="member.ProfilePicture!==''" class="thumb-item" tooltip ng-attr-title="{{member.Name}}" data-container="body" data-placement="bottom">
+                           <img err-src="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+member.ProfilePicture}}"   />
+                        </a>  
+                      </li>
+                  </ul>
+                  <ul class="list-activites text-off">
+                    <li>
+                      <span ng-bind-html="::get_members_talking(group.MembersList)"></span>                  
+                    </li> 
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+      </li>
+    </ul>
+  </div>
+  <div class="panel-footer" ng-cloak ng-if="ShowCategory==0">
+    <a class="loadmore text-primary semi-bold" ng-click="updateShowCategory('suggestion')"><span ng-bind="lang.g_view_all"></span>
+    <span ng-if="ShowLoaderDiscover" class="loader">&nbsp;</span>
+    </a>
+  </div>
+</div>

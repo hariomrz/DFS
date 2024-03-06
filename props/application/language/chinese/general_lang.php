@@ -1,0 +1,60 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+/* Start of file general_lang.php */
+$lang['global_error'] = '请输入有效的参数。';
+$lang['invalid_status'] = '无效状态。';
+$lang['sports_id'] = '运动 ID';
+$lang['league_id'] = '联赛 ID';
+$lang['season_id'] = '比赛ID';
+$lang['team_id'] = '团队 ID';
+$lang['player_id'] = '玩家 ID';
+$lang['player_team_id'] = '玩家密钥';
+$lang['contest_id'] = '比赛 ID';
+$lang['user_team_id'] = '用户团队 ID';
+$lang['match_status'] = '比赛状态';
+$lang['阵容'] = '阵容';
+$lang['team_name'] = '团队名称';
+$lang['格式'] = '格式';
+$lang['join_code'] = '加入代码';
+$lang['promo_code'] = '促销代码';
+
+$lang['玩家'] = "玩家";
+$lang['player_info'] = "请提供所有玩家信息。";
+$lang['payout_type'] = '支付类型';
+$lang['currency_type'] = '货币类型';
+$lang['prop_id'] = '道具 ID';
+$lang['season_prop_id'] = '赛季道具 ID';
+$lang['entry_fee'] = '入场费';
+$lang['select_min_picks'] = '请选择最少 {min_picks} 个选项。';
+$lang['invalid_team'] = '无效的用户团队';
+$lang['team_success'] = '团队保存成功。';
+$lang['join_entry_email_subject'] = 'Props Fanatsy 加入条目';
+$lang['min_max_bet_limit'] = '赌注不应小于 {min_bet} 且大于 {max_bet}。';
+$lang['payout_disabled_error'] = '付款已禁用，请选择另一组选择';
+$lang['multi_sports_pl_error'] = '请仅选择具有相同运动项目的球员。';
+$lang['contest_already_started'] = '比赛已经开始';
+$lang['wining_limit_exceed'] = "您已用尽本月的获胜限额，即 {amount} 它将在下个月的第一天重置";
+$lang['remaining_wining_limit'] = "您的输入超出了可能获胜的限制。请调整为等于或小于{remaining_limit}";
+
+//Admin
+$lang['invalid_league_id'] = "未找到联赛详细信息。";
+$lang['league_status_success'] = "联赛状态更新成功。";
+$lang['league_status_error'] = "更新状态时出现问题。";
+$lang['image_invalid_dim'] = '请上传图片，尺寸应为{max_width}x{max_height}。';
+$lang['image_invalid_size_error'] = '允许的最大媒体文件大小为 {size}MB。';
+$lang['image_file_upload_error'] = '抱歉，文件上传出现问题。请再试一次。';
+$lang['media_removed'] = "媒体文件删除成功。";
+$lang['team_edit_success'] = "条目已成功更新！";
+$lang['team_edit_failure'] = "团队更新失败。";
+$lang['player_edit_success'] = "玩家图片上传成功。";
+$lang['player_edit_failure'] = "上传图片时出错。";
+$lang['payout_update_success'] = "支付数据更新成功。";
+$lang['invalid_payout_id'] = "未找到付款详细信息。";
+$lang['payout_status_success'] = "付款状态更新成功。";
+$lang['payout_status_error'] = "更新状态时出现问题。";
+$lang['user_status_error'] = "更新状态时出现问题。请重试。";
+$lang['user_status_success'] = "用户状态更新成功。";
+$lang['user_wining_limit_error'] = "更新获胜限额时出现问题。请重试。";
+$lang['user_wining_limit_success'] = "用户获胜限额更新成功。";
+$lang['pl_props_status_success'] = "玩家道具状态更新成功。";
+$lang['image_invalid_ext'] = "允許的媒體類型 {media_type} 的圖像類型無效";
+

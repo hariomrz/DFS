@@ -1,0 +1,211 @@
+.esf-sf-category {
+  margin: 25px 0;
+
+  .table-responsive {
+    margin-top: 26px;
+
+    .table tbody {
+      @extend .flip-transition;
+    }
+  }
+
+  .icon-edit,
+  .icon-delete {
+    font-size: 24px;
+    cursor: pointer;
+    transition: font-size 0.4s;
+    padding: 6px;
+    border-radius: 100%;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #666;
+      color: $white;
+    }
+  }
+
+  .icon-edit {
+    font-size: 22px;
+  }
+
+  .total-bot-user {
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: $font-bold;
+  }
+
+  .sf-cate-img {
+    width: 50px;
+    height: 50px;
+
+    .img-cover {
+      border-radius: 100%;
+    }
+  }
+}
+
+.addmore-sf-cate {
+  &.modal-dialog {
+    top: 30%;
+  }
+
+  .su-image {
+    width: 100px;
+    height: 100px;
+    background-color: #EDEDED;
+    border: none;
+    text-align: center;
+    position: relative;
+    margin-bottom: 16px;
+    border-radius: 100%;
+
+    .img-cover {
+      border-radius: 100%;
+    }
+
+    .icon-close {
+      position: absolute;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 100%;
+      color: $white;
+      padding: 4px;
+      font-size: 12px;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    input[type="file"] {
+      width: 50px;
+      height: 50px;
+      z-index: 999999;
+      opacity: 0;
+    }
+
+    ::-webkit-file-upload-button {
+      cursor: pointer;
+    }
+
+    #ProfileImage,
+    .def-addphoto {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .modal-content {
+    padding: 26px 36px 30px;
+    border-radius: 10px;
+
+    h3 {
+      color: #27272D;
+      font-family: $font-bold;
+      font-size: 20px;
+      letter-spacing: 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .modal-body,
+    .modal-footer {
+      padding: 0;
+    }
+
+    label {
+      color: #555555;
+      font-family: $font-bold;
+      font-size: 16px;
+    }
+
+    .form-control {
+      height: 48px;
+      background-color: #EDEDED;
+      border: none;
+    }
+
+    .modal-footer {
+      border-top: none;
+      margin-top: 40px;
+
+      .btn {
+        height: 36px;
+        width: 100px;
+      }
+    }
+  }
+  .i-size{
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
+
+.sf-addcon-cat-mod {
+  .modal-content h3 {
+    margin-bottom: 20px;
+  }
+
+  .su-image {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 6px;
+
+    input[type="file"] {
+      position: absolute;
+      top: 20%;
+      font-size: 20px;
+    }
+  }
+
+  .def-addphoto {
+    width: 30px;
+  }
+}
+
+.sf-addmore-su-modal {
+  &.modal-dialog {
+    top: 30%;
+  }
+  .modal-content {
+    padding: 26px 36px 30px;
+    border-radius: 10px;
+
+    h3 {
+      color: #27272D;
+      font-family: $font-bold;
+      font-size: 20px;
+      letter-spacing: 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .modal-body,
+    .modal-footer {
+      padding: 0;
+    }
+
+    label {
+      color: #555555;
+      font-family: $font-bold;
+      font-size: 16px;
+    }
+
+    .form-control {
+      height: 48px;
+      background-color: #EDEDED;
+      border: none;
+    }
+
+    .modal-footer {
+      border-top: none;
+      margin-top: 40px;
+
+      .btn {
+        height: 36px;
+        width: 100px;
+      }
+    }
+  }
+}

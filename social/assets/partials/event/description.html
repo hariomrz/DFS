@@ -1,0 +1,12 @@
+<div class="panel panel-info">
+  	<div class="panel-heading">
+    	<h3 class="panel-title" ng-bind="lang.description"></h3>
+  	</div>
+    <div class="panel-body" >
+        <p ng-bind-html="EventDetail.Description | nl2br"></p>
+        <a ng-if="EventDetail.EventURL != ''" class="text-primary web-url" href="{{EventDetail.EventURL}}" target="_blank">
+            <span class="icon"><i class="ficon-web-url text-muted"></i></span>
+            <span class="text" ng-bind="EventDetail.EventURL"></span>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,196 @@
+  .custom-control {
+    &.custom-radio {
+      &.custom-control-inline {
+        font-family: $font-black;
+        margin-right: 4rem;
+      }
+
+      .last-7-days {
+        display: inline-flex;
+        margin-right: 4.5rem;
+      }
+    }
+  }
+
+  .custom-control-input:checked~.custom-control-label::before {
+    color: $white;
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+  }
+
+  .custom-checkbox .custom-control-label {
+    &::before {
+      border: 1px solid #979797;
+      border-radius: 2px;
+      top: 6px;
+    }
+
+    &::after {
+      top: 6px;
+    }
+  }
+
+  .new-campaign {
+    margin-top: 26px;
+
+    .back-cursor {
+      cursor: pointer;
+      color: #9B9B9B;
+      font-family: $font-bold;
+    }
+
+    .userbasebar.card-header {
+      border: none;
+      background: transparent;
+      font-family: $font-bold-italic;
+      font-size: 18px;
+      padding: 18px 20px 0;
+    }
+
+    .get.button.mB20.mT20.row {
+      margin: 2rem 0px 2rem -15px;
+      display: flex;
+    }
+
+    .getresultbtn {
+      float: left;
+    }
+
+    .btn-outline-danger {
+      color: #222222;
+      border: 2px solid $secondary-color;
+      padding: 5px 20px;
+      font-family: $font-black;
+
+      &:hover:not(.disabled) {
+        color: $white;
+      }
+    }
+
+    label {
+      margin-bottom: 6px;
+      font-family: $font-bold-italic;
+      color: #444444;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .total-u-box {
+      height: 48px;
+      width: 250px;
+      float: right;
+      box-sizing: border-box;
+      border: 1px solid #D2DFEC;
+      border-radius: 4px;
+      background-color: #F5F9FB;
+      color: $black;
+      font-family: $font-bold;
+      font-size: 16px;
+      text-align: center;
+      user-select: none;
+
+      .t-count {
+        font-size: 30px;
+        margin-left: 30px;
+      }
+
+      .totaluser {
+        vertical-align: super;
+      }
+    }
+
+    .form-control {
+      height: 42px;
+    }
+
+    .previewrow {
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 16px;
+      padding-top: 8px;
+    }
+
+    .preview {
+      position: relative;
+      color: $secondary-color;
+      font-family: $font-bold-italic;
+      font-size: 16px;
+      display: table;
+      margin-bottom: 0;
+      cursor: pointer;
+
+      .Select {
+        float: left;
+      }
+
+      .Select-control {
+        height: 48px;
+        width: 320px;
+        position: relative;
+
+        .Select-placeholder {
+          top: 6px;
+          font-size: 15px;
+          color: $black;
+        }
+      }
+
+      .Select-value-label {
+        line-height: 42px !important;
+        color: #333;
+      }
+
+      .Select-arrow:after {
+        top: -16px;
+      }
+
+    }
+
+    .emailcheckrow {
+      .custom-control-inline {
+        margin-right: 4rem;
+      }
+    }
+
+    .popcard {
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+      border: 1px solid #D2DFEC;
+      background-color: #F5F9FB;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .popcard6 {
+      opacity: 0.5;
+      font-family: $font-black;
+      font-size: 15px;
+      margin-bottom: 0.5rem;
+    }
+
+    .popcard7 {
+      opacity: 0.5;
+      font-family: $font-black;
+      font-size: 14px;
+      margin-top: 0.5rem;
+      letter-spacing: normal;
+    }
+
+    .popcard8 {
+      font-family: $font-black;
+      font-size: 30px;
+    }
+
+    .popcardrow-copy {
+      .popcard {
+        width: 100% !important;
+      }
+
+    }
+  }
+
+  .popuppreviewtab {
+    .main-table {
+      width: auto;
+    }
+  }

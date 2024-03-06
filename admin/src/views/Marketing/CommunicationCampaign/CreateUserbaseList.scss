@@ -1,0 +1,216 @@
+.ublist-input {
+  box-sizing: border-box;
+  height: 40px;
+  max-width: 120px;
+  border: 1px solid $gray-9;
+  border-radius: 4px;
+  float: left;
+  margin-right: 16px;
+  text-align: center;
+
+  &::placeholder {
+    color: $gray-9;
+    text-align: center;
+  }
+}
+
+.sportpref-modal {
+  top: 16%;
+
+  .modal-content {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .modal-body {
+    padding: 36px 36px 0;
+
+    .form-control {
+      @extend .ublist-input;
+    }
+
+    .noti-title {
+      color: $black;
+      font-family: $font-bold;
+      font-size: 18px;
+      vertical-align: super;
+    }
+
+    .common-cus-checkbox .com-chekbox-container:hover input~.com-chekbox-checkmark {
+      background-color: #e7e7e7;
+    }
+  }
+
+  .modal-header {
+    height: 52px;
+    background-color: $theme-color;
+    justify-content: center;
+    padding: 10px;
+
+    .modal-title {
+      font-size: 20px;
+    }
+  }
+
+  .modal-footer {
+    border: none;
+    justify-content: center;
+    margin-bottom: 48px;
+    padding: 0;
+
+    .btn {
+      height: 35px;
+      width: 124px;
+    }
+  }
+}
+
+.add-userbase-list {
+  padding: 32px 0;
+
+  .userbase-header {
+    height: 48px;
+    border-radius: 4px 4px 0 0;
+    background-color: $theme-color;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    color: $white;
+    font-family: $font-bold;
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+
+  .userbase-bg {
+    background-color: $white;
+    padding: 28px 18px;
+    border-radius: 4px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 18px;
+
+    .select-disabled {
+      ._2iA8p44d0WZ-WqRBGcAuEV {
+        pointer-events: none;
+        background-color: #e7e7e7;
+      }
+    }
+
+    label {
+      color: #444444;
+      font-family: $font-bold;
+      font-size: 16px;
+      max-width: 150px;
+    }
+
+    .form-control,
+    .Select-control {
+      @extend .ublist-input;
+
+      &:disabled {
+        background-color: #e7e7e7;
+      }
+    }
+
+    ._7ahQImyV4dj0EpcNOjnwA {
+      padding: 2px 10px;
+      background: #F6F6F6;
+      font-size: 11px;
+      color: #666666;
+      border: 1px solid #E5E5E5;
+    }
+  }
+
+  .ub-sports-pref {
+    .common-cus-checkbox {
+      max-width: 306px !important;
+
+      label {
+        max-width: 175px !important;
+        float: left;
+      }
+    }
+
+    ._3vt7_Mh4hRCFbp__dFqBCI {
+      max-width: 306px;
+    }
+  }
+
+  .common-cus-checkbox .com-chekbox-container:hover input~.com-chekbox-checkmark {
+    background-color: #e7e7e7;
+  }
+
+  .ub-define {
+    height: 19px;
+    width: 44px;
+    color: $secondary-color;
+    font-family: $font-bold-italic;
+    float: right;
+    cursor: pointer;
+    margin-top: 4px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .rm-hdr-radius {
+    border-radius: 0 0 4px 4px;
+    padding: 20px 18px;
+
+    .form-control {
+      max-width: 306px;
+      width: 306px;
+      float: none;
+      text-align: left;
+
+      &::placeholder {
+        text-align: left;
+      }
+    }
+  }
+
+  .select-box {
+    .Select-control {
+      max-width: 100%;
+      width: 100%;
+
+      .Select-placeholder,
+      .Select-value {
+        line-height: 38px;
+      }
+    }
+  }
+
+  .ub-heading {
+    color: $black;
+    font-family: $font-bold-italic;
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  .ub-t-users {
+    color: #666666;
+    font-family: $font-regular;
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-right: 10px;
+  }
+
+  .ub-t-users-count {
+    font-family: $font-black;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .total-box {
+    height: 62px;
+    padding: 12px;
+  }
+
+  .bottom-action-box {
+    text-align: center;
+    margin-top: 50px;
+
+    .gray-btn {
+      border: 2px solid #D5D5D5;
+      color: $gray-9;
+    }
+  }
+}

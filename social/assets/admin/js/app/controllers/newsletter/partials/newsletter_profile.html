@@ -1,0 +1,199 @@
+<div ng-controller="newsletterUserController">
+
+
+<!-- Modal Start -->
+<div class="modal fade" tabindex="-1" role="dialog" id="editProfile">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="ficon-cross"></i>
+                </button>
+                <h4 class="modal-title">Edit Profile</h4>                    
+            </div>
+            
+            <ng-form name="userProfileForm">
+            
+            <div class="modal-body">                    
+                <div class="row"> 
+                    <div class="form-group col-xs-6"  ng-class="(!userProfileData.FirstName && !userProfileForm.userProfileData.FirstName.$pristine) ? 'has-error' : '' ;">
+                        <label class="control-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter First Name" name="FirstName" ng-model="userProfileData.FirstName">
+                        <div class="error-block">Please Enter First Name.</div>
+                    </div>
+                    <div class="form-group col-xs-6" ng-class="(!userProfileData.LastName && !userProfileForm.userProfileData.LastName.$pristine) ? 'has-error' : '' ;">
+                        <label class="control-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Last Name" name="LastName" ng-model="userProfileData.LastName">
+                        <div class="error-block">Please Enter Last Name.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-6" ng-class="(!userProfileData.Gender && !userProfileForm.userProfileData.Gender.$pristine) ? 'has-error' : '' ;">
+                        <label class="control-label">Gender</label>
+                        <select class="chosen-select form-control" name="Gender" ng-model="userProfileData.Gender"
+                            ng-options="userGenderOption.value as userGenderOption.label for userGenderOption in userGenderOptions"       
+                        >                                                                                                                
+                        </select>
+                        <div class="error-block">Please Select Gender.</div>
+                    </div>
+                    
+                    <div class="form-group col-xs-6" ng-class="(!userProfileData.DOB && !userProfileForm.userProfileData.DOB.$pristine) ? 'has-error' : '' ;">
+                        <label class="control-label">Date of Birth</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control datepicker" id="dob1" placeholder="DD-MM-YYYY" on-focus   name="DOB" ng-model="userProfileData.DOB" readonly="">
+                            <label class="input-group-addon" for="dob1">
+                                <i class="ficon-calender"></i>
+                            </label>
+                        </div>
+                        <div class="error-block">Please enter date of birth.</div>
+                    </div>
+                </div> 
+                
+                <div class="form-group" ng-class="(!userProfileData.Email && !userProfileForm.userProfileData.Email.$pristine) ? 'has-error' : '' ;">
+                    <label class="control-label">Email Address</label>
+                    <input type="text" class="form-control" placeholder="Enter Email" name="Email" readonly="" ng-model="userProfileData.Email">   
+                    <div class="error-block">Please enter email.</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label">Location</label>
+                    <input type="text" class="form-control" placeholder="Enter your location" id="userProfileLocation" name="Location" ng-model="userProfileData.LocationStr">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">User Type</label>                   
+                    <tags-input ng-model="userProfileData.UserTypeTags" 
+                                placeholder="Enter User type"
+                                add-from-autocomplete-only="false" 
+                                replace-spaces-with-dashes="false"
+                                template="tag-template"
+                                > 
+                        <auto-complete source="onTagsGet($query, 0)"  display-property="Name"></auto-complete>
+                    </tags-input>
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label">User Tags</label>
+                    <tags-input ng-model="userProfileData.Tags" 
+                                placeholder="Enter User Tags"
+                                add-from-autocomplete-only="false" 
+                                replace-spaces-with-dashes="false"
+                                template="tag-template"
+                                > 
+                        <auto-complete source="onTagsGet($query, 1)"  display-property="Name"></auto-complete>
+                    </tags-input>
+                </div>                                       
+            </div>
+            
+            </ng-form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="saveUserProfile()">Update</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+<script type="text/ng-template" id="tag-template">
+    <div class="tag-template" >
+    <span ng-if="data.Name != '' || data.text != ''" ng-bind="data.Name || data.text"></span>
+    <a class="remove-button" ng-click="$removeTag()" ng-bind="::$$removeTagSymbol">×</a>
+    </div>
+</script>
+
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="viewProfile">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-body brand-default-light"> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="ficon-cross"></i>
+                </button>
+                <div class="p-h">
+                    <div class="user-detail">
+                        <a class="pull-right link-color" data-toggle="modal" data-target="#editProfile" data-dismiss="modal">Edit Profile</a>
+                        <h2 class="bolder" ng-bind="userProfile.Name"></h2>
+                        <span>{{userProfile.AgeGenderTxtInnr}}</span>
+                    </div>
+                    <ul class="list-contact">
+                        <li class="item">
+                            <span class="icn"><i class="ficon-email"></i></span><span class="text" ng-bind="userProfile.Email"></span>
+                        </li>
+                        <li class="item" ng-if="userProfile.LocationStr">
+                            <span class="icn"><i class="ficon-location"></i></span><span class="text" ng-bind="userProfile.LocationStr"></span>
+                        </li>
+                    </ul>
+                    <div class="form-group" ng-if="userProfile.UserTypeTagsStr.tagStr.length">
+                        <label class="control-label text-muted">User Type</label>
+                        
+                        <ul class="tags-list">
+                                                        
+                            <li ng-repeat="tagName in userProfile.UserTypeTagsStr.tagStr track by $index" class="tag-primary">
+                                <span>{{tagName}}</span>
+                            </li>
+
+                            <li ng-if="userProfile.UserTypeTagsStr.tagMoreStr.length > 0" class="tag-primary">
+                                <span 
+                                    data-container="body" 
+                                    data-toggle="popover" 
+                                    data-html="true"
+                                    data-content='{{userProfile.UserTypeTagsStr.tagMoreStrTitle}}'>
+                                    +{{userProfile.UserTypeTagsStr.tagMoreStr.length}}
+                                </span>
+                            </li>
+                                                                                    
+                        </ul>
+                    </div>
+                    <div class="form-group" ng-if="userProfile.TagsStr.tagStr.length">
+                        <label class="control-label text-muted">User Tags</label>
+                        <ul class="tags-list">
+                            
+                            <li ng-repeat="tagName in userProfile.TagsStr.tagStr track by $index" >
+                                <span ng-bind="tagName"></span>
+                            </li>
+
+                            <li ng-if="userProfile.TagsStr.tagMoreStr.length > 0">
+                                <span 
+                                    data-container="body" 
+                                    data-toggle="popover" 
+                                    data-html="true"
+                                    data-content="{{userProfile.TagsStr.tagMoreStrTitle}}">
+                                    +{{userProfile.TagsStr.tagMoreStr.length}}
+                                </span>
+                            </li>
+                            
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+            <div class="modal-body no-padding">
+                <ul class="row list-date">
+                    
+                    <li class="item col-sm-6">
+                        <b ng-bind="userProfile.CreatedDate"></b>
+                        <span class="text">Uploaded Date</span>
+                    </li>
+                    <li class="item col-sm-6">
+                        <b ng-bind="userProfile.ModifiedDate"></b>
+                        <span class="text">Modified Date</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer text-left p-v" ng-if="userProfile.groups.length">
+                <span class="text-off">Associated Lists</span> 
+                
+                <b  ng-repeat="group in userProfile.groups track by $index" >{{group.Name}}<span ng-if="$index != (userProfile.groups.length - 1)">, </span>
+                </b>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+</div>

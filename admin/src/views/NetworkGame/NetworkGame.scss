@@ -1,0 +1,13 @@
+.ng-t-box {
+  height: 108px;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  flex: 1 0 18%;
+  background: $white;
+  width: 48%;
+  padding: 10px;
+  display: inline-block;
+  span{
+      font-family: $font-bold;
+  }
+}

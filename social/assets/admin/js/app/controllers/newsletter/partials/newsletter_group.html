@@ -1,0 +1,399 @@
+<div ng-controller="newsletterGroupController">
+
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="usersList" data-modal="removeAttr">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="clearFooterSelect()">
+                        <i class="ficon-cross"></i>
+                    </button>
+                    <h4 class="modal-title">Add selected users to list </h4>                    
+                </div>
+                <div class="modal-body brand-light-bg no-padding">
+                    <div class="modal-top">
+                        <div class="form-grup">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="control-label bolder m-t-sm">EXISTING LISTS</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-icon right search-group open">
+
+                                        <a class="icons search-icon">
+                                            <i class="ficon-cross ng-scope" ng-if="groupName" ng-click="searchGroupClear()"></i>
+                                            <i class="ficon-search ng-scope" ng-if="!groupName" ></i>
+                                        </a>
+                                        <input type="text" class="form-control" id="searchField" ng-model="groupName" ng-keyup="searchGroup($event)" placeholder="Search">                                                                                
+                                    </div>
+                                </div>
+                            </div>                 
+                        </div>   
+                    </div>
+                    <div class="scrollY scrollH550" id="newsletter-group-data" style="overflow: auto;">
+
+                        <div  
+
+                            infinite-scroll-with-container="getGroups()" 
+                            infinite-scroll-container='"#newsletter-group-data"' 
+                            infinite-scroll-distance="1" 
+                            infinite-scroll-parent="true"
+                            infinite-scroll-disabled="group_api_running || group_scroller_disable"
+
+                            >
+
+                            <ul class="premium-list">
+
+                                <li class="items" ng-if="newsletter_groups.length == 0">
+                                    No List Found
+                                </li>
+
+                                <li class="items" 
+                                    ng-repeat="(newsletter_groupsKey, newsletter_group) in newsletter_groups" 
+                                    ng-class='{selected:(newsletter_group.NewsLetterGroupID == selectedGroup.NewsLetterGroupID)}'
+                                    repeat-done="onNewsletterGroupListRenderComplete();"
+                                    >                   
+                                    <div class="content">
+                                        <span class="text-sm-off bold" ng-if="newsletter_group.TotalMember">{{newsletter_group.TotalMember}} Member(s)</span>
+                                        <h4 class="title" ng-bind="newsletter_group.Name"></h4>
+                                        <p ng-bind-html="newsletter_group.Description"></p>
+                                    </div>  
+
+
+
+
+
+                                    <div class="actions">
+                                        <label class="radio" ng-if="newsletter_group.IsAutoUpdate != '1'">
+                                            <input type="radio" name="newsletter_group[]" value="{{newsletter_group.NewsLetterGroupID}}" ng-click="setSelectedGroup(newsletter_group)" >
+                                            <span class="label">&nbsp;</span>
+                                        </label>
+
+
+
+                                        <div class="dropdown dropdown-userInfo" ng-if="newsletter_group.IsAutoUpdate == '1'">
+                                            <a class="text-small bold" data-toggle="dropdown">List criteria</a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li ng-if="newsletter_group.AutoUpdateFilter.Gender != 0 || newsletter_group.AutoUpdateFilter.AgeStart != 0 || newsletter_group.AutoUpdateFilter.AgeEnd != 0">
+                                                    <div class="row">
+                                                        <div class="col-sm-6" ng-if="newsletter_group.AutoUpdateFilter.Gender != 0">
+                                                            <label class="text-xs control-label-off uppercase">Gender</label>
+                                                            <div class="text-sm-black bolder uppercase" ng-if="newsletter_group.AutoUpdateFilter.Gender == 1">Male</div>
+                                                            <div class="text-sm-black bolder uppercase" ng-if="newsletter_group.AutoUpdateFilter.Gender == 2">Female</div>
+                                                            <div class="text-sm-black bolder uppercase" ng-if="newsletter_group.AutoUpdateFilter.Gender == 3">Other</div> 
+                                                        </div>                                                    
+
+                                                        <div class="col-sm-6" ng-if="newsletter_group.AutoUpdateFilter.AgeStart != 0 || newsletter_group.AutoUpdateFilter.AgeEnd != 0">
+                                                            <label class="text-xs control-label-off uppercase" ng-if="newsletter_group.AutoUpdateFilter.AgeStart != 0 && newsletter_group.AutoUpdateFilter.AgeEnd != 0">
+                                                                Age Between
+                                                            </label>
+                                                            <div class="text-sm-black bolder uppercase" ng-if="newsletter_group.AutoUpdateFilter.AgeStart != 0 && newsletter_group.AutoUpdateFilter.AgeEnd != 0">
+                                                                {{newsletter_group.AutoUpdateFilter.AgeStart}} - {{newsletter_group.AutoUpdateFilter.AgeEnd}} years
+                                                            </div>
+
+
+                                                            <label class="text-xs control-label-off uppercase" ng-if="newsletter_group.AutoUpdateFilter.AgeStart != 0 && (newsletter_group.AutoUpdateFilter.AgeEnd == 0 || newsletter_group.AutoUpdateFilter.AgeEnd == '')">
+                                                                Age From
+                                                            </label>
+                                                            <div class="text-sm-black bolder uppercase" ng-if="newsletter_group.AutoUpdateFilter.AgeStart != 0 && (newsletter_group.AutoUpdateFilter.AgeEnd == 0 || newsletter_group.AutoUpdateFilter.AgeEnd == '')">
+                                                                {{newsletter_group.AutoUpdateFilter.AgeStart}}  years
+                                                            </div>
+
+                                                            <label class="text-xs control-label-off uppercase" ng-if="newsletter_group.AutoUpdateFilter.AgeEnd != 0 && (newsletter_group.AutoUpdateFilter.AgeStart == 0 || newsletter_group.AutoUpdateFilter.AgeStart == '')">
+                                                                Age Upto
+                                                            </label>
+                                                            <div class="text-sm-black bolder uppercase" ng-if="newsletter_group.AutoUpdateFilter.AgeEnd != 0 && (newsletter_group.AutoUpdateFilter.AgeStart == 0 || newsletter_group.AutoUpdateFilter.AgeStart == '')">
+                                                                {{newsletter_group.AutoUpdateFilter.AgeEnd}} years
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </li>
+
+                                                <li  ng-if="newsletter_group.AutoUpdateFilter.Locations.length != 0">
+                                                    <label class="text-xs control-label-off uppercase">Locations</label>
+                                                    <div class="text-sm-black bolder uppercase">
+                                                        <span ng-repeat="Location in newsletter_group.AutoUpdateFilter.Locations">
+                                                            {{Location.City}}
+                                                            <span ng-if="!$last">,&nbsp;</span>
+                                                        </span>
+                                                    </div>
+                                                </li>
+
+                                                <li ng-if="newsletter_group.AutoUpdateFilter.TagUserType.length != 0">
+                                                    <label class="text-xs control-label-off uppercase">Type</label>
+                                                    <ul class="tags-list">
+                                                        <li ng-repeat="tag in newsletter_group.AutoUpdateFilter.TagUserType"><span ng-bind="tag.Name"></span></li>
+
+                                                    </ul>
+                                                </li>
+
+
+                                                <li ng-if="newsletter_group.AutoUpdateFilter.TagTagType.length != 0">
+                                                    <label class="text-xs control-label-off uppercase">Tags</label>
+                                                    <ul class="tags-list">
+                                                        <li ng-repeat="tag in newsletter_group.AutoUpdateFilter.TagTagType"><span ng-bind="tag.Name"></span></li>
+
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <a class="pull-left btn btn-link no-padding-h"  data-toggle="modal" data-target="#addUserList" data-dismiss="modal"><span class="icn circle-icn circle-primary circle-xs"><i class="ficon-plus"></i></span><span class="text">Create New List</span></a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearFooterSelect()">Cancel</button>
+                    <button type="button" class="btn btn-primary" ng-click="addSubscribersToGroup()">Done</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="addUserList" data-modal="removeAttr">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header brand-light-bg">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="clearFooterSelect()">
+                        <i class="ficon-cross"></i>
+                    </button>
+                    <h4 class="modal-title">Create New List</h4>                    
+                </div>
+                <div class="modal-body shadow" ng-if="showCriteriaBox() && boxOpened">   
+                    <div class="userinfo">
+                        <label class="control-label text-xs uppercase">You are creating list of criteria -</label>
+                        <div class="row">
+                            <div class="col-sm-2" ng-if="grpAutoUpdtCrtra.Gender != 0">
+                                <div class="form-group" >
+                                    <label class="text-small control-label-off uppercase">Gender</label>
+                                    <div class="text-small-black bolder uppercase" ng-if="grpAutoUpdtCrtra.Gender == 1">Male</div>
+                                    <div class="text-small-black bolder uppercase" ng-if="grpAutoUpdtCrtra.Gender == 2">Female</div>
+                                    <div class="text-small-black bolder uppercase" ng-if="grpAutoUpdtCrtra.Gender == 3">Other</div>                                    
+                                </div>
+                            </div>
+                            <div class="col-sm-4" ng-if="grpAutoUpdtCrtra.AgeStart != 0 || grpAutoUpdtCrtra.AgeEnd != 0">
+                                <div class="form-group" ng-if="grpAutoUpdtCrtra.AgeStart != 0 && grpAutoUpdtCrtra.AgeEnd != 0">
+                                    <label class="text-small control-label-off uppercase">Age Between</label>
+                                    <div class="text-small-black bolder uppercase">
+                                        {{grpAutoUpdtCrtra.AgeStart}} - {{grpAutoUpdtCrtra.AgeEnd}} years
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ng-if="grpAutoUpdtCrtra.AgeStart != 0 && (grpAutoUpdtCrtra.AgeEnd == 0 || grpAutoUpdtCrtra.AgeEnd == '')">
+                                    <label class="text-small control-label-off uppercase">Age From</label>
+                                    <div class="text-small-black bolder uppercase">
+                                        {{grpAutoUpdtCrtra.AgeStart}}  years
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ng-if="grpAutoUpdtCrtra.AgeEnd != 0 && (grpAutoUpdtCrtra.AgeStart == 0 || grpAutoUpdtCrtra.AgeStart == '')">
+                                    <label class="text-small control-label-off uppercase">Age Upto</label>
+                                    <div class="text-small-black bolder uppercase">
+                                        {{grpAutoUpdtCrtra.AgeEnd}} years
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6" ng-if="grpAutoUpdtCrtra.Locations.length != 0">
+                                <div class="form-group">
+                                    <label class="text-small control-label-off uppercase">Location</label>
+                                    <div class="text-small-black bolder uppercase">
+                                        <span ng-repeat="Location in grpAutoUpdtCrtra.Locations">
+                                            {{Location.City}}
+                                            <span ng-if="!$last">,&nbsp;</span>
+                                        </span>
+                                    </div>                                                                                                            
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" ng-if="grpAutoUpdtCrtra.TagUserType.length != 0">
+                            <label class="text-small control-label-off uppercase col-sm-1">Tags</label>
+                            <div class="col-sm-11">
+                                <ul class="tags-list">
+                                    <li ng-repeat="tag in TagUserTypeMoreTagsData.showingTags">
+                                        <span ng-bind="tag.Name"></span>
+                                    </li>
+
+                                    <li ng-if="TagUserTypeMoreTagsData.label">
+                                        <span                                             
+                                            custom-popover="" 
+                                            data-trigger="hover"
+                                            data-placement="bottom"
+                                            data-label="TagUserTypeMoreTagsData.label"                                           
+                                            data-content="TagUserTypeMoreTagsData.tagListHtml"  
+                                            data-container="body" 
+                                            >
+                                        </span>
+                                    </li>                                                
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="row" ng-if="grpAutoUpdtCrtra.TagTagType.length != 0">
+                            <label class="text-small control-label-off uppercase col-sm-1">Tags</label>
+                            <div class="col-sm-11">
+                                <ul class="tags-list">
+                                    <li ng-repeat="tag in TagTagTypeMoreTagsData.showingTags">
+                                        <span ng-bind="tag.Name"></span>
+                                    </li>
+
+                                    <li ng-if="TagTagTypeMoreTagsData.label">
+                                        <span                                             
+                                            custom-popover="" 
+                                            data-trigger="hover"
+                                            data-placement="bottom"
+                                            data-label="TagTagTypeMoreTagsData.label"                                           
+                                            data-contentng="TagTagTypeMoreTagsData.tagListHtml" 
+                                            data-content=""
+                                            data-container="body" 
+                                            >
+                                        </span>
+                                    </li>                                    
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-body brand-light-bg modal-height-400">   
+                    <form class="form-horizontal" name="newsletterGroupForm">    
+                        <div class="form-body">
+                            <div class="form-group" ng-class="(!NewsletterGroupName && !newsletterGroupForm.NewsletterGroupName.$pristine) ? 'has-error' : '';">
+                                <label class="control-label text-left col-sm-2">List Name</label>    
+                                <div class="col-sm-10"> 
+                                    <input type="text" class="form-control" placeholder="Enter name e.g. Premium users" name="NewsletterGroupName" ng-model="NewsletterGroupName" ng-maxlength="60">                            
+                                </div>
+                            </div>  
+                            <div class="form-group" ng-class="(!NewsletterGroupDescription && !newsletterGroupForm.NewsletterGroupDescription.$pristine) ? 'has-error' : '';">
+                                <label class="control-label text-left col-sm-2">Description</label>    
+                                <div class="col-sm-10"> 
+                                    <textarea class="form-control" placeholder="Write description" name="NewsletterGroupDescription" ng-model="NewsletterGroupDescription" ng-maxlength="500"></textarea> 
+                                </div>
+                            </div>  
+                            <div class="form-group" ng-if="showCriteriaBox()">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="1" name="NewsletterGroupAutoUpdate" ng-model="NewsletterGroupAutoUpdate.NewsletterGroupAutoUpdate" id="NewsletterGroupAutoUpdate">
+                                        <span class="label bold">
+                                            Auto update this list based on selected criteria.                                            
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group" ng-if="showCriteriaBox() && !userListScope.allUserSelected && !userListScope.crmRequestObjIsEnabled && NewsletterGroupAutoUpdate.NewsletterGroupAutoUpdate">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <label class="control-label text-left m-b-xs">      
+                                        This will apply to all {{userListScope.totalRecord}} user who are coming in this criteria.
+                                    </label>                                    
+                                </div>
+                            </div>  
+                            
+                            <div class="form-group" ng-if="showCriteriaBox() && NewsletterGroupAutoUpdate.NewsletterGroupAutoUpdate">
+                                <div class="col-sm-10 col-sm-offset-2">                                    
+                                    <div class="text-xs-muted bold">
+                                        Select name of the user’s who are forcefully going to add in this criteria.
+                                    </div>
+                                </div>
+                            </div>      
+                            
+                            <div class="form-group" ng-if="showCriteriaBox() && NewsletterGroupAutoUpdate.NewsletterGroupAutoUpdate">
+                                <div class="col-sm-10 col-sm-offset-2">
+                                    <div class="input-icon input-icon-tag tag-scroll right">
+                                        <span class="icons">
+                                            <i class="ficon-search"></i>
+                                        </span>
+                                        <tags-input ng-model="userIncludeList" key-property="NewsLetterSubscriberID" display-property="Name" placeholder="Add more users" add-from-autocomplete-only="true">
+                                            <auto-complete source="searchUsers($query)" template="search-newsletter-user-template"></auto-complete>
+                                        </tags-input>
+                                    </div>
+                                    <script type="text/ng-template" id="search-newsletter-user-template">
+                                        <div class="list-group list-group-thumb xs"> 
+                                            <div class="list-group-item">
+                                                <div class="list-group-body"> 
+                                                    <figure class="list-figure">
+                                                        <img ng-src="{{data.ProfilePictureUrl}}" ng-if="data.ProfilePictureUrl" class="img-circle img-responsive" />
+                                                    </figure>
+                                                    <div class="list-group-content">
+                                                        <div class="list-group-item-heading ellipsis">
+                                                            <h5 class="list-group-item-heading">
+                                                                <span ng-bind-html="$highlight($getDisplayText())"></span>
+                                                            </h5>
+                                                            <span class="text-sm-muted" ng-bind="data.Email"></span>
+                                                        </div>
+                                                    </div>   
+                                                </div>                           
+                                            </div>
+                                        </div>
+                                    </script>
+                                </div>
+                            </div>                                
+
+                        </div>
+                    </form>  
+                </div>
+                <div class="modal-footer">
+                    <div class="pull-left">
+                        <a class="btn back-link" data-toggle="modal" data-target="#usersList" data-dismiss="modal">
+                            <span class="icn"><i class="ficon-arrow-left"></i></span>
+                            <span class="text">Back to existing lists</span>
+                        </a>
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearFooterSelect()">Cancel</button>
+                    <button type="button" class="btn btn-primary" ng-click="createGroup(); clearFooterSelect();">Create</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

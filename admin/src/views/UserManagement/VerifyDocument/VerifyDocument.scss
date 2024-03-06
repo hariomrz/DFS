@@ -1,0 +1,285 @@
+.card-box {
+
+  border: 1px solid #cdcdcd;
+  border-radius: 6px;
+  box-shadow: 0 13px 26px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 44px;
+  min-height: 408px;
+
+  .radio-element {
+    font-family: $font-bold;
+    display: inline-flex;
+    margin-right: 10px;
+
+    .custom-control-label {
+      line-height: 1.8;
+      font-size: 12px;
+    }
+
+    input[type="radio"] {
+
+      z-index: 1;
+      left: 2px;
+      top: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .min-hgt {
+    min-height: 87px;
+  }
+
+  .verify-btn-box {
+    padding: 20px 0 6px 0;
+    text-align: center;
+
+    button {
+      font-family: $font-bold;
+    }
+  }
+
+  .pers-margin {
+    padding: 0 30px;
+    margin-top: 20px;
+  }
+
+  .pan-container {
+
+    min-height: 158px;
+  }
+
+  .card-container {
+    height: 268px;
+    width: 100%;
+    float: left;
+
+
+    .img-cover {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+    }
+  }
+
+  .card-name {
+    float: left;
+    margin-right: 40px;
+  }
+
+  label {
+    color: #81898d;
+    font-family: $font-bold;
+    font-style: inherit;
+    margin: 0;
+    display: block;
+  }
+
+  .card-text {
+    color: #2c2f3a;
+    font-family: $font-bold;
+    font-size: 16px;
+    word-break: break-all;
+    &.line-text-ellipsis {
+      -webkit-line-clamp: 2;
+      height: 46px;
+    }
+  }
+
+  .approved-box {
+    background-color: #e7e7e7;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .verify-action {
+
+    float: right;
+    color: #212121;
+    font-family: MuliBold;
+    line-height: 14px;
+
+    .verify-input {
+      width: 16px;
+      height: 16px;
+      margin-right: 4px;
+      vertical-align: middle;
+
+      &:last-child {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .reject-reason {
+    box-sizing: border-box;
+    height: 69px;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    resize: none;
+    margin-top: 18px;
+    color: $black;
+    font-family: $font-bold;
+
+    &::-webkit-input-placeholder {
+      color: $black;
+      font-family: $font-bold;
+    }
+  }
+
+  .card-title {
+    color: #030f09;
+    font-family: $font-black;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  .btn-kycedit {
+    position: absolute;
+    right: 16px;
+    padding: 3px 14px;
+    font-family: $font-regular;
+  }
+
+  .kyc-icon-close {
+    position: absolute;
+    right: 8px;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 100%;
+    color: $white;
+    padding: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .kyc-dob {
+    .react-datepicker-wrapper {
+      width: 100%;
+    }
+  }
+
+  .kyc-update-btn {
+    text-align: center;
+    margin: 32px;
+  }
+
+  .kyc-select-image-box {
+    height: 268px;
+
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 4px;
+    background-color: #EDEDED;
+    padding: 12px 16px;
+  }
+
+  .kyc-dashed-box {
+    position: relative;
+    box-sizing: border-box;
+    height: 245px;
+    width: 100%;
+    border: 2px dashed #C8C8C8;
+    border-radius: 4px;
+
+    .form-control-file {
+      width: 58px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      z-index: 1;
+      opacity: 0;
+    }
+
+    .def-addphoto {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+
+  .kyc-view-img {
+    height: 268px;
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .icon-rem-img {
+    cursor: pointer;
+    position: absolute;
+    color: $white;
+    right: -15px;
+    top: 0;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 100%;
+    margin: 8px;
+  }
+}
+
+.min-hgt-40 {
+  min-height: 40px;
+}
+
+.popup-document {
+  .pan-container {
+
+    min-height: 140px;
+  }
+
+  .card-box {
+    padding: 10px 25px;
+    margin-top: 25px;
+    min-height: 551px;
+
+    .line-text-ellipsis {
+      display: -webkit-inline-box;
+    }
+  }
+
+  .card-container {
+    height: 140px;
+
+  }
+
+  .pers-margin {
+    padding: 0;
+    margin-top: 14px;
+  }
+
+  .user-tagline {
+    color: $gray-5;
+    font-family: $font-bold;
+  }
+
+  .kyc-view-img,
+  .kyc-select-image-box {
+    width: 100%;
+    height: 140px;
+  }
+
+  .kyc-dashed-box {
+    width: 100%;
+    height: 117px;
+  }
+}
+
+.ifsc-ex {
+  font-size: 12px;
+  margin-top: 2px;
+  color: #666666;
+}
+.validate-digit{
+  font-size: 10px;
+  color: red !important;
+}

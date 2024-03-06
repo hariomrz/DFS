@@ -1,0 +1,29 @@
+<div class="panel panel-default" ng-if="(GroupDetails.GroupDescription != '' || GroupDetails.IsAdmin=='1') || (GroupDetails.Permission.IsActiveMember == 1 && GroupDetails.IsPublic == 1)" ng-cloak>
+  <div class="panel-heading p-heading" ng-if="GroupDetails.GroupDescription != ''">
+    <h3 ng-bind="lang.g_about_caps"></h3>
+  </div>
+  <div class="panel-body abou-panel" ng-if="GroupDetails.GroupDescription != '' || (GroupDetails.Permission.IsActiveMember == 1 && GroupDetails.IsPublic == 1)">
+    <ul class="list-group thumb-50" ng-if="GroupDetails.GroupDescription != ''">
+      <li class="list-group-item" ng-cloak>
+
+          <div class="m-t-10">
+            <span ng-bind="GroupDetails.GroupDescription|limitTo:DescriptionLimit"> </span>
+            <a target="_self"  ng-if="GroupDetails.GroupDescription.length > DescriptionLimit" ng-click="showMoreDesc(GroupDetails.GroupDescription.length)" ng-bind="lang.g_see_more_dots"></a> 
+          </div>        
+      </li>
+    </ul>
+    <div class="toren"  ng-cloak ng-if="GroupDetails.Permission.IsActiveMember == 1 && GroupDetails.IsPublic == 1 ">
+        <h3 class="panel-title" ng-bind="lang.g_invite_connections_to_join"></h3>
+          <div class="form-group p-l-r-15">
+            <tags-input replace-spaces-with-dashes="false" ng-model="tagsInvited" class="inputAddMember" display-property="Name" key-property="UserGUID" add-from-autocomplete-only="true" on-tag-added="tagAddedInvited($tag)"  on-tag-removed="tagRemovedInvited($tag)" data-placeholder="Invite your connections to group">
+              <label class="error-block-overlay" id="errorGroupInviteMember"></label>
+              <auto-complete source="loadTags($query)"></auto-complete>
+            </tags-input>              
+          </div>
+          <div class="button-footer p-l-r-15 m-t-15 m-b-10">
+            <button class="btn btn-primary btn-sm pull-right" ng-click="inviteGroupUsers('0','Invited')" ng-bind="lang.g_invite"></button>
+          </div> 
+      </div> 
+  </div>
+</div>
+<input type="hidden" id="InvitedUserGUID" value="" />

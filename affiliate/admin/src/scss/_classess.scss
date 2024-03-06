@@ -1,0 +1,206 @@
+.body-text {
+  color: #030f09 !important;
+}
+
+.text-gray {
+  color: $text-muted !important;
+}
+
+.border-color {
+  border-color: #efefef;
+}
+
+.success {
+  color: $success !important;
+}
+
+.pending {
+  color: $pending !important;
+}
+
+.failed {
+  color: $failed !important;
+}
+
+//Modal popup
+.modal-md {
+  width: 750px;
+  max-width: 750px;
+  @media (max-width: 750px) {
+    width: 500px;
+    max-width: 500px;
+  }
+}
+
+.modal-sm {
+  width: 451px;
+  max-width: 451px;
+}
+
+.fade {
+  background-color: rgba(51, 54, 79, 0.9);
+}
+
+.modal-header {
+  height: 40px;
+  border-radius: 4px 4px 0 0;
+  background-color: $theme-color;
+  font-family: $font-bold;
+  font-size: 16px;
+  padding: 6px 20px;
+  border: none;
+}
+
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: $white;
+}
+
+.btn-secondary-outline:not(:disabled):not(.disabled) {
+  border: 1px solid $secondary-color;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 7px 21px;
+  color: #070707;
+
+  &:active {
+    color: $white;
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+  }
+
+  &:hover {
+    color: $white;
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+  }
+}
+.btn-secondary {
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+  color: $white;
+  border-radius: 5px;
+  padding: 8px 22px;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s ease-in-out;
+  &:not(:disabled):not(.disabled) {
+    &:active,
+    &:hover {
+      color: $white;
+      background-color: $secondary-color;
+      border-color: $secondary-color;
+      box-shadow: 0 5px 15px rgba(248, 67, 110, 0.48);
+    }
+    &:focus {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+.btn-primary {
+  color: $white;
+  background-color: $theme-color;
+  border-color: $theme-color;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s ease-in-out;
+  &:hover {
+    background-color: $theme-color;
+    border-color: $theme-color;
+    box-shadow: 0 5px 15px rgba(84, 92, 146, 0.48);
+  }
+}
+//Input classes
+.form-control {
+  color: $text-color;
+}
+//heading classes
+.h1-cls {
+  color: $text-color;
+  font-family: $font-black;
+  font-size: 32px;
+  margin: 0;
+}
+
+.h2-cls {
+  font-family: $font-bold;
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.h3-cls {
+  font-family: $font-bold;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.theme-color {
+  background-color: $theme-color;
+}
+.text-red {
+  color: #ff0000;
+}
+.text-green {
+  color: #19caa8;
+}
+//btn classes
+.btn-lg {
+  padding: 6px 18px !important;
+}
+.btn-md {
+  padding: 4px 16px !important;
+}
+// .btn-sm {
+//   height: 36px;
+//   width: 104px;
+// }
+.btn-xs {
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.asterrisk {
+  color: $secondary-color;
+}
+.no-graph-data {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0);
+  font-family: $Regular;
+  font-size: 16px;
+}
+.component-loader {
+  min-height: 300px;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  background: url("../assets/img/spinner.svg") no-repeat center top;
+  padding: 38px 10px 10px;
+  background-size: 44px;
+  margin: 10px 0 0;
+}
+.text-ellipsis {
+  display: block;
+  width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.line-text-ellipsis {
+  text-overflow: ellipsis;
+  // display: -webkit-inline-box;
+  white-space: initial;
+  overflow: hidden;
+}
+
+.text-click {
+  cursor: pointer;
+  text-decoration: underline !important;
+}

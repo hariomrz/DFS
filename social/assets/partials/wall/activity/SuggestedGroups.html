@@ -1,0 +1,24 @@
+<div ng-show="suggestedlist.length>0" id="GroupPageCtrlID" ng-controller="GroupPageCtrl" ng-init="suggestedGroupList(8,'0',0)" class="news-feed-listing">
+    <div class="heading">
+        <span>Suggested Groups</span>
+        <!-- <a class="seeMore feedupdate">See All</a> -->
+    </div>
+    <div class="feed-body suggestedList">
+        <ul class="suggested-list" id="suggestedListGroup">
+            <li ng-repeat="list in listObj = suggestedlist" repeat-done="callSlider('suggestedListGroup')">
+                <div class="listing-content">
+                    <a class="thumb-48 loadbusinesscard" entitytype="group" entityguid="{{list.GroupGUID}}">
+                    <img ng-if="list.ProfilePicture!=''" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+list.ProfilePicture}}" class="img-circle"  > </a>
+                    <a entitytype="group" entityguid="{{list.GroupGUID}}" class="loadbusinesscard" ng-href="{{data.SiteURL+'group/group_wall/'+list.GroupGUID}}" ng-bind="list.GroupName"></a>
+                    
+                    <div ng-if="list.MemberCount>0" class="sub-content">
+                        <span ng-if="list.MemberCount==1" ng-bind="'1 Member'"></span>
+                        <span ng-if="list.MemberCount>1" ng-bind="list.MemberCount+' Members'"></span>
+                    </div>
+                    
+                    <button id="join_group_{{list.GroupGUID}}" ng-click="(!list.IsJoined) ? joinPublicGroup(list.GroupGUID,'fromNewsFeed') : groupDropOutAction(list.GroupGUID,'fromNewsFeed') ;" class="btn btn-default with-icon"><i class="icon-n-plus"></i> <span>Join</span> </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

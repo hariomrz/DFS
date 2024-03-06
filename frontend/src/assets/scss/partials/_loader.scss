@@ -1,0 +1,62 @@
+.loader-back {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999999;
+  @include background-opacity($black, 0.1);
+  max-width: $window-width;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-custom {
+  border: 3px solid $primary;
+  border-radius: 50%;
+  border-top: 3px solid $primary_dark;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin-custom 1s linear infinite;
+  /* Safari */
+  animation: spin-custom 1s linear infinite;
+  &.guru{
+    border: 3px solid $pl-primary;
+    border-top: 3px solid $pl_dark;
+
+  }
+}
+
+/* Safari */
+@-webkit-keyframes spin-custom {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-custom {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+// changes for dark theme overall
+.body-dark-theme{
+  .loader-custom{
+    border: 3px solid $darkT_primary;
+    border-top: 3px solid $darkT_primary_dark;
+  }
+}

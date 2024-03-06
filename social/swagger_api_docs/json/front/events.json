@@ -1,0 +1,1038 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/events/get_event_locations": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Event Location List Api",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Location Event List (FilterType => 'AllPublicEvents', 'Suggested', 'MyPastEvent','AllMyEvents','EventICreated','EventIJoined','EventIInvited'), StartDate and EndDate format '2017-11-28'",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\get_event_locations"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/list": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Event List Api",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Event List (FilterType => 'AllPublicEvents', 'Suggested', 'MyPastEvent','AllMyEvents','EventICreated','EventIJoined','EventIInvited'), StartDate and EndDate format '2017-11-28'",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/get_event_categories": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Event Category List Api",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Category Event List (FilterType => 'AllPublicEvents', 'Suggested', 'MyPastEvent','AllMyEvents','EventICreated','EventIJoined','EventIInvited'), StartDate and EndDate format '2017-11-28'",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\get_event_categories"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/add": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Create Event",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Create Event",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\add"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/details": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get Event Detail",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Event Detail",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\details"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/GetUsersPresence": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get User Event Prensece",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get User Event Prensece",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\GetUsersPresence"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/event_user_detail": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get Event User Detail",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get event user detail",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\event_user_detail"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/media/get_event_media": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get Event Media Detail",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get event media",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\get_event_media"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/event_owner_detail": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get Event Owner Detail",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get event owner detail",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\event_owner_detail"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/event_attende_list": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get Event Attendees Detail",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get event attendees list",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\event_attende_list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/get_recent_invites": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get Event Recent Invited User List",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Recent Invited user list",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\get_recent_invites"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/members": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get Event Members List",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Member List (Filter => 'Admin', 'Member')",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\members"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/events/get_invitees_list": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "Get Invited Members List",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get Invited Member List (Filter => 'Admin', 'Member')",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Events\\get_invitees_list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Events\\get_event_locations": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Entity Type",
+                    "type": "string",
+                    "example": "10"
+                },
+                "Filter": {
+                    "description": "Event Type",
+                    "type": "string",
+                    "example": "AllPublicEvents"
+                },
+                "Latitude": {
+                    "description": "Latitue of location",
+                    "type": "string",
+                    "example": "22.7167"
+                },
+                "Longitude": {
+                    "description": "Longitude of location",
+                    "type": "string",
+                    "example": "75.8333"
+                },
+                "CategoryIDs": {
+                    "description": "Category Ids array",
+                    "type": "array",
+                    "example": []
+                },
+                "EndDate": {
+                    "description": "Endate filter",
+                    "type": "date",
+                    "example": ""
+                },
+                "StartDate": {
+                    "description": "Startdate filter",
+                    "type": "date",
+                    "example": ""
+                },
+                "LocationID": {
+                    "description": "Location IDs array",
+                    "type": "array",
+                    "example": []
+                },
+                "SearchKeyword": {
+                    "description": "Search keyword",
+                    "type": "string",
+                    "example": ""
+                },
+                "OrderBy": {
+                    "description": "",
+                    "type": "string",
+                    "example": "LastActivity"
+                },
+                "OrderType": {
+                    "description": "",
+                    "type": "string",
+                    "example": "DESC"
+                },
+                "userLocationFiterOn": {
+                    "description": "",
+                    "type": "boolean",
+                    "example": "false"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\list": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Entity Type",
+                    "type": "string",
+                    "example": "10"
+                },
+                "Filter": {
+                    "description": "Event Type",
+                    "type": "string",
+                    "example": "AllPublicEvents"
+                },
+                "Latitude": {
+                    "description": "Latitue of location",
+                    "type": "string",
+                    "example": "22.7167"
+                },
+                "Longitude": {
+                    "description": "Longitude of location",
+                    "type": "string",
+                    "example": "75.8333"
+                },
+                "CategoryIDs": {
+                    "description": "Category Ids array",
+                    "type": "array",
+                    "example": []
+                },
+                "EndDate": {
+                    "description": "Endate filter",
+                    "type": "date",
+                    "example": ""
+                },
+                "StartDate": {
+                    "description": "Startdate filter",
+                    "type": "date",
+                    "example": ""
+                },
+                "LocationID": {
+                    "description": "Location IDs array",
+                    "type": "array",
+                    "example": [
+                        1
+                    ]
+                },
+                "SearchKeyword": {
+                    "description": "Search keyword",
+                    "type": "string",
+                    "example": ""
+                },
+                "OrderBy": {
+                    "description": "",
+                    "type": "string",
+                    "example": "LastActivity"
+                },
+                "OrderType": {
+                    "description": "",
+                    "type": "string",
+                    "example": "DESC"
+                },
+                "userLocationFiterOn": {
+                    "description": "",
+                    "type": "boolean",
+                    "example": "false"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\get_event_categories": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Entity Type",
+                    "type": "string",
+                    "example": "10"
+                },
+                "Filter": {
+                    "description": "Event Type",
+                    "type": "string",
+                    "example": "AllPublicEvents"
+                },
+                "Latitude": {
+                    "description": "Latitue of location",
+                    "type": "string",
+                    "example": "22.7167"
+                },
+                "Longitude": {
+                    "description": "Longitude of location",
+                    "type": "string",
+                    "example": "75.8333"
+                },
+                "CategoryIDs": {
+                    "description": "Category Ids array",
+                    "type": "array",
+                    "example": []
+                },
+                "EndDate": {
+                    "description": "Endate filter",
+                    "type": "date",
+                    "example": ""
+                },
+                "StartDate": {
+                    "description": "Startdate filter",
+                    "type": "date",
+                    "example": ""
+                },
+                "LocationID": {
+                    "description": "Location IDs array",
+                    "type": "array",
+                    "example": []
+                },
+                "SearchKeyword": {
+                    "description": "Search keyword",
+                    "type": "string",
+                    "example": ""
+                },
+                "OrderBy": {
+                    "description": "",
+                    "type": "string",
+                    "example": "LastActivity"
+                },
+                "OrderType": {
+                    "description": "",
+                    "type": "string",
+                    "example": "DESC"
+                },
+                "userLocationFiterOn": {
+                    "description": "",
+                    "type": "boolean",
+                    "example": "false"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\add": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Title": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "test title"
+                },
+                "CategoryID": {
+                    "description": "Entity Type",
+                    "type": "integer",
+                    "example": "182"
+                },
+                "StartTime": {
+                    "description": "Event Type",
+                    "type": "string",
+                    "example": "05:20 PM"
+                },
+                "EndTime": {
+                    "description": "",
+                    "type": "string",
+                    "example": "09:20 PM"
+                },
+                "URL": {
+                    "description": "Longitude of location",
+                    "type": "string",
+                    "example": "www.google.com"
+                },
+                "Description": {
+                    "description": "",
+                    "type": "string",
+                    "example": "test description for event"
+                },
+                "Venue": {
+                    "description": "Endate filter",
+                    "type": "string",
+                    "example": "indore"
+                },
+                "StreetAddress": {
+                    "description": "Startdate filter",
+                    "type": "string",
+                    "example": "Indore, Madhya Pradesh, India"
+                },
+                "Latitude": {
+                    "description": "Location IDs array",
+                    "type": "string",
+                    "example": "22.7195687"
+                },
+                "Longitude": {
+                    "description": "Search keyword",
+                    "type": "string",
+                    "example": "75.85772580000003"
+                },
+                "Privacy": {
+                    "description": "",
+                    "type": "string",
+                    "example": "PUBLIC"
+                },
+                "StartDate": {
+                    "description": "",
+                    "type": "date",
+                    "example": "11/28/2017"
+                },
+                "EndDate": {
+                    "description": "",
+                    "type": "date",
+                    "example": "11/29/2017"
+                },
+                "ModuleID": {
+                    "description": "",
+                    "type": "integer",
+                    "example": ""
+                },
+                "ModuleEntityID": {
+                    "description": "",
+                    "type": "integer",
+                    "example": ""
+                },
+                "Location": {
+                    "description": "",
+                    "type": "array",
+                    "example": {
+                        "UniqueID": "1daa36796ce31e1776ce72634b72fc205dddda2d",
+                        "Latitude": 22.7195687,
+                        "Longitude": 75.8577258,
+                        "FormattedAddress": "Indore, Madhya Pradesh, India",
+                        "City": "Indore",
+                        "State": "Madhya Pradesh",
+                        "Country": "India",
+                        "PostalCode": "",
+                        "Route": "",
+                        "StateCode": "MP",
+                        "CountryCode": "IN"
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\details": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EventGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\GetUsersPresence": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EventGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\event_user_detail": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EventGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\get_event_media": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "ModuleEntityGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                },
+                "ModuleID": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "14"
+                },
+                "PageNo": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "8"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\event_owner_detail": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EventGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\event_attende_list": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EventGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                },
+                "PageSize": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "14"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\get_recent_invites": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EventGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                },
+                "PageSize": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "5"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\members": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EventGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                },
+                "PageSize": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "12"
+                },
+                "PageNo": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "Filter": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "Admin"
+                }
+            }
+        },
+        "Inclusify\\Api\\Events\\get_invitees_list": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EventGUID": {
+                    "description": "EntityID",
+                    "type": "string",
+                    "example": "a669172a-48a3-b326-6d0c-10308fde3d85"
+                },
+                "PageSize": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "12"
+                },
+                "PageNo": {
+                    "description": "EntityID",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        }
+    }
+}

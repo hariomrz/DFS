@@ -1,0 +1,111 @@
+<a ng-if="LoginSessionKey!==''" target="_self" data-toggle="tooltip" data-placement="bottom" data-original-title="Create New Post" ng-click="setEditVariable(false);slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();" class="btn-floating btn-gotop">
+    <i class="btn-floating-add ficon-pencil"></i>
+    <i class="btn-floating-edit ficon-pencil"></i>
+</a>
+
+<aside>
+    <div class="stiky-overlay" ng-class="{'active': isOverlayActive}" ng-click="toggleStickyPopup('close', popupType);"></div>
+
+    <input type="hidden" ng-if="log_view" ng-controller="logCtrl" ng-init="viewCount(entity_type, module_entity_guid)" />
+
+    <div>
+        <div role="tabpanel">
+            
+                <div ng-if="category_detail.Visible!='1' && wlEttDt.ModuleEntityGUID && !wlEttDt.ActivityGUID && LoginSessionKey!==''"  ng-include="AssetBaseUrl + 'partials/widgets/wall/announcement_newsfeed.html'" ></div>
+                <div ng-cloak ng-show="IsReminder == 1 && ReminderFilter == 1" class="reminder-filter-view">
+                    <ul class="filter-tags">
+                        <li ng-repeat="RFD in ReminderFilterDate">
+                            <span ng-bind="getReminderDateFormat(RFD)"></span>
+                            <i ng-click="clearReminderFilter(RFD);" class="icon-n-close">&nbsp;</i>
+                        </li>
+                    </ul>
+                </div>
+                <section class="news-feed" ng-cloak  ng-controller="NewsFeedCtrl" id="NewsFeedCtrl" infinite-scroll="GetwallPost()"
+                         infinite-scroll-distance="2" infinite-scroll-use-document-bottom="true" infinite-scroll-disabled="is_busy">
+                    <div ng-include="AssetBaseUrl + 'partials/forum/wall-filter.html'+ app_version"></div>
+                    <div class="news-feed-listing sticky-tutor" id="stickyTutorialBox" ng-cloak ng-if="stickynote" ng-class="{'overlay-content': stickynote}">
+                        <div class="feed-body">
+                            <img ng-src="{{AssetBaseUrl}}img/sticky-pos-options.jpg" >
+                        </div>
+                    </div>
+
+                    <div id="activityFeedId-{{ $index}}" ng-repeat="data in activityData track by $index" repeat-done="wallRepeatDone();" ng-init="SettingsFn(data.ActivityGUID); FeedIndex = $index; initTagsItem($index);" ng-class="getCollpaseClass(data, 'feed-list')" class="news-feed-listing feed-list" viewport-watch>
+                        <div class="inner-wall-post" ng-include="getTemplateUrl(data)" ></div>
+                    </div>
+                    <div ng-include="AssetBaseUrl + 'partials/wall/FeedLoader.html'+ app_version"></div>
+                </section>
+
+                <div class="panel panel-info" ng-if="!IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+                    <div class="panel-body nodata-panel">
+                        <div class="nodata-text p-v-lg">
+                          <span class="nodata-media">
+                            <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+                          </span>
+                            <h5>Let's start Posting</h5>
+                            <p class="text-off">Start building your timeline by making your first post</p>
+                            <a ng-click="slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();" ng-hide="(config_detail.ModuleID=='14' && EventDetail.CanPostOnWall=='0') || (config_detail.ModuleID=='34' && !((category_detail.CanPostOnWall=='1' || !category_detail.Permissions.IsMember) && category_detail.IsDiscussionAllowed=='1'))">Write something!</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-info" ng-if="config_detail.IsAdmin && config_detail.ModuleID=='18' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+                    <div class="panel-body nodata-panel">
+                        <div class="nodata-text p-v-lg">
+                          <span class="nodata-media">
+                            <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+                          </span>
+                            <h5>Let's start posting.</h5>
+                            <p class="text-off">Start by telling us more about your page and generate a buzz.</p>
+                            <a ng-cloak ng-hide="config_detail.ModuleID=='18' && pageDetails.IsFollowed=='0'" ng-click="slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();">Write something.</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-info" ng-if="!config_detail.IsAdmin && config_detail.ModuleID=='18' && !IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+                    <div class="panel-body nodata-panel">
+                        <div class="nodata-text p-v-lg">
+                          <span class="nodata-media">
+                            <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+                          </span>
+                            <h5>Let's start posting.</h5>
+                            <p ng-cloak ng-hide="config_detail.ModuleID=='18' && pageDetails.IsFollowed=='0'" class="text-off">Make the first post and start some interesting discussions</p>
+                            <p ng-cloak ng-if="config_detail.ModuleID=='18' && pageDetails.IsFollowed=='0'" class="text-off">Follow this page to make a post</p>
+                            <a ng-cloak ng-hide="config_detail.ModuleID=='18' && pageDetails.IsFollowed=='0'" ng-click="slickSlider(); updateActivePostTypeDefault(ContentTypes); showNewsFeedPopup();">Write something.</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-info" ng-if="IsMyDeskTab && (tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost == 0" ng-cloak>
+                    <div class="panel-body nodata-panel">
+                        <div class="nodata-text p-v-lg">
+                      <span class="nodata-media">
+                        <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-my-desk.png" >
+                      </span>
+                            <h5>Looks a little empty here.</h5>
+                            <p class="text-off">
+                                There is nothing to show. We'll notify you whenever you
+                                <br>
+                                tagged, mentioned in any post
+                            </p>
+                            <a onclick="$('#mydesktoggle').trigger('click')">Here's something interesting!</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-info"  ng-if="(tr == 0 || (trr == 0 && IsReminder == 1)) && IsSinglePost !== 0" ng-cloak>
+                    <div class="panel-body nodata-panel">
+                        <div class="nodata-text p-v-lg">
+                      <span class="nodata-media">
+                        <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-newsfeed.png" >
+                      </span>
+                            <p class="text-off">The content you requested cannot be displayed right now. <br>Its not accessible for you.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        
+    </div>
+</aside>
+<div ng-include="AssetBaseUrl + 'partials/wall/wall_modal.html'+ app_version"></div>

@@ -1,0 +1,384 @@
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * This Class used as REST API for Tag module 
+ * @category     Controller
+ * @author       Vinfotech Team
+ */
+class Tag extends Common_API_Controller {
+
+    function __construct() {
+
+        parent::__construct();
+        $this->load->model(array('tag/tag_model', 'users/user_model'));
+    }
+
+    /**
+     * [save_post Used to save tag]
+     * @return [array] [Response details]
+     */
+    function save_post() {
+        /* Define variables - starts */
+        $return = $this->return;
+        /* Gather Inputs - starts */
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        $return['Data']['EntityTagIDs'] = [];
+        if (isset($data)) {
+            $validation_rule = array(
+                array(
+                    'field' => 'EntityID',
+                    'label' => 'Entity ID',
+                    'rules' => 'trim|required|validate_entity_id[EntityType]'
+                ),
+                array(
+                    'field' => 'EntityType',
+                    'label' => 'Entity type',
+                    'rules' => 'trim|required'
+                ),
+                array(
+                    'field' => 'TagType',
+                    'label' => 'Tag type',
+                    'rules' => 'trim|required'
+                )
+            );
+            $this->form_validation->set_rules($validation_rule);
+            if ($this->form_validation->run() == FALSE) {
+                $error = $this->form_validation->rest_first_error_string();
+                $return['ResponseCode'] = self::HTTP_PRECONDITION_FAILED;
+                $return['Message'] = $error; //Shows all error messages as a string
+            } else {
+                $tag_type = isset($data['TagType']) ? trim($data['TagType']) : 'LINK';
+                $tag_type_id = $this->tag_model->get_tag_type_id($tag_type);
+                $entity_type = isset($data['EntityType']) ? trim($data['EntityType']) : 'LINK';
+                $entity_id = isset($data['EntityID']) ? trim($data['EntityID']) : 0;
+                $tag_list = (isset($data['TagsList']) && !empty($data['TagsList'])) ? $data['TagsList'] : array();
+                $is_front_end = (isset($data['IsFrontEnd']) && !empty($data['IsFrontEnd'])) ? $data['IsFrontEnd'] : 0;
+                $tag_ids = (isset($data['TagsIDs']) && !empty($data['TagsIDs'])) ? $data['TagsIDs'] : array(); //to delete
+                $forDummyUser = (!empty($data['ForDummyUser'])) ? $data['ForDummyUser'] : 0; // for dummy users
+                //Check permission of logged in user for this tag  
+                $is_admin = $this->tag_model->check_permission($user_id, $entity_type, $entity_id);
+                if ($is_admin) {
+
+                    if (!empty($tag_ids)) {
+                        $this->tag_model->delete_entity_tag($entity_id, $entity_type, $tag_ids, [], $forDummyUser);
+                    }
+                    if (!empty($tag_list)) {
+                        $tags_data = $this->tag_model->save_tag($tag_list, $tag_type_id, $user_id);
+                        if (!empty($tags_data) && !empty($entity_id)) {
+                            $return['Data'] = $this->tag_model->save_entity_tag($tags_data, $entity_type, $entity_id, $user_id, $is_front_end, true, $forDummyUser);
+                        }
+                    }
+                } else {
+                    $return['ResponseCode'] = self::HTTP_PRECONDITION_FAILED;
+                    $return['Message'] = lang('permission_denied');
+                }
+            }
+        } else {
+            $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+            $return['Message'] = lang('input_invalid_format');
+        }
+        $this->response($return);
+    }
+
+    /**
+     * [delete_entity_tag_post Used to delete entity tag]
+     * @return [array] [Response details]
+     */
+    function delete_entity_tag_post() {
+        /* Define variables - starts */
+        $return = $this->return;
+        /* Gather Inputs - starts */
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        if (isset($data)) {
+            if (!empty($data['EntityTagIDs'])) {
+                $validation_rule = array(
+                    array(
+                        'field' => 'EntityTagIDs[]',
+                        'label' => 'EntityTagIDs',
+                        'rules' => 'trim|required'
+                    )
+                );
+            } else {
+                $validation_rule = array(
+                    array(
+                        'field' => 'EntityID',
+                        'label' => 'Entity ID',
+                        'rules' => 'trim|required|validate_entity_id[EntityType]'
+                    ),
+                    array(
+                        'field' => 'EntityType',
+                        'label' => 'Entity type',
+                        'rules' => 'trim|required'
+                    ),
+                    array(
+                        'field' => 'TagsIDs[]',
+                        'label' => 'Tag ID',
+                        'rules' => 'trim|required'
+                    )
+                );
+            }
+
+
+            $this->form_validation->set_rules($validation_rule);
+            if ($this->form_validation->run() == FALSE) {
+                $error = $this->form_validation->rest_first_error_string();
+                $return['ResponseCode'] = self::HTTP_PRECONDITION_FAILED;
+                $return['Message'] = $error; //Shows all error messages as a string
+            } else {
+                $entity_type = isset($data['EntityType']) ? trim($data['EntityType']) : 'LINK';
+                $entity_id = isset($data['EntityID']) ? trim($data['EntityID']) : 0;
+                $tag_ids = (isset($data['TagsIDs']) && !empty($data['TagsIDs'])) ? $data['TagsIDs'] : array();
+                $entity_tag_ids = (!empty($data['EntityTagIDs'])) ? $data['EntityTagIDs'] : array();
+                if (!empty($tag_ids) || !empty($entity_tag_ids)) {
+                    $this->tag_model->delete_entity_tag($entity_id, $entity_type, $tag_ids, $entity_tag_ids);
+                } else {
+                    $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+                    $return['Message'] = lang('input_invalid_format');
+                }
+            }
+        } else {
+            $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+            $return['Message'] = lang('input_invalid_format');
+        }
+        $this->response($return);
+    }
+
+    function get_entity_tags_get() {
+        /* Define variables - starts */
+        $return = $this->return;
+        /* Gather Inputs - starts */
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        if (isset($data)) {
+            $search_keyword = isset($data['SearchKeyword']) ? $data['SearchKeyword'] : '';
+            $tag_type = isset($data['TagType']) ? trim($data['TagType']) : 'LINK';
+            $entity_type = isset($data['EntityType']) ? trim($data['EntityType']) : 'LINK';
+            $entity_id = isset($data['EntityID']) ? trim($data['EntityID']) : 0;
+            $page_no = (isset($data['PageNo']) && $data['PageNo'] > 0) ? $data['PageNo'] : '1';
+            $page_size = isset($data['PageSize']) ? $data['PageSize'] : '10';
+            $forDummyUser = (!empty($data['ForDummyUser'])) ? $data['ForDummyUser'] : 0; // for dummy users
+
+            $tag_type_id = $this->tag_model->get_tag_type_id($tag_type);
+
+            $return['Data'] = $this->tag_model->get_entity_tags($search_keyword, $page_no, $page_size, $tag_type_id, $entity_type, $entity_id, $user_id, $forDummyUser, $data);
+        } else {
+            $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+            $return['Message'] = lang('input_invalid_format');
+        }
+        $this->response($return);
+    }
+
+    /**
+     * [get list of popular tags by entity type]
+     * @return [array] [list of popular tags]
+     */
+    function get_popular_tags_post() {
+        $return = $this->return;
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        $return['Data'] = $this->tag_model->get_popular_tags($data);
+        $this->response($return);
+    }
+
+    /**
+     * [save_post Used to save tag]
+     * @return [array] [Response details]
+     */
+    function save_tag_users_roles_post() {
+        /* Define variables - starts */
+        $return = $this->return;
+        /* Gather Inputs - starts */
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        $return['Data']['EntityTagIDs'] = [];
+        $onlyUsers = (!empty($data['OnlyUsers'])) ? $data['OnlyUsers'] : 0; // for dummy users
+        if (!isset($data)) {
+            $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+            $return['Message'] = lang('input_invalid_format');
+            $this->response($return);
+        }
+
+        $tag_type = 'USER';
+        $tag_type_id = 5;
+        $entity_type = 'USER';
+        $entity_id = $user_id;
+        $is_front_end = 0;
+        $forDummyUser = 1;
+
+        $this->load->model(array('admin/users_model'));
+        $return['Data']['Tags'] = [];
+        $return['Data']['Users'] = [];
+
+        // In case only get users
+        if ($onlyUsers) {
+            $return['Data']['Users'] = $this->users_model->save_users_roles([], 1);
+            $return['Data']['Tags'] = $this->tag_model->get_entity_tags_for_dummy_users();
+            $this->response($return);
+        }
+
+        $tag_list = (isset($data['TagsList']) && !empty($data['TagsList'])) ? $data['TagsList'] : array();
+        $tag_ids = (isset($data['TagsIDs']) && !empty($data['TagsIDs'])) ? $data['TagsIDs'] : array(); //to delete
+        $user_ids = (isset($data['UserIDs']) && !empty($data['UserIDs'])) ? $data['UserIDs'] : array(); //to delete
+
+        $new_added = [];
+        if (!empty($tag_ids)) {
+            $this->tag_model->delete_entity_tag($entity_id, $entity_type, $tag_ids, [], $forDummyUser);
+        }
+        if (!empty($tag_list)) {
+            $tags_data = $this->tag_model->save_tag($tag_list, $tag_type_id, $user_id);
+            if (!empty($tags_data) && !empty($entity_id)) {
+                $new_added = $this->tag_model->save_entity_tag_dummy_users($tags_data);
+            }
+        }
+
+        $return['Data']['Tags'] = $this->tag_model->get_entity_tags_for_dummy_users();
+        $return['Data']['Users'] = $this->users_model->save_users_roles($user_ids);
+
+        // Assign or Update tags to dummy users
+        if (!empty($new_added) || !empty($tag_ids)) {
+            $this->tag_model->assign_or_update_tags_to_dummy_users($return['Data']['Tags']);
+        }
+        $this->response($return);
+    }
+    
+    /**
+     * [save_tag_category_post used to add tag category]
+     */
+    function save_tag_category_post() {
+        $return = $this->return;
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        if (isset($data)) {
+            $validation_rule = array(
+                array(
+                    'field' => 'Name',
+                    'label' => 'category',
+                    'rules' => 'trim|required|max_length[100]'
+                )
+            );
+            $this->form_validation->set_rules($validation_rule);
+            if ($this->form_validation->run() == FALSE) {
+                $error = $this->form_validation->rest_first_error_string();
+                $return['ResponseCode'] = self::HTTP_PRECONDITION_FAILED;
+                $return['Message'] = $error; //Shows all error messages as a string
+            } else {
+                $is_admin = $this->user_model->is_super_admin($user_id);
+                if ($is_admin) {
+                    $name = safe_array_key($data, 'Name');
+                    $tag_list = safe_array_key($data, 'TagsList', array());                 
+                    $tag_category_id = $this->tag_model->save_tag_category($name);
+                    if ($tag_category_id) {
+                        if (!empty($tag_list)) {
+                            $tags_data = $this->tag_model->save_tag($tag_list, 1, $user_id);
+                            if (!empty($tags_data)) {
+                               $this->tag_model->save_category_tag($tags_data, $tag_category_id);
+                            }
+                        }
+
+                        $this->tag_model->delete_api_static_file('tag_categories');
+                        if (CACHE_ENABLE) {
+                            $this->cache->delete('tag_categories');
+                        }
+                    }
+                } else {
+                    $return['ResponseCode'] = self::HTTP_PRECONDITION_FAILED;
+                    $return['Message'] = lang('permission_denied');
+                }
+            }
+        } else {
+            $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+            $return['Message'] = lang('input_invalid_format');
+        }
+        $this->response($return);
+    }
+    
+    /**
+     * [delete_tag_category_post used to delete tag category]
+     */
+    function delete_tag_category_post() {
+        $return = $this->return;
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        if (isset($data)) {
+            $validation_rule = array(
+                array(
+                    'field' => 'TagCategoryID',
+                    'label' => 'category ID',
+                    'rules' => 'trim|required'
+                )
+            );
+            $this->form_validation->set_rules($validation_rule);
+            if ($this->form_validation->run() == FALSE) {
+                $error = $this->form_validation->rest_first_error_string();
+                $return['ResponseCode'] = self::HTTP_PRECONDITION_FAILED;
+                $return['Message'] = $error; //Shows all error messages as a string
+            } else {
+                $tag_category_id = safe_array_key($data, 'TagCategoryID');                
+                $is_admin = $this->user_model->is_super_admin($user_id);
+                if ($is_admin) {
+                    if ($tag_category_id) {
+                        $this->tag_model->delete_tag_category($tag_category_id);                        
+                    }
+                } else {
+                    $return['ResponseCode'] = self::HTTP_PRECONDITION_FAILED;
+                    $return['Message'] = lang('permission_denied');
+                }
+            }
+        } else {
+            $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+            $return['Message'] = lang('input_invalid_format');
+        }
+        $this->response($return);
+    }
+    
+    /**
+     * [get_tag_categories_post Used to get tag category]
+     */
+    function get_tag_categories_post() {
+        $return = $this->return;
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        if (isset($data)) {
+            $return['Data'] = $this->tag_model->get_tag_categories();
+        } else {
+            $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+            $return['Message'] = lang('input_invalid_format');
+        }
+        $this->response($return);
+    }
+    
+    /**
+     * change_category_tag_order_post: Change tag category display order  
+     */
+    function change_category_tag_order_post() {
+        $return = $this->return;
+        $data = $this->post_data;
+        $user_id = $this->UserID;
+        if (isset($data)) {
+            $is_super_admin = $this->user_model->is_super_admin($user_id);
+            if (!$is_super_admin) {
+                $return['ResponseCode'] = self::HTTP_PRECONDITION_FAILED;
+                $return['Message'] = lang('permission_denied');
+                $this->response($return);
+            }
+            $order_data = isset($data['OrderData']) ? $data['OrderData'] : '';
+
+            if (!empty($order_data)) {
+                $this->tag_model->change_category_tag_order($order_data);
+                
+                $this->tag_model->delete_api_static_file('tag_categories');
+                if (CACHE_ENABLE) {
+                    $this->cache->delete('tag_categories');
+                }
+            }
+        } else {
+            $return['ResponseCode'] = self::HTTP_BAD_REQUEST;
+            $return['Message'] = lang('input_invalid_format');
+        }
+        $this->response($return);
+    }
+}

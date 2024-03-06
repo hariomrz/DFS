@@ -1,0 +1,33 @@
+<!--  On logged in user and creator of entity is same start -->                 
+<div 
+    ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.page_name == 'userprofile' && wlEttDt.LoggedInUserID == wlEttDt.CreaterUserID" 
+    ng-include="AssetBaseUrl + 'partials/widgets/wall/profile_field_questions.html'" ></div>
+<!--  On logged in user and creator of entity is same end -->   
+
+
+<!--  On logged in user and creator of entity is different start -->                 
+<div ng-show="!IsMyDeskTab" id="UserListCtrl2" ng-controller="UserListCtrl" ng-init="getProfileUser()" >
+    <div 
+        ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.page_name == 'userprofile' && wlEttDt.LoggedInUserID != wlEttDt.CreaterUserID" 
+        ng-include="AssetBaseUrl + 'partials/widgets/wall/request.html'" ></div>
+
+    <div 
+        ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.page_name == 'userprofile' && wlEttDt.LoggedInUserID != wlEttDt.CreaterUserID" 
+        ng-include="AssetBaseUrl + 'partials/widgets/wall/endorse-user.html'" ></div>
+</div>
+<!--  On logged in user and creator of entity is different end --> 
+
+
+
+<div ng-show="!IsMyDeskTab" ng-cloak ng-repeat="am in admin_messages| limitTo:1" class="feed-list welcome-msz">
+    <span class="next-text" ng-if="$index !== (admin_messages.length - 1)" ng-click="remove_admin_message(am.BlogGUID)">
+        <i class="ficon-arrow-left-sml f-lg"></i>
+    </span>
+    <i ng-if="$index == (admin_messages.length - 1)" ng-click="remove_admin_message(am.BlogGUID)" class="icon-n-close"></i>
+    <div class="feed-body">
+        <h3 ng-cloak ng-if="am.EntityType == 3">Hi<span ng-if="FirstName != ''">&nbsp;{{FirstName}}</span><span ng-if="LastName != ''">&nbsp;{{LastName}}</span> <span ng-bind="am.Title"></span></h3>                                          
+        <h3 ng-cloak ng-if="am.EntityType == 4"><span ng-bind="am.Title"></span></h3>                                          
+        <div class="feed-content" ng-bind-html="am.Description"></div> 
+    </div>
+
+</div>

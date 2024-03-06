@@ -1,0 +1,282 @@
+.filter-container {
+    .slide-pane_from_bottom.ReactModal__Content--after-open{
+        max-width: $window_width;
+    }
+}
+.slide-pane__header{
+    display: none !important;
+}
+.slide-pane_from_bottom.slide-pane_from_bottom.ReactModal__Content--after-open {
+    margin-top: 0;
+    height: auto;
+    bottom: 0;
+    position: absolute;
+    background-color: $gray-150;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+
+}
+
+.slide-pane__content{
+    padding: 0;
+    overflow-y: hidden;
+    display: contents;
+
+    .filter-header{
+        background: $white;
+        color: $primary_text_color;
+        font-size: $font-base;
+        font-family: $font-bold;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        padding: 15px;
+        i{
+            position: absolute;
+            left: 15px;
+            display: inline-block;
+            top: 15px;
+            font-size: $font-size-medium;
+            color: $icon_color;
+            cursor: pointer;
+            &.active{
+                color: $primary;
+            }
+            padding-top: 4px;
+        }
+        .btn{
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            background: transparent;
+            padding: 0;
+            color: $primary;
+            &.active{
+                color: $primary;
+            }
+            padding-top: 4px;
+        }
+        border-bottom: 1px solid $border_color;
+        &.shadow{
+            box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+            box-shadow: none !important;
+        }
+    }
+    .filter-body{
+        height: 100%;
+        max-height: 260px;
+        overflow-y: auto;
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0px;
+            background-color: $white;
+            li{
+                border-bottom: 1px solid $border_color;
+                color: $primary_text_color;
+                font-size: $font-base;
+                font-family: $font-regular;
+                background-color: $white;
+                
+                &.bottom-padding{
+
+                    &:last-child{
+                        padding-bottom: 20px !important;
+                        border-bottom: 0px solid transparent;
+                    }
+                }
+
+                &.active{
+                    color: $primary;
+                }
+                .form-group{
+                    margin: 0;
+                }
+                label{
+                    margin: 0;
+                    width: 100%;
+                }
+                .custom-checkbox{
+                    input[type="checkbox"],input[type="radio"]{
+                        position: absolute; // take it out of document flow
+                        opacity: 0; // hide it
+
+                        &~span {
+                            position: relative;
+                            cursor: pointer;
+                            padding: 0;
+                            display: block;
+                            width: 100%;
+                            padding-right: 30px;
+                            max-width: 100%;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            min-height: 20px;
+                        }
+
+                        // Box.
+                        &~span:before {
+                            content: '';
+                            margin-right: 10px;
+                            display: inline-block;
+                            vertical-align: text-top;
+                            width: 20px;
+                            height: 20px;
+                            background: $white;
+                            border-radius: 50px;
+                            border: 1px solid #D1D1D1;
+                            margin: 0;
+                            position: absolute;
+                            right: 0;
+                        }
+
+                        // Box checked
+                        &:checked~span{
+                            color: $primary;
+                            &:before {
+                                background: $primary;
+                                border: none;
+                            }
+                        }
+
+                        // Disabled state label.
+                        &:disabled~span {
+                            color: #b8b8b8;
+                            cursor: auto;
+                        }
+
+                        // Disabled box.
+                        &:disabled~span:before {
+                            box-shadow: none;
+                            background: #ddd;
+                        }
+
+                        // Checkmark. Could be replaced with an image
+                        &:checked~span:after {
+                            content: '';
+                            position: absolute;
+                            right: 13px;
+                            top: 9px;
+                            background: $white;
+                            width: 2px;
+                            height: 2px;
+                            box-shadow:
+                                2px 0 0 $white,
+                                4px 0 0 $white,
+                                4px -2px 0 $white,
+                                4px -4px 0 $white,
+                                4px -6px 0 $white,
+                                4px -8px 0 $white;
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slide-pane__overlay.ReactModal__Overlay--after-open{
+    z-index: 1000;
+    margin: 0;
+}
+
+.filter-body{
+    .custom-nav-tabs{
+        
+        .nav-tabs{
+            background: $white;
+            border: 0;
+            // box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+            border-bottom: 1px solid $border_color;
+            position: relative;
+            li{   
+                background-color: $white;
+                a{
+                    color: $help_text_color;
+                    font-family: $font-bold;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                    font-size: $font-size-small;
+                    padding: 13px;
+                }
+                &.active{
+                    a{
+                        color: $primary;
+                        position: relative;
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            height: 2px;
+                            width: 100%;
+                            background: $primary;
+                            bottom: -1px;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.tabs-three{
+            .nav-tabs {
+                li{
+                    width: 33.33%;
+                }
+            }
+        }
+    }
+    &.hub-filter{
+        ul li {
+            text-transform: capitalize;
+        }
+    }
+}
+.custom-nav-tabs.tabs-three.contest-filter-tab{
+    .tab-content{
+        padding: 0;
+        background: $white;
+        .slider-header{
+            max-width: 500px;
+            margin: 0 auto;
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding: 50px;
+
+            .slider-value{
+                color: $primary_text_color;
+                font-family: $font-regular;
+                font-size: $font-size-small;
+                font-weight: bold;
+                line-height: 15px;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50px);
+            }
+        }
+    }
+}
+
+.custom-validate-check{
+    input{
+        width: 10px;
+        height: 10px;
+        margin-right: 4px;
+    }
+}
+
+.filter-body .custom-nav-tabs{
+    &.tabs-1 .nav-tabs li{
+        width: 100%;
+    }
+    &.tabs-2 .nav-tabs li{
+        width: 50%;
+    }
+    &.tabs-3 .nav-tabs li{
+        width: 33.33%;
+    }
+}

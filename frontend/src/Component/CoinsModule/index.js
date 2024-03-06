@@ -1,0 +1,10 @@
+import WhatIsNew from "./WhatIsNew";
+import EarnCoins from "./EarnCoins";
+import DailyCheckinBonus from "./DailyCheckinBonus";
+import RedeemCoins from "./RedeemCoins";
+import CoinCoachMarks from "./CoinCoachMarks";
+import ReedemCoachMarks from "./ReedemCoachMarks";
+import RedeemSuccess from "./RedeemSuccess";
+import FeedbackQA from "./FeedbackQA";
+import ConfrimRedeem from "./ConfrimRedeem";
+export { WhatIsNew, EarnCoins, DailyCheckinBonus, RedeemCoins, CoinCoachMarks, RedeemSuccess, ReedemCoachMarks, FeedbackQA,ConfrimRedeem };

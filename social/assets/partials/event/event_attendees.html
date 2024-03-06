@@ -1,0 +1,35 @@
+<div class="panel panel-widget" ng-if="eventAttendesList.length > 0">
+  <div class="panel-heading" ng-if="EventDetail.EventStatus!=='Past'">
+    <h3 class="panel-title" ng-if="totalAttendes > 1">{{lang.attendes}} ({{totalAttendes}})</h3>
+    <h3 class="panel-title" ng-if="totalAttendes == 1">{{lang.attende}} ({{totalAttendes}})</h3>
+  </div>
+  <div class="panel-heading" ng-if="EventDetail.EventStatus ==='Past'">
+    <h3 class="panel-title">{{lang.attended}} ({{totalAttendes}})</h3>
+  </div>
+  <div class="panel-body">
+
+  <div class="row gutter-1">  
+    <div class="thumbnail thumbnail-media col-sm-2 col-xs-4" ng-repeat="list in eventAttendesList">
+      <a entitytype="user" entityguid="{{list.UserGUID}}" class="loadbusinesscard" ng-href="{{list.ProfileLink}}" > 
+        <figure class="img-panel">
+          <div class="block overlay-none">
+            <img src="{{AssetBaseUrl}}img/blank-1x1.png" class="img-full">
+            <img ng-if="list.ProfilePicture != '' && list.ProfilePicture !== 'user_default.jpg'" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{list.ProfilePicture}}" class="main-img">
+            <img ng-if="list.ProfilePicture == '' || list.ProfilePicture == 'user_default.jpg'" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{list.ProfilePicture}}" err-name="{{list.FullName}}">
+          </div>
+        </figure>     
+      </a>
+    </div>
+    <div class="thumbnail thumbnail-media view-thumbnail col-sm-2 col-xs-4" ng-if="totalAttendes > MaxLimit">
+      <a  href="{{EntityMemberURL}}">
+        <figure class="img-panel">
+          <div class="block overlay-none">
+            <img src="{{AssetBaseUrl}}img/blank-1x1.png" class="img-full">                      
+          </div>
+        </figure> 
+        <span class="view" ng-bind="lang.show_all"></span>
+      </a>
+    </div>
+  </div>
+  </div>
+</div>

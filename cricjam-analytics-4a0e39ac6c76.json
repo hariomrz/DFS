@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cricjam-analytics",
+  "private_key_id": "4a0e39ac6c769653471ba00c5ee7ef327a1d23b9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQC17l6pZSDL2K4V\n3vvQisxRI7Vk7Ml57urohsfI6vgEOssmAa6bZuIj8XHLMNxHqfwN6CdVpY1TN5Rv\noSXGPaipmLDQtPSWsFvlD1KtMcS/mPX4I8uLck6C4RYiy3wZDuBaNR3Z7kK9bh4W\nOk821qa++7+nWjkA7/tSbkIsdP7u+pHmtyO1BUzKLq49gz9yLuFvvFrBJGousHd/\ng9puGFRggZxI5NeacOuqoTJtfGhGsuyt5P5Zej8juR+FhB9Y46pZVz5XAkE59+Rv\nLKrdgvwdkgWmaNRDZSDLGq7sHPMwAJweUV3rmst2yt/UFNx8CxZ3ltHy/c0x2avb\n9cuQNVzjAgMBAAECgf9iyAqd70rfY8ciGPChSrulUr4rDmZWzmK93nCbpvkDUuj6\nue8UcchXu8ENknoIb0NsSaER39HcXVE7S0Q3X0M00rMunxIuv5MlzCwX3e32Ghdz\no/vguy/l4FEkk1fOQ0WNtUmACt4x/JhZeU+JdwMSr55gP5yz5ZmQKE3F1cCWAIza\nza1Zs4HUCJOl7/+qz1OncubttkcZpeaGdbxn5duaSRB8PyCPftdp8aW9d27Ro9ft\nrvztokCn/J0d8Qgsu23aSXu+kXNpbmln3qIDfDpI3++K4X55RayZxaFPm0UafS26\nSClfhPV1XmNil36V7vKAD5uA/4PxEX59ZJ5WrBkCgYEA2VPdIr2qZYIThZx5VkQ7\n3A7LvkEDbOR+FQHLT1CblQrp7dwEdNtyfIXfnI05doppcVJByy85T1NElelHYGwV\nwB8rwSE/PbgpAUES1VwKdbJmWRtQdOxCgy4PQ9ML9PEl/8brb5bOx3sbrF4kp2qe\nYnNABjbmGl+qXgfzw6wFbr8CgYEA1k4Oby/AdfYTC79mpcN7UeBuqooMWbjWTBI8\nqqv5f8sy/+IsnDHgOeaIYQxAyLEaOAJDlX3T8R81a/OeFUWkSOt/lu+uZSfH2G4L\nB3KE+QeHWr0o4XMxE7fZRETU/PAajTVmIojz7BTdhsqxz3I/hSzXhLVzv9LzkPGu\n9CBtvt0CgYBay4KzpPGvfuyRAZJfzBoGEdhlH9xCfiN+u0UpWc/mMK0SxrzF5Xir\nNXL6gLXlJGZxBaCfNpeG4I7i4pcDXaSoo10wTqeRLYNUFs+7e7yS93ly+MpgTuRq\n0a9m8qEoMCdj+MMb17GD/ZbOKHa/yvdowiWZcw4nLpiKuF/K++85GQKBgFMFiEgA\nutG4E+bQLob3NRYiGR1OP7yeg76Srhf8abrdUJOa3mdgVxp3OcxG/+3/1kVucxo9\n1daqnXqFtW9OPHfXa+VgUzJy99PbxcAL2IHVLdW0RFsa0h9ucOgmtlCK/+5GipvE\nbKK/7pYifkH8Y6lHFvMdjIr6wUscpgeDbKCtAoGAYc6qp2uoi/ajvjcvAfrOOofE\nMPDFx+VhNExCL4srG5x9hfhICeiy1kpB07ko53w6eZQnf7Yr2Hgqd6Fj4835I9C7\nwQaL0NrSXIa5eAfXHcQjY4MqqJK9yk1Y0Wy+CeVtdasI5tZXMMTV/GaZ85p725EO\n7rSSt2UQR+EOLI3J98A=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cricjamreportingservice1@cricjam-analytics.iam.gserviceaccount.com",
+  "client_id": "115147308874450146853",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cricjamreportingservice1%40cricjam-analytics.iam.gserviceaccount.com"
+}

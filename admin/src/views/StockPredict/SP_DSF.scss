@@ -1,0 +1,163 @@
+.SpDsf {
+  margin-top: 40px;
+
+  .match-msg-modal {
+    .cardimg {
+      width: 54px;
+      height: 54px;
+    }
+
+    .form-control {
+      border: 1px solid #e4e7ea;
+    }
+
+    .msg-matchinfo {
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .matchinfo-box {
+      margin: 0 20px;
+      text-align: center;
+      color: $gray-9;
+      font-style: italic;
+    }
+
+    .match-vs {
+      font-style: normal;
+      color: $black;
+    }
+
+    .match-msg {
+      width: 100%;
+      border: 1px solid #e4e7ea;
+      resize: none;
+      padding: 6px;
+    }
+  }
+
+  .cardupcomingrow {
+    .btn-padd {
+      padding: 4px 8px !important;
+      margin: 6px 0 !important;
+    }
+  }
+
+  .sf-dfs-tabs {
+    margin-top: 30px;
+
+    .nav-item {
+      height: 48px;
+      width: 120px;
+      text-align: center;
+      margin-right: 4px;
+
+      &:hover::after {
+        content: "";
+        border-bottom: none;
+        padding-top: 0;
+        margin: 0;
+      }
+    }
+
+    .nav-link {
+      padding: 0;
+      margin: 0;
+
+      &:hover {
+        background-color: #F8436E;
+        border-color: #F8436E;
+        border-radius: 14px;
+        height: 43px;
+
+        .live {
+          color: $white;
+          cursor: pointer;
+          padding-top: 8px;
+        }
+      }
+
+      .live {
+        color: $black;
+        padding-top: 8px;
+      }
+
+      &.active {
+        background-color: #F8436E;
+        border-color: #F8436E;
+        border-radius: 14px;
+
+
+        &::after {
+          border-bottom: none;
+        }
+
+        .live {
+          color: $white;
+        }
+      }
+
+      label {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 1281px) {
+      .common-fixture {
+        margin-right: -4px;
+      }
+    }
+  }
+
+  .fx-action-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 0;
+    border-top: 1px solid #D8D8D8;
+    position: relative;
+    padding: 8px 0;
+    height: auto;
+
+    .fx-action-item {
+      margin-top: -4px;
+
+      i {
+        font-size: 18px;
+        cursor: pointer;
+
+        &:hover {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .sf-fx-status {
+    margin-top: 20px;
+    margin-bottom: 0;
+    border-top: 1px solid #EDEDED;
+    padding-top: 0;
+    color: red;
+    padding-top: 4px;
+    text-align: center;
+  }
+
+  .sf-add-btn {
+    float: right;
+
+    .btn {
+      height: 36px;
+      width: 200px;
+    }
+  }
+  .SpRow {
+    margin-top: 30px;
+    margin-left: 0;
+  }
+
+  .SpContent {
+    display: contents;
+    margin-top: 30px;
+  }
+}

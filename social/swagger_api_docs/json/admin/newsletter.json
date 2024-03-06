@@ -1,0 +1,401 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/admin_api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/newsletter/add_newsletter_subscriber": {
+            "post": {
+                "tags": [
+                    "Admin User Section"
+                ],
+                "summary": "This api is used to add newsletter subscriber",
+                "description": "",
+                "operationId": "add_newsletter_subscriber",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Add newsletter subscriber.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Newsletter\\AddNewsletterSubscriber"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/newsletter/create_newsletter_group": {
+            "post": {
+                "tags": [
+                    "Admin User Section"
+                ],
+                "summary": "This api is used to create/update newsletter group(list)",
+                "description": "",
+                "operationId": "create_newsletter_group",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Create/Update newsletter group(list).",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Newsletter\\CreateNewsletterGroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/newsletter/unsubscribe_newsletter": {
+            "post": {
+                "tags": [
+                    "Admin User Section"
+                ],
+                "summary": "This api is used to unsubscribe newsletter",
+                "description": "",
+                "operationId": "unsubscribe_newsletter",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Unscriber newsletter.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Newsletter\\UnsubscribeNewsletter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/newsletter/remove_subscribers_from_group": {
+            "post": {
+                "tags": [
+                    "Admin User Section"
+                ],
+                "summary": "This api is used to remove subscriber from newsletter group",
+                "description": "",
+                "operationId": "remove_subscribers_from_group",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Remove subscriber from newsletter group.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Newsletter\\RemoveSubcribersFromGroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/newsletter/demo": {
+            "post": {
+                "tags": [
+                    "Admin demo"
+                ],
+                "summary": "This api is used to remove subscriber from newsletter group",
+                "description": "",
+                "operationId": "demo",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Remove subscriber from newsletter group.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Newsletter\\demo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/newsletter/update_mailchimp_subscriber_id": {
+            "post": {
+                "tags": [
+                    "Admin update_mailchimp_subscriber_id"
+                ],
+                "summary": "This api is used to remove subscriber from newsletter group",
+                "description": "",
+                "operationId": "update_mailchimp_subscriber_id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Remove subscriber from newsletter group.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Newsletter\\update_mailchimp_subscriber_id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\AdminApi\\Newsletter\\AddNewsletterSubscriber": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Email": {
+                    "description": "Email",
+                    "type": "String",
+                    "example": "subscriber1@milinator.com"
+                },
+                "Name": {
+                    "description": "Name",
+                    "type": "String",
+                    "example": "Subscriber User"
+                },
+                "Gender": {
+                    "description": "Gender",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "DOB": {
+                    "description": "DOB",
+                    "type": "String",
+                    "example": "1990/09/22"
+                },
+                "UserID": {
+                    "description": "UserID",
+                    "type": "String",
+                    "example": "15"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Newsletter\\CreateNewsletterGroup": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Name": {
+                    "description": "Name",
+                    "type": "String",
+                    "example": "Website Active Users"
+                },
+                "Description": {
+                    "description": "Description",
+                    "type": "String",
+                    "example": "Website Active Users"
+                },
+                "NewsLetterGroupID": {
+                    "description": "NewsLetterGroupID",
+                    "type": "Integer",
+                    "example": "15"
+                },
+                "NewsLetterSubscriberID": {
+                    "description": "NewsLetterSubscriberID",
+                    "type": "String",
+                    "example": []
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Newsletter\\UnsubscribeNewsletter": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "NewsLetterSubscriberGUID": {
+                    "description": "NewsLetterSubscriberGUID",
+                    "type": "String",
+                    "example": "294357af-de88-4896-85bc-8057ba7325c3"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Newsletter\\RemoveSubcribersFromGroup": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "NewsLetterGroupID": {
+                    "description": "NewsLetterGroupID",
+                    "type": "String",
+                    "example": "15"
+                },
+                "NewsLetterSubscriberID": {
+                    "description": "NewsLetterSubscriberID",
+                    "type": "String",
+                    "example": []
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Newsletter\\demo": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Email": {
+                    "description": "Email",
+                    "type": "String",
+                    "example": "subscriber1@milinator.com"
+                },
+                "Name": {
+                    "description": "Name",
+                    "type": "String",
+                    "example": "Subscriber User"
+                },
+                "Gender": {
+                    "description": "Gender",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "DOB": {
+                    "description": "DOB",
+                    "type": "String",
+                    "example": "1990/09/22"
+                },
+                "UserID": {
+                    "description": "UserID",
+                    "type": "String",
+                    "example": "15"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Newsletter\\update_mailchimp_subscriber_id": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Email": {
+                    "description": "Email",
+                    "type": "String",
+                    "example": "subscriber1@milinator.com"
+                }
+            }
+        }
+    }
+}

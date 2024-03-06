@@ -1,0 +1,36 @@
+.head-bg-strip{
+    position: relative;
+    font-size: 18px;
+    &:before{
+        content: '';
+        display: block;
+        height: 14px;
+        width: 100%;
+        opacity: 0.15;
+        position: absolute;
+        left: -25px;
+        top: 2px;
+        background: linear-gradient(270deg, #F2F2F2 0%, $primary 100%);
+    }
+}
+.decoration-under{
+    text-decoration: underline;
+}
+.top-section-heading{
+    &.md{
+      font-size: 14px;  
+      color: $light_color_gray;
+      &.spc-none{
+        padding: 0;
+      }
+      a{
+        font-family: $font-semibold;
+      }
+    }
+}
+.help-dfs-txt{
+    color: $help_text_color;
+    font-size: 14px;
+    text-align: center;
+    padding: 0 0 16px;
+}

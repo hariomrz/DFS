@@ -1,0 +1,30 @@
+
+user db
+
+INSERT INTO `vi_notification_description` (`notification_description_id`, `notification_type`, `pun_subject`, `ben_subject`, `fr_subject`, `guj_subject`, `hi_subject`, `en_subject`, `th_subject`, `message`, `en_message`, `hi_message`, `guj_message`, `fr_message`, `ben_message`, `pun_message`, `tam_message`, `th_message`, `kn_message`, `kn_subject`, `ru_message`, `ru_subject`, `id_message`, `id_subject`, `tl_message`, `tl_subject`, `zh_message`, `zh_subject`) VALUES (NULL, '580', '', '', '', '', '', '', '', 'You have received {{coins}} coins in Quiz.', 'You have received {{coins}} coins in Quiz.', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+INSERT INTO `vi_master_source` (`master_source_id`, `source`, `name`) VALUES (NULL, '470', 'user engagement claim quiz');
+
+
+*/59 * * * * wget -O - -q -t 1 http://localhost/cron/cron/quiz/update_dashboard_rank
+
+
+
+
+#migration
+http://domain/user/migration/do_migration
+fie no: 104
+104_user_engagement.php
+
+INSERT INTO `vi_earn_coins` (`earn_coins_id`, `module_key`, `en`, `hi`, `guj`, `fr`, `ben`, `pun`, `tam`, `th`, `image_url`, `status`, `url`, `kn`, `ru`, `tl`, `zh`, `id`) VALUES
+(NULL, 'download_app', '{\"label\": \"Download App\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"ऐप डाउनलोड करें\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"એપ્લિકેશન ડાઉનલોડ કરો\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"Télécharger l\'application\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"অ্যাপ্লিকেশন ডাউনলোড করুন\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"ਡਾਉਨਲੋਡ ਐਪ\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"APP ஐப் பதிவிறக்கவும்\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"ดาวน์โหลดแอป\", \"button_text\": \"\", \"description\": \"\"}', 'download-img-ic.png', 1, '', '{\"label\": \"ಡೌನ್ಲೋಡ್ ಅಪ್ಲಿಕೇಶನ್\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"Скачать приложение\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"I-download ang App.\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"下载应用程序\", \"button_text\": \"\", \"description\": \"\"}', '{\"label\": \"Unduh aplikasi\", \"button_text\": \"\", \"description\": \"\"}');
+
+
+UPDATE `vi_master_source` SET `name` = 'Play Prediction' WHERE `vi_master_source`.`source` = 41;
+UPDATE `vi_master_source` SET `name` = 'Download App' WHERE `vi_master_source`.`source` = 471;
+UPDATE `vi_master_source` SET `name` = 'Play Quiz' WHERE `vi_master_source`.`source` = 470;
+UPDATE `vi_master_source` SET `name` = 'Spin & Earn' WHERE `vi_master_source`.`source` = 322;
+UPDATE `vi_master_source` SET `name` = 'Daily Check-ins' WHERE `vi_master_source`.`source` = 144;
+UPDATE `vi_master_source` SET `name` = 'Sports pick\'em' WHERE `vi_master_source`.`source` = 181;
+UPDATE `vi_master_source` SET `name` = 'Play Prediction' WHERE `vi_master_source`.`source` = 41;
+

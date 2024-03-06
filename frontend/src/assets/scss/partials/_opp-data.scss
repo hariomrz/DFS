@@ -1,0 +1,129 @@
+.opponents-modal {
+    max-width: 300px;
+    .modal-content {
+        .modal-header{
+            background-color: $primary;
+            padding: 30px 1.2rem 50px;
+            .profile-conatiner{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                .bg-opp-image{
+                    height: 106px;
+                    width: 106px;
+                    border-radius: 50%;
+                    border: 3px solid $white;
+                    .image-opp{
+                        height: 100px;
+                        width: 100px;
+                        border-radius: 50%;
+
+                    }
+                    
+                }
+                .name-opp {
+                    margin-top: 10px;
+                    color: $white;
+                    font-family: $font-bold;
+                    font-size: 20px;
+                    font-weight: bold;
+                    letter-spacing: 0;
+                    line-height: 24px;
+                    text-align: center;
+                  }
+            }
+        }
+        .modal-body {
+            padding: 0;
+            .webcontainer-inner {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                margin-top: -40px;
+
+                .challange-played {
+                    margin-top: 20px;
+                    height: 60px;
+                    width: 100%;
+                    border-radius: 10px;
+                    background-color: rgba($white, 0.99);
+                    box-shadow: 0px 0px 10px 0 rgba(0,0,0,0.20);
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    align-items: center;
+                    .icon-badge-icon{
+                        margin-left: 20px;
+                        font-size: 35px;
+                    }
+                    .right-container{
+                       margin-right: 20px;
+                       display: flex;
+                       justify-content: center;
+                       flex-direction: column;
+                       .value-played {
+                            color: $body_text_color;
+                            font-family: $font-bold;
+                            font-size: 16px;
+                            font-weight: bold;
+                            letter-spacing: 0;
+                            line-height: 19px;
+                            text-align: right;
+                      }
+                      .value-label{
+                        color: $help_text_color;
+                        font-family: $font-regular;
+                        font-size: 11px;
+                        letter-spacing: 0;
+                        line-height: 13px;
+                        text-align: right;
+                      }
+                    }
+
+                }
+                .rectangle {
+                    margin-top: 20px;
+                    height: 60px;
+                    width: 100%;
+                    border-radius: 10px;
+                    background-color: rgba($white, 0.99);
+                    box-shadow: 0px 0px 10px 0 rgba(0,0,0,0.20);
+                 }
+                .rectangle {
+                    margin-top: 20px;
+                    height: 60px;
+                    width: 100%;
+                    border-radius: 10px;
+                    background-color: rgba($white, 0.99);
+                    //box-shadow: 0 -4px 9px 0 rgba(0,0,0,0.11);
+                    box-shadow: 0px 0px 10px 0 rgba(0,0,0,0.20);
+
+                }
+            }
+        }
+        @media (min-height: 1000px) {
+            max-height: 70vh;
+            .modal-body {
+                max-height: 100%;
+                overflow: auto;
+                .webcontainer-inner {
+                    max-height: calc(100% - 260px);
+                }
+            }
+        }
+        @media (min-height: 767px) {
+            .modal-body {
+                max-height: unset;
+                .webcontainer-inner {
+                    max-height: calc(85vh - 97px);
+                }
+            }
+        }
+    }
+    
+}

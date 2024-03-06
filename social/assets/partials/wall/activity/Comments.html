@@ -1,0 +1,291 @@
+<div class="xload-more load-more-comment" ng-if="((data.NoOfComments > 2 && data.Comments.length < data.NoOfComments) || (data.NoOfComments > 4)) && (IsSingleActivity || data.ShowComments)">
+   <a  ng-if="data.Comments.length < data.NoOfComments"  data-ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID);" ng-bind="'See all ' + data.NoOfComments + ' comments'"></a>
+
+    <ul class="sort-action" ng-if="data.NoOfComments > 4">                           
+        <li>
+          <div class="dropdown-sort">
+            <small class="title">Sort</small>
+            <div class="dropdown">
+              <a data-toggle="dropdown">
+                <span class="text" ng-if="data.PostType != 2">Comments</span>
+                <span class="text" ng-if="data.PostType == 2">Answers</span>            
+                <span class="icon"><i class="ficon-arrow-down"></i></span>
+              </a>
+              <ul class="active-with-icon dropdown-menu">
+                <li onclick="addActiveClass(this)"><a data-ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID, 'Recent');">Most Recent</a></li>
+                <li onclick="addActiveClass(this)"><a data-ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID, 'Popular');">Popularity</a></li>
+                <li onclick="addActiveClass(this)"><a data-ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID, 'Network');">My Network</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+    </ul>
+    
+</div>
+
+<!-- ng-if="IsSingleActivity || data.ShowComments" -->
+<ul class="listing-group list-group-close">
+    <li ng-repeat="comnt in data.Comments|orderBy:'-BestAnswer' track by comnt.CommentGUID" id="{{comnt.CommentGUID}}" >
+        <div class="list-items-sm">         
+            <div class="comment-action"  ng-if="edit_comment_box != comnt.CommentGUID && data.PostType != '2' && (data.IsEntityOwner == '1' || comnt.IsOwner == 1) && comnt.CanDelete == '1'">
+                <i class="f-lg ficon-arrow-down" data-toggle="dropdown" aria-expanded="true">&nbsp;</i>
+                <ul class="dropdown-menu" >
+                    <li ng-if="comnt.IsOwner == 1" ng-click="commentEditBlock(comnt.CommentGUID, data.ActivityGUID, comnt)"><a>Edit</a></li>
+                    <li ng-click="deleteCommentEmit(comnt.CommentGUID, data.ActivityGUID);" ng-if="comnt.CanDelete == '1' && data.PostType !== '2' && data.ActivityType!='RatingAdded' && data.ActivityType!='RatingUpdated'"><a>Delete</a></li>
+                    <li ng-click="insert_to_editor(data.ActivityGUID, comnt.PostComment, FeedIndex);"><a>Quote</a></li>
+                </ul>
+            </div>
+            
+            <div class="comment-action"  ng-if="edit_comment_box != comnt.CommentGUID && data.PostType == '2' && (data.IsEntityOwner == '1' || comnt.IsOwner == 1) && comnt.CanDelete == '1'">
+                <i class="f-lg ficon-arrow-down" data-toggle="dropdown" aria-expanded="true">&nbsp;</i>
+                <ul class="dropdown-menu" >
+                    <li ng-click="commentEditBlock(comnt.CommentGUID, data.ActivityGUID, comnt)"><a>Edit</a></li>
+                    <li ng-if="data.PostType == '2' && data.IsOwner == '1'"><a ng-click="mark_best_answer(data.ActivityGUID, comnt.CommentGUID)">Most Appropriate Answer</a></li>
+                    <li ng-if="data.PostType == '2' && comnt.CanDelete == '1'"><a ng-click="deleteCommentEmit(comnt.CommentGUID, data.ActivityGUID, '', data.PostType);">Remove Answer</a></li>
+                    </ul>
+                    </div>
+
+
+<div class="list-inner">
+    <figure>
+        <a ng-cloak ng-if="comnt.ModuleID == '18'" target="_self" ng-href="{{data.SiteURL + comnt.ProfileLink}}" class="loadbusinesscard" entitytype="page" entityguid="{{comnt.UserGUID}}">
+            <img ng-if="comnt.ProfilePicture !== ''" class="img-circle"   ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + comnt.ProfilePicture}}">
+        </a>
+        <a ng-cloak ng-if="comnt.ModuleID == '3'" target="_self" ng-href="{{data.SiteURL + comnt.ProfileLink}}" class="loadbusinesscard" entitytype="user" entityguid="{{comnt.UserGUID}}"><img err-Name="{{comnt.Name}}" class="img-circle"   ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + comnt.ProfilePicture}}"></a>
+                </figure>
+                <div class="list-item-body" ng-if="edit_comment_box != comnt.CommentGUID">
+                    <div>                        
+                        <a ng-if="comnt.ModuleID == '3'" class="user-name loadbusinesscard" ng-bind="comnt.Name"  entitytype="user" entityguid="{{comnt.UserGUID}}" target="_self" ng-href="{{BaseUrl+comnt.ProfileLink}}"></a> 
+                        <a ng-if="comnt.ModuleID == '18'" class="user-name loadbusinesscard" ng-bind="comnt.Name"  entitytype="page" entityguid="{{comnt.UserGUID}}" target="_self" ng-href="{{BaseUrl+comnt.ProfileLink}}"></a> 
+                        
+                        <i data-toggle="tooltip" data-original-title="Admin" ng-if="comnt.IsAdmin=='1'" class="ficon-admin f-green"></i>
+                        <i data-toggle="tooltip" data-original-title="Expert" ng-if="comnt.IsAdmin=='0' && comnt.IsExpert=='1'" class="ficon-expert f-blue"></i>                         
+                        <span ng-bind-html="textToLinkComment(comnt.PostComment)"></span>
+                    </div>
+
+                    <div ng-if="comnt.Media.length > 0" ng-class="getMediaClass(comnt.Media)">
+                        <div ng-repeat="m in comnt.Media| limitTo:3"  ng-class="(comnt.Media.length > 2) ? 'col-sm-4' : '' ;">
+                            <figure ng-click="$emit('showMediaPopupGlobalEmit', m.MediaGUID, '');" ng-class="(m.MediaType == 'Video' && m.ConversionStatus == 'Pending' && comnt.Media.length > 2) ? 'processing-skyblue' : (m.MediaType == 'Video' && m.ConversionStatus == 'Pending' && (comnt.Media.length == 1 || comnt.Media.length == 2)) ? 'processing-red' : ''">
+                                <img ng-if="comnt.Media.length==1 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/' + m.ImageName}}">
+                                <img ng-if="comnt.Media.length>1 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/533x300/' + m.ImageName}}">
+                                <img ng-if="m.MediaType !== 'Video' && m.MediaFolder == 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}">
+                                <img ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/533x300/' + m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}">
+                                <span ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" class="video-btn">
+                                    <i class="ficon-play"></i>
+                                </span>
+                                <span class="video-btn" ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Pending'">
+                                    <i class="ficon-video"></i>
+                                </span>
+                                <span ng-if="$index == 2 && comnt.Media.length > 3" class="more-content" ng-bind="'+' + (comnt.Media.length - 3)"></span>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div ng-if="(comnt.Files && (comnt.Files !== '') && (comnt.Files.length > 0))" class="post-media">
+                        <ul class="attached-files">
+                            <li ng-repeat="file in comnt.Files" ng-click="hitToDownload(file.MediaGUID)">
+                                <i class="ficon-file-type" ng-class="file.MediaExtension"><span ng-bind="'.' + file.MediaExtension"></span></i>
+                                <span ng-bind="file.OriginalName"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-bar p-t-sm">
+                        <ul class="feed-actions comment">
+                            <li ng-if="data.PostType !== '2'">
+                                <span class="like-btn" tooltip data-container="body" data-placement="top" ng-attr-data-original-title="{{(comnt.IsLike == '1') ? 'Unlike' : 'Like' ;}}">
+                                    <i data-ng-click="likeEmit(comnt.CommentGUID, 'COMMENT', data.ActivityGUID);" class="ficon-heart sm" ng-class="(comnt.IsLike) ? 'active' : '';"></i>
+                                    <abbr ng-if="comnt.NoOfLikes > 0" ng-bind="comnt.NoOfLikes" ng-click="likeDetailsEmit(comnt.CommentGUID, 'COMMENT');" class="sm"></abbr>
+                                </span>
+                            </li>                     
+
+                            <li ng-if="data.PostType == '2'">
+                                <div class="upvode-button" ng-class="(comnt.IsLike=='1') ? 'disabled' : '' ;">
+                                    <span ng-if="comnt.IsLike == 1"> <i class="ficon-sort-arrow"></i> Upvote</span>
+                                    <span ng-if="comnt.IsLike !== 1" data-ng-click="likeEmit(comnt.CommentGUID, 'COMMENT', data.ActivityGUID);"> <i class="ficon-sort-arrow"></i> Upvote</span>
+                                    <abbr ng-click="likeDetailsEmit(comnt.CommentGUID, 'COMMENT', 1);" ng-if="comnt.NoOfLikes > 0" ng-bind="comnt.NoOfLikes">5</abbr>
+                                </div>                        
+                            </li>
+
+                            <li ng-if="data.PostType == '2' && comnt.IsDislike == 1" class="pointer">
+                                <span data-ng-click="likeEmit(comnt.CommentGUID, 'COMMENT', data.ActivityGUID, 1);"> <i class="ficon-arrow-create"></i> Downvoted</span>                        
+                            </li>
+                            <li ng-if="data.PostType == '2' && comnt.IsDislike !== 1" class="pointer">
+                                <span data-ng-click="likeEmit(comnt.CommentGUID, 'COMMENT', data.ActivityGUID, 1);"> <i class="ficon-arrow-create"></i> Downvote</span>
+                            </li>
+
+                            <li>
+                                <a ng-click="replyToComment(comnt.CommentGUID, data.ActivityGUID, comnt.NoOfReplies, comnt);" 
+                                   ng-bind="(comnt.NoOfReplies == 0) ? ' Reply' : comnt.NoOfReplies + ' Reply'">
+                                    Reply
+                                </a>
+                            </li>
+                                                        
+                            <li><span tooltip data-container="body" data-placement="top" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(comnt.CreatedDate));}}" ng-bind="date_format(comnt.CreatedDate, 'MMM D, YYYY');"></span></li>                            
+                        </ul>
+                        
+                        <ul class="feed-action-right"   ng-if="comnt.BestAnswer == 1 && data.PostType == '2'">
+                            <li class="appropriate">
+                              <span class="text" >Most appropriate answer</span>
+                              <span class="icon" ><img ng-src="{{AssetBaseUrl + 'img/appropriate-answer.png'}}" ></span>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+
+                <div class="list-item-body" ng-if="edit_comment_box == comnt.CommentGUID" id="comment-edit-block-{{comnt.CommentGUID}}" >
+                    <div class="comment-on-post" ng-class="(SettingsData.m40=='1') ? '' : 'no-editor' ;">
+                        <div ng-if="SettingsData.m40=='0' && edit_comment_box == comnt.CommentGUID" class="post-footer">
+                            <div class="post-footer-inner">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <ul class="post-buttons">                                          
+                                            <li ng-if="EditComment.Media.length == 0">
+                                                <a class="btn btn-default btn-sm" ngf-select="EdituploadFiles($files, $invalidFiles,EditComment, 1)" accept=".png, .jpg, .jpeg" ngf-validate-async-fn="validateFileSize($file);" onclick="$('#fileAttach').trigger('click');">
+                                                    <span class="icon"> 
+                                                        <i class="ficon-image-media f-md"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="btn-group">
+                                                    <a id="PostBtn-{{EditComment.CommentGUID}}" ng-disabled="isAttachementUploading"
+                                                     data-ng-click="EditcommentEmit($event, data.ActivityGUID, EditComment, 0, FeedIndex, comnt)"
+                                                     class="btn btn-default btn-sm" >
+                                                        <span class="icon"> 
+                                                          <i class="ficon-send f-lg f-primary"></i>
+                                                        </span>
+                                                    </a>
+                                                    <!-- <span class="loader" ng-if="comnt.postingCommentsStatus"> &nbsp; </span> -->
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <summernote id="cmt-{{comnt.CommentGUID}} "  data-guid="{{comnt.CommentGUID}}" config="commentOptions " placeholder="Write a comment " on-focus="focus(evt) " editable="editable " editor="editor " on-blur="CheckBlur(data.ActivityGUID) " on-keyup="checkEditorData(evt, FeedIndex);"></summernote>
+
+                        <span class="absolute loader commentEditorLoader" style="top: 30%; display: none;">&nbsp;</span>
+
+
+                        <div class="attached-list clearfix" id="attachments-cmt-{{ data.ActivityGUID}}" ng-cloak ng-show="EditComment.Media.length > 0">
+                            <ul class="attache-listing"> 
+                                <li ng-repeat=" ( mediaIndex, media ) in EditComment.Media">
+                                    <img ng-click="$emit('showMediaPopupGlobalEmit', media.MediaGUID, '');" ng-show="media.progress" ng-if="(media.MediaType == 'Image' || media.MediaType == 'PHOTO')" ng-src="{{ImageServerPath}}upload/comments/220x220/{{media.ImageName}}" err-src="{{ImageServerPath}}upload/comments/220x220/{{media.ImageName}}" > 
+
+                                    <i class="ficon-cross" ng-click="removeEditAttachement('media', EditComment.Media, $index)"></i>
+<!--                                    <span ng-hide="media.progress" class="loader" style="display: block;"></span>-->
+                                    <span ng-if="(media.MediaType == 'Video')" ng-show="media.progress" class="videoprocess" style="background: #ddd;"></span>
+                                    <div ng-if="media.progressPercentage && media.progressPercentage < 101" data-percentage="{{media.progressPercentage}}" upload-progress-bar-cs></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="post-file-list" ng-cloak ng-if="objLen(EditComment.Files) > 0">
+                            <ul class="attache-file-list">
+                                <li ng-repeat="(fileKey, file) in EditComment.Files">
+<!--                                    <div ng-hide="file.progress" class="loader" style="display: block;"></div>-->
+                                    <i  class="ficon-file-type" ng-class="file.MediaExtension || file.ext"><span ng-bind="'.' + (file.MediaExtension || file.ext)"></span></i>
+                                    <span class='file-name' ng-bind="file.OriginalName || file.name"></span>
+                                    <i class="ficon-cross" ng-click="removeEditAttachement('file', EditComment.Files, FeedIndex);"></i>
+                                    <div ng-if="file.progressPercentage && file.progressPercentage < 101" data-percentage="{{file.progressPercentage}}" upload-progress-bar-cs></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div ng-if="SettingsData.m40=='1' && edit_comment_box == comnt.CommentGUID" class="post-footer">
+                            <div class="post-footer-inner">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <ul class="post-buttons">
+                                            
+                                            <li class="attachment" ng-if="EditComment.Media.length == 0">
+                                                <button class="btn btn-default" ngf-select="EdituploadFiles($files, $invalidFiles,EditComment, 1)" accept=".png, .jpg, .jpeg"  ngf-validate-async-fn="validateFileSize($file);" type="button" onclick="$('#fileAttach').trigger('click');"><i class="ficon-attachment"></i></button>
+                                            </li>
+                                            <li>
+                                                <button class="btn btn-default btn-md " ng-click="cancelEditComment()">
+                                                    Cancel
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <div class="btn-group">
+                                                    <button id="PostBtn-{{EditComment.CommentGUID}}" ng-disabled="isAttachementUploading"
+                                                     data-ng-click="EditcommentEmit($event, data.ActivityGUID, EditComment, 0, FeedIndex, comnt)" type="button" 
+                                                     class="btn btn-primary"  >
+                                                        Post
+                                                    </button>
+                                                    <span class="loader" ng-if="comnt.postingCommentsStatus"> &nbsp; </span>
+                                                </div>
+                                            
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="comments-of-comment" ng-if="comnt.ShowReply">
+                    <ul  class="listing-group list-group-close"  ng-if="comnt.Replies.length > 0 && comnt.ShowReply">
+                        <li ng-repeat="reply in comnt.Replies">
+                            <div class="list-items-xs">
+                                <i ng-if="reply.CanDelete == '1'" ng-click="deleteCommentEmit(reply.CommentGUID, data.ActivityGUID, comnt.CommentGUID);" class="ficon-cross remove-list">&nbsp;</i>
+                                <div class="list-inner">
+                                    <figure>
+                                        <a ng-cloak ng-if="reply.ModuleID == '18'" target="_self" ng-href="{{data.SiteURL + reply.ProfileLink}}" class="loadbusinesscard" entitytype="page" entityguid="{{reply.UserGUID}}">
+                                            <img ng-if="reply.ProfilePicture !== ''" class="img-circle"   ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + reply.ProfilePicture}}">
+                                        </a>
+                                        <a ng-cloak ng-if="reply.ModuleID == '3'" target="_self" ng-href="{{data.SiteURL + reply.ProfileLink}}" class="loadbusinesscard" entitytype="user" entityguid="{{reply.UserGUID}}">
+                                            <img err-Name="{{reply.Name}}" class="img-circle"   ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + reply.ProfilePicture}}">
+                                        </a>
+                                    </figure>
+                                    <div class="list-item-body">
+                                        <div>
+                                            <a class="user-name" ng-bind="reply.Name"></a>
+                                            <span ng-bind-html="textToLinkComment(reply.PostComment)"></span>
+                                        </div>
+                                        <div class="activity-bar p-t-sm">
+                                            <ul class="feed-actions comment">
+                                                <li>
+                                                    <span class="like-btn">
+                                                        <i class="ficon-heart sm" tooltip data-container="body" data-placement="top" ng-attr-data-original-title="{{(reply.IsLike == '1') ? 'Unlike' : 'Like' ;}}" data-ng-click="likeEmit(reply.CommentGUID, 'COMMENT', data.ActivityGUID, 0, comnt.CommentGUID);" ng-class="(reply.IsLike == '1') ? 'active' : '';"></i>
+                                                        <abbr class="sm" ng-if="reply.NoOfLikes > 0" ng-click="likeDetailsEmit(reply.CommentGUID, 'COMMENT');" ng-bind="reply.NoOfLikes" ></abbr>
+                                                    </span>
+                                                </li>
+                                                <li><span tooltip data-container="body" data-placement="top" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(reply.CreatedDate));}}" ng-bind="date_format(reply.CreatedDate, 'MMM D, YYYY');"></span></li>
+                                            </ul>
+                                            
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="post-comment post-detail" ng-if="comnt.ShowReply">
+                        <figure class="thumb-md">
+                            <a><img err-src="{{data.ImageServerPath + 'upload/profile/220x220/' + LoggedInProfilePicture}}" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + LoggedInProfilePicture}}" class="img-circle"  ></a>
+                        </figure>
+                        <div class="textarea" id="r-{{comnt.CommentGUID}}">
+                            <textarea ng-show="LoginSessionKey==''" ng-focus="loginRequired()" class="form-control " placeholder="{{(data.PostType=='2' ) ? 'Reply to answer...' : 'Reply to comment...' ;}} "></textarea>
+                            <textarea ng-show="LoginSessionKey!=''" id="rply-{{comnt.CommentGUID}}" data-ids=" r-{{comnt.CommentGUID}} " data-ng-keypress="replyEmit($event, comnt.CommentGUID, data.ActivityGUID) " class="form-control " placeholder="{{(data.PostType=='2' ) ? 'Reply to answer...' : 'Reply to comment...' ;}} "></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
+<span ng-include src="partialURL+'activity/PostComment.html'+app_version"></span>
+
+
+
+<!-- New Ends -->

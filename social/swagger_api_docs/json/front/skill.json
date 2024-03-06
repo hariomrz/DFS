@@ -1,0 +1,394 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/skills/index": {
+            "post": {
+                "tags": [
+                    "Skill"
+                ],
+                "summary": "This api is used to get skills.",
+                "description": "This api is used to get skills.",
+                "operationId": "Index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Skills\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/skills/save": {
+            "post": {
+                "tags": [
+                    "Skill"
+                ],
+                "summary": "This api is used to insert/update user skills.",
+                "description": "This api is used to insert/update user skills.",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Skills\\save"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/skills/details": {
+            "post": {
+                "tags": [
+                    "Skill"
+                ],
+                "summary": "This api is used to get user profile skills.",
+                "description": "This api is used to get user profile skills.",
+                "operationId": "details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Skills\\details"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/skills/save_endorsement": {
+            "post": {
+                "tags": [
+                    "Endorsement"
+                ],
+                "summary": "This api is used to endorse user profile skill.",
+                "description": "This api is used to endorse user profile skill.",
+                "operationId": "save_endorsement",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Skills\\save_endorsement"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/skills/delete_endorsement": {
+            "post": {
+                "tags": [
+                    "Endorsement"
+                ],
+                "summary": "This api is used to remove endorsement from user profile skill.",
+                "description": "This api is used to remove endorsement from user profile skill.",
+                "operationId": "delete_endorsement",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Skills\\delete_endorsement"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/skills/endorsement_list": {
+            "post": {
+                "tags": [
+                    "Endorsement"
+                ],
+                "summary": "This api used to get users list, who are endorsed another user for profile skills..",
+                "description": "This api used to get users list, who are endorsed another user for profile skills..",
+                "operationId": "endorsement_list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Skills\\endorsement_list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Skills\\index": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Skills\\save": {
+            "required": [
+                "Skills"
+            ],
+            "properties": {
+                "Skills": {
+                    "description": "Skills, array of skills ID",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Skills\\details": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "ModuleID": {
+                    "description": "Module ID",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "ModuleEntityGUID": {
+                    "description": "Module Entity GUID",
+                    "type": "string",
+                    "example": "a19be4f4-c7ea-e337-deee-22902d154962"
+                }
+            }
+        },
+        "Inclusify\\Api\\Skills\\save_endorsement": {
+            "required": [
+                "EntitySkillID"
+            ],
+            "properties": {
+                "EntitySkillID": {
+                    "description": "Entity Skill ID",
+                    "type": "integer",
+                    "example": "3"
+                }
+            }
+        },
+        "Inclusify\\Api\\Skills\\delete_endorsement": {
+            "required": [
+                "EntitySkillID"
+            ],
+            "properties": {
+                "EntitySkillID": {
+                    "description": "Entity Skill ID",
+                    "type": "integer",
+                    "example": "3"
+                }
+            }
+        },
+        "Inclusify\\Api\\Skills\\endorsement_list": {
+            "required": [
+                "EntitySkillID"
+            ],
+            "properties": {
+                "EntitySkillID": {
+                    "description": "Entity Skill ID",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        }
+    }
+}

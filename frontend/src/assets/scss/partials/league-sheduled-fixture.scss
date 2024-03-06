@@ -1,0 +1,24 @@
+.mini_league_sheduled-fixture{
+    border-radius: 0px;
+    border-bottom: 1px solid $border-color;
+    background: $white;
+    padding: 12px;
+    cursor: pointer;
+    .border_league{
+        border-bottom: 1px solid $border_color;
+        border-radius: 0px;
+      }
+    .display-table-cell{
+        &:first-child,&:last-child{
+            width: 25%;
+        }
+        .team-img{
+            max-width: 44px;
+            max-height: 44px;
+            @media screen and(max-width:360px){
+                max-width: 34px;
+                max-height: 34px;
+            }
+        }
+    }
+}

@@ -1,0 +1,698 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/admin_api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/dashboard/get_unverified_entities": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to get list of unverified entities.",
+                "description": "",
+                "operationId": "get_unverified_entities",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "List unverified entities. The field entityType can have these values (ALL, USERS, GROUPS, EVENTS, PAGES)",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\GetUnverifiedEntities"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/dashboard/get_unverified_entity": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to get unverified entity.",
+                "description": "",
+                "operationId": "get_unverified_entity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get unverified entity. The field ModuleID can have these values (1, 3, 14, 18)",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\GetUnverifiedEntity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/dashboard/update_entity": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to change column value of entities (Users, Groups) to verified",
+                "description": "",
+                "operationId": "update_entity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Update column value of entities. The Module Id field can have these values ( 1(Grpup), 14(Event) , 18(Pages), 3(Users), 20 (POSTCOMMENTS) ), 19(ACTIVITY). \r\n                       EntityColumn can be (Verified, StatusID).\r\n                       You need to send UserID param in case of activity delete. UserID will be, activity is deleted for.   ",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\UpdateEntity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/dashboard/save_note": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to save note for entities",
+                "description": "",
+                "operationId": "save_note",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "save note for entities. The Module Id field can have these values ( 1(Grpup), 14(Event) , 18(Pages), 3(Users) )",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\SaveNote"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/dashboard/delete_note": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to delete note for entities",
+                "description": "",
+                "operationId": "delete_note",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "delete note for entities",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\DeleteNote"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/dashboard/get_note_list": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to list notes for entities",
+                "description": "",
+                "operationId": "get_note_list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "list note for entities",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\GetNoteList"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/dashboard/send_message": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to send messages to different entities ( USER, To Group Admins, To Event Admins, To Page Admins )",
+                "description": "",
+                "operationId": "send_message",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user. ",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "send message to different entities.  The Module Id field can have these values ( 1(Grpup), 14(Event) , 18(Pages), 3(Users) )",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\SendMessage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/dashboard/get_activities": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to get logged unverified activities for different entitites ( Activity, Comment, Reply, Share Post )",
+                "description": "",
+                "operationId": "get_activities",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Get List of activities for different modules.\r\n \r\n   ************* Description for output parameters *****************\r\n    Group IsPublic Possible values ( 1 = public , 0= private , 2 = secrate  )\r\n    \r\n    *****     Description for Input parameters  **********\r\n    Gender Possible values( 1 Male, 2 Female., 3 Other ) \r\n    AgeGroupID Possible Values ( 1 => 0 - 13, 2 => 13 - 18 , 3 => 18 - 25,  4 => 25 - 30,  5 => 30 - 35,    6 => 35 - 40,    7 => 40 - 45,   8 => 45 - 50,   9 => Above 50)\r\n    ActivityFilterType Possible values (3, 7, 10, 11)\r\n    PostType possible values ( 1 - Discussion, 2 - Q & A, 3- Polls, 4 - Knowledge Base, 5 - Tasks & Lists, 6 - Ideas, 7 - Announcements  )\r\n    IsMediaExist possible values ( 2 for all posts with or without media, 1 only posts having medias )\r\n    TagType possible values ( 1- Normal Tag, 2- Hash Tag, 3- Activity Mood, 4- Activity Classification, 5- User/Reader Tag, 6- User Profession, 7- Brand ).   \r\n    FeedSortBy possible Values ( 2,3,5 => For latest first, 'popular', 'General', 'Question', 'UnAnswered' )\r\n    * ",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\GetActivities"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/dashboard/get_user_post_details": {
+            "post": {
+                "tags": [
+                    "Admin Dashboard Section"
+                ],
+                "summary": "This api is used to get User and Post details",
+                "description": "",
+                "operationId": "get_user_post_details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to get User and Post details",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Dashboard\\GetUserPostDetails"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\AdminApi\\Dashboard\\GetUnverifiedEntities": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "search": {
+                    "description": "Search Keyword Field",
+                    "type": "string",
+                    "example": ""
+                },
+                "entityType": {
+                    "description": "Entity Type Field (ALL, USERS, GROUPS, EVENTS, PAGES)",
+                    "type": "string",
+                    "example": "ALL"
+                },
+                "page_size": {
+                    "description": "Pagination record per page limit",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "page_no": {
+                    "description": "Pagination page number",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Dashboard\\GetUnverifiedEntity": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "ModuleID": {
+                    "description": "ModuleID",
+                    "type": "string",
+                    "example": "3"
+                },
+                "ModuleEntityID": {
+                    "description": "ModuleEntityID",
+                    "type": "string",
+                    "example": "2"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Dashboard\\UpdateEntity": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "ModuleID": {
+                    "description": "Entity ModuleID To which need to change verify status( 1(Grpup), 14(Event) , 18(Pages), 3(Users) )",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "ModuleEntityID": {
+                    "description": "Entity ModuleEntityID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "EntityColumn": {
+                    "description": "EntityColumn",
+                    "type": "integer",
+                    "example": ""
+                },
+                "EntityColumnVal": {
+                    "description": "EntityColumnVal",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "UserID": {
+                    "description": "UserID",
+                    "type": "integer",
+                    "example": "0"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Dashboard\\SaveNote": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "ModuleID": {
+                    "description": "Entity ModuleID",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "ModuleEntityID": {
+                    "description": "Entity ModuleEntityID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "Description": {
+                    "description": "Entity Note",
+                    "type": "string",
+                    "example": "Testing Note"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Dashboard\\DeleteNote": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "NoteID": {
+                    "description": "Entity NoteID",
+                    "type": "integer",
+                    "example": "3"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Dashboard\\GetNoteList": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page no",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "ModuleID": {
+                    "description": "ModuleID",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ModuleEntityID": {
+                    "description": "ModuleEntityID",
+                    "type": "integer",
+                    "example": "0"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Dashboard\\SendMessage": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "ModuleID": {
+                    "description": "Module Id for group, user, event or page",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "ModuleEntityID": {
+                    "description": "module entity id",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "Replyable": {
+                    "description": "message Replyable",
+                    "type": "string",
+                    "example": "1"
+                },
+                "Body": {
+                    "description": "message body",
+                    "type": "string",
+                    "example": "Testing message"
+                },
+                "Media": {
+                    "description": "message media",
+                    "type": "string",
+                    "example": []
+                },
+                "Subject": {
+                    "description": "message subject",
+                    "type": "string",
+                    "example": "test subject"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Dashboard\\GetActivities": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page no",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "PostType": {
+                    "description": "PostType",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ActivityFilterType": {
+                    "description": "ActivityFilterType",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "IsMediaExists": {
+                    "description": "IsMediaExists",
+                    "type": "integer",
+                    "example": "2"
+                },
+                "StartDate": {
+                    "description": "StartDate",
+                    "type": "string",
+                    "example": ""
+                },
+                "EndDate": {
+                    "description": "EndDate",
+                    "type": "string",
+                    "example": ""
+                },
+                "UserID": {
+                    "description": "UserID",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "SearchKey": {
+                    "description": "SearchKey",
+                    "type": "string",
+                    "example": ""
+                },
+                "Tags": {
+                    "description": "Tags",
+                    "type": "string",
+                    "example": []
+                },
+                "CityID": {
+                    "description": "CityID",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "AgeGroupID": {
+                    "description": "AgeGroupID",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "Gender": {
+                    "description": "Gender",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "TagType": {
+                    "description": "TagType",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "FeedSortBy": {
+                    "description": "FeedSortBy",
+                    "type": "integer",
+                    "example": "2"
+                },
+                "City": {
+                    "description": "City",
+                    "type": "string",
+                    "example": ""
+                },
+                "State": {
+                    "description": "State",
+                    "type": "string",
+                    "example": ""
+                },
+                "Country": {
+                    "description": "Country",
+                    "type": "string",
+                    "example": ""
+                },
+                "CountryCode": {
+                    "description": "CountryCode",
+                    "type": "string",
+                    "example": ""
+                },
+                "StateCode": {
+                    "description": "StateCode",
+                    "type": "string",
+                    "example": ""
+                },
+                "GET_ENTITY_TYPE": {
+                    "description": "GET_ENTITY_TYPE",
+                    "type": "string",
+                    "example": "ALL"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Dashboard\\GetUserPostDetails": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "UserID": {
+                    "description": "UserID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "ActivityID": {
+                    "description": "ActivityID",
+                    "type": "integer",
+                    "example": "9763"
+                }
+            }
+        }
+    }
+}

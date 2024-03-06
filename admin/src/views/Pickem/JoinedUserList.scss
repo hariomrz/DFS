@@ -1,0 +1,22 @@
+.joineduser-list {
+    margin-top: 30px;
+
+    .t-user-subhead {
+        margin-top   : 8px;
+        margin-bottom: 58px;
+        color        : $text-color;
+        font-family  : $font-regular;
+        font-size    : 18px;
+    }
+
+    .u-joined-count {
+        margin-bottom: 8px;
+        color      : $text-color;
+        font-family: $font-bold;
+        font-size  : 20px;
+    }
+    
+    .table-responsive{
+        max-width: 710px;
+    }
+}

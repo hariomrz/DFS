@@ -1,0 +1,474 @@
+// @import "../../assets/scss/bootstrap/bootstrap.scss";
+
+.default-header {
+  position: sticky;
+  top: 0;
+  // align-self: ;
+  z-index: 1;
+  background-color: $primary;
+  color: $white;
+  // display: none;
+
+  .container {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    position: relative;
+  }
+
+  .nav-item-right {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    right: 0;
+    position: absolute;
+
+    .notification {
+      cursor: pointer;
+      a {
+        color: $white;
+        position: relative;
+      }
+      i {
+        font-size: 21px;
+      }
+
+      position: relative;
+      // top: -2px;
+      padding-right: 5px;
+
+      .ntf-dot {
+        left: 15px;
+        top: 1px;
+        height: 7px;
+        width: 7px;
+        border-radius: 50%;
+        background: $alert_danger_color;
+        position: absolute;
+      }
+
+      .ntf-count {
+        top: 2px;
+        position: relative;
+        left: 6px;
+        font-family: $font-bold;
+      }
+
+      .ntf-popup {
+        width: 261px;
+        z-index: 1;
+        border: 1px solid #e4e4e4;
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+        position: absolute;
+        font-family: $font-regular;
+        font-size: $font-base;
+        letter-spacing: 0;
+        line-height: 16px;
+        margin-top: 8px;
+        overflow: hidden;
+
+        ul {
+          padding: 0;
+          margin: 0;
+        }
+
+        span {
+          color: #999999;
+          font-family: $font-regular;
+          font-size: 10px;
+          letter-spacing: 0;
+          line-height: 12px;
+        }
+
+        li {
+          list-style: none;
+          border-bottom: solid 1px #efefef;
+          padding: 16px;
+          &:hover{
+            background: #F2F2F2;
+          }
+        }
+
+        .all-ntf {
+          display: block;
+          color: $primary;
+          font-family: $font-bold;
+          font-size: 12px;
+          letter-spacing: 0;
+          line-height: 14px;
+          text-align: center;
+          padding: 10px 0px 10px 0px;
+        }
+      }
+    }
+
+    .wallet {
+      cursor: pointer;
+      .wallet-item {
+        display: flex;
+        align-items: center;
+        a {
+          display: flex;
+          align-items: center;
+          color: $white;
+        }
+      }
+
+      i {
+        // top: -2px;
+        // position: relative;
+        // left: -6px;
+        margin-right: 6px;
+        font-size: 20px;
+      }
+
+      color: #ffffff;
+      font-family: $font-bold;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: 16px;
+
+      img {
+        height: 15px;
+        width: 15px;
+        margin: 0 3px;
+        animation: coinspin 2.5s infinite linear;
+      }
+    }
+
+    .profile-img {
+      cursor: pointer;
+      padding-bottom: 3px;
+      position: relative;
+      top: 1px;
+
+      border: solid 1px $white;
+      border-radius: 100%;
+      width: 34px;
+      height: 34px;
+
+      .my-profile-logout {
+        display: none;
+        overflow: hidden;
+        color: $primary;
+        font-family: $font-exo-bold;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 21px;
+        z-index: 1;
+        top: 100%;
+        right: 0;
+        position: absolute;
+        max-height: 82px;
+        width: 137px;
+        border: 1px solid #EFEFEF;
+        border-radius: 10px;
+        background-color: #EFEFEF;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+        padding: 10px 0 ;
+        background-color: $white;
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          li
+            a{
+              padding:5px 15px;
+              color: $primary;
+              display: block;
+              &:hover{
+                background-color: #EFEFEF;
+              }
+            }
+        }
+
+        > li, > a {
+          padding: 0000px 15px;
+          margin: 0;
+          line-height: 40px;
+          cursor: pointer;
+
+          &:hover {
+            background: #efefef;
+          }
+        }
+      }
+
+      &:hover {
+        .my-profile-logout {
+          display: block;
+        }
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .signuplogin-btn {
+    border: none;
+    background: $white;
+    color: $primary;
+    font-family: $font-bold;
+    padding: 6px 15px 8px;
+    text-align: center;
+    border-radius: 18px;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+
+  .default-header-logo {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 44px;
+    margin-right: 30px;
+
+    .logo-icon {
+      display: flex;
+      align-items: center;
+      max-width: 120px;
+      height: 42px;
+
+      img {
+        max-width: 120px;
+        height: 42px;
+        object-fit: contain;
+        object-position: left center;
+      }
+    }
+  }
+
+  .header-navigation {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li {
+      // padding: 0 10px;
+
+      > a {
+        display: block;
+        font-size: $font-base;
+        font-family: $font-bold;
+        color: rgba($white, 0.7);
+        padding: 3px 14px 6px;
+        border-radius: 15px;
+        cursor: pointer;
+        text-transform: uppercase;
+
+        &.active {
+          color: rgba(#fff, 1);
+          background-color: rgba($black, 0.2);
+        }
+      }
+
+      &.submenu {
+        position: relative;
+
+        a {
+          display: flex;
+          align-items: center;
+        }
+
+        i {
+          font-size: 9px;
+          margin-top: 1px;
+          margin-left: 5px;
+          display: inline-block;
+        }
+
+        .submenu-dropdown {
+          color: #212121;
+          padding: 0;
+          display: flex;
+          flex-direction: row;
+          display: none;
+          z-index: 1;
+          max-width: 450px;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px 0 rgba(0,0,0,0.1);
+          overflow: hidden;
+          
+          .more,
+            .other {
+              font-family: $font-bold;
+              padding-top: 0;
+              padding-bottom: 0;
+              color: #333333;
+              position: relative;
+          
+              &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 4px;
+                height: 14px;
+                width: 176px;
+                opacity: 0.15;
+                background: linear-gradient(270deg, #F2F2F2 0%, $primary 100%);
+              }
+              &:hover {
+                background: none;
+                cursor: default;
+                color: #333333;
+              }
+          }
+
+
+          ul:nth-child(2) {
+            background: #f5f4f4;
+            li a {
+              &:hover{
+                color: $primary;
+              }
+            
+            }
+          }
+          a {            
+            &:hover{
+              color: $primary;
+              background-color: rgba($primary, 0.03);
+            }
+          }
+
+          ul {
+            margin: 0;
+            padding: 15px 0;
+            flex: 1;
+            min-width: 222px;
+          }
+
+          li {
+            list-style: none;
+            padding: 0;
+            a{
+              font-size: $font-base;
+              font-family: $font-semibold;
+              text-transform: uppercase;
+              color: #666;
+              padding:6px 30px;
+            }
+          }
+        }
+
+        &:hover {
+          .submenu-dropdown {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  .header-utility {
+  }
+
+  .sports-header {
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+
+    .container {
+      height: auto;
+      max-width: 1200px;
+    }
+  }
+
+  .sports-tab-container {
+    display: flex;
+    align-items: center;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+    }
+
+    li {
+      padding: 0 10px;
+      height: 44px;
+
+      a {
+        font-size: 14px;
+        font-family: $font-exo-bold;
+        color: #666;
+        text-transform: uppercase;
+        padding: 10px 5px;
+        display: block;
+      }
+
+      a.active {
+        color: $primary;
+        position: relative;
+        pointer-events: none;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: $primary;
+          bottom: -3px;
+        }
+      }
+    }
+  }
+}
+
+.submenu-dropdown {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 24px;
+  // right: 20px;
+  top: 100%;
+  background-color: $white;
+  min-width: 222px;
+  padding: 10px 0;
+
+  > li {
+    white-space: nowrap;
+
+    a {
+      display: block;
+      font-size: 14px;
+      // font-weight: 600;
+      padding: 6px 14px 8px;
+      color: $primary_text_color;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+}
+
+.more-dropdown {
+  border-radius: 4px;
+}
+
+
+@keyframes coinspin {
+  0% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}

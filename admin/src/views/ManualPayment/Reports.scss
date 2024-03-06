@@ -1,0 +1,35 @@
+.filter-df {
+    display: flex;
+    align-items: flex-end;
+}
+
+.flex-block {
+    display: flex;
+}
+.btn-main-fix{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.image-viewer{
+    display: flex;
+    justify-content: center;
+}
+.table-h-fix {
+    .table{
+        margin-bottom: 75px !important;
+    }
+}
+.pt-c-gray{
+    position: relative;
+    .cancel-text-view{
+        position: absolute;
+        left: 20px;
+        top: 5px;
+        color: red;
+    }
+}
+
+.bg-red-clr{
+    background-color: #ffe5e5 !important;
+  }

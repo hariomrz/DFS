@@ -1,0 +1,95 @@
+.pre-heading {
+    color      : $text-color;
+    font-family: $font-bold;
+    font-size  : 26px;
+    font-weight: 800;
+}
+
+.prediction-module {
+    .container {
+        padding: 0 55px;
+
+        @media (max-width : 1366px) {
+            padding: 0;
+        }
+    }
+
+    .pre-heading {
+        margin: 46px 0;
+
+        @media (max-width : 1366px) {
+            margin: 26px 0;
+        }
+    }
+
+    
+
+    .prediction-list {
+        list-style-type      : none;
+        margin               : 0 auto;
+    }
+
+    .prediction-item {
+        display      : table;
+        align-items  : center;
+        margin-bottom: 16px;
+
+        >* {
+            display       : table-cell;
+            vertical-align: middle;
+        }
+
+        .pre-info-box {
+            min-width    : 500px;
+            border-radius: 12px;
+            padding      : 0 30px;
+        }
+
+        .pre-sub-title {
+            color      : #27272D;
+            font-family: $font-regular;
+            font-size  : 16px;
+        }
+
+        :nth-child(even) {
+            &.pre-info-box {
+                background: linear-gradient(-90deg, #FFFFFF 0%, #FFFFFF 80.88%, rgba(255, 255, 255, 0) 99.97%);
+
+                .pre-sub-title {
+                    width: 326px;
+                    float: left;
+                }
+            }
+
+        }
+
+        :nth-child(odd) {
+            &.pre-info-box {
+                background: linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 80.88%, rgba(255, 255, 255, 0) 99.97%);
+
+                .pre-sub-title {
+                    width: 426px;
+                    float: right;
+                }
+            }
+
+
+        }
+    }
+
+    .pre-title {
+        color        : #27272D;
+        font-family  : $font-bold;
+        font-size    : 20px;
+        margin-bottom: 8px;
+    }
+
+    .pre-btn {
+        margin-top: 70px;
+        text-align: center;
+
+        @media (max-width : 1366px) {
+            margin-top: 30px;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+<div class="popover-sm">
+    <div class="arrow"></div>
+    <h3 class="popover-title"></h3>
+    <div class="popover-body">
+        <ul class="list-thumb-grid">
+            <li class="list-items">
+                <div class="list-body">
+                    <div class="content dashboard-cards">
+                        <h6 class="list-title">
+                            <span class="text" ng-bind="entityList.Name"></span> 
+                        </h6>
+                        <span ng-if="( ( entityList.ModuleID == 3 ) && entityList.CityName && !entityList.CountryName )" ng-bind="entityList.CityName"></span>
+                        <span ng-if="( ( entityList.ModuleID == 3 ) &&  entityList.CityName && entityList.CountryName )"  ng-bind="entityList.CityName + ', ' + entityList.CountryName"></span>
+                        <ul class="list-info">
+                            <li ng-if="( entityList.ModuleID == 3 )">
+                                <span class="text" ng-if="( ( entityList.ModuleID == 3 ) && entityList.Email )" ng-bind="entityList.Email"></span>
+                                <span ng-if="entityList.Facebook_profile_URL" class="icn circle-icn circle-default">
+                                    <i class="ficon-facebook"></i>
+                                </span>
+                            </li>
+                            <li ng-if="( ( entityList.ModuleID == 3 ) && ( entityList.DOB || ( ( entityList.Gender >= 0 ) ) ) )">
+                                <span ng-if="( entityList.DOB && ( entityList.DOB != '0000-00-00' ) )" class="icn">
+                                    <i class="ficon-cake f-14"></i>
+                                </span>
+                                <span ng-if="( entityList.DOB && ( entityList.DOB != '0000-00-00' ) )" class="text" ng-bind="entityList.DOB | date: 'MMMM d, y, '"></span>
+                                <span ng-if="( entityList.Gender != '' )" class="text" ng-bind=" ( ( entityList.Gender == 0 ) ? 'O' : ( ( entityList.Gender == 1 ) ? 'M' : 'F' ) ) "></span>
+                            </li>
+                            <li class="group-type" ng-if="( ( ( entityList.ModuleID == 1 ) || ( entityList.ModuleID == 18 ) ) && ( entityList.Categories.length > 0 ) )">
+                                <span class="group-name ellipsis" ng-repeat="category in entityList.Categories" ng-bind="( ( $first ) ? category : (  ', ' + category ) )"></span>
+                                <i tooltip-append-to-body="true" uib-tooltip="Close" class="ficon-close-group" ng-if="( ( entityList.ModuleID == 1 ) && ( ( entityList.IsPublic != '' ) && ( entityList.IsPublic == 0 ) ) )"></i>
+                                <i tooltip-append-to-body="true" uib-tooltip="Public" class="ficon-globe" ng-if="( ( entityList.ModuleID == 1 ) && ( ( entityList.IsPublic != '' ) && ( entityList.IsPublic == 1 ) ) )"></i>
+                                <i tooltip-append-to-body="true" uib-tooltip="Secret" class="ficon-secret" ng-if="( ( entityList.ModuleID == 1 ) && ( ( entityList.IsPublic != '' ) && ( entityList.IsPublic == 2 ) ) )"></i>
+                                <i uib-tooltip="{{entityList.Popularity}}" class="ficon-trending"></i>
+                            </li>
+                        </ul>
+                        <ul ng-if="entityList.ModuleID != 3" class="activity-detail clearfix"> 
+                            <li ng-if="( (entityList.ModuleID == 1) && ( entityList.MemberCount != '' ) && ( entityList.MemberCount > 0 ) )" ng-bind="( ( entityList.MemberCount > 1 ) ? entityList.MemberCount + ' Members' : entityList.MemberCount + ' Member' )"></li>
+
+                            <li ng-if="( (entityList.ModuleID == 18) && ( entityList.MemberCount != '' ) && ( entityList.MemberCount > 0 ) )" ng-bind="( ( entityList.MemberCount > 1 ) ? entityList.MemberCount + ' Followers' : entityList.MemberCount + ' Follower' )"></li>
+
+                            <li ng-if="( ( entityList.PostCount != '' ) && ( entityList.PostCount > 0 ) )" ng-bind="( ( entityList.PostCount > 1 ) ? entityList.PostCount + ' Posts' : entityList.PostCount + ' Post' )"></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="popover-footer">
+        <div class="btn-toolbar btn-toolbar-center">
+            <div class="pull-left">
+                <a class="btn btn-xs btn-icn btn-default" ng-click="updateEntity(entityList.ModuleID, entityList.ModuleEntityID, 'delete', entityIndex);">
+                    <span class="icn"><i class="ficon-bin"></i></span>
+                </a>
+                <a class="btn btn-xs btn-icn btn-default" ng-click="$emit('openMsgModalPopup', { Name: entityList.Name, ModuleID: entityList.ModuleID, ModuleEntityID: entityList.ModuleEntityID });">
+                    <span class="icn"><i class="ficon-envelope"></i></span>
+                </a>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-xs btn-default fe-button" ng-click="updateEntityTags(entityList, entityIndex);" ng-class="{'unfeatured': entityList.Featured_TagID != 0 }" ng-click="Featured = true"> 
+                    <span class="icn" ng-if="entityList.Featured_TagID != 0" ng-cloak><i class="ficon-check"></i></span>
+                    <span ng-if="entityList.Featured_TagID == 0" class="text fe-feature">Feature</span>
+                    <span ng-if="entityList.Featured_TagID != 0" class="text fe-feature">Featured</span>
+                    <span ng-if="entityList.Featured_TagID != 0" class="text un-feature">Unfeature</span>
+                </button>
+                <button ng-click="updateEntity(entityList.ModuleID, entityList.ModuleEntityID, 'verify', entityIndex);" class="btn btn-xs btn-default verifyed" ng-disabled="entityList.Verified=='1'" ng-class="{'active': entityList.Verified=='1' }">
+                    <span class="icn" ng-if="entityList.Verified=='1'" ng-cloak><i class="ficon-check"></i></span>
+                    <span class="text">Verify</span>
+                </button>
+            </div>
+        </div>
+    </div> 
+</div>

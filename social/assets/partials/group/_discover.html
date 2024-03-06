@@ -1,0 +1,196 @@
+<div ng-controller="DiscoverCtrl" ng-init="getDiscoverList()">
+  <ol ng-cloak ng-if="ShowCategory!=0" class="breadcrumb no-margin-t container">
+      <li class="breadcrumb-item">
+        <a target="_self" ng-click="redirectToUrl('group'); loadMyGroups(); changeGroupTabClass('#TabMyGroup')" data-target="#myGroups" role="tab" data-toggle="tab">
+          <span class="icon">
+            <i class="ficon-home"></i>
+          </span>
+        </a>
+      </li>
+      <li class="breadcrumb-item">
+          <span class="icon">
+            <i class="ficon-arrow-right"></i>
+          </span>
+          <a target="_self" ng-click="showAllCategories()" ng-bind="lang.g_discover"></a></li>
+      <li class="breadcrumb-item active">
+        <span class="icon">
+          <i class="ficon-arrow-right"></i>
+        </span>
+        <span ng-bind="CategoryName"></span>
+      </li>
+  </ol>
+
+  <div ng-if="DiscoverCategories.length==0" ng-cloak class="panel panel-info">
+    <div class="panel-body nodata-panel">
+      <div class="nodata-text p-v-lg">
+        <span class="nodata-media">
+          <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-articles.png" >
+        </span>
+        <p class="text-off" ng-bind="lang.no_categories_created"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info" ng-repeat-start="category in DiscoverCategories" ng-show="ShowCategory==category.CategoryID || ShowCategory==0">
+    <div class="panel-body p-h-20">
+      <div class="list-items-default">
+        <div class="list-item-body">
+          <h4 class="list-heading-xxlg extra-bold" ng-bind="category.Name"></h4>
+          <p ng-bind="category.Description"></p>
+        </div>
+      </div>
+      <ul class="sort-action" ng-cloak ng-if="ShowCategory!='0'">          
+        <li>
+          <div class="dropdown-sort">
+            <small class="title" ng-bind="lang.g_sort_by"></small>
+            <div class="dropdown">
+              <a target="_self" data-toggle="dropdown">
+                <span class="text" ng-bind="SortFilterLabel"></span><span class="icon"><i class="ficon-arrow-down"></i></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a target="_self" ng-click="sortBy('LastActivity','Activity Date',category.CategoryID,category.Name)" ng-bind="lang.g_activity_date"></a></li>
+                <li><a target="_self" ng-click="sortBy('GroupName','Name',category.CategoryID,category.Name)" ng-bind="lang.g_name"></a></li>
+                <li><a target="_self" ng-click="sortBy('Popularity','Popularity',category.CategoryID,category.Name)" ng-bind="lang.g_popularity"></a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <div class="panel-body no-padding">
+      <ul class="list-items-table list-items-category">
+        <li class="list-items-row" ng-repeat="group in category.Groups">
+          <div class="list-items-cell">
+            <div class="list-items-md responsive">
+              <div class="list-inner">
+                <ul class="pull-right list-icons">
+                  <li>
+                    <button ng-if="group.Permission.IsInvited != 1 && group.Permission.IsActiveMember != 1 && group.IsPublic == 1" class="btn btn-default btn-sm" ng-click="joinPublicGroup(group.GroupGUID,'category',group);" ng-bind="lang.join"></button>
+                    <button ng-if="group.Permission.IsInvited == false && group.Permission.IsActiveMember == false && group.IsPublic ==0 && group.Permission.IsInviteSent" class="btn btn-default btn-sm" ng-click="cancelGroupInvite(group.GroupGUID,'category',group);" ng-bind="lang.g_cancel_request"></button>
+                    <button ng-if="group.Permission.IsInvited == false && group.Permission.IsActiveMember == false && group.IsPublic ==0 && !group.Permission.IsInviteSent" class="btn btn-default btn-sm" ng-click="requestGroupInvite(group.GroupGUID,'category',group);" ng-bind="lang.g_request_invite"></button>
+                    <div class="btn-group" ng-if="group.Permission.IsActiveMember == 1 && group.Permission.DirectGroupMember == 1">
+                      <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown">
+                        <i class="ficon-check f-lg"></i>
+                        <span class="text" ng-bind="lang.g_joined"></span> <i class="caret "></i>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a target="_self" ng-click="groupDropOutAction(group.GroupGUID,'category',group);" ng-if="group.Permission.IsActiveMember == 1 && group.Permission.DirectGroupMember == 1" ng-bind="lang.g_leave"></a></li>
+                      </ul>
+                    </div>
+
+                  </li>
+                </ul>
+                <figure>
+                  <a><img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" class="img-circle"  ></a>
+                </figure>
+                <div class="list-item-body">
+                  <h4 class="list-heading-md extra-bold"><a target="_self" class="text-black" href="{{SiteURL+'group/'+group.GroupID}}" ng-bind="group.GroupName"></a></h4>
+                  <div ng-bind="group.GroupDescription"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- New -->
+          <div class="list-items-cell">
+            <div class="list-items-default">
+              <div class="list-item-body" ng-cloak ng-if="group.FeaturedPost.length>0">
+                <p class="text-sm" ng-bind-html="textToLink(group.FeaturedPost[0].PostContent, 1)"></p>
+                <div class="activity-bar p-t-xs">
+                  <ul class="feed-actions small">
+                    <li>
+                      <span class="like-btn">
+                          <i class="ficon-heart sm" ng-class="{'active' :group.FeaturedPost[0].IsLike == 1}"></i>
+                          <abbr class="sm" ng-bind="group.FeaturedPost[0].NoOfLikes"></abbr>
+                      </span>
+                    </li>
+                    <li ng-if="group.FeaturedPost[0].NoOfComments > 0" ng-bind="group.FeaturedPost[0].NoOfComments + ' Comment(s)'" ></li>
+                  </ul>
+                  <ul class="list-icons pull-right">
+                    <li class="dropdown">
+                      <a target="_self" class="icon" data-toggle="dropdown">
+                          <i class="ficon-info-outline f-lg"></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-info">
+                        <ul class="pull-right list-icons">
+                  <li>
+                      <span class="icon group-activity-lavel" ng-class="group.ActivityLevel=='High'?'heigh':'moderate'" tooltip data-placement="top" title="Activity Level : {{group.ActivityLevel}}">
+                        <i class="ficon-trending-high f-lg"></i>
+                     </span>
+                  </li>
+                  <li>
+                      <span class="icon">
+                        <i data-container="body" tooltip data-placement="top" title="Public" class="ficon-globe" ng-if="group.IsPublic !== '' && group.IsPublic == 1"></i>
+                        <i data-container="body" tooltip data-placement="top" title="Secret" class="ficon-secrets f-lg" ng-if="group.IsPublic !== '' && group.IsPublic == 2"></i>
+                        <i data-container="body" tooltip data-placement="top" title="Closed" class="ficon-close f-lg" ng-if="group.IsPublic !== '' && group.IsPublic == 0"></i>
+                      </span>
+                  </li>
+                </ul>
+                        <li>
+                          <span class="icon"><i class="ficon-participate f-lg"></i></span>
+                          <span ng-cloak ng-if="group.MemberCount=='1'" class="text" ng-bind="'1 Member'"></span>
+                          <span ng-cloak ng-if="group.MemberCount>1" class="text" ng-bind="group.MemberCount+' Members'"></span>
+                        </li>
+                        <li ng-cloak ng-if="group.DiscussionCount>0">
+                          <span class="icon"><i class="ficon-comment-discussion"></i></span>
+                          <span ng-cloak ng-if="group.DiscussionCount=='1'" class="text" ng-bind="'1 Discussion'"></span>
+                          <span ng-cloak ng-if="group.DiscussionCount>1" class="text" ng-bind="group.DiscussionCount+' Discussions'"></span>
+                        </li>
+                        <li>
+                          <span ng-bind-html="::get_members_talking(group.MembersList)"></span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="list-item-body" ng-cloak ng-if="group.FeaturedPost.length==0">
+                <ul class="list-activites text-off">
+                  <li>
+                    <span class="icon"><i class="ficon-participate f-lg"></i></span>
+                    <span ng-cloak ng-if="group.MemberCount=='1'" class="text" ng-bind="'1 Member'"></span>
+                    <span ng-cloak ng-if="group.MemberCount>1" class="text" ng-bind="group.MemberCount+' Members'"></span>
+                  </li>
+
+                  <li ng-cloak ng-if="group.DiscussionCount>0">
+                    <span class="icon"><i class="ficon-comment-discussion"></i></span>
+                    <span ng-cloak ng-if="group.DiscussionCount=='1'" class="text" ng-bind="'1 Discussion'"></span>
+                    <span ng-cloak ng-if="group.DiscussionCount>1" class="text" ng-bind="group.DiscussionCount+' Discussions'"></span>
+                  </li>
+                </ul>
+                <ul class="list-activites text-off pull-left">
+                  <li>
+                    <span ng-bind-html="::get_members_talking(group.MembersList)"></span>
+                  </li> 
+                </ul>
+                <ul class="pull-right list-icons">
+                  <li>
+                      <span class="icon group-activity-lavel" ng-class="group.ActivityLevel=='High'?'heigh':'moderate'" tooltip data-placement="top" title="Activity Level : {{group.ActivityLevel}}">
+                        <i class="ficon-trending-high f-lg"></i>
+                     </span>
+                  </li>
+                  <li>
+                      <span class="icon">
+                        <i data-container="body" tooltip data-placement="top" title="Public" class="ficon-globe" ng-if="group.IsPublic !== '' && group.IsPublic == 1"></i>
+                        <i data-container="body" tooltip data-placement="top" title="Secret" class="ficon-secrets f-lg" ng-if="group.IsPublic !== '' && group.IsPublic == 2"></i>
+                        <i data-container="body" tooltip data-placement="top" title="Closed" class="ficon-close f-lg" ng-if="group.IsPublic !== '' && group.IsPublic == 0"></i>
+                      </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- New -->
+        </li>
+      </ul>
+    </div>
+    <div class="panel-footer more-category" ng-cloak ng-if="(ShowCategory==0 || totalCategoryGroups>category.Groups.length) && category.GroupCount>2">
+      <a target="_self" class="loadmore text-primary semi-bold" ng-click="viewAllGroups(category.CategoryID,category.Name,20)"><span ng-bind="lang.g_view_all"></span>
+      <span ng-if="ShowLoaderDiscover" class="loader">&nbsp;</span>
+      </a>
+    </div>
+  </div>
+  <div ng-if="$index==1 && ShowCategory==0" ng-repeat-end ng-include="AssetBaseUrl + 'partials/widgets/suggested_groups_forum.html'+app_version"></div>
+</div>

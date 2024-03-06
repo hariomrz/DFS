@@ -1,0 +1,97 @@
+<div ng-controller="mngFturReorderCtrl"> 
+
+    <!-- Re-order Category Modal -->
+    <div class="modal fade" id="reOrderCategory"> 
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                    <h4 class="modal-title" ng-if="current_category_id == 0" ng-bind="::lang.re_order_categories"></h4>
+                    <h4 class="modal-title" ng-if="current_category_id != 0" ng-bind="::lang.re_order_sub_categories"></h4>
+                </div>
+                <div class="modal-body block-hidden">                    
+                    <ul dnd-list="forum_categories" class="list-drag">
+                        <li ng-repeat="forum_category in forum_categories" class="item-drag move">
+                            <span class="icon">                                
+                                <svg height="18px" width="18px" class="svg-icons no-hover">
+                                <use xlink:href="{{SiteURL+'assets/img/sprite.svg#iconDrage'}}"></use>
+                                </svg>
+                            </span>
+                            <span class="text" ng-bind="forum_category.Name"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="change_category_order();" class="btn btn-primary pull-right" ng-bind="::lang.done"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Manage Feature Modal -->
+    <div class="modal fade" id="manageFeature">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                    <h4 class="modal-title" ng-bind="::lang.manage_feature"></h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center semi-bold" ng-bind="::lang.select_upto_3_to_feature"></p>
+                    <ul class="list-drag">
+                        <li class="item-drag" ng-repeat="forum_category in forum_categories">
+                            <span class="icon">
+                                <label class="checkbox">
+                                    <input type="checkbox" ng-disabled="disable_checkbox(forum_category.ForumCategoryID);" ng-click="make_featured(forum_category.ForumCategoryID);" name="forum_category.IsFeatured" ng-checked="(forum_category.IsFeatured == 1) ? true : false;" />
+                                    <span class="label"></span>
+                                </label>
+                            </span>
+                            <span class="text" ng-bind="forum_category.Name"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="set_forum_categories()" class="btn btn-primary pull-right" ng-bind="::lang.done"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Re-order Forum Modal -->
+    <div class="modal fade" id="reOrderForum"> 
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                    <h4 class="modal-title" ng-bind="::lang.reorder_forum"></h4>
+                </div>
+                <div class="modal-body">  
+                    <div class="default-scroll scrollbar">              
+                        <ul dnd-list="forums_reorder" class="list-drag">
+                            <li class="item-drag move" ng-repeat="forum_order in forums_reorder">
+                                <span class="icon">                                
+                                    <svg height="18px" width="18px" class="svg-icons no-hover">
+                                    <use xlink:href="{{SiteURL+'assets/img/sprite.svg#iconDrage'}}"></use>
+                                    </svg>
+                                </span>
+                                <span class="text" ng-bind="forum_order.Name"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="change_forum_order()" class="btn btn-primary pull-right" ng-bind="::lang.done"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+[program:picksgamecancelscript]
+command=php /var/www/html/framework/picks/index.php cron/worker process_game_cancellation --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickgamecancelscript.err.log
+stdout_logfile=/var/log/pickgamecancelscript.out.log
+
+[program:picksscorescript]
+command=php /var/www/html/picks/index.php cron/worker process_score_update_cron --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/picksscorescript.err.log
+stdout_logfile=/var/log/picksscorescript.out.log
+
+[program:pickscontestclosescript]
+command=php /var/www/html/picks/index.php cron/worker process_contest_close --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickscontestclosescript.err.log
+stdout_logfile=/var/log/pickscontestclosescript.out.log
+
+[program:picksprizecronscript]
+command=php /var/www/html/picks/index.php cron/worker process_prize_cron --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/picksprizecronscript.err.log
+stdout_logfile=/var/log/picksprizecronscript.out.log
+
+[program:picksprizenotiscript]
+command=php /var/www/html/picks/index.php cron/worker process_prize_notify --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/picksprizenotiscript.err.log
+stdout_logfile=/var/log/picksprizenotiscript.out.log
+
+[program:pickstdsscript]
+command=php /var/www/html/cron/index.php worker process_tds --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickstdsscript.err.log
+stdout_logfile=/var/log/pickstdsscript.out.log
+
+[program:picksgstscript]
+command=php /var/www/html/cron/index.php worker process_gst --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/picksgstscript.err.log
+stdout_logfile=/var/log/picksgstscript.out.log
+
+[program:picksemailscript]
+command=php /var/www/html/picks/index.php cron/worker process_email --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/picksemailcript.err.log
+stdout_logfile=/var/log/picksemailscript.out.log

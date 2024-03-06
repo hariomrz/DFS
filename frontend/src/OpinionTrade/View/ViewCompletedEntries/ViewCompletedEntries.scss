@@ -1,0 +1,496 @@
+
+
+.ot-entries-wrap {
+    display: flex;
+    flex-direction: column;
+    background-color: $app_bg_color;
+    margin-top: -44px !important;
+
+    .right-container {
+        flex: 1;
+       
+
+        .container-list {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-bottom: 22px;
+            .view-question-completed {
+                width: 100%;
+                height: 40px;
+                display: flex;
+                flex-direction: row;
+                background-color: transparent;
+                border: 1px solid $primary;
+                margin-bottom: 22px;
+                .item-completed-view {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50%;
+                    height: 100%;
+                    cursor: pointer;
+                    background-color: $primary;
+                    position: relative;
+                    .brder-white{
+                        position: absolute;
+                        bottom: -2px;
+                        width: 90%;
+                        height: 3px;
+                        border-radius: 1.5px;
+                        background-color: white;
+                    }
+                    span {
+                        font-family: $font-bold;
+                        font-size: 14px;
+                        text-align: center;
+                        color: rgba(white,0.58);
+                        text-transform: uppercase;
+                    }
+
+                    .active-clr {
+                        color: $white !important;
+                    }
+                }
+            }
+            .container-total-trades {
+                display: flex;
+                background-color: transparent;
+                align-items: center;
+                justify-content: center;
+                border-radius: 14px;
+                padding-left: 15px;
+                padding-right: 15px;
+                .view-total-trades {
+                    box-sizing: border-box;
+                    min-height: 140px;
+                    width: 100%;
+                    border: 1px solid #F2F2F2;
+                    border-radius: 14px;
+                    background: linear-gradient(133.33deg, #E5D0FF 0%, #CFCCFF 100%);
+                    .text-view-total-trades {
+                        width: 100%;
+                        display: flex;
+                        padding-top: 15px;
+                        padding-bottom: 10px;
+                        align-items: center;
+                        justify-content: center;
+
+                        span {
+                            color: #282E48;
+                            font-family: $font-bold;
+                            font-size: 18px;
+                            letter-spacing: 0;
+                            text-align: center;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+
+                .view-investment-container {
+                    display: flex;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    border-top: 1px solid #F2F2F2;
+                    justify-content: center;
+
+                    .view-investment {
+                        width: 100%;
+                        min-height: 60px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        
+
+                        .line-verticle {
+                            height: 60px;
+                            width: 1px;
+                            background-color: #F2F2F2;
+                        }
+
+                        .view-you-investment {
+                            width: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+
+                            .text-investment {
+                                color:#28292D;
+                                font-family: $font-regular;
+                                font-size: 12px;
+                                letter-spacing: 0;
+                                text-align: center;
+                            }
+
+                            .invest-value-container-view {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                .verticle-line{
+                                    margin-left: 10px;
+                                    margin-right: 10px;
+                                    width: 1px;
+                                    background-color: #F2F2F2;
+                                    height: 24px;
+                                }
+                                .invest-value-container {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: center;
+                                    &.hide{
+                                        width: 0;
+                                        height: 0;
+                                        overflow: hidden;
+                                    }
+                                    .img-reward{
+                                        width: 20px;
+                                        margin-right: 5px;
+                                    }
+                                    .img-coin{
+                                        width: 16px;
+                                        margin-right: 3px;
+                                    }
+                                    .img-rupee{
+                                        width: 24px;
+                                        height: 24px;
+                                        margin-right: 5px;
+                                    }
+                                    span {
+                                        color: #282E48;
+                                        font-family: $font-bold;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        letter-spacing: 0;
+                                    }
+    
+                                    .active-clr {
+                                        color: #43BA6A !important;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                .total-winning-container {
+                    height: 56px;
+                    width: 100%;
+                    border-radius: 0 0 12px 12px;
+                    background-color: #5853C3;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding-left: 19px;
+                    padding-right: 10px;
+                    
+                    .view-today {
+                        display: flex;
+                        align-self: flex-start;
+                        height: 20px;
+                        margin-top: 9px;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 4px;
+                        background-color: $white;
+                        padding-left: 7px;
+                        padding-right: 7px;
+                        margin-right: 10px;
+                        margin-top: 18px;
+                        span {
+                            color: #5853C3;
+                            font-family: $font-regular;
+                            font-size: 12px;
+                            letter-spacing: 0;
+                            text-align: center;
+                           
+                        }
+                    }
+
+                    span {
+                        color: $white;
+                        font-family: $font-regular;
+                        font-size: 12px;
+                        letter-spacing: 0;
+                        text-align: left;
+                        img{
+                            width: 12px;
+                            height: 12px;
+                            margin-right: 2px;
+                            margin-bottom: 2px;
+                        }
+                    }
+                }
+            }
+
+            .item-completed-container {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                padding-left: 15px;
+                padding-right: 15px;
+                overflow-x: hidden;
+                .item-container {
+                    margin-top: 15px;
+                    width: 100%;
+                    min-height: 71px;
+                    border-radius: 10px;
+                    background-color: $white;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding-top: 18px;
+                    overflow-x: hidden;
+                    &.click-cursor{
+                        cursor: pointer;
+                    }
+                    .enable-item{
+                        display: flex;
+                        flex-direction: row;
+                        width: 100%;
+                        align-self: flex-start;
+                        justify-content: space-between;
+                        align-items: center;
+                        overflow: hidden;
+                        margin-bottom: 10px;  
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        .flag-conatiner{
+                            .team-schedule-date{
+                                color: #999999;
+                                font-family: $font-regular;
+                                font-size: 12px;
+                                letter-spacing: 0;
+                                line-height: 12px;
+                                text-align: center;
+                                max-height: 150px;
+                                overflow: hidden;
+                                text-transform: uppercase;
+                                text-align: left;
+                                margin-top: 4px;
+                            }
+                            .flag-item-view{
+                                display: flex;
+                                flex-direction: row;
+                                width: auto;
+                                align-self: flex-start;
+                                align-items: center;
+                                overflow: hidden;
+                                .ic-flag{
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: 8px;
+                                }
+                                .view-flag-team{
+                                    display: flex;
+                                    flex-direction: column;
+                                    flex: 1;
+                                    padding-left: 3px;
+                                    padding-right: 3px;
+                                    align-items: center;
+                                    justify-content: center;
+                                    .team-vs{
+                                        color: 28292D;
+                                        font-family: $font-regular;
+                                        font-size: 14px;
+                                        letter-spacing: 0;
+                                        line-height: 17px;
+                                        text-align: center;
+                                    }                               
+                                }
+                            }
+                        }
+                        .win-view{
+                            width: 30%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            position: relative;
+                            .total-win{
+                                color: #999999;
+                                font-family: $font-regular;
+                                font-size: 10px;
+                                text-align: center; 
+                            }
+                            .total-value{
+                                color: #28292D;
+                                font-family: $font-bold;
+                                font-size: 16px;
+                                text-align: center; 
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                flex-direction: row;
+                                img{
+                                    width: 16px;
+                                    height: 16px;
+                                    margin-right: 4px;
+                                }
+                            }
+                            .left-line{
+                                position: absolute;
+                                left: 0;
+                                height: 80%;
+                                width: 1px;
+                                background-color: #F4F4F4;
+                            }
+                        }
+                        .quantity-container{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            margin-top: -20px;
+                            @keyframes uparrow {
+                                0% { -webkit-transform: translateY(0); opacity: 0.4 }
+                                100% { -webkit-transform: translateY(-0.1em); opacity: 0.9 }
+                              }
+                            img{
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 4px;
+                                animation: uparrow 0.6s infinite alternate ease-in-out;
+                            }
+                            .quantity-text{
+                                font-family: $font-regular;
+                                font-size: 14px;
+                                text-align: center;
+                                max-height: 150px;
+                                overflow: hidden;
+                                color: rgba( #EB4A3C,0.8);
+                                &.no-trade{
+                                    color: rgba( #999999,0.8) !important;
+                                }
+                                &.match-trade{
+                                    color: rgba( $primary,0.8) !important;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .item-txt-question {
+                        color: #333333;
+                        font-family: $font-regular;
+                        font-size: 16px;
+                        font-weight: 500;
+                        letter-spacing: -0.43px;
+                        margin-top: 5px;
+                        margin-bottom: 10px;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        overflow: hidden;
+                        width: 90%;
+                        cursor: pointer;
+                    }
+                    .expand-contains{
+                        height:auto;
+                        overflow:hidden;
+                        transition: 0.4s max-height;
+
+                        .expand-container{
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            border-top: 1px solid #EAEAEA;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            padding-top: 10px;
+                         
+                            .text-question{
+                                color: #282E48;
+                                font-family: $font-regular;
+                                font-size: 16px;
+                                text-align: left;
+                            }
+                            .expand-invest-container{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+                                width: 100%;
+                                height: 24px;
+                                margin-bottom: 10px;
+                                .text-investment {
+                                    display: flex;
+                                    height: 100%;
+                                    align-items: center;
+                                    color: #999999;
+                                    font-family: $font-regular;
+                                    font-size: 12px;
+                                    font-weight: 500;
+                                    letter-spacing: 0;
+                                    text-align: left;
+                                    
+                                    img{
+                                        width: 16px;
+                                        height: 16px;
+                                        margin-right: 2px;
+                                        margin-left: 4px;
+                                    }
+                                }
+        
+                                .active-clr {
+                                    color: #108B46 !important;
+                                    text-align: right !important;
+                                }
+                            }
+                        }
+                    }
+                    .investment-container {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 100%;
+                        height: 40px;
+                        border-top: 1px solid #EAEAEA;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        &.border-none{
+                            height: 24px !important;
+                            border-top: 0px solid #EAEAEA !important;
+                            margin-bottom: 10px;
+                        }
+                        .line-verticle{
+                            height: 17.4px;
+                            width: 1px;
+                            background-color: #f4f4f4;
+                            overflow: hidden;
+                            margin-left: 4.5px;
+                            margin-right: 4.5px;
+                        }
+                        .text-investment {
+                            display: flex;
+                            height: 100%;
+                            align-items: center;
+                            color: #999999;
+                            font-family: $font-regular;
+                            font-size: 12px;
+                            font-weight: 500;
+                            letter-spacing: 0;
+                            text-align: left;
+                            
+                            img{
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 2px;
+                                margin-left: 4px;
+                            }
+                        }
+
+                        .active-clr {
+                            color: #108B46 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}

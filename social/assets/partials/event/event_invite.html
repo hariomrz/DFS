@@ -1,0 +1,109 @@
+<div class="panel panel-primary panel-invitefrind" ng-if="(loggedUserRole == '1' || loggedUserRole == '2' || loggedUserRole == '3') && EventDetail.EventStatus !== 'Past'">
+    <div class="panel-body" ng-if="inviteEventDetails.IsDeleted != 2">
+        <div class="list-items-xmd">
+            <div class="list-inner">
+                <figure>
+                    <img src="{{AssetBaseUrl+'img/event/invite.svg'}}" >
+                </figure>
+                <div class="list-item-body" ng-if="inviteEventDetails.ModuleID == 3">
+                    <h4 class="list-heading-xs" ng-bind="lang.invite_friends_to_join"></h4>
+                    <small ng-bind="lang.invite_sub_text"></small>
+                </div>
+                
+                <div class="list-item-body" ng-if="inviteEventDetails.ModuleID == 1">
+                    <h4 class="list-heading-xs" ng-bind="lang.invite_group_to_join"></h4>
+                    <small ng-bind="lang.invite_group_to_join_sub_txt"></small>
+                </div>
+                
+                <div class="list-item-body" ng-if="inviteEventDetails.ModuleID == 18">
+                    <h4 class="list-heading-xs" ng-bind="lang.invite_page_to_join"></h4>
+                    <small ng-bind="lang.invite_page_to_join_sub_txt"></small>
+                </div>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-tag" ng-class="errorEventMember != '' ? 'has-error' : ''">      
+                <tags-input 
+                    ng-model="tagsInvited" 
+                    display-property="Name" 
+                    add-from-autocomplete-only="true" 
+                    on-tag-added="tagAddedInvited($tag)"  
+                    on-tag-removed="tagRemovedInvited($tag)"
+                    placeholder="{{getInvitePlaceHolder()}}"
+                >
+                    <span ng-class="errorEventMember != '' ? 'block-error' : ''" id="errorEventMember" ng-bind-template="{{errorEventMember}}"></span>
+                    <auto-complete source="loadTags($query)"></auto-complete>
+                </tags-input>
+            </div>
+        </div>
+
+        <div class="form-group">            
+            <a class="btn btn-primary btn-block" id="InviteEventBtn" ng-click="inviteEventUsers('0', 'Invited')" >{{lang.invite}}
+                <span class="loader">&nbsp;</span>
+            </a>
+        </div>
+
+
+
+        <div class="tag-list-slider">
+            <script type="text/ng-template" id="tpl.html">
+                <div class="tag-item-remove">
+                <span class="tag-item-text" ng-click="tagAddedInvited(item);displayTagName(item);" ng-bind="item.Name">                            
+                </span>
+                <a class="ficon-cross tag-remove" ng-click="removeSlickItem(item)"></a>
+                </div>
+            </script>                       
+
+            <ul  slick  settings="slickConfigEventInviti" class="tag-list tag-list-primary tag-color-nth" id="tagSlider" ng-if="eventInvites.length > 0 && inviteEventDetails.ModuleID == 3" ng-cloak>
+                <li ng-repeat="item in eventInvites" ng-include="'tpl.html'">
+
+                </li>                
+            </ul>
+
+            <a class="btn btn-line-primary btn-block" 
+               ng-click="inviteEventUsers('0', 'Invited', 1)" 
+               ng-if="inviteEventDetails.ModuleID != 3 && !allUsers"               
+               ng-bind="(inviteEventDetails.ModuleID == 1) ? 'Invite all group members' : 'Invite all page members'"               
+               >                
+            </a> 
+
+
+            <div class="alert alert-success alert-static" ng-if="allUsers" style="display: block;"> 
+                <span class="icon">
+                    <i class="ficon-sad f-xlg"></i>
+                </span> 
+                <span class="text" ng-if="inviteEventDetails.ModuleID == 1">Invitation sent successfully to all members of group.</span>
+                <span class="text" ng-if="inviteEventDetails.ModuleID == 18">Invitation sent successfully to all followers of page.</span>
+            </div>                                    
+
+        </div>
+
+
+
+        <ul class="invite-selected" ng-if="0 && eventInvites.length > 0" ng-cloak >
+            <li ng-repeat="item in eventInvites">
+                <div class="listing-group vertical">
+                    <div class="list-items-sm verticle">
+                        <div class="list-inner" ng-click="tagAddedInvited(item);displayTagName(item);">
+                            <figure>
+                                <a entitytype="user" entityguid="{{item.UserGUID}}" class="loadbusinesscard" ng-href="{{item.ProfileLink}}">
+                                    <img ng-if="item.ProfilePicture != '' && item.ProfilePicture !== 'user_default.jpg'" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{item.ProfilePicture}}" />
+
+                                    <span ng-if="item.ProfilePicture == '' || item.ProfilePicture === 'user_default.jpg'" class="default-thumb">
+                                        <span ng-bind="getDefaultImgPlaceholder(item.Name)"></span>
+                                    </span>
+                                </a>
+                            </figure>
+                            <div class="list-item-body">
+                                <h4 class="list-heading-xs">
+                                    <span class="text ellipsis" ng-bind="item.Name"></span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

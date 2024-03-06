@@ -1,0 +1,213 @@
+
+.trans-web-container{
+    .default-tab{
+      ul{
+        box-shadow: none;
+        // overflow-y: auto;
+        margin-bottom: -5px;
+        justify-content: space-between;
+        position: relative;
+        li{
+            margin-top: -5px;
+            min-width: 90px;
+            text-align: center;
+            display: inline-block;
+            &.active{
+                a{
+                    &:after{
+                        content: none;
+                    }
+                }
+            }
+        }
+      }
+    }  
+  }
+  .transaction-list{
+    .trans-header-wrap{
+        width: 100%;
+        display: table;
+        .trans-head{
+            display: table-cell;
+            background: $app_bg_color;
+            padding: 6px 20px;
+            width: 30%;
+            @media (max-width: 360px){
+                padding: 8px 15px;
+            }
+            &:first-child{
+                width: 40%;
+            }
+            span{
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                @include background-opacity($help_text_color,0.5);
+                border-radius: 50%;
+                color: $secondary_text_color;
+                font-size: 9px;
+                text-align: center;
+                line-height: 19px;
+                position: relative;
+                &:after{
+                    background: $white;
+                    position: absolute;
+                    content: '';
+                    width: 8px;
+                    height: 2px;
+                    left: 5px;
+                    top: 8px;
+                }
+            }
+        }
+    }
+    .trans-body-wrap{
+        .trans-tr-view{
+            display: table;
+            cursor: pointer;
+            width: 100%;
+            .trans-td-view{
+                display: table-cell;
+                width: 30%;
+                &:first-child{
+                    width: 35%;
+                    @media (max-width: 500px){
+                        width: 33%;  
+                    }
+                }
+                padding: 8px 20px;
+                font-size: $font-base;
+                font-family: $font-regular;
+                @media (max-width: 360px){
+                    padding: 8px 15px;
+                }
+                i{
+                    font-size: $font-size-xsmall;
+                    position: relative;
+                    top: -1px;
+                    margin-right: 3px;
+                    &.warning{
+                        color: $alert_warning_color;
+                        font-size: 14px;
+                    }
+                }
+                span{
+                    margin: 0 3px;
+                    color: $help_text_color;
+                    &.no-margin{
+                        margin: 0px;
+                        .color-symbol{
+                            color: $primary;
+
+                        }
+                    }
+                }
+                
+                .trans-heading{
+                    font-size: $font-size-small;
+                    color: $body_text_color;   
+                }
+                .trans-timing{
+                    font-size: $font-size-xsmall;
+                    color: $help_text_color;   
+                }
+                &.v-mid{
+                    vertical-align: middle;
+                    .color-symbol{
+                        color: $primary;
+                    }
+                }
+                .icon-bonus{
+                    font-size: 13px;
+                }
+            }
+        }
+        .trans-tr-wrap{
+            &:nth-child(2n){
+                @include background-opacity($app_bg_color,0.4);
+            }
+            .trans-detail{
+                display: none;
+            }
+            &.trans-detail-wrap{
+                background: $app_bg_color;
+                .trans-detail{
+                    display: block;
+                    padding: 0 16px 10px;
+                    div{
+                        display: inline-block;
+                        border-radius: 12px;
+                        background: $view_bg_color;
+                        border: 1px solid $border_color;
+                        padding: 2px 13px;
+                        font-size: $font-size-small;
+                        color: $help_text_color;
+                        margin-right: 10px;
+                        span{
+                            display: inline-block;
+                            margin-left: 10px;
+                            color: $body_text_color;
+                        }
+                    }
+                    .text-status-crypto{
+                        color: $alert_success_color;
+                        &.pending{
+                            color: $alert_warning_color;
+                        }
+                        &.failed{
+                            color: $alert_danger_color;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+   
+}
+
+
+
+
+// changes for dark theme overall
+.body-dark-theme{
+    .web-container.web-container-fixed.trans-web-container{
+        background: $darkT_app_bg_color2;
+        .default-tab ul li{
+            &.active a{
+                color: $darkT_primary;
+                &:after{
+                    background: $darkT_primary;
+                }
+            }
+        }
+    }
+    .transaction-list{
+        .trans-header-wrap .trans-head{
+            background: $darkT_view_bg_color;
+            // &:nth-child(2n){
+            //     @include background-opacity($darkT_view_bg_color,0.8)
+            // }
+        }
+        .trans-body-wrap .trans-tr-wrap:nth-child(2n){
+            @include background-opacity($darkT_view_bg_color,0.8)
+        }
+        .trans-tr-view .trans-td-view{
+            color: $darkT_primary_text_color;
+            span,
+            .trans-heading,
+            .trans-timing{
+                color: $darkT_primary_text_color;
+            }
+        }
+    }
+    .trans-web-container{
+        .default-tab{
+            ul{
+                li a{
+                    background: $darkT_app_bg_color;
+                }
+            }
+        }
+    }
+}

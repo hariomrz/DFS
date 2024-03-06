@@ -1,0 +1,88 @@
+<div ng-controller="categoryUploadController">
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="uploadCategoryList">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="ficon-cross"></i>
+                    </button>
+                    <h4 class="modal-title">Upload List of Categories</h4>                    
+                </div>
+                <div class="modal-body brand-light-bg">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label class="label">Module</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select data-chosen="" data-disable-search="true" ng-options="POptions.MKey as POptions.Name for POptions in ListPrivacyOptions" data-ng-model="uploadModuleID">
+                        <option value=""></option>
+                    </select>
+                    </div> 
+                </div> 
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label class="label">Locality</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select  data-chosen="" ng-options="LOptions.MKey as LOptions.Name for LOptions in LocalityOptions" data-ng-model="uploadLocalityID" data-disable-search="true">
+                        <option value=""></option>
+                    </select>
+                    </div> 
+                </div>
+                    <div class="row">&nbsp;</div>
+                    <div class="fileinput fileinput-exits" data-provides="fileinput">
+                        <div class="input-group input-group-lg">
+                            <div class="form-control uneditable-input" data-trigger="fileinput">
+                                <span class="fileinput-filename" ng-bind="userUploadsfile.name"></span>
+                            </div>
+                            <a class="input-group-addon fileinput-exists xhide" data-dismiss="fileinput" ng-if="userUploadsfile.name" ng-click="resetUploadUsers();">
+                                <span class="icn circle-icn circle-default circle-mini">
+                                    <i class="ficon-cross"></i>
+                                </span>
+                            </a>
+                            <span class="input-group-addon btn btn-primary btn-file">
+                                <span class="fileinput-new" ng-model="file" name="file" ngf-select="uploadUsers($file, $invalidFiles);"  ngf-validate-async-fn="validateFileSize($file);">Browse</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-body">
+                    
+                    
+                    <div class="panel-error" ng-if=" ( userUploadsErrors.length > 0 ) ">
+                        <h4 class="title">Errors <span class="text-off normal" ng-bind=" '(' + userUploadsErrors.length + ')' "></span></h4>
+                        <p class="text-red">Kindly correct following data and upload again.</p>
+                        <ul class="error-list scrollY scrollH204">                
+                            <li ng-repeat="errorMsg in userUploadsErrors track by $index" ng-bind="errorMsg"></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="panel-error" ng-if=" ( userUploadsRowsErrors.length > 0 ) ">
+                        <h4 class="title">Errors <span class="text-off normal" ng-bind=" '(' + userUploadsRowsErrors.length + ')' "></span></h4>
+                        <p >Following rows are skipped. Please correct and try again.</p>
+                        <ul class="error-list scrollY scrollH204">                
+                            <li ng-repeat="errorMsg in userUploadsRowsErrors track by $index" ng-bind="errorMsg"></li>
+                        </ul>
+                    </div>
+    
+                </div>
+                <div class="modal-footer">                    
+                    <div class="btn-toolbar btn-toolbar-left">
+                        <a class="btn btn-link no-padding-h ">   
+                            <span class="icn">
+                                <i class="ficon-file-excel ficon-green"></i>
+                            </span>                        
+                            <span class="text" ng-click="hitToDownloadUserFormat()">Download sample file format</span>
+                        </a>
+                    </div>                                        
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</div>

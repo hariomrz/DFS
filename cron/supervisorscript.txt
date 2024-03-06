@@ -1,0 +1,6 @@
+[program:FeedcommonConsumer]
+command=php /var/www/html/cron/index.php Feed_common_consumer_worker process_feed_common_consumer --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/FeedcommonConsumer.err.log
+stdout_logfile=/var/log/FeedcommonConsumer.out.log

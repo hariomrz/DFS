@@ -1,0 +1,144 @@
+INSERT INTO `vi_app_config` (`config_id`, `name`, `key_name`, `key_value`, `custom_data`) VALUES (NULL, 'Allow Xp point', 'allow_xp_point', '0', '[]');
+
+
+[program:creditxppointscript]
+command=php /var/www/html/cron/index.php xp_worker credit_xp_point --env development
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/creditxppointscript.err.log
+stdout_logfile=/var/log/creditxppointscript.out.log
+
+[program:creditxprewardscript]
+command=php /var/www/html/cron/index.php xp_worker credit_xp_reward --env development
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/creditxprewardscript.err.log
+stdout_logfile=/var/log/creditxprewardscript.out.log
+
+########9 june 2021######
+ALTER TABLE `vi_xp_reward_history` CHANGE `status` `status` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0 => pending, 1=> success';
+
+CREATE TABLE `vi_xp_reward_history` (
+  `reward_history_id` bigint(20) NOT NULL,
+  `user_id` int(9) NOT NULL,
+  `reward_id` int(11) NOT NULL,
+  `coins` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 => pending, 1=> success',
+  `added_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `vi_xp_reward_history`
+--
+
+INSERT INTO `vi_xp_reward_history` (`reward_history_id`, `user_id`, `reward_id`, `coins`, `status`, `added_date`) VALUES
+(2, 1, 1, 50, 1, '2021-06-09 05:18:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vi_xp_user_history`
+--
+
+CREATE TABLE `vi_xp_user_history` (
+  `history_id` bigint(12) NOT NULL,
+  `activity_id` int(9) NOT NULL,
+  `point` int(9) DEFAULT '0',
+  `user_id` int(9) NOT NULL,
+  `added_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `vi_xp_user_history`
+--
+
+INSERT INTO `vi_xp_user_history` (`history_id`, `activity_id`, `point`, `user_id`, `added_date`) VALUES
+(4, 1, 50, 1, '2021-06-09 05:04:27'),
+(5, 1, 50, 1, '2021-06-09 05:04:54'),
+(6, 1, 50, 1, '2021-06-09 05:05:41'),
+(7, 1, 50, 1, '2021-06-09 05:06:25'),
+(8, 1, 50, 1, '2021-06-09 05:06:48'),
+(10, 1, 50, 1, '2021-06-09 05:15:23'),
+(11, 1, 50, 1, '2021-06-09 05:17:49'),
+(12, 1, 50, 1, '2021-06-09 05:18:42');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `vi_xp_reward_history`
+--
+ALTER TABLE `vi_xp_reward_history`
+  ADD PRIMARY KEY (`reward_history_id`),
+  ADD UNIQUE KEY `user_reward` (`reward_id`,`user_id`);
+
+--
+-- Indexes for table `vi_xp_user_history`
+--
+ALTER TABLE `vi_xp_user_history`
+  ADD PRIMARY KEY (`history_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `vi_xp_reward_history`
+--
+ALTER TABLE `vi_xp_reward_history`
+  MODIFY `reward_history_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `vi_xp_user_history`
+--
+ALTER TABLE `vi_xp_user_history`
+  MODIFY `history_id` bigint(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+
+  ########################10 June 2021###########################################
+  
+#signup 
+0 */1 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_xp_activity_points/1 
+
+#play cash contest 
+0 */3 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_xp_activity_points/2
+
+#play free contest 
+0 */3 * * * wget -O - -q -t 1 http://localhost/cron/xp_module/process_xp_activity_points/4
+
+#play coin contest 
+0 */3 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_xp_activity_points/3
+
+#invite
+0 */1 * * * wget -O - -q -t 1   http://localhost/cron/xp_module/process_xp_activity_points/5
+
+#1st Deposit
+0 */1 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_xp_activity_points/7
+#post 1st Deposit
+0 */3 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_xp_activity_points/8
+
+#Winning Zone
+0 */3 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_xp_activity_points/9
+  
+#KYC 
+0 */1 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_xp_activity_points/6
+
+#process cashback
+0 */1 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_deposit_cashback
+0 */3 * * * wget -O - -q -t 1  http://localhost/cron/xp_module/process_contest_joined_cashback
+
+  ###############11 June 2021##############
+UPDATE `vi_xp_badge_master` SET `badge_icon` = 'bronze.png' WHERE `vi_xp_badge_master`.`badge_id` = 1;
+UPDATE `vi_xp_badge_master` SET `badge_icon` = 'silver.png' WHERE `vi_xp_badge_master`.`badge_id` = 2;
+UPDATE `vi_xp_badge_master` SET `badge_icon` = 'gold.png' WHERE `vi_xp_badge_master`.`badge_id` = 3;
+UPDATE `vi_xp_badge_master` SET `badge_icon` = 'platinum.png' WHERE `vi_xp_badge_master`.`badge_id` = 4;
+UPDATE `vi_xp_badge_master` SET `badge_icon` = 'diamond.png' WHERE `vi_xp_badge_master`.`badge_id` = 5;
+UPDATE `vi_xp_badge_master` SET `badge_icon` = 'elite.png' WHERE `vi_xp_badge_master`.`badge_id` = 6;
+
+########################15 June############################################
+ALTER TABLE `vi_user` ADD `kyc_date` DATETIME NULL DEFAULT NULL COMMENT 'used in Xp module' AFTER `app_notification_setting`;
+
+#migration
+http://domain/user/migration/do_migration
+fie no: 86
+086_xp_module.php

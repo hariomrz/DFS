@@ -1,0 +1,46 @@
+
+#create database
+fixed_open_predictor
+
+#fixed open prediction crons
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/fixed_open_predictor/update_lobby_fixture_data
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/fixed_open_predictor/daily_prediction_prize_distribute
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/fixed_open_predictor/weekly_prediction_prize_distribute
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/fixed_open_predictor/monthly_prediction_prize_distribute
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/fixed_open_predictor/fixed_prediction_prize_notification
+
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/fixed_open_predictor_queue/update_day_rank
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/fixed_open_predictor_queue/update_week_rank
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/fixed_open_predictor_queue/update_month_rank
+
+app_config table
+allow_open_predictor =1
+
+FIXED_OPEN_PREDICTOR_DBHOSTNAME=
+FIXED_OPEN_PREDICTOR_DBUSERNAME=
+FIXED_OPEN_PREDICTOR_DBPASSWORD=
+FIXED_OPEN_PREDICTOR_DBNAME=fixed_open_predictor
+
+NODE_BASE_URL=http://192.168.5.76:4000/
+
+#create queues
+fixed_open_predictor
+
+#supervisor scripts
+
+[program:processfixedopenpredictionscript]
+command=php /var/www/html/cron/index.php fixed_open_predictor_worker process_prediction --env testing
+autostart=true
+stderr_logfile=/var/log/processfixedopenpredictionscript.err.log
+stdout_logfile=/var/log/processfixedopenpredictionscript.out.log
+
+sudo service supervisor restart
+
+#run migration script
+http://framework.vinfotech.org/user/migration/do_migration
+http://framework.vinfotech.org/prediction/migration/do_migration
+
+#go to node_app folder and run below command  enviorment will be production live mode
+pm2 restart ecosystem.config.js --env testing
+
+sync notification_description and transaction_messages from mysql to mongo db

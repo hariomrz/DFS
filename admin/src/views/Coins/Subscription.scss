@@ -1,0 +1,218 @@
+.subscription {
+  .search-input {
+    margin: 10px 10px 0;
+  }
+
+  .input-form {
+    padding: 50px 40px;
+
+    @media (max-width: 1366px) {
+      width: 100%;
+    }
+
+    label {
+      margin-bottom: 4px;
+      color: #555555;
+      font-family: $font-bold;
+      display: block;
+    }
+
+    ::placeholder {
+      color: #e7e7e7;
+    }
+  }
+
+  .coin-sty {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tbl-min-hgt {
+    margin-top: 30px;
+  }
+
+  .custom-pagination {
+    float: right;
+  }
+
+  .input-group {
+    width: 300px;
+  }
+
+  .form-control {
+    max-width: 400px;
+    font-family: $font-bold;
+    border-color: #D2DFEC;
+  }
+
+  .img-preview-box {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 18%;
+    right: 0;
+    max-width: 440px;
+    height: 202px;
+  }
+
+  .common-table {
+    th {
+      cursor: pointer;
+    }
+  }
+
+  .subs-btn {
+    margin-top: 24px;
+    text-align: center;
+
+    .btn {
+      height: 48px;
+      width: 172px;
+      font-size: 16px;
+    }
+  }
+}
+
+.card-subscription {
+  position: relative;
+  background-color: $white;
+  z-index: 0;
+  border-radius: 14px;
+  // padding: 24px 16px 16px;
+  width: 312px;
+  margin-bottom: 20px;
+
+  .card-img-wrapper {
+    width: 60px;
+    min-width: 60px;
+  }
+
+  .s-act-box {
+    float: right;
+    font-size: 20px;
+    font-weight: 600;
+    height: 0;
+    margin-top: -8px;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+      font-size: 21px;
+    }
+  }
+
+  .s-card {
+    width: 100%;
+    padding: 38px 16px 16px;
+    display: inline-block;
+  }
+
+  .s-coins {
+    color: #555555;
+    font-family: $font-bold;
+    font-size: 32px;
+    margin-left: 8px;
+    line-height: 24px;
+    user-select: none;
+  }
+
+  .s-cnt {
+    font-size: 18px;
+    color: $white;
+    margin-bottom: 24px;
+
+    img {
+      vertical-align: initial;
+      width: 22px;
+      height: 22px;
+    }
+
+    &.pname-hgt {
+      height: 54px;
+      word-break: break-all;
+    }
+  }
+
+  .s-cur-btn {
+    height: 28px;
+    width: 178px;
+    border-radius: 30px;
+    background-color: #0CBFEB;
+    color: $white;
+    font-family: $font-bold;
+    font-size: 12px;
+    padding: 6px;
+    font-style: normal;
+    text-align: center;
+    float: left;
+    user-select: none;
+
+    span {
+      vertical-align: unset;
+    }
+  }
+
+  i.icon-delete {
+    float: right;
+    margin-top: 2px;
+    cursor: pointer;
+    padding: 6px;
+
+    &:hover {
+      background-color: #e7e7e7;
+      border-radius: 100%;
+      color: $black;
+    }
+  }
+
+  .s-bg-img {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+
+    img {
+      border-radius: 14px;
+    }
+  }
+
+  .s-pname-box {
+    position: absolute;
+    top: -8px;
+    right: 16px;
+    text-align: -webkit-center;
+
+    img {
+      box-sizing: border-box;
+      height: 36px;
+      width: 32px;
+      display: block;
+    }
+
+    .spname {
+      color: #00BFEB;
+      font-family: $font-bold;
+      font-size: 12px;
+      text-align: center;
+      text-transform: uppercase;
+      user-select: none;
+    }
+  }
+
+  .s-ai-icons {
+    position: absolute;
+    left: 14px;
+    top: 4px;
+    i {
+      font-size: 16px;
+      background-color: #0CBFEB;
+      color: #fff;
+      padding: 4px;
+      border-radius: 100%;
+    }
+  }
+}
+
+.sbmsg {
+  font-size: 14px;
+}

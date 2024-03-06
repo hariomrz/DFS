@@ -1,0 +1,27 @@
+.referral-view-main {
+  .table th {
+    vertical-align: middle;
+  }
+  .width-350 {
+    width: 350px;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.refereal_css{
+    td:nth-child(2) {
+      border-left: 1px solid rgba(0, 0, 0, 0.2)!important;
+    }
+    .coin-border-css{
+      border-right: 1px solid rgba(0, 0, 0, 0.2)!important;
+
+    }
+    .bonus-border-css{
+      border-right: 1px solid rgba(0, 0, 0, 0.2)!important;
+    } 
+}
+

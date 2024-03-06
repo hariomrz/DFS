@@ -1,0 +1,50 @@
+// @import "../../../assets/scss/bootstrap/bootstrap.scss";
+
+.desktop-wrap {
+  .no-data-container {
+    padding-top: 50px;
+  }
+ 
+}
+.no-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .no-data-txt {
+    font-size: 30px;
+    font-family: $font-exo-bold;
+    color: $black;
+    text-transform: uppercase;
+    max-width: 310px;
+    margin: 30px 0 50px;
+    line-height: 1;
+  }
+  .no-data-img {
+    margin-bottom: 50px;
+  }
+ 
+}
+
+.n-dta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .no-data-txt {
+    font-size: 30px;
+    font-family: $font-exo-bold;
+    color: $black;
+    text-transform: uppercase;
+    max-width: 260px;
+    margin: 30px 0 50px;
+    line-height: 1;
+    text-align: center;
+  }
+  .no-data-img {
+    margin-bottom: 50px;
+  }
+  .image-adjust {
+    height: 170px;
+  }
+}

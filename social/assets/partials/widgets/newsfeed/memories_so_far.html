@@ -1,0 +1,27 @@
+<div class="panel panel-widget-events" ng-controller="PastEventController" ng-init="ListPastEvents()">
+    <div class="panel-heading">
+        <h4>Memories so far</h4>
+        <p>Checkout few of our successful drives.</p>
+    </div>
+    <div class="panel-body">
+        <div class="row slick-circle-arrow secondary mob-gril" id="PrevousEventsSlider">
+            <slick class="slider" ng-if="totalPastEvents > 0" settings="MemoriesConfig">
+                <div class="col-sm-6" ng-repeat="Event in listPastData">
+                    <div class="cards cards-event cards-event-secondary card-prev-events">
+                        <a class="cards-image" ng-href="{{BaseUrl+Event.ProfileURL}}">
+                            <img ng-src="{{ImageServerPath+'upload/profilebanner/220x220/event_banner.jpg'}}"  class="img-effect" ng-if="Event.ProfilePicture == 'event-placeholder.png'">
+                            <img ng-src="{{ImageServerPath+'upload/profile/220x220/'+Event.ProfilePicture}}"  class="img-effect" ng-if="Event.ProfilePicture!='event-placeholder.png'">
+                        </a>
+                        <div class="cards-content">
+                            <span class="card-date">{{Event.StartDay}} - {{Event.EndDay}} {{Event.EndMonth}}</span>
+                            <h2 class="cards-title">
+                                <a ng-href="{{BaseUrl+Event.ProfileURL}}" ng-bind="Event.Title"></a>
+                            </h2>
+                            <div class="event-location" ng-bind="Event.Location.CityStateCountry"></div>
+                        </div>
+                    </div>
+                </div>
+            </slick>
+        </div>
+    </div>
+</div>

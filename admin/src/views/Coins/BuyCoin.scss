@@ -1,0 +1,151 @@
+.search-input {
+  height: 44px;
+  border-radius: 8px;
+  width: 240px;
+}
+
+.icon-Shape {
+  font-size: 10px;
+}
+
+.rotate-icon {
+  transform: rotate(180deg);
+  margin-left: 4px;
+}
+
+.buy-coin-sc {
+  .search-input {
+    margin: 10px 10px 0;
+  }
+
+  .input-box {
+    padding: 15px 50px 15px 17px;
+
+    @media (max-width: 1366px) {
+      width: 100%;
+    }
+  }
+
+  .coin-sty {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tbl-min-hgt {
+    margin-top: 30px;
+  }
+
+  .custom-pagination {
+    float: right;
+  }
+
+  .input-group {
+    width: 300px;
+  }
+
+  .form-control {
+    max-width: 300px;
+    font-family: $font-bold;
+  }
+
+  .img-preview-box {
+    .buy-coin-card {
+      padding: 10px;
+
+      .coins-card {
+        margin: 0;
+      }
+    }
+  }
+
+  .common-table {
+    th {
+      cursor: pointer;
+    }
+  }
+}
+
+.card-align {
+  float: left;
+  margin-right: 20px;
+}
+
+.buy-coin-card {
+  .card-img-wrapper {
+    width: 60px;
+    min-width: 60px;
+  }
+
+  .coin-act-box {
+    color: $white;
+    float: right;
+    font-size: 20px;
+    font-weight: 600;
+    height: 0;
+    margin-top: -8px;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+      font-size: 21px;
+    }
+  }
+
+  .coins-card {
+    width: 225px;
+    height: 210px;
+    text-align: center;
+    margin-top: 20px;
+    background: $theme-color;
+    border-radius: 10px;
+    padding: 15px 10px;
+    display: inline-block;
+  }
+
+  .coins-card img {
+    width: 60px;
+    margin: 0 auto;
+  }
+
+  .coin-cnt {
+    font-size: 18px;
+    color: $white;
+    margin: 5px 0;
+
+    &.pname-hgt {
+      height: 54px;
+      word-break: break-all;
+    }
+  }
+
+  .redeem-btn {
+    height: 24px;
+    width: fit-content;
+    border-radius: 12px;
+    background-color: $secondary-color;
+    color: $white;
+    font-family: $font-bold;
+    font-size: 12px;
+    padding: 4px 6px;
+    font-style: normal;
+    margin: 0 auto;
+  }
+}
+
+.bc-detail-view {
+  text-decoration: underline !important;
+  color: $secondary-color !important;
+  cursor: pointer;
+}
+
+.bc-header {
+  .h2-cls {
+    float: left;
+  }
+
+  .goback {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+}

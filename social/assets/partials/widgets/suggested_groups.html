@@ -1,0 +1,75 @@
+<div ng-if="SettingsData.m1=='1'" class="panel panel-info"  ng-cloak ng-controller="GroupPageCtrl" id="GroupPageCtrl" ng-init="suggestedGroupList(20, '0', 0)" ng-show="suggestedlist.length > 0">
+    <div class="panel-body no-padding">
+        <div class="panel-heading">
+            <h3 class="panel-title extra-bold" ng-bind="::lang.suggested_groups"></h3>
+        </div>
+
+        <div class="panel-body nodata-panel nodata-default" ng-cloak ng-if="suggestedlist.length == 0">
+            <div class="nodata-text">
+                <span class="nodat-circle sm shadow">
+                    <i class="ficon-smiley"></i>
+                </span>
+                <p class="no-margin">No groups suggestions <br>for you</p>
+            </div>
+        </div>
+
+
+        <ul ng-cloak class="listing-group" id="GroupSlider" ng-if="suggestedlist.length > 0">
+
+            <slick class="slider" ng-if="suggestedlist.length > 0" settings="groupSuggestionSilckSttng">
+
+                <li class="col-sm-6" id="grp{{list.GroupGUID}}" ng-repeat="list in listObj = suggestedlist|limitTo:3" ng-cloak>
+                    <div class="list-items-xmd">
+                        <div class="list-inner">                                                        
+                            <figure>
+                                <a entitytype="group" entityguid="{{list.GroupGUID}}" class="loadbusinesscard" ng-href="{{SiteURL + list.ProfileURL}}"> 
+                                    <img ng-if="list.ProfilePicture != ''" ng-src="{{ImageServerPath + 'upload/profile/220x220/' + list.ProfilePicture}}" class="img-circle"  > 
+                                </a>
+                            </figure>
+
+                            <div class="list-item-body m-b-sm">                                
+                                <a  class="list-heading-sm text-black ellipsis "  ng-bind="list.GroupName"></a>
+                                <ul class="list-activites list-icons-arrow">
+                                    <li ng-if="::list.Category" ><a ng-bind="::list.Category.Name"></a></li>
+                                    <li ng-if="::list.Category.SubCategory.length > 0" ><a ng-bind="::list.Category.SubCategory.Name"></a></li>                          
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ellipsis"  ng-bind="list.GroupDescription"></div>
+                        <ul class="list-activites">
+                            <li>                                
+                                <a ng-if='list.Members.length > 0' ng-repeat='member in list.Members| limitTo:3'>
+                                    {{member.FirstName}} {{$last ? '' : ($index==list.Members.length-1) ? '' : ', '}}
+                                </a> 
+                                <span ng-if='list.Members.length > 3'> & {{ (list.MemberCount - list.Members.length) > 0 ? list.MemberCount - list.Members.length : ''}} 
+                                    <span ng-if="list.MemberCount - list.Members.length > 0">
+                                        {{ (list.MemberCount - list.Members.length) > 1 ? 'Members' : 'Member'}} 
+                                    </span>
+                                </span>                                
+                            </li>
+                        </ul>
+                        <div class="listing-footer">
+                            <div class="btn-toolbar btn-toolbar-xs left">
+                                <button ng-cloak ng-if="list.IsJoined != '1'" class="btn btn-default btn-xs" ng-click="joinPublicGroup(list.GroupGUID, 'discover')" ng-bind="::lang.join"></button>
+                                <button ng-cloak ng-if="list.IsJoined == '1'" class="btn btn-default btn-xs" ng-click="groupDropOutAction(list.GroupGUID, 'discover')" >Leave</button>
+                            </div>
+                            <ul class="pull-right list-icons">
+                                <li>                                    
+                                    <span class="icon group-activity-lavel" ng-class="list.Popularity == 'High' ? 'heigh' : 'moderate'" tooltip data-placement="top" title="Activity Level : {{list.Popularity}}">
+                                        <i  class="ficon-trending"></i>
+                                    </span>                                    
+                                </li>
+                                <li>
+                                    <span class="icon" data-toggle="tooltip" data-original-title="Public" ng-if="list.IsPublic !== 0 && list.IsPublic == 1">
+                                        <i  class="ficon-globe f-lg"></i>
+                                    </span>                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+            </slick>
+        </ul>
+    </div>
+</div>

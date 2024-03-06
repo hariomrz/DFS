@@ -1,0 +1,101 @@
+<div ng-controller="CreateGroupCtrl" id="CreateGroupCtrl">
+    <!-- Create Group Modal -->
+    <div class="modal fade" id="createGroup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel" ng-bind="FormName ? 'Edit Group' : 'Create Group'"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="no-scrollbar">
+                        <form id="formGroup" name="formGroup">
+                            <div class="form-group" ng-class="(!EditGroupName && !formGroup.GroupName.$pristine) ? 'has-error' : '' ;">
+                                <label ng-bind="::lang.group_name"></label>
+                                <input type="text" name="GroupName" id="group_name" value="" placeholder="Group Name" data-ng-model="EditGroupName" data-req-minlen="2" maxlength="50" data-req-maxlen="50" class="form-control" />
+                                <span class="block-error" ng-bind="::lang.g_r_group_name"></span>
+                            </div>
+                            <div class="form-group" ng-init="GroupCategories()">
+                                <div class="row">
+                                    <div class="col-sm-6"> 
+                                        <div class="form-group" ng-class="(!EditCategory && !formGroup.CategoryIds.$pristine) ? 'has-error' : '' ;">
+                                            <label ng-bind="::lang.Category"></label>
+                                            <select name="CategoryIds" id="CategoryIds" ng-model="EditCategory" data-placeholder="Select Category" data-chosen=""  data-disable-search="false" data-ng-options="category.Name for category in GroupCategoriesData|orderBy:'Name' track by category.CategoryID" data-requiredmessage="Required" ng-change="getSubCategories(EditCategory.CategoryID);" class="form-control">
+                                                <option value=""></option>
+                                            </select>
+                                            <span class="block-error" ng-bind="::lang.g_r_category"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group" ng-class="(!EditGroupDescription && !formGroup.GroupDescription.$pristine) ? 'has-error' : '' ;">
+                                    <label class="control-label">
+                                      <span ng-bind="::lang.group_description"></span>
+                                      <span class="help-block" ng-bind="(400 - EditGroupDescription.length)">400</span>
+                                    </label>
+                                    <textarea maxcount="400" rows="5" maxlength="400" class="form-control" id="group_description" name="GroupDescription" placeholder="Description about the group" tabindex="2" data-ng-model="EditGroupDescription"></textarea>
+                                    <span class="block-error" ng-bind="::lang.g_r_description"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-init="GetAllowedGroupTypes()" ng-class="(checkCount==0) ? 'has-error' : '' ;">
+                                <label ng-bind="::lang.group_content"></label>
+                                <div class="privat-lisitng">
+                                    <ul class="list-group">
+                                        <li class="col-sm-4" ng-repeat="Content in ContentTypes" ng-hide="Content.Value=='8' || Content.Value=='9'" ng-cloak>
+                                            <label class="checkbox">
+                                                <input type="checkbox" ng-click="ContentTypeCheckCount();" name="AllowedGroupTypes[]" value="{{Content.Value}}" ng-checked="checkAllowedType(Content.Value)">
+                                                <span class="label"> {{Content.Label}}</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span class="block-error" ng-bind="::lang.g_r_check_one"></span>
+                            </div>
+                            <div class="form-group">
+                                <label ng-bind="::lang.group_privacy"></label>
+                                <div class="text-muted text-sm" ng-bind="::lang.g_set_group_privacy"></div>
+                                <div class="privat-lisitng">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" ng-if="!(editGroupPrivacyType == 0 || editGroupPrivacyType == 2)">
+                                            <div class="radio">
+                                                <input type="radio" checked="checked" value="1" name="IsPublic" ng-model="EditIsPublic" id="openGroup">
+                                                <label for="openGroup"> <i class="ficon-globe"></i>
+                                                    <span ng-bind="::lang.open"></span>
+                                                </label>
+                                                <p ng-bind="::lang.open_group_help"></p>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item" ng-if="editGroupPrivacyType != 2">
+                                            <div class="radio">
+                                                <input type="radio" value="0" name="IsPublic" ng-model="EditIsPublic" id="closeGroup">
+                                                <label for="closeGroup"> <i class="ficon-close f-lg"></i>
+                                                    <span ng-bind="::lang.close"></span> </label>
+                                                <p ng-bind="::lang.close_group_help"></p>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="radio">
+                                                <input id="secret" type="radio" name="IsPublic" ng-model="EditIsPublic" value="2">
+                                                <label for="secret"><i class="ficon-secrets f-lg"></i>
+                                                    <span ng-bind="::lang.secret"></span> </label>
+                                                <p ng-bind="::lang.secret_group_help"></p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <input type="hidden" name="GroupGUID" value="{{EditGroupGUID}}">
+                            <input type="hidden" name="GroupType" value="{{EditGroupType}}">
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button ng-disabled="EditGroupName=='' || (EditCategory=='' && cat_name=='') || EditGroupDescription=='' || checkCount<1" type="submit" class="btn btn-primary pull-right" ng-click="FormSubmit()" ng-bind="FormButtonName ? 'UPDATE' : 'CREATE'"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    visibility: hidden;
+}
+.has-error {    
+    .checkbox,
+    .checkbox-inline,
+    .control-label,
+    .help-block,
+    .radio,
+    .radio-inline,
+    &.checkbox-inline label,
+    &.checkbox label,
+    &.radio-inline label,
+    &.radio label {
+        color: theme-color("danger");
+    }
+    .form-control {
+        border-color: theme-color("danger");
+    }
+    .help-block {
+        visibility: visible;
+    }
+}
+.has-warning {
+    .checkbox,
+    .checkbox-inline,
+    .control-label,
+    .help-block,
+    .radio,
+    .radio-inline,
+    &.checkbox-inline label,
+    &.checkbox label,
+    &.radio-inline label,
+    &.radio label {
+        color: theme-color("warning");
+    }
+    .form-control {
+        border-color: theme-color("warning");
+    }
+    .help-block {
+        visibility: visible;
+    }
+}
+
+input {
+    border-color: $border_color !important;
+}
+.input-label-center {
+    position: relative;
+    &.ifsc-inp{
+        input {
+            text-transform: uppercase;
+        } 
+    }
+    
+    &:not(.label-left) {
+        span {
+            width: 100%;
+        }
+        input {
+            text-align: left;
+        }
+    }
+    &.has-error {
+        input {
+            border-color: theme-color("danger") !important;
+        }
+        .select-field-transparent {
+            .select__control {
+                border-color: theme-color("danger") !important;
+            }
+        }
+    }
+    &.select-field  {
+        .form-control {
+            border-color: gray('500');
+            border-width: 0 0 2px 0;
+            border-radius: 0;
+            margin-top: 4px;
+            height: 50px;
+            padding: 0.6rem 0.75rem;
+            font-family: $font-bold;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    .select-field-transparent {
+        .select__single-value,
+        .select__placeholder
+         {
+            text-align: left;
+            right: -36px;
+            left: 0;
+            max-width: 200%;
+            width: 100%;
+            top: 0px;
+            transform: translateY(0);
+        }
+    }
+    
+}
+
+.select-field-transparent {
+    .select__control {
+        min-height: 20px;
+        border-radius: 5px;
+        background-color: transparent;
+        border-color: $border_color;
+        border-width: 0 0 1px;
+        border-radius: 0;
+        box-shadow: none !important;
+        .select__single-value {
+            color: $primary_text_color;
+            font-size: 16px;
+            font-family: $font-regular;
+        }
+    }
+    .select__indicator-separator {
+        display: none;
+    }
+}
+
+.filed-with-icon{
+    input{
+        padding: 16px 0px 16px 50px !important;
+    }
+    label{
+        padding-top: 0 !important;
+    }
+    .icon-with-input{
+        position: absolute;
+        top: 18px;
+        left: 15px;
+        font-size: 20px;
+    }
+    .icon-with-input-cvc{
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        font-size: 25px;
+    }
+    span{
+        left: 50px !important;
+    }
+}
+.select__indicators{
+    .select__dropdown-indicator,
+    .select__clear-indicator{
+        padding: 2px 8px;
+        display: none;
+    }
+}

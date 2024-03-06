@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="72px" viewBox="0 0 77 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 37</title>
+    <defs>
+        <linearGradient x1="50%" y1="29.713047%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-14.9%" y="-70.8%" width="129.8%" height="241.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="2.83203125" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <path d="M2,0 L75,0 C76.1045695,-2.02906125e-16 77,0.8954305 77,2 L77,18 L77,18 L0,18 L0,2 C-1.3527075e-16,0.8954305 0.8954305,2.02906125e-16 2,0 Z" id="path-3"></path>
+    </defs>
+    <g id="new-relase" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-37">
+            <g id="Group-9-Copy" transform="translate(0.000000, 11.103975)">
+                <g id="Group-7">
+                    <path d="M68,1 L68,27.4213739 L38.0120099,34.8647021 L9,27.4275213 L9,1 L68,1 Z" id="Rectangle" stroke="url(#linearGradient-1)" stroke-width="2" fill="#000000"></path>
+                    <polygon id="Path-29" fill="#322F7D" points="0 6.89602522 8 15.9873005 8 6.89602522"></polygon>
+                    <polygon id="Path-29-Copy" fill="#322F7D" transform="translate(73.000000, 11.441663) scale(-1, 1) translate(-73.000000, -11.441663) " points="69 6.89602522 77 15.9873005 77 6.89602522"></polygon>
+                </g>
+                <ellipse id="Oval-8" fill="#000000" opacity="0.181652541" filter="url(#filter-2)" cx="38.5" cy="45.8960252" rx="28.5" ry="6"></ellipse>
+            </g>
+            <g id="Path-2-+-Path-2-Copy-Mask">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Mask" fill="#5853C3" xlink:href="#path-3"></use>
+                <text id="10.1" mask="url(#mask-4)" font-family="Exo2-SemiBold, Exo 2" font-size="12" font-weight="500" letter-spacing="-0.099999972" fill="#FFFFFF">
+                    <tspan x="29.2999999" y="36">10.1</tspan>
+                </text>
+                <line x1="13.5" y1="-3.5" x2="-6" y2="13.6906201" id="Path-2" stroke="#FFFFFF" stroke-width="2" opacity="0.2" mask="url(#mask-4)"></line>
+                <line x1="19.5" y1="-4.5" x2="-3.75064535" y2="15.9970775" id="Path-2-Copy" stroke="#FFFFFF" opacity="0.2" mask="url(#mask-4)"></line>
+            </g>
+        </g>
+    </g>
+</svg>

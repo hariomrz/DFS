@@ -1,0 +1,1426 @@
+.header-strip{
+    padding: 15px 15px 0;
+    color: $primary_text_color;
+    font-size: 12px;
+    font-family: $font-bold;
+    span{
+        text-transform: uppercase;
+    }
+    a{
+        color: $primary;
+    }
+    .strip-content{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+
+
+// view pick style
+.pick-fantasy-wrap{
+    padding: 15px;
+    margin-top: 56px;
+    height: calc(100vh - 56px);
+    &.pT55{
+        padding-top: 55px;
+    }
+}
+.pick-card-wrap{
+    background: $white;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    .picks-header{
+        font-size: $font-size-h6;
+        color: $help_text_color;
+        padding: 7px 10px 6px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid $border_color;
+        i{
+            color: $primary;
+            margin-left: 8px;
+            font-size: $font-size-medium;
+        }
+        .left-part{
+            line-height: 1;
+        }
+        .right-part{
+            line-height: 1;
+            text-align: right;
+        }
+    }
+    .picks-body{
+        position: relative;
+        padding: 17px 20px 8px;
+        .pick-que{
+            font-family: $font-bold;
+            color: $primary_text_color;
+            font-size: $font-base;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+        .pick-opt{
+            line-height: 1.7;
+            font-size: $font-size-small;
+            color: $help_text_color;
+            font-family: $font-semibold;
+            i{
+                font-size: 7px;
+                margin-left: 5px;
+                display: inline-block;
+            }
+            &.selected-opt{
+                color: $primary;
+            }
+            &.correct-opt{
+                color: $alert_success_color;
+            }
+            &.wrong-opt{
+                color: $alert_danger_color;
+            }
+        }
+        .points-get{
+            position: absolute;
+            right: 0;
+            bottom: 20px;
+            background: linear-gradient(90deg, #FFFFFF 0%, #F0F0F0 100%);
+            font-size: $font-size-small;
+            font-family: $font-bold;
+            text-transform: capitalize;
+            padding: 2px 8px 1px 15px;
+            line-height: 1;
+            i{
+                font-size: 7px;
+                display: inline-block;
+                margin-right: 2px;
+                position: relative;
+                top: -1px;
+            }
+            span{
+                margin-left: 5px;
+                display: inline-block;
+            }
+            &.success{
+                color: $alert_success_color;
+            }
+            &.danger{
+                color: $alert_danger_color;
+            }
+        }
+    }
+    .panel{
+        .panel-title{
+            a{
+                display: block;
+                color: $primary;                
+                font-size: $font-size-h6;
+                padding: 7px 22px 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-family: $font-exo-regular;
+                i{
+                    font-size: $font-size-small;
+                }
+            }
+        }
+        .panel-body{
+            padding: 0 20px 15px;
+            font-size: $font-base;
+            color: $body_text_color2;
+            font-family: $font-exo-regular;
+        }
+    }
+}
+.picks-score-header{
+    background: $white;
+    color: $help_text_color;
+    display: flex;
+    padding: 14px 15px 10px;
+    line-height: 1;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 56px;
+    width: 100%;
+    max-width: 550px;
+    left: 0;
+    .team-name{
+        font-family: $font-regular;
+        font-size: $font-base;
+    }
+    .team-score-wrap{
+        .team-score{
+            display: inline-block;
+            font-family: $font-bold;
+            &:first-child{
+                margin-right: 15px;
+            }
+            span{
+                color: $primary;
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+.header-circular-modal.rules-scoring-modal .modal-content .modal-body .webcontainer-inner{
+    &.picks-rules-modal{
+        padding: 5px 0 15px;
+    }
+}
+.picks-rules-modal{
+     .page-body{
+        padding: 0 20px 20px;
+    }
+    .rules-desc{
+        background: $app_bg_color;
+        font-size: $font-size-small;
+        font-family: $font-regular;
+        color: $body_text_color;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 11px 15px 7px;
+    }
+    .pick-tules-sec{
+        padding-left: 35px;
+        color: $body_text_color;
+        position: relative;
+        &:not(:first-child){
+            margin-top: 20px;
+        }
+        i{
+            font-size: $font-size-medium + 2;
+            position: absolute;
+            left: 5px;
+        }
+        h6{
+            font-family: $font-bold;
+            font-size: $font-size-small;
+            margin-bottom: 5px;
+        }
+        p{
+            font-family: $font-regular;
+            font-size: $font-size-small;
+            margin: 0;
+        }
+    }
+}
+
+// pick fantasy roster style
+.roster-web-container.web-container.web-container-fixed{
+    &.PFRoster{
+        margin-top: 0;
+        .roster-footer{
+            bottom: 20px;
+            .btn-wrap .btm-fix-btn {
+                padding: 8px 12px 8px;   
+            }
+            .btn-wrap .btn-primary.team-preview{
+                padding: 8px 12px 8px;
+                @media (min-width: 1024px){
+                    display: inline-block;
+                }
+            }
+        }
+        .app-header-style.coin-headr{
+            background: $primary !important;
+        }
+    }
+}
+.roster-quer-bar{
+    position: fixed;
+    top: 56px;
+    max-width: 550px;
+    width: 100%;
+    box-shadow: 0 3px 15px 0 rgba(0,0,0,0.1);
+    padding: 14px 20px 12px;
+    text-align: center;
+    background: $white;
+    z-index: 3;
+    .progress{
+        height: 8px;
+        border-radius: 4px;
+    }
+    .progress-bar{
+        border-radius: 4px;
+    }
+    .que-no{
+        font-size: $font-size-small;
+        color: $help_text_color;
+        margin-top: 5px;
+    }
+}
+.picks-que-wrap{
+    // padding: 130px 15px 60px 15px;
+    padding: 120px 15px 60px 15px;
+}
+.points-sec{
+    // margin-bottom: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-size-small;
+    color: $help_text_color;
+    span{
+        font-family: $font-bold;
+        display: block;
+        font-size: 16px;
+        margin-right: 5px;
+    }
+}
+.que-box{
+    
+    border-radius: 15px;
+    background: $white;
+    position: relative;
+    margin-bottom: 20px;
+    .que-info-body{
+        // padding: 0px 23px 20px;
+        padding: 20px;
+    }
+    .que-seq{
+        font-size: $font-size-h6;
+        font-family: $font-regular;
+        color: $help_text_color;
+    }
+    .que-info{
+        color: $help_text_color;
+        text-transform: capitalize;
+        position: absolute;
+        right: 11px;
+        top: 11px;
+        border-radius: 10px;
+        font-size: $font-size-small;
+        font-family: $font-regular;
+        span{
+            border-radius: 50%;
+            height: 16px;
+            width: 16px;
+            display: inline-block;
+            margin-right: 2px;   
+            position: relative;
+        }
+        i{
+            color: $help_text_color;
+            font-size: $font-size-medium;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+            &.icon-info-solid{
+                color: $primary;
+            }
+        }
+    }
+    .que{
+        font-size: 18px;
+        font-family: $font-bold;
+        // margin: 8px auto 0;
+        margin: 0 auto 18px;
+        line-height: 1;
+        color: $primary_text_color;
+    }
+    .option-wrap{
+        [class*="col-"]{
+            padding-top: 10px;
+            &:nth-child(2n){
+                padding-left: 15px;
+            }
+        }
+        .opt-img-view{
+            background-color: $white;
+            border: 1px solid $app_text_color;
+        }
+        .opt{
+            color: $body_text_color;
+            border-radius: 8px;
+            // border: 1px solid $app_text_color;
+            font-size: $font-base;
+            text-transform: capitalize;
+            padding: 10px 15px 10px;
+            font-family: $font-bold;
+            background-color: $prediction_filled_clr;
+            cursor: pointer;
+            &.selected{
+                border: 2px solid $primary;
+                // border: 1px solid $primary;
+                background-color: $primary;
+                box-shadow: 0 5px 15px hsla(243, 48, 55, .3);
+                color: $white;
+            }
+        }
+        &.with-img-opt{
+            ul{
+                list-style-type: none;
+                display: flex;
+                justify-content: space-between;
+                padding: 0;
+                li{
+                    display: inline-block;
+                    width: calc(33.33% - 4px);
+                    height: 165px;
+                    padding: 0;
+                    text-align: center;
+                    background-color: $white;
+                    &.selected{
+                        background-color: $white;
+                        color: $body_text_color;
+                        border: 2px solid $primary;
+                    }
+                    .opt-nm{
+                        height: calc(100% - 100px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0 5px;
+                        font-size: 16px;
+                        font-family: $font-bold;
+                    }
+                }
+                .opt-img-sec{
+                    height: 100px;
+                    width: 100%;
+                    overflow: hidden;  
+                    border-radius: 8px 8px 0 0;
+                    border-bottom: 1px solid $app_text_color;
+                    img{
+                        width: 100%;
+                    }
+
+                }
+            }
+            &.dual-opt{
+                ul{
+                    justify-content: center;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+    .que-box-header{
+        padding: 15px 34px 11px 20px;
+        border-bottom: 1px solid $border_color;
+    }
+    .que-info-sec{
+        font-size: $font-base;
+        color: $body_text_color2;
+        line-height: 1.2;
+        p{
+            margin-bottom: 5px;
+            max-width: calc(100% - 40px);
+        }
+    }
+}
+
+// apply booster style
+.apply-booster-container.web-container{
+    margin-top: 56px;
+    // height: calc(100vh - 56px);
+    padding-top: 145px;
+    padding-bottom: 40px;
+    .apply-booster-que-wrap{
+        padding: 15px;        
+    }
+    .booster-header{
+        position: fixed;
+        width: 100%;
+        max-width: 550px;
+        top: 56px;
+        z-index: 5;
+    }
+}
+.pick-card-wrap{
+    &.apply-booster-card{
+        .picks-header{
+            padding: 10px 10px 8px 15px;
+        }
+        .right-part{
+            .que-mark{
+                color: $help_text_color;
+                display: inline-block;
+                span{
+                    color: $primary_text_color;
+                }
+                & ~ .que-mark{
+                    margin-left: 20px;
+                }
+            }
+        }
+        .picks-body{
+            padding-top: 15px;
+            .pick-que{
+                font-size: $font-base;
+                color: $primary_text_color;
+                font-family: $font-bold;
+                line-height: 1.4;
+                margin-bottom: 0;
+            }
+            .booster-sec{
+                padding: 12px 0;
+                .sel-pick{
+                    color: $help_text_color;
+                    font-size: $font-size-small;
+                    font-family: $font-bold;
+                    span{
+                        color: $primary_text_color;
+                    }
+                }
+                a{
+                    position: absolute;
+                    right: 15px;
+                    bottom: 10px;
+                    width: 31px;
+                    height: 31px;
+                    color: $help_text_color;
+                    border-radius: 50%;
+                    border: 1px solid $help_text_color;
+                    display: inline-block;
+                    text-align: center;
+                    i{
+                        font-size: $font-size-medium + 2;
+                        line-height: 1.6;
+                    }
+                    &.active{
+                        background: $primary;
+                        border-color: $primary;
+                        color: $white
+                    }
+                    & ~ a{
+                        right: 55px;
+                    }
+                }
+            }
+        }
+    }
+}
+.booster-header{
+    .input-label-center{
+        padding: 10px 20px;
+        background: $white;
+    }
+}
+.booster-tracker{
+    position: relative;
+    background: $primary;
+    padding: 0 10px 12px;
+    .inner-booster-track{
+        background: url('../img/combined-shape.svg') no-repeat;
+        background-size: 100%;
+        height: 54px;
+        position: relative;
+    }
+    .side-booster{
+        display: inline-block;
+        vertical-align: bottom;
+        @include background-opacity($black,0.2);
+        border-radius: 50%;
+        height: 54px;
+        width: 54px;
+        text-align: center;
+        padding: 7px;
+        span{
+            display: inline-block;
+            vertical-align: middle;
+            background: $primary;
+            color: $white;
+            font-size: $font-size-h5;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            line-height: 42px;
+            text-align: center;
+        }
+        .icon-no-negative{
+            font-size: $font-size-h4;
+        }
+        &.left-side-booster{
+            border-radius: 50% 50% 0 50%;
+        }
+        &.right-side-booster{
+            border-radius: 50% 50% 50% 0;
+        }
+    }
+    .tracker-slider{
+        display: inline-block;
+        vertical-align: bottom;
+        width: calc(100% - 108px);
+        @include background-opacity($black,0.2);
+        .tracker-slider-inner{
+            display: inline-block;
+            vertical-align: middle;
+            width: 50%;
+        }
+        span{
+            @include background-opacity($black,0.09); 
+            height: 12px;
+            width: 30px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+            transform: skew(-30deg);
+            &.selected{
+                background: $primary
+            }
+            @media (max-width: 320px){
+                width: 22px;
+            }
+        }
+    }
+    .booster-text{
+        position: absolute;
+        top: 6px;
+        @include color-opacity($white,0.4);
+        font-size: $font-size-small;
+        span{
+            text-transform: capitalize;
+            font-family: $font-bold;
+            color: $white
+        }
+        &.booster-text-right{
+            right: 70px;
+        }
+        &.booster-text-left{
+            left: 70px;
+        }
+    }
+}
+.boostername{
+    color: $white;
+    font-size: $font-base;
+    text-transform: capitalize;
+    font-family: $font-bold;
+}
+.apply-booster-container,.PFRoster{
+    .app-header-style.header-transparent .row-container .match-timing{
+        font-size: 10px;
+    }
+}
+.contest-listing-new .my-team-root{
+    &.PF-myteam{
+        .row-header{
+            margin: 0;
+            padding: 12px 20px 12px;
+            border-bottom: 1px solid #D8D8D8;
+            .name-container{
+                float: none;
+                .contests-joined{
+                    padding-bottom: 2px;
+                    font-size: $font-size-small;
+                }
+                .team-name{
+                    font-family: $font-bold;
+                    font-size: $font-size-medium;
+                    margin-bottom: 0;
+                }
+            }
+            .select-team-checkbox{
+                float: none;
+                position: absolute;
+                top: 16px;
+                right: 15px;
+            }
+        }
+        .view-pick{
+            text-align: center;
+            color: $primary;
+            font-family: $font-bold;
+            text-transform: capitalize;
+            font-size: 12px;
+            padding: 12px;
+            line-height: 1;
+            i{
+                display: inline-block;
+                margin: 0px;
+                line-height: 1;
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
+}
+.pf-contest-list{
+    .progress-bar-default .progress{
+        width: 90%;
+    }
+}
+.vpick-detail{
+    .view-pick-sec .que{
+        font-size: 18px;
+        font-family: $font-exo-bold;
+    }
+    .pick-card-wrap .picks-header{
+        font-family: $font-exo-regular;
+    }
+    .pick-detail{
+        position: fixed;
+        top: 56px;
+        width: 100%;
+        max-width: 550px;
+        background-color: $primary;
+        display: flex;
+        justify-content: space-between;
+        z-index: 4;
+    }
+    .pick-name{
+        width: 50%;
+        font-size: $font-base;
+        font-family: $font-exo-regular;
+        background: rgba(0,0,0, 0.1);
+        color: $white;
+        padding: 14px 15px;
+    }
+    .pick-sub-dtl{
+        display: flex;
+        justify-content: space-evenly;
+        background: rgba(0,0,0, 0.1);
+        // border-left: 1px solid rgba(0, 0, 0, 0.1);
+        color: $white;
+        width: 50%;
+        padding: 0px 6px 0px 6px;
+        > div{
+            padding: 6px 0;
+            line-height: 1;
+            width: 50%;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .val{
+            font-size: 20px;
+            line-height: 1;
+            font-family: $font-exo-bold;
+            padding-bottom: 2px;
+            text-align: center;
+        }
+        .lbl{
+            text-align: center;
+            line-height: 1;
+            font-size: $font-base;
+            font-family: $font-exo-regular;
+            @include color-opacity($white,0.6);
+        }
+    }
+    .view-pick-sec{
+        padding-top: 120px;
+    }
+    .pick-card-wrap .panel .panel-body{
+        font-size: 14px;
+        color: $body_text_color2;
+        font-family: $font-exo-regular;
+        .img-blk{
+            height: 100px;
+            width: 100%;
+            border-radius: 8px;
+            background-color: #D8D8D8;
+            overflow: hidden;
+            margin-bottom: 15px;
+            img{
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+.view-pick-sec{
+    padding: 70px 15px 15px;
+    .pick-info-body{
+        padding: 14px 20px 20px;
+        &.with-detail{
+            padding-bottom: 5px;
+            // padding-bottom: 8px;
+        }
+    }
+    .que{
+        font-size: $font-base;
+        font-family: $font-bold;
+        // margin: 8px auto 0;
+        line-height: 1.3;
+        color: $primary_text_color;
+    }
+    .option-wrap{
+        [class*="col-"]{
+            padding-top: 15px;
+            &:nth-child(2n){
+                padding-left: 15px;
+            }
+        }
+        &:not(.opt-img-wrap){
+            .opt{
+                line-height: 1;
+            }
+        }
+        .opt{
+            color: $body_text_color;
+            border-radius: 8px;
+            // border: 1px solid $app_text_color;
+            font-size: $font-base;
+            text-transform: capitalize;
+            padding: 4px 15px;
+            font-family: $font-exo-bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+            background-color: $prediction_filled_clr;
+            .que-text{
+                float: none;
+                color: #555555;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                max-width: 50%;
+                display: inline-block;
+                line-height: 1;
+                vertical-align: middle;
+                font-size: 14px;
+                font-family: $font-exo-bold;
+            }
+            span:not(.que-text){                
+                float: right;
+            }
+            .pts-span{
+                display: flex;
+                justify-content: end;
+                float: none !important;
+                align-items: center;
+                min-width: 120px;
+            }
+            &.selected{
+                border: 1px solid $primary;
+                background-color: $primary;
+                color: $white;
+                .que-text{
+                    color: $white;
+                }
+            }
+            .icon-tick-ic{color: #5DBE7D;}
+            &.correct-sel{
+                // border: 1px solid #5DBE7D;
+                background-color:  #43BA6A;
+                color: $white;
+                .icon-tick-ic{color: $white;}
+                .que-text{
+                    color: $white;
+                }
+                span{
+                    // color: #5DBE7D;
+                    .icon-tick-ic{
+                        display: inline-block;
+                        margin-right: 5px;
+                        vertical-align: -1px;
+                    }
+                }
+            }
+            &.incorrect-sel{
+                // border: 2px solid #ED584B;
+                background-color: #ED584B;
+                color: $white;
+                .opt-text{
+                    color: #555555;
+                }
+                span{
+                    // color: #EB4A3C;
+                }
+            }
+            span.over-score-sec{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                span{
+                    line-height: 1;
+                }
+                .exct-score{
+                    color: $white;
+                    .icon-tick-ic{
+                        margin-right: 0;
+                        font-size: 10px;
+                    }
+                }
+                .wrng-score{
+                    color: $white;
+                }
+                .prv-score{
+                    // color: $help_text_color;
+                    color: rgba(255,255,255,0.6);
+                    text-decoration: line-through;
+                    // position: relative;
+                    // &:before{
+                    //     content: '';
+                    //     position: absolute;
+                    //     height: 1px;
+                    //     width: 110%;
+                    //     background-color: $help_text_color;
+                    //     left: -5%;
+                    //     top: 53%;
+                    //     transform: translateY(-50%);
+                    // }
+                }
+            }
+        }
+        &.opt-img-wrap{
+            display: flex;
+            justify-content: center;
+            grid-gap: 10px;
+            gap: 10px;
+            padding-top: 15px;
+            .opt{
+                width: calc(33.33% - 4px);
+                height: 185px;
+                padding: 0;
+                text-align: center;
+                display: block;
+                overflow: hidden;
+                &.selected{
+                    background: transparent;
+                    color: $primary;
+                    border-width: 2px;
+                    box-shadow: 0 5px 15px hsla(243, 48, 55, .3);
+                }
+                &.correct-sel{
+                    background-color: transparent;
+                    border-width: 2px;
+                    border: 2px solid #5DBE7D;
+                    .prv-score{
+                        color: #5DBE7D;
+                    }
+                    .icon-tick-ic{
+                        color: #5DBE7D;
+                    }
+                    // color: #5DBE7D;
+                    .scr-txt{
+                        color: #5DBE7D;
+                    }
+                }
+                &.incorrect-sel{
+                    background-color: transparent;
+                    border-width: 2px;
+                    border: 2px solid #EB4A3C;
+                    .wrng-score {
+                        color: #EB4A3C;
+                    }
+                    .prv-score{
+                        color: #ABABAB;
+                    }
+                    .icon-tick-ic{
+                        color: #EB4A3C;
+                    }
+                    // color: #EB4A3C;
+                    .scr-txt{
+                        color: #EB4A3C;
+                    }
+                }
+            }
+            .opt-img-sec{
+                height: 100px;
+                width: 100%;
+                overflow: hidden;
+                // border-radius: 8px 8px 0 0;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    @media (max-width: 550px){
+                        width: auto;
+                        height: 100px;
+                    }
+                }
+            }
+            .opt-text{
+                height: calc(100% - 100px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 0px 5px;
+                font-size: 12px;
+                float: none !important;
+                line-height: 1.2;
+                span{
+                    display: block;
+                    float: none !important;
+                }
+            }
+        }
+    }
+}
+.app-header-style .row-container .section-middle .section-middle{
+    .team-name{
+        color: $white;
+        font-size: $font-base;
+        font-family: $font-bold;
+        line-height: 1;
+    }
+    .teamdetail{
+        font-size: $font-size-xsmall;
+        color: $white;
+        font-family: $font-bold;
+    }
+}
+.pf-mycontest{
+    .progress-bar-default .progress-bar-value,
+    .contest-progress-block .progress-bar-default .progress{
+        width: 100%;
+    }
+    .contest-progress-block .progress-bar-default .min-entries{
+        font-size: 10px;
+    }
+    .contest-card .contest-card-body .contest-card-body-header .contest-details .contest-details-action h4 i.icon-bonus{
+        top: -1px;
+    }
+    .coin-img-settle{
+        vertical-align: middle !important;
+    }
+    .contest-card.completed-contest-card-new.new-contest-card .team-info-section .flag-img{
+        display: inline-block;
+    }
+}
+.pf-contest-list{
+    .progress-bar-default .min-entries{
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// Dark Theme Styling
+
+.body-dark-theme{
+    .picks-score-header{
+        background: $darkT_ternary;
+        .team-name{
+            color: $darkT_help_text_color;
+        }
+        .team-score-wrap .team-score{
+            color: $darkT_help_text_color;
+            span{
+                color: $darkT_primary_text_color;
+            }
+        }
+    }
+    .pick-card-wrap{
+        background: $darkT_ternary;
+        .picks-body{
+            .pick-opt.selected-opt{
+                color: $darkT_primary;
+            }
+            .pick-que{
+                color: $darkT_primary_text_color;
+            }
+            .points-get{
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(240, 240, 240, 0.1) 100%);
+            }
+        }
+        .picks-header{
+            border-bottom-color: $darkT_border_color2;
+        }
+        .panel {
+            .panel-body{
+                color: $darkT_primary_text_color;
+            }
+            .panel-title a{
+                border-top-color: $darkT_border_color2;
+                color: $darkT_primary;
+            }
+        }
+        &.pick-card-wrap.apply-booster-card {
+            .right-part .que-mark span{
+                color: $darkT_primary_text_color;
+            }
+            .picks-body {
+                .sel-pick span{
+                    color: $darkT_primary_text_color;
+                }
+                .booster-sec{
+                    a{
+                        &.active{
+                            background: $darkT_primary;
+                            border-color:  $darkT_primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .picks-rules-modal{
+        .rules-desc{
+            background: $darkT_view_bg_color;
+            color: $darkT_primary_text_color;
+        }
+        .pick-tules-sec {
+            i,h6{
+                color: $darkT_primary_text_color;
+            }
+        }
+    }
+    .roster-quer-bar{
+        background: $darkT_app_bg_color;
+    }
+    .progress-bar{
+        background: $darkT_primary;
+    }
+    .progress{
+        background: $darkT_view_bg_color;
+    }
+    .que-box{
+        background: $darkT_app_bg_color;
+        .que-info-sec p,
+        .que{
+            color: $darkT_primary_text_color;
+        }
+        .que-box-header{
+            border-bottom-color: $darkT_border_color2;
+        }
+        .option-wrap{
+            .opt{
+                cursor: pointer;
+                color: $darkT_primary_text_color;
+                border-color: $darkT_view_bg_color;
+                background: $darkT_view_bg_color;
+                &.selected{
+                    background: $darkT_primary;
+                }
+            }
+        }
+    }
+    .booster-tracker{
+        background: $darkT_primary;
+    }
+    .booster-tracker .side-booster span{
+        background: $darkT_primary;
+    }
+    .booster-header .input-label-center{
+        background: $darkT_app_bg_color;
+    }
+    .team-name-sec{
+        input{
+            background: transparent;
+        }
+    }
+}
+.opt-stats{
+    .last-game-state-view{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .heading{
+        color: $help_text_color;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    .stats-wrap{
+        padding-top: 15px;
+        p{
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: $body_text_color2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 1;
+            span{
+                font-family: $font-bold;
+            }
+        }
+        .progress{
+            height: 10px;
+            border-radius: 20px;
+        }
+        .progress-bar{
+            height: 10px;
+            border-radius: 20px;
+        }
+        &.first{
+            .progress-bar{
+                background-color: #5853C3;
+            }
+        }
+        &.second{
+            .progress-bar{
+                background-color: #00DEA2;
+            }
+        }
+        &.third{
+            .progress-bar{
+                background-color: #0CBFEB;
+            }
+        }
+    }
+}
+.new-pf-card{
+
+}
+.pick-fantasy-lby {
+    .match-info-section{
+        height: 64px;
+    }
+    .top-section-heading{
+        font-size: 14px;
+        font-family: $font-exo-bold;
+        color: $body_text_color;
+        padding-top: 10px;
+        a{
+            font-size: 12px;
+            font-family: $font-exo-semibold;
+        }
+    }
+    .new-dm-fixture-card{
+        height: 86px;
+        .fx-tm-nm{
+            margin-bottom: 18px;
+            &.with-rank-sc{
+                margin-bottom: 12px;
+            }
+        }
+        .rank-txt{
+            margin-top: 0;
+        }
+    }
+    .slick-list{
+        padding: 0 15px;
+        .slick-track{
+            margin-left: 0;
+        }
+    }
+    .team-home, .team-away{
+        font-family: $font-exo-bold;
+    }
+    .countdown{
+        font-size: 12px;
+        font-family: $font-exo-bold ;
+    }
+    .fixture-card-wrapper{
+        .match-timing{
+            font-family: $font-exo-regular;
+            font-size: 12px;
+        }
+        .fixture-card-footer {
+            .match-type,
+            .winning-section{
+                font-size: 14px;
+                font-family: $font-exo-regular;
+            }
+            .winning-section span{
+                font-family: $font-exo-bold;
+            }
+        }
+    }
+    .sport-tag{
+        background-color: #FFFFFF;
+        // line-height: 11px;
+        text-transform: uppercase;
+        span{
+            font-family: $font-exo-semibold;
+            font-size: 8px;
+            border-radius: 2px;
+            border: 0.5px solid #93A3B1;
+            display: inline-block;
+            min-width: 59px;
+            height: 13px;
+            line-height: 11px;
+            color: #93A3B1;
+        }
+    }
+    .fixture-card-wrapper.fixture-card-wrapper-lg .fixture-card-body{
+        padding: 14px 0;
+    }
+}
+.pk-tie-breaker-block{
+
+    .tie-breaker-sec {
+        margin-bottom: 20px;
+
+        .tie-breaker-info {
+            font-size: 14px;
+            color: $help_text_color;
+            font-family: $font-exo-regular;
+        }
+    }
+
+    .tie-breaker-block {
+        border-radius: 14px;
+        background-color: $white;
+        padding: 15px 20px;
+        margin-bottom: 13px;
+
+        .overlay {
+            display: none;
+        }
+
+        &.disabled {
+            position: relative;
+
+            .overlay {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 4;
+                pointer-events: initial;
+                display: block;
+                @include background-opacity($white, 0.4);
+            }
+        }
+
+        &.tie-breaker-sel {
+            .checkbox i {
+                color: $alert_success_color;
+            }
+
+            .rangeslider-horizontal .rangeslider__handle-label {
+                display: block;
+            }
+        }
+
+        .checkbox {
+            i {
+                font-size: 22px;
+                color: #D8D8D8;
+            }
+
+            margin-right: 8px;
+        }
+
+        .tp-sec {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tag {
+            @include border-opacity(0.5px, $help_text_color, 0.5);
+            border-radius: 2px;
+            background-color: $white;
+            font-size: 8px;
+            font-family: $font-bold;
+            color: $help_text_color;
+            text-transform: uppercase;
+            line-height: 1;
+            padding: 1px 3px 2px;
+        }
+
+        .que-txt {
+            font-size: 18px;
+            font-family: $font-exo-bold;
+            color: $primary_text_color;
+            margin: 10px 0;
+            line-height: 1;
+
+            &.pick-que {
+                display: flex;
+                justify-content: flex-start;
+            }
+        }
+
+        .rangeslider-horizontal {
+            height: 5px;
+            border-radius: 3px;
+            background: #f2f2f2;
+            box-shadow: none;
+            margin-bottom: 10px;
+
+            .rangeslider__fill {
+                background: $primary;
+            }
+
+            .rangeslider__handle {
+                width: 22px;
+                height: 22px;
+                background: $primary;
+                border: 2px solid $white;
+                box-shadow: none;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            .rangeslider__handle-label {
+                position: absolute;
+                top: -25px;
+                font-size: 18px;
+                color: $primary;
+                font-family: $font-exo-bold;
+                display: none;
+                padding: 0 0 0 3px;
+            }
+        }
+
+        .tie-breaker-value {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: $help_text_color;
+            font-family: $font-exo-bold;
+        }
+
+        .slider {
+            margin-top: 35px;
+        }
+    }
+
+    .timer-section {
+        font-size: 12px;
+        font-family: $font-exo-regular !important;
+
+        &.cust-timer {
+            color: $alert_danger_color;
+        }
+    }
+}
+.vpick-detail{
+    .app-header-style .header-action .status-text.completed{
+        color: $white;
+    }
+}
+.view-pick-sec .option-wrap{
+    &.opt-img-wrap .opt.incorrect-sel .txt-danger{
+        color: #EB4A3C;
+    }
+    .opt.correct-sel .succ-txt{
+        color: $white;
+    }
+    .opt.incorrect-sel .txt-danger{
+        color: #EB4A3C;
+    }
+}
+.new-team-info-section{
+    .left-part{
+        vertical-align: middle !important;
+    }
+}
+.picks-upcoming-view{
+    .featured-icon-wrap{
+        top: 2px !important;
+    }
+}
+
+ .opt-img-wrap .opt{
+color: #555555 !important;
+}
+
+.view-pick-sec .opt-img-wrap .opt span.over-score-sec .exct-score {
+    color: #43BA6A !important;
+}
+.view-pick-sec .option-wrap.opt-img-wrap .opt.correct-sel .prv-score {
+   color: #999999 !important;
+}
+
+.view-pick-sec .incorrect-sel{
+    .que-text {
+        color: #fff !important;
+    }
+}
+.opt-img-sec{
+    border-bottom: 1px solid $app_text_color;
+}

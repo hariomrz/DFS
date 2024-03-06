@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cricjamtrial-86241",
+  "private_key_id": "6bd91b0ad26405287d3eddfaaad5498f99e2763c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC4mlxabxZCnzwf\nfhghST31VuYcU8Q+D+YdUTkx6NX2deJQk1tjevwwp9tpTL/pDEb05vXBGF6o9SmZ\nlxMFnM83+5z1tAaFllyTWt5Pmat97hZQX0uJm/iylJsgfh7nXT6BuQwmRJ3Y+t+u\nzGLkFwyrqgNewaeoCmo6nWkpNhfm/wQUOcDgcirAuLSkFUTFQjNGP11SRvfAV6Zb\nHv1lgd5EtYt7JXhWkLFi0Xz4k+DWQu9MHVhR0qYnITktL6CdDWoPGo/rP1TRCil2\nYySoyA0EiYBwgBIvYAiB7KbNHluBlHNuUOXvSjqh/KBODe6zI5o1Ebazi8sIMhf4\nSbLhhf//AgMBAAECggEAApj4HApRyQiI5d/g2AsPSktO5pl5JURqVlbvvpeKTIhW\ncbrOajpvSldPpjjUac4961vv8P0g9oX98AbTrNxgKrypdehIFTYglwQ2z5jtHv2s\nJl+zkOahxmWClJ+hsLC7se3tfAEIKubwzHqyGN0y1PGJ+u8vpuoqmijf3hrAQFmn\n0LuUdZXlk3eC6A1noySK6WXcSJ7fZDzLGPc54ZB60GS+S/CM3CSzWAhispWQq2/g\nTLf1jaj1XhD/nz8QL1MdT4CgsAvejMlQ2ybLutuf5PXlA2KoZ6eIA5K+A8toMv+7\ntAIftya1mhwQNQSgUTLky4xGfQvhTgieGm6my00OTQKBgQDicA+CfICsyEAzvmTp\n8ZpSiG5FD61yJa9OncjPV+/jOHAt+n4UDoRgaWoiNrA53QjpflcvEGVq1xREOi+6\n4o6hPKqCclthpXk89tB9TCLQW04WNHZ6wWgby2IRc5+mbw40MGcQesn0G15o9VeU\nf2aI165wpFSpiPosW4KxRIH69QKBgQDQtBw3rpEp8JS3Pod+cJe3He6cCUbWfvv+\nmiEnN5688gVqo1nbLq0xcoP6BQskCPHq/QjB8+DkyPB+/aLTWFMGGC40+6CmUoO+\nhGOKK6RVh4+455jw9rUo4OXYbYEdbrVuLtTzf8PZSpvoTGeyTGMUHFylssMtvFBD\n+Fz9dmCeowKBgQCWLEuc9oVAEe7CYlr67Ei0w9ad5q/ZLDT/ppUvLdrijuOXGrHT\nC22voznIRwzI01a9xBR+Ghmoqcu/E/fjsa12MY3DxaPlNqEZVXcgIgZUuLko8NJC\nx1IMXO5FNLGE59I7un4f589YHW6XnV7gFT4jMyd1fQbJCRcho+8hMZYioQKBgQCq\nAV1O+lNjb4ck8bmbhIoBb090KZZbmZsaHWFOOd+DmD5TTHcgtRf9xIO/QSZ/Fw5B\nVhcxLsEOfKRzPZbKRBN1TnMtU5/cfDC3G86duckmpsOrYnTSLJULlI+GSkU3vXvr\nIhjztSrLMRxpEPwTYGgA9M1/aGvXMKPNil3tVeWEswKBgGw/47fPi0DEkmrCdLd8\novvuaCimNVju4LrutgwzWXcpzSYIe+bOo1GMxcE+B+nYE3eT/CCMzsssDc8RjswL\nNNd2rK4y4O2HXD7DvBfnRc7c7X1ZNcrsEOs27jDcKnibftaC1pLaxwDAZSQvJQWf\nu0icOKd67sLRGmwJ8rmpM7Hg\n-----END PRIVATE KEY-----\n",
+  "client_email": "cricjamtrail@cricjamtrial-86241.iam.gserviceaccount.com",
+  "client_id": "105129277670827909026",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cricjamtrail%40cricjamtrial-86241.iam.gserviceaccount.com"
+}

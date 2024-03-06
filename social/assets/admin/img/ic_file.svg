@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>9A9FE3DF-02BE-49B7-91F4-1A186568F03B</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="971" height="406" rx="2"></rect>
+        <filter x="-1.6%" y="-3.4%" width="103.3%" height="107.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M3,1.13686838e-13 L887,1.13242749e-13 C888.656854,1.12938389e-13 890,1.34314575 890,3 L890,734 C890,735.656854 888.656854,737 887,737 L3,737 C1.34314575,737 2.02906125e-16,735.656854 0,734 L0,3 C-2.02906125e-16,1.34314575 1.34314575,1.13547108e-13 3,1.13242749e-13 Z" id="path-3"></path>
+        <filter x="-3.4%" y="-4.1%" width="106.7%" height="108.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.6 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M52,78 L838,78 C839.104569,78 840,78.8954305 840,80 L840,685 C840,686.104569 839.104569,687 838,687 L52,687 C50.8954305,687 50,686.104569 50,685 L50,80 C50,78.8954305 50.8954305,78 52,78 Z" id="path-5"></path>
+        <filter x="-1.9%" y="-2.5%" width="103.8%" height="104.9%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="User-Persona" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04" transform="translate(-423.000000, -998.000000)">
+            <rect fill="#EBECED" x="0" y="0" width="1600" height="1445"></rect>
+            <g id="Group-2-Copy-2" transform="translate(149.000000, 980.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <rect stroke="#D8D8D8" stroke-width="1" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="0.5" y="0.5" width="970" height="405" rx="2"></rect>
+                </g>
+                <rect id="profile_background" fill="#F8F8F8" x="22" y="22" width="289" height="318"></rect>
+            </g>
+            <rect id="Rectangle-5" fill-opacity="0.6" fill="#000000" x="0" y="0" width="1600" height="1453"></rect>
+            <g id="Group-13" transform="translate(355.000000, 354.000000)">
+                <g id="Rectangle-5">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#F8F8F8" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+                <g id="Rectangle-2-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                </g>
+                <g id="Group-16" transform="translate(50.000000, 623.000000)">
+                    <g id="Icons-/-black-/-ic_bold-Copy-4" transform="translate(18.000000, 21.000000)">
+                        <g id="ic_person_add">
+                            <g id="Icon-24px">
+                                <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                            </g>
+                        </g>
+                        <path d="M19,17.4444444 L19,6.55555556 C19,5.7 18.3,5 17.4444444,5 L6.55555556,5 C5.7,5 5,5.7 5,6.55555556 L5,17.4444444 C5,18.3 5.7,19 6.55555556,19 L17.4444444,19 C18.3,19 19,18.3 19,17.4444444 L19,17.4444444 Z" id="Shape" fill="#C8C7C7"></path>
+                        <path d="M14,11.2222222 L14,15.7777778 C14,16.45 13.45,17 12.7777778,17 L9.22222222,17 C8.55,17 8,16.45 8,15.7777778 L8,11.2222222 C8,10.55 8.55,10 9.22222222,10 L12.7777778,10 C13.45,10 14,10.55 14,11.2222222 Z M16,9.22222222 L16,13.7777778 C16,14.45 15.45,15 14.7777778,15 L15.0328776,15 L15.0328776,11.0070325 C15.0328776,9.90988568 14.1406666,9.01367188 13.0400685,9.01367188 L11,9.01367188 L11,8.93706597 C11,8.26484375 11.55,8 12.2222222,8 L14.7777778,8 C15.45,8 16,8.55 16,9.22222222 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

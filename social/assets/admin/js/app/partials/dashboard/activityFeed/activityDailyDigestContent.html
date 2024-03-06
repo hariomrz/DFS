@@ -1,0 +1,36 @@
+<div class="list-group-bottom">
+    <div ng-if="activityData.activity.PostTitle!=''" id="std-{{activityData.activity.ActivityGUID}}" class="post-type-title">    
+        <p >
+            {{activityData.activity.PostTitle}}
+        </p>       
+    </div>
+    <p ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID]" class="list-group-item-text" ng-bind-html="textToLink(activityData.activity.PostContent)"></p>
+    <p ng-if="( activityData.activity_log_details.ActivityTypeID == 20 )" class="list-group-item-text" ng-bind-html="textToLink(activityData.comment_details.PostComment)"></p>
+    <ng-include ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID]" ng-init="isCommentAttachment = false; attachmentMedia = activityData.activity.Album[0].Media; attachmentFile = activityData.activity.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+    <ng-include ng-if="( activityData.activity_log_details.ActivityTypeID == 20 )" ng-init="isCommentAttachment = true; attachmentMedia = activityData.comment_details.Media; attachmentFile = activityData.comment_details.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+    <div class="list-group-footer">
+        <ul class="list-group-inline">
+            <li>
+                <a class="bullet">
+                    <i class="ficon-heart"></i>
+                </a>
+                <a ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID] && ( ( activityData.activity.NoOfLikes != '' ) && ( activityData.activity.NoOfLikes > 0 ) )" class="text" ng-bind="activityData.activity.NoOfLikes"></a>
+                <a ng-if="( activityData.activity_log_details.ActivityTypeID == 20 ) && ( ( activityData.comment_details.NoOfLikes != '' ) && ( activityData.comment_details.NoOfLikes > 0 ) )" class="text" ng-bind="activityData.comment_details.NoOfLikes"></a>
+            </li>
+            <li ng-if="activityPostType[activityData.activity_log_details.ActivityTypeID]">
+                <a class="bullet">
+                    <i class="ficon-comment"></i>
+                </a>
+                <a class="text" ng-if="( ( activityData.activity.NoOfComments != '' ) && ( activityData.activity.NoOfComments > 0 ) )" ng-bind="activityData.activity.NoOfComments"></a>
+            </li>
+            <li ng-if="( activityData.activity_log_details.ActivityTypeID == 20 && !activityData.parent_comment_details.PostCommentID )">
+                <a class="bullet">
+                    <i class="ficon-reply"></i>
+                </a>
+                <a  class="text" ng-if="( ( activityData.comment_details.NoOfReplies != '' ) && ( activityData.comment_details.NoOfReplies > 0 ) )" ng-bind="activityData.comment_details.NoOfReplies"></a>
+            </li>
+        </ul>
+    </div>
+
+    
+</div>

@@ -1,0 +1,280 @@
+// If you want to override variables do it here
+@import "variables";
+// Import styles with default layout.
+// If you are going to use dark layout please comment next line
+@import "@coreui/coreui-pro/scss/coreui.scss";
+
+// Temp fix for reactstrap
+@import "@coreui/coreui-pro/scss/_dropdown-menu-right.scss";
+
+// ie fixes
+@import "ie-fix";
+@import "fonts";
+@import "icon";
+@import "main";
+@import "classess";
+
+//component wise css files
+@import "../views/UserManagement/Profile/PersonalDetails/PersonalDetails";
+@import "../views/UserManagement/Manageuser/ManageUser.scss";
+@import "../views/SystemUserReport/user-reports.scss";
+
+@import "../views/UserManagement/Wallet/Wallet.scss";
+@import "../views/UserManagement/VerifyDocument/VerifyDocument.scss";
+@import "../views/UserManagement/ChangeStatus/ChangeStatus.scss";
+@import "../views/UserManagement/Profile/Dashboard/Dashboard.scss";
+@import "../views/UserManagement/Profile/Profile.scss";
+@import "../views/UserManagement/Profile/Transaction/Transaction.scss";
+@import "../views/UserManagement/Profile/Gamestats/Gamestats.scss";
+@import "../views/UserManagement/Profile/Referrals/Referrals.scss";
+@import "../views/Marketing/CommunicationDashboard/CampaignDashboard.scss";
+@import "../views/Marketing/UserSegmentation/NewCampaign.scss";
+@import "./partial/header";
+@import "./partial/sidebar";
+@import "../views/GameCenter/DFS/DFS.scss";
+
+
+@import "../views/GameCenter/DFS/Teams.scss";
+@import "../views/Contest/Contestlist.scss";
+@import "../views/Contest/MultigameContestlist.scss";
+@import "../views/Contest/Createtemplatecontest.scss";
+@import "../views/Contest/Createcontest.scss";
+@import "../views/ContestTemplate/Createtemplate.scss";
+@import "../views/Dashboard/MainDashboard.scss";
+@import "../views/Contest/Contesttemplate.scss";
+@import "../views/Contest/Fixturecontest.scss";
+@import "../views/ManageScoring/ManageScoring.scss";
+@import "../views/Cms/AppBanner.scss";
+@import "../views/Cms/LobbyBanner.scss";
+@import "../views/Cms/CMS.scss";
+@import "../views/Cms/BackgroundImage.scss";
+@import "../views/Cms/Summernote.scss";
+@import "../views/Cms/MinimumWithdrawl.scss";
+@import "../views/MarketingReferral/ReferralAmount.scss";
+@import "../views/MarketingReferral/PromoCode.scss";
+
+
+@import "../views/UserManagement/Profile/Coins/Coins.scss";
+@import "../views/Finance/WithdrawalList.scss";
+@import "../views/Finance/TransactionList.scss";
+
+@import "../components/WithdrawlModal/WithdrawlModal.scss";
+
+@import "../components/ActionRequestModal/ActionRequestModal.scss";
+//Coins module
+@import "../views/Coins/CoinsSetting.scss";
+@import "../views/Coins/Redeem.scss";
+@import "../views/Coins/Promotions.scss";
+@import "../views/Coins/QuestionDetails.scss";
+@import "../views/Coins/TopEarner.scss";
+@import "../views/Pickem/ViewPicks.scss";
+@import "../views/Pickem/LeaguesPlayers.scss";
+@import "../views/Pickem/CreateNewPick.scss";
+@import "../views/Pickem/JoinedUserList.scss";
+
+@import "../views/Merchandise/merchandise";
+@import "../views/PredictionType/PredictionType.scss";
+@import "../views/PredictionType/PredictionDashboard.scss";
+@import "../views/PredictionType/PredictionFixture.scss";
+@import "../views/PredictionType/SetPrediction.scss";
+
+@import "../views/GameCenter/DFS/Seasonschedule.scss";
+@import "../views/GameCenter/DFS/FixtureUpdateSalary.scss";
+@import "../views/GameCenter/DFS/MiniLeague.scss";
+@import "../views/Free2Play/CreateMiniLeague.scss";
+@import "../views/ContestTemplate/CreateHtmlTemplate.scss";
+@import "../views/OpenPredictor/PredictionCategory.scss";
+@import "../views/OpenPredictor/PredictionCreateCategory.scss";
+@import "../views/ChangePassword/ChangePassword.scss";
+@import "../views/OpenPredictorWithPrize/SetPrize.scss";
+@import "CustomInputs.scss";
+@import "../views/SystemUsers/SystemUsersList.scss";
+@import "../views/SystemUsers/AddSystemUser.scss";
+@import "../components/Modals/ParticipantsModal.scss";
+@import "../views/AboutUs/AboutUs.scss";
+@import "../views/Cms/FAQ.scss";
+@import "../views/AdminRole/AddRole.scss";
+@import "../views/ManageAvatars/ManageAvatars.scss";
+
+
+@import "../views/Marketing/CommunicationCampaign/CreateNewCampaign.scss";
+@import "../views/Marketing/CommunicationCampaign/CustomTemplate.scss";
+@import "../views/Marketing/CommunicationCampaign/CreateUserbaseList.scss";
+@import "../views/AdminRole/AddRole.scss";
+@import "../views/Coins/SpinTheWheel.scss";
+@import "../views/Distributor/Distributor.scss";
+
+@import "../views/Affiliate/Affiliate.scss";
+@import "../views/Affiliate/AddAffiliate.scss";
+@import "../views/Affiliate/AffiliateDashboard.scss";
+@import "../views/Affiliate/AffiliateUsers.scss";
+@import "../views/PrivateContest/PC_Dashboard.scss";
+@import "../views/PrivateContest/PC_Setting.scss";
+@import "../views/LiveFantasy/LF_PC_Dashboard.scss";
+@import "../views/LiveFantasy/LF_PC_Setting.scss";
+@import "../views/Cms/HubPage.scss";
+@import "../views/Cms/Lobby.scss";
+
+@import "../views/Coins/BuyCoin.scss";
+@import "../views/SelfExclude/SelfExclude.scss";
+
+@import "../views/UserManagement/Profile/PrivateContest/PrivateContest.scss";
+@import "../views/AppSettingForm/AppSettingForm.scss";
+@import "../views/Report/ParticipantReport.scss";
+@import "../views/GameCenter/DFS/ContestCategory.scss";
+@import "../views/Pickem/PickemAddSports.scss";
+@import "../views/Pickem/PTCard.scss";
+@import "../views/Pickem/PTDetail.scss";
+@import "../views/Pickem/PTCreateTournament.scss";
+@import "../views/FinanceERP/ERPDashbaord.scss";
+@import "../views/FinanceERP/ERPTransactions.scss";
+@import "../views/Leaderboard/Leaderboard.scss";
+@import "../views/GameCenter/Multigame/Multigame.scss";
+@import "../views/GSTAccounting/GSTDashboard.scss";
+@import "../views/XPModule/AddLevel.scss";
+@import "../views/XPModule/EditLevel.scss";
+@import "../views/XPModule/RewardsLevel.scss";
+@import "../views/XPModule/LevelLeaderboard.scss";
+@import "../views/XPModule/AddActivitiesModal.scss";
+
+//Start Pickem tournament
+@import "../views/GameCenter/DFSTournament/DfsTDetails.scss";
+@import "../views/GameCenter/DFSTournament/DfsTCard.scss";
+@import "../views/GameCenter/DFSTournament/DfsTMatchCard.scss";
+@import "../views/GameCenter/DFSTournament/DfsCreateTournament.scss";
+@import "../views/GSTAccounting/GSTDashboard.scss";
+@import "../views/Settings/Reward.scss";
+@import "../views/Settings/WhatsNew.scss";
+@import "../views/GameCenter/DFS/Playing11.scss";
+@import "../views/GameCenter/DFS/ModalSecondInning.scss";
+@import "../views/SetprizeLeaderboard/SetprizeLeaderboard.scss";
+@import "../views/SetprizeLeaderboard/LeaderboardList.scss";
+
+/** Start stock fantasy  */
+@import "../views/StockFantasy/SF_merchandise.scss";
+@import "../views/StockFantasy/SF_ContestCategory.scss";
+@import "../views/StockFantasy/SF_CreateTemplate.scss";
+@import "../views/StockFantasy/SF_ContestTemplate.scss";
+@import "../views/StockFantasy/SF_ManageStock.scss";
+@import "../components/SearchSuggestion/SearchSuggestion.scss";
+@import "../views/StockFantasy/SF_DSF.scss";
+@import "../views/StockFantasy/SF_FixtureCard.scss";
+@import "../views/StockFantasy/SF_AddFixtureModal.scss";
+@import "../views/StockFantasy/SF_VerifyStocks.scss";
+@import "../views/StockFantasy/SF_CreateTemplateContest.scss";
+@import "../views/StockFantasy/SF_CreateContest.scss";
+@import "../views/StockFantasy/SF_FixtureContest.scss";
+@import "../views/UserManagement/Profile/StockStats/SF_StockStats.scss";
+
+/** End stock fantasy  */
+
+@import "../views/Booster/BoosterList.scss";
+@import "../views/Booster/ApplyBooster.scss";
+@import "../views/Booster/BoosterShow.scss";
+@import "../views/NetworkGame/NetworkGame.scss";
+@import "../views/StockFantasy/SF_ContestList.scss";
+@import "../views/StockFantasy/SF_MatchCloser.scss";
+@import "../views/Rookie/ViewRookie.scss";
+@import "../views/BenchPlayer/BenchPlayer.scss";
+@import "../views/MarketingReferral/EditDateModal.scss";
+@import "../views/MarketingReferral/PromoCodeDetails.scss";
+@import "../views/Coins/Subscription.scss";
+@import "../views/Coins/SubscriptionReport.scss";
+@import "../views/H2H/h2hDashboard.scss";
+
+
+/** Start equity stock fantasy  */
+@import "../views/EquityStockFantasy/ESF_merchandise.scss";
+@import "../views/EquityStockFantasy/ESF_ContestCategory.scss";
+@import "../views/EquityStockFantasy/ESF_CreateTemplate.scss";
+@import "../views/EquityStockFantasy/ESF_ContestTemplate.scss";
+@import "../views/EquityStockFantasy/ESF_ManageStock.scss";
+@import "../views/EquityStockFantasy/ESF_DSF.scss";
+@import "../views/EquityStockFantasy/ESF_FixtureCard.scss";
+@import "../views/EquityStockFantasy/ESF_AddFixtureModal.scss";
+@import "../views/EquityStockFantasy/ESF_VerifyStocks.scss";
+@import "../views/EquityStockFantasy/ESF_CreateTemplateContest.scss";
+@import "../views/EquityStockFantasy/ESF_CreateContest.scss";
+@import "../views/EquityStockFantasy/ESF_FixtureContest.scss";
+@import "../views/UserManagement/Profile/EquityStockStats/ESF_StockStats.scss";
+@import "../views/EquityStockFantasy/ESF_ContestList.scss";
+@import "../views/EquityStockFantasy/ESF_MatchCloser.scss";
+
+/** End equity stock fantasy  */
+@import "../views/Quiz/CreateQuiz.scss";
+@import "../views/Quiz/QuizQuestionList.scss";
+@import "../views/Quiz/QuizBox.scss";
+@import "../views/Quiz/QuizConfirmModal.scss";
+@import "../views/Quiz/QuizDashboard.scss";
+@import "../views/Quiz/QuizReportsList.scss";
+@import "../views/Quiz/QuizRewardDashboard.scss";
+@import "../views/StockPredict/SP_CreateCandle.scss";
+@import "../views/StockPredict/SP_CreateTemplateContest.scss";
+@import "../views/StockPredict/SP_DSF.scss";
+@import "../views/StockPredict/SP_FixtureCard.scss";
+@import "../views/StockPredict/SP_FixtureContest.scss";
+@import "../views/StockPredict/SP_CreateContest.scss";
+@import "../views/StockPredict/SP_CreateTemplate.scss";
+@import "../views/StockPredict/SP_ContestTemplate.scss";
+@import "../views/StockPredict/SP_ManageStock.scss";
+@import "../views/StockPredict/SP_MatchCloser.scss";
+@import "../views/StockPredict/SP_merchandise.scss";
+@import "../views/StockPredict/SP_ContestList.scss";
+@import "../views/H2H/H2hContestUser.scss";
+@import "../views/H2H/H2HCms.scss";
+
+
+/** Start fast khelo  */
+@import "../views/LiveFantasy/LF_merchandise.scss";
+@import "../views/LiveFantasy/LF_Contesttemplate.scss";
+@import "../views/LiveFantasy/LF_Createtemplate.scss";
+@import "../views/LiveFantasy/LF_DFS.scss";
+@import "../views/LiveFantasy/LF_OverSetUp.scss";
+@import "../views/LiveFantasy/LF_OverDetails.scss";
+@import "../views/LiveFantasy/LF_Createtemplatecontest.scss";
+@import "../views/LiveFantasy/LF_Fixturecontest.scss";
+@import "../views/LiveFantasy/LF_Createcontest.scss";
+
+@import "../views/LiveFantasy/LF_Contestlist.scss";
+@import "../views/LiveFantasy/LF_Seasonschedule.scss";
+@import "../views/LiveFantasy/LF_ContestCategory.scss";
+@import "../views/LiveFantasy/LF_UpdateScore.scss";
+@import "../views/GameCenter/DFS/PlayerManagement.scss";
+
+@import "../views/LiveStockFantasy/LSF_ContestList.scss";
+@import "../views/LiveStockFantasy/LSF_ContestTemplate.scss";
+@import "../views/LiveStockFantasy/LSF_CreateCandle.scss";
+@import "../views/LiveStockFantasy/LSF_CreateContest.scss";
+@import "../views/LiveStockFantasy/LSF_CreateTemplate.scss";
+@import "../views/LiveStockFantasy/LSF_CreateTemplateContest.scss";
+@import "../views/LiveStockFantasy/LSF_DFS.scss";
+@import "../views/LiveStockFantasy/LSF_FixtureCard.scss";
+@import "../views/LiveStockFantasy/LSF_FixtureContest.scss";
+@import "../views/LiveStockFantasy/LSF_ManageStock.scss";
+@import "../views/LiveStockFantasy/LSF_MatchCloser.scss";
+@import "../views/LiveStockFantasy/LSF_merchandise.scss";
+
+@import "../views/PickFantasy/PickFantasy.scss";
+@import "../views/SystemUsers/ManageSystemUser.scss";
+@import "../views/Report/reports.scss";
+@import "../views/Pickem/pickemContest.scss";
+@import "../views/Pickem/ViewFixtureModal.scss";
+
+@import "../components/Modals/ConfirmActionModal.scss";
+
+@import "../views/GameCenter/DFS/LeagueManagment.scss";
+@import "../views/deals/DealList.scss";
+@import "../views/TDSAccounting/TDSAccounting.scss";
+
+@import "../views//ManualPayment/PaymentSetup.scss";
+@import "../views//ManualPayment/Reports.scss";
+
+@import "../views/PropsFantasy/LeagueManagment.scss";
+@import "../views/LandingScreen/LandingScreen.scss";
+@import "../views/PropsFantasy/Setting.scss";
+@import "../views/PropsFantasy/UserReport.scss";
+@import "../views/PropsFantasy/PropsPlayer.scss";
+@import "../views/Settings/PaymentManagement.scss";
+@import "../views/OpinionTrading/OT_DFS.scss";
+@import "../views/OpinionTrading/OTAddMatch.scss";
+@import "../views/OpinionTrading/OTPUBMatch.scss";

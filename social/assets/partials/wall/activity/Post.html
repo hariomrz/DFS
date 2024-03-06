@@ -1,0 +1,76 @@
+<!-- {{' index - '+$index}} -->
+<!-- New Start -->
+<div>
+    <div class="feed-post-type">
+
+
+        <span class="icon feed-icon" ng-if="data.PostType == '2' && ShowPostType=='1'"  data-toggle="tooltip" data-original-title="Q & A">
+            <i class="ficon-que"></i>
+        </span>
+
+        <span class="icon feed-icon" ng-if="data.PostType == '7' && ShowPostType=='1'" data-toggle="tooltip" data-original-title="Announcement">
+            <i class="ficon-bullhorn"></i>
+        </span>
+
+        <span class="icon feed-icon" ng-if="data.PostType == '4' && ShowPostType=='1'" data-toggle="tooltip" data-original-title="Article">
+            <i class="ficon-article"></i>
+        </span>
+
+        <span class="icon feed-icon" ng-if="data.PostType == '1' && ShowPostType=='1'" data-toggle="tooltip" data-original-title="Discussion">
+            <i class="ficon-comment-discussion"></i>
+        </span>
+
+        <h4 ng-if="!data.IsAnnnouncementWidget" class="feed-media-placeholder"  ng-class="(data.PostTitle) ? 'exit-post-title' : 'no-post-title'">
+            <span class="icon" ng-if="data.collapsedAttachmentExists"><i class="ficon-attachment"></i></span>
+            <a ng-href="{{data.ActivityURL}}" ng-bind-html="getPostTitle(data)" target="_self" ></a>
+        </h4>
+
+        <p class="news-feed-post-body-container" ng-if="data.PostContent">
+            <span ng-mouseup="get_selected_text($event, data.ActivityGUID);" ng-if="data.PostContent" ng-bind-html="textToLink(data.PostContent, false, 200)"></span>
+        </p>
+
+        <p ng-if="data.PostContent.length > 200 && data.ShowFull" ng-bind="parseLink(data.PostContent, false)" ></p>
+
+    </div>
+
+    <div ng-repeat="link in data.Links" ng-if="data.Links && (data.showAllLinks == 1 || $index < 3)" class="clearfix m-t-15" ng-include src="partialURL+'activity/Network.html'+app_version"></div>
+
+</div>
+
+
+<div ng-if="data.Album.length > 0" ng-class="getMediaClass(data.Album[0].Media)">
+    <div ng-repeat="m in data.Album[0].Media| limitTo:3"  ng-class="(data.Album[0].Media.length > 2) ? 'col-sm-4' : '' ;">
+        <figure ng-cloak ng-if="!(m.MediaType == 'Video' && m.ConversionStatus == 'Finished')" ng-click="$emit('showMediaPopupGlobalEmit', m.MediaGUID, '');" ng-class="(m.MediaType == 'Video' && m.ConversionStatus == 'Pending' && data.Album[0].Media.length > 2) ? 'processing-skyblue' : (m.MediaType == 'Video' && m.ConversionStatus == 'Pending' && (data.Album[0].Media.length == 1 || data.Album[0].Media.length == 2)) ? 'processing-red' : ''">
+            <img ng-if="data.Album[0].Media.length==1 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/750x500/' + m.ImageName}}">
+            <img ng-if="data.Album[0].Media.length==2 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/750x500/' + m.ImageName}}">
+            <img ng-if="data.Album[0].Media.length>2 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}">
+            <img ng-if="m.MediaType !== 'Video' && m.MediaFolder == 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}">
+            <img ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/750x500/' + m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}">
+            <span class="video-btn" ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Pending'">
+                <i class="ficon-video"></i>
+            </span>
+            <span ng-if="$index == 2 && data.Album[0].TotalMedia > 3" class="more-content" ng-bind="'+' + (data.Album[0].TotalMedia - 3)"></span>
+        </figure>
+        <figure ng-cloak ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" class="isVideo">
+            <div class="videoThumbImg">
+                <img ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/750x500/' + m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}" />
+                <a ng-click="play_video_by_thumb(m.MediaGUID)" class="video-btn">
+                    <i class="ficon-play"></i>
+                </a>
+            </div>
+            <div class="myvideo" ng-if="!($index == 2 && data.Album[0].TotalMedia > 3)">
+                <div id="v-{{m.MediaGUID}}" ng-init="initJWPlayer(m)"></div>
+            </div>
+            <span ng-click="$emit('showMediaPopupGlobalEmit', m.MediaGUID, '');" ng-if="$index == 2 && data.Album[0].TotalMedia > 3" class="more-content" ng-bind="'+' + (data.Album[0].TotalMedia - 3)"></span>
+        </figure>
+    </div>
+</div>
+
+<div ng-if="(data.Files && (data.Files !== '') && (data.Files.length > 0))" class="post-media">
+    <ul class="attached-files">
+        <li ng-repeat="file in data.Files" ng-click="hitToDownload(file.MediaGUID)">
+            <i ng-class="'ficon-file-type ' + file.MediaExtension"><span ng-bind="'.' + file.MediaExtension"></span></i>
+            <span ng-bind="file.OriginalName"></span>
+        </li>
+    </ul>
+</div>

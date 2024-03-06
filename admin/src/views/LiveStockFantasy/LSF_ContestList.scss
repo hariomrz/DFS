@@ -1,0 +1,255 @@
+.esf-contestlist-dashboard {
+    .dfsrow.row {
+      margin-top: 30px;
+    }
+  
+    .filter-label {
+      color: $gray-5;
+      font-family: $font-bold;
+      margin-top: 10px;
+      margin-right: 8px;
+    }
+  
+    .contest-dashboard-dropdown {
+      margin-top: 36px;
+      margin-bottom: 44px;
+    }
+  
+    .league-filter {
+      width: 180px;
+      float: left;
+      margin-right: 15px;
+  
+      @media (max-width: 1400px) {
+        width: 170px !important;
+        min-width: unset;
+      }
+    }
+  
+    .select-wrapper {
+      .Select-control {
+        height: 42px;
+        border: 1px solid #b8c4cb;
+        border-radius: 4px;
+        background-color: #f5f9fb;
+  
+        .Select-value,
+        .Select-placeholder {
+          line-height: 42px;
+        }
+      }
+    }
+  
+    .search-wrapper {
+      input {
+        border: 1px solid #b8c4cb;
+        border-radius: 4px;
+        background-color: #f5f9fb;
+        height: 42px;
+        width: 210px;
+      }
+  
+      i {
+        position: absolute;
+        right: 0;
+        width: 25px;
+        z-index: 999;
+        top: 12px;
+        color: $gray-9;
+      }
+    }
+  
+    .contestcard {
+      margin-bottom: 10px;
+      width: 100%;
+      background-color: $white;
+      border: none;
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    }
+  
+    .table {
+      margin-bottom: 0;
+      text-align: center;
+  
+      th {
+        vertical-align: middle;
+        border: none;
+        width: 200px;
+      }
+  
+      td {
+        vertical-align: middle;
+        border: none;
+        padding: 0;
+        width: 200px;
+        color: $black;
+        font-family: $font-bold;
+        font-size: 18px;
+      }
+    }
+  
+    td.contest-column,
+    th.contest-column {
+      width: 320px;
+      text-align: center;
+  
+      @media (max-width: 1620px) {
+        width: 440px;
+      }
+    }
+  
+    .card-body {
+      padding: 10px;
+    }
+  
+    .contest-dashboard-btn {
+      font-family: $font-bold-italic;
+      font-size: 16px;
+      border: none;
+      background-color: transparent;
+      color: #4a4a4a;
+  
+      @media (max-width: 1400px) {
+        font-size: 15px;
+      }
+  
+      &:active {
+        background-color: transparent;
+        border: none;
+      }
+  
+      &:focus {
+        box-shadow: none;
+        outline: none;
+        border: none;
+      }
+  
+      &.dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 6px;
+        vertical-align: 0.255em;
+        content: "";
+        border-top: 6px solid;
+        border-right: 6px solid transparent;
+        border-bottom: 0;
+        border-left: 6px solid transparent;
+        display: none;
+      }
+    }
+  
+    .dropdown {
+      .fa-sort-desc {
+        vertical-align: baseline;
+        font-size: 20px;
+      }
+  
+      .fa-sort-asc {
+        vertical-align: bottom;
+        font-size: 20px;
+      }
+    }
+  
+    .contest-column {
+      width: 250px;
+      text-align: center;
+    }
+  
+    .contest-table-p {
+      font-size: 20px;
+      font-family: $font-bold;
+      margin-bottom: 0;
+      position: relative;
+      text-align: center;
+      color: $text-color;
+  
+      .line-text-ellipsis {
+        display: -webkit-inline-box;
+        -webkit-line-clamp: 2;
+        overflow-y: hidden;
+        height: 27px;
+      }
+    }
+  
+    .contest-table-p {
+      .alphabets-icon {
+        position: unset;
+        left: 0;
+        top: 0;
+        width: unset;
+        text-align: center;
+        vertical-align: top;
+  
+        .contest-type {
+          margin-left: 10px;
+          display: inline-block;
+          font-size: 20px;
+          color: #20a8d8;
+  
+          @media (max-width: 1400px) {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  
+    .cardimgdfs {
+      width: 22px;
+      height: 20px;
+    }
+  
+    .livcardh3dfs {
+      font-family: $font-black;
+      font-size: 16px;
+      margin-right: 1rem;
+  
+      @media (max-width: 1620px) {
+        font-size: 13px;
+      }
+    }
+    .teams-text span {
+      display: block;
+      float: left;
+      margin-right: 14px;
+    }
+    .cd-act-btns {
+      padding: 2px 6px;
+      font-size: 12px;
+      margin: 0 4px;
+    }
+  }
+
+  .common-table .table tbody td{
+    .carddiv.carddiv-nw{
+      .inn-sec{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+  
+.lineup-details .rank-box.lsf-rank-box{
+  .h3-cls{
+    border-radius: 8px;
+    background-color: #EFEFEF;
+    padding: 10px 5px;
+    height: 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &.bg{
+      line-height: 1.2;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .val{
+    font-size: 14px;
+  }
+  .lbl{
+    color: #999;
+    font-size: 12px;
+  }
+}

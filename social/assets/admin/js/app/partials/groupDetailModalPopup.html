@@ -1,0 +1,130 @@
+<div class="modal-body user-personas">
+    <div class="personas-left">
+        <div class="info-view-mode">
+            <div class="personas-content">
+                <div class="personas">
+                    <div class="users-thum">
+                        <ul class="dp-slider">
+                            <li>
+                                <!--<img src="assets/img/dummy136.jpg" alt="">-->
+                                <img ng-if="( entityInfo.ProfilePicture != '' )" ng-src="{{ imageServerPath }}upload/profile/{{entityInfo.ProfilePicture}}">
+                                <span ng-if="(entityInfo.ProfilePicture == '' || entityInfo.ProfilePicture == 'user_default.jpg')" class="default-thumb">
+                                    <span ng-bind="getDefaultImgPlaceholder(entityInfo.Name)"></span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="group-name">
+                        <span ng-bind="entityInfo.Name"></span>
+                        <!-- <i class="ficon-globe" ng-if="( ( entityInfo.ModuleID == 18 ) && ( entityInfo.IsPublic == 1 ) )"></i> -->
+                        <i tooltip-append-to-body="true" uib-tooltip="Close" class="ficon-close-group" ng-if="( ( entityInfo.ModuleID == 1 ) && ( ( entityInfo.IsPublic != '' ) && ( entityInfo.IsPublic == 0 ) ) )"></i>
+                        <i tooltip-append-to-body="true" uib-tooltip="Public" class="ficon-globe" ng-if="( ( entityInfo.ModuleID == 1 ) && ( ( entityInfo.IsPublic != '' ) && ( entityInfo.IsPublic == 1 ) ) )"></i>
+                        <i tooltip-append-to-body="true" uib-tooltip="Secret" class="ficon-secret" ng-if="( ( entityInfo.ModuleID == 1 ) && ( ( entityInfo.IsPublic != '' ) && ( entityInfo.IsPublic == 2 ) ) )"></i>
+                        <i tooltip-append-to-body="true" uib-tooltip="{{entityInfo.Popularity}}" class="ficon-trending"></i>
+                    </h2>                                
+                </div>
+                <!--{{ ( entityInfo.Categories.length > 0 ) ? 'CATEGORY' : 'NOTHING' }}-->
+                <ul class="detail-listing">
+                    <li>
+                        <i class="ficon-user"></i>
+                        <span ng-bind="entityInfo.CreatorName"></span>
+                    </li>
+                    <li>
+                        <i class="ficon-calender"></i>
+                        <span ng-bind="createDateObject(entityInfo.CreatedDate) | date : 'dd MMM yyyy'">17 Jan 2014</span>
+                    </li>
+                    <li ng-if="( entityInfo.Categories.length > 0 )">
+                        <i class="ficon-category"></i>
+                        <span ng-repeat="category in entityInfo.Categories" ng-bind="( ( $first ) ? category : (  ', ' + category ) )"></span>
+                    </li>
+                </ul>
+                <div class="clearfix mT5"></div>
+            </div>
+            <div class="personas-content stats">
+                <ul class="contributions-list row">
+                    <li class="col-sm-6">
+                        <i class="ficon-group ficon-yellow"></i>
+                        <label ng-bind="entityInfo.MemberCount"></label>
+                        <span ng-if="entityInfo.ModuleID == 1" ng-bind="( ( entityInfo.MemberCount > 1 ) ? 'Members' : 'Member' )"></span>
+                        <span ng-if="entityInfo.ModuleID != 1" ng-bind="( ( entityInfo.MemberCount > 1 ) ? 'Followers' : 'Follower' )"></span>
+                    </li>
+                    <li class="col-sm-6">
+                        <i class="ficon-add-post ficon-blue"></i>
+                        <label ng-bind="entityInfo.PostCount"></label>
+                        <span>Posts</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="personas-footer">
+                <div class="button-group">
+                    <button class="btn btn-default btn-small-font btn-95" ng-click="updateEntityTags(entityInfo);" ng-bind="( ( entityInfo.Featured_TagID == 0 ) ? 'FEATURE' : 'FEATURED' )"></button>
+                    <button ng-if="( entityInfo.Verified == 0 )" class="btn btn-default btn-small-font" ng-click="updateEntity(entityInfo.ModuleID, entityInfo.ModuleEntityID, 'verify'); entityInfo.Verified=1">MARK AS SAFE</button>
+                    <button class="btn btn-default icons icon btn-icon " ng-click="openMsg({ Name: entityInfo.Name, ModuleID: entityInfo.ModuleID, ModuleEntityID: entityInfo.ModuleEntityID });">
+                        <i class="ficon-envelope"></i>
+                    </button> 
+                    <button class="btn btn-default btn-small-font" ng-click="updateEntity(entityInfo.ModuleID, entityInfo.ModuleEntityID, 'delete');">DELETE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="personas-right">
+        <button type="button" class="close" ng-click="dismiss();">
+            <i class="ficon-cross"></i>
+        </button>
+        <div class="group-cover-photo">
+            <img ng-if="entityInfo.CoverImage" ng-src="{{ imageServerPath }}upload/profilebanner/1200x300/{{ entityInfo.CoverImage }}" alt="">
+        </div>  
+        <div class="group-detail-wrap">
+            <div class="group-detail-content">
+                <form name="noteModalFrom" ng-submit="updateNote(noteModalFrom);" novalidate>
+                    <div class="section-content border-bottom" ng-if="entityInfo.About">
+                        <h2>About</h2>
+                        <p ng-bind="entityInfo.About"></p>
+                    </div>
+                    <div class="section-content border-bottom">
+                        <h2>Tags <i ng-show="!tagUpdateMode" class="ficon-edit" ng-click="tagUpdateMode = true;"></i></h2>
+                        <div class="tags" ng-if="( !tagUpdateMode && ( entityInfo.Tags.length > 0 ) )">
+                            <ul class="tags-list">
+                                <li class="tag-item" ng-repeat="(tagindex, tagsArray) in entityInfo.Tags" ng-bind-html="tagsArray.Name"></li>
+                            </ul>
+                        </div>
+                        <div class="form-group no-bordered" ng-if="tagUpdateMode">
+                            <!-- <label class="control-label bolder">MEMBER TAGS</label> -->
+                            <div>
+                                <tags-input 
+                                    ng-model="entityInfo.Tags"
+                                    display-property="Name"
+                                    on-tag-added="addEntityTags($tag)"
+                                    on-tag-removed="removeEntityTags($tag)"
+                                    placeholder="Add more">
+                                    <auto-complete source="loadEntityTags($query, entityInfo.ModuleEntityID, entityInfo.ModuleID, 'NORMAL', 1)" load-on-focus="true" min-length="0"></auto-complete>
+                                </tags-input>
+                            </div>
+                            <div ng-if="( ( NewAddedTags.length > 0 ) || ( TagsToRemove.length > 0 ) )" class="row">
+                                <div class="col-xs-12">
+                                    <!--<button type="button" ng-disabled="noteProcessing" class="btn btn-danger pull-right border-danger" ng-click="tagUpdateMode = false;">Cancel</button>-->
+                                    <button type="button" class="btn btn-default pull-right border-primary" ng-disabled ng-click="saveEntityTags('NORMAL', entityInfo.ModuleEntityID, entityInfo.ModuleID);">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-content">
+                        <h2>
+                            Admin Notes
+                            <a ng-show="!noteUpdateMode" ng-click="noteUpdateMode = true;"><i class="ficon-edit"></i></a>
+                        </h2>
+                        <p ng-show="!noteUpdateMode" ng-bind="entityInfo.Note"></p>
+                        <textarea  ng-show="noteUpdateMode" class="form-control" ng-class="{'hasError': ( noteModalFrom.$submitted && ( noteModalFrom.note.$error.required ) ) }" ng-model="entityInfo.Note" name="note" required></textarea>
+                        <label class="text-danger" ng-if="(noteModalFrom.$submitted && noteModalFrom.note.$error.required)">Please write something.</label>
+                    </div>
+                    <div class="row" ng-if="noteUpdateMode">
+                        <div class="col-xs-12">
+                            <!--<button type="button" ng-disabled="noteProcessing" class="btn btn-danger pull-right border-danger" ng-click="noteUpdateMode = false;">Cancel</button>-->
+                            <button type="submit" ng-disabled="noteProcessing" class="btn btn-default pull-right border-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>   
+        </div>                
+    </div>
+</div>

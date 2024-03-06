@@ -1,0 +1,78 @@
+.back-btn {
+    font-family: $font-regular;
+    float      : right;
+    cursor     : pointer;
+    margin-top : 10px;
+    color: #9B9B9B;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.font-16{
+    font-size: 16px;
+}
+.lf-stats-edit-modal {
+    .modal-content {
+        overflow: auto;        
+    }
+
+    .common-table {
+        th {
+            text-transform: capitalize;
+        }
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin            : 0;
+    }
+}
+
+.lf-season-stats {
+    .top-heading {
+        margin: 20px 0;
+    }
+
+    .h1-cls {
+        float: left;
+    }
+
+    .common-table {
+        th {
+            text-transform: capitalize;
+        }
+    }
+
+    .stats-list {
+        list-style-type     : none;
+        margin-top          : 24px;
+        padding-inline-start: 0;
+    }
+
+    li.stats-items {
+        display     : inline-block;
+        margin-right: 19px;
+    }
+
+    .edit-stats-btn {
+        .stats-btn {
+            padding: 4px 14px;
+        }
+    }
+
+    .tableFixHead {
+      overflow-y: auto;
+      height: 600px;
+      @media (max-width: 1366px) {
+        height: 500px;
+      }
+    }
+
+    .tableFixHead thead th {
+      position: sticky;
+      top: 0;
+      background: #2A2E49;
+    }
+}

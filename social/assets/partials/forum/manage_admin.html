@@ -1,0 +1,174 @@
+<div ng-controller="ForumMngAdminsCtrl">
+    <div ng-include="AssetBaseUrl + 'partials/widgets/breadcrumb.html'"></div>
+
+    <div class="container wrapper" ng-init="get_forum_details();" ng-cloak>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-secondary">
+                    <div class="panel-body">
+                        <div class="form-group" ng-cloak>
+                            <div>
+                                <label class="text-lg"> {{::lang.forum_add_admins}} to <span
+                                        ng-bind="forum_detail.Name"></span></label>
+                            </div>
+                            <div class="row member-add">
+                                <div class="col-xs-10 col-sm-11">
+                                    <tags-input add-from-autocomplete-only="true" ng-model="addAdmins"
+                                                display-property="Name" placeholder="Type member or group name"
+                                                replace-spaces-with-dashes="false">
+                                        <auto-complete source="loadFriendslist($query)" min-length="2"
+                                                       load-on-focus="true" load-on-empty="false"
+                                                       max-results-to-show="100"
+                                                       template="userlistTemplate"></auto-complete>
+                                    </tags-input>
+                                    <script type="text/ng-template" id="userlistTemplate">
+                                        <a class="m-conv-list-thmb">
+                                            <figure>
+                                                <img err-Name="{{data.Name}}"
+                                                     ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.ProfilePicture}}"
+                                                     >
+                                            </figure>
+                                        </a>
+                                        <div class="m-u-list-name with-location">
+                                            <a ng-bind-html="$highlight($getDisplayText())"></a>
+                                            <span class="location" ng-if="data.ModuleID=='1' && data.TotalMembers==1"
+                                                  ng-bind="data.TotalMembers+' Member'"></span>
+                                            <span class="location" ng-if="data.ModuleID=='1' && data.TotalMembers>1"
+                                                  ng-bind="data.TotalMembers+' Members'"></span>
+                                            <span class="location" ng-if="data.ModuleID=='3'"
+                                                  ng-bind="data.Location"></span>
+                                        </div>
+                                    </script>
+                                </div>
+                                <div class="col-xs-2 col-sm-1 ">
+                                    <button ng-click="add_admins();" class="btn btn-primary btn-block"
+                                            ng-bind="::lang.forum_add_btn"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" ng-init="get_forum_admin_suggestions();">
+                        <div class="form-group">
+                            <label class="text-lg" ng-if="admin_suggestions.length > 0"
+                                   ng-bind="::lang.forum_suggested_admins"></label>
+                            <ul class="suggested-addition">
+                                <li ng-cloak ng-repeat="suggestion in admin_suggestions">
+                                    <figure entitytype="{{(suggestion.ModuleID==1)?'group':'user';}}"
+                                            entityguid="{{suggestion.ModuleEntityGUID}}" class="loadbusinesscard"
+                                            data-toggle="dropdown">
+                                        <img err-Name="{{suggestion.Name}}"
+                                             ng-src="{{ImageServerPath + 'upload/profile/220x220/' + suggestion.ProfilePicture}}"
+                                             >
+                                        <span class="overlay">&nbsp;</span>
+                                    </figure>
+                                    <ul class="dropdown-menu setting-dropdown">
+                                        <li><a class="text-center" ng-bind="suggestion.Name"></a></li>
+
+                                        <li class="list-footer">
+                                            <button ng-click="add_single_admin(suggestion.ModuleID, suggestion.ModuleEntityID)"
+                                                    class="btn btn-default btn-xs"
+                                                    ng-bind="::lang.forum_add_member"></button>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span ng-if="admin_search == ''" ng-init="get_admins();"></span>
+                    <div class="panel-body" ng-init="get_admins();" ng-show="admins.length > 0 || admin_search != ''">
+                        <div class="panel-search-heading">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="search-heading">
+                                        <h5 class="title" ng-cloak> {{::lang.admin}}
+                                            <span ng-if="admins.length > 0" ng-bind="'(' + admins.length + ')'"></span>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="filters-search pull-right">
+                                        <div class="input-search form-control right">
+                                            <input type="text" ng-keyup="get_admins()" ng-model="admin_search"
+                                                   name="Search" placeholder="Search" class="form-control">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn"
+                                                        ng-click="clearAdminSearch();">
+                                                    <i ng-if="!admin_search" class="ficon-search"></i>
+                                                    <i ng-if="admin_search" class="ficon-cross"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- List Vertical -->
+                        <ul class="listing-group list-group-hover row admins-list list-group-v10" ng-if="admins.length>0">
+                            <li class="col-sm-3" ng-repeat="admin in admins">
+                                <div class="list-items-sm" ng-cloak>
+                                    <div class="list-inner">
+
+                                        <figure entitytype="{{(admin.ModuleID==1)?'group':'user';}}"
+                                                entityguid="{{admin.ModuleEntityGUID}}" class="loadbusinesscard">
+                                            <a ng-href="{{BaseUrl + admin.ProfileURL}}"><img class="img-circle"
+                                                                                             err-Name="{{admin.FirstName + ' ' + admin.LastName}}"
+                                                                                             ng-src="{{ImageServerPath + 'upload/profile/220x220/' + admin.ProfilePicture}}"
+                                                                                             ></a>
+                                        </figure>
+                                        <div class="list-item-body">
+                                            <h4 class="list-heading-xs">
+                                                <a ng-click="remove_admin(admin.ForumManagerID)" class="list-close">
+                                                    <span class="icon">
+                                                        <i class="ficon-cross"></i>
+                                                    </span>
+                                                </a>
+
+                                                <a ng-href="{{BaseUrl + admin.ProfileURL}}"
+                                                   entitytype="{{(admin.ModuleID==1)?'group':'user';}}"
+                                                   entityguid="{{admin.ModuleEntityGUID}}" class="loadbusinesscard">
+
+                                                    <span class="text ellipsis"
+                                                          ng-bind="admin.FirstName + ' ' + admin.LastName"></span>
+                                                </a>
+                                            </h4>
+                                            <p class="text-off" ng-if="admin.ModuleID == '3'"
+                                               ng-bind="admin.Location"></p>
+                                            <p class="text-off"
+                                               ng-if="admin.ModuleID == '1' && admin.TotalMember == '1'"
+                                               ng-bind="admin.TotalMember + ' Member'"></p>
+                                            <p class="text-off" ng-if="admin.ModuleID == '1' && admin.TotalMember > 1"
+                                               ng-bind="admin.TotalMember + ' Members'"></p>
+                                            <div ng-if="admin.ShowMessageBtn == '1'" class="listing-footer">
+                                                <div class="btn-toolbar btn-toolbar-xs left">
+                                                    <a ng-click="setCardValues(admin.FirstName, admin.LastName, admin.ModuleEntityGUID); hideBusinessCart();"
+                                                       data-toggle="modal" data-target="#MsgFromCard"
+                                                       class="btn btn-default btn-xs" ng-bind="::lang.message"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12" ng-if="admins.length<=0">
+                        <div>
+                            <div class="panel-body nodata-panel">
+                                <div class="nodata-text">
+                                        <span class="nodata-media">
+                                        <img src="{{AssetBaseUrl}}img/empty-img/empty-no-search-results-found.png" >
+                                        </span>
+                                    <h5>No Results Found!</h5>
+                                    <p class="text-off">We couldn't find any results that matched your search “keyword”. Change your search terms.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

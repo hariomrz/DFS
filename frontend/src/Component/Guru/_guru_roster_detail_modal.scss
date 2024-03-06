@@ -1,0 +1,252 @@
+.guru-you-modal {
+    &.modal-dialog {
+        max-width: 350px;
+        @media screen and (max-width: 767px) {
+            margin: 60px auto;
+        }
+    }
+
+    .modal-body {
+        padding: 1rem 35px 3rem 35px;
+    }
+}
+
+.roster-modal-info {
+    text-align: center;
+    color: $primary_text_color;
+    font-size: 20px;
+    font-family: $font-bold;
+    font-weight: bold;
+    background-color: white;
+    span.highlighted-text{
+        color: $pl-primary;
+        font-weight: bold;
+    }
+    .main-container-popup {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        .lock-player-container {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: flex-start;
+            margin-left: -40px;
+            &.filed-view-margin{
+                margin-left: -22px;
+
+            }
+            .img-lock-inner {
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                align-items: center;
+                .img-lock {
+                    height: auto;
+                    width: auto;
+                }
+            }
+            .text-lock-inner {
+                margin-top: 1px;
+                margin-left: -115px;
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                .lock-player {
+                    width: 100%;
+                    text-align: left;
+                    color: #212341;
+                    font-family: $font-semibold;
+                    font-weight: 300;
+                    font-size: 18px;
+                }
+                .lock-those-players {
+                    text-align: left;
+                    color: #212341;
+                    font-family: $font-regular;
+                    font-size: 12px;
+                }
+            }
+        }
+        .remove-player-container {
+            .text-remove-inner {
+                margin-top: 20px;
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: center;
+                width: 50%;
+                margin-left: 30px;
+                position: absolute;
+                .remove-player {
+                    width: 100%;
+                    text-align: left;
+                    color: #212341;
+                    font-family: $font-semibold;
+                    font-size: 18px;
+                    font-weight: 300;
+                }
+                .remove-those-players {
+                    text-align: left;
+                    color: #212341;
+                    font-family: $font-regular;
+                    font-size: 12px;
+                }
+            }
+            .img-remove-inner {
+                margin-left: 85px;
+
+                .img-remove {
+                    height: auto;
+                    width: auto;
+                }
+            }
+        }
+        .genrate-team-container {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: flex-start;
+            .img-genrate-team-inner {
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                align-items: center;
+                margin-left: -30px;
+
+                .img-genrate-team {
+                    height: auto;
+                    width: auto;
+                }
+            }
+            .text-genrate-team-inner {
+                margin-top: 20px;
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                .genrate-team-player {
+                    width: 100%;
+                    text-align: left;
+                    color: #212341;
+                    font-family: $font-semibold;
+                    font-size: 18px;
+                    font-weight: 300;
+                }
+                .genrate-team-those-players {
+                    text-align: left;
+                    color: #212341;
+                    font-family: $font-regular;
+                    font-size: 12px;
+                }
+            }
+            
+        }
+        .okay-btn {
+            margin-top: 25px;
+            border-radius: 21.5px;
+            background-color: $primary;
+            color: $white;
+            font-family: $font-bold;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding-left:80px ;
+            padding-right: 80px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            cursor: pointer;
+
+        }
+        .dont-show-container{
+            margin-top: 25px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: -25px;
+            .check-btn {
+                cursor: pointer;
+                border-radius: 10px;
+                box-sizing: border-box;
+                height: 16px;
+                width: 16px;
+                border: 1px solid #D8D8D8;
+                background-color: #FFFFFF;
+                &.active{
+                    background-color: $primary;
+                    border: 2px solid #D8D8D8;
+
+                }
+              }
+              .dont-show-this-again {
+                margin-top: 2px;
+                margin-left: 10px;
+                color: #9398A0;
+                font-family: $font-regular;
+                font-size: 12px;
+                font-weight: 300;
+                text-align: center;
+              }
+        }
+    }
+}
+    .body-dark-theme{
+        .roster-modal-info{
+            background: $darkT_app_bg_color;
+            color: $darkT_primary;
+            span{
+                color: $darkT_primary_text_color;
+            }
+            .main-container-popup{
+                .lock-player-container{
+                    .text-lock-inner{
+                        .lock-player{
+                            color: $darkT_primary_text_color;   
+                        }
+                        .lock-those-players{
+                            color: $darkT_primary_text_color;   
+                        }
+                    }
+                }
+                .remove-player-container{
+                    .text-remove-inner{
+                        .remove-player{
+                            color: $darkT_primary_text_color;   
+                        }
+                        .remove-those-players{
+                            color: $darkT_primary_text_color;   
+                        }
+                    }
+                }
+                .genrate-team-container{
+                    .text-genrate-team-inner{
+                        .genrate-team-player{
+                            color: $darkT_primary_text_color;   
+                        }
+                        .genrate-team-those-players{
+                            color: $darkT_primary_text_color;   
+                        }
+                    }
+                }
+                .okay-btn{
+                    background-color: $darkT_primary;
+                    color: $darkT_secondary;
+                }
+                .dont-show-container{
+                    .check-btn.active{
+                        background-color: $darkT_primary;
+                        border: 2px solid $darkT_secondary;
+                    }
+                }
+            }
+        }
+    }

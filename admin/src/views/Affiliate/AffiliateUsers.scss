@@ -1,0 +1,89 @@
+.affiliate-users {
+  margin-top: 26px;
+
+  .u-type-item {
+    display: inline-block;
+    height: 36px;
+    width: 86px;
+    border-radius: 18px;
+    background-color: $white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    color: $gray-9;
+    font-family: $font-bold;
+    padding: 8px;
+    text-align: center;
+    margin-right: 20px;
+    cursor: pointer;
+    user-select: none;
+
+    &.active {
+      color: $secondary-color;
+      border: 1px solid $secondary-color;
+    }
+
+    &:hover {
+      color: $secondary-color;
+      border: 1px solid $secondary-color;
+      box-shadow: none;
+    }
+  }
+
+  .profit-earned {
+    .font-xs {
+      opacity: 0.5;
+    }
+  }
+  .custom-pagination {
+    margin: 30px 0;
+  }
+}
+
+.affi-graph-box {
+  padding: 12px;
+  height: 268px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: $white;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);
+
+  .affi-g-title {
+    color: $black;
+    font-family: $font-bold;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .main-ind,
+  .indicator,
+  .dis-indicator {
+    height: 10px;
+    width: 10px;
+    border-radius: 2px;
+  }
+
+  .slice-color {
+    min-width: auto;
+  }
+
+  .indicator {
+    margin-right: 6px;
+    margin-top: 3px;
+  }
+
+  .aff-tot-signup {
+    color: #030F09;
+    font-family: $font-bold;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .aff-tot-prc {
+    color: $gray-9;
+    font-family: $font-regular;
+    font-size: 12px;
+    text-align: right;
+  }  
+}
+.affiliate_clear{
+  font-size:13px;
+}

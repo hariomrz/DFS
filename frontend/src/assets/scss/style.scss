@@ -1,0 +1,153 @@
+@import "./bootstrap/bootstrap";
+@import "./fonts";
+@import "./partials/coins-module";
+@import "./partials/sports-hub";
+@import "./partials/prediction_list";
+
+@import "./partials/roster";
+@import "./partials/select-captain";
+@import "./partials/mycontest";
+@import "./partials/playercard";
+@import "./partials/thankyou";
+@import "./partials/lineup-listview";
+@import "./partials/fieldview";
+@import "./partials/header";
+@import "./partials/registration";
+@import "./partials/has-class";
+@import "./partials/icon";
+@import "./partials/margin-padding";
+@import "./partials/select";
+@import "./partials/main";
+@import "./partials/lobby";
+@import "./partials/contest-listing";
+@import "./partials/edit-referral-code";
+
+@import "./modules/slick";
+@import "./modules/slick-theme";
+
+@import "./partials/modal";
+@import "./partials/contest-detail-modal";
+@import "./partials/profile";
+@import "./partials/filter";
+@import "./partials/create-contest";
+@import "./partials/leaderboard";
+@import "./partials/static-page";
+@import "./partials/notification";
+@import "./partials/refer-friend";
+@import "./partials/my-accounts";
+@import "./partials/dashobard";
+@import "./partials/_refferalSystem";
+
+@import "./partials/range-slider";
+@import "./partials/_my-teams";
+@import "./partials/_banner-model";
+
+@import "./partials/loader";
+@import "./partials/mydashbard.scss";
+@import "./partials/_more-screen.scss";
+@import "./partials/my_team_view_all_modal";
+@import "./partials/forgot_password.scss";
+@import "./partials/change_password.scss";
+@import "./partials/enter_email_forgot_password.scss";
+@import "./partials/_margin_padding.scss";
+@import "./partials/_page-not-found.scss";
+@import "./partials/_no-network.scss";
+@import "./partials/side-page";
+@import "./partials/_app-install-notification.scss";
+@import "./partials/collection-info.scss";
+
+@import "./partials/contest";
+
+@import "./partials/landing";
+@import "./partials/language-modal";
+@import "./guidline-style/guideline";
+@import "./partials/wallet";
+@import "./partials/transaction";
+@import "./partials/add-funds";
+@import "./partials/pickem-lobby";
+@import "./partials/_share-link-modal.scss";
+@import "./partials/free-to-play";
+@import "./partials/free-to-play-landing";
+
+@import "./partials/_hall-of-fame-modal.scss";
+@import "./partials/_all_leagues_list.scss";
+@import "./partials/league-sheduled-fixture.scss";
+@import "./partials/how-to-play.scss";
+@import "./partials/circular-progress-bar";
+@import "./partials/new-pickem";
+@import "./partials/team-comparison";
+
+@import "../../Component/CustomComponent/customComponents";
+
+@import "./partials/open-predictor-fpp";
+@import "./partials/ui-standarization";
+
+@import "./partials/why-private-contest";
+@import "./partials/private-contest-parent";
+@import "./partials/prize-breakup";
+@import "./partials/private-contest-share";
+@import "./partials/group_chat";
+@import "./partials/skip-private-confirmation-modal";
+@import "./partials/coach-mark-style";
+@import "./partials/buy-coins";
+@import "./partials/responsible-gaming";
+@import "./partials/_referal-prize-modal.scss";
+@import "./partials/referal_leaderboard.scss";
+@import "./partials/pickem-tournament";
+@import "./partials/tournamentStyle";
+@import "./partials/xp-module";
+@import "../../Component/StockFantasy/stock_fantasy";
+@import "./partials/booster-gameon-modal";
+@import "./partials/apply-booster";
+@import "./partials/bench-player";
+@import "../../Component/Guru/guru";
+@import "../../Component/Guru/guru_roster_detail_modal";
+@import "../../Component/Guru/slider_perfect-lineup_modal";
+@import "./partials/game-center";
+@import "./partials/quiz_modal";
+@import "./partials/animation";
+@import "./partials/mystery-box";
+@import "../../Component/StockPrediction/stock-prediction-style.scss";
+@import "./partials/h2h_challange_banner_slider";
+@import "./partials/opp-data";
+@import "./partials/what_is_h2h";
+@import "./partials/live-fantasy-styling";
+@import "./partials/leaderboard-animation";
+@import "./partials/feed";
+@import "./partials/qr_code_modal";
+@import "../../Component/LiveStockFantasy/live-stock-fantasy";
+@import "./partials/dfs-multi-styling";
+@import "./partials/sphtp";
+@import "./partials/pick-fantasy";
+@import "./partials/pick-fantasy-htp";
+@import "./partials/sports-hub-page-new";
+
+
+@import "./partials/aadhar-verification";
+@import "./partials/dfs-tour-styling";
+@import "../../views/GeoLocationTagging/GeoLocationTagging.scss";
+@import "./partials/pickem-tour-style";
+@import "./partials/dfs-ui-fixes";
+@import "../../Component/TourLeaderboard/TLeaderboardStyle.scss";
+@import './partials/OTPValidate.scss';
+@import "../../Component/OnBoarding/EmailFlow/emailflow";
+@import "./partials/ar_newChanges";
+
+
+@import "../../Component/TDS/tds";
+@import "../../Component/DFSWithMultigame/FixtureDetailStyle.scss";
+@import "../../Component/H2H/h2h";
+@import "../scss/partials/ar_wallet_updates.scss";
+@import "../scss/partials/tour-leader.scss";
+
+
+//props
+@import "../scss/partials/props-lobby.scss";
+@import "../scss/partials/props-player.scss";
+@import "../scss/partials/props-root";
+@import "../scss/partials/PropsMyContest";
+
+// Desktop SCSS
+@import "../../Local/Local";
+@import "../../OpinionTrade/OpinionTrade";
+@import '../../Local/DFSDesktop'

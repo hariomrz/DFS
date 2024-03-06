@@ -1,0 +1,195 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/users/directory": {
+            "post": {
+                "tags": [
+                    "Tags Section"
+                ],
+                "summary": "This api is used to get user directory.",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "language en or hi.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LocalityID",
+                        "in": "header",
+                        "description": "The Locality ID.",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\Directory"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/category/utility": {
+            "post": {
+                "tags": [
+                    "Utility Section"
+                ],
+                "summary": "This api is used to get utility directory.",
+                "description": "",
+                "operationId": "utility",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "language en or hi.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Category\\Utility"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Users\\Directory": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "WID": {
+                    "description": "Ward ID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageNo": {
+                    "description": "PageNo",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "PageSize",
+                    "type": "string",
+                    "example": "10"
+                },
+                "Keyword": {
+                    "description": "Keyword",
+                    "type": "string",
+                    "example": "ram"
+                },
+                "OrderBy": {
+                    "description": "Name or Recent",
+                    "type": "string",
+                    "example": "Recent"
+                },
+                "SortBy": {
+                    "description": "ASC or DESC",
+                    "type": "string",
+                    "example": "DESC"
+                }
+            }
+        },
+        "Inclusify\\Api\\Category\\Utility": {
+            "required": [
+                "ModuleID"
+            ],
+            "properties": {
+                "ModuleID": {
+                    "description": "Module ID",
+                    "type": "integer",
+                    "example": "45"
+                },
+                "OrderBy": {
+                    "description": "Name",
+                    "type": "string",
+                    "example": "Name"
+                },
+                "SortBy": {
+                    "description": "ASC or DESC",
+                    "type": "string",
+                    "example": "ASC"
+                }
+            }
+        }
+    }
+}

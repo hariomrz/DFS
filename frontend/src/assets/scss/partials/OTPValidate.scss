@@ -1,0 +1,213 @@
+.otp-custom-valid {
+    .modal-header {
+        border-bottom: none;
+        background-color: none !important;
+        background: none;
+        height: 100% !important;
+        padding-bottom: 0;
+    }
+
+    .otp-heading {
+        font-size: 30px;
+        color: #000;
+        font-weight: 700 !important;
+        height: 100% !important;
+    }
+
+    .resend {
+        color: #FF0000;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .otp-inputs {
+        justify-content: space-between;
+
+        input {
+            background: rgba(0, 0, 0, 0.1);
+            width: 74px !important;
+            height: 63px;
+            // margin-left: 25px;
+            border: none;
+
+            &:focus-visible {
+                outline: #6C72BC;
+            }
+        }
+    }
+
+    .modal-body {
+        border-bottom: none;
+        padding: 1.2rem;
+        padding-top: 0 !important;
+    }
+
+    .modal-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: auto;
+        padding: 1rem;
+        border-top: none;
+        margin-bottom: 20px;
+    }
+
+    .valid-otp {
+        font-size: 13px;
+        color: #FF0000;
+    }
+
+
+    .registered-otp-block {
+        margin-top: 30px;
+    }
+
+
+
+    .otp-mhead {
+        .close {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .close:focus,
+        .close:active,
+        .close:hover {
+            outline: none !important;
+            border: none !important;
+        }
+    }
+
+    .input-container {
+        >div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+
+            input {
+                width: 58px !important;
+                height: 58px;
+                border: 1px solid #eaeaea !important;
+                background-color: #ededed;
+                border-radius: 6px;
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            input:focus {
+                border-color: #6C72BC !important;
+            }
+
+
+        }
+    }
+
+    .otp-feilds {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px auto;
+
+        .otp-field {
+            padding-left: 19px;
+            width: 50px;
+            height: 50px;
+            border: none !important;
+            border-radius: 5px;
+            background-color: #ededed;
+        }
+    }
+
+    .otp-send-to {
+        text-align: center;
+        margin-top: 25px;
+
+        .sent-to {
+            font-size: 14px;
+            color: #909ca4;
+            margin-bottom: 0 !important;
+        }
+
+        .otp-email {
+            font-size: 16px;
+            color: #000;
+            font-weight: 200;
+        }
+    }
+
+    .cancel-btn {
+        background-color: #fff !important;
+        width: 125px !important;
+        height: 48px !important;
+        color: #6C72BC !important;
+        border: 2px solid #6C72BC !important;
+        border-radius: 30px !important;
+        margin-right: 8px !important;
+        font-size: 14px !important;
+        text-align: center !important;
+        text-transform: uppercase;
+    }
+
+    .continue-btn {
+        background-color: #6C72BC !important;
+        color: #fff !important;
+        width: 125px !important;
+        height: 48px !important;
+        border: 2px solid #6C72BC !important;
+        border-radius: 30px !important;
+        margin-right: 8px !important;
+        font-size: 14px !important;
+        text-align: center !important;
+
+        &.disabled {
+            background-color: lightgrey !important;
+            border: none !important;
+        }
+    }
+
+    .header-classMDl {
+        height: 100% !important;
+        background-color: #fff !important;
+        border-bottom: none;
+        padding: 35px !important;
+        padding-bottom: 15px !important;
+
+        .close:focus,
+        .close:hover,
+        .close:active,
+        .close {
+            font-size: 20px;
+            padding: 0;
+            outline: none;
+        }
+
+        .enter-desc {
+            font-size: 12px;
+            color: #000;
+            opacity: 0.5;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .modal-body-pd {
+        padding: 35px !important;
+        padding-top: 0 !important;
+        padding-bottom: 15px !important;
+    }
+
+
+    .resend-text {
+        color: #f8436e;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .timer-resend {
+        margin: 0px !important;
+    }
+}

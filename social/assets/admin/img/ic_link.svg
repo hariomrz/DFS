@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons / black / ic_link</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-/-black-/-ic_link">
+            <g id="ic_person_add">
+                <g id="Icon-24px">
+                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                </g>
+            </g>
+            <path d="M5.52,12 C5.52,10.632 6.632,9.52 8,9.52 L11.2,9.52 L11.2,8 L8,8 C5.792,8 4,9.792 4,12 C4,14.208 5.792,16 8,16 L11.2,16 L11.2,14.48 L8,14.48 C6.632,14.48 5.52,13.368 5.52,12 L5.52,12 Z M8.8,12.8 L15.2,12.8 L15.2,11.2 L8.8,11.2 L8.8,12.8 L8.8,12.8 Z M16,8 L12.8,8 L12.8,9.52 L16,9.52 C17.368,9.52 18.48,10.632 18.48,12 C18.48,13.368 17.368,14.48 16,14.48 L12.8,14.48 L12.8,16 L16,16 C18.208,16 20,14.208 20,12 C20,9.792 18.208,8 16,8 L16,8 Z" id="Shape" fill="#AEAEAE"></path>
+        </g>
+    </g>
+</svg>

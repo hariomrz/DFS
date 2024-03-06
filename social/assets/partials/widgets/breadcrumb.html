@@ -1,0 +1,55 @@
+<div class="breadcrumb-fluid">
+    <ol ng-cloak class="breadcrumb bordered container">
+
+        <li class="breadcrumb-item">
+            <a target="_self" href="{{BaseUrl+'community/'}}">
+                <span class="icon">
+                  <i class="ficon-home"></i>
+                </span>
+            </a>
+        </li>
+        <li class="breadcrumb-item" ng-if="forum_detail.Name && pageName == 'Manage Admin'">
+            <span class="icon">
+                <i class="ficon-arrow-right"></i>
+            </span>
+            <a target="_self" ng-href="{{BaseUrl + 'community/' + forum_detail.URL}}" ng-bind="forum_detail.Name"></a>
+            <!--<a target="_self" ng-if="category_detail.Breadcrumbs.Forum.Name" ng-href="{{BaseUrl + 'community/' + category_detail.Breadcrumbs.Forum.Link}}"-->
+               <!--ng-bind="category_detail.Breadcrumbs.Forum.Name"></a>-->
+        </li>
+        <li ng-cloak class="breadcrumb-item" ng-if="category_detail.Breadcrumbs.Forum.Name">
+            <span class="icon">
+                <i class="ficon-arrow-right"></i>
+            </span>
+            <a target="_self" ng-href="{{BaseUrl + 'community/' + category_detail.Breadcrumbs.Forum.Link}}" ng-bind="category_detail.Breadcrumbs.Forum.Name"></a>
+        </li>
+        <li ng-cloak class="breadcrumb-item" ng-if="category_detail.Breadcrumbs.Category.Name">
+            <span class="icon">
+                <i class="ficon-arrow-right"></i>
+            </span>
+            <a target="_self" ng-href="{{ BaseUrl + 'community/' + category_detail.Breadcrumbs.Category.Link}}" ng-bind="category_detail.Breadcrumbs.Category.Name"></a>
+        </li>
+        <li ng-cloak class="breadcrumb-item" ng-if="category_detail.Breadcrumbs.SubCategory.Name">
+            <span class="icon">
+                <i class="ficon-arrow-right"></i>
+            </span>
+            <a target="_self" ng-href="{{ BaseUrl + 'community/' + category_detail.Breadcrumbs.SubCategory.Link}}" ng-bind="category_detail.Breadcrumbs.SubCategory.Name"></a>
+
+        </li>
+
+        <li ng-cloak class="breadcrumb-item active" ng-if="activityData[0].PostTitle && pageName == 'Post'">
+            <span class="icon">
+                <i class="ficon-arrow-right"></i>
+            </span>
+            <span ng-bind="activityData[0].PostTitle"></span>
+        </li>
+
+        <li ng-cloak class="breadcrumb-item active" ng-if="pageName && pageName != 'Post'">
+            <span class="icon">
+                <i class="ficon-arrow-right"></i>
+            </span>
+            <span ng-if="forum_detail.Name">{{pageName}}</span>
+            <span ng-if="!forum_detail.Name">Members</span>
+        </li>
+    </ol>
+</div>
+

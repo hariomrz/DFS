@@ -1,0 +1,80 @@
+<div class="panel panel-primary panel-countdown">
+  <div class="panel-body">
+    <div class="schedule-box">
+      <div class="day" ng-bind="EventDetail.EventDay"></div>
+      <div class="date" ng-bind="EventDetail.EventStartDate"></div>
+      <div class="time" ng-if="EventDetail.StartDate == EventDetail.EndDate" ng-bind="EventDetail.DisplayStartTime +' - '+EventDetail.DisplayEndTime"></div>
+
+      <div class="time" ng-bind="EventDetail.DisplayStartTime" ng-if="EventDetail.StartDate != EventDetail.EndDate"></div>
+      <div class="end-date" ng-if="EventDetail.StartDate != EventDetail.EndDate">
+        <span class="text-sm">END ON</span>
+        <p>{{EventDetail.EventEndDate}} <span class="text-off">at {{EventDetail.DisplayEndTime}}</span></p>
+      </div>
+    </div>
+
+    <div class="countdown" ng-if="EventDetail.EventStatus!=='Past'" ng-bind="EventDetail.TimeDifference"></div>
+    
+    <div class="text-off invited-people-count" ng-if="totalInvites > 1 && loggedUserRole!='1' && loggedUserRole!='2'">{{totalInvites}} {{lang.invitees_text}}</div>
+    <div class="text-off invited-people-count " ng-if="totalInvites == 1 && loggedUserRole!='1' && loggedUserRole!='2'">{{totalInvites}} {{lang.invity_text}}</div>
+
+    <ul class="thumbnail-list" ng-if="totalInvites > 0 && loggedUserRole!='1' && loggedUserRole!='2'">
+      <li ng-repeat="list in invityList">
+        <a entitytype="user" entityguid="{{list.UserGUID}}" class="loadbusinesscard" ng-href="{{list.ProfileLink}}">
+          <img ng-if="list.ProfilePicture != '' && list.ProfilePicture !== 'user_default.jpg'" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{list.ProfilePicture}}" />
+
+          <span ng-if="list.ProfilePicture == '' || list.ProfilePicture === 'user_default.jpg'" class="default-thumb">
+            <span ng-bind="getDefaultImgPlaceholder(list.Name)"></span>
+          </span>
+        </a>
+      </li>
+
+      <li class="moreListing" ng-click="loadInviteListUserPopup()" ng-if="totalInvites > MaxLimit">
+        <a href="javascript:void(0);">+{{totalInvites - MaxLimit}}</a>
+      </li>
+
+    </ul>
+           
+    <a 
+        class="btn btn-primary btn-block btn-lg attand-now-btn" 
+        ng-show="user_status == 'INVITED' || ((user_status == '' || user_status == 'NOT_ATTENDING') && EventDetail.Privacy == 'PUBLIC') && loggedUserRole!='1' && loggedUserRole!='2' && EventDetail.IsDeleted!=2" 
+        ng-bind="lang.attend_now" 
+        ng-if="EventDetail.IsDeleted!=2"
+        data-ng-click="UpdateUsersPresence('ATTENDING'); EventDetail.CanPostOnWall='1'"></a>
+    
+
+    <!-- <div class="dropdown" ng-if="user_status == 'ATTENDING' && loggedUserRole!='1' && loggedUserRole!='2'">
+      <a class="btn btn-primary btn-block attand-now-btn btn-lg" data-toggle="dropdown">{{lang.attending}} <i class="ficon-arrow-down"></i></a>
+      <ul class="dropdown-menu">
+        <li><a href="javascript:void(0);" data-ng-click="UpdateUsersPresence('NOT_ATTENDING');" ng-bind="lang.leave"></a></li>
+      </ul>
+    </div> -->
+    
+    <div class="dropdown" ng-if="loggedUserRole!='1' && loggedUserRole!='2' && EventDetail.IsDeleted==2">
+      <a class="btn btn-default btn-block attand-now-btn btn-lg">
+        <span class="icon"><i class="ficon-checkmark f-lg"></i></span><span class="text">{{lang.cancelled}} </span> 
+      </a>
+    </div>
+    
+    <div class="dropdown" ng-if="user_status == 'ATTENDING' && loggedUserRole!='1' && loggedUserRole!='2' && EventDetail.IsDeleted!=2">
+      <a class="btn btn-default btn-block attand-now-btn btn-lg" data-toggle="dropdown">
+        <span class="icon"><i class="ficon-checkmark f-lg"></i></span><span class="text">{{lang.attending}} <i class="ficon-arrow-down f-md"></i></span> 
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="javascript:void(0);" data-ng-click="UpdateUsersPresence('NOT_ATTENDING');  EventDetail.CanPostOnWall='0'" ng-bind="lang.leave"></a></li>
+      </ul>
+    </div>
+
+    <div class="alert alert-danger alert-primary" ng-if="user_status == 'DECLINED' && loggedUserRole!='1' && loggedUserRole!='2' && EventDetail.IsDeleted!=2" ng-cloak>
+      <i class="ficon-sad icn"></i> {{lang.declined_invitation}}
+    </div>
+  </div>
+
+  <div class="panel-footer" ng-if="loggedUserRole!='1' && loggedUserRole!='2' && (user_status == 'INVITED' || user_status == 'DECLINED')">
+    <div>
+      <a class="text-primary" ng-if="user_status == 'INVITED'" data-ng-click="UpdateUsersPresence('DECLINED');" ng-bind="lang.unable_to_attend_event"></a>
+    </div>
+    <div ng-cloak>
+      <a class="text-link" ng-if="user_status == 'DECLINED'" data-ng-click="UpdateUsersPresence('ATTENDING');">{{lang.like_to_go}}</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+.skip-confirmation{
+    max-width: 80%;
+    .modal-header{
+        border: 0px;
+    }
+    .modal-content{
+        border-radius: 40px;
+        padding-top: 20px;
+        .modal-header{
+            color: $primary_text_color;
+            font-family: $font-bold;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 25px;
+            text-align: center;
+            .join-title{
+                text-transform: uppercase;
+            }
+            .msg{
+                margin: 30px 20px;
+                color: $body_text_color2;
+                font-family: $font-regular;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0;
+                line-height: 20px;
+                text-align: center;
+            }
+            .join-now-btn{
+                border-radius: 22px;
+                background-color: $primary;
+                margin: 0 20%;
+                padding: 5px 0px;
+                cursor: pointer;
+                span{
+                    color: $white;
+                    font-family: $font-bold;
+                    font-size: 16px;
+                    font-weight: bold;
+                    letter-spacing: 0;
+                    text-align: center;
+                }
+            }
+            .join-later{
+                color: $primary;
+                font-family: $font-regular;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0;
+                text-align: center;
+                margin: 20px 0;
+                cursor: pointer;
+            }
+        }
+        .modal-body{
+            padding: 0;
+            max-height: 0px;
+            overflow: hidden;
+        }
+    }
+}
+.body-dark-theme {
+    .skip-confirmation{
+        .modal-content{
+            .modal-header{
+                color: $darkT_primary_text_color;
+            }
+            .msg{
+                color: $darkT_primary_text_color;
+            }
+            .join-now-btn{
+                background: linear-gradient(90deg, $darkT_primary 0%, $darkT_primary 60%, $darkT_primary 90%);
+                span{
+                    color: $darkT_primary_text_color;
+                }
+            }
+            .join-later{
+                color: $darkT_primary_text_color;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,257 @@
+#Common
+*/3 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/game_cancellation
+*/10 * * * * wget -O - -q -t 1 http://localhost/cron/cron/match_cancel_notification
+*/15 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/prize_distribution
+*/17 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/match_prize_distribute_notification
+*/30 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/contest_rescheduled
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_match_playing_data
+*/25 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/game_abandoned
+
+#Analytics
+50 23 * * * wget -O - -q -t 1 http://localhost/cron/analytics
+10 * * * * wget -O - -q -t 1 http://localhost/livefantasy/cron/analytics
+40 23 * * * wget -O - -q -t 1 http://localhost/cron/userdashboard
+
+#move lineup from mongo to mysql
+*/2 * * * * wget -O - -q -t 1 http://localhost:4000/lineup/lineup_move
+*/10 * * * * wget -O - -q -t 1 http://localhost:4000/lineup/move_completed_lineups
+#*/15 * * * * wget -O - -q -t 1 http://localhost:4000/lineup/delete_completed_lineup_from_mysql
+#*/2 * * * * wget -O - -q -t 1 http://localhost:4000/lineup/existing_mysql_lineup_move
+
+#process deposit pending order
+*/2 * * * * wget -O - -q -t 1 http://localhost/cron/cron/process_payment_pending_order
+
+#reset blocked user
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/reset_blocked_user
+
+#Cricket
+10 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cricket_recent_league
+15 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cricket_team
+20 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cricket_season
+25 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cricket_players
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cricket_scores
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/7
+*/15 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/7
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/7
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/notify_lineup_announced_notification_cricket
+
+
+#Kabaddi
+#10 0 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/kabaddi_recent_league
+20 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/kabaddi_team
+30 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/kabaddi_season
+40 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/kabaddi_players
+*/5 * * * * wget -O - -q -t 1  http://localhost/cron/cron_queue/kabaddi_scores
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/8
+*/16 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/8
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/8
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/notify_lineup_announced_notification_kabaddi
+
+
+#Soccer
+12 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/soccer_recent_league
+17 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/soccer_team
+22 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/soccer_season
+28 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/soccer_players
+*/5 * * * * wget -O - -q -t 1  http://localhost/cron/cron_queue/soccer_scores
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/5
+*/8 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/5
+*/9 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/5
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/notify_lineup_announced_notification_soccer
+
+#Basketball
+26 */2 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_recent_league
+30 /2 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_team
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_season
+25 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_players
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_scores
+*/12 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_update_contest_status
+*/17 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/4
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/4
+
+26 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_team
+28 */3 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_season
+28 */4 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_players
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/basketball_scores
+*/12 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/4
+*/17 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/4
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/4
+
+#NFL
+29 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/nfl_team
+31 */3 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/nfl_season
+33 */4 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/nfl_players
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/nfl_scores
+*/13 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/2
+*/17 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/2
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/2
+
+#Baseball
+35 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/baseball_recent_league
+40 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/baseball_team
+25 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/baseball_season
+28 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/baseball_players
+*/6 * * * * wget -O - -q -t 1  http://localhost/cron/cron_queue/baseball_scores
+*/7 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/1
+*/10 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/1
+*/9 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/1
+
+# PICKEM
+*/22 * * * * wget -O - -q -t 1 http://localhost/cron/pickem/pickem_prize_distribute_notification
+#prediction crons
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/7
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/8
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/5
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/4
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/prediction/update_lobby_fixture_data/2
+
+#mini-league
+*/10 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_mini_league_score
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_mini_league_status
+*/15 * * * * wget -O - -q -t 1 http://localhost/cron/cron/mini_league_prize_distribution
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/cron/mini_league_prize_notification
+
+
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/pickem/update_day_rank_queue
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/pickem/update_week_rank_queue
+*/20 * * * * wget -O - -q -t 1 http://localhost/cron/pickem/update_month_rank_queue
+#Coins
+#*/5 * * * * wget -O - -q -t 1 http://localhost/cron/coins/daily_streak_notification
+#*/5 * * * * wget -O - -q -t 1 http://localhost/cron/coins/daily_streak_sms
+#*/5 * * * * wget -O - -q -t 1 http://localhost/cron/coins/coin_redeem_notification
+#*/5 * * * * wget -O - -q -t 1 http://localhost/cron/coins/coin_redeem_sms
+
+#Referral New Features
+10 1 * * MON wget -O - -q -t 1 http://localhost/cron/cron/process_weekly_referral_benefits
+
+
+
+
+#Migrations cron
+------- user ------
+http://framework.vinfotech.org/user/migration/do_migration
+http://framework.vinfotech.org/user/migration/undo_migration
+------- fantasy ------
+http://framework.vinfotech.org/fantasy/migration/do_migration
+http://framework.vinfotech.org/fantasy/migration/undo_migration
+
+------- pickem ------
+http://dev.vinfotech.org/pickem/migration/do_migration
+http://dev.vinfotech.org/pickem/migration/undo_migration
+http://framework.vinfotech.org/fantasy/migration/undo_migration 
+
+------- pickem ------
+http://dev.vinfotech.org/pickem/migration/do_migration
+http://dev.vinfotech.org/pickem/migration/undo_migration
+http://framework.vinfotech.org/fantasy/migration/undo_migration 
+0 2 * * * wget -O - -q -t 1 http://localhost/cron/cron/get_user_base_count
+
+
+0 01 1,15 * * wget -O - -q -t 1 http://localhost/cron/cd_worker/delete_deduct_balance_history
+
+#NCAA
+
+30 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/ncaa_team
+32 */3 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/ncaa_season
+33 */4 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/ncaa_players
+*/7 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/ncaa_scores
+*/14 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/13
+*/18 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/13
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/13
+
+#paytm payout pending order
+*/2 * * * * wget -O - -q -t 1 http://localhost/cron/cron/process_paytm_payout_pending_order
+
+
+
+#private contest
+*/3 * * * * wget -O - -q -t 1 http://localhost/cron/cron/winners_reset_private_contest
+
+
+#bonus cash expiry notification
+5 0 * * 1 wget -O - -q -t 1 http://localhost/cron/cron/send_bonus_expiry_notification
+2 0 * * * wget -O - -q -t 1 http://localhost/cron/cron/bonus_expiry
+#daily active session tracking
+45 1 * * * wget -O - -q -t 1 http://localhost/cron/cron/consolidate_user_specific_active_session
+0 1 * * * wget -O - -q -t 1 http://localhost/cron/cron/track_app_uninstall
+
+#match report
+* */1 * * * wget -O - -q -t 1 http://localhost/adminapi/report/cron/update_match_report
+
+#stock fantasy
+*/2 3-10 * * 1-5 wget -O - -q -t 1 http://localhost/stock/cron/cron/update_stock_price
+30 10 * * * wget -O - -q -t 1 http://localhost/stock/cron/cron/instrument_list
+*/3 * * * * wget -O - -q -t 1 http://localhost/stock/cron/cron/game_cancellation
+
+#gst
+*/10 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_gst_report
+*/15 * * * * wget -O - -q -t 1 http://localhost/cron/cron/send_tax_invoice
+
+#CFL
+31 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cfl_team
+33 */3 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cfl_season
+36 */4 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cfl_players
+*/7 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/cfl_scores
+*/16 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/14
+*/19 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/14
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/14
+
+
+#NCAA Basketball
+31 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/ncaa_basketball_team
+33 */3 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/ncaa_basketball_season
+36 */4 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/ncaa_basketball_players
+*/7 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/ncaa_basketball_scores
+*/16 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/18
+*/19 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/18
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/18
+
+#referral
+30 4 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/send_more_referral_push
+30 3 1,15 * * wget -O - -q -t 1 http://localhost/cron/cron_queue/send_referral_push
+
+#affiliate
+30 4 1,15 * * wget -O - -q -t 1 http://localhost/cron/cron_queue/send_affiliate_push
+
+#quiz
+30 2 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/send_daily_quiz_push
+0 16 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/send_daily_quiz_end_push
+
+#3.0 notifications
+0 3 * * 5 wget -O - -q -t 1 http://localhost/cron/cron_queue/weekly_few_coins_more_push
+30 12 * * 6 wget -O - -q -t 1 http://localhost/cron/cron_queue/gift_claim_push
+30 6 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/user_engage_noon_push
+0 13 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/user_engage_evening_push
+30 7 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/spin_user_engage_push
+30 14 * * */3 wget -O - -q -t 1 http://localhost/cron/cron_queue/user_not_played_thrice
+
+#Live fantasy
+*/3 * * * * wget -O - -q -t 1 http://localhost/livefantasy/cron/Cron/game_cancellation
+*/5 * * * * wget -O - -q -t 1 http://localhost/livefantasy/cron/update_scores_by_collection/7
+
+http://local.framework.com/livefantasy/cricket/vinfotech/get_recent_league
+http://local.framework.com/livefantasy/cricket/vinfotech/get_season
+http://local.framework.com/livefantasy/cricket/vinfotech/get_team
+
+
+*/5 * * * * wget -O - -q -t 1 http://localhost/stock/cron/cron/candel_Start_notification
+0 16 * * * wget -O - -q -t 1 http://localhost/stock/cron/cron/notify_accuracy_percentage
+
+
+
+#Motorsports
+45 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/motorsport_recent_league
+29 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/motorspor_team
+31 */3 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/motorsport_season
+38 */3 * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/motorsport_players
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/motorsport_scores
+*/13 * * * * wget -O - -q -t 1 http://localhost/cron/cron_queue/update_contest_status/15
+*/17 * * * * wget -O - -q -t 1 http://localhost/cron/cron/delete_bucket_banner_data/1
+*/5 * * * * wget -O - -q -t 1 http://localhost/cron/cron/update_lobby_fixture_data/15
+
+
+#Tennis
+45 * * * * wget -O - -q -t 1 http://localhost/cron/tennis/goalserve/tennis_recent_league
+31 */12 * * * wget -O - -q -t 1 http://localhost/cron/tennis/goalserve/tennis_players
+38 */3 * * * wget -O - -q -t 1 http://localhost/cron/tennis/goalserve/tennis_season
+*/6 * * * * wget -O - -q -t 1 http://localhost/cron/tennis/goalserve/tennis_scores

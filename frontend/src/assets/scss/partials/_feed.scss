@@ -1,0 +1,168 @@
+
+.feed-section{
+    background: $white;
+    max-width: 550px;
+    min-height: 100vh;
+    .input-label-center .select-field-transparent .select__placeholder{
+        top: 6px;
+    }
+    margin-top: 56px;
+    &.feed-view-section{
+        .app-header-style .row-container .section-middle{
+            .header-brand-logo{
+                display: none;
+            }
+        }
+        .feed-view-center {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: $white;
+            justify-content: center;
+        }
+    }
+}
+
+
+
+
+.zIndex1000{
+    z-index: 1000;
+}
+
+.feed-view-section{
+    &.feed-section{
+        background: $app_bg_color;
+    }
+    .youll-find-this-sec {
+        margin-left: 10px;
+        margin-right: 10px;
+        // margin-top: 150px;
+        color: $black;
+        font-family: $font-regular;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: 37px;
+        text-align: center;
+      }
+      .youll-find-this-sec-d {
+        margin-left: 10px;
+        margin-right: 10px;
+        color: $black;
+        font-family: $font-regular;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: 37px;
+        text-align: center;
+      }
+      .smily-container{
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          align-items: center;
+          .smiley{
+            height: 112px;
+            width: 122.82px;
+          }
+      }
+      .let-go-container{
+         margin-top: 30px;
+         display: flex;
+         justify-content: center;
+         flex-direction: row;
+         align-items: center;
+         .let-go-text {
+            cursor: pointer;
+            color: white;
+            height: 32px;
+            width: 129px;
+            border-radius: 18px;
+            background-color: $primary;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 18px;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+          }
+     }
+      
+    
+}
+
+.body-dark-theme{
+    .check-availability a{
+        color: $darkT_primary;
+    }
+    input{
+        border-bottom-color: $darkT_border_color2 !important;
+    }
+    .phone-input-section{
+        &.phone-input-focus{
+            .react-tel-input{
+                border-color: $darkT_primary;
+            } 
+        }
+    }
+    .select-field-transparent .select__control{
+        border-bottom-color: $darkT_border_color2 ;
+    }
+    .feed-view-section.feed-section{
+        background:  $darkT_view_bg_color;
+    }
+    .section-header{
+        background: $darkT_app_bg_color;
+    }
+    .user-basic-info-section .basic-info-edit{
+        color: $darkT_primary_text_color; 
+    }
+    .user-profile-section{
+        background: $darkT_app_bg_color;
+    }
+    .profile-verify-block{
+        background: $darkT_app_bg_color2;
+        .next-step{
+            color: $darkT_primary_text_color; 
+        }
+        .profile-verify-body{
+            border-bottom-color: $darkT_border_color2;
+        }
+        .verify-step{
+            &.verified-step span{
+                background: $darkT_view_bg_color;
+                border-color: $darkT_primary;
+            }
+            span{
+                background: $darkT_app_bg_color;
+                border-color: $darkT_border_color2;
+            }
+            .step-name{
+                color: $darkT_primary_text_color;
+                &.step-name-black{
+                    color: $darkT_primary;
+                }
+            }
+        }
+    }
+    .profile-verify-footer-block{
+        color: $darkT_primary_text_color; 
+    }
+    .profile-img-section .change-img{
+        background: $darkT_view_bg_color;
+        border-color: $darkT_primary;
+        .icon-wrapper i{
+            color: $darkT_primary;
+        }
+    }
+    .info-value a{
+        color: $darkT_primary_text_color; 
+    }
+    .upload-section{
+        .upload-text{
+            color: $darkT_primary_text_color; 
+        }
+    }
+}

@@ -1,0 +1,94 @@
+<div ng-if="( attachmentFile && ( attachmentFile !== '' ) && ( attachmentFile.length > 0 ) )" class="feed-content">
+    <ul class="attached-files">
+        <li ng-repeat="file in attachmentFile" ng-click="hitToDownload(file.MediaGUID);">
+            <span class="file-type" ng-class="file.MediaExtension">
+            <svg class="svg-icon" width="26px" height="28px">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" ng-href="{{ baseUrl }}assets/img/sprite.svg#fileIcon" xlink:href="assets/img/sprite.svg#fileIcon"></use>
+            </svg>
+            <span ng-bind="'.'+file.MediaExtension"></span>
+            </span>
+            <span class="file-name" ng-cloak searchfieldid="advancedSearchKeyword" make-content-highlighted="file.OriginalName" ng-bind-html="file.OriginalName"></span>
+            <a class="dwonload icon hover">
+                <svg class="svg-icons" width="20px" height="20px">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" ng-href="{{ baseUrl }}assets/img/sprite.svg#dwonloadIcon" xlink:href="assets/img/sprite.svg#dwonloadIcon"></use>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</div>
+<div ng-if="( attachmentMedia && ( attachmentMedia !== '' ) && ( attachmentMedia.length > 0 ) ) " ng-class="layoutClass(attachmentMedia)" class="feed-content mediaPost">
+
+    <!-- <div ng-repeat="media in attachmentMedia|limitTo:4">
+        <p>qweweasde</p>
+        <video ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" width="100%" controls="" class="object">
+            <source type="video/mp4" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            <source type="video/ogg" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            <source type="video/webm" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+        </video>
+    </div> -->
+    <figure ng-repeat="media in attachmentMedia|limitTo:4" class="media-thumbwrap">
+        <video ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" id="playerVideo" width="100%" controls controlsList="nodownload">
+            <source type="video/mp4" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            <source type="video/ogg" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            <source type="video/webm" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+        </video>
+        <video ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" id="playerVideo" width="100%" controls controlsList="nodownload">
+            <source type="video/mp4" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            <source type="video/ogg" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+            <source type="video/webm" src="" dynamic-url dynamic-url-src="{{imageServerPath+ 'upload/wall/' +media.ImageName}}"></source>
+        </video>
+        <a ng-if="( !isCommentAttachment && !activityData.parent_activity.ActivityID && ( media.ConversionStatus !== 'Pending' ) )"  class="mediaThumb">
+             <!--Media Thumbs-->
+
+            <img ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Image'" title="" alt="" ng-src="{{imageServerPath+'upload/album/750x500/'+media.ImageName}}" />
+            <img ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Image'" title="" alt="" ng-src="{{imageServerPath+'upload/wall/750x500/'+media.ImageName}}" />
+            <!-- <img ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" title="" alt="" ng-src="{{imageServerPath+'upload/album/750x500/'+  media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg' }}" /> -->
+            <!-- <img ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" title="" alt="" ng-src="{{imageServerPath+'upload/wall/750x500/'+ media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" /> -->
+            <img ng-if="activityData.activity.ActivityTypeID==23" ng-src="{{imageServerPath+'upload/profile/'+media.ImageName}}" />
+            <img ng-if="activityData.activity.ActivityTypeID==24" ng-src="{{imageServerPath+'upload/profilebanner/1200x300/'+media.ImageName}}" />
+            <img ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Image'" style="width:1px;" ng-src="{{imageServerPath+'upload/album/750x500/'+media.ImageName}}" />
+            <img ng-if="activityData.activity.ActivityTypeID!=23 && activityData.activity.ActivityTypeID!=24 && activityData.activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Image'" style="width:1px;" ng-src="{{imageServerPath+'upload/wall/750x500/'+media.ImageName}}" />
+            <img ng-if="activityData.activity.ActivityTypeID==23" style="width:1px;" ng-src="{{imageServerPath+'upload/profile/'+media.ImageName}}" />
+            <img ng-if="activityData.activity.ActivityTypeID==24" style="width:1px;" ng-src="{{imageServerPath+'upload/profilebanner/1200x300/'+media.ImageName}}" />
+            <!-- <i class="icon-n-video-big" ng-if="media.MediaType=='Video' && media.ConversionStatus=='Finished'"></i> -->
+            <div ng-if="$last && activityData.activity.Album[0].TotalMedia>4 && attachmentMedia.length>1" class="more-content"><span ng-bind="'+'+(activityData.activity.Album[0].TotalMedia-4)"></span></div>
+            <div class="t"></div>
+            <div class="r"></div>
+            <div class="b"></div>
+            <div class="l"></div>
+        </a>
+        
+        <a ng-if="( !isCommentAttachment && activityData.parent_activity.ActivityID && ( media.ConversionStatus !== 'Pending' ) )"  class="mediaThumb" image-class="{{layoutClass(activityData.parent_activity.Album[0].Media)}}">
+            <!-- Media Thumbs -->
+            <img ng-if="activityData.parent_activity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Image'" title="" alt="" ng-src="{{imageServerPath+'upload/album/750x500/'+media.ImageName}}" />
+            <img ng-if="activityData.parent_activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Image'" title="" alt="" ng-src="{{imageServerPath+'upload/wall/750x500/'+media.ImageName}}" />
+            <!-- <img ng-if="activityData.parent_activity.Album[0].AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" title="" alt="" ng-src="{{imageServerPath+'upload/album/750x500/'+media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" /> -->
+            <!-- <img ng-if="activityData.parent_activity.Album[0].AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'" title="" alt="" ng-src="{{imageServerPath+'upload/wall/750x500/'+media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" /> -->
+            <!-- <i class="icon-n-video-big" ng-if="media.MediaType=='Video' && media.ConversionStatus=='Finished'"></i> -->
+            <!-- Media Thumbs -->
+        </a>
+        
+        <a  ng-if="( isCommentAttachment && ( media.ConversionStatus !== 'Pending' ) )" class="mediaThumb" image-class="{{addMediaClasses(attachmentMedia.length)}}" >
+            <!-- <i class="icon-n-video-big" ng-if="((media.MediaType == 'Video') && (media.ConversionStatus == 'Finished'))"></i> -->
+            <img ng-if="media.MediaType == 'Image'" ng-src="{{imageServerPath + 'upload/comments/533x300/' + media.ImageName}}" alt="">
+            <!-- <img ng-if="media.MediaType == 'Video'" ng-src="{{imageServerPath + 'upload/comments/533x300/' + media.ImageName.substr(0, media.ImageName.lastIndexOf('.')) + '.jpg'}}" alt=""> -->
+            <div ng-if="( $last && ( attachmentMedia.length > 4 ) )" class="more-content"><span ng-bind="'+' + ( attachmentMedia.length - 4 )"></span></div>
+            <!--<div class="more-content" ng-if="((attachmentMedia.length > 4) && (mediaIndex === 3))"><span ng-bind="'+' + (attachmentMedia.length - 4)"></span></div>-->
+            <div class="t"></div>
+            <div class="r"></div>
+            <div class="b"></div>
+            <div class="l"></div>
+        </a>
+        <!-- Video Process Thumb -->
+        <div class="post-video" ng-if="media.MediaType=='Video' && media.ConversionStatus=='Pending'">
+            <div class="wall-video pending-rating-video">
+                <i class="icon-video-c"></i>
+            </div>
+        </div>
+        <!-- Video Process Thumb -->
+    </figure>
+</div>
+<!-- <div ng-repeat="link in activityData.activity.Links" ng-if="activityData.activity.Links && (activityData.activity.showAllLinks==1 || $index<3)" class="network-block clearfix m-t-15" ng-include src="partialURL+'activity/Network.html'"></div>
+<div ng-if="activityData.activity.Links.length>3 && activityData.activity.ShowMoreHide!=='1'" ng-click="seeMoreLink(activityData.activity.ActivityGUID);" class="text-center">
+    <a href="javascript:void(0)" title="" class="btn-link">See More</a>
+</div> -->

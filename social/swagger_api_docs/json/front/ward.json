@@ -1,0 +1,177 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/ward/list": {
+            "post": {
+                "tags": [
+                    "Ward"
+                ],
+                "summary": "Ward List",
+                "description": "",
+                "operationId": "list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Ward\\list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/ward/get_trending_ward_list": {
+            "post": {
+                "tags": [
+                    "Ward"
+                ],
+                "summary": "Trending ward list",
+                "description": "",
+                "operationId": "get_trending_ward_list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Ward\\get_trending_ward_list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/ward/get_featured_user": {
+            "post": {
+                "tags": [
+                    "Ward Featured User"
+                ],
+                "summary": "Featured user list",
+                "description": "",
+                "operationId": "get_featured_user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Ward\\get_featured_user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Ward\\list": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Ward\\get_trending_ward_list": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Ward\\get_featured_user": {
+            "required": [
+                "WID"
+            ],
+            "properties": {
+                "WID": {
+                    "description": "Ward ID",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "OrderBy": {
+                    "description": "Name or Activity",
+                    "type": "string",
+                    "example": "Name"
+                }
+            }
+        }
+    }
+}

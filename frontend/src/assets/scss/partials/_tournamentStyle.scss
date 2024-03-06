@@ -1,0 +1,1626 @@
+
+.tour-card{
+    border-radius: 14px;
+    background-color: $white;
+    margin-bottom: 20px;
+    .tour-body{
+        padding: 19px 12px 15px 15px;
+        position: relative;
+        .showstatus{
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            color: $alert_danger_color;
+            font-family: $font-bold;
+            font-size: $font-size-xsmall;
+            text-transform: uppercase;
+            span{
+                background: $alert_danger_color;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: 1px;
+                position: relative;
+                top: -1px;
+            }
+        }
+        .spon-img-sec{
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid $border-color;
+            border-radius: 10px;
+            width: 62px;
+            height: 62px; 
+            text-align: center;
+            position: relative;
+            @media (max-width: 360px){
+                width: 50px;
+                height: 50px;
+            }
+            img{
+                max-width: 95%;
+                max-height: 95%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                border-radius: 10px;
+            }
+        }
+        .tour-info-text{
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 65px);
+            padding-left: 15px;
+            position: relative;
+            .tour-btn{
+                border: 1px solid $primary;
+                border-radius: 15px;
+                color: $primary;
+                font-size: $font-base;
+                text-transform: capitalize;
+                font-family: $font-bold;
+                padding: 5px 16px 2px;
+                position: absolute;
+                right: 0;
+                bottom: -6px;
+                &.tour-btn-result{
+                    padding: 3px 10px 0px;
+                }
+            }
+            @media (max-width: 360px){
+                width: calc(100% - 55px);
+                padding-left: 10px;
+                .tour-btn,
+                .tour-btn.tour-btn-result{
+                    padding: 3px 6px 0px;
+                    font-size: $font-size-small;
+                    right: -5px;
+                    bottom: 0px;
+                }
+            }
+            .tour-rules{
+                color: $primary;
+                text-transform: uppercase;
+                padding: 1px 5px 0;
+                font-size: $font-size-xsmall - 2;
+                font-family: $font-bold;
+                border-radius: 3px;
+                // border: .5px solid $primary;
+            }
+            .tour-nm{
+                font-size: $font-base;
+                font-family: $font-bold;
+                color: $primary_text_color;
+                line-height: 1.3;
+                margin-top: 3px;
+                &.show-ellip{
+                    line-height: 1.5;                    
+                    max-width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+            .tour-text{
+                color: $help_text_color;
+                font-family: $font-bold;
+                font-size: $font-size-xsmall - 2;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+            .fixture-info{
+                color: $help_text_color;
+                font-size: $font-size-xsmall;
+                .countdown-timer-section{
+                    display: inline-block;
+                    color: $alert_danger_color;
+                    font-family: $font-bold;
+                }
+                .tour-status{
+                    color: $help_text_color;
+                    text-transform: capitalize;
+                    display: inline-block;
+                    font-family: $font-regular;
+                    text-transform: capitalize;
+                    span{
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 100%;
+                        display: inline-block;
+                        margin-right: 5px;
+                    }
+                }
+                &.live-status{
+                    .tour-status{
+                        color: $alert_danger_color;
+                        text-transform: uppercase;
+                        font-family: $font-bold;
+                        span{
+                            background: $alert_danger_color;
+                        }
+                    }
+                }
+                &.comp-status{
+                    .tour-status{
+                        color: $alert_success_color;
+                        // text-transform: uppercase;
+                        font-family: $font-bold;
+                        span{
+                            background: $alert_success_color;
+                        }
+                    }
+                }
+                .slash{
+                    margin: 0 8px;
+                    @media (max-width: 320px){
+                        margin: 0 4px;
+                    }
+                }
+                .no-of-fix{
+                    font-family: $font-regular;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+    .tour-footer{
+        border-top: 1px solid $border-color;
+        padding: 6px 20px 4px;
+        color: $help_text_color;
+        font-size: $font-size-small;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 1;
+        &.tour-footer-winning-sec{
+            padding: 10px 20px 8px;
+            .league-name{
+                position: relative;
+                top: -2px;
+            }
+            img{
+                display: inline-block;
+            }
+        }
+        .rank-sec{
+            text-align: right;
+            span{
+                font-size: $font-size-h4;
+                color: $primary;
+                font-family: $font-bold;
+                margin-left: 5px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            &.winning-sec{
+                span{
+                    font-size: $font-size-small;
+                    i.icon-bonus{
+                        position: relative;
+                        top: -1px;
+                    }
+                }
+            }
+        }
+    }
+    .entry-btn{
+        padding: 0 15px 15px;
+        a{
+            display: block;
+            padding: 6px 15px;
+            font-size: 12px;
+            &:hover,&:focus,&:active{
+                color: $white
+            }
+            .img-coin{
+                max-width: 13px;
+                margin-right: 3px;
+            }
+        }
+    }
+}
+.web-container.web-container-fixed{
+    &.dfs-tour-fixture-list{
+        padding-top: 105px;
+    }
+}
+.user-dashboard-wrap{
+    padding-left: 20px;
+    padding-right: 20px;
+    .btn-block{
+        text-align: center;
+        margin-top: 12px;
+        a.btn{
+            border-radius: 13px;
+            padding: 5px 10px 3px;
+            font-size: $font-size-small;
+            font-family: $font-bold;
+            color: $white;
+            text-transform: uppercase;
+            background: $primary;
+            img{
+                height: 13px;
+                margin-right: 7px;
+            }
+            &:not(:first-child){
+                margin-left: 10px;
+            }
+        }
+    }
+}
+.user-dashboard{
+    display: table;
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 10px;
+    .user-dashboard-body{
+        padding: 11px 10px 7px;
+        background: $app_bg_color;
+        display: table;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .user-dash-sec{
+        display: table-cell;
+        vertical-align: middle;
+        width: 25%;
+        color: $help_text_color;
+        padding: 0 5px;
+        &:not(.usernm){
+            text-align: center;
+        }
+        &.usernm{
+            font-size: $font-size-medium;
+            font-family: $font-sec-bold;
+            text-transform: capitalize;
+            width: 50%;
+            color: $primary_text_color;
+            span{
+                max-width: 90%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        .value{
+            font-size: $font-size-h2;
+            font-family: $font-sec-bold;
+            line-height: 1;
+            &.primary{
+                color: $primary;
+            }
+        }
+        .label{
+            font-size: $font-size-xsmall + 1;
+            font-family: $font-bold;
+            text-transform: capitalize;
+            line-height: 1;
+        }
+    }
+    &.show-won-strip{
+        .user-dashboard-body{
+            border-radius: 10px 10px 0 0;
+        }
+        .won-sec{
+            border-radius: 0 0 10px 10px;
+            border: 1px solid $app_bg_color;
+            border-top: none;
+            text-align: center;
+            font-size: $font-size-medium;
+            font-family: $font-regular;
+            color: $primary_text_color;
+            padding: 4px 0 2px;
+            .slash{
+                color: $help_text_color;
+                margin: 0 0 0 5px;
+            }
+            span{
+                color: $alert_success_color;
+                font-family: $font-bold;
+                margin-left: 5px;
+                img{
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+    }
+}
+.anim-df-tour{
+    overflow-x: hidden;
+    li:nth-child(even) {
+        animation: slide-in-l 0.8s ease-out;
+    }
+    li:nth-child(odd) {
+        animation: slide-in-r 0.8s ease-out;
+    }
+
+    @keyframes slide-in-l {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes slide-in-r {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+}
+.tour-fixture-card-wrap{
+    border-bottom: 1px solid $border_color;
+    list-style: none;
+    cursor: pointer;
+    .tour-fixture-card-body{
+        display: table;
+        width: 100%;
+        position: relative;
+        .left-sec,
+        .right-sec{
+            display: table-cell;
+            vertical-align: middle;
+            width: 35%;
+            position: relative;
+            height: 70px;
+            img{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                max-width: 45px;
+                max-height: 45px;
+                object-fit: cover;
+            }
+            .team-abbr{
+                font-size: $font-size-h2 - 2;
+                color: $primary_text_color;
+                font-family: $font-sec-bold;
+                text-transform: uppercase;
+                line-height: 1;
+                &.dec-FS5{
+                    @media (max-width: 767px){
+                        font-size: $font-size-h3;
+                    }
+                    @media (max-width: 360px){
+                        font-size: $font-size-h4;
+                    }
+                    @media (max-width: 320px){
+                        font-size: $font-base + 1;
+                    }
+                }
+                &.dec-FS6{
+                    @media (max-width: 767px){
+                        font-size: $font-size-h4;
+                    }
+                    @media (max-width: 360px){
+                        font-size: $font-size-h5;
+                    }
+                    @media (max-width: 320px){
+                        font-size: $font-base;
+                    }
+                }
+                &.dec-FS7{
+                    @media (max-width: 767px){
+                        font-size: $font-size-medium;
+                    }
+                    @media (max-width: 360px){
+                        font-size: $font-base;
+                    }
+                    @media (max-width: 320px){
+                        font-size: $font-size-small;
+                    }
+                }
+            }
+            .team-stats{
+                font-size: $font-base;
+                font-family: $font-bold;
+                color: $help_text_color;
+                line-height: 1;
+                span{
+                    font-family: $font-regular;
+                    font-size: $font-size-xsmall;
+                    position: relative;
+                    top: -1px;
+                    margin-left: 2px;
+                }
+            }
+        }
+        .middle-sec{
+            display: table-cell;
+            vertical-align: middle;
+            width: 30%;
+            text-align: center;
+            height: 70px;
+            .countdown{
+                font-size: $font-size-small;
+            }
+            .countdown-timer-section{
+                font-size: $font-size-small;
+                font-family: $font-bold;
+                color: $alert_danger_color;
+            }
+            .fixture-date{
+                font-size: $font-size-small;
+                font-family: $font-bold;
+                color: $help_text_color;
+                margin-bottom: 5px;
+                line-height: 1;
+                span{
+                    margin-left: 2px;
+                }
+            }
+            .fixture-time{
+                font-size: $font-size-small;
+                font-family: $font-regular;
+                color: $help_text_color;
+                line-height: 1;
+            }
+            .in-progress{
+                color: $primary;
+                font-size: $font-size-xsmall;
+                font-family: $font-bold;
+                text-transform: capitalize;
+            }
+            .entries{
+                color: $help_text_color;
+                font-size: $font-size-small;
+                font-family: $font-regular;
+                line-height: 1;
+                margin-top: 5px;
+            }
+        }
+        .left-sec{
+            padding: 18px 0 10px 50px;
+            // padding: 18px 0 10px 63px;
+            img{
+                left: 0;
+                // left: 13px;
+            }
+        }
+        .right-sec{
+            padding: 18px 50px 10px 0;
+            text-align: right;
+            img{
+                right: 0;
+                // right: 13px;
+            }
+        }
+    }
+    .tour-fixture-card-footer{
+        padding: 5px 15px 22px;
+        &.not-joined{
+            text-align: center;
+            padding: 6px 15px 23px;
+        }
+        .btn.enter-team{
+            border-radius: 13px;
+            padding: 8px 28px 5px;
+            &:hover,&:active,&:focus{
+                color: $white;
+            }
+        }
+        .team-info{
+            background: $app_bg_color;
+            border-radius: 13px;
+            padding: 5px 15px 2px;
+            .team-nm{
+                color: $primary_text_color;
+                font-size: $font-base;
+                font-family: $font-book;
+                display: inline-block;
+                max-width: 50%;
+            }
+            .other-info{
+                float: right;
+                font-size: $font-size-xsmall - 1;
+                font-family: $font-book;
+                color: $help_text_color;
+                text-transform: uppercase;
+                a{
+                    display: inline-block;
+                    color: $help_text_color;
+                }
+                span:not(.text-span){
+                    font-size: $font-base;
+                    font-family: $font-bold;
+                    margin-left: 12px;
+                    margin-right: 5px;
+                    i{
+                        color: $black;
+                        font-size: 16px;
+                        position: relative;
+                        top: -1px;
+                    }
+                }
+                .text-span{
+                    position: relative;
+                    top: -1px;
+                }
+            }
+        }
+    }
+    &.unjoined-comp{
+        .tour-fixture-card-footer{
+            display: none;
+        }
+        .tour-fixture-card-body{
+            .left-sec{
+                padding: 40px 0 41px 50px;
+                // padding: 40px 0 41px 63px;
+            }
+            .right-sec{
+                padding: 40px 50px 41px 0;
+                // padding: 40px 63px 41px 0;
+            }
+        }
+    }
+    &.disabled{
+        @extend .unjoined-comp;
+        opacity: .68;
+        pointer-events: none;
+        filter: grayscale(100%);
+    }
+}
+.dfs-tour-fixture-list{
+    .tab-content{
+        padding: 0 20px;
+    }
+    .my-contest-tab{
+        padding: 0 20px;
+        ul.nav{
+            padding: 10px 0 15px;
+            border-bottom: 1px solid $border-color;
+            li a{
+                font-family: $font-sec-bold;
+                padding: 4px 8px;
+            }
+        }
+    }
+}
+.tour-slider-wrapper{
+    .tour-card{
+        margin-bottom: 0;
+    }
+}
+.sec-heading-highlight{
+    font-size: $font-base;
+    color: $primary_text_color;
+    text-transform: uppercase;
+    padding: 17px 20px 0;
+    font-family: $font-bold;
+}
+.main-tour-header{
+    text-align: center;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    max-width: 550px;
+    width: 100%;
+    z-index: 1006;
+    .main-tour-header-wrap{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    .primary-bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $primary;
+        width: 100%;
+        height: calc(100% - 18px);
+    }
+    .tour-top{
+        background: url('../img/red-header.png') no-repeat;        
+        width: 120px;
+        height: 20px;
+        margin: 0 auto;
+        padding: 3px 10px;
+        font-family: $font-sec-bold;
+        text-transform: uppercase;
+        font-size: $font-size-small;
+        color: $white;
+        position: relative;
+        border-radius: 5px;
+        &.new{
+            background: #9A0101;
+            background: linear-gradient(180deg, #C10201 0%, #750000 100%);
+            span.ani{
+                // background-image: linear-gradient(90deg , rgba(234, 234, 234, 0.1), rgba(245, 245, 245, 0.1), rgba(238, 238, 238, 0.1));
+                background: linear-gradient(90deg,hsla(0,0%,100%,.1) 0,hsla(0,0%,100%,.35) 77%,hsla(0,0%,100%,.4) 92%,hsla(0,0%,100%,0));
+                width: 20px;
+                height: 120%;
+                transform: skew(-30deg);
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                animation: slideSha 6s infinite;
+                z-index: 2;
+            }
+            span.right-part{
+                background: $primary;
+                width: 42px;
+                height: 120%;
+                transform: skew(30deg);
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: -47px;
+                z-index: 3;   
+            }
+            &:before{
+                content: '';
+                position: absolute;
+                width: 14px;
+                height: 110%;
+                left: -6px;
+                // background: #9A0101;
+                background:linear-gradient(#b70403, #600606);
+                transform: skew(-30deg);
+                z-index: 1;
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                width: 14px;
+                height: 110%;
+                right: -6px;
+                // background: #9A0101;
+                background:linear-gradient( #b70403, #600606);
+                transform: skew(30deg);
+                z-index: 1;
+            }
+            // .shimmer-v {
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            //     right: 0;
+            //     height: 80%;
+            //     width: 76%;
+            //     margin: 0 auto;
+            //     z-index: 1;
+            //     span {
+            //         height: 100%;
+            //         margin: 0;
+            //         // background-color: rgba(234, 234, 234, 0.1);
+            //         background-color: #9A0101;
+            //         background-image: linear-gradient(90deg , rgba(234, 234, 234, 0.1), rgba(245, 245, 245, 0.1), rgba(238, 238, 238, 0.1));
+            //     }
+            // }
+            // ~ > span{
+            //     position: relative;
+            //     z-index: 2;
+            // }
+        }
+    }
+    .tour-bottom{ 
+        background: url('../img/black-header.png') no-repeat;
+        width: 338px;
+        height: 34px;
+        margin: 0 auto;
+        // padding: 6px 10px;
+        padding: 8px 18px 6px 10px;
+        font-family: $font-sec-bold;
+        font-size: $font-size-medium;
+        color: $white;
+        position: relative;
+        z-index: 5;
+        &.max-len{
+            font-size: $font-base;
+        }
+    }
+    @keyframes slideSha {
+        0%{
+            left: 0;
+            opacity: 1;
+        }
+        50%{
+            left: 100%;
+            opacity: 1;
+        }
+        65%{
+            left: 115%;
+            opacity: 0;
+        }
+        100%{
+            left: 115%;
+            opacity: 0;
+        }
+    }
+}
+
+.tour-live-sec{
+    padding-top: 13px;
+    margin-top: 10px;
+    background: $disabled_text_color;
+    .tour-tab-prd-wrap{
+        padding: 10px 0px 15px;
+        .slider-inner{
+            padding: 0 4px;
+            .tour-fixture-card-wrap{
+                background: $white;
+                border-radius: 14px;
+                border-bottom: none;
+            }
+        }
+        .tour-fixture-card-wrap {
+            .tour-fixture-card-body{
+                .left-sec{
+                    // padding: 22px 0 13px 50px;
+                    padding: 22px 0 13px 63px;
+                    img{
+                        left: 13px;
+                    }
+                }
+                .right-sec{
+                    // padding: 22px 50px 13px 0;
+                    padding: 22px 63px 13px 0;
+                    img{
+                        right: 13px;
+                    }
+                }
+            }
+            .tour-fixture-card-footer{
+                // padding: 5px 5px 16px;
+                padding: 5px 15px 16px;
+            }
+            &.not-joined{
+               .tour-fixture-card-body{
+                    .left-sec{
+                        // padding: 42px 0 42px 50px;
+                        padding: 42px 0 42px 63px;
+                    }
+                    .right-sec{
+                        // padding: 42px 50px 43px 0;
+                        padding: 42px 63px 43px 0;
+                    }
+                }
+                .tour-fixture-card-footer{
+                    display: none;
+                }
+            }
+        }
+    }
+    .pickem-prediction-outer-card{
+        padding-right: 7px;
+    }
+    .timer-section a{
+        color: $primary;
+    }
+    .pickem-prediction-card .option-section .option-info{
+        &:first-child,
+        &:last-child{
+            border-radius: 0;
+        }
+        &.selected-option{
+            border-radius: 0;
+            :before{
+                height: 2px;
+            }
+        }
+    }
+    .head{
+        padding: 0 15px 3px;
+        font-size: $font-size-base;
+        color: $primary_text_color;
+        .live-head{
+            display: inline-block;
+            position: relative;
+            font-family: $font-bold;
+            span{
+                border-radius: 50%;
+                width: 6px;
+                height: 6px;
+                background: $alert_danger_color;
+                display: inline-block;
+                margin-right: 5px;
+            }
+            &:before{
+                content: '';
+                position: absolute;
+                background: $primary;
+                height: 3px;
+                width: 3px;
+                bottom: 0;
+                left: 0;
+                -webkit-animation : pulse 1.5s infinite;
+                -moz-animation    : pulse 1.5s infinite;
+                -o-animation      : pulse 1.5s infinite;
+                animation         : pulse 1.5s infinite;
+                animation-timing-function: linear;
+            }
+        }
+        a{
+            float: right;
+            text-transform: capitalize;
+            color: $primary;
+            text-decoration: underline;
+            font-size: $font-size-small;
+            font-family: $font-semibold;
+        }
+    }
+}
+
+.tour-live-list-wrap{
+    .tour-live-sec{
+        background: transparent;
+        padding: 0 15px;
+        margin-top: 0;
+        .tour-tab-prd-wrap{
+            padding: 0;
+        }
+    }
+}
+.tour-htp-modal{
+    background: #2A3859;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 550px;
+    .modal-content{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        background: #2A3859;
+    }
+    .modal-body{
+        padding: 0;
+    }
+    .header-sec{
+        padding-top: 30px;
+        i{
+            color: $white;
+            font-size: $font-base;
+            position: absolute;
+            right: 25px;
+            top: 50px;
+            cursor: pointer;
+            @media (max-width: 320px){
+                top: 45px;
+            }
+        }
+        h2{
+            padding: 32px;
+            font-size: $font-size-medium;
+            font-family: $font-bold;
+            color: $white;
+            @media (max-width: 360px){
+                padding: 25px 32px;
+            }
+            @media (max-width: 320px){
+                padding: 15px 32px;
+            }
+        }
+    }
+    .step-sec-body{
+        padding: 65px 10px;
+        @media (max-height: 899px) and (min-width: 768px){
+            padding: 25px 10px;
+        }
+        @media (max-height: 700px){
+            padding: 15px 10px;
+        }
+        .step-sec{
+            padding: 35px 10px 35px 109px;
+            position: relative;
+            color: $white;
+            margin-bottom: 20px;
+            @media (max-height: 899px) and (min-width: 768px){
+                padding: 20px 10px 20px 109px;
+            }
+            @media (max-height: 600px) and (min-width: 768px){
+                padding: 10px 10px 10px 109px;
+            }
+            @media (max-width: 767px){
+                padding: 10px 10px 10px 109px;
+            }
+            @media (max-width: 320px){
+                padding: 5px 10px 5px 109px;
+                margin-bottom: 15px;
+            }
+            &:not(:last-child){
+                &:before{
+                    content: '';
+                    width: 1px;
+                    height: 100%;
+                    position: absolute;
+                    top: 60px;
+                    border: 1px dashed $white;
+                    left: 46px;
+                    opacity: .32;
+                    animation: lineAni 2s;
+                }
+            }
+            .img-circle{
+                background: #46526F;
+                width: 64px;
+                height: 64px;
+                border-radius: 100%;
+                position: absolute;
+                top: 30px;
+                left: 14px;
+                text-align: center;
+                @media (max-height: 600px) and (min-width: 768px){
+                    top: 10px;
+                }
+                @media (max-width: 767px){
+                    top: 10px;
+                }
+                animation: iconScale 2s;
+                i{
+                    color: $white;
+                    font-size: 35px;
+                    line-height: 65px;
+                }
+            }
+            .label{
+                font-size: $font-size-h4;
+                font-family: $font-bold;
+                mask-border: 10px;
+                text-transform: capitalize;
+                max-width: 185px;
+            }
+            .value{
+                font-size: $font-base;
+                font-family: $font-regular;
+                max-width: 300px;
+                @media (max-width: 767px){
+                    max-width: 185px;
+                }
+            }
+        }
+    }
+    .thumb-main-sec{
+        @media (min-width: 768px){
+            position: absolute;
+            bottom: 100px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;            
+        }
+        @media (max-height: 700px) and (min-width: 768px){
+            position: static;
+        }
+    }
+    .thumb-sec{
+        height: 80px;
+        width: 80px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        .icon-thumbs-up{
+            font-size: 36px;
+            line-height: 80px;
+            color: $white;
+        }
+        // img{
+        //     width: 34px;
+        //     margin: 0 auto;
+        //     position: absolute;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     left: 0;
+        //     right: 0;
+        // }
+    }
+    .pulse-ring{
+        border-radius: 100%;
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        animation: scaleIn 3s infinite cubic-bezier(.36, .11, .89, .32);
+        border: 0.5px solid rgba(255, 255, 255, 0);
+        left: 0;
+        opacity: 0;
+    }
+    @keyframes scaleIn {
+        from {
+            transform: scale(1.12, 1.12);
+            border: 0.5px solid rgba(255, 255, 255, 0.5);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(1.6, 1.6);
+            border: 0.5px solid rgba(255, 255, 255, 0);
+            opacity: 0;
+        }
+    }
+
+    @keyframes lineAni {
+        0%{
+            height: 4px;
+            opacity: 0;
+        }
+        100%{
+            height: 100%;
+            opacity: .32;
+        }
+    }
+    
+    @keyframes iconScale{
+        0%   {transform: scale(.4);}
+        100% {transform: scale(1);}
+    }
+}
+.dfs-tour-fixture-list .tour-tab-wrap{
+    .swipe-view{
+        min-height: calc(100vh - 270px);
+        &.swipe-view-lg{
+            min-height: calc(100vh - 330px);
+        }
+        .tab-content-wrap{
+            padding: 0 20px;
+        }
+    }
+}
+.tour-card .tour-body .tour-info-text .tour-rules{
+    background: $white;
+    position: relative;
+    border: none;
+    border-radius: 3px;
+    z-index: 1;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    span{
+        background: $white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        border-radius: 3px;
+        padding:1px 5px 0;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        height: calc(100% + 2px);
+        width: calc(100% + 2px);
+        background: linear-gradient(60deg, #fff, $primary);
+        border-radius: 3px;
+        z-index: 0;
+        animation: animatedgradient 3s ease alternate infinite;
+        background-size: 300% 300%;
+      }
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.dfs-fixture-shimmer{
+    .shimmer-card{
+        .display-table{
+            padding: 18px;
+            .display-table-cell{
+                text-align: center;
+                &:first-child{
+                    text-align: left;
+                }
+                &:last-child{
+                    text-align: right;
+                }
+            }
+        }
+        .footer{
+            text-align: center;
+            padding: 6px 15px 23px;
+            span{
+                span{
+                    border-radius: 13px;
+                }
+            }
+        }
+        border-bottom: 1px solid $border_color;
+    }
+}
+// .lobby-switch-container{
+.my-lobby-fixture-wrap{
+    .switch-container{
+        margin: 0;
+        float: none;
+        display: inline-block;
+        height: 25px;
+        .switch-label{
+            padding: 5px 0;
+            font-size: $font-size-small;
+        }
+        .switch{
+            height: 25px;
+            margin: 0 auto 15px;
+            background: $white;
+        }
+    }
+    .tour-slider-wrapper{
+        padding: 0 0 15px;
+    }
+    .switch-input:checked + .switch-label{
+        color: $white;
+        text-shadow: none;
+    }
+    .switch-selection{
+        background-color: $primary;
+        height: 25px;
+        top: 0;
+        box-shadow: none;
+    }
+    .switch-input:checked + .switch-label-on ~ .switch-selection{
+        left: 82px;
+    }
+    a.view-all{
+        float: right;
+        color: $primary;
+        text-decoration: underline;
+        text-transform: capitalize;
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        padding: 8px 15px 0;
+    }
+    .tour-card .tour-footer .rank-sec.winning-sec span{
+        font-size: $font-size-h4;
+        i.icon-bonus{
+            top: -2px;
+        }
+    }
+}
+.my-lobby-fixture-wrap .tour-slider-wrapper{
+    padding: 0 0 20px;
+    .tour-card {
+        .tour-body{
+            padding: 20px 12px 16px 15px;
+        }
+        .tour-footer{
+            padding: 7px 20px 5px;
+        }
+    }
+}
+.confirmation-modal.confirmation-modal-contestlist .fee-container.fee-container-full{
+    &.disabled-select-event{
+        .joining-team{
+            pointer-events: none;
+        }
+    }
+}
+.share-dfs-tour{
+    position: fixed;    
+    color: $white;
+    top: 17px;
+    left: 520px;
+    z-index: 9991;
+    cursor: pointer;
+    @media (max-width: 530px){
+        left: auto;
+        right: 20px;
+    }
+    i{
+        color: $white;
+        font-size: $font-size-medium;
+    }
+}
+.share-dfs-tour-screen{
+    // width: 100%;
+    // max-width: 550px;
+    // border-radius: 0;
+    // height: 100%;
+    // .modal-header{
+    //     padding: 0;
+    //     i{
+    //         position: absolute;
+    //         right: 20px;
+    //         color: $white;
+    //     }
+    // }
+    .header-modalbg{
+        margin: 0;
+        background: $primary;
+        padding: 37px;
+        color: $white;
+        font-family: $font-bold;
+        i{
+            position: fixed;
+            left: 520px;
+            cursor: pointer;
+            @media (max-width: 530px){
+                left: auto;
+                right: 20px;
+            }
+        }
+    }
+    .tour-body{
+        padding: 58px 28px;
+        .tour-detail-card{
+            border: 1px solid $border-color;
+            border-radius: 15px;
+            padding: 42px 40px 52px;
+            text-align: center;
+        }
+        .tour-img {
+            img{
+                max-width: 70px;
+                margin: 0 auto 10px;
+            }
+        }
+        .tour-name{
+            font-family: $font-bold;
+            font-size: $font-size-medium;
+            color: $primary_text_color;
+            text-align: center;
+            max-width: 240px;
+            margin: 0 auto 19px;
+        }
+        .tour-time{
+            font-size: $font-size-small;
+            font-family: $font-regular;
+            margin-bottom: 82px;
+            color: $help_text_color;
+        }
+        .tour-winnings{
+            color: $primary;
+            font-family: $font-bold;
+            font-size: $font-size-h4;
+            span{
+                font-family: $font-regular;
+                color: $help_text_color;
+                margin: 2px;
+            }
+        }
+        .tour-league{
+            margin-top: 10px;
+            font-family: $font-regular;
+            color: $help_text_color;
+            margin-bottom: 92px;
+        }
+        a.btn.btn-rounded{
+            border-radius: 22px;
+            font-size: 16px;
+            text-transform: uppercase;
+            padding: 14px 62px 10px;
+            &:hover{
+                color: $white;
+            }
+            img{
+                max-width: 15px;
+                position: relative;
+                top: -1px;
+                margin-right: 1px;
+                margin-left: 2px;
+            }
+        }
+    }
+}
+.dfs-tour-share-shimmer{
+    border: 1px solid $border-color;
+    border-radius: 15px;
+    padding: 42px 40px 52px;
+    text-align: center;
+    .shimmer-tname{
+        margin: 11px 0 20px;
+    }
+    .shimmer-tdate{
+        margin-bottom: 80px;
+    }
+    .shimmer-twin{
+        margin-bottom: 10px;
+    }
+    .shimmer-tleg{
+        margin-bottom: 92px;
+    }
+    .shimmer-tbtn{
+        border-radius: 22px;
+    }
+}
+.full-screen-modal .custom-modal.tour-rules-modal{
+    .modal-header{
+        &.max-leng{
+            .Confirm-header .label{
+                display: block;
+                margin: 0 auto 10px;
+                line-height: 1.2;
+                // word-break: break-all;
+                // text-overflow: unset;
+                // white-space: unset;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+    .modal-body{
+        &.max-leng{
+            padding-top: 90px;
+        }
+    }
+}
+.full-screen-modal .custom-modal.tour-rules-modal .prizes-sec .no-prize-text{
+    margin: 30px 0;
+    font-size: 14px;
+    text-align: center;
+    font-family: $font-regular;
+}
+.my-lobby-dfs-tabs{
+    padding: 0 20px;
+    ul.nav{
+        width: 200px;
+        margin: 0 auto;
+        justify-content: center;
+        padding: 10px 0 15px;
+        li {
+            width: 100px;
+            text-align: center;
+            &.active{
+                a{
+                    color: $primary;
+                    position: relative;
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        bottom: 1px;
+                        left: 0;
+                        right: 0;
+                        background: $primary;
+                        width: 34px;
+                        height: 3px;
+                        border-radius: 1.5px;
+                        margin: 0 auto;
+                    }
+                }
+            }
+            a{
+                font-family: $font-sec-bold;
+                padding: 4px 8px;
+                font-size: $font-size-medium;
+                color: $help_text_color;    
+                text-transform: uppercase;            
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+// changes for dark theme overall
+.body-dark-theme{
+    .tour-card{
+        background: $darkT_app_bg_color;
+        .tour-body{
+            .spon-img-sec{
+                border-color: $darkT_border_color;
+            }
+            .tour-info-text{
+                .tour-nm{
+                    color: $darkT_primary_text_color;
+                }
+                .tour-rules{
+                    border-color: $darkT_primary;
+                    color: $darkT_primary;
+                }
+                .tour-btn{
+                    border-color: $darkT_primary;
+                    color: $darkT_primary;
+                }
+            }
+        }
+        .tour-footer{
+            border-top-color: $darkT_border_color;
+            .rank-sec{
+                span,
+                .winning-sec span{
+                    color: $darkT_primary;
+                }
+            }
+        }
+        .entry-btn a{
+            &:hover,&:focus,&:active{
+                color: $darkT_secondary_text_color;
+            }
+        }
+    }
+    .main-tour-header{
+        .primary-bg{
+            background: $darkT_app_bg_color;
+        }
+        .tour-top.new span.right-part{
+            background: $darkT_app_bg_color;
+        }
+    }
+    .user-dashboard{
+        .user-dashboard-body{
+            background: $darkT_app_bg_color;
+        }
+        .user-dash-sec{
+            .value.primary{
+                color: $darkT_primary;
+            }
+            &.usernm span{
+                color: $white;
+            }
+        }
+        &.show-won-strip .won-sec{
+            color: $darkT_primary_text_color;
+            border-color: $darkT_app_bg_color;
+        }
+    }
+    .user-dashboard-wrap .btn-block{
+        a.btn{
+            background: $darkT_primary;
+            color: $darkT_secondary;
+            &:active {
+                @include background-opacity($darkT_primary, 0.8);
+                color: $darkT_secondary_text_color;
+                border-color: $darkT_primary;
+            }
+        }
+    }
+    .dfs-tour-fixture-list .my-contest-tab ul.nav{
+        border-bottom-color: $darkT_border_color2;
+    }
+    .tour-fixture-card-wrap  {
+        border-bottom-color: $darkT_border_color2;
+        .tour-fixture-card-body{
+            .left-sec .team-abbr, 
+            .right-sec .team-abbr{
+                color: $white;
+            }
+            .middle-sec .in-progress{
+                color: $darkT_primary;
+            }
+        }
+        .tour-fixture-card-footer{
+            .team-info{
+                background: $darkT_app_bg_color;
+                .team-nm{
+                    color: $darkT_primary_text_color;
+                }
+                .other-info span i{
+                    color: $darkT_primary_text_color;
+                }
+            }
+            .btn.enter-team{
+                &:hover,&:active,&:focus{
+                    color: $darkT_secondary;
+                }
+            }
+        }
+    }
+    .tour-live-sec{
+        background: $darkT_app_bg_color;
+        .head {
+            a{
+                color: $darkT_primary;
+            }
+            .live-head{
+                color: $darkT_primary_text_color;
+                &:before{
+                    background: $darkT_primary;
+                }
+            }
+        }
+        .tour-tab-prd-wrap .slider-inner .tour-fixture-card-wrap{
+            background: $darkT_view_bg_color;
+            
+        }
+    }
+    .tour-live-list-wrap{
+        .tour-live-sec{
+            background: transparent;
+        }
+    }
+    .my-lobby-fixture-wrap{
+        .switch-container{
+            .switch-label{
+                color: $darkT_primary_text_color;
+            }
+            .switch{
+                background: $darkT_app_bg_color;
+            }
+        }
+        .switch-input:checked + .switch-label{
+            color: $darkT_view_bg_color;
+        }
+        .switch-selection{
+            background-color: $darkT_primary;
+        }
+        a.view-all{
+            color: $darkT_primary;
+        }
+    }
+    .dfs-fixture-shimmer .shimmer-card{
+        border-bottom-color: $darkT_border_color2;
+    }
+    .share-dfs-tour-screen{
+        .header-modalbg{
+            background: $darkT_app_bg_color;
+        }
+        .tour-body{
+            .tour-detail-card{
+                border-color:  $darkT_border_color2;
+            }
+            .tour-name{
+                color: $darkT_primary_text_color;
+            }
+            .tour-winnings{
+                color: $darkT_primary;
+            }
+            a.btn.btn-rounded{
+                &:hover,&:active{
+                    color: $darkT_view_bg_color;
+                }
+            }
+        }
+    }
+    .my-lobby-dfs-tabs{
+        ul.nav{
+            li {
+                &.active{
+                    a{
+                        color: $darkT_primary;
+                        &:before{
+                            background: $darkT_primary;
+                        }
+                    }
+                }
+                a{
+                    color: $help_text_color;           
+                }
+            }
+        }
+    }
+    .fixture-card-wrapper .fixture-card-footer .match-type{
+        color: $darkT_primary_text_color;
+    }
+}
+
+
+
+
+
+
+
+// changes for dark theme overall
+.body-dark-theme {
+    .sec-heading-highlight{
+        color: $darkT_primary_text_color;
+    }
+}
+
+.rules-img-view-container{
+    margin: 10px 0;
+   img{
+    width: 100%;
+    height: 148px;
+   } 
+}
+.dfs-tournament-ul-view{
+    margin-left: -25px !important;
+    list-style-type: decimal !important;
+}

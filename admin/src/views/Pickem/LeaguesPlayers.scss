@@ -1,0 +1,375 @@
+.add-league-modal {
+  top: 14%;
+
+  .modal-body {
+    margin: 30px 20px 0;
+    padding: 0;
+
+    label {
+      margin-bottom: 14px;
+      color: $text-color;
+      font-family: $font-regular;
+    }
+
+    .form-control {
+      box-sizing: border-box;
+      height: 42px;
+      border: 1px solid $gray-9;
+      border-radius: 4px;
+
+      display: block;
+      width: 100%;
+      padding: 4px 12px;
+
+      &.Select {
+        padding: 0;
+      }
+    }
+
+    .Select-control {
+      border: none;
+      padding: 0;
+      height: 38px;
+
+      &.is-disabled {
+        background-color: #e4e7ea !important;
+      }
+    }
+
+    .Select-multi-value-wrapper:focus,
+    .Select-placeholder:focus,
+    .Select-value:focus .Select-value-label:focus .is-clearable.Select--single:focus {
+      outline: none;
+    }
+
+    .Select-clear-zone {
+      display: none;
+    }
+
+    .Select-value-label,
+    .Select-clear-zone,
+    .Select-arrow-zone {
+      line-height: 39px;
+    }
+
+    .Select-placeholder {
+      color: $gray-9;
+      line-height: 42px;
+    }
+
+    .date-box {
+      display: block;
+      width: 100%;
+
+      .icon-calender {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        padding: 12px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .react-datepicker-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .no-img {
+      margin: 0 26px 0 24px;
+    }
+
+    .upload-img-box {
+      height: 96px;
+      width: 300px;
+      padding: 20px;
+      background-color: rgba(246, 246, 246, 0.63);
+
+      .btn {
+        padding: 4px 25px;
+      }
+    }
+
+    .img-cover {
+      box-sizing: border-box;
+      height: 56px;
+      width: 56px;
+      border: 1px solid #E6E6E6;
+      border-radius: 4px;
+      background-color: #FFFFFF;
+    }
+  }
+
+  .modal-footer {
+    border: none;
+    justify-content: center;
+    margin: 42px;
+    padding: 0;
+
+    .btn {
+      height: 42px;
+      width: 120px;
+    }
+  }
+
+  .upload-box {
+    position: relative;
+  }
+
+  .select-img {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    opacity: 0;
+  }
+}
+
+.leagues-player {
+  margin: 26px 0;
+
+  .h2-cls {
+    float: left;
+    margin-top: 8px;
+  }
+
+  .search-league {
+    font-family: $font-bold;
+    float: right;
+    height: 42px;
+    width: 209px;
+    border: 1px solid #D2DFEC;
+    border-radius: 4px;
+    background-color: #F5F9FB;
+    box-shadow: 0 2px 15px 1px rgba(184, 181, 181, 0.5);
+    color: #9C9C9D;
+
+    &::placeholder {
+      color: #9C9C9D;
+    }
+  }
+
+  .search-box {
+    position: relative;
+
+    .icon-search {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 16px;
+      padding: 13px;
+      cursor: pointer;
+      color: #9C9C9D;
+    }
+  }
+
+  .league-box {
+    height: 60px;
+    background-color: $white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    color: $black;
+    font-family: $font-bold;
+    padding: 18px 20px;
+    line-height: 24px;
+    margin-top: 10px;
+  }
+
+  .league-name {
+    width: calc(100% - 60px);
+    float: left;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .icon-edit {
+    font-size: 24px;
+    float: right;
+    cursor: pointer;
+
+    &:hover {
+      animation: shake 1s;
+      animation-iteration-count: inherit;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: rotate(0deg) 1s;
+      }
+
+      40% {
+        transform: rotate(-60deg);
+      }
+    }
+  }
+
+  .league-accordian {
+    margin-top: 34px;
+
+    .hide-players {
+      display: none;
+    }
+  }
+
+  .team-name {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content: space-between;
+  }
+
+  .img-container {
+    margin-bottom: 0;
+
+    .img-cover {
+      height: 30px;
+      width: 30px;
+      border-radius: 100%;
+      float: left;
+    }
+  }
+
+  .league {
+    color: $black;
+    font-family: $font-bold;
+    float: right;
+    margin: 4px 10px;
+  }
+
+  .add-league {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    i {
+      height: 36px;
+      width: 36px;
+      background-color: #F8436E;
+      border-radius: 100%;
+      color: #fff;
+      padding: 11px;
+      font-size: 15px;
+    }
+  }
+
+  .player-info {
+    background-color: $white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    padding: 16px 20px;
+
+    .add-league {
+      box-shadow: none;
+      padding: 0;
+      height: 44px;
+    }
+  }
+
+  .league-title {
+    color: $gray-9;
+    font-family: $font-regular;
+    line-height: 20px;
+    margin-left: 24px;
+  }
+
+  .sel-lable {
+    color: $gray-5;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .pt-sel-sport {
+    height: 36px;
+    width: 230px;    
+    .Select-control {
+      background-color: $white;
+      box-shadow: 0 0 5px 0 rgba(206, 132, 132, 0.1);
+      border-radius: 18px;
+      line-height: 36px;
+      .Select-placeholder,
+      .Select-value-label {
+        line-height: 36px;
+      }
+    }
+  }
+}
+
+.pickem-leaderboard {
+  margin: 26px 0;
+
+  .table-responsive {
+    max-width: 788px;
+  }
+}
+
+.pickem-filter-list {
+  list-style: none;
+  padding: 0 14px;
+  margin-bottom: 0;
+
+  .Select-placeholder,
+  .Select-value-label {
+    line-height: 42px;
+  }
+
+  .Select-clear-zone {
+    display: none;
+  }
+
+  .Select-value {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .pickem-filter-item {
+    display: inline-block;
+    margin-right: 30px;
+    vertical-align: middle;
+    position: relative;
+    margin-bottom: 10px;
+
+    @media (max-width : 1366px) {
+      margin-right: 20px;
+    }
+
+    i.icon-calender {
+      position: absolute;
+      font-size: 20px;
+      top: 0;
+      right: 0;
+      padding: 11px;
+      cursor: pointer;
+    }
+
+    .Select-control {
+      min-width: 180px;
+      height: 42px;
+      font-family: $font-bold;
+      border: 1px solid #D2DFEC;
+      background-color: #F5F9FB;
+      border-radius: 4px;
+
+      @media (max-width : 1366px) {
+        min-width: 160px;
+      }
+    }
+
+    .form-control {
+      height: 42px;
+      min-width: 130px;
+      max-width: 180px;
+      font-family: $font-bold;
+      border: 1px solid #D2DFEC;
+      background-color: #F5F9FB;
+      border-radius: 4px;
+      color: $gray-9;
+
+      @media (max-width : 1366px) {
+        min-width: 160px;
+      }
+    }
+  }
+}
+.pt-help-text{
+  position: absolute;
+  top: 28px;
+  right: 10px;
+}

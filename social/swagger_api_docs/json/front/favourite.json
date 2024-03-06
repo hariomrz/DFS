@@ -1,0 +1,78 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/favourite/toggle_favourite": {
+            "post": {
+                "tags": [
+                    "Favourite Section"
+                ],
+                "summary": "Used for favourite functionality",
+                "description": "",
+                "operationId": "toggle_favourite",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/inclusify\\Api\\Favourite\\toggle_favourite"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "inclusify\\Api\\Favourite\\toggle_favourite": {
+            "required": [
+                "EntityGUID"
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "Entity GUID, which is being mark as favourite",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                }
+            }
+        }
+    }
+}

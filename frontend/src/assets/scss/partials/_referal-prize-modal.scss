@@ -1,0 +1,158 @@
+.strip-prize-status{
+    height: 72px;
+
+}
+.header-modal-title{
+    text-align: center !important;
+    margin-top: -5px;
+    font-family: $font-bold;
+    color: #212121;
+}
+
+.referal-leaderboard{
+  &.referal-part-v{
+      padding-top: 77px !important;
+      max-width: 550px;
+      // padding-top: 134px !important;
+      min-height: calc(100vh - 112px) !important;
+      &.padding-leagues{
+          padding-top: 0px !important
+      }
+      .fixed-ch-view-prizes-modal{
+          position: fixed;
+          top: 56px;
+          width: 100%;
+          max-width: 550px;
+          z-index: 999;
+          background: $white
+      }
+      .header-v{
+          position: static;
+          span.amount{
+              white-space: pre-wrap;
+          }
+      }
+      &.referal-leaderboard .header-v span.usernm{
+          width: 32% !important;
+      }
+  }
+}
+
+.fixed-ch-view-prizes-modal{
+  // background: transparent;
+  z-index: 1002;
+  @include background-opacity($secondary_border_color, 0.5);
+   background-size: cover;
+  // &:after{
+  //     width: 100%;
+  //     height: 100%;
+  //     content: '';
+  //     position: absolute;
+  //     background-image: linear-gradient(to bottom,  rgba(255,255,255,0.1), rgba(255,255,255,0));
+  //     top: 0;
+  // }
+}
+
+
+.filter-time-section-prizes-modal{
+    margin-left: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-right: 20px;
+    position: relative;
+  .filter-time-wrap-prizes-modal{
+      border-radius: 22px;
+      background: $primary;
+      // max-width: 335px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 1px;
+      list-style-type: none;
+      .filter-time-btn-modal{
+          cursor: pointer;
+          width: 33.33%;
+          background: transparent;
+          color: $white;
+          text-transform: capitalize;
+          font-size: $font-size-small;
+          font-family: $font-bold;
+          display: inline-block;
+          vertical-align: middle;
+          text-align: center;
+          margin: 0;
+          border: none;
+          padding: 6px;
+          height: 30px;
+          @media (max-width: 320px){
+              min-width: 90px;
+          }
+          &.active{
+              // padding: 1px;
+              border-radius: 22px;
+              background: $white;
+              color: $primary;
+              border: none;
+          }
+          &.with-date{
+              padding: 2px 6px;
+              span{
+                  font-size: $font-size-xsmall;
+                  display: block;
+                  line-height: 1;
+                  font-family: $font-book;
+                  position: relative;
+                  top: -2px;
+                  color: $primary;
+              }
+          }
+      }
+  }
+}
+.modal-referal-img{
+    height: 50%;
+    z-index: 0;
+    position: absolute;
+    left: 0;
+  }
+
+  .referal-strip{
+    display: flow-root;
+    padding-left: 25px;
+    padding-right: 25px;
+    position: relative;
+     .referal-prize-rank{
+        color: $primary_text_color;
+        font-family: $font-regular;
+        font-size: 12px;
+        float: left;
+        padding: 10px;
+      }
+      .win-amount{
+        color: $body_text_color;
+        font-family: $font-bold;
+        font-size: 12px;
+        float: right;
+        padding: 10px;
+      }
+
+  }
+  .sponsored-section{
+    background: $white;
+    text-align: center;
+    padding: 9px 0 7px;
+    border-top: 1px solid $border-color;
+    .sponsored-text{
+        font-size: $font-size-xsmall;
+        color: $help_text_color;
+        font-family: $font-book;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    img{
+        max-width: 100px;
+        max-height: 27px;
+        width: auto;
+        object-fit: contain;
+    }
+}
+  

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cricjam-e04f2",
+  "private_key_id": "897ef386e35c128ed668e65078e03e5594e05bef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDJ+0w7mahE5om+\nhuZhgWYtErmPRj6AjD9+QZK4oQySqaCy9ty1CrMiTa34GcFqWchP4rc6j2SZyTIZ\nyzMwFtZDLarS/gyBm2W3bzcPnijuB5wfT6My9Hs5uKh7Za9nxkTpwM4u/l7KXahA\nUp6M+bAcTZwp7noEDaAwsMQzJtjiSG1tkCk/0vZmvd++8qtrUORnUihUMjb6l47P\n5r5Mhomv6NgFTJ8BLo3UKH6cCNufLFDi4Hl0vRUCXbxtsrZPzhMRfxkQu9fxH1aP\nt5IhvAEe9jLJLf4H01nYpm4mvpm36kPEcWioYSnxnCTwPZHqlSAQ4tVooaj//16m\nF8KdZfnJAgMBAAECggEAFa9BE/T/N8Z4a1gYS8eUrKoh+dvUwgBMoMVxdxjzPJux\ngQU31Mf9S2WDk+tP9JcHBmyUt1jFuCz9j/9c04DgJ/4zJMvZk+CXHwZ1ptuYEVYH\n0OS/5KySvjOxAu570mxa4a2tdSYiDx/W/HDiTMhRu/gpF+deeijsVc3kgoldJ43m\nIeV00Z7hvVidGK/PaTDWDOnzbtkOENXISxb6cyIw0MfiWUcpCrO2SfY3GivXgzTL\nW1lg6XXH0ZQmFc6itODkxK7leQLli4lC6lA/OS618aA5ED0KW3xpb3MB7RxfEiKy\nel1RwQU/YGpHvvH39oUXwrJtNbKsU8Go5V7uKbkDwQKBgQDzNuH2noY8PPxCJG3r\nd1ckyFBjTJ+ipYFYJWBj2YAFjneHHLxIQIN8zRZUUrcyKHVJaRhk6M06e7CEAWj+\n+7QXy23wW0dse106bthXEaXxhrmON1YKTM5gayNtEvsXQtv2mHFLLRt1akpmDboo\nqeGGOdv0UJ8IQrLaplLNYDQEvQKBgQDUmYPkp9wayqKG/30IZOdK+2xKUAhJKpht\npb+jk+TA22ns4dBvt54T4KF7C6ZNqhQUbF2Jmc9/cW3shuUhlqBl5SbEABoX+ogY\ny+iifOCuN8/5ZrAgPuvDSwDYCAmBo2r8gXAsrYTamU4/ND4s1kaCtQmAmRsmZldC\n+q6P696n/QKBgBK63EX4yU+kRqz1Tz298AkWIBK1mOmWo1JddoHaAyDqaswN63YI\n+ddHl/ugbxk+wmGH5WgIAZ4KXnqb/TD9w029zdafwO1axsA0PxbddhEWlf2cx1R9\nu7rzJURGHO4aqQPhk3/9lkrBh786OWbeRk7m78ht2QFy2YE7I89LJFZlAoGAUi3p\nOtjcDwsnGhHmTflbIrPfXzZijY3GkBPS6TNA6H+oCWYcgSK0GzDomrydE0ZcLqzY\n11i6SaQZ/qUCKyKja9/RRVBYxc4VD6i6ixzEaPOwE9Lq3/wSfFIgyGEK866sq2CJ\ncOu+ABXkli/mnMRTSzEZtDj6srQ6pOxrz7w4PC0CgYARXOT8uryhHyLwUw813HCq\nd9tidgk4EYDc3UQ9eaI32f0AQVcX9wSDZUeWZxzqwK0B1RoTb53SRvKDqeN+bwRb\nTGAKO9urloh7AnMWwk6PA2LFKbulDFfajXpTq+cj5y63GIOahe6/6u0hQl3gkJdI\noF7ri1mbIkzSJ/gwItJLDw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cricjam@cricjam-e04f2.iam.gserviceaccount.com",
+  "client_id": "107848362880087070277",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cricjam%40cricjam-e04f2.iam.gserviceaccount.com"
+}

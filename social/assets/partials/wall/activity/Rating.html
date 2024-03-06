@@ -1,0 +1,70 @@
+
+<div ng-controller="ratingController as rating" id="r-{{data.RatingData.RatingGUID}}">
+    <h4> 
+        <span ng-class="{'badgerate-1':(data.RatingData.RateValue < 1.6),'badgerate-2':(data.RatingData.RateValue > 1.5 && data.RatingData.RateValue < 2.6),'badgerate-3':(data.RatingData.RateValue > 2.5 && data.RatingData.RateValue < 3.6),'badgerate-4':(data.RatingData.RateValue > 3.5 && data.RatingData.RateValue < 4.6),'badgerate-5':(data.RatingData.RateValue > 4.5)}" ng-bind="data.RatingData.RateValue"></span> 
+        <a ng-bind-html="textToLink(data.RatingData.Review.Title)"></a>
+    </h4>
+    <p ng-bind-html="textToLink(data.RatingData.Review.Description)">        
+    </p>
+    
+    <ul class="rated-list">
+        <li ng-repeat="RPV in data.RatingData.RatingParameterValue" >
+            <span ng-class="{'badgerate-1':(RPV.RateValue < 1.6),'badgerate-2':(RPV.RateValue > 1.5 && RPV.RateValue < 2.6),'badgerate-3':(RPV.RateValue > 2.5 && RPV.RateValue < 3.6),'badgerate-4':(RPV.RateValue > 3.5 && RPV.RateValue < 4.6),'badgerate-5':(RPV.RateValue > 4.5)}" 
+                  ng-bind="RPV.RateValue">
+            </span> 
+            {{RPV.ParameterName}}
+        </li>                     
+    </ul>
+    
+    
+    <div class="post-media " ng-if="data.RatingData.Album.length > 0" 
+         id="lg-{{data.RatingData.RatingGUID}}"
+         
+    ng-class="{'single' : (data.RatingData.Album[0].Media.length == 1), 'two' : (data.RatingData.Album[0].Media.length == 2), 'morethan-two' : (data.RatingData.Album[0].Media.length > 2) }"
+    >
+        
+        <figure
+            ng-if="data.RatingData.Album[0].Media[0].MediaType == 'Image'  && data.RatingData.Album.length > 0"
+            ng-repeat="media in data.RatingData.Album[0].Media" 
+            ng-init="callLightGallery(data.RatingData.RatingGUID)" 
+            ng-data-thumb="{{getImagePath(media.MediaType, media.ImageName)}}" 
+            ng-data-src="{{getImagePath(media.MediaType, media.ImageName, 'original')}}"
+        >
+        <img  ng-if="media.MediaType == 'Image'" ng-src="{{getImagePath(media.MediaType, media.ImageName)}}">
+        </figure>
+        
+        
+        
+        <figure
+            ng-if="data.RatingData.Album[0].Media[0].MediaType == 'Video'  && data.RatingData.Album.length > 0 && media.ConversionStatus == 'Finished'"
+            ng-repeat="media in data.RatingData.Album[0].Media" 
+            ng-init="(media.ConversionStatus == 'Finished') ? callLightGallery(data.RatingData.RatingGUID) : '';"  
+            ng-data-html="{{'#m-' + media.MediaGUID}}" 
+            ng-data-thumb="{{getVideoPath(media.ImageName) + 'jpg'}}"
+        >
+            <img  ng-src="{{getVideoPath(media.ImageName, 1) + 'jpg'}}"/>
+
+            <div style="display:none;" 
+                id="m-{{data.RatingData.Album[0].Media[0].MediaGUID}}" 
+                class="video-block" 
+                ng-if="data.RatingData.Album[0].Media[0].MediaType == 'Video' && data.RatingData.Album[0].Media[0].ConversionStatus !== 'Pending'">
+               <video ng-repeat="media in data.RatingData.Album[0].Media" width="100%" controls="" class="object">
+                   <source type="video/mp4" src="" dynamic-url dynamic-url-src="{{getVideoPath(media.ImageName) + 'mp4'}}"></source>
+                   <source type="video/ogg" src="" dynamic-url dynamic-url-src="{{getVideoPath(media.ImageName) + 'ogg'}}"></source>
+                   <source type="video/webm" src="" dynamic-url dynamic-url-src="{{getVideoPath(media.ImageName) + 'webm'}}"></source>
+                   Your browser does not support HTML5 video.
+               </video>
+           </div>
+        
+        </figure>
+    </div>
+    
+    <div class="content-row">
+        <button id="rf-{{data.RatingData.RatingGUID}}" ng-click="flagRating(data.RatingData.RatingGUID)" ng-if="data.RatingData.Flaggable == '1' && data.RatingData.IsFlagged == '0' && data.RatingData.IsOwner == 0" data-toggle="modal" data-target="#reportAbuse" data-placement="top" data-toggle="tooltip" class="btn btn-default btn-sm pull-right m-t-5" type="button" data-original-title="flag"><i class="ficon-flag"></i></button>
+        <span ng-if="data.RatingData.IsVoted == 0 && data.RatingData.IsOwner == 0">Was this useful? <span class="inline-link"> <a ng-click="vote(data.RatingData.RatingGUID, 'YES')">Yes</a>  <a ng-click="vote(data.RatingData.RatingGUID, 'NO')">No</a></span></span>
+        <span ng-if="data.RatingData.IsVoted == 1 && data.RatingData.JustVoted == 1" class="color-999">Thank you for your vote</span>
+
+        <div ng-if="data.RatingData.TotalVoteCount > 0">{{data.RatingData.PositiveVoteCount}} <span class="color-999">of</span> {{data.RatingData.TotalVoteCount}} <span class="color-999">users found this review helpful.</span></div>
+        <div ng-if="data.RatingData.TotalVoteCount == 0 && data.RatingData.IsOwner == 0" class="color-999">Be the first one to answer this.</div>
+    </div>
+</div>

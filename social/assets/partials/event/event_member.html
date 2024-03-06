@@ -1,0 +1,162 @@
+<div class="panel panel-info" ng-cloak>
+    <div class="panel-body no-padding">
+        <div class="nav-tabs-default">
+          <ul class="nav nav-tabs nav-tabs-liner nav-tabs-liner-secondary nav-tabs-scroll" role="tablist" ng-click="TabOpen(lang.going);">
+            <li role="presentation" class="active"><a href="#going" role="tab" data-toggle="tab" ng-bind="lang.going"></a></li>
+            <li role="presentation" ng-if='TotalRecordsInvitees > 0'><a href="#invitedbyme" role="tab" data-toggle="tab" ng-bind="lang.invited_by_me"></a></li>
+          </ul>
+        </div>
+
+        <div class="tab-default-content">
+          <div class="tab-content">
+
+            <div role="tabpanel" class="tab-pane active" id="going">
+                <small ng-bind="lang.event_managers" ng-show="TotalRecordsManagers > 0"></small>
+                <ul class="row list-items-hover" ng-show="TotalRecordsManagers > 0">
+                    <li class="items col-sm-6 col-md-4 col-lg-3" id="usr{{list.UserGUID}}" ng-repeat="list in listObj = ListManagers" ng-hide="list.length>0" ng-cloak>
+                      <div class="list-items-xmd">
+                        <div class="list-inner">
+                            <figure>
+                                <a entitytype="user" entityguid="{{list.UserGUID}}" class="loadbusinesscard" ng-href="{{list.ProfileLink}}"> 
+                                    <img   ng-if="list.ProfilePicture!='' " class="img-circle" 
+                                    ng-src="{{lang.image_server_path}}upload/profile/220x220/{{list.ProfilePicture}}">
+                                    <img   ng-if="list.ProfilePicture=='' " class="img-circle" err-name="{{list.FullName}}"
+                                    ng-src="{{lang.image_server_path}}upload/profile/220x220/{{list.ProfilePicture}}">
+                                </a>
+                            </figure>
+                            <div class="list-item-body">
+                                <h4 class="list-heading-xs">
+                                    <a class="ellipsis loadbusinesscard" entitytype="user" entityguid="{{list.UserGUID}}" ng-href="{{list.ProfileLink}}" ng-bind-template="{{list.FullName}}"></a>
+                                </h4>
+                                <small ng-if='list.ModuleRoleID==1' ng-bind="lang.creator"></small>
+                                <small ng-if='list.ModuleRoleID==2 && EventDetail.IsAdmin!=1' ng-bind="lang.admin"></small>
+                                <div class="dropdown" ng-show="list.ModuleRoleID=='2' && EventDetail.IsAdmin=='1'">
+                                    <a class="small" ng-if="list.Presence=='INVITED'" ng-bind-template="Invited"></a>
+                                    <a class="small" ng-if="EventDetail.EventStatus=='Past'" ng-bind="lang.admin"></a>
+
+                                    <a class="small" ng-if="EventDetail.EventStatus!='Past'" data-toggle="dropdown">{{lang.admin}} <i class="ficon-arrow-down"></i></a>
+                                    <ul role="menu" class="dropdown-menu pull-left">
+                                        <li>
+                                            <a href="javascript:void(0);" ng-click='addRemoveRole(list.UserGUID,"Remove","3",$index)' ng-bind="lang.remove_admin_rights"></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);" ng-click='removeFromEvent(list.UserGUID,"Manager",$index)' ng-bind="lang.remove_from_event"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+                
+                <small ng-if='TotalRecordsMembers > 0 && TotalFriendsRecords == 1'>Your friend is attending this event.</small>
+                <small ng-if='TotalRecordsMembers > 0 && TotalFriendsRecords > 1'>{{TotalFriendsRecords}} of your friends are attending this event.</small>
+                <ul class="row list-items-hover" ng-if='TotalRecordsMembers > 0'>
+                    <li class="items col-sm-6 col-md-4 col-lg-3" ng-repeat="User in  EventUsers">
+                      <div class="list-items-xmd">
+                        <div class="list-inner">
+                            <figure>
+                                <a entitytype="user" entityguid="{{User.UserGUID}}" class="loadbusinesscard" ng-href="{{list.ProfileLink}}"> 
+                                    <img   ng-if="User.ProfilePicture!='' " class="img-circle" 
+                                    ng-src="{{lang.image_server_path}}upload/profile/220x220/{{User.ProfilePicture}}">
+                                    <img   ng-if="User.ProfilePicture=='' " class="img-circle" err-name="{{User.FullName}}"
+                                    ng-src="{{lang.image_server_path}}upload/profile/220x220/{{User.ProfilePicture}}">
+                                </a>
+                            </figure>
+                            <div class="list-item-body">
+                                <h4 class="list-heading-xs">
+                                    <a class="ellipsis loadbusinesscard" entitytype="user" ng-href="{{list.ProfileLink}}" entityguid="{{User.UserGUID}}" ng-bind-template="{{User.FullName}}"></a>
+                                    <span class="icon" ng-if='User.CanPostOnWall==0'><i class="ficon-noedit"></i></span>
+                                </h4>
+
+                                <div class="dropdown">
+                                    <a class="small" ng-if="EventDetail.EventStatus=='Past'">{{lang.member_text}}</a>
+                                    <a class="small" ng-if="EventDetail.EventStatus!='Past'" data-toggle="dropdown">{{lang.member_text}} <i class="ficon-arrow-down" ng-show="loggedUserRole=='1' || loggedUserRole=='2'"></i></a>
+
+                                    <ul class="dropdown-menu" ng-show="loggedUserRole=='1' || loggedUserRole=='2'">
+                                        <li>
+                                            <a href="javascript:void(0);" ng-if='User.CanPostOnWall==1' ng-click='addRemoveCanPost(User.UserGUID,"0", $index)' ng-bind="lang.cant_post">
+                                            </a>
+                                            <a href="javascript:void(0);" ng-if='User.CanPostOnWall==0' ng-click='addRemoveCanPost(User.UserGUID,"1",$index)' ng-bind="lang.can_add_post_member">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);" ng-click='addRemoveRole(User.UserGUID,"Add","2",$index)' ng-bind="lang.make_admin">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);" ng-click='removeFromEvent(User.UserGUID,"User",$index)' ng-bind="lang.remove_from_event">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+                
+                <div class="nodata-panel" ng-if='TotalRecordsMembers == 0 && TotalRecordsManagers == 0'>
+                    <div class="nodata-text p-v-lg">
+                        <span class="nodata-media">
+                            <img src="{{AssetBaseUrl}}img/event/no-attendees.png" >
+                        </span>
+                        <h5 ng-bind="lang.no_attendees"></h5>
+                        <p class="text-off no-margin" ng-bind-html="lang.no_attendees_text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="invitedbyme">
+                <ul class="row list-items-hover" ng-if='TotalRecordsInvitees > 0'>
+                    <li class="items col-sm-6 col-md-4 col-lg-3" ng-repeat="User in  InvityUserList">
+                        <div class="list-items-xmd">
+                            <div class="list-inner">
+                                <figure>
+                                    <a entitytype="user" entityguid="{{User.UserGUID}}" class="loadbusinesscard" ng-href="{{list.ProfileLink}}"> 
+                                        <img   ng-if="User.ProfilePicture!='' " class="img-circle" 
+                                        ng-src="{{lang.image_server_path}}upload/profile/220x220/{{User.ProfilePicture}}">
+                                        <span ng-if="User.ProfilePicture==''" class="default-thumb">
+                                            <span ng-bind="getDefaultImgPlaceholder(User.FullName)"></span>
+                                        </span>
+                                    </a>
+                                </figure>
+                                <div class="list-item-body">
+                                    <h4 class="list-heading-xs">
+                                        <a class="ellipsis loadbusinesscard" ng-href="{{list.ProfileLink}}" entitytype="user" entityguid="{{User.UserGUID}}" ng-bind-template="{{User.FullName}}"></a>
+                                    </h4>
+                                    <small>Invited</small>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="nodata-panel" ng-if='TotalRecordsInvitees == 0'>
+                    <div class="nodata-text p-v-lg">
+                        <span class="nodata-media">
+                            <img src="{{AssetBaseUrl}}img/event/no-attendees.png" >
+                        </span>
+                        <h5 ng-bind="lang.no_attendees"></h5>
+                        <p class="text-off no-margin" ng-bind-html="lang.no_attendees_text"></p>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+    <div class="panel-footer " ng-show='TotalRecordsMembers > EventUsers.length && goingTabOpen'>
+        <a class="loadmore" href="javascript:void(0);" data-ng-click="LoadMore('Member')">
+            <span class="text ng-scope" ng-bind="lang.load_more"></span><span class="loader" ng-show="isLoading">&nbsp;</span>
+        </a>
+    </div>
+
+    <div class="panel-footer " ng-show='TotalRecordsInvitees > InvityUserList.length && invitedByMeTabOpen'>
+        <a class="loadmore" href="javascript:void(0);" data-ng-click="LoadMoreInvity('Member')">
+            <span class="text ng-scope" ng-bind="lang.load_more"></span><span class="loader" ng-show="isLoading">&nbsp;</span>
+        </a>
+    </div>
+</div>

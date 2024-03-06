@@ -1,0 +1,387 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/login/index": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "This api is used to login user.",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Login\\Index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/login/send_otp": {
+            "post": {
+                "tags": [
+                    "OTP"
+                ],
+                "summary": "This api is used to send OTP on mobile.",
+                "description": "",
+                "operationId": "send_otp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Login\\Send_otp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/login/validate_otp": {
+            "post": {
+                "tags": [
+                    "OTP"
+                ],
+                "summary": "This api is used to validate otp.",
+                "description": "",
+                "operationId": "validate_otp",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Login\\Validate_otp"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/login/check_apk_ver": {
+            "post": {
+                "tags": [
+                    "Check APP Version"
+                ],
+                "summary": "This api is used to check app version details.",
+                "description": "",
+                "operationId": "check_apk_ver",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Login\\Check_apk_ver"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/login/logout": {
+            "post": {
+                "tags": [
+                    "Logout"
+                ],
+                "summary": "This api is used to logout user from application.",
+                "description": "",
+                "operationId": "logout",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Login\\Logout"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/login/master_data": {
+            "post": {
+                "tags": [
+                    "Master Data"
+                ],
+                "summary": "This api is used to get master data.",
+                "description": "",
+                "operationId": "master_data",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Login\\Master_data"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Login\\Index": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "DeviceType": {
+                    "description": "Native",
+                    "type": "string",
+                    "example": "Native"
+                },
+                "Mobile": {
+                    "description": "Mobile Number",
+                    "type": "string",
+                    "example": "9827298272"
+                },
+                "Password": {
+                    "description": "Password",
+                    "type": "string",
+                    "example": "Vtech#2012"
+                },
+                "IsDevice": {
+                    "description": "Is Mobile App or web: 1 for App, 0 for web",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "DeviceID": {
+                    "description": "if IsDevice value is 1 then it is required field",
+                    "type": "string"
+                },
+                "DeviceInfo": {
+                    "description": "Device Info, array of Device Info",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "manufacturer": {
+                                "type": "string",
+                                "example": "LGE"
+                            },
+                            "model": {
+                                "type": "string",
+                                "example": "Nexus 5X"
+                            },
+                            "deviceName": {
+                                "type": "string",
+                                "example": "Nexus 5X"
+                            },
+                            "version": {
+                                "type": "string",
+                                "example": "6.0.1"
+                            },
+                            "version_name": {
+                                "type": "string",
+                                "example": "LOLLIPOP_MR1"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Login\\Send_otp": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Mobile": {
+                    "description": "Mobile Number",
+                    "type": "string",
+                    "example": "9827298272"
+                }
+            }
+        },
+        "Inclusify\\Api\\Login\\Validate_otp": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "OTP": {
+                    "description": "OTP Number",
+                    "type": "string",
+                    "example": "982729"
+                }
+            }
+        },
+        "Inclusify\\Api\\Login\\Check_apk_ver": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "current_ver": {
+                    "description": "Current APP version",
+                    "type": "string",
+                    "example": "1.0"
+                },
+                "device_type": {
+                    "description": "Device Type: 1 for Android, 2 for IOS",
+                    "type": "string",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Login\\Logout": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Login\\Master_data": {
+            "required": [
+                ""
+            ]
+        }
+    }
+}

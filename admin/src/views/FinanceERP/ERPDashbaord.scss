@@ -1,0 +1,266 @@
+.erp-dashboard {
+  margin-top: 20px;
+
+  .erp-filters {
+    margin-top: 24px;
+
+    label {
+      color: $gray-5;
+      font-family: $font-bold;
+      display: block;
+    }
+
+    .erp-sel-qr {
+      float: left;
+      margin-right: 60px;
+    }
+
+    .Select-control {
+      height: 36px;
+      width: 220px;
+      border: none;
+      box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+
+      .Select-arrow {
+        display: none;
+      }
+
+      .Select-placeholder,
+      .Select-value-label {
+        line-height: 36px;
+      }
+    }
+  }
+
+  .erp-t-lable {
+    font-family: $font-bold;
+    font-size: 16px;
+
+    &.cls-loss {
+      color: #BE0202;
+    }
+
+    &.cls-profit {
+      color: #21BD00;
+    }
+  }
+
+  .erp-t-count {
+    color: #27272D;
+    font-family: $font-bold;
+    font-size: 32px;
+
+    .icon-bonus {
+      font-size: 24px;
+      vertical-align: baseline;
+    }
+
+    @media screen and (min-width: 1025px) and (max-width: 1366px) {
+      font-size: 24px;
+
+      .icon-bonus {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .erp-t-box {
+    border-radius: 8px;
+    background-color: $white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    margin-top: 18px;
+  }
+
+  .erp-t-info {
+    float: left;
+  }
+
+  .erp-t-percent {
+    float: right;
+    box-sizing: border-box;
+    height: 37px;
+    border-radius: 18px;
+    margin-top: 18px;
+    padding: 4px 10px;
+    text-align: center;
+    margin-right: 20px;
+
+    i {
+      vertical-align: baseline;
+      margin-right: 4px;
+      font-size: 15px
+    }
+
+    .erf-per {
+      font-family: $font-bold;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    &.erp-loss {
+      color: #BE0202;
+      border: 1px solid #BE0202;
+      background-color: #FFCCCC;
+
+      .icon-down-arrow {
+        color: #BE0202;
+      }
+    }
+
+    &.erp-profit {
+      color: #21BD00;
+      border: 1px solid #21BD00;
+      background-color: #CDF5C5;
+
+      .icon-Path {
+        color: #21BD00;
+      }
+    }
+  }
+
+  .erp-sepration::after {
+    content: '';
+    opacity: 0.2;
+    border-left: 2px solid $black;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-left: -26px;
+  }
+
+  .erp-totals {
+    height: 107px;
+    max-width: 300px;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: $white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+
+    @media screen and (min-width: 1025px) and (max-width: 1366px) {
+      padding: 14px;
+    }
+  }
+
+  .erp-t-title {
+    color: $gray-9;
+    font-family: $font-bold;
+
+    @media screen and (min-width: 1025px) and (max-width: 1366px) {
+      height: 42px;
+    }
+  }
+}
+
+.erp-wdgt-box {
+  margin-top: 40px;
+
+  .erp-wdgt {
+    .erp-wdgt-title {
+      color: $text-color;
+      font-family: $font-bold;
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+  }
+}
+
+.erp-wdgt-view {
+  .erp-wdgt-head {
+    height: 40px;
+    border-radius: 2px 2px 0 0;
+    background-color: $theme-color;
+    color: $white;
+    padding: 8px 18px;
+
+    div {
+      color: $white;
+      float: left;
+      font-family: $font-bold;
+      font-size: 16px;
+    }
+  }
+
+  .erp-cat-box {
+    border-radius: 6px;
+    background-color: $white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .erp-sg-title {
+    color: $black;
+    font-family: $font-bold;
+    font-size: 16px;
+    padding: 16px 16px 4px;
+  }
+
+  .erp-cat-list {
+    list-style: none;
+    margin-bottom: 0;
+
+    :first-child {
+      border-top: none;
+    }
+  }
+
+  .erp-cat-item {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid #D8D8D8;
+  }
+
+  .erp-wdgt-item {
+    .erp-c-item {
+      color: #27272D;
+      font-family: $font-regular;
+      font-size: 16px;
+
+      @media screen and (min-width: 1025px) and (max-width: 1366px) {
+        width: 206px;
+      }
+    }
+
+    .f-bold {
+      font-weight: 600;
+    }
+
+    .erp-c-exp {
+      color: #27272D;
+      font-family: $font-bold;
+      font-size: 16px;
+      float: right;
+    }
+  }
+
+  .erp-item-tot {
+    height: 48px;
+    border-radius: 0 0 6px 6px;
+    background-color: #EFEFEF;
+  }
+
+  .erp-item-tot {
+    padding: 10px;
+  }
+
+  .erp-total-l {
+    color: #27272D;
+    font-family: $font-regular;
+    font-size: 22px;
+    float: left;
+  }
+}
+
+.epr-datep {
+  box-sizing: border-box;
+  height: 38px;
+  width: 160px;
+  border: 1px solid #EFEFEF;
+  background-color: $white;
+  padding-left: 14px;
+  border-radius: 6px;
+}
+
+.erp-box-p {
+  width: 20%;
+  max-width: 20%;
+  flex: 0 0 20%;
+}

@@ -1,0 +1,212 @@
+.header-modalbg{
+    background-repeat: no-repeat;
+    text-align: center;
+   // min-height: 100px;
+    background-size: cover;
+    position: relative;
+    img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+.banner-modal{
+    &.modal-dialog{
+        background-color: transparent;
+        max-width: 70%;
+        @media screen and (max-width:767px){
+            margin: 60px auto;
+        }
+    }
+    .modal-header{
+        padding: 0;
+        border-bottom: 0;
+        border-top-left-radius:14px;
+        border-top-right-radius:14px;
+    }
+    .modal-body{
+        padding: 1rem 35px 3rem 35px;
+    }
+    .thank-you-body{
+        text-align: center;
+        h4{
+            color:$gray-900;
+            font-size: 20px;
+            font-family: $font-bold;
+            line-height: 25px;
+            margin: 0 0 15px 0;
+        }
+        p{  
+            color:$gray-900;
+            font-size: 14px;	
+            line-height: 18px;
+        }
+    }
+    .btn-grops-footer{
+        width: 100%;
+        a{
+            display: inline-block;
+            width: calc(100% / 2);
+            text-align: center;
+            padding: 17px 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-family: $font-regular;
+            font-weight: 800;
+            color:$white;
+            &:first-child{
+                border-right: 1px solid rgba(255,255,255,0.1);
+            }
+        }
+    }
+    .custom-modal-footer{
+        border-bottom-left-radius:14px;
+        border-bottom-right-radius:14px;
+
+    }
+    .Confirm-header{	
+        color: $primary_text_color;	
+        font-family: $font-regular;
+        font-weight: 800;	
+        font-size: 20px;	
+        font-weight: 900;	
+        line-height: 25px;	
+        text-align: center;
+        margin-top: 20px;
+    }
+    .banner-image{	
+        width: 100%;
+        object-fit: cover;
+        max-height: 75vh;
+    }
+    .lable-text{
+        opacity: 0.8;	
+        font-family: $font-black;	
+        font-size: 14px;	
+        line-height: 18px;
+    }
+    .my-alert-message-text{
+        // color: rgba(0,0,0,0.8);
+        @include color-opacity($black,0.8);
+        font-family: $font-regular;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+    }
+
+}
+.confirmation-modal{
+    .modal-header{
+        padding: 15px 15px 11px;
+    }
+    .Confirm-header {
+        color: $primary_text_color;
+        font-family: $font-black;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 25px;
+        text-align: center;
+        margin-top: 0px;
+        &.banner-app{
+            font-family: $font-bold;
+        }
+    }
+    .modal-body{
+        padding: 1px;
+        .devider-line{
+            background-color: $border_color;
+            height: 1px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            &.no-margin{
+                margin-top: -13px !important;
+                margin-bottom: 0px !important;
+            }
+        }
+    }
+    table{
+        td{
+            width: 50%;
+            font-size: 13px;
+            &:last-child {
+                text-align: right;
+            }
+        }
+        tr{
+            &:last-child{
+                border-bottom: 1px solid $gray-300;
+            }
+        }
+    }
+    .dissmiss-btn-footer{
+        padding: 5px 0;
+        a{
+            font-size: 13px;
+            border-radius: 0;
+            background: transparent;
+            margin: 0;
+            box-shadow: none;
+            width: 100%;
+            color: $white;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 10px 10px 8px;
+            font-family: $font-bold;
+            &:nth-child(2){
+                border-left: 1px solid $white;
+            }
+            &.single-text{
+                width: 100%;
+            }
+        }
+    }
+    .basic-select-field {
+        padding: 0;
+        width: 100%;
+        .select__value-container{
+            padding: 0;
+            text-align: left;
+            .select__placeholder {
+                color: $gray-900;
+                font-family: $font-bold;
+                font-size: 14px;
+            }
+        }
+        .select__control {
+            height: 20px;
+            min-height: 1px;
+            border-radius: 0;
+            background-color: $white;
+            border-color: transparent !important;
+            box-shadow: none !important;
+
+            .select__single-value {
+                //color: $white;
+                font-size: 12px;
+            }
+        }
+        .select__indicator-separator {
+            display: none;
+        }
+        .select__indicator{
+            padding-right: 0;
+        }
+    }
+    .lable-text{
+        font-family: $font-regular;
+        font-size: 13px;
+    }
+    .select__menu{
+        z-index: 999;
+    }
+}
+
+
+// changes for dark theme overall
+.body-dark-theme{
+    .confirmation-modal .Confirm-header{
+        color: $darkT_primary_text_color;
+    }
+}

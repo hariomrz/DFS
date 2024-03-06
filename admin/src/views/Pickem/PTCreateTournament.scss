@@ -1,0 +1,578 @@
+.pt-create-tournament {
+  margin-top: 36px;
+
+  .dfs-up-btn {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .dfs-remove-img {
+    color: $secondary-color;
+    font-family: $font-bold;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: -60%;
+    bottom: 0;
+  }
+
+  .dfs-sel-fx {
+    color: $gray-9;
+  }
+
+ .dfs-banner-text {
+    margin-top: 8px;
+    float: left;
+    margin-left: 16px;
+    color: #999999;
+    font-family: "MuliBold";
+    font-size: 12px;
+}
+  .dfs-banner-sz {
+    color: #999999;
+    font-family: "MuliBold";
+    font-size: 12px;
+    margin-top: 6px;
+    margin-left: 30px;
+  }
+
+  .dfs-upload {
+    box-sizing: border-box;
+    height: 30px;
+    width: 150px;
+    border: 1px solid $gray-9;
+    border-radius: 4px;
+    color: $gray-9;
+    font-family: $font-bold;
+    font-size: 16px;
+    padding-top: 2px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .dfs-uplogo-box {
+    .uplogo-btn {
+      float: left;
+      margin-right: 80px;
+    }
+
+    .dfs-image-box {
+      float: left;
+      width: 280px;
+      height: 180px;
+      position: relative;
+      .img-cover {
+        border-radius: 8px;
+        object-fit: contain;
+      }
+
+    }
+  }
+
+  .pickem-selection{
+    top: 0 !important;
+    right: 0 !important;
+  }
+
+  .select-pickem-currency{
+    background: #EDEDED;
+    height: 38px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 15px;
+    &:focus-visible{
+      outline: none;
+    }
+  }
+
+  .pt-white-box {
+    background-color: $white;
+    padding: 26px;
+    margin-top: 22px;
+    box-shadow: 0 15px 45px 0 rgba(14, 22, 39, 0.1);
+
+    .Select-control,
+    .form-control {
+      border: none;
+      border-radius: 5px;
+      height: 38px;
+      background-color: #EDEDED;
+
+      .Select-clear-zone {
+        display: none;
+      }
+    }
+  }
+
+  .pt-sel-league {
+    .Select-control {
+      background-color: #EDEDED !important;
+    }
+
+    .Select-value-label {
+      // line-height: 48px;
+      line-height: 1;
+    }
+  }
+
+  .fixture-label {
+    font-family: $font-bold;
+    font-size: 18px;
+  }
+
+  .pt-fixture-view {
+    background-color: #EDEDED;
+    padding: 30px 20px;
+    border-radius: 6px;
+
+    .fixture-view-header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .line {
+      background-color: #D8D8D8;
+      height: 1px;
+    }
+
+    .select-all-parent {
+      input[type="checkbox"] {
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
+      }
+    }
+
+    .pt-select-all {
+      font-size: 16px;
+      font-family: $font-bold;
+      vertical-align: super;
+    }
+
+    .pt-search-wrapper {
+      .form-control {
+        font-family: $font-regular;
+        padding: 10px 30px 10px 20px;
+        height: 36px;
+        width: 310px;
+        border-radius: 18px;
+        background-color: $white;
+        box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+        margin-left: 22px;
+      }
+
+      i {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30px;
+        z-index: 99;
+        color: $gray-9;
+        padding: 12px 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .pt-label {
+    font-family: $font-bold;
+    margin-bottom: 8px;
+    color: $gray-5;
+    font-size: 16px;
+    display: block;
+  }
+
+  // .react-datepicker-wrapper {
+  //   display: block;
+  // }
+
+  .pt-datep {
+    height: 48px;
+    width: 94%;
+    background-color: #EDEDED;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+  }
+
+  .pt-sel-league {
+    width: 100%;
+    border-radius: 4px;
+    background-color: #EDEDED;
+  }
+
+  .right-selection {
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    background-color: #2A2E49;
+    position: absolute;
+    right: 15px;
+    justify-content: flex-end;
+    top: 10px;
+    padding-left: 0px;
+    align-items: center;
+    border-bottom-left-radius: 27px;
+    border-top-right-radius: 12px;
+
+    @media (min-width: 1650px) {
+      top: 12px;
+      right: 22px;
+    }
+
+    .rght-img {
+      width: 24px;
+      height: 22px;
+    }
+  }
+
+  .fixture-row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .fixture-data {
+    padding: 10px;
+    margin-top: 10px;
+    height: 80px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .center-view {
+      display: flex;
+      flex-direction: column;
+      margin: 8px;
+    }
+
+    .team-image {
+      height: 35px;
+      width: 35px;
+
+    }
+
+    .team-name {
+      color: #212121;
+      font-family: $font-bold;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 19px;
+      text-align: center;
+    }
+
+    .time {
+      color: #EB4A3C;
+      font-family: $font-bold;
+      font-size: 10px;
+      font-weight: bold;
+      line-height: 13px;
+      text-align: center;
+    }
+  }
+
+  .right-item {
+    display: flex;
+
+  }
+
+  .pt-filter-dopdown {
+    height: 35px;
+    width: 100px;
+    border-radius: 15px;
+    background-color: $white;
+
+    .Select-menu-outer {
+      margin-top: 2px;
+      border-radius: 0;
+      border: none;
+      box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15);
+
+      div {
+        border-radius: 0;
+        background-color: transparent;
+
+        &:hover {
+          background-color: transparent;
+          border-radius: 0;
+        }
+      }
+    }
+
+    .Select-control {
+      border: none;
+      border-radius: 15px;
+      height: 35px;
+      background-color: $white;
+
+      .Select-clear-zone {
+        display: none;
+      }
+
+      .Select-placeholder {
+        padding-top: 7px;
+        padding-left: 12px;
+      }
+
+      .Select-value {
+        padding-top: 2px;
+        padding-right: 0px !important;
+      }
+
+      .Select-multi-value-wrapper {
+        height: 35px;
+
+        .Select-value-label {
+          color: $black !important;
+          font-family: $font-bold;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .pt-upload {
+    box-sizing: border-box;
+    height: 30px;
+    width: 150px;
+    border: 1px solid $gray-9;
+    border-radius: 4px;
+    color: $gray-9;
+    font-family: $font-bold;
+    font-size: 16px;
+    padding-top: 2px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .pt-uplogo-box {
+    .uplogo-btn {
+      float: left;
+      margin-right: 80px;
+      display: contents;
+    }
+
+    .pt-image-box {
+      float: left;
+      width: 300px;
+      height: 150px;
+
+      .img-cover {
+        border-radius: 8px;
+        object-fit: contain;
+      }
+
+    }
+  }
+
+  .pt-up-btn {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .pt-remove-img {
+    color: $secondary-color;
+    font-family: $font-bold;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .pt-sel-fx {
+    color: $gray-9;
+  }
+
+  .pt-uplogo-box {
+    margin-top: 26px;
+  }
+
+  .pt-btn-sub {
+    text-align: center;
+    margin-top: 28px;
+
+    .btn {
+      height: 36px;
+      width: 132px;
+    }
+  }
+
+  .pt-sponsor-box {
+    .com-chekbox-container {
+      font-size: 16px;
+    }
+  }
+
+  .pt-btn-txt {
+    float: left;
+    text-align: center;
+
+    input[type="file"] {
+      width: 150px;
+    }
+  }
+
+  .pt-banner-sz {
+    color: $gray-9;
+    font-family: $font-bold;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  .pt-banner-text {
+    margin-top: 8px;
+    float: left;
+    margin-left: 16px;
+    color: $gray-9;
+    font-family: $font-bold;
+    font-size: 12px;
+  }
+
+  .pt-banner-img {
+    width: 100%;
+    max-width: 334px;
+    height: 60px;
+    margin-top: 30px;
+    position: relative;
+    .icon-close {
+      cursor: pointer;
+      position: absolute;
+      color: $white;
+      right: -10px;
+      top: -10px;
+      padding: 4px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 100%;
+    }
+  }
+
+  /* Start distribution table  */
+  .prize-dist-table {
+    .prize-type {
+      .Select-control {
+        height: 38px !important;
+      }
+    }
+
+    .form-control {
+      height: 38px !important;
+    }
+
+    .head-title {
+      margin: 14px 70px;
+    }
+
+    .rank-input {
+      width: 80px;
+    }
+
+    .prize-type {
+      width: 200px;
+    }
+
+    .fx-distribution {
+      .form-control {
+        width: 200px;
+      }
+    }
+
+    .pt-btn-wdt {
+      width: 70%;
+      float: left;
+    }
+
+    .add-prize-btn {
+      // width: 75%;
+      // float: left;
+      max-width: 600px;
+    }
+
+    .pt-tot-dtl {
+      color: #030F09;
+      font-family: $font-bold;
+      font-size: 16px;
+    }
+
+    .pt-real {
+      color: $gray-9;
+    }
+
+    .pt-total-dis {
+      text-align: center;
+      width: 30%;
+      float: left;
+    }
+
+    .pt-tot-sty {
+      margin: 34px 40px;
+      float: left;
+    }
+
+    .pt-total-prz {
+      margin-left: 34px;
+      margin-top: 20px;
+    }
+  }
+
+  .pd-select{
+    .Select-control {
+      background-color: #EDEDED !important;
+    }
+  }
+  /*End distribution table */
+  .view-picks {
+    margin: 0;
+
+    .home-left,
+    .home-right {
+      min-height: 80px;
+      height: 80px;
+    }
+
+    .cricket-fixture-card {
+      margin-top: 12px;
+      margin-bottom: 0;
+      min-height: 100px;
+    }
+
+    .live-comp-date {
+      border-bottom: 1px solid #EAEAEA;
+    }
+  }
+  .pt-setp-stype{
+    float: left;
+    width: 300px;
+  }
+  .pick-option{
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .league-pickem{
+    .Select-control{
+      height: 38px;
+    }
+    .form-control{
+      height: 38px !important;
+    }
+  }
+  .small-grey-text{
+    font-size: 12px;
+    color: #999999;
+  }
+  .tie-br-question{
+    height: 100px !important;
+  }
+  .free-contest{
+    font-size: 12px;
+    color: #999999;
+  }
+}
+
+span.opt-text.pickem-lble {
+  font-size: 16px;
+  vertical-align: top;
+}

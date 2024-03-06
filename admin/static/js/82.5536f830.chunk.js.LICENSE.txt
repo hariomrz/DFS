@@ -1,0 +1,60 @@
+/*
+      object-assign
+      (c) Sindre Sorhus
+      @license MIT
+      */
+
+/*!
+        * 
+        * Super simple wysiwyg editor v0.8.18
+        * https://summernote.org
+        * 
+        * 
+        * Copyright 2013- Alan Hong. and other contributors
+        * summernote may be freely distributed under the MIT license.
+        * 
+        * Date: 2020-05-20T16:47Z
+        * 
+        */
+
+/*!
+  * Bootstrap dropdown.js v4.5.0 (https://getbootstrap.com/)
+  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
+
+/*!
+  * Bootstrap modal.js v4.5.0 (https://getbootstrap.com/)
+  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
+
+/*!
+  * Bootstrap tooltip.js v4.5.0 (https://getbootstrap.com/)
+  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
+
+/*!
+  * Bootstrap util.js v4.5.0 (https://getbootstrap.com/)
+  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
+
+/** @license React v16.13.1
+        * react-is.development.js
+        *
+        * Copyright (c) Facebook, Inc. and its affiliates.
+        *
+        * This source code is licensed under the MIT license found in the
+        * LICENSE file in the root directory of this source tree.
+        */
+
+/** @license React v16.13.1
+       * react-is.production.min.js
+       *
+       * Copyright (c) Facebook, Inc. and its affiliates.
+       *
+       * This source code is licensed under the MIT license found in the
+       * LICENSE file in the root directory of this source tree.
+       */

@@ -1,0 +1,11 @@
+// // @import "../../../assets/scss/bootstrap/bootstrap.scss";
+.timer {
+  &.link-danger {
+    color: $danger;
+    font-family: $font-exo-bold;
+  }
+  &.link-normal {
+    color: $white;
+    font-family: $font-exo-bold;
+  }
+}

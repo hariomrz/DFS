@@ -1,0 +1,138 @@
+<div class="feed-list">
+  <div class="feed-header">
+    <div class="feed-header-left">
+      <figure class="thumb-sm">
+        <a class="loadbusinesscard" entitytype="user" entityguid="{{data.UserGUID}}" ng-if="data.PostAsModuleID == '3'" ng-href="{{data.SiteURL + data.UserProfileURL}}">
+            <img   class="img-circle" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.UserProfilePicture}}" err-name="{{data.UserName}}">
+        </a>
+      </figure>
+      <div class="info-text">
+        <a class="loadbusinesscard" entitytype="user" entityguid="{{data.UserGUID}}" ng-href="{{data.SiteURL + data.UserProfileURL}}" ng-bind="data.UserName"></a>                  
+        <small>participated in</small>
+        <span><a ng-href="{{data.SiteURL + data.ActivityURL}}">Contest</a></span>
+      </div>
+    </div>
+    <ul class="feed-nav pull-right showonhover">                
+      <li><i class="ficon-history"></i></li>
+      <li><i class="ficon-folderminus"></i></li>
+      <li>
+        <i class="ficon-arrow-down" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu">
+          <li>
+            <a ng-if="((data.IsArchive != 1) && (!data.ReminderData.ReminderGUID || (data.ReminderData.ReminderGUID && CheckReminderDate(data.ActivityGUID))))" ng-click="toggleArchiveEmit(data.ActivityGUID);">
+                <span>Archive</span>
+                <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed.">&nbsp;</i>
+            </a>
+            <a ng-if="((data.IsArchive != 1) && (data.ReminderData.ReminderGUID && !CheckReminderDate(data.ActivityGUID)))" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ARCHIVED');">
+                <span>Archive</span>
+                <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed.">&nbsp;</i>
+            </a>
+            <a ng-if="((data.IsArchive == 1) && data.ReminderData.ReminderGUID)" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ACTIVE');">Unarchive</a>
+            <a ng-if="((data.IsArchive == 1) && !data.ReminderData.ReminderGUID)" ng-click="toggleArchiveEmit(data.ActivityGUID);">Unarchive</a>
+          </li>
+          <li>
+            <a ng-click="toggleWatchlistStatus(data.ActivityGUID)" ng-bind="(data.IsWatchList == '1') ? 'Remove from Watchlist' : 'Add to Watchlist';"></a>
+          </li>
+          <li ng-if="(data.FavouriteAllowed == 1)">
+            <a ng-click="setFavouriteEmit(data.ActivityGUID);" ng-bind="(data.IsFavourite == '1') ? 'Remove from favorites' : 'Add to favorites'"></a>
+          </li>
+          <li data-ng-if="data.IsOwner == '1' && data.ActivityType != 'AlbumAdded' && data.ActivityType != 'AlbumUpdated'">
+            <a data-ng-click="editPost(data.ActivityGUID, $event)">Edit Post</a>
+          </li>
+          <li ng-click="seenDetailsEmit(data.ActivityGUID, 'ACTIVITY');"><a>Views</a></li>
+          <li data-ng-if="(data.CanRemove == '1' || data.IsOwner)">
+            <a ng-click="deleteEmit(data.ActivityGUID);">Remove Post</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="feed-nav pull-right">
+      <li>
+        <span ng-cloak class="date-time" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.CreatedDate));}}" ng-bind="date_format((data.CreatedDate))"></span>
+      </li>
+      <li>
+        <i class="ficon-globe" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu feed-privacy">
+          <li><a><i class="ficon-globe"></i>Everyone</a></li>
+          <li><a><i class="ficon-friends"></i>Friends</a></li>
+          <li><a><i class="ficon-user"></i>Only me</a></li>
+          <li><a><i class="ficon-user-plus f-lg"></i>Only me</a></li>
+          <li><a><i class="ficon-friends-plus f-lg"></i>Friends me</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="panel post-panel contest-post onFeed" ng-class="data.OriginalParams.BackgroundClass" style="{{(data.Album.length>0) ? 'background:url('+data.ImageServerPath+'upload/wall/'+data.Album[0].Media[0].ImageName+') no-repeat 0 0; background-size: cover;' : '' ;}}">
+    <div class="panel-heading">
+      <h3 class="panel-title">  
+        <ul class="feed-nav showonhover">     
+          <li>
+            <i class="ficon-arrow-down" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+              <li>
+                <a ng-if="((data.IsArchive != 1) && (!data.ReminderData.ReminderGUID || (data.ReminderData.ReminderGUID && CheckReminderDate(data.ActivityGUID))))" ng-click="toggleArchiveEmit(data.ActivityGUID);">
+                    <span>Archive</span>
+                    <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed.">&nbsp;</i>
+                </a>
+                <a ng-if="((data.IsArchive != 1) && (data.ReminderData.ReminderGUID && !CheckReminderDate(data.ActivityGUID)))" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ARCHIVED');">
+                    <span>Archive</span>
+                    <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed.">&nbsp;</i>
+                </a>
+                <a ng-if="((data.IsArchive == 1) && data.ReminderData.ReminderGUID)" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ACTIVE');">Unarchive</a>
+                <a ng-if="((data.IsArchive == 1) && !data.ReminderData.ReminderGUID)" ng-click="toggleArchiveEmit(data.ActivityGUID);">Unarchive</a>
+              </li>
+              <li>
+                <a ng-click="toggleWatchlistStatus(data.ActivityGUID)" ng-bind="(data.IsWatchList == '1') ? 'Remove from Watchlist' : 'Add to Watchlist';"></a>
+              </li>
+              <li ng-if="(data.FavouriteAllowed == 1)">
+                <a ng-click="setFavouriteEmit(data.ActivityGUID);" ng-bind="(data.IsFavourite == '1') ? 'Remove from favorites' : 'Add to favorites'"></a>
+              </li>
+              <li data-ng-if="data.IsOwner == '1' && data.ActivityType != 'AlbumAdded' && data.ActivityType != 'AlbumUpdated'">
+                <a data-ng-click="editPost(data.ActivityGUID, $event)">Edit Post</a>
+              </li>
+              <li ng-click="seenDetailsEmit(data.ActivityGUID, 'ACTIVITY');"><a>Views</a></li>
+              <li data-ng-if="(data.CanRemove == '1' || data.IsOwner)">
+                <a ng-click="deleteEmit(data.ActivityGUID);">Remove Post</a>
+              </li>
+            </ul>
+          </li>
+        </ul>              
+        <span class="text" ng-bind="data.OriginalPostTitle"></span>
+      </h3>
+    </div>             
+    <div class="panel-body">
+      <div class="post-panel-content">
+        <div class="row">
+          <div class="col-md-8">
+            <div ng-if="data.IsParticipating=='0'" ng-cloak class="content">
+              <h3 class="title" ng-bind="data.PostContent"></h3>
+              <a class="btn btn-default btn-block text-primary" ng-click="joinContest(data.ParentActivityID)" ng-bind="data.OriginalParams.ButtonText">Enter to Contest</a>
+              <p>TIME TO ENTER - <b ng-bind="timeRemainingForContest(data.ContestEndDate)"></b><!-- <b>12D : 13H : 31M</b> --></p>
+            </div>
+            <div ng-if="data.IsParticipating=='1'" ng-cloak class="content">
+              <h3 class="title">Good Luck</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="post-panel-bottom">              
+    <div class="activity-bar">
+      <ul class="feed-actions">
+        <li>
+          <a ng-cloak ng-if="data.OriginalParams.NoOfParticipants && data.OriginalParams.NoOfParticipants>0">
+            <span class="icon"><i class="ficon-participate f-mlg"></i></span>
+            <span ng-bind="(data.OriginalParams.NoOfParticipants==1) ? '1 user participated' : data.OriginalParams.NoOfParticipants+' users participated' ;" class="text"></span>
+          </a>
+        </li>
+        <li class="pull-right">
+          <a ng-click="shareEmit(data.ActivityGUID);">
+            <span class="icon"><i class="ficon-share f-mlg"></i>
+          </a>
+        </li>
+      </ul>                  
+    </div>
+  </div>
+</div>

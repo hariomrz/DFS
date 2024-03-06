@@ -1,0 +1,141 @@
+.slice-color {
+  min-width: 88px;
+}
+
+.top-earner-sc {
+  &:not(.bg-white) {
+    margin-top: 14px;
+  }
+  &.prize-lboard{
+    .top-earner{
+      margin-top: 20px;
+      font-size: 26px;
+    }
+  }
+  .custom-pagination{
+    float: right;
+    padding: 0 0 30px 0;
+  }
+  .total-title {
+    color: $gray-5;
+    font-family: $font-bold;
+    line-height: 18px;
+  }
+
+  .total-num {
+    color: #27272d;
+    font-family: $font-bold;
+    font-size: 36px;
+    line-height: 38px;
+    img {
+      width: 36px;
+      height: 36px;
+    }
+    .num {
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+  }
+
+  .top-earner {
+    color: #27272d;
+    font-family: $font-bold;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 42px;
+  }
+  .leader-board {
+    color: $gray-9;
+    font-family: $font-bold;
+  }
+  .react-datepicker-wrapper {
+    margin-right: 6px;
+    float: left;
+  }
+  .export-topearner {
+    float: left;
+    margin-left: 8px;
+    .export-list {
+      border-color: rgba(142, 142, 142, 0.5);
+      color: #2a2e49;
+    }
+  }
+  .table-responsive {
+    margin-top: 20px;
+    min-height: 500px;
+  }
+
+  .view-all-box {
+    text-align: center;
+    background-color: $white;
+    padding: 20px 10px 12px;
+    .view-all:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.total-redeem-box {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 240px;
+  background-color: $white;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  .total-coins,
+  .graph-percent {
+    color: #030f09;
+    font-family: $font-bold;
+  }
+  .gift-details {
+    font-size: 12px;
+  }
+  .coin-label {
+    color: $gray-5;
+    font-family: $font-bold;
+    margin-bottom: 0;
+    text-align: left;
+    width: 100%;
+  }
+  .coin-value {
+    color: #27272d;
+    font-family: $font-bold;
+    font-size: 36px;
+    line-height: 38px;
+    @media (max-width: 1370px) {
+      font-size: 32px;
+    }
+    img {
+      width: 36px;
+      height: 36px;
+      vertical-align: sub;
+      margin-right: 2px;
+    }
+  }
+}
+.redeem-list.table-responsive {
+  i {
+    color: #00bfeb;
+    font-size: 16px;
+    font-weight: 800;
+    vertical-align: inherit;
+  }
+}
+.dashboard-view {
+  background-color: $white;
+  color: #030f09;
+  th {
+    padding: 10px !important;
+    font-size: 16px;
+    border-bottom: 1px solid #d8d8d8 !important;
+  }
+}
+.cursor-p{
+  cursor: pointer;
+}
+
+.coin-export{
+  float: right!important;
+}

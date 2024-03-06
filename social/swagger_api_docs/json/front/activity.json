@@ -1,0 +1,1861 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/activity/index": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Activity API",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LocalityID",
+                        "in": "header",
+                        "description": "The Locality ID.",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/createWallPost": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Create/Edit Activity API",
+                "description": "Used to create new post",
+                "operationId": "createWallPost",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\createWallPost"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/toggleLike": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to  like / unlike an entity",
+                "description": "",
+                "operationId": "toggleLike",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\toggleLike"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/getLikeDetails": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to get list of user's who liked this post",
+                "description": "",
+                "operationId": "getLikeDetails",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\getLikeDetails"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/removeActivity": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to delete post",
+                "description": "",
+                "operationId": "removeActivity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\removeActivity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/get_deleted_activity": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to get deleted post",
+                "description": "",
+                "operationId": "get_deleted_activity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\get_deleted_activity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/seen_list": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to get list of user's who viewed this post",
+                "description": "",
+                "operationId": "seen_list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\seen_list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/addComment": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to add comment on an entity",
+                "description": "",
+                "operationId": "addComment",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\addComment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/getAllComments": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to get comment list for an entity",
+                "description": "",
+                "operationId": "getAllComments",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\getAllComments"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/deleteComment": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to delete comment",
+                "description": "",
+                "operationId": "deleteComment",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\deleteComment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/set_featured_post": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to mark an post as featured/Unfeatured post",
+                "description": "",
+                "operationId": "set_featured_post",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\set_featured_post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/activity_media": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to get activity media list",
+                "description": "",
+                "operationId": "activity_media",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\activity_media"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/short_link": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to get activity short link",
+                "description": "",
+                "operationId": "short_link",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\short_link"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/visibility": {
+            "post": {
+                "tags": [
+                    "Activity Visibility"
+                ],
+                "summary": "Used to get activity visibility WARD list",
+                "description": "",
+                "operationId": "visibility",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\visibility"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/log": {
+            "post": {
+                "tags": [
+                    "Activity View"
+                ],
+                "summary": "Used to save view log",
+                "description": "",
+                "operationId": "log",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Log\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/city_news": {
+            "post": {
+                "tags": [
+                    "City News"
+                ],
+                "summary": "Used to get city news list",
+                "description": "",
+                "operationId": "city_news",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\city_news"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/get_unread_city_news_count": {
+            "post": {
+                "tags": [
+                    "City News"
+                ],
+                "summary": "Used to get city news unread count",
+                "description": "",
+                "operationId": "city_news",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\get_unread_city_news_count"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/story_user": {
+            "post": {
+                "tags": [
+                    "Story"
+                ],
+                "summary": "Used to get story user list with story count",
+                "description": "",
+                "operationId": "story_user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\story_user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/user_story": {
+            "post": {
+                "tags": [
+                    "Story"
+                ],
+                "summary": "Used to get user stories",
+                "description": "",
+                "operationId": "user_story",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\user_story"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/public_feed": {
+            "post": {
+                "tags": [
+                    "Public Activity"
+                ],
+                "summary": "Public Activity API",
+                "description": "",
+                "operationId": "public_feed",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\public_feed"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity/idea_for_better_indore": {
+            "post": {
+                "tags": [
+                    "Idea For Better Indore"
+                ],
+                "summary": "Used to get activity which are marked as Idea For Better Indore",
+                "description": "",
+                "operationId": "idea_for_better_indore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity\\idea_for_better_indore"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Activity\\index": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "EntityGUID": {
+                    "description": "Entity GUID, it may be User/Quiz GUID",
+                    "type": "string",
+                    "example": "1ebb78a8-aefb-dbc8-6703-d111e3218947"
+                },
+                "ModuleID": {
+                    "description": "Entity Module ID, 3 - User, 47 - Quiz",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "FeedSortBy": {
+                    "description": "Activity Sort Order, 1 for Recent Updated, 2 for Recent Post, 3 for popular, 4 for bookmark",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "AllActivity": {
+                    "description": "used to fetch feed or wall, 0 for wall, 1 for newsfeed",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "ActivityGUID": {
+                    "description": "To get particular activity details",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "SearchKey": {
+                    "description": "Search Keyword",
+                    "type": "string",
+                    "example": "abc"
+                },
+                "IsMediaExists": {
+                    "description": "Used to show only media(1) or only text(0), or both(2)",
+                    "type": "integer",
+                    "example": "2"
+                },
+                "FeedUser": {
+                    "description": "Used to show only particular user feed",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": "aae78fc2-898c-a185-2525-937ac2c5d7b3"
+                    }
+                },
+                "StartDate": {
+                    "description": "Start Date, show feed which are created on & after this date",
+                    "type": "string",
+                    "example": "2017-12-01"
+                },
+                "EndDate": {
+                    "description": "End Date, show feed which are created on & before this date",
+                    "type": "string",
+                    "example": "2018-04-07"
+                },
+                "ActivityFilterType": {
+                    "description": "Different type of filter like 0- for all, 11 - for Feature, 1 for user specific bookmark, 12 for all user bookmark",
+                    "type": "string",
+                    "example": "0"
+                },
+                "AsOwner": {
+                    "description": "It is used in case of page wall, to filter all the post which are created as a Page, 0 -for all, 1 -for page created post  ",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "Mentions": {
+                    "description": "Mentions, Used to filter only those post, in which given user/group are tagged",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "ModuleEntityGUID": {
+                                "type": "string",
+                                "example": "eae972b2-cc27-81bd-183d-1b25e3256338"
+                            },
+                            "ModuleID": {
+                                "type": "integer",
+                                "example": "3"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "ViewEntityTags": {
+                    "description": "Used to get activity tag or not, 1 -for Yes, 0 -for No",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PostType": {
+                    "description": "Post Type: 0 -All Post, 1 -Discussion, 2 -Q&A, 4 -Article, 7 -Announcement, 8 -Visual, 9 -Contest",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "Tags": {
+                    "description": "Filter feed based on some existing post tags",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "TagID": {
+                    "description": "Tag ID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "WardIds": {
+                    "description": "Array of Ward Ids",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "TagCategories": {
+                    "description": "Array of Tag Category Ids",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\createWallPost": {
+            "required": [
+                "Visibility",
+                "PostContent"
+            ],
+            "properties": {
+                "ModuleEntityGUID": {
+                    "description": "Module Entity GUID, it may be User/Quiz GUID",
+                    "type": "string",
+                    "example": "1ebb78a8-aefb-dbc8-6703-d111e3218947"
+                },
+                "ModuleID": {
+                    "description": "Entity Module ID, 3 - User, 47 - Quiz",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "PostType": {
+                    "description": "Post Type: 1 -Discussion, 2 -Q&A, 4 -Article, 7 -Announcement, 8 -Visual, 9 -Contest",
+                    "type": "integer",
+                    "example": "2"
+                },
+                "Visibility": {
+                    "description": "Post privacy, 1 for Everyone, 3 Friend, 3 Only me",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "Commentable": {
+                    "description": "Comment on/Off, 1 -On, 0 -Off",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PostTitle": {
+                    "description": "Post Title",
+                    "type": "string",
+                    "example": "abc"
+                },
+                "PostContent": {
+                    "description": "Post Content",
+                    "type": "string",
+                    "example": "abc"
+                },
+                "AllActivity": {
+                    "description": "Created from wall/newsfeed, 0 for wall, 1 for newsfeed",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "NotifyAll": {
+                    "description": "Used to notify all member if post made on group wall, 1 -Notify all, 0 -Not Notify",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "ActivityGUID": {
+                    "description": "Activity GUID, in case of edit",
+                    "type": "string",
+                    "example": ""
+                },
+                "Summary": {
+                    "description": "Post Summary, it is used in case of article",
+                    "type": "string",
+                    "example": ""
+                },
+                "PostAsModuleID": {
+                    "description": "Post Creator module ID, it may be 3(User), Page(18)",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "PostAsModuleEntityGUID": {
+                    "description": "Post Creator GUID",
+                    "type": "string",
+                    "example": "1ebb78a8-aefb-dbc8-6703-d111e3218947"
+                },
+                "EntityTags": {
+                    "description": "EntityTags, array of post tags",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "Name": {
+                                "type": "string",
+                                "example": "php"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "Media": {
+                    "description": "Media, array of post Media",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "MediaGUID": {
+                                "type": "string",
+                                "example": "f7d1cdef-ef64-8f5e-3898-043eb546437d"
+                            },
+                            "MediaType": {
+                                "type": "string",
+                                "example": "PHOTO"
+                            },
+                            "Caption": {
+                                "type": "string",
+                                "example": "php"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "Files": {
+                    "description": "Files, array of post Files",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "MediaGUID": {
+                                "type": "string",
+                                "example": "f7d1cdef-ef64-8f5e-3898-043eb546437d"
+                            },
+                            "MediaType": {
+                                "type": "string",
+                                "example": "Documents"
+                            },
+                            "Caption": {
+                                "type": "string",
+                                "example": "php"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "Links": {
+                    "description": "Links, array of post Links",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "URL": {
+                                "type": "string",
+                                "example": "http://www.google.com/"
+                            },
+                            "Title": {
+                                "type": "string",
+                                "example": "Google"
+                            },
+                            "MetaDescription": {
+                                "type": "string",
+                                "example": "Google"
+                            },
+                            "ImageURL": {
+                                "type": "string",
+                                "example": "uploads/wall/1530699280MfrhTS8J.jpg"
+                            },
+                            "IsCrawledURL": {
+                                "type": "integer",
+                                "example": "0"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "Status": {
+                    "description": "Post Status, is it draft post or not, 10 -For draft post, 2 -For active post",
+                    "type": "integer",
+                    "example": "2"
+                },
+                "PollDescription": {
+                    "description": "Poll Description",
+                    "type": "string",
+                    "example": "You Like"
+                },
+                "PollOptions": {
+                    "description": "Poll Options, array of poll options, only two option allowed",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "OptionDescription": {
+                                "type": "string",
+                                "example": "Kachori"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "WardIds": {
+                    "description": "Array of Ward Ids",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "DeleteLink": {
+                    "description": "0 or 1, if 1 then delete existing link preview",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "IsCityNews": {
+                    "description": "City news or not 0 - No, 1 - Yes",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "IsShowOnNewsFeed": {
+                    "description": "Show it on news feed or not, 0 - Yes, 1 - No",
+                    "type": "integer",
+                    "example": "0"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\toggleLike": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "Entity GUID, which is being like/unlike",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "EntityType": {
+                    "description": "EntityType, it may be ACTIVITY, ALBUM, COMMENT",
+                    "type": "string",
+                    "example": "ACTIVITY"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\getLikeDetails": {
+            "required": [
+                "EntityGUID",
+                "EntityType"
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "Entity GUID, which is being like/unlike",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "EntityType": {
+                    "description": "EntityType, it may be ACTIVITY, ALBUM, COMMENT",
+                    "type": "string",
+                    "example": "ACTIVITY"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\removeActivity": {
+            "required": [
+                "EntityGUID"
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "Entity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "Reason": {
+                    "description": "Delete Reason",
+                    "type": "string",
+                    "example": "not valid content"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\get_deleted_activity": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Entity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "CommentGUID": {
+                    "description": "Comment GUID",
+                    "type": "string",
+                    "example": "c274032-fe2e0-b3cc-4f63-b9e6a8960bd7"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\seen_list": {
+            "required": [
+                "EntityGUID",
+                "EntityType"
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "Entity GUID, which is being viewed",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "EntityType": {
+                    "description": "EntityType, it is Activity",
+                    "type": "string",
+                    "example": "Activity"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\addComment": {
+            "required": [
+                "EntityGUID"
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "Entity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "EntityType": {
+                    "description": "EntityType, it may be ACTIVITY, MEDIA",
+                    "type": "string",
+                    "example": "ACTIVITY"
+                },
+                "Comment": {
+                    "description": "Comment text",
+                    "type": "string",
+                    "example": "Testing"
+                },
+                "ParentCommentGUID": {
+                    "description": "Parent Comment GUID, used in case of reply",
+                    "type": "string",
+                    "example": "fe2e0c27-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "DeleteLink": {
+                    "description": "0 or 1, if 1 then delete existing link preview",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "Links": {
+                    "description": "Links, array of post Links",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "URL": {
+                                "type": "string",
+                                "example": "http://www.google.com/"
+                            },
+                            "Title": {
+                                "type": "string",
+                                "example": "Google"
+                            },
+                            "MetaDescription": {
+                                "type": "string",
+                                "example": "Google"
+                            },
+                            "ImageURL": {
+                                "type": "string",
+                                "example": "uploads/wall/1530699280MfrhTS8J.jpg"
+                            },
+                            "IsCrawledURL": {
+                                "type": "integer",
+                                "example": "0"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "Media": {
+                    "description": "Media, array of post Media",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "MediaGUID": {
+                                "type": "string",
+                                "example": "f7d1cdef-ef64-8f5e-3898-043eb546437d"
+                            },
+                            "MediaType": {
+                                "type": "string",
+                                "example": "PHOTO"
+                            },
+                            "Caption": {
+                                "type": "string",
+                                "example": "php"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\deleteComment": {
+            "required": [
+                "CommentGUID"
+            ],
+            "properties": {
+                "CommentGUID": {
+                    "description": "Comment GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "Reason": {
+                    "description": "Delete Reason",
+                    "type": "string",
+                    "example": "not valid content"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\set_featured_post": {
+            "required": [
+                "ActivityGUID",
+                "ModuleID",
+                "ModuleEntityID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "ModuleEntityID": {
+                    "description": "Module Entity ID, it may be User/Group/Page/Event ID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "ModuleID": {
+                    "description": "Entity Module ID",
+                    "type": "integer",
+                    "example": "3"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\getAllComments": {
+            "required": [
+                "EntityGUID"
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "Entity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "EntityType": {
+                    "description": "EntityType, it may be Activity",
+                    "type": "string",
+                    "example": "Activity"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "Filter": {
+                    "description": "it may be, Recent, Popular, Network",
+                    "type": "string",
+                    "example": "Network"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\activity_media": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\visibility": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\Api\\Log\\index": {
+            "required": [
+                "EntityGUID"
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "Entity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                },
+                "EntityType": {
+                    "description": "Entity Type",
+                    "type": "string",
+                    "example": "Activity"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\short_link": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\city_news": {
+            "required": [],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "WardIds": {
+                    "description": "Array of Ward Ids",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\get_unread_city_news_count": {
+            "required": []
+        },
+        "Inclusify\\Api\\Activity\\story_user": {
+            "required": [],
+            "properties": {
+                "WID": {
+                    "description": "Ward id",
+                    "type": "integer",
+                    "example": "2"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\user_story": {
+            "required": [
+                "UserGUID"
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "UserGUID": {
+                    "description": "User GUID",
+                    "type": "string",
+                    "example": "c27fe2e0-4032-4f63-b3cc-8960bd7b9e6a"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\public_feed": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "ModuleEntityGUID": {
+                    "description": "Module Entity GUID, it may be User/Quiz GUID",
+                    "type": "string",
+                    "example": "1ebb78a8-aefb-dbc8-6703-d111e3218947"
+                },
+                "ModuleID": {
+                    "description": "Entity Module ID, 3 - User, 47 - Quiz",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "FeedSortBy": {
+                    "description": "Activity Sort Order, 1 for Recent Updated, 2 for Recent Post, 3 for popular, 4 for bookmark",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "ActivityGUID": {
+                    "description": "To get particular activity details",
+                    "type": "string",
+                    "example": "d111e3218947-aefb-dbc8-6703-1ebb78a8"
+                },
+                "ViewEntityTags": {
+                    "description": "Used to get activity tag or not, 1 -for Yes, 0 -for No",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PostType": {
+                    "description": "Post Type: 0 -All Post, 1 -Discussion, 2 -Q&A, 4 -Article, 7 -Announcement, 8 -Visual, 9 -Contest",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "TagID": {
+                    "description": "Tag ID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "TagCategoryID": {
+                    "description": "Tag Category ID",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity\\idea_for_better_indore": {
+            "required": [],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "ViewEntityTags": {
+                    "description": "Used to get activity tag or not, 1 -for Yes, 0 -for No",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        }
+    }
+}

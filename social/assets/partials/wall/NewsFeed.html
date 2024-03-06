@@ -1,0 +1,497 @@
+<!-- new Template -->
+<div class="feed-header" ng-class="'feed-act-' + data.ActivityGUID">
+    <div class="feed-header-left">
+        <figure class="thumb-sm">
+            <a class="loadbusinesscard" entitytype="user" entityguid="{{data.UserGUID}}" ng-if="data.PostAsModuleID == '3' && data.ActivityType !== 'ProfilePicUpdated' && data.ActivityType !== 'ProfileCoverUpdated'" ng-href="{{data.SiteURL + data.UserProfileURL}}" target="_self">
+                <img   class="img-circle" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.UserProfilePicture}}" err-name="{{data.UserName}}">
+            </a>
+            <a class="loadbusinesscard" entitytype="user" entityguid="{{data.UserGUID}}" ng-if="(data.ActivityType == 'ProfilePicUpdated' || data.ActivityType == 'ProfileCoverUpdated') && data.ModuleID !== '18'" ng-href="{{data.SiteURL + data.UserProfileURL}}" target="_self">
+                <img   class="img-circle" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.UserProfilePicture}}" err-name="{{data.UserName}}">
+            </a>
+            <a class="loadbusinesscard" entitytype="user" entityguid="{{data.UserGUID}}" ng-if="data.PostType == '7' && data.ModuleID == '3'" ng-href="{{data.SiteURL + data.UserProfileURL}}" target="_self">
+                <img err-Name="{{data.UserName}}"   class="img-circle" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.UserProfilePicture}}">
+            </a>
+
+            <a class="loadbusinesscard" entitytype="page" entityguid="{{data.UserGUID}}" ng-if="data.PostAsModuleID == '18' && data.ActivityType !== 'ProfilePicUpdated' && data.ActivityType !== 'ProfileCoverUpdated'" ng-href="{{data.SiteURL + 'page/' + data.UserProfileURL}}" target="_self">
+                <img   class="img-circle" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.UserProfilePicture}}" err-name="{{data.UserName}}">
+            </a>
+
+            <a class="loadbusinesscard" entitytype="page" entityguid="{{data.EntityGUID}}" ng-if="(data.ActivityType == 'ProfilePicUpdated' || data.ActivityType == 'ProfileCoverUpdated') && data.ModuleID == '18'" ng-href="{{data.SiteURL + 'page/' + data.EntityProfileURL}}" target="_self">
+                <img ng-if="data.EntityProfilePicture !== ''"   class="img-circle" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.EntityProfilePicture}}">
+            </a>
+
+            <a class="loadbusinesscard" entitytype="group" entityguid="{{data.EntityGUID}}" ng-if="data.PostType == '7' && data.ModuleID == '1'" ng-href="{{data.SiteURL + 'group/' + data.EntityProfileURL}}" target="_self">
+                <img ng-if="data.EntityProfilePicture !== ''"   class="img-circle" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.EntityProfilePicture}}">
+            </a>
+
+        </figure>
+        <div class="info-text" ng-bind-html="getTitleMessage(data)"></div>        
+    </div>
+    <ul class="feed-nav pull-right showonhover" ng-if="data.IsDeleted=='1' || data.StatusID=='10'">
+        <li class="dropdown">
+            <i class="ficon-arrow-down" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu feedaction" ng-cloak ng-if="data.IsDeleted == 1">
+                <li><a ng-click="restoreEmit(data.ActivityGUID);">Restore</a></li>
+                <li><a ng-click="deleteEmit(data.ActivityGUID);">Delete Permanently</a></li>
+            </ul>
+            <ul class="dropdown-menu feedaction" ng-cloak ng-if="data.StatusID == '10' && data.ActivityType != 'AlbumAdded' && data.ActivityType != 'AlbumUpdated'">
+                <li><a ng-click="editPost(data.ActivityGUID, $event)">Edit</a></li>
+                <li><a ng-click="deleteEmit(data.ActivityGUID);">Delete</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="feed-nav pull-right " ng-if="data.IsDeleted=='1' || data.StatusID=='10'">
+
+        <li class="cursor-pointer">
+            <a ng-if="data.IsSingleActivity!='1'" ng-href="{{data.ActivityURL}}" class="text-sm-off" target="_self">
+                <span ng-cloak ng-if="data.ActivityType !== 'AlbumUpdated'" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.CreatedDate));}}" ng-bind="date_format((data.CreatedDate))"></span>
+                <span ng-cloak ng-if="data.ActivityType == 'AlbumUpdated'" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.ModifiedDate));}}" ng-bind="date_format((data.ModifiedDate))"></span>
+            </a>
+            <a ng-if="data.IsSingleActivity=='1'" class="text-sm-off">
+                <span ng-cloak ng-if="data.ActivityType !== 'AlbumUpdated'" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.CreatedDate));}}" ng-bind="date_format((data.CreatedDate))"></span>
+                <span ng-cloak ng-if="data.ActivityType == 'AlbumUpdated'" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.ModifiedDate));}}" ng-bind="date_format((data.ModifiedDate))"></span>
+            </a>
+        </li>
+        <li ng-if="((data.ModuleID == '1') || (data.ModuleID == '3'))">
+            <a 
+                ng-if="data.CanRemove == '1' && data.ShowPrivacy == '1' && data.ModuleID == '3' && data.IsDeleted == 0 && (data.Visibility == 4 && data.NoOfComments > 0)" 
+                
+                >
+                <i ng-if="data.Visibility == '1'" class="ficon-globe" data-toggle="tooltip" data-original-title="Everyone"></i>
+                <i ng-if="data.Visibility == '3'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-friends-plus' : 'ficon-friends';" data-toggle="tooltip" data-original-title="Visible to: Friends{{ (data.IsAnyoneTagged > 0) ? ' + Anyone Tagged' : ''}}"></i>
+                <i ng-if="data.Visibility == '4'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-user-plus' : 'ficon-user';" data-toggle="tooltip" data-original-title="Only Me{{ (data.IsAnyoneTagged > 0) ? ' + Anyone Tagged' : ''}}"></i>
+            </a>
+            <a
+                ng-if="data.CanRemove == '1' && data.ShowPrivacy == '1' && data.ModuleID == '3' && data.IsDeleted == 0 && (data.Visibility != 4 || data.NoOfComments == 0)" 
+                 data-toggle="dropdown" data-dropdown="iconmenu"
+                ng-click="showOptions(data, 'showPrivacyOptions')"
+                >
+                <i ng-if="data.Visibility == '1'" class="ficon-globe" data-toggle="tooltip" data-original-title="Everyone"></i>
+                <i ng-if="data.Visibility == '3'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-friends-plus' : 'ficon-friends';" data-toggle="tooltip" ng-attr-data-original-title="{{get_tooltip_privacy_title(data)}}"></i>
+                <i ng-if="data.Visibility == '4'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-user-plus' : 'ficon-user';" data-toggle="tooltip" ng-attr-data-original-title="{{get_tooltip_privacy_title(data)}}"></i>
+                <span class="tagged-plus" ng-if="((data.IsAnyoneTagged > 0) && (data.Visibility == 4))">(+)</span>
+            </a>
+
+            <i data-toggle="tooltip" ng-cloak data-original-title="Everyone" ng-if="data.Visibility == '1' && (data.CanRemove == '0' || data.ShowPrivacy == '0' || data.IsDeleted == 1) && data.ModuleID == '3'" class="ficon-globe"></i>
+            <i data-toggle="tooltip" ng-cloak data-original-title="Visible to: Friends of {{data.EntityName}}{{ (data.IsAnyoneTagged > 0) ? ' + Anyone Tagged' : ''}}" ng-if="data.Visibility == '3' && (data.CanRemove == '0' || data.ShowPrivacy == '0' || data.IsDeleted == 1) && data.ModuleID == '3'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-friends-plus' : 'ficon-friends';"></i>
+            <i data-toggle="tooltip" ng-cloak data-original-title="Only {{data.EntityName}}{{ (data.IsAnyoneTagged > 0) ? ' + Anyone Tagged' : ''}}" ng-if="data.Visibility == '4' && (data.CanRemove == '0' || data.ShowPrivacy == '0' || data.IsDeleted == 1) && data.ModuleID == '3'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-user-plus' : 'ficon-user';"></i>
+            <i data-toggle="tooltip" ng-cloak data-original-title="Visible to: Everyone" ng-if="((data.ModuleID == '1') && (data.GroupPrivacy < 2))" class="ficon-globe"></i>
+
+            <span ng-if="(data.EntityName && (data.ModuleID == '1') && (data.GroupType && data.GroupType == 'FORMAL') && (data.GroupPrivacy == 2))" data-toggle="tooltip" data-placement="top" data-original-title="Visible to: only {{  'members of ' + data.EntityName}}">
+                <i class="ficon-member-group"></i>
+            </span>
+            <span ng-if="((data.ModuleID == '1') && ((data.GroupType && data.GroupType == 'INFORMAL') || !data.EntityName) && (data.GroupPrivacy == 2))" data-toggle="tooltip" data-placement="top" data-original-title="Visible to: only members of this group">
+                <i class="ficon-member-group"></i>
+            </span>
+            <ul class="dropdown-menu feed-privacy" data-dropdown="privacydropdown" ng-if="data.showPrivacyOptions">
+                <li ng-hide="(data.NoOfComments > 0 || data.ActivityType == 'Post') && data.Visibility > 1">
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="{{get_tooltip_privacy_title(data, 1)}}" ng-class="data.Visibility == '1' ? 'active' : ''" ng-click="privacyEmit(data.ActivityGUID, '1', data.Visibility);">
+                        <i class="ficon-globe"></i><span>Everyone</span></a>
+                </li>
+                <li ng-if="isFriend()" ng-hide="((data.NoOfComments > 0 || data.ActivityType == 'Post') && data.Visibility > 3) || SettingsData.m10=='0'">
+                    <a class="ellipsis" data-toggle="tooltip" data-placement="top" data-original-title="{{get_tooltip_privacy_title(data, 3)}}" ng-class="data.Visibility == '3' ? 'active' : ''" ng-click="privacyEmit(data.ActivityGUID, '3', data.Visibility);">
+                        <i ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-friends-plus' : 'ficon-friends';"></i><span ng-bind="get_tooltip_privacy_title(data, 3)"></span></a>
+                </li>
+                <li>
+                    <a class="ellipsis" data-toggle="tooltip" data-placement="top" data-original-title="{{get_tooltip_privacy_title(data, 4)}}" ng-class="data.Visibility == '4' ? 'active' : ''" ng-click="privacyEmit(data.ActivityGUID, '4', data.Visibility);">
+                        <i ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-user-plus' : 'ficon-user';"></i><span ng-bind="get_tooltip_privacy_title(data, 4)"></span></a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+
+    <ul class="feed-nav pull-right showonhover" ng-if="data.IsDeleted=='0' && data.StatusID!='10'"> 
+        <li ng-if="SettingsData.m28 ==1 && data.IsMember && data.ActivityType !== 'ProfilePicUpdated' && data.ActivityType !== 'ProfileCoverUpdated' && LoginSessionKey!=''"
+            class="dropdown reminderNav"
+            ng-include src="partialURL+'reminder.html'+app_version">
+        </li>
+
+
+        <!-- <li ng-if="data.IsFlaggedIcon" ng-click="FlagUserEmit(data.ActivityGUID);">
+            <button type="button" class="btn-circle" data-toggle="modal" data-target="#flagModal">
+                <svg height="18px" width="18px" class="svg-icons">
+                <use  xlink:href="{{SiteURL+'assets/img/sprite.svg#flagIcon'}}"></use>
+                </svg>
+            </button>
+        </li> -->
+
+        <li ng-if="(IsMyDeskTab && (data.IsTaskDone == 0))" tooltip data-placement="top" ng-attr-data-original-title="{{ 'Remove from My Desk'}}" ng-click="markAsDoneNotDone(data.ActivityGUID, 'DONE');">
+            <i class="ficon-folderminus"></i>
+
+        </li>
+        <li class="dropdown" ng-cloak ng-if="LoginSessionKey!=''">
+            <i class="ficon-arrow-down" data-toggle="dropdown" ng-click="showOptions(data, 'tripleDot')"></i>
+
+            <!-- Options Starts -->
+            <ul class="dropdown-menu feedaction" ng-if="data.tripleDot">
+                <li ng-if="(!IsMyDeskTab && (data.IsTaskDone == 1)) && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a ng-click="markAsDoneNotDone(data.ActivityGUID, 'NOTDONE');">Add Back to My Desk</a>
+                </li>
+                <li ng-cloak ng-if="data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a ng-if="((data.IsArchive != 1) && (!data.ReminderData.ReminderGUID || (data.ReminderData.ReminderGUID && CheckReminderDate(data.ActivityGUID))))" ng-click="toggleArchiveEmit(data.ActivityGUID);">
+                        <span>Archive</span>
+                        <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed. It will popup again only if someone tags you.">&nbsp;</i>
+                    </a>
+                    <a ng-if="((data.IsArchive != 1) && (data.ReminderData.ReminderGUID && !CheckReminderDate(data.ActivityGUID)))" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ARCHIVED');">
+                        <span>Archive</span>
+                        <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed. It will popup again on the selected date of reminder.">&nbsp;</i>
+                    </a>
+                    <a ng-if="((data.IsArchive == 1) && data.ReminderData.ReminderGUID)" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ACTIVE');">Unarchive</a>
+                    <a ng-if="((data.IsArchive == 1) && !data.ReminderData.ReminderGUID)" ng-click="toggleArchiveEmit(data.ActivityGUID);">Unarchive</a>
+                </li>
+
+                <li ng-cloak ng-if="data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a ng-click="toggleWatchlistStatus(data.ActivityGUID)" ng-bind="(data.IsWatchList == '1') ? 'Remove from Watchlist' : 'Add to Watchlist';"></a>
+                </li>
+
+
+
+                <li ng-if="(data.FavouriteAllowed == 1)">
+                    <a ng-click="setFavouriteEmit(data.ActivityGUID);" ng-bind="(data.IsFavourite == '1') ? 'Remove from favorites' : 'Add to favorites'"></a>
+                </li>
+                
+                <li data-ng-if="data.IsOwner == '1' && data.ActivityType != 'AlbumAdded' && data.ActivityType != 'AlbumUpdated' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a data-ng-click="editPost(data.ActivityGUID, $event)">Edit Post</a>
+                </li>
+                <li data-ng-if="data.IsTagged == '1' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a data-ng-click="removeTagEmit(data.ActivityGUID);">Remove Tag</a>
+                </li>
+
+                <li data-ng-if="( ( data.CanMakeSticky == 3 ) || ( data.CanMakeSticky == 2 ) || ( data.CanMakeSticky == 1 ) )">
+                    <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 1, 'create', FeedIndex);" data-ng-if="!data.SelfSticky" >Mark sticky for me</a>
+                    <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 1, 'remove', FeedIndex);" data-ng-if="data.SelfSticky" >Remove sticky for me</a>
+                </li>
+                <li data-ng-if="( ( ( data.CanMakeSticky == 2 ) || ( data.CanMakeSticky == 1 ) ) && ( data.ModuleID == '1' ) )">
+                    <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 2, 'create', FeedIndex);" data-ng-if="!data.GroupSticky" >Mark sticky for group</a>
+                    <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 2, 'remove', FeedIndex);" data-ng-if="data.GroupSticky" >Remove sticky for group</a>
+                </li>
+                <li data-ng-if="( data.CanMakeSticky == 1 )">
+                    <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 3, 'create', FeedIndex);" data-ng-if="!data.EveryoneSticky" >Mark sticky for everyone</a>
+                    <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 3, 'remove', FeedIndex);" data-ng-if="data.EveryoneSticky" >Remove sticky for everyone</a>
+                </li>
+
+                <li data-ng-if="IsNewsFeed == '1' && data.ModuleID !== '1' && data.Visibility == '1' && config_detail.IsSuperAdmin && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a ng-click="pin_to_top(data.ActivityGUID)" data-ng-if="data.IsPined == 0">Convert to Announcement</a>
+                    <a ng-click="hideAnnouncement(data.ActivityGUID, 1)" data-ng-if="data.IsPined == 1">Remove Announcement for Everyone</a>
+                </li>
+                <li data-ng-if="IsNewsFeed == '0' && data.ModuleID == '1' && (data.IsEntityOwner == '1' || config_detail.IsSuperAdmin) && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a ng-click="pin_to_top(data.ActivityGUID)" data-ng-if="data.IsPined == 0">Pin To Top</a>
+                    <a ng-click="hideAnnouncement(data.ActivityGUID, 1)" data-ng-if="data.IsPined == 1">Unpin</a>
+                </li>
+                <li data-ng-if="data.FlaggedByAny == '1' && data.IsEntityOwner == '1' && data.Flaggable == '1' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'"><a ng-click="approveFlagActivityEmit(data.ActivityGUID);">Approve Flag Activity</a></li>
+                <li data-ng-if="data.Settings.m17 == '1'">
+                    <a ng-cloak ng-click="subscribeEmit('ACTIVITY', data.ActivityGUID);" ng-show="data.IsSubscribed == '1'">
+                        <span>Unsubscribe from this Post</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Click here if you do not wish to recieve any notifications regarding this post.">&nbsp;</i>
+                    </a>
+                    <a ng-cloak ng-click="subscribeEmit('ACTIVITY', data.ActivityGUID);" ng-show="data.IsSubscribed == '0'">
+                        <span>Subscribe to this Post</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Click here if you wish to recieve notifications regarding this post.">&nbsp;</i>
+                    </a>
+                </li>
+
+                <li ng-if="(data.ModuleID=='1' || data.ModuleID=='3' || data.ModuleID=='14' || data.ModuleID=='18') && data.MuteAllowed == 1 && data.PostType !== '7' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a ng-cloak ng-show="IsNewsFeed == 1 && data.ModuleID == '3' && data.IsEntityOwner !== 1" ng-click="muteUserEmit(data.ModuleID, data.UserGUID);">
+                        <span>Mute User</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom"  data-original-title="lang.mute_user_help">&nbsp;</i>
+                    </a>
+                    <a ng-cloak ng-show="IsNewsFeed == 1 && data.ModuleID == '18' && data.IsEntityOwner !== 1" ng-click="muteUserEmit(data.ModuleID, data.UserGUID);">
+                        <span>Mute Page</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom"  data-original-title="Mute page">&nbsp;</i>
+                    </a>
+                    <a ng-cloak ng-show="IsNewsFeed == 1 && data.ModuleID == '1' && data.IsEntityOwner !== 1" ng-click="muteUserEmit(data.ModuleID, data.UserGUID);">
+                        <span>Mute Group</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom"  data-original-title="Mute Group">&nbsp;</i>
+                    </a>
+                    <a ng-cloak ng-show="IsNewsFeed == 1 && data.ModuleID == '14' && data.IsEntityOwner !== 1" ng-click="muteUserEmit(data.ModuleID, data.UserGUID);">
+                        <span>Mute Events</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom"  data-original-title="Mute Events">&nbsp;</i>
+                    </a>
+                </li>
+                <li data-ng-if="data.PostType !== '7' && data.IsOwner == '0' && data.IsEntityOwner == '0' && data.ShowFlagBTN == '1' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a data-target="#reportAbuse" data-toggle="modal" onclick="flagValSet(this, 'Activity')" id="tid-{{data.ActivityGUID}}" data-ng-if="data.IsFlagged == '0' && data.FlagAllowed == '1' && data.Flaggable == '1' && data.Settings.m12 == '1' && data.IsOwner !== '1'">Flag</a>
+                    <a data-ng-if="data.IsFlagged == '1' && data.FlagAllowed == '1' && data.Flaggable == '1' && data.Settings.m12 == '1' && data.IsOwner !== '1'">Flagged</a>
+                </li>
+                <li data-ng-if="data.CanBlock == 1 && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a ng-click="blockUserEmit(data.UserGUID,data.ModuleID,data.EntityGUID);">Block</a>
+                </li>
+                <li data-ng-if="(data.IsEntityOwner == '1' || config_detail.IsSuperAdmin == '1') && data.PostType == '4' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated' && SettingsData.m38=='1'">
+                    <a ng-click="reset_related_popup(data);" data-toggle="modal" data-target="#addRelatedArticles">Add Related</a>
+                </li>
+                <li ng-if="(data.IsOwner == 1 || data.IsEntityOwner == 1) && data.PostType != 2">
+                    <a ng-if="data.CommentsAllowed == 1" ng-click="commentsSwitchEmit('ACTIVITY', data.ActivityGUID)">Turn Comments Off</a>
+                    <a ng-if="data.CommentsAllowed == 0" ng-click="commentsSwitchEmit('ACTIVITY', data.ActivityGUID)">Turn Comments On</a>
+                </li>
+                <li>
+                    <a ng-click="seenDetailsEmit(data.ActivityGUID, 'ACTIVITY');">Views</a>
+                </li>
+
+                <li ng-if="config_detail.IsSuperAdmin && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'"> 
+                    <a ng-if="data.IsPromoted == 0" ng-click="setPromotionStatus(data.ActivityID, 1, data, $event);">Promote</a>
+                    <a ng-if="data.IsPromoted == 1" ng-click="setPromotionStatus(data.ActivityID, 0, data, $event);">Unpromote</a>
+                </li>
+                <li ng-click="remove_feature(data.ActivityGUID, data.ModuleID, data.ModuleEntityID, data);" data-ng-if="config_detail.IsSuperAdmin && data.IsFeatured == 1 && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a>Remove From Featured</a>
+                </li>
+                <li ng-click="mark_as_feature(data.ActivityGUID, data.ModuleID, data.ModuleEntityID, data);" data-ng-if="config_detail.IsSuperAdmin && data.IsFeatured == 0 && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                    <a>Mark As Featured</a>
+                </li>
+                <li data-ng-if="(data.CanRemove == '1' || data.IsOwner)">
+                    <a ng-click="deleteEmit(data.ActivityGUID);">Remove Post</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <ul class="feed-nav pull-right" ng-if="data.IsDeleted=='0' && data.StatusID!='10'" > 
+        <li class="cursor-pointer">
+            <a ng-if="data.IsSingleActivity!='1'" ng-href="{{data.ActivityURL}}" class="text-sm-off" target="_self">
+                <span ng-cloak ng-if="data.ActivityType !== 'AlbumUpdated'" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.CreatedDate));}}" ng-bind="date_format((data.CreatedDate))"></span>
+                <span ng-cloak ng-if="data.ActivityType == 'AlbumUpdated'" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.ModifiedDate));}}" ng-bind="date_format((data.ModifiedDate))"></span>
+            </a>
+            <a ng-if="data.IsSingleActivity=='1'" class="text-sm-off">
+                <span ng-cloak ng-if="data.ActivityType !== 'AlbumUpdated'" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.CreatedDate));}}" ng-bind="date_format((data.CreatedDate))"></span>
+                <span ng-cloak ng-if="data.ActivityType == 'AlbumUpdated'" data-toggle="tooltip" ng-attr-data-original-title="{{getTimeFromDate(UTCtoTimeZone(data.ModifiedDate));}}" ng-bind="date_format((data.ModifiedDate))"></span>
+            </a>
+        </li>
+        <li ng-if="((data.ModuleID == '1') || (data.ModuleID == '3'))">
+            <a 
+                ng-if="data.CanRemove == '1' && data.ShowPrivacy == '1' && data.ModuleID == '3' && data.IsDeleted == 0 && (data.Visibility == 4 && data.NoOfComments > 0)" 
+                
+                >
+                <i ng-if="data.Visibility == '1'" class="ficon-globe" data-toggle="tooltip" data-original-title="Everyone"></i>
+
+                <i ng-if="data.Visibility == '3'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-friends-plus' : 'ficon-friends';" data-toggle="tooltip" data-original-title="Visible to: Friends{{ (data.IsAnyoneTagged > 0) ? ' + Anyone Tagged' : ''}}"></i>
+                <i ng-if="data.Visibility == '4'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-user-plus' : 'ficon-user';" data-toggle="tooltip" data-original-title="Only Me{{ (data.IsAnyoneTagged > 0) ? ' + Anyone Tagged' : ''}}"></i>
+            </a>
+            <a 
+                ng-if="data.CanRemove == '1' && data.ShowPrivacy == '1' && data.ModuleID == '3' && data.IsDeleted == 0 && (data.Visibility != 4 || data.NoOfComments == 0)" 
+                data-toggle="dropdown" data-dropdown="iconmenu"
+                ng-click="showOptions(data, 'showPrivacyOptions')"
+                >
+                <i ng-if="data.Visibility == '1'" class="ficon-globe" data-toggle="tooltip" data-original-title="Everyone"></i>
+                <i ng-if="data.Visibility == '3'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-friends-plus' : 'ficon-friends';" data-toggle="tooltip" ng-attr-data-original-title="{{get_tooltip_privacy_title(data)}}"></i>
+                <i ng-if="data.Visibility == '4'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-user-plus' : 'ficon-user';" data-toggle="tooltip" ng-attr-data-original-title="{{get_tooltip_privacy_title(data)}}"></i>
+            </a>
+
+            <i data-toggle="tooltip" ng-cloak data-original-title="Everyone" ng-if="data.Visibility == '1' && (data.CanRemove == '0' || data.ShowPrivacy == '0' || data.IsDeleted == 1) && data.ModuleID == '3'" class="ficon-globe"></i>
+            <i data-toggle="tooltip" ng-cloak data-original-title="Visible to: Friends of {{data.EntityName}}{{ (data.IsAnyoneTagged > 0) ? ' + Anyone Tagged' : ''}}" ng-if="data.Visibility == '3' && (data.CanRemove == '0' || data.ShowPrivacy == '0' || data.IsDeleted == 1) && data.ModuleID == '3'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-friends-plus' : 'ficon-friends';"></i>
+            <i data-toggle="tooltip" ng-cloak data-original-title="Only {{data.EntityName}}{{ (data.IsAnyoneTagged > 0) ? ' + Anyone Tagged' : ''}}" ng-if="data.Visibility == '4' && (data.CanRemove == '0' || data.ShowPrivacy == '0' || data.IsDeleted == 1) && data.ModuleID == '3'" ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-user-plus' : 'ficon-user';"></i>
+            <i data-toggle="tooltip" ng-cloak data-original-title="Visible to: Everyone" ng-if="((data.ModuleID == '1') && (data.GroupPrivacy < 2))" class="ficon-globe"></i>
+
+            <span ng-if="(data.EntityName && (data.ModuleID == '1') && (data.GroupType && data.GroupType == 'FORMAL') && (data.GroupPrivacy == 2))" data-toggle="tooltip" data-placement="top" data-original-title="Visible to: only {{  'members of ' + data.EntityName}}">
+                <i class="ficon-member-group"></i>
+            </span>
+            <span ng-if="((data.ModuleID == '1') && ((data.GroupType && data.GroupType == 'INFORMAL') || !data.EntityName) && (data.GroupPrivacy == 2))" data-toggle="tooltip" data-placement="top" data-original-title="Visible to: only members of this group">
+                <i class="ficon-member-group"></i>
+            </span>
+            <ul class="dropdown-menu feed-privacy" data-dropdown="privacydropdown" ng-if="data.showPrivacyOptions">
+                <li ng-hide="(data.NoOfComments > 0 || data.ActivityType == 'Post') && data.Visibility > 1">
+                    <a data-toggle="tooltip" data-placement="top" data-original-title="{{get_tooltip_privacy_title(data, 1)}}" ng-class="data.Visibility == '1' ? 'active' : ''" ng-click="privacyEmit(data.ActivityGUID, '1', data.Visibility);">
+                        <i class="ficon-globe"></i><span>Everyone</span></a>
+                </li>
+                <li ng-if="isFriend() && SettingsData.m10=='1'" ng-hide="(data.NoOfComments > 0 || data.ActivityType == 'Post') && data.Visibility > 3">
+                    <a class="ellipsis" data-toggle="tooltip" data-placement="top" data-original-title="{{get_tooltip_privacy_title(data, 3)}}" ng-class="data.Visibility == '3' ? 'active' : ''" ng-click="privacyEmit(data.ActivityGUID, '3', data.Visibility);">
+                        <i ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-friends-plus' : 'ficon-friends';"></i><span ng-bind="get_tooltip_privacy_title(data, 3)"></span></a>
+                </li>
+                <li>
+                    <a class="ellipsis" data-toggle="tooltip" data-placement="top" data-original-title="{{get_tooltip_privacy_title(data, 4)}}" ng-class="data.Visibility == '4' ? 'active' : ''" ng-click="privacyEmit(data.ActivityGUID, '4', data.Visibility);">
+                        <i ng-class="(data.IsAnyoneTagged > 0) ? 'ficon-user-plus' : 'ficon-user';"></i><span ng-bind="get_tooltip_privacy_title(data, 4)"></span></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="collapse-content" ng-class="getCollpaseClass(data)">
+    <div class="feed-body" ng-class="(data.PollData.length > 0) ? 'poll-feed-listing' : '';"> 
+        <ng-include ng-cloak ng-if="data.ViewTemplate !='Share' && data.PostType=='4'" src="partialURL+'activity/Article.html'+app_version" ></ng-include>
+        <ng-include ng-cloak ng-if="data.ViewTemplate=='Share' || data.PostType!='4'" src="partialURL+'activity/'+data.ViewTemplate+'.html'+app_version" ></ng-include>
+        <div class="tag-added"  ng-if="(data.showTags)" ng-cloak>
+            <div class="tag-view">
+                <ul class="tag-list">
+                    <li ng-repeat="(key, value) in data.editTags"><span>{{value.Name}}</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="activity-bar">
+            <ul class="feed-actions"  ng-if="data.IsDeleted == 0 && data.StatusID != '10'">
+
+                <li class="btn-group " ng-if="data.PostType == 2">
+                    <button data-container="body" tooltip data-placement="top" title="Request Answer" 
+                            ng-hide="data.Visibility == '4'" 
+                            class="btn btn-default btn-xs" 
+                            ng-disabled="requestAns" 
+                            ng-click="get_activity_friend_list('init', data.ActivityGUID, data)">
+                        Request
+                    </button>
+                </li>
+
+                <li>
+                    <span class="like-btn">
+                        <i tooltip data-placement="top" data-container="body" ng-attr-data-original-title="{{(data.IsLike == '1') ? 'Unlike' : (data.NoOfLikes=='0') ? 'Be the first to like' : 'Like' ;}}" ng-click="likeEmit(data.ActivityGUID, 'ACTIVITY', data.ActivityGUID);" ng-class="data.IsLike == '1' ? 'ficon-heart active' : 'ficon-heart'" ></i>
+                        <abbr ng-if="data.NoOfLikes > 0" ng-bind="data.NoOfLikes" ng-click="likeDetailsEmit(data.ActivityGUID, 'ACTIVITY');"></abbr>
+                    </span>
+                </li>
+                <li ng-if="data.CommentsAllowed == 0 && data.NoOfComments > 0">
+                    <a ng-if="data.PostType !== '2'" ng-bind="'Comments (' + data.NoOfComments + ')'" ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID);"></a>
+                    <a ng-if="data.PostType == '2'" ng-bind="'Answers (' + data.NoOfComments + ')'"   ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID);"></a>
+                </li>
+                <li ng-if="data.CommentsAllowed == 1">
+                    <a ng-click="postCommentEditor(data.ActivityGUID, FeedIndex);  data.showeditor = true;" ng-if="LoginSessionKey!='' && data.NoOfComments == 0">
+                        Be the first to comment
+                    </a>
+                    <a ng-click="loginRequired()" ng-if="LoginSessionKey=='' && data.NoOfComments == 0">
+                        Be the first to comment
+                    </a>
+                    <a ng-if="data.PostType !== '2' && data.NoOfComments > 0" ng-bind="'Comments (' + data.NoOfComments + ')'" ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID);"></a>
+                    <a ng-if="data.PostType == '2' && data.NoOfComments > 0" ng-bind="'Answers (' + data.NoOfComments + ')'"   ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID);"></a>
+                </li>
+                
+                <li data-toggle="tooltip" data-original-title="Tags" ng-if="data.EntityTags.length > 0"  ng-click="toggleTagsItem(FeedIndex);">
+                    <a class="added-tags" ng-click="data.ShowTags = !data.ShowTags"><i class="ficon-user-tag"></i> <span ng-bind="data.EntityTags.length"></span></a>
+                </li>
+                <li data-toggle="tooltip" data-original-title="Share" ng-cloak ng-if="data.ShareAllowed == '1'" class="cursor-pointer">
+                    <a ng-disabled="data.IsDeleted == 1" type="button" ng-click="shareEmit(data.ActivityGUID,'shareEmit');">
+                        <span class="icon">
+                            <i class="ficon-share f-mlg"></i>
+                        </span>
+                    </a>
+                    
+                </li>
+
+            </ul>
+            <ul class="feed-action-right">
+                <li ng-cloak ng-if="LoginSessionKey!='' && entityList.length>1 && (data.ActivityType=='PagePost' || data.ActivityType=='RatingAdded')" class="pull-right  pull-right-page">
+                    <div class="post-as-page">
+                        <div class="dropdown m-t-m2 m-r-10">
+                            <button ng-if="data.IsOwner == 1 " 
+                                    type="button" class="btn btn-default dropdown-toggle btn-sm " 
+                                    data-toggle="dropdown" aria-expanded="false"
+                                   ng-click="showOptions(data, 'showOptionsPostAsEntity')" 
+                            >
+                                <span class="user-img-icon post-as-data" data-module-id="{{data.PostAsModuleID}}" data-module-entityid="{{data.UserGUID}}">
+                                <img err-name="{{entityList[0].Name}}" class="img-circle show-pic" alt="User" ng-src="{{data.ImageServerPath + 'upload/profile/36x36/' + data.UserProfilePicture}}">
+                                <span class="spacel-icon">
+                                    <i class="caret"></i>
+                                </span>
+                                </span>
+                            </button>
+                            <button ng-if="data.IsOwner == 0 " type="button" 
+                                    class="btn btn-default dropdown-toggle btn-sm " 
+                                    data-toggle="dropdown" aria-expanded="false"
+                                    ng-click="showOptions(data, 'showOptionsPostAsEntity')"
+                            >
+                                <span class="user-img-icon post-as-data" data-module-id="{{PostAs.ModuleID}}" data-module-entityid="{{PostAs.ModuleEntityGUID}}">
+                                <img err-name="{{entityList[0].Name}}" class="img-circle show-pic" alt="User" ng-src="{{data.ImageServerPath + 'upload/profile/36x36/' +PostAs.ProfilePicture}}">
+                                <span class="spacel-icon">
+                                    <i class="caret"></i>
+                                </span>
+                                </span>
+                            </button>
+                            <div class="postasDropdown mCustomScrollbar dropdown-menu" role="menu" >
+                                <ul class="dropwith-img" role="menu" ng-if="data.showOptionsPostAsEntity">
+                                    <li ng-repeat=" entitylist in  entityList" ng-click="likeStatusEmit(data.ActivityGUID,entitylist)">
+                                        <a href="javascript:void(0);">
+                                            <span class="mark-icon">
+                                            <img err-name="{{entitylist.Name}}" class="img-circle" title="User" alt="User" ng-src="{{data.ImageServerPath +'upload/profile/36x36/'+ entitylist.ProfilePicture}}">
+                                            </span> 
+                                            {{entitylist.Name}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li ng-if="data.StatusID == '10'">
+                    <span class="date-label">DRAFT</span> 
+                </li>
+                <li ng-if="SettingsData.m28==1 && ((data.Reminder.ReminderDateTime && data.Reminder.Status == 'ACTIVE') || data.ReminderData.ReminderDay)">
+                    <span class="date-label reminder-set" ng-if="data.ReminderData.ReminderDay">
+                        {{data.ReminderData.ReminderDay}} {{data.ReminderData.MonthName}}
+                    </span>
+                </li>
+                <li ng-if="data.IsFavourite == '1'">
+                    <i class="ficon-star"></i>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <div class="detail-add-note" ng-if="data.RquestedFriendList.length > 0 || data.SuggestedFriendList.length > 0 || data.SearchFriendList != ''" ng-cloak>
+        <div class="requested-list">
+            <div class="tag-view"  ng-cloak>
+                <ul class="tag-list">
+                    <li ng-repeat="RequestFriend in data.RquestedFriendList">                    
+                        <div class="tag-item-remove">
+                            <span class="tag-item-text">
+                                {{RequestFriend.FirstName + ' ' + RequestFriend.LastName}}
+                            </span>
+                            <a class="ficon-cross tag-remove ng-scope" ng-click="remove_select_data(RequestFriend, $index, data.ActivityGUID)"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rq-suggested-list">
+            <h5>Have this question too? Request Answers</h5>
+            <div class="rquested-list-view" custom-scroll>
+                <ul class="listing-group">
+                    <li ng-repeat="ActivityFriend in data.SuggestedFriendList| limitTo:3" ng-click="add_request_friend(ActivityFriend, $index, data.ActivityGUID)" class="list-items-sm">
+                        <ul class="edit-save" ng-cloak>
+                            <li>
+                                <span class="icon">
+                                    <i class="ficon-plus"></i>
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="list-inner">
+                            <figure>
+                                <a><img err-name="{{ActivityFriend.FirstName + ' ' + ActivityFriend.LastName}}" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + ActivityFriend.ProfilePicture}}" class="img-circle"  ></a>
+                            </figure>
+                            <div class="list-item-body">
+                                <h4 class="list-heading-xs">
+                                    <a ng-bind="ActivityFriend.FirstName + ' ' + ActivityFriend.LastName"></a>
+                                </h4>
+                                <small ng-bind="ActivityFriend.AnswerCount + ' Answers'"></small>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="req-autosugget" ng-if="data.SuggestedTotalRecords > 3 || data.SearchFriendList !== ''">
+            <input type="text" id="sr_{{data.ActivityGUID}}" ng-model="data.SearchFriendList" class="form-control" placeholder="Search" ng-keydown="SearchActivityFriend(data.ActivityGUID)">
+        </div>
+        <div class="req-footer" ng-if="data.RquestedFriendList.length > 0">
+            <div class="ask-ans">
+                <textarea name=""  
+                          id="note_{{data.ActivityGUID}}" 
+                          class="form-control" 
+                          ng-model="ActivityDetail.Note" 
+                          placeholder="Please help me find an answer to this question?">
+
+                </textarea>
+            </div>
+            <div class="button-fotter-group">
+                <div class="pull-right">
+                    <button class="btn btn-default" ng-click="hideRequest(data)">Cancel</button>
+                    <button class="btn btn-primary m-l-5" ng-click="send_request(data.ActivityGUID)">Send Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="feed-footer"  ng-hide="data.NoOfComments == 0 && !data.showeditor" ng-class="(data.NoOfComments > 0) ? 'is-comments' : '';">
+        <span ng-include src="partialURL+'activity/Comments.html'+app_version" ></span>
+    </div>
+</div>
+<span ng-hide="IsStickyFilter==1 || IsSingleActivity" class="icon-feed-expand" ng-click="toggleCollapseSingle(data)">
+    <span class="arrow-acc icons">
+        <i class="ficon-arrow-down"></i>
+    </span>
+</span>
+
+
+<div id="collapse_post_content_div" style="display: none;">
+    
+</div>

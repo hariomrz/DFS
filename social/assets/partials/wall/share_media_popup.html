@@ -1,0 +1,64 @@
+<div class="modal fade" id="sharemediamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="shareCtrl">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                <h4 class="modal-title" id="myModalLabel">SHARE THIS POST</h4>
+            </div>
+            <div class="modal-body share-modal-body scrollbar">
+                <div class="share-content-top">
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+                        <div class="text-field-select">
+                            <select id="mediasharetype" onChange="changePopupShare(this.value)" data-chosen=""  data-disable-search="true">
+                                <option value="media-own-wall">On your own wall</option>
+                                <option value="media-friend-wall">On a friend's wall</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="own-wall share-wall">
+                    <div class="share-content-bottom">
+                        <div class="hide comments about-media about-name">
+                            <input type="text" class="form-control" id="media-friend-src" placeholder="Friend's name" value="" custom-autocomplete/>
+                        </div>
+                        <div id="FriendSearchResult"></div>
+                        <div class="comments about-media">
+                            <textarea class="form-control" id="MPCnt" placeholder="Say something about this post"></textarea>
+                        </div>
+                        <div class="media-block media-photo" ng-class="layoutClass(mediaShareData.Media)" ng-if="mediaShareData.Media != undefined && mediaShareData.Media !==''">
+                            <figure class="media-thumbwrap"> <a href="javascript:void(0);" class="media-thumb media-thumb-fill singleImg"> <img ng-src="{{ImageServerPath+'upload/'+mediaShareData.Media.MediaFolder+'/220x220/'+getShareVideoURL(mediaShareData.Media.ImageName)}}" /> </a> </figure>
+                        </div>
+                        <div class="share-content">
+                            <div class="share-inr-space tagging"> <a href="javascript:void(0);" ng-bind="mediaShareData.CreatedBy.EntityName"></a>
+                                <p ng-bind-html="mediaShareData.PostContent"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" ng-init="SharePrivacyClass='ficon-globe'">
+                <div class="pull-right wall-btns">
+                    <!-- Privacy Buttons -->
+                    <button ng-click="shareCommentToggle();" id="shareComment" class="own-wall-settings btn btn-default btn-icon btn-onoff on" type="button">
+                        <i class="ficon-comment f-lg"></i> <span>On</span>
+                    </button>
+                    <div class="btn-group custom-icondrop own-wall-settings own-wall-privacy">
+                        <button aria-expanded="false" data-toggle="dropdown" class="btn btn-default dropdown-toggle drop-icon" type="button"> <i ng-class="SharePrivacyClass"></i> <span class="caret"></span> </button>
+                        <ul role="menu" class="dropdown-menu pull-left dropdown-withicons">
+                            <li><a onClick="$('#mediaShareVisibleFor').val(1);" ng-click="SharePrivacyClass='ficon-globe'" href="javascript:void(0);"><span class="mark-icon"><i class="ficon-globe"></i></span>Everyone</a></li>
+                            <li><a onClick="$('#mediaShareVisibleFor').val(3);" ng-click="SharePrivacyClass='ficon-friends'" href="javascript:void(0);"><span class="mark-icon"><i class="ficon-friends"></i></span>Friends</a></li>
+                            <li><a onClick="$('#mediaShareVisibleFor').val(4);" ng-click="SharePrivacyClass='ficon-user'" href="javascript:void(0);"><span class="mark-icon"><i class="ficon-user"></i></span>Only Me</a></li>
+                        </ul>
+                    </div>
+                    <!-- Privacy Buttons -->
+                    <button class="btn btn-primary" ng-click="shareMedia();" type="button">SHARE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="mediaShareVisibleFor" value="1" />
+    <input type="hidden" id="shareCommentSettings" value="1" />
+    <input type="hidden" id="ShareModuleEntityGUID" value="" />
+    <input type="hidden" id="ShareEntityUserGUID" value="" />
+</div>

@@ -1,0 +1,92 @@
+.pt-addsports {
+  margin-top: 20px;
+
+  .pt-bg-white {
+    padding: 28px 20px 40px;
+    border-radius: 10px 10px 0 0;
+    background-color: $white;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .global-switch {
+    width: 36px;
+
+    .switch-slide {
+      width: 36px;
+      height: 22px;
+      background-color: $gray-9;
+
+      &::before {
+        width: 14px;
+        height: 14px;
+        bottom: 4px;
+      }
+
+      &::before {
+        background-color: $white
+      }
+    }
+
+    input:checked+.switch-slide:before {
+      transform: translateX(14px);
+    }
+
+    input:checked+.switch-slide {
+      background-color: $secondary-color;
+    }
+  }
+
+  .icon-more {
+    font-size: 26px;
+    opacity: .4;
+  }
+
+  .common-table .table {
+
+    th,
+    td {
+      text-align: center;
+    }
+  }
+
+  .dropdown-menu.show {
+    min-width: 115px;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    border: none;
+
+    .dropdown-item {
+      border: none;
+    }
+  }
+
+  .pt-add-fields {
+    box-sizing: border-box;
+    height: 40px;
+    border: 1px solid #D2DFEC;
+    border-radius: 4px;
+    background-color: #EDEDED;
+  }
+
+  .pt-sports-name {
+    float: left;
+    margin-right: 10px;
+    .form-control {
+      width: 290px;
+    }
+  }
+  .pt-sports-prio {
+    float: left;
+    width: 230px;
+    margin-right: 100px;
+    .Select-control {
+      height: 40px;
+      background-color: #EDEDED;
+      border: none;
+      .Select-placeholder,
+      .Select-value-label {
+        line-height: 40px;
+      }
+    }
+  }
+}

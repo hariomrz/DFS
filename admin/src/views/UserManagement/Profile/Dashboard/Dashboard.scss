@@ -1,0 +1,145 @@
+.view-all {
+  color: $secondary-color !important;
+  font-family: $font-bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.user-activity-dashboard {
+  .ref-box {
+    min-height: 300px;
+    padding: 30px 60px 30px;
+  }
+
+  // .inner-div {
+  //   padding: 30px !important;
+  // }
+
+  .act-list {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-top: 16px;
+  }
+
+  .dashboard-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .act-item {
+    height: 160px;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    flex: 1 0 18%;
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 22px;
+
+    @media (max-width: 1330px) {
+      margin-left: 16px;
+    }
+
+    @media (max-width: 1000px) {
+      margin-left: 12px;
+    }
+  }
+
+  .act-title {
+    font-family: $font-bold;
+    color: #a8a8a8;
+    text-transform: uppercase;
+    text-align: center;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 36px;
+      opacity: 0.2;
+      border-bottom: 2px solid #2a2e49;
+      margin: 10px auto;
+    }
+  }
+
+  .act-count {
+    color: #2c2f3a;
+    font-family: $font-black;
+    font-size: 50px;
+    line-height: 1.4;
+    text-align: center;
+
+    @media (max-width: 1330px) {
+      font-size: 40px;
+    }
+  }
+
+  .act-infotext {
+    color: #a8a8a8;
+    font-family: $font-bold;
+    text-align: center;
+  }
+
+  .bt-right {
+    border-top-right-radius: 4px;
+  }
+
+  .bb-right {
+    border-bottom-right-radius: 4px;
+  }
+
+  .dm-top {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .fin-dtl {
+    margin-bottom: 16px;
+    .act-count {
+      font-size: 30px;
+    }
+  }
+}
+
+.au-box {
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 10px;
+  background-color: $white;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+
+  .au-lable {
+    opacity: 0.5;
+    color: $text-color;
+    font-family: $font-bold;
+    font-size: 11px;
+  }
+
+  .au-value {
+    color: $text-color;
+    font-family: $font-bold;
+    font-size: 16px;
+
+    &.au-rank {
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+  }
+
+  .au-device {
+    opacity: 0.5;
+    color: $text-color;
+    font-family: $font-bold;
+    font-size: 10px;
+  }
+
+  .au-mt {
+    margin-top: 26px;
+  }
+}
+
+.ref-box.au-ref-box {
+  min-height: 340px !important;
+  max-height: 340px;
+}

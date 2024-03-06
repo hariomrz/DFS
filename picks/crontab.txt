@@ -1,0 +1,6 @@
+
+*/5 * * * * wget -O - -q -t 1 http://localhost/picks/cron/cron_queue/game_cancellation
+* * * * 1-5 wget -O - -q -t 1 http://localhost/picks/cron/cron_queue/update_scores_in_lineup
+*/15 * * * * wget -O - -q -t 1 http://localhost/picks/cron/cron_queue/update_contest_status
+*/15 * * * * wget -O - -q -t 1 http://localhost/picks/cron/cron_queue/prize_distribution
+*/10 * * * * wget -O - -q -t 1 http://localhost/cron/cron/match_cancel_notification

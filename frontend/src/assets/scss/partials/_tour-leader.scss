@@ -1,0 +1,877 @@
+.tour-lead-wrap {
+    padding: 10px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+    margin: 20px;
+    height: 72px;
+    border-radius: 10px;
+    border-right: 5px solid $primary;
+    cursor: pointer;
+
+    .tour-lead-heading {
+        color: #5853C3;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 19px;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .tour-lead-detail {
+        color: #666666;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 14px;
+        text-align: left;
+    }
+}
+
+.lead-trophy {
+    width: 21px !important;
+    margin-right: 3px;
+}
+
+.tour-new-leader {
+    border-top: 1px solid $secondary_border_color;
+    padding: 6px;
+    background: #F2F2F2;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.leadT-name {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 16px;
+    color: $black;
+    vertical-align: middle;
+}
+
+.countL-others {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 16px;
+    color: $primary;
+    text-decoration: underline;
+}
+
+.what_tour {
+    color: $primary !important;
+    text-decoration: underline;
+    font-size: 12px !important;
+    text-transform: capitalize !important;
+    cursor: pointer;
+}
+
+.comp-team-img {
+    width: 25px;
+    height: 25px;
+
+    @media screen and (max-width:441px) {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+.newT-tour.blur {
+    opacity: 0.4;
+
+    .comp-team-img {
+        filter: grayscale(0.80);
+
+        @media screen and (max-width:441px) {
+            width: 17px;
+            height: 17px;
+        }
+    }
+}
+
+.tour-T-table.blur {
+    opacity: 0.4;
+}
+
+.title-detail {
+    font-size: 12px;
+    color: #A9A9A9;
+    padding-left: 7px;
+    display: flex;
+    margin-top: 5px;
+    align-items: baseline;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+
+    .title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // display: inline-block !important;
+        margin-left: 2px;
+
+        @media screen and (max-width:441px) {
+            max-width: 150px;
+        }
+    }
+
+    .title-date {
+        margin-right: 2px;
+    }
+
+}
+
+.left-block-tour {
+    width: 65%;
+    border-right: 1px dotted #999999;
+
+    .team-block {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @media screen and (max-width:441px) {
+        width: 75%;
+
+        .w20 {
+            width: 16% !important;
+        }
+    }
+}
+
+.newT-tour {
+    display: flex;
+    align-items: center;
+    // justify-content: space-around;
+    padding: 25px;
+    padding-bottom: 20px;
+    padding-right: 0;
+
+    @media screen and (max-width:441px) {
+        justify-content: space-between;
+        // padding-bottom: 10px;
+        padding: 15px;
+        padding-right: 0;
+    }
+}
+
+.right-block-tour {
+    width: 35%;
+
+    .t-points {
+        text-transform: capitalize;
+        color: #A9A9A9;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+
+    }
+
+    .t-new-score.dull {
+        color: #969696;
+        font-size: 26px;
+        letter-spacing: 0;
+        line-height: 18px;
+        text-align: center;
+    }
+
+    .t-new-score.enhanced {
+        color: #00CB0E;
+        font-size: 26px;
+        letter-spacing: 0;
+        line-height: 18px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    @media screen and(max-width:400px) {
+        .t-points {
+            text-align: center;
+        }
+
+        .t-new-score.dull {
+            // text-align: right;
+            font-size: 22px;
+        }
+
+        .t-new-score.enhanced {
+            // text-align: right;
+            font-size: 22px;
+        }
+    }
+
+}
+
+.tour-T-table {
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid #EFF2F8;
+
+    .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 6px;
+        // border-bottom: 1px solid #DFE1E7;
+    }
+
+    .border-wrap {
+        border-bottom: 1px solid #DFE1E7
+    }
+
+    .wrap-LB {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 3px;
+    }
+
+    thead {
+        text-align: center;
+    }
+
+    tbody {
+        text-align: center;
+    }
+
+    .tour-T-head {
+        color: #999999;
+        font-size: 12px;
+        // margin-right: 20px;
+    }
+
+    .tour-T-body {
+        font-size: 12px;
+    }
+
+    .tour-T-body-wrap {
+        background-color: #EFF2F8;
+        // padding: 5px;
+        border-radius: 3px;
+    }
+
+    .tour-T-body-wrap.LB {
+        padding: 2px !important;
+
+    }
+
+
+
+    .tour-T-body.game-rankT {
+        color: #00CB0E;
+    }
+}
+
+.all-fix {
+    position: relative;
+
+    img {
+        width: 100%;
+        height: auto;
+        max-width: 70px;
+    }
+
+    .no-of-fix {
+        position: absolute;
+        left: 0;
+        top: 28%;
+        color: #eee8aa;
+        right: 0;
+        margin: 0 auto;
+    }
+}
+
+.collection-list.newT {
+    margin-bottom: 13px !important;
+    padding: 0 !important;
+
+    @media screen and (max-width: 441px) {
+        padding-top: 14px;
+    }
+}
+
+.footer-tour {
+    background-color: #FFFFFF;
+    box-shadow: 0 -5px 20px 0 rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // position: absolute;
+    position: fixed;
+    // width: 550px;
+    width: 100%;
+    margin: 0 !important;
+    color: $primary_text_color;
+    font-family: $font-exo-regular;
+    bottom: 0;
+    max-width: 550px;
+
+    .t-score {
+        font-size: $font-base;
+        font-family: $font-exo-extrabold;
+    }
+}
+
+.fix-list-wrap.newLB {
+    margin: 15px;
+
+    @media screen and (max-width:550px) {
+        padding-bottom: 40px;
+    }
+}
+
+.comp-fix-list {
+    padding-bottom: 30px;
+}
+
+.newTL {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    margin: 20px 14px;
+}
+
+.fix-list-wrap.newLB,
+.new-comp-fix-list,
+.newLB {
+    a.collapsed {
+        // border: 1px solid $primary;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 14px;
+        transition: 1s;
+
+        .highlighted-border,
+        .collection-list.newTL.newT {
+            border: none;
+        }
+    }
+
+    a {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 14px;
+        transition: 1s;
+
+        .highlighted-border,
+        .collection-list.newTL.newT {
+            border: 1px solid $primary;
+        }
+    }
+}
+
+.TourL-profile {
+    display: flex;
+    align-items: center;
+    margin-left: 17px;
+
+    .detail-block {
+        margin-left: 20px;
+
+        .name {
+            color: #282E48;
+            font-size: 20px;
+            letter-spacing: 0;
+            line-height: 24px;
+            font-weight: bold;
+        }
+
+        .match-joined {
+            color: #969696;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 14px;
+
+            .number {
+                color: $primary;
+                font-size: 12px;
+                letter-spacing: 0;
+                line-height: 14px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.match-count-date {
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.user-profile-image {
+    height: 77px;
+    width: 77px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cont-ttl-tl {
+    font-size: 12px;
+    color: $white;
+}
+
+.match-card-team {
+    text-transform: capitalize;
+}
+
+.new-tour-close {
+    color: $white !important;
+    position: absolute !important;
+    left: 10px !important;
+    top: 50% !important;
+    // right: 0 !important;
+    text-align: left;
+    transform: translateY(-50%) !important;
+    cursor: pointer !important;
+}
+
+
+
+.tour-new-pp {
+    color: $white;
+    font-family: $font-bold;
+    font-size: 10px;
+
+    .live-sec {
+        background: $alert_danger_color;
+        // padding: 1px 5px 0;
+        padding: 1px 5px 2px;
+        border-radius: 6px;
+        vertical-align: middle;
+        text-transform: uppercase;
+
+        span {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            margin-right: 1px;
+            vertical-align: middle;
+            background: $white;
+
+            @media (max-width: 1440px) and (min-width: 767px) {
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
+
+    .comp-sec {
+        background: $alert_success_color;
+        padding: 1px 5px 2px;
+        border-radius: 6px;
+        vertical-align: middle;
+        text-transform: uppercase;
+    }
+}
+
+.g-games {
+    max-width: 92px !important;
+    height: 80px !important;
+    width: 92px !important;
+
+}
+
+
+// @media screen and (max-width:400px) {
+//     .LB-top{
+//         display: flex !important;
+//         justify-content: space-between !important;
+//         padding: 9px 8px !important;
+//     }
+// }
+
+.lb-img-sec {
+    width: 25% !important;
+}
+
+.lb-other-team {
+    height: 55px !important;
+}
+
+.newLB::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.team-container {
+    border-top: 1px solid #eff2f8;
+    padding: 11px;
+    padding-bottom: 10px;
+    padding-top: 0;
+
+    .top-head-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+
+        // margin-top: 10px;
+        .teams {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 33.34%;
+            font-size: 10px;
+            font-family: $font-exo-regular;
+            color: #999999;
+        }
+    }
+
+    .top-head-container.addedLB {
+        border-bottom: 1px solid #DFE1E7;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    .second-container {
+
+        border-radius: 4px;
+        background-color: #EFF2F8;
+
+        // margin-top: 8px;
+        // padding: 5px 0;
+        .teams {
+            color: #282E48;
+            font-size: 12px;
+        }
+
+        .game-rank-view {
+            color: #43BA6A;
+        }
+
+
+    }
+}
+
+.tourLBF {
+    padding: 0rem !important;
+}
+
+.center-modal .modal-dialog.tour-fix-detail-modal {
+    .newLB-body {
+        height: calc(100vh - 116px);
+
+        // padding-bottom: 50px;
+        .fix-list-wrap {
+            max-height: calc(100vh - 144px);
+        }
+
+        //  @media screen and (max-width:550px) {
+        //     padding-bottom: 60px;
+        //  }
+    }
+
+
+}
+
+
+.newT-tour.tennis {
+    padding-left: 0;
+
+    .ms-card-title {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        font-size: 16px;
+        line-height: 1.2;
+        font-family: $font-bold;
+        text-transform: uppercase;
+        padding: 0 15px;
+
+        &.motor {
+            background: #5853c3 url(/static/media/ms-title-bg.80a7a7ee.png) no-repeat;
+            background-size: contain;
+            background-position: 100% 0;
+            color: #fff;
+        }
+
+        &.tennis {
+            background: linear-gradient(270deg, #fff 0, #E4E7EE 100%);
+            color: #212121;
+        }
+    }
+
+    .ms-card-bottom-tennis {
+        padding: 10px 15px 0 15px;
+
+        .msc-details {
+            font-size: 11px;
+            line-height: 1.6;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .schedule {
+                font-family: $font-semibold;
+                font-size: 12px;
+                line-height: 1.5;
+                color: $help_text_color;
+
+                .tour-timer-color {
+                    color: $alert_danger_color;
+                }
+            }
+        }
+    }
+
+    .left-block-tour {
+        width: 75%;
+    }
+
+    .right-block-tour {
+        width: 25%;
+    }
+}
+
+.show-team-count {
+    .ms-card-bottom {
+        margin-bottom: 15px;
+    }
+}
+
+.bg-highlighted-view {
+    background-color: rgba($primary, 0.2) !important;
+}
+
+// pick TourL modal
+.pickLB-body {
+    background-color: #f4f4f4;
+    overflow-y: auto;
+
+    .fix-list-wrap {
+        padding-bottom: 0;
+    }
+}
+
+.pick-fix-card-outer {
+    padding: 0 15px 70px;
+
+    .countdown-timer-section {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        color: $alert_danger_color;
+        font-family: $font-exo-bold;
+        font-size: $font-size-small;
+        line-height: 1;
+        margin-top: 10px;
+
+        &:before,
+        &:after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid #DEDEDE;
+            margin: auto;
+        }
+
+        &:before {
+            margin-right: 10px;
+        }
+
+        &:after {
+            margin-left: 10px;
+        }
+    }
+
+    .pick-countdown-tview {
+        display: flex;
+        margin-top: 15px;
+
+        .pick-com-timer {
+            font-size: $font-size-small;
+            color: $body_text_color2;
+            display: flex;
+            align-items: center;
+            flex: 1 1 auto;
+            line-height: 1;
+            position: relative;
+
+            &::after {
+                content: "";
+                flex: 1 1;
+                height: 1px;
+                max-width: 85%;
+                background-color: #dedede;
+                margin: 0 10px;
+
+            }
+        }
+
+        .pick-pts-score {
+            flex: 0 0 auto;
+            font-size: $font-size-small;
+            font-family: $font-exo-bold;
+            text-transform: uppercase;
+
+            &.ps-plus {
+                color: $alert_success_color;
+            }
+
+            &.ps-negtive {
+                color: $alert_danger_color;
+            }
+        }
+    }
+
+    .pick-option-row {
+        display: flex;
+        background-color: $white;
+        border-radius: 10px;
+        margin-top: 5px;
+        padding: 3px;
+
+        .pick-option-col {
+            text-align: center;
+
+            .input-score-sec {
+                height: 40px;
+                border: 1px solid #DEDEDE;
+                border-radius: 9px;
+                background-color: $white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+
+                .icon-tick-circular {
+                    color: #5DBE7D;
+                }
+
+                .icon-cross-circular {
+                    color: $gang_contest_clr;
+                }
+
+                i {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 16px;
+                    z-index: 2;
+                    display: block;
+                    background-color: $white;
+                }
+
+                .hm-score,
+                .ay-score {
+                    height: 100%;
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 30px;
+                    font-family: $font-bold;
+                    color: $help_text_color;
+
+                    .blk-txt {
+                        color: $black;
+                        line-height: initial;
+                        margin-top: 15px;
+                    }
+                }
+
+                .hm-score {
+                    border-right: 1px solid #DEDEDE;
+                }
+            }
+
+        }
+
+        .pick-option-info {
+            border-radius: 8px;
+            min-height: 110px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            // padding: 14px 5px;
+            cursor: pointer;
+
+            @media (max-width: 550px) {
+                min-height: 94px;
+                // padding: 6px;
+            }
+
+            i {
+                position: absolute;
+                right: 8px;
+                top: 8px;
+                font-size: $font-size-xsmall;
+                font-weight: bold;
+            }
+
+            .icon-tick {
+                color: $alert_success_color;
+            }
+
+        }
+
+        .correct {
+            background-color: #DDFFE8;
+
+            i {
+                color: $alert_success_color;
+            }
+        }
+
+        .wrong {
+            background-color: #FFE8E6;
+
+            i {
+                color: $alert_danger_color;
+            }
+        }
+
+        .no-bg {
+            background-color: transparent !important;
+        }
+
+        .pick-option-img {
+            margin: 5px 0 0;
+
+            img {
+                width: 44px;
+                height: 44px;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        .pick-option-name {
+            font-size: $font-size-small;
+            font-family: $font-exo-extrabold;
+            color: $primary_text_color;
+            max-width: 100px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .pick-percentage {
+            font-size: 9px;
+            font-family: $font-exo-regular;
+            color: $help_text_color;
+
+            span {}
+        }
+
+        &.pick-option-row-vs {
+            align-items: center;
+            justify-content: center;
+
+            .pick-team-vs {
+                font-size: $font-size-small;
+                color: $body_text_color2;
+                margin-top: 5px;
+                text-transform: capitalize;
+            }
+
+            .pick-option-name {
+                text-transform: uppercase;
+                // font-size: $font-size-medium;
+            }
+        }
+    }
+}

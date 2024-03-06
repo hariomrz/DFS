@@ -1,0 +1,896 @@
+.Ftp-web-container{
+    background: $white;
+    padding: 56px 0 30px;
+    &.no_padding{
+        padding: 0px;
+    }
+    &.padding-less{
+        padding: 44px 0 30px;
+    }
+}
+.no-prize-text{
+    font-size: 12px;
+    color: $black;
+    font-family: $font-regular;
+    text-align: center;
+    margin-top: 10px;
+    &.no-prize-text-league{
+        margin-top: 50px;
+
+    }
+}
+
+.Ftp-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $primary;
+    max-width: $window_width;
+    height: 56px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    z-index: 1005;
+    &.less-height{
+        height: 45px;
+
+    }
+    .app-header-text{
+        color:$white;
+        font-family: $font-bold;
+        font-weight: bold;
+        font-size: $font-base;
+        text-align: center;
+        // text-transform: uppercase;
+
+        @media screen and (max-width: 360px){
+            font-size: 14px;        
+            margin-top: 4px;    
+        }
+    }
+
+    .row-container{
+        height: 56px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 15px;
+        .header-action{
+            font-size: 18px;
+            color:$white;   
+            height: 24px;
+            width: 24px;
+            position: relative;
+            display: block;
+        }
+        .section-left{
+            z-index: 10;
+            display: flex;
+            height: 56px;
+            align-items: center;
+            
+            
+        }
+        .section-middle{
+            margin-left: 25px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .section-right{
+            display: flex;
+            height: 56px;
+            align-items: center;
+        }
+       
+    }
+}
+.Ftp-prizes-label{
+    font-size: $font-size-h4;
+    color: $body_text_color;
+    font-family: $font-regular;
+    max-width: 230px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+}
+.Ftp-prizes{
+    margin-bottom: 120px;
+    &.no-margin{
+        margin-bottom:40px
+    }
+
+    .Ftp-prize-section{
+        padding: 5px;
+        min-width: 33.333%;
+        text-align: center;
+        .Ftp-prize-inner-section{
+            text-align: center;
+            border: 1px solid $border-color;
+            border-radius: 10px;
+            font-size: 50px;
+            width: 98px;
+            height: 98px;
+            padding: 15px 0;
+            color: $help_text_color;
+            &.padding-bonus-icon{
+                padding: 12px 0;
+
+            }
+           
+        }
+    
+         .currency-icon-prize{
+            display: inline-block;
+            color: $primary;
+        }
+        .bonus-icon-prize{
+            display: inline-block;
+            color: $primary;
+           
+        }
+        .bonus-icon-prize-amount{
+            display: inline-block;
+            color: $primary;
+           vertical-align: middle;
+           line-height: 1;
+           .contest-prizes{
+            padding: 0;
+           }
+        }
+        .contest-prizes.coin-cp{
+            padding: 2px 0px 4px;
+        }
+        .prize-image{
+            width: 90px;
+            height: 90px;
+        }
+        .rank-ribbon{
+            position: relative;
+            background: $primary;
+            text-align: center;
+            z-index: 1;
+            width: calc(80% - 15px);
+            height: 15px;
+            margin: 10px auto 0;
+            &:before {
+                content: '';
+                border: 7.5px solid $primary;
+                border-left-color: transparent;
+                border-left-width: 5px;
+                position: absolute;
+                top: 0;
+                left: -7px;
+                border-radius: 2px;
+            }
+            &:after {
+                content: '';
+                border: 7.5px solid $primary;
+                border-right-color: transparent;
+                border-right-width: 5px;
+                position: absolute;
+                top: 0;
+                right: -7px;
+                border-radius: 2px;
+            }       
+        }
+        .ribbon-text {
+            position: relative;
+            display: block;
+            font-size: $font-size-small;
+            color: $white;
+            font-family: $font-bold;
+        }     
+        .prize-name{
+            font-size: $font-size-small;
+            font-family: $font-bold;
+            color: $body_text_color;
+            text-align: center;
+            margin-top: 5px;
+            padding: 5px 0;
+        }
+        @media (min-width: 200px){
+            &.col-xs-3 {
+                flex: 0 0 34%;
+                max-width: 33%;
+                }
+          
+    }
+    @media (min-width: 576px){
+        &.col-xs-3 {
+            flex: 0 0 31%;
+            max-width: 31%;
+    }
+}
+@media (min-width: 768px){
+    &.col-xs-3 {
+        flex: 0 0 33%;
+        max-width: 33%;
+}
+}
+    }
+}
+.show-more-prizes .button{
+    font-size: $font-size-small;
+    background: $white;
+    border-radius: 22px;
+    border: 1px solid $primary;
+    display: inline-block;
+    padding: 4px 15px 3px;
+    color: $primary;
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 10px;
+    &.padding-more{
+        padding: 6px 15px 3px;
+
+    }
+
+}
+.button.join-button{
+    max-width: 280px;
+    margin: 40px auto 0;
+}
+.Ftp-body{
+    padding: 30px 12px 0;
+    &.padding-contest-free{
+        padding: 30px 26px 0;
+
+    }
+    .match-info-section{
+        max-width: 60%;
+        margin: 0 auto;
+        .team-home, .team-away{
+            font-size: 16px;
+        }
+    }
+    .contest-section{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+ 
+        .Ftp-prizes-label{
+            display: flex;
+            text-align: left;
+            font-size: 16px;
+            color: $body_text_color;
+            font-family: $font-regular;
+            max-width: 100%;
+            margin-left: 10px;
+        }
+        
+    }
+    .contest-info{
+        text-align: right;
+        padding: 15px 10px;
+        a{
+            font-size: 10px;
+            color: $help_text_color;
+            text-transform: capitalize;
+            i{
+                font-size: $font-size-h4;
+                color: $primary_text_color;
+            }
+        }
+    }
+    .entries-detail{
+        max-width: 260px;
+        margin: 0 auto;
+        padding-top: 30px;
+        .contest-winner{
+            text-align: center;
+            font-size: $font-size-h4;
+            color: $body_text_color;
+            font-family: $font-regular;
+            margin-bottom: 15px;
+        }
+        .progress-bar-default .progress{
+            height: 6px;
+            width: 100%;
+        }
+        .progress-bar-value{
+            font-size: $font-size-small;
+            font-family: $font-book;
+            span,.min-entries{
+                color: $help_text_color;
+            }
+            .total-output{
+                color: $primary_text_color;
+            }
+        }
+    }
+}
+.Ftp-all-prizes{
+    .section-middle{
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+        .match-team-info{
+            font-size: $font-base;
+            font-family: $font-bold;
+            color: $white;
+            text-transform: uppercase;
+            span{
+                text-transform: none;
+            }
+        }
+        .ftp-all-prizes-label{
+            font-size: $font-size-xsmall;
+            font-family: $font-book;
+            color: $white;
+            text-transform: capitalize;
+        }
+    }
+}
+.Ftp-all-prizes-body{
+    padding: 50px 20px 30px;
+    .Ftp-prizes{
+        .prizes-type{
+            justify-content: unset;
+        }
+        .Ftp-prize-section{
+            min-width: auto;
+        }
+    }
+}
+.sponser-by-section{
+    padding: 0 30px;
+    background: $primary;
+    &.padding-landing{
+        padding: 0 20px;
+
+    }
+    .sponser-by-inner-section{
+        position: relative;
+        top: 18px;
+        background: $white;
+        border-radius: 10px;
+        box-shadow: 0 2px 20px 0 rgba(0,0,0,0.1);
+        padding: 18px 15px;
+        color: $help_text_color;
+        font-family: $font-book;
+        font-size: $font-size-small;
+        &.margin-more{
+            top: 24px;
+         }
+        
+        .image-sponser{
+            display: inline;
+            float: right;
+            margin-top: -13px;
+        }
+        
+    }
+    .sponser-by-landing-page{
+        position: relative;
+        top: 15px;
+        line-height: 16px;
+        height: 30px;
+        background: $white;
+        border-radius: 50px;
+        box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.1);
+        padding: 9px 15px;
+        color: $black;
+        font-family: $font-bold;
+        font-size: 12px;
+    
+        img{
+            float: right !important;
+        }
+        .span-img{
+            line-height: 14px;
+             color: $primary;
+            float: right !important;
+           
+            
+        }
+        .text-how-to-play{
+            line-height: 14px;
+            float: right !important;
+             color: $primary;
+             font-family: $font-book;
+        }
+        .how-to-play{
+            color: $primary;
+            float: right !important;
+        }
+    }
+}
+
+.overlay-white-circle{
+    position: absolute;
+    @include background-opacity($view_bg_color,0.08);
+    width: 100%;
+    height: 100%;
+    top: -25%;
+    left: -15%;
+    z-index: 20000;
+    display: block;
+    border-radius: 0 0 130% 0;
+    display: none;
+}
+.Ftp-header{
+    .overlay-white-circle{
+        width: 267px;
+        height: 130px;
+        top: -30px;
+        left: 0;     
+        border-radius: 0 0 100% 0;
+    }
+}
+.Ftp-all-prizes{
+    .Ftp-prizes{
+        .Ftp-prize-section{
+            .Ftp-prize-inner-section{
+                background: $white;
+                border: 1px solid $disabled_text_color;
+            }
+        }
+    }
+}
+
+.league-section{
+    border-bottom: 1px solid $border_color;
+    margin-bottom: 10px;
+    height: 55px;
+    font-size: $font-size-small;
+    font-family: $font-bold;
+    color: $primary_text_color;
+    background: $white;
+    // box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+    position: relative;
+    &.no-border{
+        border-bottom: 0px solid $border_color;
+        height: 40px;
+
+    }
+    &.no-border-leageue-point{
+        border-bottom: 0px solid $border_color;
+        height: 34px;
+
+    }
+    .league-name{
+        color: $primary_text_color;
+        font-size: 14px;
+        font-family: $font-regular;
+        &.leaderboard{
+            margin-left: 10px;
+            
+        }
+       
+    }
+    p{
+        color: $help_text_color;
+        text-transform: none;
+        font-size: 10px;
+        font-family: $font-book;
+        margin-bottom: 0;
+        &.leaderboard{
+            margin-left: 10px;
+            
+        }
+    }
+    .verity-count {
+        background: $ternary;
+        color: $white;
+        height: 20px;
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        font-weight: bold;
+        text-align: center;
+        padding: 2px 10px;
+        border-radius: 100px 0 0 100px;
+        position: absolute;
+        top: 45%;
+        right: -22px;
+        transform: translateY(-50%);
+        line-height: 18px;
+    }
+    .total-points {
+        color: black;
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        font-weight: bold;
+        text-align: center;
+        padding: 4px 13px;
+        position: absolute;
+        top: 30%;
+        right: 5px;
+        transform: translateY(-50%);
+        line-height: 18px;
+        &.user-points-top-margin{
+            top: 50%;
+
+        }
+    }
+    i{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+        color: $gray-550;
+        font-size: $font-size-small;
+        cursor: pointer;
+    }
+}
+.bottom-view{
+    margin-bottom: 2px;
+    font-size: 12px;
+    color: $white;
+    background-color: $primary;
+    font-family: $font-bold;
+    font-weight: bold;
+    border-radius: 0px;
+    text-align: center;  
+}
+.bottom-view-leader-board{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+    height: 50px;
+    color: $white;
+    background: $primary;
+    font-family: $font-bold;
+    font-weight: bold;
+    text-align: center;  
+    .pull-left {
+        margin-top: 18px;
+        margin-left: 2%;
+        float: left !important;
+      }
+      .pull-right {
+          margin-right: 4%;
+          margin-top: 18px;
+        float: right !important;
+      }
+}
+
+
+.tabs-multileage{
+    .nav{
+       
+       
+    }
+    .nav-tabs{
+    
+       li{
+        
+        width : 50% !important;
+        height: 1% !important;
+       } 
+
+    }
+   
+}
+.free-to-play-info{
+    width: 100%;
+    margin-top: 26px;
+    display: flex;
+    padding: 1px 5px;
+    align-items: center;
+    .no-margin{
+        margin-top: 2px;
+
+    }
+    &.margin-top_wiining{
+        margin-top: 0px;
+
+    }
+    .hall-of-fame-img {
+        width: 60px;
+        height: 60px;
+      
+    }
+    .text_hall_of_fame{
+        margin-left: 12px;
+        font-family: $font-book;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 0;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;            
+    }
+}
+
+.league-list{
+    // box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0px;
+    border-bottom: 1px solid $border-color;
+    background: $white;
+    padding: 25px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    .border_league{
+        border-bottom: 1px solid $border_color;
+        border-radius: 0px;
+      }
+    .display-table-cell{
+        &:first-child,&:last-child{
+            width: 25%;
+        }
+        .team-img{
+            max-width: 54px;
+            max-height: 54px;
+            @media screen and(max-width:360px){
+                max-width: 42px;
+                max-height: 42px;
+            }
+        }
+    }
+}
+.contest-detail-section{
+    border-bottom: 1px solid $border_color;
+    margin-bottom: 10px;
+    height: 55px;
+    font-size: $font-size-small;
+    font-family: $font-bold;
+    color: $primary_text_color;
+    background: $white;
+    // box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+    position: relative;
+    &.no-border{
+        border-bottom: 0px;
+        height: 40px;
+        margin-bottom:5px;
+
+  
+    }
+    .league-name{
+        color: $body_text_color;
+        font-size: 14px;
+        font-family: $font-regular;
+        &.contest-detail-text{
+            font-family: $font-bold;
+        }
+    }
+    p{
+        color: $help_text_color;
+        text-transform: none;
+        font-size: 11px;
+        font-family: $font-regular;
+        margin-bottom: 0;
+    }
+    .verity-count {
+        background: $primary;
+        color: $white;
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        font-weight: bold;
+        text-align: center;
+        padding: 4px 13px;
+        border-radius: 100px;
+        position: absolute;
+        top: 45%;
+        right: -15px;
+        transform: translateY(-50%);
+        line-height: 18px;
+        &.margin-less{
+            top: 20%;
+
+        }
+    }
+    .view-prize-all {
+        background: $white;
+        height: 30px;
+        color: $primary;
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        font-weight: bold;
+        text-align: center;
+        padding: 7px 13px;
+        border: 1px solid $primary;
+          border-radius: 100px;
+        position: absolute;
+        top: 30%;
+        right: -15px;
+        transform: translateY(-50%);
+        line-height: 18px;
+        &.margin-less{
+            top: 20%;
+
+        }
+    }
+    i{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+        color: $gray-550;
+        font-size: $font-size-small;
+        cursor: pointer;
+    }
+}
+
+.ranking-list-user{
+    // box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+    background: $white;
+    padding: 10px 15px 5px 12px;
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid $border_color;
+    &.sel-active{
+        @include background-opacity($primary,0.15);
+    }
+    .display-table-cell{
+        font-family: $font-regular;
+        vertical-align: middle;
+        .rank{
+            color: $primary;
+            font-size: 19px;
+            font-family: $font-bold;
+            line-height: 1.1;
+        }
+        .points{
+            font-size: 12px;
+            font-family: $font-bold;
+            text-align: right;
+            color: $primary_text_color;
+            margin-right: 10px;
+        }
+        .rank-heading,
+        .points-heading {
+            font-size: 11px;
+            color: $help_text_color;
+            line-height: 1.1;
+        }
+        .points-heading{
+            text-align: right;
+        }
+        .user-img{
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            display: inline-block;
+            margin: 0;
+            margin-right: 10px;
+            overflow: hidden;
+            @media (max-width: 320px){
+                margin-right: 8px;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            &.shimmer{
+                vertical-align: middle;
+                margin: 0 0 1rem;
+            }
+        }
+        .user-team-name{
+            font-size: 12px;
+            color: $help_text_color;
+            font-family: $font-regular;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            color: $help_text_color;
+            line-height: 1.5;
+            margin-top: 3px;
+            font-weight: bold;
+            .won-amount{
+                color: $primary;
+                line-height: 15px;
+                font-size: 12px;
+                font-weight: bold;
+                i.icon-bonus{
+                    position: relative;
+                    top: -1px;
+                }
+                .won{
+                    color: $help_text_color;
+                }
+            }
+        }
+
+        .user-name-container{
+            display: inline-block;
+            padding-left: 7px;
+
+            &.shimmer{
+                width: 80%;
+                vertical-align: middle;
+
+                @media screen and(max-width: 430px){
+                    width: 72%;
+                }
+            }
+
+            @media screen and(max-width: 453px){
+                width: 72%;
+            }
+        }
+        .user-name {
+            font-size: 14px;
+            color: $primary_text_color;
+            font-family: $font-bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            
+            
+            &.display-none{
+                display: none;
+            }
+        }
+        &:first-child{
+            width: 1%;
+        }
+        &:last-child{
+            width: 10%;
+        }
+
+        .list-header-text{
+            font-family: $font-regular;
+            color: $primary_text_color;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 15px;
+            text-align: center;
+            vertical-align: middle;
+            text-transform: capitalize;
+            &.list-heder-mini-league{
+                font-family: $font-book;
+                color:$help_text_color;
+                font-size: 12px;
+
+
+            }
+
+            &.left{
+                text-align: left;
+            }
+        }
+    }
+    &.user-list-header{
+        height: 34px;
+        background-color: $disabled_text_color;
+        padding : 0 10px;
+        &.mini-leage-leaderbord{
+            background-color: $app_bg_color;
+
+        }
+        // margin-top: 15px;
+    }
+    &.shimmer{
+        width: 100%;
+        
+    }
+}
+
+
+.lobby_sponser-image{
+    width: auto;
+    height: 30px;
+    background-size: cover;
+    &.sponser-card-image{
+        height: 44px;
+
+    }
+}
+.center-grid{
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    }
+    .contest-prizes{
+        display: inline-block;
+        color:$primary;
+        padding: 7px 0px 4px;
+        &.margin-contest{
+            margin-left: 14px;
+        }
+        &.padding-contest-detail{
+            padding: 0px 0px 0px;
+        }
+    }
+    .contest-listing-prizes{
+        display: inline-block;
+        color: $primary;
+        margin-left: -5px;
+    }
+
+    

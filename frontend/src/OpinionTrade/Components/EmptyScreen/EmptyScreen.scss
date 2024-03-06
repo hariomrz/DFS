@@ -1,0 +1,43 @@
+.empty-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+
+    .span-text {
+        color: $black;
+        font-family: $font-regular;
+        font-size: 20px;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 23px;
+        margin-bottom: 23px;
+        max-width: 234px;
+    }
+
+    img {
+        width: 318px;
+    }
+
+    .view-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        width: 300px;
+        border-radius: 22px;
+        .span-btn-text {
+            color: $primary;
+            font-family: $font-semibold;
+            font-size: 16px;
+            letter-spacing: 0;
+            text-align: center;
+            margin-top: 28px;
+            text-transform: uppercase;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

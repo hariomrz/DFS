@@ -1,0 +1,32 @@
+<div ng-cloak ng-show="listSuggestedEvents.length>0" id="suggestionEventCtrl" ng-controller="EventPopupFormCtrl" ng-init="ListSuggestedEvents('1','2','0')" class="news-feed-listing">
+    <div class="heading">
+        <span>Upcomming Events</span>
+        <!-- <a class="seeMore">See All</a> -->
+    </div>
+    <div class="feed-body">
+        <ul class="suggested-list">
+            <li ng-repeat="SuggestedEvent in listSuggestedEvents">
+                <div class="listing-content">
+                    <a class="thumb-48 loadbusinesscard" entitytype="event" entityguid="{{SuggestedEvent.EventGUID}}">
+                    <img ng-if="SuggestedEvent.ProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+SuggestedEvent.ProfilePicture}}"  alt="Event" title="Event" class="img-circle"/>
+                    </a>
+                    <a entitytype="event" entityguid="{{SuggestedEvent.EventGUID}}" class="loadbusinesscard" ng-bind="SuggestedEvent.Title"></a>
+                    <div class="sub-content">
+                        <span class="text-secondary" ng-bind="format_event_date(SuggestedEvent.StartDate)"></span>
+                        <div><a ng-bind="getAttendeesCount(SuggestedEvent.EventUsers)"></a></div>
+                    </div>
+                    <button ng-click="JoinEvent(SuggestedEvent.EventGUID,$index,'fromSuggestion')" ng-if="SuggestedEvent.loggedUserPresence==''" id="join_event_{{SuggestedEvent.EventGUID}}" class="btn btn-default with-icon"><i class="icon-n-plus"></i> <span ng-bind="lang.attend_now"></span></button>
+
+                    <button aria-expanded="false"  class="btn btn-default dropdown-toggle" type="button" ng-cloak ng-if="SuggestedEvent.loggedUserPresence && SuggestedEvent.loggedUserPresence!='Arrived' && SuggestedEvent.EventStatus=='Past'" > <span class="text"  ><span ng-bind="SuggestedEvent.loggedUserPresence"></span></span> </button>
+
+                      <button aria-expanded="false" data-toggle="dropdown" ng-cloak class="btn btn-default dropdown-toggle" type="button" ng-show="SuggestedEvent.loggedUserPresence && SuggestedEvent.loggedUserPresence!='Arrived' && SuggestedEvent.EventStatus!=='Past'"> <span class="text" ng-bind="SuggestedEvent.loggedUserPresence"></span><i class="caret" ></i></button>
+                      <ul role="menu" class="dropdown-menu" ng-cloak ng-if="SuggestedEvent.loggedUserPresence && SuggestedEvent.loggedUserPresence!='Arrived' && SuggestedEvent.EventStatus!=='Past'">
+                        <li><a href="javascript:void(0);" ng-if="SuggestedEvent.loggedUserPresence!='May Be'" data-ng-click="UpdateUsersPresence('MAY_BE','May Be',SuggestedEvent.EventGUID,'fromSuggestion');">May Be</a></li>
+                        <li><a href="javascript:void(0);" ng-if="SuggestedEvent.loggedUserPresence!='Not Attending'" data-ng-click="UpdateUsersPresence('NOT_ATTENDING','Not Attending',SuggestedEvent.EventGUID,'fromSuggestion');">Not Attending</a></li>
+                        <li><a href="javascript:void(0);" ng-if="SuggestedEvent.loggedUserPresence!='Attending' || loggedUserPresence=='Invited'" data-ng-click="UpdateUsersPresence('ATTENDING','Attending',SuggestedEvent.EventGUID,'fromSuggestion');">Attending</a></li>
+                      </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+.scoring-main{
+    input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .table-responsive{
+    th{
+      width: 50%;
+    }  
+    .form-control{
+      width: 50%;
+    }
+  }
+}
+.filters-box {
+  margin-bottom: 16px;
+}
+.filters-area {
+  float: right;
+  position: relative;
+  .Select-control {
+    height: 42px;
+    width: 200px;
+    .Select-placeholder {
+      line-height: 42px;
+    }
+    .Select-value-label {
+      line-height: 42px;
+      text-transform: capitalize;
+    }
+  }
+  i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    opacity: 1;
+    z-index: 1;
+    color: $gray-9;
+    width: 42px;
+    height: 42px;
+    padding: 14px;
+  }
+  .rules-up-btn{
+    height: 40px;
+  }
+}
+.update-btn-box {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.prediction-popup .ask-text.scores-font {
+  font-size: 15px;
+}
+
+.info-icon-banner{
+  float: right;
+  position: relative;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.info-banner-2{
+  position: relative;
+  display: inline-block;
+  border-bottom: 0px dotted black;
+  float: right;
+  position: relative;
+  margin-right: 10px;
+ }
+
+
+ .d-f{
+   display: flex;
+ }
+
+ .ml10{
+   margin-left: 10px !important;
+ }
+
+ .center-data-2{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+ }

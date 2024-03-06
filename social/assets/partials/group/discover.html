@@ -1,0 +1,323 @@
+<div ng-controller="DiscoverCtrl" ng-init="getDiscoverList()">
+  <div class="panel panel-transparent" ng-if="ShowCategory==0" ng-cloak>
+    <div class="panel-heading">
+      <h3 class="panel-title title-lg no-padding">                      
+        <span class="text" ng-bind="lang.browse_by_categories"></span>
+      </h3>
+    </div>
+    <div class="panel-body transparent">                  
+      <ul class="listing-group multiple-items list-nothumb category-slider">
+        <slick class="slider" ng-if="DiscoverCategories.length>0" settings="categoryConfig">
+          <li class="items" ng-repeat="category in DiscoverCategories">
+            <div class="multiple-slide p">
+              <div class="list-items-md">
+                <div class="list-inner">
+                  <figure>
+
+                    <a ng-href="{{SiteUrl+'group/discover/'+get_category_url_slug(category)}}" ng-if="category.ImageName!==''">
+                      <img err-src="{{ImageServerPath+'upload/profile/220x220/category_default.png'}}" ng-src="{{ImageServerPath+'upload/category/220x220/'+category.ImageName}}" class="img-circle"  >
+                    </a>
+                    <a ng-href="{{SiteUrl+'group/discover/'+get_category_url_slug(category)}}" class="hover-overlay slider-img-holder block" ng-if="category.ImageName==''">
+                      <i class="ficon-category f-35" err-src="{{ImageServerPath+'upload/profile/220x220/category_default.png'}}"></i>
+                    </a>
+                  </figure>
+                  <div class="list-item-body">
+                    <h4 class="list-heading-md"><a ng-href="{{SiteUrl+'group/discover/'+get_category_url_slug(category)}}" class="ellipsis" ng-href="{{SiteUrl+'group/discover/'+get_category_url_slug(category)}}" ng-click="viewAllGroups(category.CategoryID,category.Name,20);" ng-bind="category.Name"></a></h4>
+                    <p ng-bind="substr_text(category.Description,60)"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </slick>
+      </ul>
+    </div>
+  </div>
+
+  
+  <ol ng-cloak ng-if="ShowCategory!=0" class="breadcrumb no-margin-t container">
+    <li ng-cloak ng-if="LoginSessionKey!==''" class="breadcrumb-item">
+      <a target="_self" ng-click="redirectToUrl('group'); loadMyGroups(); changeGroupTabClass('#TabMyGroup')" data-target="#myGroups" role="tab" data-toggle="tab">
+        <span class="icon">
+          <i class="ficon-home"></i>
+        </span>
+      </a>
+    </li>
+    <li ng-cloak ng-if="LoginSessionKey==''" class="breadcrumb-item">
+      <a target="_self" ng-click="showAllCategories()">
+        <span class="icon">
+          <i class="ficon-home"></i>
+        </span>
+      </a>
+    </li>
+    <li class="breadcrumb-item">
+        <span class="icon">
+          <i class="ficon-arrow-right"></i>
+        </span>
+
+        <a target="_self" ng-click="redirectToUrl('group/discover'); showAllCategories()" ng-bind="lang.g_discover"></a></li>
+    <li ng-if="ShowCategory!=='suggestion'" class="breadcrumb-item active">
+      <span class="icon">
+        <i class="ficon-arrow-right"></i>
+      </span>
+      <span ng-bind="CategoryName" ng-click="getDiscoverList()"></span>
+    </li>
+    <li ng-if="ShowCategory=='suggestion'" class="breadcrumb-item active">
+      <span class="icon">
+        <i class="ficon-arrow-right"></i>
+      </span>
+      <span ng-bind="lang.suggested_groups"></span>
+    </li>
+  </ol>  
+
+
+  <div class="panel panel-info panel-group-detail" ng-repeat="category in DiscoverCategories" ng-if="ShowCategory==category.CategoryID && ShowCategory!=0">
+    <div class="panel-body">
+      <div class="list-items-lg list-nothumb">
+        <div class="list-inner items">
+          <figure>
+            <a target="_self" ng-if="category.ImageName!==''">
+              <img err-src="{{ImageServerPath+'upload/profile/220x220/category_default.png'}}" ng-src="{{ImageServerPath+'upload/category/220x220/'+category.ImageName}}" class="img-circle"  >
+            </a>
+            <a target="_self" class="hover-overlay slider-img-holder block" ng-if="category.ImageName==''">
+              <i err-src="{{ImageServerPath+'upload/profile/220x220/category_default.png'}}" class="ficon-category f-50"></i>
+            </a>
+          </figure>  
+          <div class="list-item-body">
+            <h3 class="list-heading-xxlg extra-bold" ng-bind="category.Name"></h3>
+            <p class="no-margin" ng-bind="category.Description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-if="DiscoverCategories.length==0" ng-cloak class="panel panel-info">
+    <div class="panel-body nodata-panel">
+      <div class="nodata-text p-v-lg">
+        <span class="nodata-media">
+          <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-articles.png" >
+        </span>
+        <p class="text-off" ng-bind="lang.no_categories_created"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-heading" ng-cloak ng-if="ShowCategory!='0'">
+    <div class="row">
+      <div class="col-sm-8 col-md-9">              
+        <div class="row">
+          <div class="col-xs-7">                                 
+              <h4 class="page-title">All Groups ({{totalCategoryGroups}})</h4>
+          </div>
+          <div class="col-xs-5">
+            <div class="page-actions">
+              <ul class="sort-action">          
+                <li>
+                  <div class="dropdown-sort">
+                    <!-- <small class="title" ng-bind="lang.g_sort_by"></small> -->
+                    <div class="dropdown">
+                      <a target="_self" data-toggle="dropdown">
+                        <span class="text" ng-bind="SortFilterLabel"></span><span class="icon"><i class="ficon-arrow-down"></i></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a target="_self" ng-click="sortBy('LastActivity','Activity Date',ShowCategory,CategoryName)" ng-bind="lang.g_activity_date"></a></li>
+                        <li><a target="_self" ng-click="sortBy('GroupName','Name',ShowCategory,CategoryName)" ng-bind="lang.g_name"></a></li>
+                        <li><a target="_self" ng-click="sortBy('Popularity','Popularity',ShowCategory,CategoryName)" ng-bind="lang.g_popularity"></a></li>
+                        <li><a target="_self" ng-click="sortBy('FriendsCount','Suggested',ShowCategory,CategoryName)" ng-bind="lang.g_suggested"></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="row masonry"  ng-class="(ShowCategory==0) ? '' : 'isopeStatic' ;">
+
+    <div class="masonry-items" ng-class="(ShowCategory==0) ? 'col-md-6' : 'col-md-9 col-sm-8 isopeStaticItems' ;" ng-if="ShowCategory==0 || ShowCategory=='suggestion'">
+      <div ng-if="SettingsData.m1=='1' && ShowCategory==0" class="panel panel-info warning" ng-cloak ng-controller="GroupPageCtrl" id="GroupPageCtrl" ng-init="suggestedGroupList(4, '0', 0)" ng-show="suggestedlist.length > 0" ng-init="callIsotope()">
+        <div class="panel-heading p">
+          <div class="list-items-default">
+            <div class="list-item-body">
+              <h4 class="list-heading-sm extra-bold" ng-bind="lang.w_suggested_groups_small"></h4>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body no-padding">
+          <ul class="list-items-members">
+            <li ng-repeat="group in listObj = suggestedlist|limitTo:extra_param.WidgetItemSize" id="grp{{list.GroupGUID}}">
+                <div class="list-items-md">
+                  <div class="list-inner">
+                    <ul class="pull-right list-icons hidden-xs">
+                      <li>
+                        <button ng-if="group.Permission.IsInvited != 1 && group.Permission.IsActiveMember != 1 && group.IsPublic == 1" class="btn btn-default btn-sm" ng-click="joinPublicGroup(group.GroupGUID, 'discoverslider')" ng-bind="lang.join"></button>
+                      </li>
+                    </ul>
+                    <figure>
+                      <a target="_self" href="{{SiteURL+'group/'+group.ProfileURL}}"><img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" class="img-circle"  ></a>
+                    </figure>
+                    <div class="list-item-body">
+                      <h4 class="list-heading-sm">
+                          <a target="_self" class="text-black" href="{{SiteURL+''+group.ProfileURL}}" ng-bind="group.GroupName"></a>
+                      </h4>
+                      <div class="ellipsis text-sm-muted" ng-if="group.GroupDescription!=''" ng-bind="group.GroupDescription"></div>
+                      <ul class="list-activites list-icons-disc text-off">
+                        <li ng-cloak ng-if="group.MemberCount=='1'" class="text" ng-bind="'1 Member'"></li>
+                        <li ng-cloak ng-if="group.MemberCount>1" class="text" ng-bind="group.MemberCount+' Members'"></li>
+                        <li ng-cloak ng-if="group.DiscussionCount=='1'" class="text" ng-bind="'1 Discussion'"></li>
+                        <li ng-cloak ng-if="group.DiscussionCount>1" class="text" ng-bind="group.DiscussionCount+' Discussions'"></li>
+                      </ul>
+                      <div class="member-list-block hidden-xs" ng-if="group.MembersList.length>0">
+                        <ul class="member-list">
+                            <li class="member-item">                                           
+                              <a ng-repeat="member in group.MembersList" ng-if="member.ProfilePicture!==''" class="thumb-item" tooltip ng-attr-title="{{member.Name}}" data-container="body" data-placement="bottom">
+                                 <img err-src="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+member.ProfilePicture}}"/>
+                              </a>  
+                            </li>
+                        </ul>
+                        <ul class="list-activites text-off">
+                          <li>
+                            <span ng-bind-html="::get_members_talking(group.MembersList)"></span>                  
+                          </li> 
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                    <ul class="list-icons visible-xs">
+                      <li>
+                        <button ng-if="group.Permission.IsInvited != 1 && group.Permission.IsActiveMember != 1 && group.IsPublic == 1" class="btn btn-default btn-sm" ng-click="joinPublicGroup(group.GroupGUID, 'discoverslider')" ng-bind="lang.join"></button>
+                      </li>
+                    </ul>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+
+    <div class="masonry-items" ng-class="(ShowCategory==0) ? 'col-md-6' : 'col-md-9 col-sm-8 isopeStaticItems' ;" ng-repeat="category in DiscoverCategories" repeat-done="callIsotope()" ng-show="ShowCategory==category.CategoryID || ShowCategory==0">      
+      <!-- New Start -->
+      <div class="panel panel-info">
+        <div ng-cloak ng-show="ShowCategory==0" class="panel-heading p">
+          <div class="list-items-default">
+            <div class="list-item-body">
+              <h4 class="list-heading-lg"><a ng-href="{{SiteUrl+'group/discover/'+get_category_url_slug(category)}}" ng-click="viewAllGroups(category.CategoryID,category.Name,20);" ng-bind="category.Name"></a></h4>
+              <p class="ellipsis" ng-bind="category.Description"></p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body no-padding">
+          <ul class="list-items-members">
+            <li ng-repeat="group in category.Groups">
+                <div class="list-items-md">
+                  <div class="list-inner">
+                    <ul class="pull-right list-icons hidden-xs">
+                      <li>
+                        <button ng-if="group.Permission.IsInvited != 1 && group.Permission.IsActiveMember != 1 && group.IsPublic == 1" class="btn btn-default btn-sm" ng-click="joinPublicGroup(group.GroupGUID,'category',group);" ng-bind="lang.join"></button>
+                        
+                        <button ng-if="group.Permission.IsInvited == false && group.Permission.IsActiveMember == false && group.IsPublic ==0 && group.Permission.IsInviteSent" class="btn btn-default btn-sm" ng-click="cancelGroupInvite(group.GroupGUID,'category',group);" ng-bind="lang.g_cancel_request"></button>
+                        
+                        <button ng-if="group.Permission.IsInvited == false && group.Permission.IsActiveMember == false && group.IsPublic ==0 && !group.Permission.IsInviteSent" class="btn btn-default btn-sm" ng-click="requestGroupInvite(group.GroupGUID,'category',group);" ng-bind="lang.g_request_invite"></button>
+                       
+                        <div class="dropdoown" ng-if="group.Permission.IsActiveMember == 1 && group.Permission.DirectGroupMember == 1">
+                          <button type="button" class="btn btn-primary btn-sm" data-toggle="dropdown">
+                            <span class="icon"><i class="ficon-check f-lg"></i></span>
+                            <span class="text" ng-bind="lang.g_joined"></span> 
+                            <span class="icon">
+                              <i class="ficon-arrow-down f-lg"></i>
+                            </span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a target="_self" ng-click="groupDropOutAction(group.GroupGUID,'category',group);" ng-if="group.Permission.IsActiveMember == 1 && group.Permission.DirectGroupMember == 1" ng-bind="lang.g_leave"></a></li>
+                          </ul>
+                        </div>
+
+                      </li>
+                    </ul>
+                    <figure>
+                      <a href="{{SiteURL+'group/'+group.ProfileURL}}"><img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" class="img-circle"  ></a>
+                    </figure>
+                    <div class="list-item-body">
+                      <h4 class="list-heading-sm extra-bold"><a target="_self" class="text-black" href="{{SiteURL+'group/'+group.ProfileURL}}" ng-bind="group.GroupName"></a></h4>
+                      <div class="ellipsis text-sm-muted" ng-if="group.GroupDescription!='' && group.MembersList.length=='0'" ng-bind="group.GroupDescription"></div>
+                      <ul class="list-activites list-icons-disc text-off">
+                        <li ng-cloak ng-if="group.MemberCount=='1'" class="text" ng-bind="'1 Member'"></li>
+                        <li ng-cloak ng-if="group.MemberCount>1" class="text" ng-bind="group.MemberCount+' Members'"></li>
+                        <li ng-cloak ng-if="group.DiscussionCount=='1'" class="text" ng-bind="'1 Discussion'"></li>
+                        <li ng-cloak ng-if="group.DiscussionCount>1" class="text" ng-bind="group.DiscussionCount+' Discussions'"></li>
+                      </ul>
+                      <div class="member-list-block hidden-xs" ng-if="group.MembersList.length>0">
+                        <ul class="member-list">
+                            <li class="member-item">                                           
+                              <a target="_self" ng-repeat="member in group.MembersList | limitTo:3" ng-if="member.ProfilePicture!==''" class="thumb-item" tooltip ng-attr-title="{{member.Name}}" data-container="body" data-placement="bottom">
+                                 <img err-src="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+member.ProfilePicture}}"   />
+                              </a>  
+                            </li>
+                        </ul>
+                        <ul class="list-activites text-off">
+                          <li>
+                            <span ng-bind-html="::get_members_talking(group.MembersList)"></span>                  
+                          </li> 
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="list-icons visible-xs">
+                    <li>
+                      <button ng-if="group.Permission.IsInvited != 1 && group.Permission.IsActiveMember != 1 && group.IsPublic == 1" class="btn btn-default btn-sm" ng-click="joinPublicGroup(group.GroupGUID,'category',group);" ng-bind="lang.join"></button>
+
+                      <button ng-if="group.Permission.IsInvited == false && group.Permission.IsActiveMember == false && group.IsPublic ==0 && group.Permission.IsInviteSent" class="btn btn-default btn-sm" ng-click="cancelGroupInvite(group.GroupGUID,'category',group);" ng-bind="lang.g_cancel_request"></button>
+
+                      <button ng-if="group.Permission.IsInvited == false && group.Permission.IsActiveMember == false && group.IsPublic ==0 && !group.Permission.IsInviteSent" class="btn btn-default btn-sm" ng-click="requestGroupInvite(group.GroupGUID,'category',group);" ng-bind="lang.g_request_invite"></button>
+
+                      <div class="dropdoown" ng-if="group.Permission.IsActiveMember == 1 && group.Permission.DirectGroupMember == 1">
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="dropdown">
+                          <span class="icon"><i class="ficon-check f-lg"></i></span>
+                          <span class="text" ng-bind="lang.g_joined"></span> 
+                          <span class="icon">
+                            <i class="ficon-arrow-down f-lg"></i>
+                          </span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a target="_self" ng-click="groupDropOutAction(group.GroupGUID,'category',group);" ng-if="group.Permission.IsActiveMember == 1 && group.Permission.DirectGroupMember == 1" ng-bind="lang.g_leave"></a></li>
+                        </ul>
+                      </div>
+
+                    </li>
+                  </ul>
+                </div>
+            </li>
+          </ul>
+        </div>
+        <div class="panel-footer" ng-cloak ng-if="(ShowCategory==0 || totalCategoryGroups>category.Groups.length) && category.GroupCount>2">
+          <a target="_self" class="loadmore text-primary semi-bold" ng-click="viewAllGroups(category.CategoryID,category.Name,20);"><span ng-bind="lang.g_view_all"></span>
+          <span ng-if="ShowLoaderDiscover" class="loader">&nbsp;</span>
+          </a>
+        </div>
+      </div>
+      <!-- New Ends -->
+    </div>
+
+      
+
+    <div class="col-md-3 col-sm-4" ng-cloak ng-if="ShowCategory!==0">
+      <div class="panel panel-widget" ng-cloak ng-if="LoginSessionKey!==''">
+        <div class="panel-body nodata-panel">
+          <div class="nodata-text p-b p-h">
+            <span class="nodata-media">
+              <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-groups-created-dark.png" >
+            </span>              
+            <p><span ng-bind="lang.g_group_easier"></span> <br><span ng-bind="lang.g_share_with"></span> <br><span ng-bind="lang.g_teammates"></span></p>
+            <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="loadCreateGroup(); createGroup()" ng-bind="lang.g_create_a_group"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

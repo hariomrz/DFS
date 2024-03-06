@@ -1,0 +1,81 @@
+// Keyframe animation
+@keyframes flip-animation {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+  }
+}
+
+
+.category-card {
+  animation : flip-animation 0.4s linear;
+  animation-fill-mode: both;
+  transform : rotateY(-90deg);
+  transition : all 0.2s cubic-bezier(.36, -0.64, .34, 1.76);
+
+  border-radius: 8px;
+  height: 120px;
+  position: relative;
+
+  &::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, transparent 50%, $black 100%);
+    width: 100%;
+    content: '';
+    border-radius: 8px;
+  }
+
+  .cat-img {
+    height: 120px;
+    width: 100%;
+    opacity: 0.8;
+    border-radius: 6px;
+  }
+
+  .cat-info-box {
+    padding: 0 20px 12px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    color: $white;
+    z-index: 1;
+    @media (max-width : 1280px) {
+      padding: 0 12px 12px;
+    }
+  }
+
+  .cat-title {
+    float: left;
+    font-family: $font-black;
+    font-size: 20px;
+  }
+
+  .cat-questions {
+    float: right;
+    margin-top: 7px;
+    font-family: $font-bold;
+    font-size: 14px;
+  }
+}
+
+.op-categories {
+  .op-btn-box {
+    float: right;
+
+    .btn {
+      width: 180px;
+      height: 42px;
+    }
+  }
+}

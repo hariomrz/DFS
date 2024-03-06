@@ -1,0 +1,119 @@
+.self-exclusion {
+  margin-top: 30px;
+
+  .common-table {
+    th {
+      cursor: pointer;
+    }
+
+    td,
+    th {
+      text-align: center !important;
+    }
+  }
+
+  .se-set-default {
+    color: $secondary-color !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .se-sub-title {
+    color: #27272D;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+}
+
+.se-limit-box {
+  // height: 232px;
+  padding: 30px 20px;
+  background-color: $white;
+  box-shadow: 0 15px 45px 0 rgba(14, 22, 39, 0.1);
+  margin-top: 12px;
+  border-radius: 4px;
+
+  .btn {
+    height: 48px;
+    width: 96px;
+  }
+
+  textarea {
+    box-sizing: border-box;
+    resize: none;
+    height: 107px;
+    max-width: 400px;
+    border: 1px solid #EFEFEF;
+    background-color: #F5F9FB;
+  }
+  .ue-set-default {
+    color: $secondary-color !important;
+    font-family: $font-bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
+.se-label {
+  float: left;
+  margin-top: 11px;
+  margin-right: 28px;
+  font-family: $font-bold;
+}
+
+.se-input-box {
+  display: grid;
+
+  .form-control {
+    max-width: 450px;
+    background-color: #ededed;
+    height: 40px;
+  }
+
+  span {
+    margin-top: 4px;
+    color: #555555;
+    font-family: $font-regular;
+    font-size: 12px;
+  }
+}
+
+.se-img-box {
+  margin-top: 20px;
+  box-sizing: border-box;
+  height: 30px;
+  width: 150px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  color: #999999;
+  font-family: $font-bold;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 1px;
+  position: relative;
+
+  .form-control-file {
+    position: absolute;
+    top: -8px;
+
+    opacity: 0;
+  }
+}
+
+.ue-sup-doc {
+  color: $black;
+  font-family: $font-bold;
+  font-size: 20px;
+}
+
+.se-input-div,
+.se-input-box {
+  .form-control {
+    max-width: 400px;
+    border: 1px solid #EFEFEF;
+    background-color: #F5F9FB;
+  }
+}
+

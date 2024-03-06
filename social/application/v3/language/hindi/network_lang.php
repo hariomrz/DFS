@@ -1,0 +1,56 @@
+<?php
+	$lang['get_started_twitter_followers'] 		= 'Get started by adding your Twitter followers on CommonSocialNetwork.';
+	$lang['invite_twitter_followers'] 			= 'Invite Twitter followers to join CommonSocialNetwork';
+	$lang['getting_started_google_followers'] 	= 'Get started by adding your Google+ connections on CommonSocialNetwork.';
+	$lang['invite_google_followers'] 			= 'Invite Google+ connections to join CommonSocialNetwork';
+	$lang['invite_google_connections'] 			= 'Invite Google+ connections to join CommonSocialNetwork';
+	$lang['add_linkedin_connections'] 			= 'Get started by adding your LinkedIn connections on CommonSocialNetwork.';
+	$lang['linkedin_followers'] 				= 'Invite Linkedin connections to join CommonSocialNetwork';
+	$lang['email_of_friend'] 					= 'Email of your Friend';
+	$lang['your_personal_message'] 				= 'Your Personal Message';
+	$lang['send_invites'] 						= 'SEND INVITES';
+	$lang['connect_with_twitter'] 				= 'Connect with Twitter';
+	$lang['connect_with_gplus'] 				= 'Connect with Google+';
+	$lang['connect_with_linkedin'] 				= 'Connect with LinkedIn';
+	$lang['to']									= 'to';
+	$lang['on']									= 'on';
+	$lang['your']								= 'Your';
+	$lang['friends']							= 'Friends';
+	$lang['find']								= 'Find';
+	$lang['facebook']							= 'Facebook';
+	$lang['twitter']							= 'Twitter';
+	$lang['gplus']								= 'Google +';
+	$lang['linkedin']							= 'LinkedIn';
+	$lang['email']								= 'Email';
+	$lang['atleast_one_userlogin']				= 'You should have atleast one account for login';
+	$lang['successfully_detached']				= 'Your account has been detached successfully';
+
+	//Grow your network
+	$lang['choose_area_of_interest'] = "CHOOSE AREA OF INTEREST";
+	$lang['help_grow_network'] = "HELP US GROW YOUR NETWORK";
+	$lang['grow_your_network'] = "Some recommendations for you!";
+	$lang['find_your_friends'] = "Find your friends who are already here";
+	$lang['connect_social_network_find_friends'] = "This place is  more fun with friends, connect your social network, find friends and grow your network.";
+	$lang['popular_profiles'] = "POPULAR PROFILES";
+	$lang['active_groups'] = "ACTIVE GROUPS";
+	$lang['join'] = "Join";
+	$lang['gn_add_friend'] = "Add as a Friend";
+	$lang['gn_request_sent'] = "Request Sent";
+	$lang['gn_cancel_request'] = "Cancel Request";
+	$lang['gn_follow'] = "Follow";
+	$lang['gn_unfollow'] = "Unfollow";
+	$lang['gn_skip_to_newsfeed'] = "Skip to my News Feed";
+	$lang['gn_friends_already_here_caps'] = "FRIENDS ALREADY HERE";
+	$lang['gn_other_google_friends'] = "OTHER GOOGLE PLUS FRIENDS";
+	$lang['gn_other_fb_friends'] = "OTHER FACEBOOK FRIENDS";
+	$lang['gn_other_twitter_friends'] = "OTHER TWITTER FRIENDS";
+	$lang['gn_invite_them_now'] = "Invite them now";
+	$lang['gn_invite'] = "Invite";
+	$lang['gn_invited'] = "Invited";
+	$lang['gn_about_caps'] = "ABOUT";
+	$lang['gn_no_desc_found'] = "No Description Found";
+	$lang['gn_followers'] = "followers";
+	$lang['gn_photos_caps'] = "PHOTOS";
+	$lang['gn_people_you_may_know'] = "People You May Know";
+	$lang['gn_people_you_may_follow'] = "People You May Follow";
+?>

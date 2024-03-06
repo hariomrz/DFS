@@ -1,0 +1,154 @@
+.prize-breakup-modal{
+    max-width: 400px !important;
+    @media screen and(max-width:550px){
+        max-width: 350px !important;
+    }
+    @media screen and(max-width:350px){
+        max-width: 300px !important;
+    }
+}
+.prize-breakup-list{
+    padding: 20px 20px 80px 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 70vh;
+    .prize-breakup-item{
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        .prize-breakup-header{
+            padding: 10px;
+            background-color: $gray-920;
+            display: flex;
+            cursor: pointer;
+            &.selected{
+                background-color: $primary;
+            }
+            .header-item{
+                width: 50%;
+                text-align: left;
+                color: $body_text_color2;
+                font-family: $font-regular;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 17px;
+                display: flex;
+                i{
+                    font-size: 20px;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+                &.text-right-align{
+                    text-align: right;
+                    padding-top: 5px;
+                    display: block;
+                }
+                .option-unselect{
+                    width: 20px;
+                    height: 20px;
+                    background-color: $white;
+                    border: 1px solid $help_text_color;
+                    border-radius: 100%;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+                span{
+                    padding-top: 5px;
+                }
+                &.selected{
+                    color: $white;
+                }
+            }
+            
+        }
+        .table-container {
+            border: 1px solid #EFEFEF;
+               .table-header{
+                   display: flex;
+                   flex-direction: row;
+                   justify-content: space-between;
+                   border-bottom: 1px solid $app_bg_color;
+                   padding: 10px 0 5px 0px;
+                   .header-item{
+                       display: inline-block;
+                       color: $help_text_color;
+                       font-family: $font-regular;
+                       font-size: 12px;
+                       font-weight: 300;
+                       letter-spacing: 0;
+                       line-height: 13px;
+                       min-width: 50px;
+                       text-align: center;
+                       &.left-align{
+                        text-align: left;
+                       }
+                   }
+               }
+               .table-body{
+                   display: flex;
+                   flex-direction: row;
+                   justify-content: space-between;
+                   border-bottom: 1px solid $app_bg_color;
+                   padding: 10px 0;
+                   .table-item{
+                       display: inline-block;
+                       color: $body_text_color2;
+                       font-family: $font-regular;
+                       font-size: 12px;
+                       font-weight: 300;
+                       letter-spacing: 0;
+                       line-height: 13px;
+                       min-width: 50px;
+                       text-align: center;
+                       padding: 2px 0px;
+                       &.bold{
+                           font-weight: 600;
+                       }
+                       &.left-align{
+                        text-align: left;
+                       }
+                   }
+               }
+               &.selected{
+                border: 1px solid $primary;
+            }
+        }
+    }
+}
+.body-dark-theme {
+    .prize-breakup-list{
+        .prize-breakup-item{
+            .prize-breakup-header{
+                background-color: $darkT_view_bg_color;
+                color: $darkT_primary_text_color;
+                &.selected{
+                    background: linear-gradient(90deg, $darkT_primary 0%, $darkT_primary 60%, $darkT_primary 90%);
+                }
+                .header-item{
+                    color: $darkT_help_text_color;
+                    &.selected{
+                        color: $darkT_primary_text_color;
+                    }
+                }
+            }
+            .table-container {
+                border: 1px solid $darkT_view_bg_color;
+                .table-header{
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid $darkT_view_bg_color;
+                }
+                .table-body{
+                    border-bottom: 1px solid $darkT_view_bg_color;
+                    .table-item{
+                        color: $darkT_primary_text_color;
+                    }
+                }
+                &.selected{
+                    border: 1px solid $darkT_primary;
+                }
+            }
+        }
+    }
+
+}

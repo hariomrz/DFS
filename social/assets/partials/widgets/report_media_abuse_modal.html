@@ -1,0 +1,46 @@
+<div class="modal fade" id="ReportAbuseMedia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal"  class="close">
+                    <i class="icon-close"></i>
+                </button>
+                <h4 class="modal-title"><?php echo lang('report_abuse');?></h4>
+            </div>
+            <div class="modal-body">
+                <h6>Reason</h6>
+                <ul class="list-group single-lisitng">
+                    <li class="list-group-item">
+                        <div class="checkbox check-default">
+                            <input type="checkbox" name="flagReasonMedia" id="mcbox1" class="reportAbuseMediaDesc" value="Using Adult Content"/>
+                            <label for="mcbox1">Using Adult Content</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="checkbox check-default">
+                            <input type="checkbox" name="flagReasonMedia" id="mcbox2" class="reportAbuseMediaDesc" value="Abusing Me"/>
+                            <label for="mcbox2">Abusive Content</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="checkbox check-default">
+                            <input type="checkbox" name="flagReasonMedia" id="mcbox3" class="reportAbuseMediaDesc" value="Using My Details"/>
+                            <label for="mcbox3">Using My Details</label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="checkbox check-default">
+                            <input type="checkbox" name="flagReasonMedia" id="mcbox4" class="reportAbuseMediaDesc" value="Spam On My Profile"/>
+                            <label for="mcbox4">Spam On My Profile</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="reportMediaSubmit()" class="btn btn-primary pull-right">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</div>

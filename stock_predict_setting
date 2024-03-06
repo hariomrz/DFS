@@ -1,0 +1,141 @@
+stock_predict_setting
+
+allow_stock_predict
+
+
+while adding stock from admin
+type largecap, midcap, smallcap
+
+while creating collection need filter of industry and type
+
+stock_type 3 catrgory 1 daily for stock predict
+
+INSERT INTO `vi_stock_type` (`stock_type_id`, `type`, `config_data`, `status`, `stock_limit`, `market_id`) VALUES
+(3, 3, '{\"max\": 10, \"min\": 1}', 1, 2000, 1);
+
+ALTER TABLE `vi_stock_type` ADD `name` VARCHAR(100) NULL DEFAULT NULL AFTER `type`;
+
+
+stock_type add name field 
+save in collection table stock_type 3
+
+UPDATE `vi_stock_type` SET `name` = 'Normal Stock' WHERE `vi_stock_type`.`stock_type` = 1
+UPDATE `vi_stock_type` SET `name` = 'Stock Equity' WHERE `vi_stock_type`.`stock_type` = 2
+UPDATE `vi_stock_type` SET `name` = 'Stock Predict' WHERE `vi_stock_type`.`stock_type` = 3
+
+
+-------------------------------------------------------------------
+vi_collection_stock add open_price default 0, close_price default 0
+end_time + 5mins(buffer window)
+
+ALTER TABLE `vi_collection_stock` ADD `open_price` DECIMAL(10,2) NOT NULL DEFAULT '0' AFTER `lot_size`, ADD `close_price` DECIMAL(10,2) NOT NULL DEFAULT '0' AFTER `open_price`;
+
+vi_collection add prize_status default 0 , comment => for stock predict ,
+prize_status 1 ,
+ALTER TABLE `vi_collection` ADD `prize_status` TINYINT(1) NOT NULL DEFAULT '0' COMMENT 'for stock predict' AFTER `score_updated_date`;
+
+lineup_master
+
+key stock_id
+value predicted_price
+
+---------------------------------
+vi_lineup user_price
+
+ALTER TABLE `vi_lineup` ADD `user_price` DECIMAL(10,2) NOT NULL DEFAULT '0' AFTER `score`;
+
+--------------add industry table-------------------
+CREATE TABLE `vi_industry` (
+  `industry_id` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `display_name` varchar(150) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 - In-Active, 1 - Active',
+  `added_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `vi_industry`
+--
+
+INSERT INTO `vi_industry` (`industry_id`, `name`, `display_name`, `status`, `added_date`) VALUES
+(1, 'Automobile', 'Automobile', 1, '2021-10-22 18:46:26'),
+(2, 'Cement & Cement Products', 'Cement & Cement Products', 1, '2021-10-22 18:47:41'),
+(3, 'Construction', 'Construction', 1, '2021-10-22 18:48:04'),
+(4, 'Consumer Goods', 'Consumer Goods', 1, '2021-10-22 18:48:19'),
+(5, 'Fertilisers & Pesticides', 'Fertilisers & Pesticides', 1, '2021-10-22 18:48:37'),
+(6, 'Financial Services', 'Financial Services', 1, '2021-10-22 18:48:49'),
+(7, 'IT', 'IT', 1, '2021-10-22 18:49:16'),
+(8, 'Metals', 'Metals', 1, '2021-10-22 18:50:12'),
+(9, 'Oil & Gas', 'Oil & Gas', 1, '2021-10-22 18:50:32'),
+(10, 'Pharma', 'Pharma', 1, '2021-10-22 18:50:48'),
+(11, 'Power', 'Power', 1, '2021-10-22 18:51:04'),
+(12, 'Services', 'Services', 1, '2021-10-22 18:51:20'),
+(13, 'Telecom', 'Telecom', 1, '2021-10-22 18:51:36');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `vi_industry`
+--
+ALTER TABLE `vi_industry`
+  ADD PRIMARY KEY (`industry_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `vi_industry`
+--
+ALTER TABLE `vi_industry`
+  MODIFY `industry_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+
+---------------------------------
+
+-----------add cap column START ----------
+ALTER TABLE `vi_stock` ADD `cap_type` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '1 => large cap, 2 => midcap and 3 => smallcap ' AFTER `logo`;
+-----------add cap column END----------
+
+#add industry_id
+ALTER TABLE `vi_stock` ADD `industry_id` INT(9) NULL DEFAULT NULL AFTER `status`;
+
+#set default group_id to 1
+#ALTER TABLE `vi_contest_template` CHANGE `group_id` `group_id` INT NOT NULL DEFAULT '1';
+
+INSERT INTO `vi_sports_hub` (`sports_hub_id`, `game_key`, `en_title`, `hi_title`, `guj_title`, `fr_title`, `ben_title`, `pun_title`, `tam_title`, `th_title`, `en_desc`, `hi_desc`, `guj_desc`, `fr_desc`, `ben_desc`, `pun_desc`, `tam_desc`, `th_desc`, `image`, `status`, `display_order`, `is_featured`, `allowed_sports`, `kn_title`, `kn_desc`, `ru_title`, `ru_desc`, `id_title`, `id_desc`, `tl_title`, `tl_desc`, `zh_title`, `zh_desc`) VALUES (NULL, 'allow_stock_predict', 'Stock Predict', 'स्टॉक भविष्यवाणी', 'સ્ટોક આગાહી', 'prédire', 'স্টক পূর্বাভাস', 'ਸਟਾਕ ਦੀ ਭਵਿੱਖਬਾਣੀ', 'பங்கு கணிப்பு', 'สต็อกทำนาย', 'Play equity game by picking stocks and win prizes', 'स्टॉक चुनकर काल्पनिक गेम खेलें और पुरस्कार जीतें', 'સ્ટોક્સ ચૂંટતા અને ઇનામો જીતીને કાલ્પનિક રમત રમો', 'Jouez à un jeu fantastique en choisissant des actions et gagnez des prix', 'স্টক বাছাই করে ফ্যান্টাসি গেম খেলুন এবং পুরষ্কার জিতে নিন', 'ਸਟਾਕਾਂ ਨੂੰ ਚੁਣ ਕੇ ਕਲਪਨਾ ਖੇਡ ਖੇਡੋ ਅਤੇ ਇਨਾਮ ਜਿੱਤੇ', 'பங்குகளைத் தேர்ந்தெடுத்து பரிசுகளை வெல்வதன் மூலம் கற்பனை விளையாட்டை விளையாடுங்கள்', 'เล่นเกมแฟนตาซีด้วยการเลือกหุ้นและลุ้นรับรางวัล', '', '1', '0', '0', NULL, 'ಸ್ಟಾಕ್ ಫ್ಯಾಂಟಸಿ', 'ಷೇರುಗಳನ್ನು ಆರಿಸಿ ಮತ್ತು ಬಹುಮಾನಗಳನ್ನು ಗೆಲ್ಲುವ ಮೂಲಕ ಫ್ಯಾಂಟಸಿ ಆಟವನ್ನು ಆಡಿ', 'Акции предсказания', 'Играйте в фэнтезийную игру, выбирая акции и выигрывайте призы', 'Saham prediksi', 'Mainkan game fantasi dengan memilih saham dan menangkan hadiah', 'hulaan ang stock', 'Maglaro ng pantasya sa pamamagitan ng pagpili ng mga stock at manalo ng mga premyo', '股票预测', '通過選股玩奇幻遊戲並贏取獎品');
+
+#set gain_loss default value
+ALTER TABLE `vi_lineup` CHANGE `gain_loss` `gain_loss` DECIMAL(10,2) NOT NULL DEFAULT '0.00';
+
+
+
+
+#Cron planning
+Need to update open and close price in collection_stock
+
+write a cron 
+Case #1 
+To update open price if current_time > start time and current time < end_time 
+
+Case #2
+run the same cron to update close price if current_time > end_time and C.status= 0
+
+Steps 
+get collection_ids for Case and collection start or end time depending upon case and colletion stock_ids to update 
+
+
+ALTER TABLE `vi_stock_history_detail` ADD `status` TINYINT(1) NOT NULL COMMENT '0 - feed prize, 1 - Prize updated by admin and approved, 2 - Final prize approved by admin' AFTER `added_date`;
+
+ALTER TABLE `vi_lineup` ADD `accuracy_percent` DECIMAL(10,2) NOT NULL DEFAULT '0' COMMENT 'for stock_type 3' AFTER `gain_loss`;
+
+ALTER TABLE `vi_lineup_master_contest` ADD `last_percent_change` DECIMAL(10,4) NOT NULL DEFAULT '0' AFTER `percent_change`;
+
+#stock predict crons
+*/4 * * * * wget -O - -q -t 1  http://localhost:4000/stocks/predict/lineup_move
+*/5 * * * * wget -O - -q -t 1 http://localhost/stock/cron/stock_predict_cron/update_scores_in_portfolio_by_collection
+
+*/4 * * * * wget -O - -q -t 1 http://localhost/stock/cron/stock_predict_cron/update_collection_stock_rates/1
+*/4 * * * * wget -O - -q -t 1 http://localhost/stock/cron/stock_predict_cron/update_collection_stock_rates/2

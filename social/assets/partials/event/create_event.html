@@ -1,0 +1,153 @@
+<!-- Create Group Modal -->
+<div class="modal fade" id="createEvent" data-backdrop="static">
+    <div class="modal-dialog modal-mmd">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="CreateEventClose"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                <h4 class="modal-title" ng-bind="lang.create_event_btn"></h4>       
+            </div>
+
+            <div class="modal-body">
+                <form id="formEvent" name="formEvent" event-form submit-signup="FormSubmit()">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.event_title"></label>
+                                            <input tabindex="1" type="text" maxlength="100" name="namefieldCtrlID" id="namefieldCtrlID" placeholder="{{lang.event_title}}" data-ng-model="events.Title" class="form-control" on-focus>
+                                            <span class="block-error"><span id="namefieldCtrlID_error"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.Category"></label>
+                                            <select class="form-control" tabindex="2" name="CategoryIds" id="CategoryIds" data-mandatory="true"   data-placeholder="Select Category" chosen  option="listData[0].CatObj" ng-options="Cat.CategoryID as Cat.Name for Cat in CategoryData[0].CatObj" data-ng-model="events.CategoryID">
+                                                <option value=""></option>
+                                            </select>
+                                            <span class="block-error" id="CategoryIds_error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.start_date"></label>
+                                            <div class="input-group">
+                                                <input tabindex="3" data-ng-model="events.StartDate" type="text" class="form-control readonly-normal" readonly="readonly" autocomplete="off" placeholder="__ /__ /__"  name="datepicker3" id="datepicker3" on-focus />
+                                                <label for="datepicker3" class="input-group-addon addon-white"><i class="ficon-calc"></i></label>
+                                            </div>
+                                            <span id="datepicker3_error" class="block-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.enter_time"></label>
+                                            <input tabindex="4" data-ng-model="events.StartTime" type="text" class="form-control readonly-normal" readonly="readonly" autocomplete="off" placeholder="Enter Time" id="timepicer" name="timepicer"/>
+                                            <span class="block-error" id="timepicer_error" ></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.end_date"></label>
+                                            <div class="input-group">
+                                                <input tabindex="5" data-ng-model="events.EndDate" type="text" class="form-control readonly-normal" readonly="readonly" autocomplete="off"  placeholder="__ /__ /__" name="datepicker4" id="datepicker4" on-focus />
+                                                <label for="datepicker4" class="input-group-addon addon-white"><i class="ficon-calc"></i></label>
+                                            </div>
+                                            <span id="datepicker4_error" class="block-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.enter_time"></label>
+                                            <input tabindex="6" data-ng-model="events.EndTime" type="text" class="form-control readonly-normal" readonly="readonly" autocomplete="off" placeholder="Enter Time" id="timepicer2" name="timepicer2" />
+                                            <span id="timepicer2_error" class="block-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.event_url"></label>
+                                            <input tabindex="7" class="form-control" type="text" data-ng-model="events.URL" value="" name="validurlCtrlID" id="validurlCtrlID" placeholder="e.g. https://www.exampleurl.com" uix-input="" >
+                                            <span id="validurlCtrlID_error" class="block-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label">{{lang.event_summary}} <span class="help-block" ng-bind="250 - events.Summary.length">250</span></label>
+                                            <div class="textarea-field">
+                                                <textarea class="form-control" tabindex="8" maxcount="250" id="textareaID1" name="textareaID1" data-ng-model="events.Summary" placeholder="{{lang.event_summary}}"></textarea>
+                                                <span class="block-error" id="textareaID1_error"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label">{{lang.event_detail}} <span class="help-block" ng-bind="400 - events.Description.length">400</span></label>
+                                            <div class="textarea-field">
+                                                <textarea class="form-control" tabindex="9" maxcount="400" id="textareaID" name="textareaID" data-ng-model="events.Description" placeholder="{{lang.event_detail}}"></textarea>
+                                                <span class="block-error" id="textareaID_error"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.venue"></label>
+                                            <input tabindex="10" class="form-control" type="text" data-ng-model="events.Venue" value="" name="venuefieldCtrlID" id="venuefieldCtrlID" placeholder="{{lang.enter_venue}}" uix-input="">
+                                            <span id="venuefieldCtrlID_error" class="block-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label" ng-bind="lang.location"></label>
+                                            <input tabindex="11" type="text" class="form-control" name="Street1CtrlID" id="Street1CtrlID" data-ng-model="events.StreetAddress" value=""  placeholder="{{lang.select_location}}" >
+                                            
+                                            <span id="Street1CtrlID_error" class="block-error" style="display: block;" ng-if="(events.Locations.length==0 || events.Locations.length=='')">  <!--  && !formEvent.Street1CtrlID.$pristine -->
+                                                Please select location.
+                                            </span>
+                                            
+                                            <div class="drag-scrollbar drag-xs mCustomScrollbar" ng-if="events.Locations.length" custom-scroll>                  
+                                                <ul class="list-draging"  dnd-list="events.Locations">
+                                                    <li class="items" ng-repeat="(index, location) in events.Locations">
+                                                        <span class="icon">
+                                                            <i class="ficon-reorder"></i>
+                                                        </span>
+                                                        <div class="overflow">
+                                                            <a class="close icon" ng-click="removeLocation(index, events.Locations)"><i class="ficon-cross"></i></a>
+                                                            <span class="text">                                                
+                                                                <span class="regular" ng-bind="location.FormattedAddress"></span>                                                    
+                                                            </span>
+                                                        </div>
+                                                    </li>                                                                                                            
+                                                </ul>
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12 privacySection">
+                                        <div class="form-group" ng-init="PrivacyOptions=[{Name:'Public',PKey:'PUBLIC'}, {Name:'Private', PKey:'PRIVATE'}]">
+                                            <lable class="control-label" ng-bind="lang.event_privacy"></lable>
+                                            <select tabindex="12"  chosen class="form-control" data-disable-search="true" name="Privacy" id="Privacy" ng-options="POptions.PKey as POptions.Name for POptions in PrivacyOptions" data-ng-model="events.Privacy">
+                                                <option value=""></option>
+                                            </select>
+                                            <span class="block-error" id="Privacy_error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-actions clearfix">
+                                            <div class="btn-toolbar btn-toolbar-xs right">
+                                                <span class="alert-danger" ng-bind="error_message"></span>
+                                                <button type="submit" id="AddEventFormBtn" class="btn btn-primary pull-right" ng-bind="lang.create">
+                                                    <!-- <span class="btn-loader"> <span class="loader">&nbsp;</span> </span> -->
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

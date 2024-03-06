@@ -1,0 +1,196 @@
+.wc-new-admin {
+  background-color: #fff;
+  height: 500px;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 14px;
+  padding-top: 140px;
+
+  h1 {
+    font-size: 50px;
+  }
+}
+
+.admin-role-p {
+  text-align: right;
+  margin: 0 auto;
+  width: 50%;
+
+  .h1-cls {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .new-banner {
+    border-radius: 14px;
+  }
+
+  .b-input-label {
+    margin-top: 12px;
+  }
+
+  .common-cus-checkbox {
+    float: left;
+    margin-right: 30px;
+    width: 240px;
+    text-align: left;
+
+    .com-chekbox-checkmark {
+      margin-top: 7px;
+    }
+
+    .opt-text {
+      font-size: 16px;
+      width: 25%;
+    }
+  }
+
+  .gt-pass-box {
+    text-align: left;
+    margin-top: 12px;
+  }
+
+  .generate-pass {
+    text-align: left;
+    text-decoration: underline;
+    color: $secondary-color;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 20px;
+  }
+
+  .gt-pass {
+    font-size: 14px;
+    color: $white;
+    background-color: $secondary-color;
+    border-radius: 14px;
+    padding: 8px;
+    line-height: 10px;
+    letter-spacing: 1px;
+    min-width: 124px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .copy-pass {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2A2E49;
+    user-select: none;
+  }
+
+  .banner-action {
+    text-align: center;
+  }
+}
+
+.checkbox-col-2fa {
+  padding-top: 12px !important;
+  padding-left: 5px !important;
+  justify-content: center;
+  display: flex;
+
+  input {
+    border: 1px solid #979797;
+    border-radius: 4px;
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.radio-div {
+  display: flex;
+  height: 100%;
+
+  /* The com-chekbox-container */
+  .com-chekbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0px !important;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default checkbox */
+  .com-chekbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .radio-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 1px solid #979797;
+    border-radius: 12px;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .com-chekbox-container:hover input~.radio-btn {
+    // background-color: #F8436E;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .com-chekbox-container input:checked~.radio-btn {
+    // background-color: #2196F3;
+    background-color: #fff;
+    border: 1px solid #979797;
+    border-radius: 12px;
+  }
+
+  /* Create the radio-btn/indicator (hidden when not checked) */
+  .radio-btn:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the radio-btn when checked */
+  .com-chekbox-container input:checked~.radio-btn:after {
+    display: block;
+  }
+
+  /* Style the radio-btn/indicator */
+  .com-chekbox-container .radio-btn:after {
+    left: 2px;
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: #F8436E;
+    border: none;
+    border-radius: 50%;
+  }
+}
+
+.radio-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+
+  .label-div {
+    width: 25%;
+  }
+
+  .main-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 8px;
+  }
+}

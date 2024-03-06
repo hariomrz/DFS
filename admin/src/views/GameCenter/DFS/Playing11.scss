@@ -1,0 +1,205 @@
+.salary-review {
+  margin-top: 30px;
+  
+  .match-with {
+    display: flex;
+    flex-grow: 0;
+  }
+  .border-bottom {
+    margin-bottom: 20px;
+  }
+  .carddiv {
+    display: flex;
+    margin-top: 8px;
+  }
+  .cardimgdfs {
+    width: 68px;
+    height: 68px;
+  }
+  .livcardh3dfs {
+    // height: 30px;
+    color: $black;
+    font-family: $font-black;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .livcardh6dfs {
+    width: auto;
+    color: #a8a8a8;
+    font-family: $font-black;
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .dfsrow {
+    margin-top: 1rem;
+    justify-content: space-between;
+  }
+  .dfssports {
+    font-family: $font-black;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  .backtofixtures {
+    color: #666666;
+    font-family: $font-black;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    i {
+      transform: rotate(90deg);
+      font-size: 12px;
+      margin-right: 5px;
+      margin-top: -1px;
+    }
+  }
+  .salaryreview {
+    font-family: $font-black;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .btn-secondary-outline {
+    border: 2px solid $secondary-color !important;
+    font-weight: bold;
+  }
+  .salaryreview-para {
+    color: #999999;
+    font-family: $font-regular;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: left;
+  }
+  .verifyrow.row {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 2rem;
+  }
+  .verify.btn.btn-outline-danger {
+    color: #222222;
+    border: 2px solid #f8436e;
+    border-radius: 4px;
+    width: 166px;
+    height: 42px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 25px;
+  }
+  .progress-view-wrapper {
+    text-align: right;
+  }
+  .progress-text {
+    span {
+      color: $gray-9;
+      font-family: $font-regular;
+      font-weight: bold;
+      text-align: center;
+      margin: 45px;
+    }
+  }
+  .salary-card {
+    cursor: pointer;
+    background-color: $white;
+  }
+  .card {
+    margin-bottom: 0.5rem;
+    border: none;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  }
+  .card-header {
+    border: 0px;
+    background-color: $white;
+  }
+  .sal-team-img {
+    width: 36px;
+    height: 36px;
+  }
+  .team-label {
+    display: inline;
+    padding: 0 32px;
+    vertical-align: middle;
+  }
+  .salary-btn {
+    float: right;
+    display: flex;
+  }
+  .salary-cardheader {
+    label {
+      color: #030f09;
+      font-family: $font-regular;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 30px;
+      font-style: normal;
+      cursor: pointer;
+    }
+    i {
+      color: #666666;
+      vertical-align: -webkit-baseline-middle;
+    }
+  }
+  .teamsaved {
+    height: 35px;
+    width: 144px;
+    border: 2px solid $secondary-color;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    margin-right: 15px;
+    padding: 0 !important;
+    font-weight: bold;
+  }
+  .salaryreview-table {
+    th {
+      color: $gray-9;
+      font-family: $font-regular;
+      font-weight: bold;
+      text-align: left;
+      padding: 15px 25px;
+    }
+    tr {
+      td {
+        padding: 15px 25px;
+        font-family: $font-regular;
+        font-size: 16px;
+        input {
+          height: 34px;
+          min-width: 60px;
+          max-width: 60px;
+          border: 1px solid #d2dfec;
+          border-radius: 4px;
+          background-color: #f5f9fb;
+          font-size: 16px;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .update-salary-btn {
+    display: block;
+    margin: 15px 25px 30px;
+    text-align: right;
+  }
+  .verifyrow {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 2rem;
+  }
+  .verify.btn.btn-outline-danger {
+    color: #222222;
+    border: 2px solid #f8436e;
+    border-radius: 4px;
+    width: 166px;
+    height: 42px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 25px;
+  }
+}

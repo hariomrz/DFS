@@ -1,0 +1,58 @@
+<!-- Start -->
+<div class="list-group-bottom">
+     <div class="poll-voted-view">
+         <span class="pull-left" ng-bind="activityData.PollData.optionData.Value"></span>
+         <span class="pull-right" ng-bind="activityData.PollData.optionData.TotalVotes+' Voted'"></span>
+     </div>
+</div>
+<div class="blockquote blockquote-default">
+    <ul class="list-group list-group-thumb sm">
+        <li class="list-group-item">
+            <div class="list-group-body">
+                <ul class="list-group-inline pull-right">
+                    <li>
+                        <a class="bullet">
+                            <i class="ficon-heart"></i>
+                        </a>
+                        <a class="text" ng-if="activityData.activity.NoOfLikes>0" ng-bind="activityData.activity.NoOfLikes"></a>
+                    </li>
+                    <li>
+                        <a class="bullet">
+                            <i class="ficon-comment"></i>
+                        </a>
+                        <a class="text" ng-if="activityData.activity.NoOfComments>0" ng-bind="activityData.activity.NoOfComments">250</a>
+                    </li>
+                    <li> 
+                        <a class="text">Poll</a>
+                    </li>
+                </ul>
+                <figure class="list-figure">
+                    <a class="thumb-48 loadbusinesscard">
+                        <img ng-if="activityData.PollData.PollData[0].CreatedBy.ProfilePicture !== '' && activityData.PollData.PollData[0].CreatedBy.ProfilePicture !== 'user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.PollData.PollData[0].CreatedBy.ProfilePicture}}">
+                        <span ng-if="(activityData.PollData.PollData[0].CreatedBy.ProfilePicture == '' || activityData.PollData.PollData[0].CreatedBy.ProfilePicture == 'user_default.jpg')" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.PollData.PollData[0].CreatedBy.Name)"></span></span>
+                    </a>
+                </figure>
+                <div class="list-group-content">
+                    <h6 class="list-group-item-heading">                                               
+                    <a ng-bind="activityData.PollData.PollData[0].CreatedBy.Name"></a>ProfilePicture
+                </h6>
+                    <ul class="list-activites">
+                        <li ng-bind="createDateObject(activityData.PollData.PollData[0].CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="list-group-item-text" ng-bind="activityData.PollData.PollData[0].Description"></p>
+            <ul class="poll-listing">
+                <li ng-repeat="option in activityData.PollData.PollData[0].Options">
+                    <div class="radio-list">
+                        <label class="radio">
+                            <input type="radio" value="option.Value" name="poll-list" ng-disabled=true>
+                            <span class="label" ng-bind="option.Value"></span>
+                        </label> 
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- Ends -->

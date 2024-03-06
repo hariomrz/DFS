@@ -1,0 +1,35 @@
+<div class="panel panel-info" ng-show="user_media.length > 0">
+  <div class="panel-body">
+    <div class="row gutter-1">
+        <div class="col-md-3 col-sm-4 thumbnail thumbnail-media" ng-click="$emit('showMediaPopupGlobalEmit', m.MediaGUID, '');" ng-repeat="m in user_media"   infinite-scroll="get_event_media()"  infinite-scroll-use-document-bottom="true" infinite-scroll-disabled="busy">
+
+          <figure class="img-panel" ng-if="m.MediaType == 'Image'" ng-class="{'media-thumb-actions': (m.MediaType != 'Image')}">
+            <a class="block overlay-2">
+              <img src="{{AssetBaseUrl}}img/blank-thumb-230x230.png"  class="img-full">
+              <img ng-src="{{lang.image_server_path}}upload/wall/220x220/{{m.ImageName}}"  class="main-img">
+            </a>
+          </figure>
+
+          <figure class="img-panel" ng-if="m.MediaType == 'Video'" ng-class="(m.MediaType == 'Video' && m.ConversionStatus == 'Pending' && user_media.length > 2) ? 'processing-skyblue' : (m.MediaType == 'Video' && m.ConversionStatus == 'Pending' && (user_media.length == 1 || user_media.length == 2)) ? 'processing-red' : ''">
+            <img src="{{AssetBaseUrl}}img/blank-thumb-230x230.png"  class="img-full">
+            <img ng-if="m.ConversionStatus == 'Finished'" ng-src="{{lang.image_server_path}}upload/wall/220x220/{{m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}"  class="main-img">
+            <span class="media-ctrl" >
+              <i class="ficon-play"></i>
+            </span>
+          </figure>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-info" ng-show="user_media.length == 0 && IsShowNoMediaSection">
+  <div class="panel-body nodata-panel">
+    <div class="nodata-text p-v-elg">
+      <span class="nodata-media">
+        <img src="{{AssetBaseUrl}}img/empty-img/empty-media.png" >
+      </span>
+      <h5 ng-bind="lang.no_media"></h5>
+      <p class="text-off no-margin" ng-bind-html="lang.no_media_text"></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,268 @@
+.active-items {
+  margin-bottom: 40px;
+}
+
+.card-box-wrapper {
+  margin-top: 20px;
+  min-height: 220px;
+  border-radius: 10px;
+  background-color: $white;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.promotion-feedback {
+  margin-top: 20px;
+
+  .card-wrapper {
+    padding: 15px 40px 15px 20px;
+  }
+
+  label {
+    margin-bottom: 4px;
+    color: #9398a0;
+    font-family: $font-bold;
+    display: block;
+  }
+
+  .question-input {
+    resize: none;
+    height: 80px;
+    border-radius: 4px;
+    background-color: #ededed;
+    max-width: 800px;
+  }
+
+  .img-preview-box {
+    height: 190px;
+    margin: 0;
+
+    .question-item-wrapper {
+      margin-top: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+.question-item-wrapper {
+  width: 440px;
+  min-width: 440px;
+  background-color: $white;
+  border-radius: 14px;
+  margin-top: 30px;
+  position: relative;
+
+  @media (max-width: 1367px) {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .question {
+    height: 138px;
+    padding: 10px;
+    border-radius: 14px;
+    background-color: #00bfeb;
+    box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+    color: $white;
+    font-family: $font-bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    line-height: 22px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .action-border {
+    border-right: 2px solid #d8d8d8;
+  }
+
+  .action-btn {
+    color: #9398a0;
+    font-family: $font-bold;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    font-style: normal;
+    padding: 6px 0;
+
+    i {
+      margin-right: 6px;
+      vertical-align: baseline;
+    }
+  }
+
+  .winning-coins {
+    font-size: 13px;
+    font-style: normal;
+    height: 32px;
+    width: 104px;
+    color: $white;
+    font-family: $font-regular;
+    font-weight: 800;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: -30px;
+    background-color: black;
+    padding: 6px;
+    border-radius: 20px 0 0 20px;
+    margin: 10px 0;
+    border: 1px dashed;
+    clip-path: polygon(100% 0%, 92% 50%, 100% 100%, 0% 100%, 0% 50%, 0% 0%);
+
+    @media (max-width: 1367px) {
+      right: -20px;
+    }
+
+    img {
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.pending-items {
+  margin: 20px 0;
+  width: 846px;
+  border-radius: 5px;
+  background-color: $white;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+
+  @media (max-width: 1130px) {
+    width: 100%;
+  }
+
+  .custom-pagination {
+    padding: 20px 0;
+    float: right;
+  }
+
+  .pending-wrapper {
+    padding: 16px 16px 0;
+
+    .b-bottom::after {
+      content: "";
+      box-sizing: border-box;
+      display: block;
+      height: 1px;
+      width: 846px;
+      border: 0.1px solid #979797;
+      margin-top: 16px;
+      opacity: 0.3;
+    }
+  }
+
+  .pending-date {
+    float: left;
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    border-radius: 8px;
+    background-color: #efefef;
+    color: #555555;
+    font-family: $font-bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    padding: 6px;
+    margin-right: 12px;
+  }
+
+  .username {
+    color: #555555;
+    font-family: $font-bold;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 10px;
+  }
+
+  .s-question {
+    color: #212121;
+    font-family: $font-bold;
+    font-size: 18px;
+    line-height: 23px;
+    float: left;
+    margin-top: 8px;
+    width: calc(100% - 180px);
+  }
+
+  .answer {
+    color: #27272d;
+    font-family: $font-regular;
+    line-height: 25px;
+    margin-top: 10px;
+  }
+
+  .suggestions {
+    width: calc(100% - 52px);
+    float: right;
+  }
+
+  .stars {
+    float: right;
+
+    .icon-star {
+      font-size: 20px;
+      margin-right: 2px;
+      color: #dfdfdf;
+
+      &.active {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .Select-control {
+    border-color: $gray-9;
+    color: #9398a0;
+    font-family: $font-bold;
+    cursor: pointer;
+
+    .Select-arrow {
+      border-width: 7px 7px 0px;
+    }
+  }
+
+  .Select.is-open>.Select-control .Select-arrow {
+    border-width: 0px 7px 7px;
+  }
+
+  .btn-secondary-outline {
+    height: 36px;
+    width: 104px;
+    border: 1px solid #f8436e !important;
+    float: right;
+    margin-right: 8px;
+    box-shadow: none !important;
+  }
+
+  .reject-option {
+    width: 104px;
+    float: right;
+    margin-right: 16px;
+  }
+
+  .pRsn {
+    font-family: $font-bold;
+    text-align: right;
+    margin-top: 20px;
+
+    :first-child {
+      color: $gray-9;
+    }
+
+    :last-child {
+      color: #E42020;
+    }
+  }
+  .suggestions {
+    border: none;
+  }
+}

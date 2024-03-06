@@ -1,0 +1,580 @@
+.form-control {
+  &:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.9px rgba(42, 46, 73, 0.4);
+  }
+}
+
+.reports-filter-list {
+  list-style-type: none;
+  float: left;
+  margin-bottom: 20px;
+}
+.reports-filter-item {
+  display: inline-block;
+  margin-right: 20px;
+}
+.filter-status {
+  height: 40px;
+  min-width: 130px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  color: #9398a0;
+  font-family: $font-bold;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.6s;
+  &.active {
+    transition: 0;
+    background-color: $secondary-color;
+    color: $white;
+  }
+  &:hover {
+    box-shadow: 0 5px 15px rgba(147, 152, 160, 0.48);
+  }
+}
+.redeem-box {
+  max-width: 800px;
+  .input-group {
+    width: 176px;
+  }
+  .input-group-text {
+    background-color: #dddddd;
+    width: 32px;
+    padding: 6px;
+  }
+  input.form-control {
+    background-color: #ededed;
+    color: #9398a0;
+    font-family: $font-bold;
+  }
+  label {
+    margin-bottom: 4px;
+    color: #9398a0;
+    font-family: $font-bold;
+    display: block;
+  }
+  .refresh {
+    box-sizing: border-box;
+    height: 36px;
+    width: 36px;
+    border: 2px solid #9398a0;
+    border-radius: 4px;
+    float: left;
+    margin-right: 10px;
+    padding: 7px;
+    font-size: 18px;
+    opacity: 0.9;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 5px 15px rgba(147, 152, 160, 0.48);
+    }
+  }
+
+  .publish-btn {
+    box-sizing: border-box;
+    height: 36px;
+    width: 100px;
+    background-color: #F8436E !important;
+    color: $white !important;
+    text-align: center;
+    float: left;
+    opacity: 0.9;
+    cursor: pointer;
+    &.disabled {
+      border-color: #9398a0 !important;
+      background-color: #9398a0 !important;
+      color: $white !important;
+      box-shadow: 0 5px 15px rgba(147, 152, 160, 0.48) !important;
+      font-family: $font-bold;
+    }
+  }
+}
+.reward-card {
+  height: 100px;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 10px;
+  background-color: $white;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  .card-img-wrapper {
+    height: 62px;
+    width: 100px;
+    min-width: 100px;
+    border-radius: 4px;
+    display: table-cell;
+    background-color: #efefef;
+    position: relative;
+    @media (max-width: 1380px) {
+      width: 60px;
+      min-width: 60px;
+    }
+    .img-cover {
+      border-radius: 10px;
+    }
+  }
+  .reward-info {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 10px;
+  }
+  .worth {
+    color: #27272d;
+    font-family: $font-bold;
+    font-size: 18px;
+    cursor: pointer;
+    font-style: normal;
+    text-align: left;
+    .icon-rupess {
+      font-size: 16px;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+    .icon-bonus1 {
+      font-size: 14px;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .card-text {
+    color: $gray-9;
+    font-family: $font-bold;
+    font-size: 14px;
+    font-style: normal;
+    text-align: left;
+    width: 170px;
+    word-break: break-all;
+    @media (max-width: 1540px) {
+      font-size: 12px;
+      width: 140px;
+    }
+  }
+  .card-status {
+    float: right;
+    padding: 10px 15px 20px;
+    @media (max-width: 1540px) {
+      padding: 4px 8px 4px 0;
+    }
+    .icon-inactive {
+      font-size: 20px;
+      color: $black;
+      text-align: right;
+      font-weight: 600;
+      &.icon-style {
+        cursor: pointer;
+        transition: 0.4s;
+        &:hover {
+          font-size: 21px;
+        }
+      }
+    }
+  }
+  .redeem-with {
+    color: #666666;
+    font-family: $font-regular;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+    font-style: normal;
+  }
+  .redeem-btn {
+    height: 24px;
+    width: 74px;
+    border-radius: 12px;
+    background-color: #00bfeb;
+    color: $white;
+    font-family: $font-bold;
+    font-size: 12px;
+    text-align: center;
+    padding: 4px;
+    font-style: normal;
+    img {
+      width: 16px;
+      height: 16px;
+      vertical-align: sub;
+    }
+  }
+  .left-div {
+    float: left;
+    padding: 20px 0 20px 12px;
+    @media (max-width: 1540px) {
+      padding: 20px 0 20px 8px;
+    }
+  }
+  .rupee {
+    font-size: 24px;
+    color: #27272d;
+    font-family: $font-bold;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .icon-color {
+    font-size: 22px;
+    font-weight: 800;
+    vertical-align: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0.5;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+  .reward-type {
+    color: $gray-9;
+    font-family: $font-bold;
+    font-size: 14px;
+    text-align: left;
+  }
+  .bonus-rupee {
+    font-style: normal;
+  }
+}
+
+.add-rewards {
+  margin-top: 30px;
+  min-height: 300px;
+  border-radius: 10px;
+  background-color: $white;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.upload-img {
+  margin: 25px;
+  height: 250px;
+  min-width: 285px;
+  border-radius: 10px;
+  background-color: #efefef;
+  width: 285px;
+  min-width: 285px;
+  float: left;
+  position: relative;
+  .img-cover {
+    border-radius: 10px;
+  }
+  .icon-camera,
+  .icon-bonus1,
+  .icon-rupess,
+  .icon-currency {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 52px;
+    opacity: 0.1;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+  .icon-camera {
+    cursor: pointer;
+  }
+  i.icon-close {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    padding: 6px;
+    font-size: 12px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: $white;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .gift_image {
+    width: 58px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    z-index: 1;
+    opacity: 0;
+  }
+
+  @media (max-width: $mac-screen) {
+    width: 230px;
+    min-width: 230px;
+  }
+}
+
+.input-box {
+  padding: 15px 50px 15px 17px;
+  float: left;
+  width: calc(100% - 354px);
+  @media (max-width: $mac-screen) {
+    width: calc(100% - 296px);
+    padding: 15px 0 17px 0;
+  }
+  @media (max-width: 1366px) {
+    padding: 15px 0 17px 0;
+  }
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-right: 2px solid red;
+  }
+  .form-control {
+    background-color: #ededed;
+    border: none;
+  }
+  label {
+    margin-bottom: 4px;
+    color: #9398a0;
+    font-family: $font-bold;
+    display: block;
+  }
+  .coupons-option-list {
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0;
+    padding: 0;
+    &:after {
+      content: "";
+      opacity: 0.6;
+      border-bottom: 2px solid #d8d8d8;
+      display: block;
+      margin-top: 8px;
+    }
+  }
+
+  .coupons-option-item {
+    display: inline-block;
+    margin-right: 40px;
+    position: relative;
+
+    @media (max-width: 1366px) {
+      margin-right: 10px;
+    }
+    .custom-control-input {
+      z-index: 1;
+    }
+
+    .custom-radio {
+      input[type="radio"] {
+        border: 0px;
+        width: 24px;
+        height: 1.7em;
+        left: 0;
+        top: 0;
+        cursor: pointer;
+      }
+    }
+
+    .custom-control-label {
+      color: #27272d;
+      font-family: $font-bold;
+      padding-top: 2px;
+      .input-text {
+        margin-left: 34px;
+
+        @media (max-width: 1366px) {
+          margin-left: 30px;
+        }
+      }
+      &::before {
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 24px;
+      }
+      &::after {
+        width: 36px;
+        height: 36px;
+        top: -6px;
+        left: -6px;
+      }
+    }
+  }
+}
+.img-preview-box {
+  box-sizing: border-box;
+  height: 235px;
+  border: 1px dashed $gray-9;
+  border-radius: 10px;
+  background-color: $white;
+  margin: 32px 40px 32px 0;
+  color: #cdcdcd;
+  font-family: $font-bold;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  position: relative;
+  padding: 6px 20px;
+  @media (max-width: 1370px) {
+    padding: 0;
+    margin: 32px 24px 32px 0;
+  }
+  .preview-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .reward-card {
+    position: absolute;
+    top: 50%;
+    left: auto;
+    transform: translateY(-50%);
+  }
+}
+.rewards-list {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+.reports-box {
+  margin-top: 20px;
+  .table {
+    .icon-color {
+      color: #00bfeb;
+      font-size: 20px;
+      font-weight: 800;
+      vertical-align: inherit;
+    }
+  }
+  .dropdown-menu.show {
+    border: none;
+  }
+  .dropdown-item {
+    outline: none;
+    color: $white;
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+    &.active {
+      outline: none;
+      border-color: $secondary-color;
+      background-color: $secondary-color;
+    }
+    &:active {
+      outline: none;
+      border-color: $secondary-color;
+      background-color: $secondary-color;
+    }
+  }
+  .dropdown-toggle {
+    cursor: pointer;
+    &::after {
+      margin-left: 0.5em;
+      content: "";
+      border-top: 0.5em solid;
+      border-right: 0.5em solid transparent;
+      border-left: 0.5em solid transparent;
+      color: #9398a0;
+      vertical-align: baseline;
+    }
+  }
+}
+.reward-status {
+  height: 28px;
+  width: 80px;
+  float: right;
+  color: $white;
+  font-family: $font-regular;
+  font-size: 16px;
+  line-height: 26px;
+  background-color: #04a057;
+  text-align: center;
+  clip-path: polygon(100% 1%, 100% 55%, 100% 100%, 0% 100%, 10% 50%, 0% 0%);
+  &.inactive {
+    background-color: $secondary-color;
+    padding-left: 10px;
+  }
+}
+.coupon-history {
+  top: 10%;
+  @media (max-width: 1300px) {
+    top: 4%;
+  }
+  .tbl-min-hgt {
+    min-height: 470px;
+  }
+  .table-responsive {
+    height: 550px;
+  }
+  .custom-pagination {
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  .modal-body {
+    padding: 0;
+  }
+  .header-wrapper {
+    height: 120px;
+    border-radius: 4px 4px 0 0;
+    background-color: $white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+
+    .worth {
+      font-family: $font-bold;
+      font-size: 18px;
+      line-height: 23px;
+    }
+    .card-text {
+      color: #a8a8a8;
+      font-family: $font-bold;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+
+  .coupon-avail-list {
+    list-style-type: none;
+    margin-top: 21px;
+  }
+  .coupon-avail-item {
+    display: inline-block;
+    margin-right: 33px;
+    label {
+      margin-bottom: 0;
+      color: #a8a8a8;
+      font-family: $font-bold;
+      font-size: 12px;
+    }
+    .numbers {
+      font-family: $font-bold;
+      font-size: 18px;
+      line-height: initial;
+    }
+  }
+  .history-info {
+    margin: 10px;
+    float: left;
+  }
+  .history-img {
+    height: 100px;
+    width: 100px;
+    box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+    float: left;
+    margin-bottom: 0;
+    margin-right: 20px;
+    margin: 10px;
+    position: relative;
+    background-color: #efefef;
+    img {
+      border-radius: 8px;
+    }
+    .icon-bonus1,
+    .icon-rupess,
+    .icon-currency {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 52px;
+      opacity: 0.1;
+      text-align: center;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

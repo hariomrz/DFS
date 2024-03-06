@@ -1,0 +1,87 @@
+<div ng-if="!(IsSingleActivity) && profileUser">
+<div ng-cloak class="user-profile-completion" ng-controller="SkillsCtrl" ng-init="getEndorseSkills('init');" ng-hide="!ShowEndorseBoxOnWall ||  ((profileUser.FriendStatus == '3') || (profileUser.FriendStatus == '4' && profileUser.ShowFriendsBtn == '1')) || LoginSessionKey=='' || !ProfileEndorse">
+    <h3>{{::lang.Endorse}} <a target="_self" ng-bind="FirstName + ' ' + LastName"></a>
+        <span class="pull-right sub-title" ng-click="ShowEndorseBoxOnWall=false" ng-bind="lang.w_remind_me_later"></span>
+        <i>
+            <svg height="10px" width="10px" class="svg-icons">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#closeIcn"></use>
+            </svg>
+        </i>
+    </h3>
+    <div class="completion-content">
+        <div class="suggested-skils"> 
+            <ul class="skill-added top-skill" ng-if="EndorseSkills.length>0">
+                    <li class="viewer-pic-container" ng-repeat="userskilldata in EndorseSkills">
+                        <div class="skill remove-skill">
+                            <span class="endorse-item-name">
+                                <span class="catg-img" ng-if="userskilldata.SkillImageName != '' || userskilldata.CategoryImageName != ''">
+                                    <img height="14" width="14" ng-if="userskilldata.SkillImageName != ''" ng-src="{{ImageServerPath + 'upload/skill/220x220/' + userskilldata.SkillImageName}}" >
+                                    <img height="14" width="14" class="img-circle" ng-if="userskilldata.CategoryImageName != ''" ng-src="{{ImageServerPath + 'upload/category/220x220/' + userskilldata.CategoryImageName}}" >
+                                </span>
+                                <span ng-if="userskilldata.CategoryName != ''" ng-bind="userskilldata.CategoryName"> </span>
+                                <span ng-if="userskilldata.SubCategoryName != ''" ng-bind="userskilldata.SubCategoryName"> </span>
+                                <abbr ng-if="userskilldata.Name != ''" ng-bind="userskilldata.Name"></abbr>
+                            </span>
+                            <a target="_self" class="endorse-item-close" ng-click="RemoveEndorseSkill($index);">
+                                <svg height="10px" width="10px" class="svg-icons">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#closeIcn'}}"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            <div class="input-group add-skills">
+                    <tags-input key-property="Name" replace-spaces-with-dashes="false" min-length="1" id="SkillName" class="SkillName" placeholder="{{::lang.What_are_their_area_of_expertise}}" data-ng-model="getTempEndorseSkills" display-property="Name" tabindex="2" max-tags="1" add-on-comma="true" add-on-enter="true" template="tag-template">
+                        <auto-complete source="EndorseSkillAutocomplete($query)" template="my-custom-skill-template"></auto-complete>
+                    </tags-input>
+                    <script type="text/ng-template" id="tag-template">
+                        <div class="skill remove-skill">
+                        <span class="endorse-item-name">
+                        <span class="catg-img" ng-if="data.categoryicon">
+                        <img ng-src="{{image_server_path}} + 'upload/category/' + {{data.CategoryIcon}}" >
+                        </span>
+                        <span ng-if="data.CategoryName">{{data.CategoryName}}</span> 
+                        <span ng-if="data.SubCategoryName">{{data.SubCategoryName}}</span> 
+                        <abbr ng-if="data.Name">{{data.Name}}</abbr>
+                        </span>
+                        <a target="_self" class="endorse-item-close" ng-click="$removeTag()">
+                        <svg height="10px" width="10px" class="svg-icons">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#closeIcn'}}"></use>
+                        </svg>
+                        </a>
+                        </div>
+                    </script>
+                    <script type="text/ng-template" id="my-custom-skill-template">
+                        <div class="skill autosuggest">
+                        <span class="endorse-item-name">
+                        <span class="catg-img" ng-if="data.categoryicon"><img ng-src=" {{image_server_path}} + 'upload/category/' + {{data.CategoryIcon}}" ></span>
+                        <span ng-if="data.CategoryName">{{data.CategoryName}}</span> 
+                        <span ng-if="data.SubCategoryName">{{data.SubCategoryName}}</span> 
+                        <abbr ng-if="data.Name">{{data.Name}}</abbr>
+                        </span>
+                        </div>
+                    </script>
+                    <!--<input type="text" class="form-control" placeholder="What are your areas of expertise ?">-->
+                    <div class="input-group-addon">
+                        <button type="button" class="btn btn-dafult" ng-disabled="getTempEndorseSkills.length <= 0" ng-click="add_endorse_skill();" ng-bind="lang.Add"></button>
+                    </div>
+                    <!-- Auto Suggest  -->
+
+                </div>
+
+            <div class="en-footer button-footer">
+                    <div class="pull-right">
+                        <button  type="button" class="btn btn-default" ng-click="CancelEndorseSkill();" ng-bind="lang.cancel"></button>
+                        <button type="button" class="btn btn-primary" ng-click="SaveSuggestionEndorse();" ng-class="{'loader-btn':LoaderBtn}" ng-disabled="EndorseSkills.length <= 0">{{::lang.Endorse}}
+                            <span class="btn-loader">
+                                <span class="spinner-btn">&nbsp;</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+
+        </div> 
+    </div>
+</div>
+</div>

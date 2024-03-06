@@ -1,0 +1,220 @@
+// @import "../../assets/scss/bootstrap/bootstrap.scss";
+
+.gameshubs-banner {
+  min-height: 70px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+.gameshubs-wrap {
+  background-color: $white;
+  border-radius: 10px;
+  margin: 0 auto;
+
+  .game-bnr-slider {
+    min-height: 100px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 0;
+    .spt-heading {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      h3 {
+        font-size: $font-base;
+        color: $gray-900;
+        font-family: $font-exo-bold;
+        text-transform: uppercase;
+        margin: 0 10px 0 0;
+      }
+      &::after {
+        border-bottom: dashed 1px #cdcccc;
+        content: "";
+        display: flex;
+        flex-grow: 1;
+      }
+    }
+  }
+  .container {
+    max-width: 700px;
+    padding-top: 30px;
+  }
+  .sports-hub {
+    // display: flex;
+    max-width: 700px;
+    margin: 0 auto;
+    .sports-large {
+      height: 288px;
+      width: calc(100% - 30px);
+      margin: 0 15px 30px;
+      border-radius: 24px;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      position: relative;
+      cursor: pointer;
+      background-size: cover;
+      i {
+        position: absolute;
+        right: 16px;
+        top: 14px;
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.4);
+        font-size: 16px;
+        z-index: 1;
+      }
+    }
+  }
+    .sports-row {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      padding-left: 5px;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 30px;
+        top: 0;
+        background: url(../../assets/img/bg-texture.png) no-repeat;
+        background-size: 100% 100%;
+       
+        right: -270px;
+        border-radius: 5px 0 0 5px;
+      }
+      &.two{
+        &::after {
+          width: calc(860px - 270px);
+        }
+      }
+      &.three{
+        &::after {
+          width: calc(675px - 270px);
+        }
+      }
+    
+    .quiz-view-card {
+      height: 160px;
+      width: calc(25% - 10px);
+      margin: 0 10px 30px;
+      border-radius: 24px;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      position: relative;
+      cursor: pointer;
+      background-size: cover;
+      .img-fluid {
+        height: 160px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+      .quiz-text-view {
+        width: 95px;
+        color: $white;
+        font-family: $font-black;
+        font-size: $font-size-medium;
+        text-transform: uppercase;
+        line-height: 19px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+      }
+      &.xp-level {
+        padding: 10px 14px;
+        background: linear-gradient(
+          315.3deg,
+          #b49af4,
+          #c0a4fc 26.98%,
+          #a66eef 64.93%,
+          #a58ae9 88.21%,
+          #c2a9ff
+        );
+        .text-for-current-level {
+          width: 95px;
+          color: $white;
+          font-family: $font-exo-black;
+          font-size: $font-size-medium;
+          text-transform: uppercase;
+          line-height: 19px;
+        }
+
+        .sports-card-slider {
+          border-radius: 32px;
+          background-color: #eaeaea;
+          height: 20px;
+          margin: 15px 0;
+          position: relative;
+          overflow: hidden;
+
+          span {
+            position: absolute;
+            font-size: 18px;
+            font-family: $font-exo-semibold;
+            color: #212121;
+            left: 10px;
+            top: -4px;
+          }
+
+          .next-lvl {
+            right: 10px;
+            left: auto;
+          }
+
+          .progress-bar {
+            background: #01f0c8;
+            border-radius: 32px;
+            height: 20px;
+            width: 0;
+            top: 0;
+            left: 0;
+            position: absolute;
+            -webkit-animation: fill-c 1.5s ease-in-out;
+            animation: fill-c 1.5s ease-in-out;
+
+            @keyframes fill-c {
+              0% {
+                width: 0%;
+                opacity: 0;
+              }
+
+              100% {
+                opacity: 1;
+              }
+            }
+          }
+        }
+
+        .earn-button {
+          display: flex;
+          justify-content: center;
+
+          img {
+            width: 16px;
+            margin-right: 2px;
+          }
+
+          .button-view {
+            height: 30px;
+            width: 105px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            background-color: $primary;
+            color: $white;
+            font-family: $font-exo-bold;
+            font-size: $font-size-small;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}

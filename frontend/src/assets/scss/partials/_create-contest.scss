@@ -1,0 +1,364 @@
+.create-contest{
+    background: $white;
+    padding-bottom: 80px;
+    &.web-container.web-container-fixed{
+        padding-bottom: 44px;
+    }
+    .verification-block-left-align {
+        text-align: left;
+        margin-top: 48px;
+        padding: 0 22px;
+        margin: 0 auto;
+    }
+    .label-text{
+        color: $help_text_color;	
+        font-family: $font-regular;	
+        font-size: 12px;	
+        margin-bottom: 0;
+    }
+    .select-league{
+        .league-border {
+            border-bottom: 1px solid $border_color;
+            margin-top: -3px;
+        }
+        .secondary__placeholder,
+        .secondary__single-value {
+            left: 0;
+            right: 0;
+            font-size: 16px;
+            font-family: $font-regular;
+            color: $primary_text_color;
+            margin-left: 0;
+        }
+    }
+    .select-match{
+        .match-border {
+            border-bottom: 1px solid $border_color;
+            margin-top: -3px;
+        }
+        .secondary__placeholder,
+        .secondary__single-value {
+            left: 0;
+            right: 0;
+            font-size: 16px;
+            font-family: $font-regular;
+            color: $primary_text_color;
+            margin-left: 0;
+            max-width: calc(100% - 28px);
+        }
+    }
+    .input-label-center:not(.label-left) span.select-arr {
+        width: 20px;
+        color: #ced4da;
+    }
+    .prize-pool{
+        font-size: 14px;
+        font-family: $font-regular;
+        background: $white;
+        text-align: center;
+        color: $body_text_color;
+        width: 100%;
+        margin: 0 auto;
+        span{
+            color: $primary;
+            font-family: $font-bold;
+            font-size: 18px;
+        }
+    }
+    .prize-detail{
+        .prize-heading {
+            font-size: 12px;
+            color: $primary_text_color;
+            background-color: $app_bg_color;
+            font-family: $font-bold;
+            display: block;
+            text-align: center;     
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 6px;
+            span{
+                position: relative;
+                display: inline-block;
+                width: 80%;
+                overflow: hidden;
+                line-height: initial;
+                vertical-align: middle;
+                &:before,&:after{
+                    content: '';
+                    height: 0px;
+                    width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: $gray-500;
+                }
+                &:before {
+                    left: -60%;
+                    @media (max-width: 414px) {
+                        left: -70%;
+                    }
+                }
+                &:after {
+                    right: -60%;
+                    @media (max-width: 414px){
+                        right: -70%;
+                    }
+                }
+            }      
+        }
+        .table{
+            margin: auto;
+            th{
+                border: none;
+                color: $body_text_color;
+                font-family: $font-regular;
+                font-size: 14px;
+                width: 33.33%;
+                font-weight: 400;
+                padding-left: 10px !important;
+                &:first-child{
+                    padding-left: 30px !important;
+                }
+                &:last-child{
+                    padding-left: 10px !important;
+                    padding-right: 30px !important;
+                }
+            }
+
+            tr{
+                td{
+                    color: $primary_text_color;
+                    vertical-align: middle;
+                    font-size: 14px;
+                    font-family: $font-bold;
+                    width: 40%;
+                    border-top: 1px solid $border_color;
+                    border-spacing: 20px 0px;
+                    padding: 5px 15px;
+                    &:first-child{
+                        width: 20%;
+                    }
+                    
+                    > div{
+                        width: 100px;
+                        input{
+                            max-width: 100%;
+                        }
+                    }
+                    &:last-child{
+                        span{
+                            color: $body-text-color;
+                            display: inline-block;
+                            margin-right: 8px;
+                        }
+                    }
+                    .winning-perc{
+                        display: inline-block;
+                        background: $white;
+                        font-size: 14px;
+                        text-align: left;
+                        border: 0;
+                        border-bottom: 1px solid $border_color !important;
+                        padding-left: 8px;
+                        border-radius: 0;
+                        width: 70%;
+                    }
+                    &.winning-amt{
+                        background: $white;
+                        font-size: 14px;
+                        padding-left: 30px;
+                        &:last-child{
+                            padding-right: 30px;
+                            padding-left: 15px;
+                        }
+                    }
+                    &.winner-distribution-input{
+                        input{
+                            text-align: left !important;
+                            padding: 0px !important;
+                            border: 0 !important;
+                            font-size: 14px;
+                        }
+                    }
+
+                    &.total-container{
+                        color: $primary_text_color;
+                        font-family: $font-bold;
+                        font-size: 16px;
+                        padding-bottom: 20px;
+                        background: $app_bg_color;
+                        span.total-text{
+                            color: $body_text_color;
+                            font-size: 14px;
+                            font-family: $font-regular;
+                        }
+                    }
+                }
+            }
+            tr:not(:last-child) {
+                td{
+                    border: none;
+                }
+            }
+        } 
+    }
+    .page-footer{
+        .btn{
+           background: linear-gradient(90deg, $primary 0%, $primary 60%, $primary 90%);
+           box-shadow: 0 -4px 20px 0 rgba(0,0,0,0.3);
+        
+        &.disabled{
+            pointer-events: none;
+            background: linear-gradient(90deg, $disabled_text_color 0%, $disabled_text_color 60%, $disabled_text_color 90%);
+           }
+        }
+    }
+    .select-arr{
+        top: 48%;
+        -webkit-transform: translateX(-48%);
+        transform: translateX(-48%);
+    }
+    .select-secondary.sel-entry-type{
+        z-index: 9999;
+        width: 40px;
+        position: absolute;
+        top: 18px;
+        right: 0;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding-bottom: 0;
+        height: 30px;
+        img{
+            max-width: 15px;
+        }
+        .secondary__control{
+            height: 30px;
+        }
+        .secondary__single-value{
+            padding-left: 3px;
+        }
+        .secondary__menu{
+            width: 38px;
+            margin: 0;
+            .secondary__menu-list{
+                margin: 0;
+                padding: 0;
+                width: 38px;
+                .secondary__option{
+                    padding: 4px;
+                }
+            }
+        }
+    }
+    .select-arr.select-arr-entry-type{
+        display: block;
+        right: 5px;
+        top: 33%;
+        transform: translateX(0%);
+        i{
+            font-size: $font-size-xsmall;
+        }
+    }
+} 
+
+.header-div{
+    width: 33%;
+}
+.create-contest .prize-detail .table tr td{
+    .winning-perc{
+        z-index: 2;
+        background: transparent;
+        padding-left: 16px;
+    }
+    > div{
+        &.win-amt-input{
+            position: relative;
+            .winning-perc{
+                position: relative;
+                z-index: 2;
+                &:focus,
+                &:active,
+                &:active:focus{
+                    padding-left: 10px;
+                    ~ i{
+                        display: none;
+                    }
+                }
+            }
+            i{
+                position: absolute;
+                top: 4px;
+                left: 1px;
+                font-size: 12px;
+                z-index: 1;
+            }           
+        }        
+    }
+}
+
+
+
+// changes for dark theme overall
+.body-dark-theme{
+    .create-contest{
+        .select-league .league-border,
+        .select-match .match-border{
+            border-bottom-color: $darkT_border_color2;
+        }
+        input{
+            border-bottom-color: $darkT_border_color2 !important;
+        }
+        .select-league{
+            .secondary__placeholder,.secondary__single-value{
+                color: $darkT_primary_text_color;
+            }
+        }
+        .select-match {
+            .secondary__placeholder, .secondary__single-value{
+                color: $darkT_primary_text_color;
+            }
+        }
+        .prize-detail {
+            .table{
+                th{
+                    color: $darkT_primary_text_color;
+                }
+                tr td{
+                    color: $darkT_primary_text_color;
+                    > div.win-amt-input{
+                        background: transparent !important;
+                    }
+                    .winning-perc{
+                        color: $darkT_primary_text_color;
+                        border-bottom-color: $darkT_border_color2 !important;
+                    }
+                    &.winning-amt{
+                        background: transparent;
+                    }
+                    &.total-container{
+                        background: transparent;
+                        span.total-text{
+                            color: $darkT_primary_text_color;
+                        }
+                    }
+                    border-top-color: $darkT_border_color2;
+                }
+            }
+            .prize-heading{
+                background: $darkT_app_bg_color;
+                color: $darkT_primary_text_color;
+            }
+        }
+        .prize-pool{
+            background: transparent;
+            color: $darkT_primary_text_color;
+            span{
+                color: $darkT_primary;
+            }
+        }
+        .page-footer .btn{
+            background: $darkT_primary;
+        }
+    }
+}

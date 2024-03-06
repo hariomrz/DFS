@@ -1,0 +1,285 @@
+.notification-container {
+    padding-bottom: 0 !important;
+    background: $app_bg_color;
+    .notification-list{
+        height: calc(100vh - 56px);
+        padding: 15px;
+        overflow-y: auto; 
+        padding-bottom: 40px;
+    }
+    .list-card{
+        border: 1px solid $border_color;
+        color: $body_text_color;
+        font-size: 14px;
+        font-family: $font-regular;
+        position: relative;
+        padding-left: 54px;
+        background: $white;
+        cursor: pointer;
+        &.unread{
+            // @include background-opacity($success,0.2);
+            background-color: #F0F8FF
+        }
+        &.winning{
+            // @include background-opacity($success,0.2);
+            background-color: #E4FDE8;
+            border: 1px solid $success;
+        }
+        p{
+            word-wrap: break-word;
+            word-break: break-word;
+            min-height: 18px;
+            margin-bottom: 4px;
+            line-height: 18px;
+            i{
+                position: relative;
+                left: auto;
+                top: -1px;
+                right: auto;
+                bottom: auto;
+                font-size: $font-base;
+            }
+        }
+        .notification-timing{
+            margin-bottom: 0;
+            line-height: 13px;
+            min-height: 13px;
+            font-weight: normal;
+        }
+        i {
+            position: absolute;
+            left: 15px;
+            font-size: 24px;
+            top: 18px;
+            color: $primary_text_color;
+        }
+        span.highlighted-text{
+            color: $primary_text_color;
+            font-weight: bold;
+        }
+        .notification-type-currency{
+            position: absolute;
+            left: 15px;
+            font-size: 24px;
+            top: 9px;
+            color: $black;
+        }
+        &.card-notification{
+            border-radius: 14px;
+            background: $white;
+            border-color: $white;
+            padding-left: 0;
+            padding: 0;
+            // padding: 20px 20px 15px 0;
+            border: none;
+            overflow: hidden;
+            &.congrats-notify,&.blnt-notify{
+                position: relative;
+                &:after{
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 2px;
+                }
+            }
+            &.congrats-notify{
+                &:after{
+                    background: $alert_success_color;
+                }
+                .notify-won{
+                    .value{
+                        color: $alert_success_color;
+                    }
+                }
+                .media-left{
+                    background: $white url('../img/congrats-notify-bg.png') no-repeat;
+                    background-position: top;
+                    background-size: contain;
+                }
+            }
+            &.blnt-notify{
+                &:after{
+                    background: $alert_danger_color;
+                }
+            }
+            &.refund-notify{
+                .notify-won{
+                    display: none;
+                }
+            }
+            .media-left{
+                padding: 40px 25px 40px;
+                // background: $white url('../img/congrats-notify-bg.png') no-repeat;
+                // background-position: top;
+                // background-size: contain;
+                display: table-cell;
+                vertical-align: middle;
+                position: relative;
+                &:after{
+                    content: '';
+                    position: absolute;
+                    width: 1px;
+                    height: 60%;
+                    background: $border_color;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            .media{
+                align-items: center;
+                display: table;
+                width: 100%;
+                &.btm-info{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            i{
+                position: static;
+                &.icon-gift{
+                    color: $alert_success_color;
+                    font-size: 35px;
+                }
+                &.icon-thumb{
+                    color: $primary;
+                    font-size: 35px;
+                }
+                &.icon-info-solid{
+                    color: $alert_warning_color;
+                    font-size: 35px;
+                }
+            }
+            .media-body{
+                padding: 20px 40px 15px 20px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .media-heading{
+                font-size: $font-size-xsmall;
+                font-family: $font-bold;
+                color: $help_text_color;    
+                text-transform: uppercase;
+            }
+            p{
+                color: $body_text_color;
+                font-size: $font-base;
+                font-family: $font-regular;
+                margin-bottom: 10px;
+            }
+            span.highlighted-text{
+                color: $primary;
+            }
+            .notification-timing,
+            .notify-won{
+                font-size: $font-size-xsmall;
+                color: $help_text_color;
+                font-family: $font-book;
+                .value{
+                    font-size: $font-base;
+                    font-family: $font-bold;
+                    img{
+                        width: 12px;
+                        height: 12px;
+                    }
+                    span{
+                        display: inline-block;
+                        margin-left: 2px;
+                    }
+                }
+            }
+            .notify-won{
+                text-align: center;
+            }
+
+            &.un-read-notify{
+                p{
+                    color: $primary_text_color;
+                    font-family: $font-regular;
+                    font-weight: 600;
+                }
+            }
+            .brand-clr{
+                color: $primary;   
+            }
+        }
+    }
+    .shimmer-list-container{
+       // height: 90vh;
+        padding: 16px;
+        .shimmer-container{
+            display: flex;
+            background-color: $white;
+            border-radius: 14px;
+            border: 1px solid $border_color;
+            padding: 12px 15px 5px;
+            margin-bottom: 10px;
+
+            .image{
+                width: 30px;
+                height: 30px;
+                vertical-align: middle;
+            }
+            .shimmer-list{
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 12px;
+                margin-top: 5px;
+                line-height: 15px;
+                width: 90%;
+    
+                @media screen and(max-width: 420px){
+                    width: 76%;
+                }
+                @media screen and(max-width: 320px){
+                    width: 67%;
+                }
+            }
+        }
+    }
+    .notification-timing{
+        margin: 0;
+        font-size: 12px;
+        font-family: $font-regular;
+        font-weight: bold;
+        color: $help_text_color;
+    }
+}
+
+
+// changes for dark theme overall
+.body-dark-theme{
+    .notification-container{
+        .list-card{
+            background: $darkT_app_bg_color;
+            color: $darkT_primary_text_color;
+            border-color: $darkT_app_bg_color;
+            i,.notification-type-currency{
+                color: $darkT_primary_text_color;
+            }
+            span.highlighted-text{
+                color: $darkT_primary;
+            }
+            &.card-notification {
+                p{
+                    color: $help_text_color;
+                }
+                .brand-clr{
+                    color: $darkT_primary;
+                }
+            }
+        }
+        .shimmer-list-container{
+            .shimmer-container{
+                background: $darkT_app_bg_color;
+                border-color: $darkT_border_color2;
+            }
+        }
+    }
+    .sticky-blue-header{
+        background: $darkT_primary;
+    }
+}

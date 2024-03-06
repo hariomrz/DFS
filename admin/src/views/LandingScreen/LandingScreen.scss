@@ -1,0 +1,281 @@
+ .landing-screen-wrap {
+     padding: 40px 0px;
+     @media (max-width: 1250px) {
+       margin-left: 32px;
+     }
+
+     .welcome {
+         color: #111111;
+         font-family: MuliBold;
+         font-size: 32px;
+         font-weight: 800;
+         letter-spacing: 0;
+         line-height: 40px;
+         margin: 0;
+     }
+
+   
+     .landingscreen-header {
+         padding-bottom: 40px;
+         position: relative;
+         @media (max-width: 1250px) {
+           width: 97.5%;
+         }
+         .text {
+            color: #979797;
+            font-family: "MuliBold";
+            font-size: 20px;
+            letter-spacing: 0;
+            line-height: 23px;
+            margin: 0;
+            padding-top: 10px;
+            position: relative;
+            p {
+                background-color: #efefef;
+                z-index: 2;
+                position: relative;
+                display: inline-block;
+                padding-right: 40px;
+            }
+            &::after {
+                content: "";
+                border-bottom: solid 1px #979797;
+                display: block;
+                position: absolute;
+                top: 0;
+                top: 50%;
+                left: 0;
+                right: 0;
+                z-index: 1;
+            }
+        }
+
+         
+     }
+     .landing-screen-content{
+        display:flex;
+        gap: 5px;
+        
+        @media (max-width: 1250px) {
+           flex-direction: column;
+        }
+        @media (min-width:1700px) {
+            gap:2px;
+         }
+     }
+ }
+//left section
+.left-section {
+    width:70%;
+    @media (max-width: 1250px) {
+        width:100%;
+     }
+    
+}
+ .report-cards {
+     display: flex;
+     gap: 20px;
+
+     .report-card {
+        width:31.3%;
+         border: none;
+         border-radius: 10px;
+         background-color: #FFFFFF;
+         padding: 19px 19px 22px 22px;
+         cursor: pointer;
+         @media (min-width:1251px)and(max-width:1475px) {
+            width:31.1%;
+         }
+         @media (min-width:1700px) {
+            width:31.4%;
+         }
+
+         .report-card-group{
+            display: flex;
+            justify-content: space-between;
+         }
+
+         .report-card-text {
+             color: #111111;
+             font-family: MuliBold;
+             font-size: 24px;
+             font-weight: 300;
+             line-height: 25px;
+             max-width: 128px
+         }
+
+         
+     }
+ }
+
+ .info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+
+     .info-card {
+        width:48%;
+        border: none;
+         border-radius: 10px;
+         background-color: #FFFFFF;
+         padding: 25px 20px 15px 20px;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+        //  margin-top: 30px;
+        //  height: 222px;
+
+         .info-card-group {
+             display: flex;
+             justify-content: space-between;
+         }
+
+         .info-card-heading {
+             color: #111111;
+             font-family: MuliBold;
+             font-size: 24px;
+             font-weight: 300;
+             letter-spacing: 0;
+             line-height: 26px;
+             padding-bottom: 12px;
+         }
+
+         .info-card-content {
+             color: #979797;
+             font-family:MuliBold;
+             font-size: 16px;
+             letter-spacing: 0;
+             line-height: 19px;
+             max-width: 246px;
+             padding-bottom: 14px;
+         }
+
+         .go-button-div{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            .go-button {
+                text-align: left;
+                 border: none;
+                 color: #FFFFFF;
+                 font-family: MuliBold;
+                 font-size: 20px;
+                 font-weight: 300;
+                 width: 93px;
+                 border-radius: 2px;
+                 background-color: #F8436E;
+                 padding-left: 12px;
+                 position: relative;
+             }
+             .go-button-arrow-container{
+                display: flex;
+                // justify-content: center;
+                // flex-direction: row;
+                align-items: center;
+                margin-top: 5px;
+                .icon-arrow{
+
+                    color: #FFFFFF;
+                    display: block;
+                    margin-left: -3px;
+                    margin-top: 4px;
+                    animation: animate 1.3s infinite;
+                    font-size: 15px;
+                    &:nth-child(2){
+                        animation-delay: 0.1s;
+                    }
+                    &:nth-child(3){
+                        animation-delay: 0.1s;
+                    }
+                }
+            }
+            
+            @keyframes animate {
+                0%{
+                    opacity: 0;
+                    transform: rotate(360deg) translate(0);
+                    //   transform: rotate(45deg) translate(-20px,-20px);
+                }
+                50%{
+                    opacity: 1;
+                }
+                100%{
+                    opacity: 0;
+                    transform: rotate(360deg) translate(0);
+                }
+            }
+            .line{
+                background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1));
+                width: 68%;
+                max-width: 311px;
+                height: 1px;
+                @media (min-width:1251px) and (max-width: 1500px) {
+                   width:60%;
+                 }
+            }
+         }
+
+         
+     }
+ }
+
+ //rigth section
+ .right-section {
+    width:30%;
+    @media (max-width: 1250px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        width:100%;
+        margin-top: 16px;
+     }
+     .needhelp-card{
+        @media (max-width: 1250px) {
+            width: 48%;
+          }
+     }
+     .right-section-card {
+         cursor: pointer;
+         border: none;
+         padding: 15px 11px 45px 15px;
+         border-radius: 10px;
+         margin-bottom: 20px;
+        //  max-height: 132px;
+         
+            @media (max-width: 1250px) {
+           width: 48%;
+           margin-bottom: 0px;
+        //    margin-top: 16px;
+        
+         }
+
+         .title {
+             color: #FFFFFF;
+             font-family: MuliBold;
+             font-size: 24px;
+             font-weight: 300;
+             letter-spacing: 0;
+             line-height: 26px;
+             cursor: pointer;
+         }
+
+         .text {
+             color: #FFFFFF;
+             font-family: MuliBold;
+             font-size: 16px;
+             letter-spacing: 0;
+             line-height: 18px;
+             padding-top: 15px;
+         }
+     }
+ }
+
+
+
+ 
+ 
+///////////////
+ 

@@ -1,0 +1,21 @@
+<div class="list-group-bottom">
+    <p class="list-group-item-text" ng-bind-html="textToLink(activityData.comment_details.PostComment)"></p>
+    <ng-include src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+    <div class="list-group-footer">
+        <ul class="list-group-inline">
+            <li>
+                <a class="bullet">
+                    <i class="ficon-heart"></i>
+                </a>
+                <a class="text" ng-bind="( activityData.comment_details.NoOfLikes ) ? activityData.comment_details.NoOfLikes : 0"></a>
+            </li>
+            <li>
+                <a class="bullet">
+                    <i class="ficon-comment"></i>
+                    <!--<i class="ficon-reply"></i>-->
+                </a>
+                <a class="text" ng-bind="( activityData.comment_details.NoOfComments ) ? activityData.comment_details.NoOfComments : 0"></a>
+            </li>
+        </ul>
+    </div>
+</div>

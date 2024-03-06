@@ -1,0 +1,7 @@
+1)Landing Page :-   
+    
+       A)Stadium image (stadium.png)
+       B)roster list image (roster-list-box.png)
+       C)background blue light shade (main.png)	
+       D)KSAFF-En-logo.png 
+       E)app-img.png	

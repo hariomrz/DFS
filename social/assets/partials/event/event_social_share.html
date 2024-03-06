@@ -1,0 +1,65 @@
+<div class="panel panel-widget panel-eventSocial" ng-if="EventDetail.EventStatus!=='Past' && LoginSessionKey">
+  <div class="panel-heading">
+    <h3 class="panel-title" ng-bind="lang.share_friend_text"></h3>
+  </div>
+  <div class="panel-body">
+    <ul class="social-icons">
+
+      <li class="facebook" ng-click="$emit('FacebookShareEmit', shareUrl, EventDetail.Description, EventDetail.Title, ShareImage);">
+        <a href="javascript:void(0);">
+          <i class="ficon-fb"></i>
+        </a>
+      </li>
+
+      <li class="twitter">
+        <a href="https://twitter.com/intent/tweet?{{twitterUrl}}" onclick="popupCenter(this.href,'Twitter', 500, 300);return false;">
+          <i class="ficon-tw"></i>
+        </a>
+      </li>
+      <li class="email" data-dismiss="modal">
+        <a href="javascript:void(0);" data-target="#eventEmailModal" data-toggle="modal" ng-click="removeErrorValidation();">
+          <i class="ficon-email"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="eventEmailModal" class="modal" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">      
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+            <h4 class="modal-title" ng-bind="lang.send_an_email"></h4>
+        </div>    
+        <form data-rel="form" id="ShareEventByEmailForm" share-by-social-email submit-signup="SubmitEventShareByEmail()">
+          <div class="modal-body no-p-h">
+            <div class="padding30">
+              <div class="form-group">
+                <label class="control-label"> {{lang.recipients_email_address}} <span class="required">*</span></label>
+                  <input type="text" class="form-control" id="form1email" 
+                         placeholder="xyz@gmail.com" name="form1email" 
+                         data-ng-model="ShareByEmail.emails"
+                         autocomplete="off"
+                         on-focus/>
+                  <span id="form1email_error" class="block-error"></span>
+                  <small class="block pull-right" ng-bind-html="lang.mulpitle_email_address"></small>
+              </div>
+              <div class="form-group" data-error="has-error">
+                <label class="control-label">{{lang.personal_message}} <span class="required">*</span></label>
+                <textarea class="form-control" rows="4" id="shareEmailtext" 
+                          name="shareEmailtext"
+                          placeholder="Whats on your mind?" 
+                          data-ng-model="ShareByEmail.message" 
+                          data-requiredmessage="{{lang.enter_description}}" on-focus></textarea>
+                <span id="shareEmailtext_error" class="block-error"></span> 
+              </div>                     
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary pull-right" id="nativesendinvitaion">{{lang.send}}<span class="btn-loader" style="display: none;"> <span class="loader">&nbsp;</span> </span></button>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>

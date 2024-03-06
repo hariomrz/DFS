@@ -1,0 +1,297 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/search/index": {
+            "post": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "This api is used to get search skills & interest.",
+                "description": "This api is used to get search skills & interest.",
+                "operationId": "Index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Search\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/search/user": {
+            "post": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "This api is used to search user's based on skill or interest or keyword.",
+                "description": "This api is used to search user's based on skill or interest or keyword.",
+                "operationId": "user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Search\\user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/search/profession": {
+            "post": {
+                "tags": [
+                    "Profession"
+                ],
+                "summary": "This api is used to get user list profession wise.",
+                "description": "This api is used to get user list profession wise.",
+                "operationId": "profession",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Search\\profession"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/search/profession_users": {
+            "post": {
+                "tags": [
+                    "Profession"
+                ],
+                "summary": "This api is used to get user list based on profession.",
+                "description": "This api is used to get user list based on profession.",
+                "operationId": "profession_users",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Search\\profession_users"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Search\\index": {
+            "required": [
+                "Keyword"
+            ],
+            "properties": {
+                "Keyword": {
+                    "description": "Search Keyword",
+                    "type": "string",
+                    "example": "bh"
+                }
+            }
+        },
+        "Inclusify\\Api\\Search\\user": {
+            "required": [],
+            "properties": {
+                "Keyword": {
+                    "description": "Search Keyword",
+                    "type": "string",
+                    "example": "bh"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "SkillID": {
+                    "description": "Skill ID",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "InterestID": {
+                    "description": "Interest ID",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "WID": {
+                    "description": "Ward ID",
+                    "type": "integer",
+                    "example": "3"
+                }
+            }
+        },
+        "Inclusify\\Api\\Search\\profession": {
+            "required": [],
+            "properties": {
+                "Keyword": {
+                    "description": "Search Keyword",
+                    "type": "string",
+                    "example": "bh"
+                }
+            }
+        },
+        "Inclusify\\Api\\Search\\profession_users": {
+            "required": [
+                "ProfessionID"
+            ],
+            "properties": {
+                "Keyword": {
+                    "description": "Search Keyword",
+                    "type": "string",
+                    "example": "bh"
+                },
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "ProfessionID": {
+                    "description": "Profession ID",
+                    "type": "integer",
+                    "example": "3"
+                }
+            }
+        }
+    }
+}

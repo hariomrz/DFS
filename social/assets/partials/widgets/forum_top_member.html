@@ -1,0 +1,27 @@
+<div ng-cloak  class="panel panel-widget" ng-hide="top_active_user.length==0" ng-init="get_top_active_users()">
+    <div class="panel-heading">
+        <h3 class="panel-title">Top Contributors</h3>
+    </div>
+    <div class="panel-body no-padding">
+        <ul class="list-items-hovered list-items-borderd">
+            <li class="items" ng-repeat="user in top_active_user">
+                <div class="list-items-sm">
+                    <div class="list-inner">
+                        <figure>
+                            <a target="_self" class="loadbusinesscard" entitytype="user" entityguid="{{user.UserGUID}}" ng-href="{{BaseUrl+user.ProfileUrl}}">
+                                <img err-name="{{user.Name}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+user.ProfilePicture}}" class="img-circle"  >
+                            </a>
+                        </figure>
+                        <div class="list-item-body">
+                            <h4 class="list-heading-xs ellipsis"><a target="_self" entitytype="user" entityguid="{{user.UserGUID}}" ng-href="{{BaseUrl+user.ProfileUrl}}" class="loadbusinesscard" ng-bind="user.Name"></a></h4>
+                            <div>
+                                <small ng-cloak ng-if="user.TotalFollowers==1">1 Follower</small>
+                                <small ng-cloak ng-if="user.TotalFollowers>1" ng-bind="user.TotalFollowers+' Followers'"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+.modal-img-wrap{
+.wrap-icon{
+         background: #6C72BC;
+         border-radius: 100%;
+         padding: 15px;
+         width: 60px;
+         height: 60px;
+         i{
+            font-size: 28px;
+            color: $white;
+         }
+}
+}
+.pick-fantasy-rules-view{
+   display: flex;
+   flex-direction: column;
+   .txt-trade-order{
+      color: #282E48;
+      font-family: $font-bold;
+      font-size: 18px;
+      text-align: center;
+   }
+   .txt-trade-desc{
+      color: #666666;
+      font-family: $font-regular;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 24px;
+   }
+   .btn-trade{
+      display: flex;
+      height: 44px;
+      width: 80%;
+      border-radius: 22px;
+      background-color: #5853C3;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      margin-left: 10%;
+
+      .txt-btn-trade{
+         color: #FFFFFF;
+         font-family: $font-semibold;
+         font-size: 12px;
+         text-align: center;
+         text-transform: uppercase;
+         cursor: pointer;
+      }
+   }
+   .the-picks-team{
+      margin: 20px 20px 0px 20px;
+      border-radius: 8px;
+      background-color: $gray-170;
+      color: $body_text_color;
+      font-size: $font-size-small;
+      padding: 11px 9px 13px 16px;
+      text-align: start;
+   }
+   .pick-rules-container{
+      display: flex;
+      margin: 0 17px;
+      padding-top: 15px;
+      .circle-icon{
+         i{
+            color: $quiz-semi-black;
+            font-size: 21px;
+         }
+      }
+      .rules-details-view{
+         display: flex;
+         flex-direction: column;
+         margin-left: 12px;
+         
+         .heading-text-view{
+            text-align: start;
+            color: $body_text_color;
+            font-size: $font-size-small;
+            font-weight: $font-weight-bold;
+            line-height: 1.5;
+         }
+         .details-text-view{
+            color: $body_text_color;
+            font-size:  $font-size-small;
+            line-height: 1.5; 
+            text-align: start;
+         }
+      }
+   }
+   .pickem-tournament-list{
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      list-style-type: disc !important;
+      margin-left: 20px !important;
+      li{
+         margin-bottom: 0 !important;
+         .small-circle{
+            height: 4px;
+            width: 4px;
+            background-color: #000000;
+            border-radius: 50px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 4px 0 8px;
+         }
+      }
+   }
+}

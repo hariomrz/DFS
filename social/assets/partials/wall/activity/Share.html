@@ -1,0 +1,223 @@
+<div class="feed-post-type">
+    <span class="icon feed-icon" ng-if="data.PostType == '2' && ShowPostType=='1'"  data-toggle="tooltip" data-original-title="Q & A">
+        <i class="ficon-que"></i>
+    </span>
+
+    <span class="icon feed-icon" ng-if="data.PostType == '7' && ShowPostType=='1'" data-toggle="tooltip" data-original-title="Announcement">
+        <i class="ficon-bullhorn"></i>
+    </span>
+
+    <span class="icon feed-icon" ng-if="data.PostType == '4' && ShowPostType=='1'" data-toggle="tooltip" data-original-title="Article">
+        <i class="ficon-article"></i>
+    </span>
+
+    <span class="icon feed-icon" ng-if="data.PostType == '1' && ShowPostType=='1'" data-toggle="tooltip" data-original-title="Discussion">
+        <i class="ficon-comment-discussion"></i>
+    </span>
+
+    <h4 ng-if="!data.IsAnnnouncementWidget && data.PostType!='4'" class="feed-media-placeholder"  ng-class="(data.PostTitle) ? 'exit-post-title' : 'no-post-title'">
+        <span class="icon" ng-if="data.collapsedAttachmentExists"><i class="ficon-attachment"></i></span>
+        <a ng-href="{{data.ActivityURL}}" ng-bind-html="getPostTitle(data)" target="_self" ></a>
+    </h4>
+
+    <p class="news-feed-post-body-container" ng-if="data.PostContent">
+        <span ng-mouseup="get_selected_text($event, data.ActivityGUID);" ng-if="data.PostContent" ng-bind-html="textToLink(data.PostContent, false, 200)"></span>
+    </p>
+
+    <p ng-if="data.PostContent.length > 200 && data.ShowFull" ng-bind="parseLink(data.PostContent, false)" ></p>
+    <div class="thumbnail thumbnail-default" ng-if="data.PostType=='4'" ng-init="checkInlineImage(data.ShareDetails)" ng-cloak>
+        <div ng-if="data.ShareDetails.Album.length>0" ng-repeat="m in data.ShareDetails.Album[0].Media| limitTo:1">
+            <figure class="img-panel" ng-cloak ng-if="!(m.MediaType == 'Video' && m.ConversionStatus == 'Finished')" ng-click="$emit('showMediaPopupGlobalEmit', m.MediaGUID, '');" ng-class="(m.MediaType == 'Video' && m.ConversionStatus == 'Pending') ? 'processing-red' : ''">
+                <img ng-src="{{AssetBaseUrl}}img/blank-2x1.png " class="img-full ">		
+                <img ng-if="m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/' + m.ImageName}}" class="main-img">
+                <img ng-if="m.MediaType !== 'Video' && m.MediaFolder == 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}" class="main-img">
+                <img ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/750x500/' + m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}" class="main-img">
+                <span class="media-ctrl" ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Pending'">
+                    <i class="ficon-play"></i>
+                </span>
+                <span ng-if="$index == 3 && data.ShareDetails.Album[0].TotalMedia > 4" class="more-content" ng-bind="'+' + (data.ShareDetails.Album[0].TotalMedia - 4)"></span>
+            </figure>
+            <figure ng-cloak ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" class="isVideo">
+                <div class="videoThumbImg">
+                    <img ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/750x500/' + m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}" />
+                    <a ng-click="play_video_by_thumb(m.MediaGUID)" class="video-btn">
+                        <i class="ficon-play"></i>
+                    </a>
+                </div>
+                <div class="myvideo">
+                    <div id="v-{{m.MediaGUID}}" ng-init="initJWPlayer(m)"></div>
+                </div>
+            </figure>
+        </div>
+        <div ng-if="data.ShareDetails.Album.length==0 && data.ShareDetails.HaveInlineImage">
+            <img src="{{data.ShareDetails.InlineImage}}" />
+        </div>
+        <div class="caption">
+          <div class="content">
+            <h4 class="title">
+                <a ng-href="{{data.ShareDetails.ActivityURL}}" ng-bind-html="getPostTitle(data.ShareDetails)" target="_self"></a>
+            </h4>
+            <p ng-bind-html="textToLink(data.ShareDetails.ArticlePostContent, false, 200)"></p>
+            <span class="permission ">
+              <span class="text "><span class="regular ">By</span>
+                  <a class="name" target="_self" ng-href="{{BaseUrl+data.ShareDetails.UserProfileURL}}" ng-bind="data.ShareDetails.UserName"></a>
+              </span>
+            </span>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="feed-content" ng-if="data.PostType!='4'">
+  <!-- <div ng-bind-html="textToLink(data.PostContent)"></div> -->
+  <div ng-if="!IsSingleActivity && data.ShareDetails.PostTitle != ''" class="post-type-title">
+        <a ng-href="{{data.ActivityURL}}" ng-bind="data.ShareDetails.PostTitle" class="a-link"></a>
+  </div>
+<div ng-if="data.ShareDetails.PollData.length==0" class="shared-content">
+    <a ng-if="((data.ActivityType=='Share' || data.ActivityType=='ShareSelf') && (data.ShareDetails.ActivityType!=='PagePost' && data.ShareDetails.ActivityType!=='EventWallPost' && data.ShareDetails.ActivityType!=='GroupPostAdded' && data.ShareDetails.ActivityType!=='ForumPost'))" ng-href="{{data.SiteURL+data.ShareDetails.UserProfileURL}}" class="bold" ng-bind="data.ShareDetails.UserName"></a>
+    <!-- Group, Page and Event Post Starts -->
+    <div ng-cloak ng-if="((data.ActivityType=='Share' || data.ActivityType=='ShareSelf') && (data.ShareDetails.ActivityType=='PagePost' || data.ShareDetails.ActivityType=='EventWallPost' || data.ShareDetails.ActivityType=='GroupPostAdded' || data.ShareDetails.ActivityType=='ForumPost'))">
+      <a class="bold" ng-if="data.ShareDetails.PostType!=='7'" ng-href="{{data.SiteURL+data.ShareDetails.UserProfileURL}}" entitytype="user" entityguid="{{data.ShareDetails.UserGUID}}" ng-bind="data.ShareDetails.UserName"></a> <span ng-if="data.ShareDetails.PostType!=='7'">></span>
+      
+      <a class="bold" ng-href="{{data.SiteURL+data.ShareDetails.EntityProfileURL}}" entitytype="group" entityguid="{{data.EntityGUID}}" ng-cloak ng-if="data.ShareDetails.ActivityType=='GroupPostAdded'" ng-bind="data.ShareDetails.EntityName"></a>
+      <a class="bold" ng-href="{{data.SiteURL+data.ShareDetails.EntityProfileURL}}" entitytype="event" entityguid="{{data.ShareDetails.EntityGUID}}" ng-cloak ng-if="data.ShareDetails.ActivityType=='EventWallPost'" ng-bind="data.ShareDetails.EntityName"></a>
+      <a class="bold" ng-href="{{data.SiteURL+data.ShareDetails.EntityProfileURL}}" entitytype="page" entityguid="{{data.ShareDetails.EntityGUID}}" ng-cloak ng-if="data.ShareDetails.ActivityType=='PagePost'" ng-bind="data.ShareDetails.EntityName"></a>
+      <a class="bold" ng-href="{{data.SiteURL+data.ShareDetails.EntityProfileURL}}" entityguid="{{data.ShareDetails.EntityGUID}}" ng-cloak ng-if="data.ShareDetails.ActivityType=='ForumPost'" ng-bind="data.ShareDetails.EntityName"></a>
+    </div>
+    <!-- Group, Page and Event Post Ends -->
+    <p ng-bind-html="textToLink(data.ShareDetails.PostContent)"></p>
+
+    <div ng-if="data.ShareDetails.Album.length > 0" ng-class="getMediaClass(data.ShareDetails.Album[0].Media)">
+        <div ng-repeat="m in data.ShareDetails.Album[0].Media| limitTo:3"  ng-class="(data.ShareDetails.Album[0].Media.length > 2) ? 'col-sm-4' : '' ;">
+            <figure ng-click="$emit('showMediaPopupGlobalEmit', m.MediaGUID, '');" ng-class="(m.MediaType == 'Video' && m.ConversionStatus == 'Pending' && data.ShareDetails.Album[0].Media.length > 2) ? 'processing-skyblue' : (m.MediaType == 'Video' && m.ConversionStatus == 'Pending' && (data.ShareDetails.Album[0].Media.length == 1 || data.ShareDetails.Album[0].Media.length == 2)) ? 'processing-red' : ''">
+                <img ng-if="data.ShareDetails.Album[0].Media.length==1 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/' + m.ImageName}}">
+                <img ng-if="data.ShareDetails.Album[0].Media.length==2 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/750x500/' + m.ImageName}}">
+                <img ng-if="data.ShareDetails.Album[0].Media.length>2 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}">
+                <img ng-if="m.MediaType !== 'Video' && m.MediaFolder == 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}">
+                <img ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/750x500/' + m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}">
+                <span ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" class="video-btn">
+                    <i class="ficon-play"></i>
+                </span>
+                <span class="video-btn" ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Pending'">
+                    <i class="ficon-video"></i>
+                </span>
+                <span ng-if="$index == 2 && data.ShareDetails.Album[0].Media.length > 3" class="more-content" ng-bind="'+' + (data.ShareDetails.Album[0].Media.length - 3)"></span>
+            </figure>
+        </div>
+    </div>
+
+    <div ng-if="(data.ShareDetails.Files && (data.ShareDetails.Files !== '') && (data.ShareDetails.Files.length > 0))" class="post-media">
+        <ul class="attached-files">
+            <li ng-repeat="file in data.ShareDetails.Files" ng-click="hitToDownload(file.MediaGUID)">
+                <i ng-class="'ficon-file-type ' + file.MediaExtension"><span ng-bind="'.' + file.MediaExtension"></span></i>
+                <span ng-bind="file.OriginalName"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- popup start -->
+<div ng-if="data.PollData.length>0" class="poll-feed-description pollQuestion">
+
+    <p ng-bind-html="textToLink(data.PostContent)"></p>
+    <div id="{{data.PollData[0].PollGUID}}">
+    <div  ng-if="((data.PollData[0].IsVoted!=1 && data.PollData[0].IsOwner!=1) || (data.PollData[0].ShowVoteOptionToAdmin==1 && data.PollData[0].IsOwner==1)) && data.PollData[0].IsExpired=='0'">
+      <ul class="poll-que-list">
+        <li ng-repeat="option in data.PollData[0].Options | filter : getPercentage">
+          <div class="upload-view" ng-if="option.Media.length>0">
+              <div class="upload-viewlist lightGallery" id="lg-{{data.ActivityGUID+option.OptionGUID}}" data-ng-init="option.Media.text=option.Media.length>1?'+'+(option.Media.length-1):option.Media.length">
+                  <span ng-init="callLightGallery(data.ActivityGUID+option.OptionGUID)" ng-if="$index==0" data-placeholder="{{option.Media.text}}" ng-data-src="{{data.ImageServerPath+'upload/poll/'+media.ImageName}}" ng-if="option.Media.length>0" ng-repeat="media in option.Media">
+                      <img class="img-rounded" ng-if="media.AlbumName!=='Wall Media' && media.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+media.ImageName}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName=='Wall Media' && media.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+media.ImageName}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+getVideoName(media.ImageName)}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+getVideoName(media.ImageName)}}" />
+                  </span>
+                  <span ng-init="callLightGallery(data.ActivityGUID+option.OptionGUID)" ng-if="$index>0" ng-data-src="{{data.ImageServerPath+'upload/poll/'+media.ImageName}}" ng-if="option.Media.length>0" ng-repeat="media in option.Media" ng-cloak>
+                      <img class="img-rounded" ng-if="media.AlbumName!=='Wall Media' && media.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+media.ImageName}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName=='Wall Media' && media.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+media.ImageName}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+getVideoName(media.ImageName)}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+getVideoName(media.ImageName)}}" />
+                  </span> 
+              </div>
+          </div>
+          <div class="progress">
+            <div class="radio">
+              <input id="{{option.OptionGUID}}radio" type="radio" name="vote" ng-model="OptionGUID" value="{{option.OptionGUID}}">
+              <label for="{{option.OptionGUID}}radio" ng-bind="option.Value"></label>
+             </div>  
+            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"  aria-valuemin="0" aria-valuemax="100" style="width:70%"></div>
+            <span class="progress-info" ng-if="option.NoOfVotes>0"><span class="percent-txt" ng-bind="option.Percentage"></span>%</span> 
+            <span class="vote-count" ng-if="data.PollData[0].Options.Members.length==0"><span ng-bind="data.PollData[0].Options.Members.length"></span> voted</span>
+          </div>
+        </li>
+      </ul>
+
+      
+    </div>
+
+
+    <div  ng-if="((data.PollData[0].IsVoted==1 && data.PollData[0].IsOwner!=1 ) || (!data.PollData[0].ShowVoteOptionToAdmin && data.PollData[0].IsOwner==1)) || data.PollData[0].IsExpired=='1'">
+      <ul class="poll-que-list">
+        <li ng-repeat="option in data.PollData[0].Options | filter : getPercentage" class="vote-progress">
+          <div class="upload-view" ng-if="option.Media.length>0">
+              <div class="upload-viewlist lightGallery" id="lg-{{data.ActivityGUID+option.OptionGUID}}" data-ng-init="option.Media.text=option.Media.length>1?'+'+(option.Media.length-1):option.Media.length">
+                  <span ng-if="$index==0" data-placeholder="{{option.Media.text}}" ng-init="callLightGallery(data.ActivityGUID+option.OptionGUID)" ng-data-src="{{data.ImageServerPath+'upload/poll/'+media.ImageName}}" ng-if="option.Media.length>0" ng-repeat="media in option.Media">
+                      <img class="img-rounded" ng-if="media.AlbumName!=='Wall Media' && media.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+media.ImageName}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName=='Wall Media' && media.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+media.ImageName}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+getVideoName(media.ImageName)}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+getVideoName(media.ImageName)}}" />
+                  </span>
+                  <span ng-if="$index>0" ng-init="callLightGallery(data.ActivityGUID+option.OptionGUID)" ng-data-src="{{data.ImageServerPath+'upload/poll/'+media.ImageName}}" ng-if="option.Media.length>0" ng-repeat="media in option.Media">
+                      <img class="img-rounded" ng-if="media.AlbumName!=='Wall Media' && media.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+media.ImageName}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName=='Wall Media' && media.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+media.ImageName}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName!=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+getVideoName(media.ImageName)}}" />
+                      <img class="img-rounded" ng-if="media.AlbumName=='Wall Media' && media.MediaType=='Video' && media.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/poll/220x220/'+getVideoName(media.ImageName)}}" />
+                  </span>
+              </div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"  aria-valuemin="0" aria-valuemax="100" style="width:{{option.Percentage}}%">
+            </div>
+            <span class="progress-info" >
+            <span class="percent-txt" ng-if="option.NoOfVotes>0" ng-bind="option.Percentage+'%'"></span> <span ng-bind="option.Value"></span></span>
+            <span class="vote-count" ng-if="option.NoOfVotes>0"><span ng-bind="option.NoOfVotes"></span> voted</span></span>
+          </div>
+        </li>
+        <li ng-if="data.PollData[0].PostForCount>0">
+          <div class="user-info" ng-if="data.PollData[0].PostForCount==1">
+            <label>Posted for :</label> <a ng-bind="data.PollData[0].PostFor[0].FirstName+' '+data.PollData[0].PostFor[0].LastName"></a> 
+          </div>
+          <div class="user-info" ng-if="data.PollData[0].PostForCount==2">
+            <label>Posted for :</label> <a ng-bind="data.PollData[0].PostFor[0].FirstName+' '+data.PollData[0].PostFor[0].LastName"></a> and <a ng-bind="data.PollData[0].PostFor[1].FirstName+' '+data.PollData[0].PostFor[1].LastName"></a> 
+          </div>
+          <div class="user-info" ng-if="data.PollData[0].PostForCount==3">
+            <label>Posted for :</label> <a ng-bind="data.PollData[0].PostFor[0].FirstName+' '+data.PollData[0].PostFor[0].LastName"></a>, <a ng-bind="data.PollData[0].PostFor[1].FirstName+' '+data.PollData[0].PostFor[1].LastName"></a> and <a ng-bind="data.PollData[0].PostFor[2].FirstName+' '+data.PollData[0].PostFor[2].LastName"></a> 
+          </div>
+          <div class="user-info" ng-if="data.PollData[0].PostForCount>3">
+            <label>Posted for :</label> <a ng-bind="data.PollData[0].PostFor[0].FirstName+' '+data.PollData[0].PostFor[0].LastName"></a>, <a ng-bind="data.PollData[0].PostFor[1].FirstName+' '+data.PollData[0].PostFor[1].LastName"></a> <a ng-click="postedForModalShow(data.ActivityGUID)">+{{(data.PollData[0].PostForCount-2)}} others</a>
+          </div>
+        </li>
+      </ul>
+      
+    </div>
+    <!-- <div class="map" ng-hide="pieChart" ng-cloak ng-if="data.PollData[0].Options[0].pollTotalVotes>0">
+      <div class="popover-body">
+        <div class="panel-chart"><div class="chart" id="piechart_{{data.PollData[0].PollGUID}}"></div></div>
+      </div>
+    </div> -->
+    <div class="poll-expiry hide" ng-if="data.PollData[0].IsOwner==1"> <span>Poll Expiry(days) : </span>
+      <label class="dropdown pollExpiryDate">
+      <div class="form-group">
+        <select data-chosen="" id="expire_{{data.PollData[0].PollGUID}}" data-placeholder="Poll Expiry" disable-search="true" class="form-control" data-ng-model="pollExpiry" ng-options="value for value in pollExpiryday">
+          <option></option>
+        </select>
+      </div>
+      </label>
+      <div class="pull-right">
+        <button class="btn btn-primary btn-sm pull-right" data-ng-click="$emit('edit_poll_submit',$event,data.PollData[0].PollGUID,data.PollData[0].ExpiryDateTime,data.ActivityGUID)">SAVE</button>
+        <button class="btn btn-info btn-sm pull-right" onclick="$(this).parent().parent().addClass('hide');">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- popup ends -->
+</div>

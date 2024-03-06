@@ -1,0 +1,132 @@
+.qz-ques-list {
+  .pre-heading {
+    color: #030F09;
+    font-family: $font-black;
+    font-size: 24px;
+    margin: 24px 0 20px;
+  }
+
+  .qw-date {
+    float: left;
+    color: #333333;
+    font-family: $font-bold;
+    margin-top: 14px;
+  }
+
+  .qw-btns {
+    float: right;
+
+    :last-child {
+      margin-left: 18px;
+    }
+  }
+
+  .qz-act-icn {
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px 8px;
+    .icon-ic-play {
+      color: $green;
+      font-weight: bold;
+    }
+
+    .icon-pause {
+      color: $red;
+      font-weight: bold;
+    }
+  }
+  .highcharts-axis-labels.highcharts-xaxis-labels {
+    :first-child {
+      display: none;
+    }
+  }
+}
+.qz-live{
+  .live-data{
+    border-radius: 4px;
+    background-color: $white;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    padding: 48px 18px;
+    margin-bottom: 40px;
+  }
+  .qz-graph-head {
+    color: #030F09;
+    font-family: "MuliBlack";
+    font-size: 20px;
+    margin-bottom: 48px;
+  }
+  .qz-details {
+    height: 260px;
+    border-radius: 10px;
+    background-color: #F4F6F8;
+    padding: 20px 14px;
+    margin-top: 76px;
+  }
+  .icon-info-border {
+    font-size: 18px;
+    background-color: #999999;
+    border-radius: 100%;
+    color: $white;
+    border: none;
+  }
+  .qz-info-box {
+    margin-bottom: 28px;
+
+    @media (max-width: 1400px) {
+      margin-bottom: 50px;
+    }
+  }
+  .qz-info-label {
+    color: #999999;
+    font-family: $font-bold;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .qz-info-count {
+    color: #27272D;
+    font-family: $font-bold;
+    font-size: 26px;
+
+    @media (max-width: 1400px) {
+      font-size: 20px;
+    }
+  }
+  .qz-red {
+    color: #C81717;
+  }
+
+  .qz-green {
+    color: green;
+  }    
+}
+
+.qz-ca-grp {
+  // width: 364px !important;
+  // height: 226px !important;
+  @media (max-width: 1280px) {
+    margin-right: 6px;
+  }
+  
+  @media (max-width: 1281px) {
+    width: 364px !important;
+    height: 226px !important;
+  }
+  .highcharts-container,
+  .highcharts-root {
+    width: 100% !important;
+  }
+
+  .cans-q-num{
+    color: $black;
+    font-family: $font-bold;
+    font-size: 32px;
+    text-align: center;
+  }
+  .cans-q-title {
+    color: #6D7278;
+    font-family: $font-bold;
+    font-size: 16px;
+    text-align: center;
+  }
+}

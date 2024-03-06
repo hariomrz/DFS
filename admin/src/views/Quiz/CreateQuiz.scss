@@ -1,0 +1,103 @@
+.create-quiz {
+  .h1-cls {
+    margin-top: 32px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    border: none;
+    padding: 38px 32px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  label {
+    color: #444444;
+    font-family: $font-bold;
+    font-size: 16px;
+
+    @media (max-width: 1282px) {
+      font-size: inherit;
+    }
+  }
+
+  .form-control,
+  .Select-control {
+    height: 38px;
+    border: 1px solid #999999;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+
+    .Select-placeholder,
+    .Select-value-label {
+      line-height: 38px;
+    }
+  }
+
+  hr {
+    margin: 30px 0;
+  }
+
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+
+  textarea {
+    height: 146px !important;
+    resize: none;
+  }
+
+  .cq-btns {
+    text-align: center;
+    margin-top: 100px;
+
+    .btn {
+      margin: 0 20px;
+    }
+  }
+
+  .cq-pt-list div {
+    display: inline-block;
+    height: 40px;
+    width: 116px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+    color: $secondary-color;
+    border: 1px solid $secondary-color;
+    font-family: $font-bold;
+    text-align: center;
+    padding: 10px 0;
+    float: left;
+    margin-right: 16px;
+    cursor: pointer;
+    &.disable{
+          color: $white;
+          border-color: #B8B8B8;
+          cursor: not-allowed;
+    }
+    @media (min-width: 1280px) and (max-width: 1380px) {
+      width: 88px;
+      margin-right: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    &.active {
+      background-color: $secondary-color;
+      color: $white;
+    }
+  }
+
+  #correct_ans.error-bdr,
+  #visible_questions.error-bdr,
+  #scheduled_date.error-bdr
+  {
+    border: none !important;
+
+    .Select-control,.form-control {
+      border: 1px solid $secondary-color !important;
+    }
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #B8B8B8 !important;
+  }
+}

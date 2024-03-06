@@ -1,0 +1,208 @@
+.erp-trans {
+  margin-top: 20px;
+
+  label {
+    color: #555555;
+    font-family: "MuliBold";
+    display: block;
+  }
+
+  .common-table {
+    margin-top: 24px;
+    min-height: 420px;
+    .erp-tr-type {
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .table {
+      tbody {
+        background-color: $white;
+        box-shadow: none;
+        border-top: 1px solid #D8D8D8;
+      }
+
+      th {
+        padding: 10px 8px;
+      }
+
+      td {
+        vertical-align: top;
+      }
+
+      .epr-datep {
+        background-color: #EFF6FA;
+      }
+      .no-records{
+        height: 220px;
+      }
+    }
+
+    .exp {
+      color: #BE0202;
+    }
+
+    .income {
+      color: #21BD00;
+    }
+
+    .icon-more {
+      font-size: 26px;
+      opacity: 0.4;
+    }
+  }
+
+  .form-control,
+  .Select-control,
+  .epr-adddate {
+    background-color: #EFF6FA;
+  }
+
+  .tran-add-btn .btn {
+    padding: 4px 20px;
+  }
+
+
+  .dropdown-menu.show {
+    min-width: 115px;
+    border-radius: 4px;
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15);
+    border: none;
+
+    .dropdown-item {
+      border: none;
+    }
+  }
+  .erp-desc {
+    width: 600px;
+    white-space: break-spaces;
+  }
+}
+
+.erp-t-max {
+  opacity: 0.5;
+  color: $black;
+  font-family: $font-bold;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.erp-create-cat {
+  .modal-header {
+    height: 55px;
+    border-radius: 4px 4px 0 0;
+    padding: 10px;
+    justify-content: center;
+    margin-bottom: 22px;
+
+    .modal-title {
+      font-size: 22px;
+      font-family: $font-regular;
+    }
+  }
+
+  .modal-body {
+    padding: 0 28px;
+
+    lable {
+      color: $black;
+      font-family: $font-bold;
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .form-control {
+      background-color: #EFF6FA;
+      height: 40px;
+    }
+  }
+
+  .input-box {
+    width: 100%;
+    padding: 10px 0;
+
+    .coupons-option-list:after {
+      border-bottom: none;
+    }
+
+    .coupons-option-item {
+      .custom-control-label {
+        padding-top: 0;
+        margin-bottom: 0;
+
+        &::before {
+          width: 18px;
+          height: 18px;
+        }
+
+        &::after {
+          width: 24px;
+          height: 24px;
+          top: -3px;
+          left: -3px;
+        }
+
+        .input-text {
+          font-family: $font-regular;
+          vertical-align: super;
+        }
+      }
+    }
+  }
+
+  .erp-add-cat {
+    height: 36px;
+    width: 180px;
+  }
+
+  .erp-recent-cat {
+    color: $black;
+    font-family: $font-bold;
+    font-size: 16px;
+    padding: 40px 0 8px;
+    border-bottom: 1px solid #D8D8D8;
+  }
+
+  .erp-c-box {
+    list-style: none;
+  }
+
+  .erp-c-name {
+    color: $black;
+    font-family: $font-regular;
+    font-size: 16px;
+    width: 250px;
+    &.exp {
+      color: #BE0202;
+    }
+
+    &.income {
+      color: #21BD00;
+    }
+  }
+
+  .erp-c-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    .icon-edit{
+      font-size: 20px;
+    }
+  }
+  .erp-c-edit{
+    &:hover .icon-edit {
+      display: block;
+      background-color: #2A2E49;
+      color: $white;
+      padding: 4px;
+      border-radius: 100%;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+}
+.wdt-box{
+  min-width: 260px;
+}

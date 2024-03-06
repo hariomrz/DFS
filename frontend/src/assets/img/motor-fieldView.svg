@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="72px" viewBox="0 0 77 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>siv</title>
+    <defs>
+        <linearGradient x1="50%" y1="29.713047%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="12.0539338%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-15.8%" y="-75.0%" width="131.6%" height="250.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="3" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <path d="M2,0 L75,0 C76.1045695,0 77,0.8954305 77,2 L77,18 L77,18 L0,18 L0,2 C0,0.8954305 0.8954305,0 2,0 Z" id="path-3"></path>
+        <path d="M2,0 L75,0 C76.1045695,0 77,0.8954305 77,2 L77,18 L77,18 L0,18 L0,2 C0,0.8954305 0.8954305,0 2,0 Z" id="path-5"></path>
+        <path d="M2,0 L75,0 C76.1045695,0 77,0.8954305 77,2 L77,18 L77,18 L0,18 L0,2 C0,0.8954305 0.8954305,0 2,0 Z" id="path-7"></path>
+    </defs>
+    <g id="new-relase" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="siv">
+            <g id="Group-9-Copy" transform="translate(0.000000, 12.103975)" fill-rule="nonzero">
+                <g id="Group-7">
+                    <polygon id="Combined-Shape" fill="#322F7D" points="9 14.9873005 0 5.89602522 77 5.89602522 68 14.9873005"></polygon>
+                    <path d="M67.5,0.5 L67.5,26.0303072 L38.0139826,33.3490406 L9.5,26.0395282 L9.5,0.5 L67.5,0.5 Z" id="Rectangle" stroke="url(#linearGradient-1)" fill="#000000"></path>
+                </g>
+                <ellipse id="Oval-8" fill="#000000" opacity="0.181652541" filter="url(#filter-2)" cx="38.5" cy="44.8960252" rx="28.5" ry="6"></ellipse>
+            </g>
+            <g id="Path-2-+-Path-2-Copy-Mask">
+                <g id="Mask" fill="#5853C3" fill-rule="nonzero">
+                    <path d="M2,0 L75,0 C76.1045695,0 77,0.8954305 77,2 L77,18 L77,18 L0,18 L0,2 C0,0.8954305 0.8954305,0 2,0 Z" id="path-3"></path>
+                </g>
+                <g id="10.1-Clipped">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="path-3"></g>
+                    <text id="10.1" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-4)" font-family="Exo2-Medium, Exo 2" font-size="12" font-weight="400">
+                        <tspan x="29.2999999" y="36">10.1</tspan>
+                    </text>
+                </g>
+                <g id="Path-2-Clipped">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="path-3"></g>
+                    <line x1="13.5" y1="-3.5" x2="-6" y2="13.6906201" id="Path-2" stroke="#FFFFFF" stroke-width="2" opacity="0.2" mask="url(#mask-6)"></line>
+                </g>
+                <g id="Path-2-Copy-Clipped">
+                    <mask id="mask-8" fill="white">
+                        <use xlink:href="#path-7"></use>
+                    </mask>
+                    <g id="path-3"></g>
+                    <line x1="19.5" y1="-4.5" x2="-3.75064535" y2="15.9970775" id="Path-2-Copy" stroke="#FFFFFF" opacity="0.2" mask="url(#mask-8)"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

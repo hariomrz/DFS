@@ -1,0 +1,17 @@
+{
+  "name": "grunttask",
+  "version": "1.0.0",
+  "description": "grunt dependencies",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "grunt-aws-s3": "^2.0.1",
+    "grunt": "^1.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "deploy": "grunt deploy"
+  },
+  "author": "Vinfotech",
+  "license": "ISC"
+}

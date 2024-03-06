@@ -1,0 +1,54 @@
+.sf-row {
+  margin-top: 30px;
+  margin-left: 0;
+}
+
+.sf-content {
+  display: contents;
+  margin-top: 30px;
+}
+
+.esf-fx-card {
+  min-height: 130px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: $white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  margin-right: 24px;
+  margin-bottom: 24px;
+  max-width: 296px;
+
+  .sf-img {
+    position: absolute;
+    right: 0;
+    top: 28px;
+    z-index: 0;
+  }
+
+  .sf-date-box {
+    padding: 16px 24px 0;
+    position: relative;
+  }
+
+  .sf-fx-date {
+    color: #32C5FF;
+    font-family: $font-bold;
+    font-size: 22px;
+  }
+
+  .sf-fx-time {
+    color: #333333;
+    font-family: $font-bold;
+    font-size: 18px;
+  }
+
+  .sf-verify-title {
+    color: #000000;
+    font-family: $font-bold;
+    font-size: 18px;
+  }
+  .sf-hover:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

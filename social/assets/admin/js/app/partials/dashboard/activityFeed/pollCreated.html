@@ -1,0 +1,24 @@
+<div class="list-group-bottom">
+    <p class="list-group-item-text" ng-bind="activityData.PollData.PollData[0].Description"></p>
+    <ul class="poll-listing">
+        <li ng-repeat="option in activityData.PollData.PollData[0].Options.Options">
+            <div class="radio-list">
+                <label class="radio">
+                    <input type="radio" value="option.Value" name="poll-list" ng-disabled=true>
+                    <span class="label" ng-bind="option.Value"></span>
+                </label> 
+            </div>
+        </li>
+    </ul>
+    <div class="list-group-footer">
+        <ul class="list-group-inline">
+            <li>
+                <a class="bullet">
+                    <i class="ficon-heart"></i>
+                </a>
+                <a ng-if="( ( activityData.activity.NoOfLikes != '' ) && ( activityData.activity.NoOfLikes > 0 ) )" class="text" ng-bind="activityData.activity.NoOfLikes"></a>
+            </li>
+            <li class="pull-right"><a class="text" ng-bind="( 'Voted ' + activityData.PollData.PollData[0].Options.TotalVotes )"></a></li>
+        </ul>
+    </div>
+</div>

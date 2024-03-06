@@ -1,0 +1,97 @@
+
+.single-signon-create-account{
+    // .form-group{
+    //     margin-top: 20px;
+    // }
+    // .error-wrap{
+    //     height: 10px;
+    // }
+    .password{
+        font-size: 20px !important;
+    }
+    #referral_code{
+        text-transform: uppercase;
+    }
+    .form-col{
+        // margin-bottom: 5px;
+        height: 85px;
+    }
+    .pwd-show-hide{
+        position: absolute;
+        top: 16px;
+    }
+    .icon-eye{
+        color: $primary;
+    }
+    .react-tel-input .flag-dropdown {
+        left: 0 !important;
+        top: -1px;
+    }
+    .custom-validate-check input{
+        height: 18px;
+        width: 14px;
+        margin-right: 9px;
+    }
+    .auth-txt{
+        cursor: pointer;
+        font-size: 12px;
+        text-align: left;
+        max-width: 463px;
+        width: 100%;
+        color: #93A3B1;
+        .primary{
+            color: #93A3B1 !important;
+            text-decoration: underline;
+        }
+    }
+    .error-red{
+        font-size: $font-size-h6;
+        color: $alert_danger_color;
+        text-align: left;
+        margin-top: 3px;
+    }
+    .phone-no-label{
+        text-align: left;
+    }
+    .phone-input-section.phone-input-focus .react-tel-input{
+        border-color: $help_text_color;
+    }
+    .react-tel-input .selected-flag .flag {
+        position: absolute;
+        top: 50%;
+        margin-top: -5px;
+        // left: 0;
+    }
+    .react-tel-input{
+        width: 100% !important;
+        max-width: 500px !important;
+        margin: 0 0 !important;
+    }
+    .react-tel-input input[type=tel] {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .error{
+        font-size: $font-size-h6;
+        color: #93A3B1;
+        text-align: left;
+        margin-top: 3px;
+    }
+    .btn-block{
+        margin-top: 40px;
+    }
+    
+    
+    .title {
+        text-align: center;
+        color: rgb(69, 113, 236);
+    }
+    .referral-code{
+        font-size: $font-base;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        text-align: left;
+        color: $black;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+}

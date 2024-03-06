@@ -1,0 +1,941 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/tag/get_trending_tags": {
+            "post": {
+                "tags": [
+                    "Ward Treanding Tags"
+                ],
+                "summary": "This api is used to get trending tags for ward.",
+                "description": "",
+                "operationId": "get_trending_tags",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\get_trending_tags"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/get_entity_tags": {
+            "get": {
+                "tags": [
+                    "Tag Auto Suggestion"
+                ],
+                "summary": "This api is used to get tag suggestion.",
+                "description": "",
+                "operationId": "get_entity_tags",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "SearchKeyword",
+                        "in": "query",
+                        "description": "Search keyword",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "TagType",
+                        "in": "query",
+                        "description": "TagType may be (ACTIVITY, USER, PROFESSION)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "EntityType",
+                        "in": "query",
+                        "description": "EntityType may be (ACTIVITY, USER)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/save": {
+            "post": {
+                "tags": [
+                    "Save Entity Tags"
+                ],
+                "summary": "This api is used to save tag.",
+                "description": "",
+                "operationId": "save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "EntityType may be (ACTIVITY, USER), TagType may be (ACTIVITY, USER, PROFESSION)",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\save"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/delete_entity_tag": {
+            "post": {
+                "tags": [
+                    "Delete Entity Tag"
+                ],
+                "summary": "This api is used to delete_entity_tag_post Used to delete entity tag.",
+                "description": "",
+                "operationId": "delete_entity_tag",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "delete tag. EntityType may be (ACTIVITY, USER)",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\delete_entity_tag"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/search/tag": {
+            "post": {
+                "tags": [
+                    "Search Tags"
+                ],
+                "summary": "This api is used to search tags.",
+                "description": "",
+                "operationId": "tag",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Search\\tag"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/save_tag_category": {
+            "post": {
+                "tags": [
+                    "Tags Category Section"
+                ],
+                "summary": "This api is used to save tag category.",
+                "description": "",
+                "operationId": "save_tag_category",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\save_tag_category"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/delete_tag_category": {
+            "post": {
+                "tags": [
+                    "Tags Category Section"
+                ],
+                "summary": "This api is used to delete tag category.",
+                "description": "",
+                "operationId": "delete_tag_category",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\delete_tag_category"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/get_tag_categories": {
+            "post": {
+                "tags": [
+                    "Tags Category Section"
+                ],
+                "summary": "This api is used to get tag categories.",
+                "description": "",
+                "operationId": "get_tag_categories",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\get_tag_categories"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/change_category_tag_order": {
+            "post": {
+                "tags": [
+                    "Tags Category Section"
+                ],
+                "summary": "This api is used to change display order of tag categories.",
+                "description": "",
+                "operationId": "change_category_tag_order",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\get_tag_categories"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/top_contribution_tags": {
+            "post": {
+                "tags": [
+                    "Top Contribution Tags"
+                ],
+                "summary": "This api is used to get top contribution tag.",
+                "description": "",
+                "operationId": "top_contribution_tags",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\top_contribution_tags"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/toggle_follow": {
+            "post": {
+                "tags": [
+                    "Follow/Unfollow"
+                ],
+                "summary": "This api is used to follow/unfollow tag.",
+                "description": "This api is used to follow/unfollow tag.",
+                "operationId": "toggle_follow",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\toggle_follow"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/toggle_mute": {
+            "post": {
+                "tags": [
+                    "Mute/Unmute"
+                ],
+                "summary": "This api is used to mute/unmute tag.",
+                "description": "This api is used to mute/unmute tag.",
+                "operationId": "toggle_mute",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Loginsessionkey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\toggle_mute"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/browse_topic": {
+            "post": {
+                "tags": [
+                    "Browse Topic"
+                ],
+                "summary": "This api is used to get tags for browse topic.",
+                "description": "",
+                "operationId": "browse_topic",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\browse_topic"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/tag/details": {
+            "post": {
+                "tags": [
+                    "Tag Details"
+                ],
+                "summary": "This api is used to get tag details.",
+                "description": "",
+                "operationId": "details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Tag\\details"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Tag\\get_trending_tags": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "WID": {
+                    "description": "Ward ID",
+                    "type": "integer",
+                    "example": "3"
+                },
+                "ADT": {
+                    "description": "Get most used tag other  than top tag, 0 - No, 1 - Yes",
+                    "type": "integer",
+                    "example": "0"
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\get_entity_tags": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "SearchKeyword": {
+                    "description": "Tag search keyword",
+                    "type": "string",
+                    "example": ""
+                },
+                "TagType": {
+                    "description": "it may be ACTIVITY, USER, PROFESSION",
+                    "type": "string",
+                    "example": "ACTIVITY"
+                },
+                "EntityType": {
+                    "description": "it may be ACTIVITY, USER",
+                    "type": "string",
+                    "example": "ACTIVITY"
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\save": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "EntityGUID, it may be ACTIVITY GUID, USER ID",
+                    "type": "string",
+                    "example": "SDASD-asdfas-safads-fsas"
+                },
+                "EntityType": {
+                    "description": "Entity Type, it may be ACTIVITY, USER",
+                    "type": "string",
+                    "example": "USER"
+                },
+                "TagType": {
+                    "description": "Tage Type, it may be ACTIVITY, USER, PROFESSION",
+                    "type": "string",
+                    "example": "USER"
+                },
+                "TagsList": {
+                    "description": "Tage List To be added",
+                    "type": "string",
+                    "example": [
+                        {
+                            "Name": "Test",
+                            "TagID": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\delete_entity_tag": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "EntityGUID": {
+                    "description": "EntityGUID, it may be ACTIVITY GUID, USER ID",
+                    "type": "string",
+                    "example": "4esd-asdfas-safads-fsas"
+                },
+                "EntityType": {
+                    "description": "Entity Type, it may be ACTIVITY, USER",
+                    "type": "string",
+                    "example": "USER"
+                },
+                "TagsIDs": {
+                    "description": "Tag ids to be deleted",
+                    "type": "string",
+                    "example": []
+                }
+            }
+        },
+        "Inclusify\\Api\\Search\\tag": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "SearchKeyword": {
+                    "description": "search keyword",
+                    "type": "string",
+                    "example": "ph"
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\save_tag_category": {
+            "required": [
+                "Name"
+            ],
+            "properties": {
+                "Name": {
+                    "description": "Tag category name",
+                    "type": "string",
+                    "example": "Water"
+                },
+                "TagsList": {
+                    "description": "Tags, array of tags",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "Name": {
+                                "type": "string",
+                                "example": "water"
+                            },
+                            "TagID": {
+                                "type": "integer",
+                                "example": "1"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\delete_tag_category": {
+            "required": [
+                "TagCategoryID"
+            ],
+            "properties": {
+                "TagCategoryID": {
+                    "description": "Tag category id",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\get_tag_categories": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Tag\\change_category_tag_order": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "OrderData": {
+                    "description": "Display order data of tag category",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "TagCategoryID": {
+                                "type": "integer",
+                                "example": "1"
+                            },
+                            "DisplayOrder": {
+                                "type": "integer",
+                                "example": "2"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\top_contribution_tags": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\toggle_follow": {
+            "required": [
+                "TagID"
+            ],
+            "properties": {
+                "TagID": {
+                    "description": "To follow/unfollow tag",
+                    "type": "integer",
+                    "example": "2"
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\toggle_mute": {
+            "required": [
+                "TagID"
+            ],
+            "properties": {
+                "TagID": {
+                    "description": "To mute/unmute tag",
+                    "type": "integer",
+                    "example": "2"
+                }
+            }
+        },
+        "Inclusify\\Api\\Tag\\browse_topic": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Tag\\details": {
+            "required": [
+                "TagID"
+            ],
+            "properties": {
+                "TagID": {
+                    "description": "To get tag details",
+                    "type": "integer",
+                    "example": "2"
+                }
+            }
+        }
+    }
+}

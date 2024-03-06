@@ -1,0 +1,134 @@
+<div class="blockquote blockquote-default">
+    <ul class="list-group list-group-thumb sm">
+        <li class="list-group-item">
+            <div class="list-group-body">
+                <ul class="list-group-inline pull-right">
+                    <li>
+                        <a class="bullet">
+                            <i class="ficon-heart"></i>
+                        </a>
+                        <a class="text" ng-if="( ( sharedActivityPostType[activityData.activity_log_details.ActivityTypeID] && activityData.parent_activity.ActivityID ) && ( ( activityData.parent_activity.NoOfLikes != '' ) && ( activityData.parent_activity.NoOfLikes > 0 ) ) )" ng-bind="activityData.parent_activity.NoOfLikes"></a>
+                        <a class="text" ng-if="( ( ( activityData.activity_log_details.ActivityTypeID == 20 ) && !activityData.parent_comment_details.PostCommentID ) && ( ( activityData.activity.NoOfLikes != '' ) && ( activityData.activity.NoOfLikes > 0 ) ) )" ng-bind="activityData.activity.NoOfLikes"></a>
+                        <a class="text" ng-if="( ( ( activityData.activity_log_details.ActivityTypeID == 20 ) && activityData.parent_comment_details.PostCommentID ) && ( ( activityData.activity.NoOfLikes != '' ) && ( activityData.parent_comment_details.NoOfLikes > 0 ) ) )" ng-bind="activityData.parent_comment_details.NoOfLikes"></a>
+                    </li>
+                    <li>
+                        <a class="bullet">
+                            <i class="ficon-comment"></i>
+                        </a>
+                        <a class="text" ng-if="( ( sharedActivityPostType[activityData.activity_log_details.ActivityTypeID] && activityData.parent_activity.ActivityID ) && ( ( activityData.parent_activity.NoOfComments != '' ) && ( activityData.parent_activity.NoOfComments > 0 ) ) )" ng-bind="activityData.parent_activity.NoOfComments"></a>
+                        <a class="text" ng-if="( ( ( activityData.activity_log_details.ActivityTypeID == 20 ) && !activityData.parent_comment_details.PostCommentID ) && ( ( activityData.activity.NoOfComments != '' ) && ( activityData.activity.NoOfComments > 0 ) ) )" ng-bind="activityData.activity.NoOfComments"></a>
+                        <a class="text" ng-if="( ( ( activityData.activity_log_details.ActivityTypeID == 20 ) && activityData.parent_comment_details.PostCommentID ) && ( ( activityData.activity.NoOfComments != '' ) && ( activityData.parent_comment_details.NoOfReplies > 0 ) ) )" ng-bind="activityData.parent_comment_details.NoOfReplies"></a>
+                    </li>
+                    <li ng-if="( ( activityData.activity_log_details.ActivityTypeID == 20 ) && !activityData.parent_comment_details.PostCommentID )">
+                        <span ng-if="activityData.activity.PostType" class="feed-type icon" data-toggle="tooltip" uib-tooltip="{{getPostTypeInfo(activityData.activity.PostType, 'text')}}">
+                            <svg height="18px" width="18px" class="svg-icons">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="" ng-href="{{baseUrl}}assets/img/sprite.svg#{{getPostTypeInfo(activityData.activity.PostType)}}"></use>
+                            </svg>
+                        </span>
+                    </li>
+                </ul>
+                
+                <figure ng-if="( sharedActivityPostType[activityData.activity_log_details.ActivityTypeID] && activityData.parent_activity.ActivityID )" class="list-figure">
+                    <!--<a><img ng-src="{{ imageServerPath }}upload/profile/{{ activityData.subject_user.ProfilePicture }}" class="img-circle img-responsive" alt="" title=""></a>-->
+                    <a class="thumb-48 loadbusinesscard" entitytype="page" entityguid="{{activityData.parent_activity_user.UserGUID}}" ng-if="activityData.parent_activity.PostAsModuleID == '18' && activityData.parent_activity.ActivityTypeID !== 23 && activityData.parent_activity.ActivityTypeID !== 24" ng-href="{{baseUrl + 'page/' + activityData.parent_activity_user.UserProfileURL}}">
+                        <img ng-if="activityData.parent_activity.EntityProfilePicture !== '' && activityData.parent_activity.EntityProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_activity.EntityProfilePicture}}">
+                        <span ng-if="(activityData.parent_activity.EntityProfilePicture=='' || activityData.parent_activity.EntityProfilePicture=='user_default.jpg') && activityData.parent_activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.parent_activity.EntityName)"></span></span>
+                    </a>
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.parent_activity_user.UserGUID}}" ng-if="activityData.parent_activity.PostAsModuleID == '3' && activityData.parent_activity.ActivityTypeID !== 23 && activityData.parent_activity.ActivityTypeID !== 24" ng-href="{{baseUrl + activityData.parent_activity_user.UserProfileURL}}">
+                        <img ng-if="activityData.parent_activity_user.ProfilePicture !== '' && activityData.parent_activity_user.ProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_activity_user.ProfilePicture}}">
+                        <span ng-if="(activityData.parent_activity_user.ProfilePicture=='' || activityData.parent_activity_user.ProfilePicture=='user_default.jpg') && activityData.parent_activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.parent_activity_user.UserName)"></span></span>
+                    </a>
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.parent_activity_user.UserGUID}}" ng-if="(activityData.parent_activity.ActivityTypeID == 23 || activityData.parent_activity.ActivityTypeID == 24) && activityData.parent_activity.ModuleID !== '18'" ng-href="{{baseUrl + activityData.parent_activity_user.UserProfileURL}}">
+                        <img ng-if="activityData.parent_activity_user.ProfilePicture !== '' && activityData.parent_activity_user.ProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_activity_user.ProfilePicture}}">
+                        <span ng-if="(activityData.parent_activity_user.ProfilePicture=='' || activityData.parent_activity_user.ProfilePicture=='user_default.jpg') && activityData.parent_activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.parent_activity_user.UserName)"></span></span>
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="page" entityguid="{{activityData.parent_activity.EntityGUID}}" ng-if="(activityData.parent_activity.ActivityTypeID == 23 || activityData.parent_activity.ActivityTypeID == 24) && activityData.parent_activity.ModuleID == '18'" ng-href="{{baseUrl + 'page/' + activityData.parent_activity.EntityProfileURL}}">
+                        <img ng-if="activityData.parent_activity.EntityProfilePicture !== ''" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_activity.EntityProfilePicture}}">
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.parent_activity_user.UserGUID}}" ng-if="activityData.parent_activity.PostType == '7' && activityData.parent_activity.ModuleID=='3'" ng-href="{{baseUrl + activityData.parent_activity.UserProfileURL}}">
+                        <img err-Name="{{activityData.parent_activity_user.UserName}}" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_activity_user.ProfilePicture}}">
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="group" entityguid="{{activityData.parent_activity.EntityGUID}}" ng-if="activityData.parent_activity.PostType == '7' && activityData.parent_activity.ModuleID=='1'" ng-href="{{baseUrl + 'group/' + activityData.parent_activity.EntityProfileURL}}">
+                        <img ng-if="activityData.parent_activity.EntityProfilePicture !== ''" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_activity.EntityProfilePicture}}">
+                    </a>
+                </figure>
+                
+                <figure ng-if="( ( activityData.activity_log_details.ActivityTypeID == 20 ) && !activityData.parent_comment_details.PostCommentID )" class="list-figure">
+                    <!--<a><img ng-src="{{ imageServerPath }}upload/profile/{{ activityData.subject_user.ProfilePicture }}" class="img-circle img-responsive" alt="" title=""></a>-->
+                    <a class="thumb-48 loadbusinesscard" entitytype="page" entityguid="{{activityData.activity_user.UserGUID}}" ng-if="activityData.activity.PostAsModuleID == '18' && activityData.activity.ActivityTypeID !== 23 && activityData.activity.ActivityTypeID !== 24" ng-href="{{baseUrl + 'page/' + activityData.activity_user.UserProfileURL}}">
+                        <img ng-if="activityData.activity.EntityProfilePicture !== '' && activityData.activity.EntityProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity.EntityProfilePicture}}">
+                        <span ng-if="(activityData.activity.EntityProfilePicture=='' || activityData.activity.EntityProfilePicture=='user_default.jpg') && activityData.activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.activity.EntityName)"></span></span>
+                    </a>
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.activity_user.UserGUID}}" ng-if="activityData.activity.PostAsModuleID == '3' && activityData.activity.ActivityTypeID !== 23 && activityData.activity.ActivityTypeID !== 24" ng-href="{{baseUrl + activityData.activity_user.UserProfileURL}}">
+                        <img ng-if="activityData.activity_user.ProfilePicture !== '' && activityData.activity_user.ProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity_user.ProfilePicture}}">
+                        <span ng-if="(activityData.activity_user.ProfilePicture=='' || activityData.activity_user.ProfilePicture=='user_default.jpg') && activityData.activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.activity_user.UserName)"></span></span>
+                    </a>
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.activity_user.UserGUID}}" ng-if="(activityData.activity.ActivityTypeID == 23 || activityData.activity.ActivityTypeID == 24) && activityData.activity.ModuleID !== '18'" ng-href="{{baseUrl + activityData.activity_user.UserProfileURL}}">
+                        <img ng-if="activityData.activity_user.ProfilePicture !== '' && activityData.activity_user.ProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity_user.ProfilePicture}}">
+                        <span ng-if="(activityData.activity_user.ProfilePicture=='' || activityData.activity_user.ProfilePicture=='user_default.jpg') && activityData.activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.activity_user.UserName)"></span></span>
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="page" entityguid="{{activityData.activity.EntityGUID}}" ng-if="(activityData.activity.ActivityTypeID == 23 || activityData.activity.ActivityTypeID == 24) && activityData.activity.ModuleID == '18'" ng-href="{{baseUrl + 'page/' + activityData.activity.EntityProfileURL}}">
+                        <img ng-if="activityData.activity.EntityProfilePicture !== ''" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity.EntityProfilePicture}}">
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.activity_user.UserGUID}}" ng-if="activityData.activity.PostType == '7' && activityData.activity.ModuleID=='3'" ng-href="{{baseUrl + activityData.activity.UserProfileURL}}">
+                        <img err-Name="{{activityData.activity_user.UserName}}" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity_user.ProfilePicture}}">
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="group" entityguid="{{activityData.activity.EntityGUID}}" ng-if="activityData.activity.PostType == '7' && activityData.activity.ModuleID=='1'" ng-href="{{baseUrl + 'group/' + activityData.activity.EntityProfileURL}}">
+                        <img ng-if="activityData.activity.EntityProfilePicture !== ''" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity.EntityProfilePicture}}">
+                    </a>
+                </figure>
+                
+                <figure ng-if="( ( activityData.activity_log_details.ActivityTypeID == 20 ) && activityData.parent_comment_details.PostCommentID )" class="list-figure">
+                    <!--<a><img ng-src="{{ imageServerPath }}upload/profile/{{ activityData.subject_user.ProfilePicture }}" class="img-circle img-responsive" alt="" title=""></a>-->
+                    <a class="thumb-48 loadbusinesscard" entitytype="page" entityguid="{{activityData.parent_comment_user.UserGUID}}" ng-if="activityData.activity.PostAsModuleID == '18' && activityData.activity.ActivityTypeID !== 23 && activityData.activity.ActivityTypeID !== 24" ng-href="{{baseUrl + 'page/' + activityData.parent_comment_user.UserProfileURL}}">
+                        <img ng-if="activityData.activity.EntityProfilePicture !== '' && activityData.activity.EntityProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity.EntityProfilePicture}}">
+                        <span ng-if="(activityData.activity.EntityProfilePicture=='' || activityData.activity.EntityProfilePicture=='user_default.jpg') && activityData.activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.activity.EntityName)"></span></span>
+                    </a>
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.parent_comment_user.UserGUID}}" ng-if="activityData.activity.PostAsModuleID == '3' && activityData.activity.ActivityTypeID !== 23 && activityData.activity.ActivityTypeID !== 24" ng-href="{{baseUrl + activityData.parent_comment_user.UserProfileURL}}">
+                        <img ng-if="activityData.parent_comment_user.ProfilePicture !== '' && activityData.parent_comment_user.ProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_comment_user.ProfilePicture}}">
+                        <span ng-if="(activityData.parent_comment_user.ProfilePicture=='' || activityData.parent_comment_user.ProfilePicture=='user_default.jpg') && activityData.activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.parent_comment_user.UserName)"></span></span>
+                    </a>
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.parent_comment_user.UserGUID}}" ng-if="(activityData.activity.ActivityTypeID == 23 || activityData.activity.ActivityTypeID == 24) && activityData.activity.ModuleID !== '18'" ng-href="{{baseUrl + activityData.parent_comment_user.UserProfileURL}}">
+                        <img ng-if="activityData.parent_comment_user.ProfilePicture !== '' && activityData.parent_comment_user.ProfilePicture!=='user_default.jpg'" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_comment_user.ProfilePicture}}">
+                        <span ng-if="(activityData.parent_comment_user.ProfilePicture=='' || activityData.parent_comment_user.ProfilePicture=='user_default.jpg') && activityData.activity.PostType !== '7'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(activityData.parent_comment_user.UserName)"></span></span>
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="page" entityguid="{{activityData.activity.EntityGUID}}" ng-if="(activityData.activity.ActivityTypeID == 23 || activityData.activity.ActivityTypeID == 24) && activityData.activity.ModuleID == '18'" ng-href="{{baseUrl + 'page/' + activityData.activity.EntityProfileURL}}">
+                        <img ng-if="activityData.activity.EntityProfilePicture !== ''" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity.EntityProfilePicture}}">
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="user" entityguid="{{activityData.parent_comment_user.UserGUID}}" ng-if="activityData.activity.PostType == '7' && activityData.activity.ModuleID=='3'" ng-href="{{baseUrl + activityData.activity.UserProfileURL}}">
+                        <img err-Name="{{activityData.parent_comment_user.UserName}}" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.parent_comment_user.ProfilePicture}}">
+                    </a>
+
+                    <a class="thumb-48 loadbusinesscard" entitytype="group" entityguid="{{activityData.activity.EntityGUID}}" ng-if="activityData.activity.PostType == '7' && activityData.activity.ModuleID=='1'" ng-href="{{baseUrl + 'group/' + activityData.activity.EntityProfileURL}}">
+                        <img ng-if="activityData.activity.EntityProfilePicture !== ''" title="" alt="" class="img-circle" ng-src="{{imageServerPath + 'upload/profile/' + activityData.activity.EntityProfilePicture}}">
+                    </a>
+                </figure>
+                <div class="list-group-content">
+                    <!--<h6 class="list-group-item-heading" create-title-message activity-log-details="activityData.activity_log_details" subject-user="activityData.subject_user" activity-user="activityData.activity_user" activity="activityData.activity" activity-title-message="activityTitleMessage" activity-post-type="activityPostType" ng-bind-html="activityTitleMessage" is-blockquote="true"></h6>-->
+                    <h6 ng-if="" class="list-group-item-heading" create-title-message parent-comment-id="activityData.parent_comment_details.PostCommentID" activity-log-details="activityData.activity_log_details" subject-user="activityData.subject_user" activity-user="activityData.activity_user" parent-comment-user="activityData.parent_comment_user" parent-activity="activityData.parent_activity" parent-activity-user="activityData.parent_activity_user" activity="activityData.activity" activity-title-message="activityTitleMessage" activity-post-type="activityPostType" is-blockquote="true" ng-bind-html="activityTitleMessage">
+                        <!--<a>Rena Perez</a> commented on post by <a>Leon Yates</a> in <a>Ideas and suggestions</a>-->
+                    </h6>
+                    <ul class="list-activites">
+                        <li ng-if="( activityPostType[activityData.activity_log_details.ActivityTypeID] && !activityData.parent_activity.ActivityID )" ng-bind="createDateObject(activityData.activity.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+                        <li ng-if="( sharedActivityPostType[activityData.activity_log_details.ActivityTypeID] && activityData.parent_activity.ActivityID )" ng-bind="createDateObject(activityData.parent_activity.CreatedDate) | date : 'dd MMM \'at\' hh:mm a'"></li>
+                    </ul>
+                </div>
+            </div>
+            <p ng-if="( ( activityData.activity_log_details.ActivityTypeID == 20 ) && !activityData.parent_comment_details.PostCommentID )" class="list-group-item-text" ng-bind-html="textToLink(activityData.activity.PostContent)"></p>
+            <p ng-if="( ( activityData.activity_log_details.ActivityTypeID == 20 ) && activityData.parent_comment_details.PostCommentID )" class="list-group-item-text" ng-bind-html="textToLink(activityData.parent_comment_details.PostComment)"></p>
+            <p ng-if="( sharedActivityPostType[activityData.activity_log_details.ActivityTypeID] && activityData.parent_activity.ActivityID )" class="list-group-item-text" ng-bind-html="textToLink(activityData.parent_activity.PostContent)"></p>
+            
+            <ng-include ng-if="( ( activityData.activity_log_details.ActivityTypeID == 20 ) && !activityData.parent_comment_details.PostCommentID )" ng-init="isCommentAttachment = false; attachmentMedia = activityData.activity.Album[0].Media; attachmentFile = activityData.activity.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+            <ng-include ng-if="( sharedActivityPostType[activityData.activity_log_details.ActivityTypeID] && activityData.parent_activity.ActivityID )" ng-init="isCommentAttachment = false; attachmentMedia = activityData.parent_activity.Album[0].Media; attachmentFile = activityData.parent_activity.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+            <ng-include ng-if="( ( activityData.activity_log_details.ActivityTypeID == 20 ) && activityData.parent_comment_details.PostCommentID )" ng-init="isCommentAttachment = true; attachmentMedia = activityData.parent_comment_details.Media; attachmentFile = activityData.parent_comment_details.Files;" src="partialPageUrl + '/dashboard/activityFeed/activityAttachments.html'"></ng-include>
+        </li>
+    </ul>
+</div>

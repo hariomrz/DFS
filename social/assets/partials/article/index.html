@@ -1,0 +1,74 @@
+<div ng-controller="ArticleListCtrl">
+<!-- //Header -->
+<div class="static-banner overlay-none parallax-wrapper"> 
+    <div class="parallax-layer" style="background-image:url('assets/img/static-banner-6.jpg');"></div>
+    <div class="container parallax-content-layer">
+        <div class="static-content">
+            <div class="content">
+                <h1 ng-bind="::lang.index_msg_1"></h1>
+                <div class="lead">
+                    <p ng-bind="::lang.index_msg_2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="search-secondary search-panel">
+                <div class="input-group width-transform sm" ng-class="{'width-transform': !isTransform}">
+                    <span class="input-group-addon"><i class="ficon-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search Article" 
+                           ng-focus="isTransform = true" 
+                           ng-blur="isTransform = false" 
+                           ng-keyup="searchArticles($event)" 
+                           ng-model="searchKey"
+                    >
+                                                                       
+                    <div class="input-group-btn" ng-if="searchKey">
+                        <button type="button" class="btn-search icons search-icon" ng-click="searchArticles({currentTarget : {value : ''}}, 1);">
+                            <i class="ficon-cross "></i>
+                        </button>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--Container-->
+<div class="container wrapper">
+    <div class="panel-group-article" 
+         
+         
+         infinite-scroll="loadMoreArticles()" 
+         infinite-scroll-distance="0" 
+         infinite-scroll-use-document-bottom="true" 
+         infinite-scroll-disabled="articleLoadIsBusy"
+         
+    >
+                
+        <div ng-include="AssetBaseUrl + 'partials/article/favorite_categories.html' + app_version" ng-controller="ArticleUsrCatCtrl" ng-cloak="" ng-if="!viewAllRArticles && Settings.m34 == '1' && LoginSessionKey!==''"></div>
+
+        <div ng-include="AssetBaseUrl + 'partials/article/recomended.html' + app_version"  ng-cloak ng-init="getRecommendedArticlesTypes()" ng-if="LoginSessionKey!==''"></div>
+        
+        <div ng-include="AssetBaseUrl + 'partials/article/articles_list.html' + app_version" ng-if="!viewAllRArticles"></div>
+        
+    </div>
+           
+</div>
+<!--//Container-->     
+</div>
+
+
+
+
+
+<div ng-include="like_details_modal_tmplt"></div>

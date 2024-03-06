@@ -1,0 +1,43 @@
+<div class="welcome-msz popular-stories">
+    <div class="feed-body">
+        <h3 ng-bind="data.PostTitle"></h3>
+        <div class="time">
+            <a ng-href="{{data.ActivityURL}}" class="text-sm-off">
+                <span ng-cloak ng-if="data.ActivityType !== 'AlbumUpdated'" ng-attr-title="{{getTimeFromDate(UTCtoTimeZone(data.CreatedDate));}}" ng-bind="date_format((data.CreatedDate))"></span>
+            </a>
+        </div>
+        <div class="feed-content" ng-bind-html="textToLink(data.PostContent)"></div>
+        <div class="feed-post-activity">
+            <ul ng-if="LoginSessionKey!=='' && data.StatusID!='10'" class="feed-like-nav">
+                               
+                <li ng-if="data.LikeAllowed == '1'">
+                    <span class="like-btn">
+                        <i tooltip data-placement="top" data-container="body" ng-attr-data-original-title="{{(data.IsLike == '1') ? 'Unlike' : (data.NoOfLikes=='0') ? 'Be the first to like' : 'Like' ;}}" ng-click="likeEmit(data.ActivityGUID, 'ACTIVITY', data.ActivityGUID);" ng-class="data.IsLike == '1' ? 'ficon-heart active' : 'ficon-heart'" ></i>
+                        <abbr ng-if="data.NoOfLikes > 0" ng-bind="data.NoOfLikes" ng-click="likeDetailsEmit(data.ActivityGUID, 'ACTIVITY');"></abbr>
+                    </span>
+                </li>
+                
+                <li data-toggle="tooltip" data-original-title="Share" ng-cloak ng-if="data.ShareAllowed == '1'" class="cursor-pointer">
+                    <a ng-disabled="data.IsDeleted == 1" type="button" ng-click="shareEmit(data.ActivityGUID,'shareEmit');">
+                        <span class="icon">
+                            <i class="ficon-share f-mlg"></i>
+                        </span>
+                    </a>
+                    
+                </li>
+                
+                <li data-toggle="tooltip" data-original-title="Tags" ng-if="data.EntityTags.length > 0"  ng-click="toggleTagsItem(FeedIndex);">
+                    <a class="added-tags" ng-click="data.ShowTags = !data.ShowTags"><i class="ficon-user-tag"></i> <span ng-bind="data.EntityTags.length"></span></a>
+                </li>
+                
+                
+            </ul>
+            <span class="feed-type icon">
+                <svg height="20px" width="20px" class="svg-icons">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#icnAnnouncements'}}"></use>
+                </svg>
+            </span>
+        </div>
+    </div>
+    <span ng-hide="IsNewsFeed=='1' && config_detail.IsCollapse=='1'" ng-include src="partialURL+'activity/Comments.html'+app_version"></span>
+</div>

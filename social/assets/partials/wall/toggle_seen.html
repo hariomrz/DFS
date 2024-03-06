@@ -1,0 +1,56 @@
+<div class="modal fade" id="totalSeen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" ng-controller="seenDetailsCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                <h4 class="modal-title" id="myModalLabel">Seen List (<span ng-bind="totalSeen"></span>)</h4>
+            </div>
+            <div class="modal-body">
+                <div class="default-scroll scrollbar" when-scrolled="likeDetailsEmit(LastLikeActivityGUID, LastLikeEntityType);">
+                    <ul class="listing-group suggest-list">
+                        <li ng-repeat="ld in seenDetails" class="list-group-item">
+                            <div class="list-items-sm">
+                                <div class="list-inner">
+                                    <figure>
+                                        <a target="_self" ng-if="ld.ModuleID == '18'" ng-href="{{SiteURL + 'page/' + ld.ProfileURL}}" class="loadbusinesscard" entitytype="page" entityguid="{{ld.UserGUID}}">
+                                            <img  ng-if="ld.ProfilePicture !== ''"  class="img-circle" ng-src="{{ImageServerPath+'upload/profile/220x220/'+ld.ProfilePicture}}" />
+                                            <img  ng-if="ld.ProfilePicture == ''"  class="img-circle" ng-src="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" />
+                                        </a>
+                                        <a target="_self" ng-if="ld.ModuleID == '3'" ng-href="{{SiteURL + ld.ProfileURL}}" class="loadbusinesscard" entitytype="user" entityguid="{{ld.UserGUID}}">
+                                            <img  ng-if="ld.ProfilePicture !== ''"  class="img-circle" ng-src="{{ImageServerPath+'upload/profile/220x220/'+ld.ProfilePicture}}" />
+                                            <span ng-if="ld.ProfilePicture == '' || ld.ProfilePicture=='user_default.jpg'" class="default-thumb"><span ng-bind="getDefaultImgPlaceholder(ld.FirstName+' '+ld.LastName)"></span></span>
+                                        </a>
+                                    </figure>
+                                    <div class="list-item-body">
+                                        <h4 class="list-heading-xs">
+                                            <a target="_self" class="loadbusinesscard" entitytype="page" entityguid="{{ld.UserGUID}}" ng-if="ld.ModuleID == '18'" ng-href="{{SiteURL + 'page/' + ld.ProfileURL}}" class="name" ng-bind="ld.FirstName + ' ' + ld.LastName"></a>
+                                            <a target="_self" class="loadbusinesscard" entitytype="user" entityguid="{{ld.UserGUID}}" ng-if="ld.ModuleID == '3'" ng-href="{{SiteURL + ld.ProfileURL}}" class="name" ng-bind="ld.FirstName + ' ' + ld.LastName"></a>
+                                        </h4>
+                                        <div>
+                                            <small class="location" ng-if="ld.CityName !== '' && ld.CountryName !== ''" ng-bind="ld.CityName + ', ' + ld.CountryName"></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="follow-btn"   ng-cloak ng-if="ld.ShowFriendsBtn == '1' && (ld.FriendStatus == '1' || ld.FriendStatus == '2')">
+                                        <button class="btn btn-default follow-btn" data-toggle="dropdown">
+                                            <i class="ficon-double-check"></i> <span ng-bind="(ld.FriendStatus=='1' ? 'Friends' : 'Request Sent')"></span>
+                                            <i class="ficon-arrow-down"></i>
+                                        </button>
+                                        <ul ng-if="ld.ShowFriendsBtn == '1'" class="dropdown-menu dropdown-left" role="menu">
+                                            <li ng-cloak ng-if="ld.ShowFriendsBtn == '1' && ld.FriendStatus == '1'" ng-click="rejectRequest(ld.UserGUID, 'likepopup')"><a>Unfriend</a></li>
+                                            <li ng-cloak ng-if="ld.ShowFriendsBtn == '1' && ld.FriendStatus == '2' && ld.ShowFollowBtn"><a target="_self" id="followlikepopup{{ld.UserGUID}}" ng-click="follow(ld.UserGUID, 'likepopup')" ng-bind="ld.follow">Unfollow</a></li>
+                                            <li ng-cloak ng-if="ld.ShowFriendsBtn == '1' && ld.FriendStatus == '2'" ng-click="rejectRequest(ld.UserGUID, 'likepopup')"><a>Cancel request</a></li>
+                                        </ul>
+                                    </div>
+                                    <button ng-cloak ng-if="ld.ModuleID == '18'" ng-click="toggleFollowPage(ld.UserGUID)" class="btn btn-default follow-btn"><i class="ficon-add-friend"></i> <span ng-bind="ld.follow"></span></button>
+                                    <button ng-cloak ng-if="ld.ShowFriendsBtn == '1' && ld.FriendStatus == '4'" ng-click="sendRequest(ld.UserGUID, 'likepopup')" class="btn btn-default follow-btn"><i class="ficon-add-friend"></i> Add as Friend</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="SeenPageNo" value="1" />
+</div>

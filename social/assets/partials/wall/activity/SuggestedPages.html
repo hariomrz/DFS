@@ -1,0 +1,33 @@
+<div ng-show="pageSuggestions.length>0" ng-controller="PageCtrl" ng-init="PageSuggestion(8,'0',0);" class="news-feed-listing">
+    <div class="heading">
+        <span>Suggested Pages</span>
+        <!-- <a class="seeMore feedupdate">See All</a> -->
+    </div>
+    <div class="feed-body suggestedList">
+        <ul class="suggested-list" id="suggestedListPage">
+            <li ng-repeat="suggestion in SuggestionObj = pageSuggestions | limitTo: 8" repeat-done="callSlider('suggestedListPage')">
+                <div class="listing-content">
+                    <a class="thumb-48 loadbusinesscard" entitytype="page" entityguid="{{suggestion.PageGUID}}"><img ng-src="{{data.ImageServerPath+suggestion.PageIcon}}"  /></a>
+                    <a entitytype="page" entityguid="{{suggestion.PageGUID}}" class="loadbusinesscard" ng-href="{{data.SiteURL+'page/'+suggestion.PageURL}}" ng-bind="suggestion.Title"></a>
+                    <div ng-if="suggestion.Friends.length>0" class="sub-content">
+                        <a class="loadbusinesscard" entitytype="user" entityguid="{{suggestion.Friends[0].UserGUID}}" ng-href="{{data.SiteURL+suggestion.Friends[0].ProfileURL}}" ng-bind="suggestion.Friends[0].FirstName"></a>
+                        <span ng-if="suggestion.Friends.length>'2'" class="text-secondary">,</span>
+                        <span ng-if="suggestion.Friends.length=='2'" class="text-secondary">and</span>
+                        <a class="loadbusinesscard" entitytype="user" entityguid="{{suggestion.Friends[1].UserGUID}}" ng-if="suggestion.Friends.length>'1'" ng-href="{{data.SiteURL+suggestion.Friends[1].ProfileURL}}" ng-bind="suggestion.Friends[1].FirstName"></a>
+
+                        <span ng-if="suggestion.Friends.length>'2'" class="text-secondary">and</span> <a ng-if="suggestion.Friends.length>'2'" ng-bind="(suggestion.Friends.length-2) + ' friends'"></a>
+                        <span class="text-secondary">following</span>
+                    </div>
+                    <!-- <div class="sub-content">
+                        <a>Vikas</a>, <a>Rohit</a>
+                        <span class="text-secondary">and</span> <a>2 friends</a>
+                        <span class="text-secondary">following</span>
+                    </div> -->
+                    <div>
+                        <button id="follow_btn_{{suggestion.PageGUID}}" ng-click="toggleFollow(suggestion.PageID,'SuggestionList',suggestion.PageGUID);" class="btn btn-default with-icon" data-button="toggle" data-alt="Following"><i class="icon-n-plus"></i> <span>Follow</span> </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

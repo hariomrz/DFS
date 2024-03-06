@@ -1,0 +1,102 @@
+.manage-wt {
+  text-align: center;
+  .box-content {
+    width: 523px;
+    margin: 0 auto;
+    @media (max-width: 751px) {
+      width: 400px;
+      padding: 20px;
+    }
+  }
+  .wtamount-list {
+    padding-inline-start: 0px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    .wtamount-item:last-child {
+      border: 1px solid #ebebeb;
+    }
+  }
+  .wtamount-item {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 14px;
+    height: 66px;
+    border-radius: 4px;
+    background-color: #fafafa;
+    vertical-align: top;
+  }
+  .wtamount-sign {
+    display: inline-block;
+    padding: 5px 0;
+    color: $gray-9;
+  }
+  .minus {
+    font-size: 32px;
+  }
+  .equal {
+    font-size: 18px;
+  }
+  .balance {
+    color: $text-color;
+    font-family: $font-bold;
+    font-size: 20px;
+    text-align: center;
+  }
+  .seprator-line {
+    height: 1px;
+    width: 100%;
+    min-width: 496px;
+    background-color: #d8d8d8;
+    text-align: center;
+    display: inline-block;
+    @media (max-width: 751px) {
+      min-width: 320px;
+    }
+  }
+  .wt-action-box {
+    text-align: right;
+    margin-top: 8px;
+    .custom-control-input {
+      top: 5px;
+      left: 2px;
+      cursor: pointer;
+    }
+    .custom-control-label {
+      font-family: $font-regular;
+      color: $text-color;
+    }
+    .custom-control-inline:first-child {
+      margin-right: 33px;
+    }
+    .custom-control-inline:last-child {
+      margin-right: 0;
+    }
+    input {
+      z-index: 1;
+      // opacity: 1;
+    }
+  }
+  .wt-reason-box {
+    text-align: left;
+    margin-top: 16px;
+    min-height: 103px;
+    label {
+      margin-bottom: 5px;
+    }
+  }
+  .reject-reason {
+    resize: none;
+    border-color: #d5d5d5;
+  }
+  .update-wt {
+    padding: 28px 28px 24px 28px;
+    justify-content: center;
+    border: 0;
+    .btn {
+      height: 36px;
+      width: 110px;
+      border-radius: 5px;
+      font-family: $font-bold;
+    }
+  }
+}

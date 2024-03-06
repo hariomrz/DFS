@@ -1,0 +1,208 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/comment/admin_tool": {
+            "post": {
+                "tags": [
+                    "Comment Admin Tool"
+                ],
+                "summary": "This api used to get admin tool setting for particular comment",
+                "description": "This api used to get admin tool setting for particular comment",
+                "operationId": "admin_tool",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api used to get admin tool setting for particular comment",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Comment\\admin_tool"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/comment/toggle_amazing": {
+            "post": {
+                "tags": [
+                    "Amazing Comment"
+                ],
+                "summary": "This api is used to update is amazing flag for an comment.",
+                "description": "",
+                "operationId": "toggle_amazing",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to update is amazing flag for an comment",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Comment\\toggle_amazing"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/comment/amazing": {
+            "post": {
+                "tags": [
+                    "Amazing Comment"
+                ],
+                "summary": "Used to get amazing comments",
+                "description": "",
+                "operationId": "amazing",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Comment\\amazing"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Comment\\admin_tool": {
+            "required": [
+                "CommentGUID"
+            ],
+            "properties": {
+                "CommentGUID": {
+                    "description": "Comment GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        },
+        "Inclusify\\Api\\Comment\\toggle_amazing": {
+            "required": [
+                "CommentGUID"
+            ],
+            "properties": {
+                "CommentGUID": {
+                    "description": "Comment GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                },
+                "IsAmazing": {
+                    "description": "IsAmazing, It may be 0 - No, 1 - Yes",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Comment\\amazing": {
+            "required": [],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        }
+    }
+}

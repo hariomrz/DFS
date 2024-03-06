@@ -1,0 +1,98 @@
+.select-secondary{
+    display:block;
+    z-index: 1001;
+    padding-bottom: 13px;
+}
+.select-club{
+    display:inline-block;
+    vertical-align: middle;
+    width: calc(100% - 50px);
+    -webkit-width: calc(100% - 50px);
+    -moz-width: calc(100% - 50px);
+    position: relative;
+}
+.secondary__control{
+    border-color:transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    min-height: 20px !important;
+    border-width: 0 !important;
+    position: relative;
+    z-index: 9;
+}
+.secondary__indicators{
+    display: none !important;
+}
+.select-arr{
+    position: absolute;
+    right: 0;
+    top: 35%;
+    transform: translateX(-35%);
+    color: #B4B4B4;
+    display: none;
+}
+.secondary__value-container {
+    padding: 0 !important;
+    z-index: 99;
+
+}
+.secondary__single-value{
+    font-family: $font-semibold;
+}
+.primary__indicator-separator{
+    background-color: transparent !important;
+}
+.primary__control{
+    border-width: 0 !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+.secondary__control--is-focused{
+    z-index: 999;
+    position: relative;
+}
+.Select-menu-outer {
+    z-index: 9999;
+  }
+  .Select.is-open { position: relative; z-index: 1000; }
+  
+  .select-secondary-select__menu,
+  .secondary__menu {
+      z-index: 9999 !important;
+  }
+  .select-state-field{
+    &.disabled{
+        pointer-events: none !important;
+    } 
+      .select-secondary {
+          .secondary__menu,
+          .secondary__menu-list {
+              height: 80px !important;
+          }
+      }
+  }
+  .select-country-field{
+      &.disabled{
+          pointer-events: none !important;
+      }      
+      .select__menu,
+      .select__menu-list {
+          height: 150px !important;
+      }
+  }
+
+.select__menu-list {
+    .select__option {
+        background-color: transparent;
+        max-width: 100% !important;
+        color: $primary_text_color;
+    }
+}
+
+.secondary__menu, .select__menu{
+    margin-top: 0 !important;
+}
+.sportStyle .secondary__menu{
+    width: 110% !important;
+}

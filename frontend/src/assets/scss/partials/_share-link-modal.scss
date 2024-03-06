@@ -1,0 +1,202 @@
+.link-heading {
+    font-size: 12px;
+    font-family: $font-bold;
+    color: $primary_text_color;
+    text-align: center;
+}
+ul.social-icons {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    li {
+        display: inline-block;
+        margin: 0 7px;
+        @media (max-width: 320px){
+            margin-right: 10px;
+        }
+        .social-circle {
+            border-radius: 50%;
+            cursor: pointer;
+            // box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid $border_color;
+            width: 40px;
+            height: 40px;
+            margin: auto;
+            background: $white;
+            text-align: center;
+            display: block;
+            line-height: 40px;
+
+            i {
+                font-size: 24px;
+            }
+        }
+        span.social-circle{
+            label{
+                line-height: 1;
+                position: relative;
+                top: -3px;
+            }
+        }
+        label {
+            color: $help_text_color;
+            font-size: 12px;
+            font-family: $font-bold;
+            margin-top: 10px;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+.social-linking{
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 0 0 40px 0 rgba(0,0,0,0.1);
+    padding: 15px;    
+}
+
+.copy-notification{
+    background-color: $alert_success_color;
+    color: $white;
+    font-weight: 400;
+    font-family: $font-regular;
+    width: 80%;
+    text-align: center;
+    border-radius: 0px 0px 4px 4px;
+    padding: 10px 30px;
+    font-weight: 400;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%);
+}
+.referal-code{
+    background: $white;
+    border-radius: 3px;
+    // box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.1);
+    border: 1px solid $border_color;
+    font-family: $font-regular;
+    color: $body_text_color;
+    font-size: 14px;
+    text-align: center;        
+    h1{
+        font-family: $font-bold;
+        font-size: 20px;
+        color: $primary_text_color;
+        margin: 5px 0;
+        position: relative;
+        .edit-ref-sect{
+            border-radius: 100%;
+            background: $primary;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -12px;
+            text-align: center;
+            padding: 2px 5px;
+            font-size: $font-base;
+            display: inline-block;
+            vertical-align: middle;
+            i{
+                color: $white;
+                font-size: $font-base;
+            }
+        }
+    }        
+}
+.referal-body {
+    padding: 7px;
+    position: relative;
+
+    .copy-text {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        color: $primary;
+        text-transform: uppercase;
+        font-family: $font-bold;
+        font-weight: bold;
+        font-size: 12px;
+        cursor: pointer;
+        
+        .ref-code{
+            color: $primary;
+        }
+    }
+    .share-code-style{
+        color:$body_text_color;
+        font-size: 11px;
+        font-family: $font-regular;
+        max-width: 130px;
+        margin: auto;
+    }
+}
+.referal-footer {
+    padding: 5px;
+    border-radius: 0 0 3px 3px;	
+    color: $help_text_color;
+    font-size: 11px;
+    font-family: $font-regular;
+    background-color: $app_bg_color;
+}
+figure{
+    &.square32{
+        width: 32px;
+        height: 32px;
+        background: $app_bg_color;
+        border-radius: 50%;
+    }
+    img{
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        object-fit: cover;
+    }
+}
+.body-dark-theme{
+    .referal-code h1 .edit-ref-sect{
+        background: $darkT_primary;
+        i{
+            color: $darkT_secondary_text_color;
+        }
+    }
+}
+.center-alingment{
+    text-align: center;
+}
+.share-question-container{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    padding: 10px;
+    border: 0.5px solid #999999;
+    border-radius: 6px;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.1);
+    .txt-question{
+        color: #999999;
+        font-family: $font-regular;
+        font-size: 14px;
+        text-align: center;
+    }
+    .txt-link-question{
+        color: #999999;
+        font-family: $font-regular;
+        font-size: 14px;
+        text-align: center;
+        span{
+            color: #5853C3 !important;
+        }
+    }
+}

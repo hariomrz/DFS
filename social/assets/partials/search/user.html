@@ -1,0 +1,264 @@
+  <div class="row" ng-init="getUserSearchList(Keyword,8,1)">
+    <!-- Left Wall-->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="pages-block">
+        <div class="pages-head">
+          <h4 class="search-head">SEARCH RESULTS FOR <span class="sub-title" ng-bind="Keyword"></span>
+            <label class="result-count"><span ng-bind="TotalRecords"></span> results found</label>
+          </h4>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <aside class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+      <div class="panel panel-default page-panel">
+        <div class="panel-block">
+          <div class="panel-heading search-head">
+            <div class="search-top">
+              <h3 class="panel-title search-title visible-lg">PEOPLE (<span ng-bind="TotalRecords"></span>)</h3>
+              <div class="btn-group hidden-lg"> <a aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle panel-title-small"> PEOPLE <span class="caret"></span> </a>
+                <ul role="menu" class="dropdown-menu pull-left">
+                  <li><a href="javascript:void(0);">People</a></li>
+                  <li><a href="javascript:void(0);">Groups</a></li>
+                  <!-- <li><a href="javascript:void(0);">Events</a></li> -->
+                  <li><a href="javascript:void(0);">Pages</a></li>
+                </ul>
+              </div>
+              <div class="search-filters">
+                <aside class="filters">
+                  <div class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle btn btn-default" data-toggle="dropdown"> <b class="icon-filters"></b> </a>
+                    <ul class="dropdown-menu custom-filters">
+                      <li><a data-rel="location" href="javascript:void(0);">Location</a></li>
+                      <!-- <li><a data-rel="agegroup" href="javascript:void(0);">Age Group</a></li>
+                      <li><a data-rel="gender" href="javascript:void(0);">Gender</a></li> -->
+                      <li class="divider"></li>
+                      <li ng-show="getUserClearAll();"><a data-rel="clearall" ng-click="clearAllUserFilter();" href="javascript:void(0);">Clear All</a></li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </div>
+            <!--Filters corresonding search-->
+            <div class="filters-search applyed-filter inline-form">
+              <div class="show-content hide" id="location">
+                <div class="form-group">
+                  <label>Location</label>
+                  <div class="text-field" data-error="hasError">
+                    <input type="text" uix-input="" placeholder="Type the name of a town or region" id="locationfieldsCtrlID" value="" data-controltype="locationfields" data-mandatory="true" data-msglocation="errorLocationfields" data-requiredmessage="Title Required" class="ui-autocomplete-input" autocomplete="off">
+                    <label class="error-block-overlay" id="errorLocationfields"></label>
+                  </div>
+                  <a ng-click="clearAllUserFilter();" class="close-fields" href="javascript:void(0);"><i class="icon-remove"></i></a> </div>
+              </div>
+              <div class="show-content hide" id="agegroup">
+                <form class="ng-pristine ng-valid">
+                  <div class="form-group">
+                    <label>Age Group</label>
+                    <div class="text-field-select">
+                      <select data-disable-search="false" data-chosen=""  class="localytics-chosen" style="display: none;">
+                        <option>Select age group</option>
+                        <option>Option1</option>
+                        <option>Option2</option>
+                        <option>Option3</option>
+                        <option>Option4</option>
+                        <option>Option5</option>
+                        <option>Option6</option>
+                      </select><div class="chosen-container chosen-container-single" style="width: 0px;" ><a tabindex="-1" class="chosen-single"><span>Select age group</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+                    </div>
+                    <a class="close-fields" href="javascript:void(0);"><i class="icon-remove"></i></a> </div>
+                </form>
+              </div>
+              <div class="show-content hide" id="gender">
+                <div class="form-group">
+                  <label>Gender</label>
+                  <div class="text-field-select">
+                    <select data-disable-search="false" data-chosen=""  class="localytics-chosen" style="display: none;">
+                      <option>Select gender</option>
+                      <option>Option1</option>
+                      <option>Option2</option>
+                      <option>Option3</option>
+                      <option>Option4</option>
+                      <option>Option5</option>
+                      <option>Option6</option>
+                    </select><div class="chosen-container chosen-container-single" style="width: 0px;" ><a tabindex="-1" class="chosen-single"><span>Select gender</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+                  </div>
+                  <a class="close-fields" href="javascript:void(0);"><i class="icon-remove"></i></a> </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+              <ul ng-if="PeopleSearch.length>0" data-type="colHeight" class="list-group search-itemslistings search-list-gp">
+                  <li class="list-group-item" ng-repeat="PS in PeopleSearch" repeat-done="colHeight();searchRepeatDone();">                    
+                    <figure>
+                      <a target="_self" ng-href="{{BaseUrl+PS.ProfileLink}}"><img   class="img-circle" ng-src="{{image_server_path+'upload/profile/220x220/'+PS.ProfilePicture}}"></a>
+                    </figure>
+                    <div class="description">
+                      <a entitytype="user" entityguid="{{PS.UserGUID}}" target="_self" ng-href="{{BaseUrl+PS.ProfileLink}}" class="name loadbusinesscard" ng-bind="PS.FirstName+' '+PS.LastName"></a>
+                      <div ng-if="PS.Location!=''" class="darkgray-clr"><span class="m-r-10"><i class="icon-location"></i></span>
+                        <span ng-bind="PS.Location"></span>
+                      </div>
+                      <a ng-if="PS.MutualFriend>0" ng-click="getMutualFriends(PS.UserGUID)" href="javascript:void(0);"><span class="m-r-10"><i class="ficon-followers vm"></i></span><span ng-if="PS.MutualFriend==1" ng-bind="PS.MutualFriend+' mutual friend'"></span><span ng-if="PS.MutualFriend>1" ng-bind="PS.MutualFriend+' mutual friends'"></span></a>
+                    </div>
+                  </li>
+                </ul>
+              <div ng-if="PeopleSearch.length==0" class="blank-block search-no-result">
+                <div class="row">
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10"> <img  ng-src="{{AssetBaseUrl+'img/blank-noresult-people.png'}}">
+                    <h4>No users found :(</h4>
+                    <p class="m-t-5">Check your spelling or try another term.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="panel-block slider-block hidden-xs" ng-init="getPageSearchList(Keyword,8,1)">
+          <div class="panel-heading">
+            <h3 class="panel-title">PAGES (<span ng-bind="PageTotalRecords"></span>)<a ng-if="PageTotalRecords>0" ng-click="getSearchUrl('page')" class="pull-right" href="javascript:void(0);">View All</a></h3>
+          </div>
+
+          <div class="panel-body">
+            <ul ng-if="PageTotalRecords>0" class="bxslider">
+              <li class="list-group-item" ng-repeat="Page in PageSearch" repeat-done="sliderInitialize();">                    
+               <figure> 
+                   <a entitytype="page" entityguid="{{Page.PageGUID}}" class="loadbusinesscard" target="_self" ng-href="{{BaseUrl+'page/'+Page.PageURL}}" >
+                       <img ng-src="{{image_server_path+'upload/profile/220x220/'+Page.ProfilePicture}}" class="img-circle"  >
+                   </a> 
+               </figure>
+                  <div class="description"> 
+                      <a entitytype="page" entityguid="{{Page.PageGUID}}" target="_self" class="name loadbusinesscard" ng-href="{{BaseUrl+'page/'+Page.PageURL}}" ng-bind="Page.Title"></a>
+                    <div class="m-b-4"><span class="gray-clr">By</span> <a class="loadbusinesscard" entitytype="user" entityguid="{{Page.CreatorGUID}}"  ng-href="{{Page.CreatedProfileUrl}}" target="_self" ng-bind="Page.CreatedBy"></a></div>
+                    <div class="m-t-5">
+                      <mark ng-click="category_filter(Page.CategoryID)" ng-bind="Page.Category"></mark>
+                    </div>
+                  </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div ng-if="PageTotalRecords==0" class="blank-block search-no-result">
+            <div class="row">
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10"> <img  ng-src="{{AssetBaseUrl+'img/blank-noresult-page.png'}}">
+                <h4>No pages found :(</h4>
+                <p class="m-t-5">Check your spelling or try another term.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-block hidden-xs last" ng-init="getUserSearchListWait(Keyword,8,getOffset());">
+          <div class="panel-body m-t-20">
+               <ul class="list-group search-itemslistings search-list-gp" data-type="colHeight">
+                  <li class="list-group-item" ng-repeat="NPS in NewPeopleSearch" repeat-done="colHeight()">                    
+                    <figure>
+                      <a class="loadbusinesscard" entitytype="user" entityguid="{{NPS.UserGUID}}" target="_self" ng-href="{{BaseUrl+NPS.ProfileLink}}"><img   class="img-circle" ng-src="{{image_server_path+'upload/profile/220x220/'+NPS.ProfilePicture}}"></a>
+                    </figure>
+                    <div class="description">
+                      <a target="_self" ng-href="{{BaseUrl+NPS.ProfileLink}}" entitytype="user" entityguid="{{NPS.UserGUID}}" class="name loadbusinesscard" ng-bind="NPS.FirstName+' '+NPS.LastName"></a>
+                      <div ng-if="NPS.Location!=''" class="darkgray-clr"><span class="m-r-10"><i class="icon-location"></i></span>
+                        <span ng-bind="NPS.Location"></span>
+                      </div>
+                      <a ng-if="NPS.MutualFriend>0" ng-click="getMutualFriends(PS.UserGUID)" href="javascript:void(0);"><span class="m-r-10"><i class="ficon-followers vm"></i></span><span ng-if="NPS.MutualFriend==1" ng-bind="NPS.MutualFriend+' mutual friend'"></span><span ng-if="NPS.MutualFriend>1" ng-bind="NPS.MutualFriend+' mutual friends'"></span></a>
+                    </div>
+                  </li>
+                </ul>
+          </div>
+        </div>
+      </div>
+      <div ng-if="ShowLoader=='1'" class="default-search-scroll">
+        <div class="people-suggestion-loader">
+          <div class="spinner32"></div>
+        </div>
+      </div>
+    </aside>
+    <!-- //Left Wall--> 
+    
+    <!-- Right Wall-->
+    <aside class="col-lg-4 col-md-4 col-sm-4 col-xs-12 sidebar visible-lg" ng-init="getGroupSearchList(Keyword,3,1); getEventSearchList(Keyword,3,1);">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">GROUPS (<span ng-bind="GroupTotalRecords"></span>)</h3>
+        </div>
+        <div class="panel-body">
+          <ul ng-if="GroupTotalRecords>0" class="list-group removed-peopleslist search-list-gp">
+              <li class="list-group-item" ng-repeat="Group in GroupSearch">
+              <figure>
+                  <a class="loadbusinesscard" entitytype="group" entityguid="{{Group.GroupGUID}}" target="_self" ng-href="{{BaseUrl+'group/group_wall/'+Group.GroupGUID}}">
+                      <img   class="img-circle" ng-src="{{image_server_path+'upload/profile/220x220/'+Group.ProfilePicture}}">
+                  </a>
+              </figure>
+              <div class="description"> 
+                  <a entitytype="group" entityguid="{{Group.GroupGUID}}" target="_self" ng-href="{{BaseUrl+'group/group_wall/'+Group.GroupGUID}}" class="name loadbusinesscard" ng-bind="Group.GroupName">
+                      <span class="group-secure"><i class="icon-lock"></i></span>
+                  </a>
+                <ul class="invite-listings">
+                  <li><span class="gray-clr">By</span> <a  class="loadbusinesscard" entitytype="user" entityguid="{{Group.CreatorGUID}}"  ng-href="{{Group.CreatedProfileUrl}}" target="_self" ng-bind="Group.CreatedBy"></a></li>
+                  <li>
+                      <span class="icon-space">
+                          <i class="ficon-followers"></i>
+                      </span>
+                      <a ng-if="Group.MemberCount>0" href="javascript:void(0);" ng-click="getGroupMembers(Group.GroupGUID)"> 
+                        <span ng-if="Group.MemberCount==1" ng-bind="Group.MemberCount+' member'"></span>
+                        <span ng-if="Group.MemberCount>1" ng-bind="Group.MemberCount+' members'"></span>
+                    </a>
+                  </li>
+                  <li class="last"><span class="gray-clr">Last Activity</span> <span ng-bind="getTimeFromDate(Group.LastActivity)">Feb 15, 2015</span></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <div ng-if="GroupTotalRecords==0" class="blank-block search-no-result">
+            <div class="row">
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10"> <img  ng-src="{{AssetBaseUrl+'img/blank-noresult-group.png'}}">
+                <h4>No groups found :(</h4>
+                <p class="m-t-5">Check your spelling or try another term.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="GroupTotalRecords>0" class="panel-footer"> <a class="view-more" ng-click="getSearchUrl('group')" href="javascript:void(0);">View All</a> </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">EVENTS (<span ng-bind="EventTotalRecords"></span>)</h3>
+        </div>
+        <div class="panel-body">
+          <ul ng-if="EventTotalRecords>0" class="list-group removed-peopleslist search-list-gp">
+            <li ng-repeat="Event in EventSearch" class="list-group-item" repeat-done="searchRepeatDone()">
+              <figure>
+                  <a entitytype="event" entityguid="{{Event.EventGUID}}" class="loadbusinesscard" target="_self" ng-href="{{BaseUrl+'events/'+Event.EventGUID+'/wall'}}">
+                      <img   class="img-circle" ng-src="{{image_server_path+'upload/profile/220x220/'+Event.ProfilePicture}}">
+                  </a>
+              </figure>
+              <div class="description"> 
+                  <a target="_self" entitytype="event" entityguid="{{Event.EventGUID}}" ng-href="{{BaseUrl+'events/'+Event.EventGUID+'/wall'}}" class="name loadbusinesscard" ng-bind="Event.Title"></a>
+                <ul class="invite-listings">
+                  <li class="last"><span ng-bind="getTimeFromDate(Event.CreatedDate)"></span><span class="gray-clr"> at</span> <span ng-bind="Event.CityName+', '+Event.CountryName"></span></li>
+                  <li><span class="gray-clr">By</span> <a class="loadbusinesscard" entitytype="user" entityguid="{{Event.CreatorGUID}}"  target="_self" ng-href="{{BaseUrl+Event.CreatedProfileUrl}}" ng-bind="Event.CreatedBy"></a></li>
+                  <li ng-if="Event.NoOfGuests>0"><span class="icon-space"><i class="ficon-followers"></i></span><a href="javascript:void(0);" ng-click="getEventGuests(Event.EventGUID)"> <span ng-bind="Event.NoOfGuests"></span> Guests</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <div ng-if="EventTotalRecords==0" class="blank-block search-no-result">
+            <div class="row">
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10"> <img  ng-src="{{AssetBaseUrl+'img/blank-noresult.png'}}">
+                <h4>No events found :(</h4>
+                <p class="m-t-5">Check your spelling or try another term.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="EventTotalRecords>0" class="panel-footer"> <a ng-click="getSearchUrl('event')" class="view-more" href="javascript:void(0);">View All</a> </div>
+        </div>
+        
+      </div>
+    </aside>
+    <!-- //Right Wall--> 
+  </div>
+
+<input type="hidden" id="CityHdn" value="" />
+<input type="hidden" id="StateHdn" value="" />
+<input type="hidden" id="CountryHdn" value="" />
+<input type="hidden" id="CountryCodeHdn" value="" />
+<input type="hidden" id="StateCodeHdn" value="" />
+
+<input type="hidden" id="CurrentPage" value="User" />
+<input type="hidden" id="PageNo" value="2" />

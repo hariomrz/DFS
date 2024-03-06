@@ -1,0 +1,109 @@
+.ply-status {
+  border-radius: 100%;
+  margin-left: 6px;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  &.playing {
+    background-color: green;
+  }
+  &.not-playing {
+    background-color: red;
+  }
+}
+
+.participants-rp {
+  margin: 20px 0 30px;
+
+  .prp-head-wrap {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .prp-head-info {
+    padding: 16px;
+    height: 70px;
+    width: 200px;
+    border-radius: 6px;
+    float: left;
+    margin-right: 16px;
+    background-color: $white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .prp-title {
+    color: #A8A8A8;
+    font-family: $font-bold;
+    float: left;
+    margin-top: 10px;
+  }
+
+  .prp-count {
+    color: #2C2F3A;
+    font-family: $font-bold;
+    font-size: 30px;
+    text-align: center;
+    float: right;
+  }
+
+  .prp-header {
+    height: 52px;
+    margin-bottom: 20px;
+    padding: 14px;
+    background-color: $theme-color;
+    color: $white;
+    font-family: $font-bold;
+    font-size: 18px;
+  }
+
+  .common-table {
+
+    tr,
+    td {
+      text-align: center !important;
+    }
+  }
+
+  .prp-c-vc {
+    box-sizing: border-box;
+    height: 22px;
+    width: 22px;
+    border: 1px solid #979797;
+    border-radius: 100%;
+    font-size: 14px;
+  }
+
+  .prp-ply-detail {
+    .prp-sepr {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background-color: $gray-9;
+      border-radius: 100%;
+      opacity: 0.4;
+    }
+
+    span {
+      margin: 0 4px;
+      color: $gray-9;
+    }
+  }
+  .activeUser{
+      background-color: rgba(248, 231, 28, 0.2);
+  }
+}
+
+.new-cr-table{
+  tr,
+  td {
+    text-align: center !important;
+  }
+}
+
+.uc-report{
+  .Select-control{
+    .Select-value,.Select-placeholder{
+      line-height: 36px !important;
+    }
+  }
+}

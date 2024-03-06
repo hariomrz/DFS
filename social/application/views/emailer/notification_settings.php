@@ -1,0 +1,1 @@
+<!-- <p style="color:#999999; font-size:13px; margin:30px 0 5px 0"><?php echo lang('notify_personalize_email_notification') ?> <a href="<?php echo site_url() ?>"><?php echo SITE_NAME ?></a>, <a href="<?php echo site_url('notification/settings');?>" style="color:#00529F; font-size:13px; font-weight:500; cursor:pointer"><?php echo lang('notify_click_here') ?></a>.</p> -->

@@ -1,0 +1,91 @@
+<div ng-show="suggestedlist.length>0" id="GroupPageCtrlID" ng-controller="GroupPageCtrl" ng-init="suggestedGroupList(8,'0',0)" class="news-feed-listing">
+    <div class="heading">
+        <span>Suggested Groups</span>
+        <!-- <a class="seeMore feedupdate">See All</a> -->
+    </div>
+    <div class="feed-body suggestedList">
+        <ul class="suggested-list" id="suggestedListGroup">
+            <li ng-repeat="list in listObj = suggestedlist" repeat-done="callSlider('suggestedListGroup')">
+                <div class="listing-content">
+                    <a class="thumb-48 loadbusinesscard" entitytype="group" entityguid="{{list.GroupGUID}}">
+                    <img ng-if="list.ProfilePicture!=''" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+list.ProfilePicture}}" class="img-circle"  > </a>
+                    <a entitytype="group" entityguid="{{list.GroupGUID}}" class="loadbusinesscard" ng-href="{{data.SiteURL+list.ProfileURL}}" ng-bind="list.GroupName"></a>
+                    
+                    <div ng-if="list.MemberCount>0" class="sub-content">
+                        <span ng-if="list.MemberCount==1" ng-bind="'1 Member'"></span>
+                        <span ng-if="list.MemberCount>1" ng-bind="list.MemberCount+' Members'"></span>
+                    </div>
+                    
+                    <button id="join_group_{{list.GroupGUID}}" ng-click="(!list.IsJoined) ? joinPublicGroup(list.GroupGUID,'fromNewsFeed') : groupDropOutAction(list.GroupGUID,'fromNewsFeed') ;" class="btn btn-default with-icon"><i class="icon-n-plus"></i> <span>Join</span> </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div ng-show="pageSuggestions.length>0" ng-controller="PageCtrl" ng-init="PageSuggestion(8,'0',0);" class="news-feed-listing">
+    <div class="heading">
+        <span>Suggested Pages</span>
+        <!-- <a class="seeMore feedupdate">See All</a> -->
+    </div>
+    <div class="feed-body suggestedList">
+        <ul class="suggested-list" id="suggestedListPage">
+            <li ng-repeat="suggestion in SuggestionObj = pageSuggestions | limitTo: 8" repeat-done="callSlider('suggestedListPage')">
+                <div class="listing-content">
+                    <a class="thumb-48 loadbusinesscard" entitytype="page" entityguid="{{suggestion.PageGUID}}"><img ng-src="{{data.ImageServerPath+suggestion.PageIcon}}"  /></a>
+                    <a entitytype="page" entityguid="{{suggestion.PageGUID}}" class="loadbusinesscard" ng-href="{{data.SiteURL+'page/'+suggestion.PageURL}}" ng-bind="suggestion.Title"></a>
+                    <div ng-if="suggestion.Friends.length>0" class="sub-content">
+                        <a class="loadbusinesscard" entitytype="user" entityguid="{{suggestion.Friends[0].UserGUID}}" ng-href="{{data.SiteURL+suggestion.Friends[0].ProfileURL}}" ng-bind="suggestion.Friends[0].FirstName"></a>
+                        <span ng-if="suggestion.Friends.length>'2'" class="text-secondary">,</span>
+                        <span ng-if="suggestion.Friends.length=='2'" class="text-secondary">and</span>
+                        <a class="loadbusinesscard" entitytype="user" entityguid="{{suggestion.Friends[1].UserGUID}}" ng-if="suggestion.Friends.length>'1'" ng-href="{{data.SiteURL+suggestion.Friends[1].ProfileURL}}" ng-bind="suggestion.Friends[1].FirstName"></a>
+
+                        <span ng-if="suggestion.Friends.length>'2'" class="text-secondary">and</span> <a ng-if="suggestion.Friends.length>'2'" ng-bind="(suggestion.Friends.length-2) + ' friends'"></a>
+                        <span class="text-secondary">following</span>
+                    </div>
+                    <!-- <div class="sub-content">
+                        <a>Vikas</a>, <a>Rohit</a>
+                        <span class="text-secondary">and</span> <a>2 friends</a>
+                        <span class="text-secondary">following</span>
+                    </div> -->
+                    <div>
+                        <button id="follow_btn_{{suggestion.PageGUID}}" ng-click="toggleFollow(suggestion.PageID,'SuggestionList',suggestion.PageGUID);" class="btn btn-default with-icon" data-button="toggle" data-alt="Following"><i class="icon-n-plus"></i> <span>Follow</span> </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div ng-cloak ng-show="listSuggestedEvents.length>0" id="suggestionEventCtrl" ng-controller="EventPopupFormCtrl" ng-init="ListSuggestedEvents('1','2','0')" class="news-feed-listing">
+    <div class="heading">
+        <span>Upcomming Events</span>
+        <!-- <a class="seeMore">See All</a> -->
+    </div>
+    <div class="feed-body">
+        <ul class="suggested-list">
+            <li ng-repeat="SuggestedEvent in listSuggestedEvents">
+                <div class="listing-content">
+                    <a class="thumb-48 loadbusinesscard" entitytype="event" entityguid="{{SuggestedEvent.EventGUID}}">
+                    <img ng-if="SuggestedEvent.ProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+SuggestedEvent.ProfilePicture}}"  alt="Event" title="Event" class="img-circle"/>
+                    </a>
+                    <a entitytype="event" entityguid="{{SuggestedEvent.EventGUID}}" class="loadbusinesscard" ng-bind="SuggestedEvent.Title"></a>
+                    <div class="sub-content">
+                        <span class="text-secondary" ng-bind="format_event_date(SuggestedEvent.StartDate)"></span>
+                        <div><a ng-bind="getAttendeesCount(SuggestedEvent.EventUsers)"></a></div>
+                    </div>
+                    <button ng-click="JoinEvent(SuggestedEvent.EventGUID,$index,'fromSuggestion')" ng-if="SuggestedEvent.loggedUserPresence==''" id="join_event_{{SuggestedEvent.EventGUID}}" class="btn btn-default with-icon"><i class="icon-n-plus"></i> <span ng-bind="lang.attend_now"></span></button>
+
+                    <button aria-expanded="false"  class="btn btn-default dropdown-toggle" type="button" ng-cloak ng-if="SuggestedEvent.loggedUserPresence && SuggestedEvent.loggedUserPresence!='Arrived' && SuggestedEvent.EventStatus=='Past'" > <span class="text"  ><span ng-bind="SuggestedEvent.loggedUserPresence"></span></span> </button>
+
+                      <button aria-expanded="false" data-toggle="dropdown" ng-cloak class="btn btn-default dropdown-toggle" type="button" ng-show="SuggestedEvent.loggedUserPresence && SuggestedEvent.loggedUserPresence!='Arrived' && SuggestedEvent.EventStatus!=='Past'"> <span class="text" ng-bind="SuggestedEvent.loggedUserPresence"></span><i class="caret" ></i></button>
+                      <ul role="menu" class="dropdown-menu" ng-cloak ng-if="SuggestedEvent.loggedUserPresence && SuggestedEvent.loggedUserPresence!='Arrived' && SuggestedEvent.EventStatus!=='Past'">
+                        <li><a href="javascript:void(0);" ng-if="SuggestedEvent.loggedUserPresence!='May Be'" data-ng-click="UpdateUsersPresence('MAY_BE','May Be',SuggestedEvent.EventGUID,'fromSuggestion');">May Be</a></li>
+                        <li><a href="javascript:void(0);" ng-if="SuggestedEvent.loggedUserPresence!='Not Attending'" data-ng-click="UpdateUsersPresence('NOT_ATTENDING','Not Attending',SuggestedEvent.EventGUID,'fromSuggestion');">Not Attending</a></li>
+                        <li><a href="javascript:void(0);" ng-if="SuggestedEvent.loggedUserPresence!='Attending' || loggedUserPresence=='Invited'" data-ng-click="UpdateUsersPresence('ATTENDING','Attending',SuggestedEvent.EventGUID,'fromSuggestion');">Attending</a></li>
+                      </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

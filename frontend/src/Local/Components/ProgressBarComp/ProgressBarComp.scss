@@ -1,0 +1,63 @@
+// @import '../../../assets/scss/bootstrap/bootstrap.scss';
+
+.progress-bar-sec{
+    max-width: 150px;
+
+    .progress{
+        border-radius: 4px;
+        height: 5px;
+        background-color: #F2F2F2;
+        .progress-bar{
+            background-color: $alert_success_color;
+            border-radius: 4px;
+        }
+        &.danger-area{
+            .progress-bar{
+                background-color: #BEBEBE;
+            }
+        }
+    }
+    .pb-info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #969696;
+        font-size: 14px;
+        text-transform: capitalize;
+        span{
+            color: $primary_text_color;
+        }
+    }
+}
+
+.prgs-sec{
+    max-width: 100%;
+
+    .progress{
+        border-radius: 4px;
+        height: 5px;
+        background-color: #F2F2F2;
+        .progress-bar{
+            background-color: $alert_success_color;
+            border-radius: 4px;
+        }
+        &.danger-area{
+            .progress-bar{
+                background-color: #BEBEBE;
+            }
+        }
+    }
+    .pb-info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #969696;
+        font-size: 14px;
+        text-transform: capitalize;
+        span{
+            color: $primary_text_color;
+        }
+    }
+
+
+}

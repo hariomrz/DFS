@@ -1,0 +1,348 @@
+<div ng-show="show_group_user_list" ng-init="initList()">
+
+    <div class="bread-crumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="bread-crumb-nav brd-subnav">
+                        <li>
+                            <h2>
+                                <a class="back-link" ng-click="backToGroupList()"><span class="icn"><i class="ficon-arrow-left f-30"></i></span></a>
+                                <span class="text" ng-bind="newsletter_group.Name"></span>
+                            </h2>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <!--                    <div class="pull-right">
+                                            <ul class="filter-nav">                                
+                                                <li>
+                                                    <button class="btn btn-default" data-toggle="modal" data-target="#editList">Edit List</button>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addUsers">Add Users</button>
+                                                </li>
+                                            </ul>
+                                        </div>-->
+                </div> 
+            </div> 
+        </div>
+    </div>
+    <div class="container">
+        <div class="main-container">                 
+            <div class="well">
+                <div class="well-body">
+                    <p ng-bind-html="newsletter_group.Description"></p>
+                    <ul class="list-inline">
+                        <li>
+                            <input id="created-date" type="hidden" />
+                            <a  id="createddate" class="text-sm-muted"><span class="icn"><i class="ficon-calender"></i></span><span class="text">Created on {{newsletter_group.CreatedDateF}}</span></a>
+                        </li>
+                        <li>
+                            <input id="modified-date" type="hidden" />
+                            <a id="modifieddate" class="text-sm-muted"><span class="icn"><i class="ficon-calender"></i></span><span class="text">Modified on {{newsletter_group.ModifiedDateF}}</span></a>
+                        </li>
+                    </ul>
+
+                    <h5 ng-if="newsletter_group.IsAutoUpdate == '1'">
+                        List consists of all 
+                        <span ng-if="newsletter_group.AutoUpdateFilter.Gender != 0">
+                            <a ng-if="newsletter_group.AutoUpdateFilter.Gender == 1">Male</a>
+                            <a ng-if="newsletter_group.AutoUpdateFilter.Gender == 2">Female</a>
+                            <a ng-if="newsletter_group.AutoUpdateFilter.Gender == 3">Other</a>
+                             
+                        </span>
+                        
+                        members
+                        
+                        <span ng-if="newsletter_group.AutoUpdateFilter.Locations.length != 0">                            
+                            from                             
+                            <a> 
+                                <span ng-repeat="Location in newsletter_group.AutoUpdateFilter.Locations">
+                                    {{Location.City}}
+                                    <span ng-if="!$last">,&nbsp;</span>
+                                </span>
+                            </a> 
+                        </span>                                                
+
+                        <span ng-if="newsletter_group.AutoUpdateFilter.AgeStart != 0 && newsletter_group.AutoUpdateFilter.AgeEnd != 0">
+                            , aged between <a>{{newsletter_group.AutoUpdateFilter.AgeStart}} - {{newsletter_group.AutoUpdateFilter.AgeEnd}}</a> years
+                        </span>
+
+                        <span ng-if="newsletter_group.AutoUpdateFilter.AgeStart != 0 && (newsletter_group.AutoUpdateFilter.AgeEnd == 0 || newsletter_group.AutoUpdateFilter.AgeEnd == '')">
+                            , aged from <a>{{newsletter_group.AutoUpdateFilter.AgeStart}} </a> years
+                        </span>
+
+                        <span ng-if="newsletter_group.AutoUpdateFilter.AgeEnd != 0 && (newsletter_group.AutoUpdateFilter.AgeStart == 0 || newsletter_group.AutoUpdateFilter.AgeStart == '')">
+                            , aged upto <a>{{newsletter_group.AutoUpdateFilter.AgeEnd}}</a> years
+                        </span>
+
+                        <span ng-if="newsletter_group.AutoUpdateFilter.TagUserType.length != 0">
+                            , of type 
+                            <a>
+                                <span ng-repeat="tag in newsletter_group.AutoUpdateFilter.TagUserType" >
+                                    {{tag.Name}}
+                                    <span ng-if="!$last">,&nbsp;</span>
+                                </span>
+                            </a> 
+                        </span>
+                        <span ng-if="newsletter_group.AutoUpdateFilter.TagTagType.length != 0">
+                            with 
+                            <a>
+                                <span ng-repeat="tag in newsletter_group.AutoUpdateFilter.TagTagType" >
+                                    {{tag.Name}}
+                                    <span ng-if="!$last">,&nbsp;</span>
+                                </span>
+                            </a> tags
+                        </span>
+
+                    </h5>
+
+                </div>
+            </div>
+
+            <div class="page-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <h4 class="page-title" ng-if="totalRecord">Total members ({{totalRecord}})</h4>
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="page-actions">
+                            <div class="row gutter-5">
+                                <div class="col-xs-9">
+                                    <nav class="page navigation pull-right" ng-show="totalRecord > numPerPage">                                        
+                                        <div class="total-pages" paging-info total-record="totalRecord" num-per-page="numPerPage" current-page="currentPage"></div>
+                                        <ul 
+                                            uib-pagination total-items="totalRecord" items-per-page="numPerPage" 
+                                            ng-model="currentPage" max-size="maxSize" 
+                                            num-pages="numPages" class="pagination-sm" boundary-links="false" 
+                                            ng-change="getThisPage(currentPage)"
+                                            template-url="pagination_template.html"
+                                            >
+
+                                        </ul>
+                                    </nav>
+
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <div class="input-icon right search-group open">
+                                        <i class="ficon-search" ng-if="!filter.SearchKey" ng-click="applyFilter(0)"></i>
+                                        <i class="ficon-cross" ng-if="filter.SearchKey" ng-click="searchFn($event, 1)" ></i>
+                                        <input type="text" class="form-control" ng-model="filter.SearchKey" ng-keyup="searchFn($event, 0)" >
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-secondary">
+                <div class="panel-body no-padding">
+                    <div class="table-listing">
+                        <table class="table table-hover xcrm-table">
+                            <thead>
+                                <tr>
+                                    <th width="50"> 
+                                        <label class="checkbox checkbox-inline">
+                                            <input type="checkbox" value="0" class="userCheckBox" id="headerCheckBoxCrm" >
+                                            <span class="label"></span>
+                                        </label>
+                                    </th>  
+                                    <th ng-click="orderByField('FirstName')"  ng-class="getOrderByClass('FirstName')" >
+                                        Name 
+                                        <a class="sort" ng-if="getOrderByClass('FirstName')">
+                                            <span class="icn">
+                                                <i class="ficon-sort-arrow"></i>
+                                            </span>
+                                        </a>
+                                    </th>
+                                    <th>Type</th>
+                                    <th>Tags</th>
+                                    <th>Location</th> 
+                                    <th width="100">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-if="userList.length == 0" >
+                                    <td colspan="6" style="text-align: center;">
+                                        No Result Found.
+                                    </td>
+                                </tr>
+
+                                <tr ng-repeat="(key, user) in userList" repeat-done="popOverInit();">
+                                    <td>
+                                        <label class="checkbox checkbox-inline checkbox-block">
+                                            <input type="checkbox" value="{{user.NewsLetterSubscriberID}}" class="userCheckBox">
+                                            <span class="label"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="list-group list-group-thumb xs"> 
+                                            <div class="list-group-item">
+                                                <div class="list-group-body"> 
+                                                    <figure class="list-figure" ng-click="getUserPersonaDetail(user.UserID, user.UserGUID, user.Name);">
+                                                        <a><img ng-src="{{user.ProfilePictureUrl}}" class="img-circle img-responsive" ></a>
+                                                    </figure>
+
+                                                    <div class="list-group-content">
+                                                        <div class="list-group-item-heading ellipsis">                                               
+                                                            <h5 class="list-group-item-heading">
+                                                                <a class="text-black " uib-tooltip="{{user.Name}}" >{{user.Name}}</a> 
+                                                                <span class="text-small-off bold">{{user.AgeGenderTxt}}</span>
+                                                            </h5>
+                                                            <span class="text-sm-muted" ng-bind="user.Email"></span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>                           
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <ul class="tags-list clearfix">
+                                            <li ng-repeat="tagName in user.UserTypeTagsStr.tagStr track by $index" class="tag-primary">
+                                                <span>{{tagName}}</span>
+                                            </li>
+
+                                            <li ng-if="user.UserTypeTagsStr.tagMoreStr.length > 0" class="tag-primary">
+                                                <span 
+                                                    data-container="body" 
+                                                    data-toggle="popover" 
+                                                    data-html="true"
+                                                    data-content='{{user.UserTypeTagsStr.tagMoreStrTitle}}'>
+                                                    +{{user.UserTypeTagsStr.tagMoreStr.length}}
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul class="tags-list clearfix">
+                                            <li ng-repeat="tagName in user.TagsStr.tagStr track by $index" >
+                                                <span ng-bind="tagName"></span>
+                                            </li>
+
+                                            <li ng-if="user.TagsStr.tagMoreStr.length > 0">
+                                                <span 
+                                                    data-container="body" 
+                                                    data-toggle="popover" 
+                                                    data-html="true"
+                                                    data-content="{{user.TagsStr.tagMoreStrTitle}}">
+                                                    +{{user.TagsStr.tagMoreStr.length}}
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                    </td>
+                                    <td>{{user.LocationStr}}</td> 
+
+
+
+                                    <td>
+
+                                        <div class="action">
+                                            <a class="ficon-bin" ng-click="SetUser(user); deleteUserConfirmBox(user);" ></a>       
+
+                                        </div>
+
+
+
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+            <div class="paging-bottom">
+                <nav class="page navigation pull-right"  ng-show="totalRecord > numPerPage">                                        
+                    <div class="total-pages" paging-info total-record="totalRecord" num-per-page="numPerPage" current-page="currentPage"></div>
+                    <ul 
+                        uib-pagination total-items="totalRecord" items-per-page="numPerPage" 
+                        ng-model="currentPage" max-size="maxSize" 
+                        num-pages="numPages" class="pagination-sm" boundary-links="false" 
+                        ng-change="getThisPage(currentPage)"
+                        template-url="pagination_template.html"
+                        >
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="notify notify-default crm_on_check_div" style="display: none;" id="crm_check_div_footer"> 
+        <div class="notify-text">
+            <span class="count user_count_crm" ng-show="allUserSelected == 0"></span>
+            <span class="count" ng-show="allUserSelected == 1">{{getSelectedUsersCount()}}</span>
+
+            <span class="text">Subscribers selected</span>
+        </div>
+        <div class="notify-option">
+
+            <ul class="notify-tab">
+
+
+
+
+
+                <li>
+                    <a ng-click="resetUserName();deleteUserConfirmBox()"  
+                       data-toggle="tooltip" data-placement="top" uib-tooltip="Delete selected subscribers from list" data-container="body" 
+                       ng-class="(footerActiveTab == 'newsletter_delete_user') ? 'active' : ''"
+                       >
+                        <span class="icon">
+                            <i class="ficon-bin"></i>
+                        </span> 
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="delete_popup">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <i class="ficon-cross"></i>
+                    </span>
+                </button>
+                <h4 class="modal-title">Confirmation </h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <b>{{currentUserName}}</b>?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="button wht" data-dismiss="modal">No</button>
+                <button class="button"  ng-click="ChangeStatus('groupSubscribers');" id="button_on_delete" name="button_on_delete">
+                    <span class="loading-button">&nbsp;</span>Yes
+                </button> 
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

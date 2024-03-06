@@ -1,0 +1,76 @@
+[program:propsleague]
+command=php /var/www/html/props/index.php cron/worker process_league --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/propsleague.err.log
+stdout_logfile=/var/log/propsleague.out.log
+
+
+[program:propsteam]
+command=php /var/www/html/props/index.php cron/worker process_team --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/propsteam.err.log
+stdout_logfile=/var/log/propsteam.out.log
+
+
+[program:propsseason]
+command=php /var/www/html/props/index.php cron/worker process_season --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/propsseason.err.log
+stdout_logfile=/var/log/propsseason.out.log
+
+
+[program:propsplayer]
+command=php /var/www/html/props/index.php cron/worker process_player --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/propsplayer.err.log
+stdout_logfile=/var/log/propsplayer.out.log
+
+
+[program:propsscore]
+command=php /var/www/html/props/index.php cron/worker process_score --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/propsscore.err.log
+stdout_logfile=/var/log/propsscore.out.log
+
+[program:propslineupscore]
+command=php /var/www/html/props/index.php cron/worker process_linup_score --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/propslineupscore.err.log
+stdout_logfile=/var/log/propslineupscore.out.log
+
+[program:props_emailscript]
+command=php /var/www/html/props/index.php cron/worker process_email --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/props_emailscript.err.log
+stdout_logfile=/var/log/peops_emailscript.out.log
+
+[program:props_team_score]
+command=php /var/www/html/props/index.php cron/worker process_team_score --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/props_team_score.err.log
+stdout_logfile=/var/log/props_team_score.out.log
+
+
+[program:props_prize_distribution]
+command=php /var/www/html/props/index.php cron/worker process_prize_distribution --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/props_prize_distribution.err.log
+stdout_logfile=/var/log/props_prize_distribution.out.log
+
+[program:props_prize_notification]
+command=php /var/www/html/props/index.php cron/worker process_prize_notification --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/props_prize_notification.err.log
+stdout_logfile=/var/log/props_prize_notification.out.log
+
+

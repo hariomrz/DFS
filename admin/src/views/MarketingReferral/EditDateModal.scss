@@ -1,0 +1,56 @@
+.edit-date-mdl {
+  top: 14%;
+
+  .modal-footer {
+    border: none;
+    justify-content: center;
+    margin: 42px;
+    padding: 0;
+  }
+
+  .modal-header {
+    height: 62px;
+  }
+
+  .modal-title {
+    padding: 16px 0;
+    font-size: 14px;
+  }
+
+  .pc-body-text {
+    color: $text-color;
+    font-family: $font-bold;
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  label {
+    color: #555555;
+    font-family: $font-bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .react-datepicker-wrapper {
+    display: block;
+  }
+
+  .edit-date-p {
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 1px solid #D2DFEC;
+    border-radius: 4px;
+    background-color: #EDEDED;
+    padding: 10px;
+  }
+
+  .icon-calender {
+    position: absolute;
+    right: 32px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,46 @@
+@mixin background-opacity(
+  $background,
+  $opacity-percentage
+  ) {
+    background: rgba($background,$opacity-percentage);
+    background-color: rgba($background,$opacity-percentage);
+}
+
+@mixin color-opacity(
+  $color,
+  $opacity-percentage
+  ) {
+    color: rgba($color,$opacity-percentage);
+}
+@mixin border-opacity(
+  $border-width,
+  $border-color,
+  $opacity-percentage,
+  $border-patern: solid
+  ) {
+    border: $border-width $border-patern rgba($border-color,$opacity-percentage);
+}
+
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%), $radius: 0) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: $radius;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}

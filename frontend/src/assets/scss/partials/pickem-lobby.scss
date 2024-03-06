@@ -1,0 +1,897 @@
+@keyframes fadeOut {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0, 0);
+    opacity: 0;
+  }
+}
+
+
+.custm-radio {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  width: 20px;
+  vertical-align: middle;
+  height: 20px;
+}
+
+/* Hide the browser's default radio button */
+.custm-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 1px solid $gray-450;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+
+  &.selected {
+    background-color: $primary;
+    border-color: $primary;
+    transition: all 0.5s ease;
+
+    &:after {
+      display: block;
+    }
+  }
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custm-radio input:checked~.checkmark:after {
+  display: block;
+}
+
+.custm-radio .checkmark:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  font-family: 'icomoon' !important;
+  content: "\e90d";
+  color: $white;
+  font-size: 10px;
+  transition: all 0.6s ease;
+}
+
+.custom-dropdwon {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+
+  .t-click {
+    right: 0;
+    position: absolute;
+    color: $gray-250;
+
+    i {
+      font-size: 18px;
+    }
+
+  }
+
+  ul {
+    padding: 0;
+    position: absolute;
+    top: 20px;
+    right: 0;
+
+
+    li {
+      display: block;
+
+      a {
+        font-size: 14px;
+        color: $white;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        padding: 3px 15px;
+        display: block;
+      }
+    }
+  }
+}
+
+
+@keyframes flip-anim {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    transition: all 0.5s cubic-bezier(.36, -0.64, .34, 1.76);
+  }
+}
+
+.pickem-lobby {
+  background-color: $white;
+  border-radius: 15px;
+  padding: 6px 18px;
+  color: $help_text_color;
+  font-size: 12px;
+  margin: 15px auto 0;
+  text-align: center;
+  display: table;
+}
+
+
+.tabs-custom {
+  .nav {
+    border-bottom: 0;
+
+    li {
+      width: calc(100% / 2);
+      display: block;
+      position: relative;
+
+      a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background-color: $white;
+        color: $help_text_color;
+        font-size: 12px;
+        font-family: $font-semibold;
+      }
+
+      &.active {
+        a {
+          color: $primary-link-color;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background-color: $primary-link-color;
+          height: 2px;
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.p-t-10 {
+  padding-top: 10px;
+}
+
+.custom-dropd {
+  min-width: 114px;
+  display: inline-block;
+  margin: 15px 0;
+
+  .secondary__control {
+    background-color: $white !important;
+    border-radius: 18px;
+    min-height: 30px !important;
+    position: relative;
+
+    &:after {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid $secondary_border_color;
+      content: '';
+      display: block;
+      right: 10px;
+      position: relative;
+    }
+
+    .secondary__value-container {
+      padding: 4px 10px !important;
+    }
+  }
+}
+
+.leaderboard-wrapper {
+  &.pickem-leaderbord {
+    .leaderboard-listing {
+      padding-bottom: 15px;
+    }
+
+    .primary-select {
+      width: 70%;
+      display: inline-block;
+      max-width: 120px;
+
+      .select__dropdown-indicator {
+        color: $primary;
+      }
+    }
+
+    .leaderboard-header {
+      width: 100%;
+      overflow: auto;
+
+      @keyframes animate-down {
+        from {
+          position: absolute;
+          left: 0;
+          top: 10px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
+
+        to {
+          position: absolute;
+          left: 0;
+          top: 30px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
+      }
+
+      @keyframes animate-up {
+        from {
+          position: absolute;
+          left: 0;
+          top: 30px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
+
+        to {
+          position: absolute;
+          left: 0;
+          top: 10px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
+      }
+
+      /* Safari 4.0 - 8.0 */
+      @-webkit-keyframes margin-top {
+        from {
+          position: absolute;
+          left: 0;
+          top: 10px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
+
+        to {
+          position: absolute;
+          left: 0;
+          top: 25px;
+          padding-left: 13px;
+          padding-right: 13px;
+        }
+      }
+
+      .ranking-list {
+        border-radius: 0;
+        padding: 0;
+        background-color: $app_bg_color;
+
+        &.my-ranking-list {
+          background-color: $primary;
+          border-bottom: 0;
+
+          .space {
+            height: 2px;
+          }
+
+          .display-table-cell {
+            padding: 10px 0;
+
+            .rank {
+              padding-left: 5px;
+              color: $white;
+              font-size: 20px;
+            }
+
+            .user-name-container {
+              display: block;
+
+              .user-name {
+                color: $white;
+                text-decoration: underline;
+                font-family: $font-regular;
+              }
+            }
+
+            .points {
+              color: $white;
+            }
+          }
+        }
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        .display-table-cell {
+          &:first-child {
+            width: 8%;
+          }
+
+          &:last-child {
+            padding: 10px 2px;
+          }
+        }
+
+      }
+
+      overflow: hidden;
+
+      &.collpased-header-list-hide {
+        transition: all 0.5s ease-in-out;
+        height: auto;
+        padding: 10px 0;
+        background-color: $white;
+      }
+
+      &.collpased-header-list-show {
+        transition: all 0.5s ease-in-out;
+        padding-left: 13px;
+        padding-right: 13px;
+        background-color: $white;
+        padding-top: 4px;
+      }
+
+
+      .you {
+        font-size: 14px;
+        color: $primary_text_color;
+        font-family: $font-bold;
+        vertical-align: middle;
+        padding-left: 8px;
+
+        &.show-name {
+          display: inherit;
+        }
+
+        &.hide-name {
+          animation-direction: normal;
+        }
+
+      }
+
+      /* Safari 4.0 - 8.0 */
+      @-webkit-keyframes move-top {
+        from {
+          position: absolute;
+          left: 15%;
+          top: 10px;
+          z-index: 1;
+        }
+
+        to {
+          position: absolute;
+          left: 13px;
+          top: 9px;
+          z-index: 1;
+        }
+      }
+
+      @keyframes move-top {
+        from {
+          position: absolute;
+          left: 15%;
+          top: 10px;
+          z-index: 1;
+        }
+
+        to {
+          position: absolute;
+          left: 13px;
+          top: 9px;
+          z-index: 1;
+        }
+      }
+
+
+      /* Safari 4.0 - 8.0 */
+      @-webkit-keyframes move-bottom {
+        from {
+          position: absolute;
+          left: 13px;
+          top: 9px;
+          z-index: 1;
+        }
+
+        to {
+          position: absolute;
+          left: 15%;
+          top: 10px;
+          z-index: 1;
+        }
+      }
+
+      @keyframes move-bottom {
+        from {
+          position: absolute;
+          left: 13px;
+          top: 9px;
+          z-index: 1;
+        }
+
+        to {
+          position: absolute;
+          left: 15%;
+          top: 10px;
+          z-index: 1;
+        }
+      }
+    }
+
+    .header-arrow-container {
+      width: 100%;
+      height: 30px;
+
+      .header-arrow-top {
+        height: 13px;
+        background-color: $white;
+        border-bottom: 1px solid $border_color;
+      }
+
+      .header-arrow {
+        background-color: $app_bg_color;
+        float: right;
+        margin-right: 15px;
+        position: relative;
+
+        &:after {
+          content: '';
+          background: $white;
+          width: 77%;
+          height: 1px;
+          position: absolute;
+          top: 0;
+          left: 2px;
+        }
+
+
+        #pentagon {
+          width: 54px;
+          position: relative;
+          border-width: 20px 18px 0;
+          border-style: solid;
+          border-color: $border_color transparent;
+          margin-right: 10px;
+          cursor: pointer;
+
+          &:before {
+            content: '';
+            width: 54px;
+            position: absolute;
+            border-width: 20px 18px 0;
+            border-style: solid;
+            border-color: $white transparent;
+            margin-right: 10px;
+            cursor: pointer;
+            top: -21px;
+            left: -18px;
+          }
+        }
+
+        div {
+          position: relative;
+
+          i {
+            position: absolute;
+            top: -17px;
+            left: 2px;
+            color: $primary_text_color;
+          }
+        }
+      }
+
+    }
+
+    .ranking-list {
+      background: $white;
+      padding: 12px 15px 10px 12px;
+      display: table;
+      width: 100%;
+      border-bottom: 1px solid $border_color;
+
+      &.wid-full {
+        .display-table-cell {
+          &:first-child {
+            width: 50%;
+          }
+        }
+      }
+
+      .display-table-cell {
+        font-family: $font-regular;
+        vertical-align: middle;
+
+        .winner-ic {
+          position: absolute;
+          right: 0;
+        }
+
+        .rank {
+          color: $primary_text_color;
+          font-size: 20px;
+          font-family: $font-bold;
+          line-height: 1.1;
+        }
+
+        .points {
+          font-size: 12px;
+          font-family: $font-bold;
+          text-align: right;
+          color: $primary_text_color;
+          margin-right: 10px;
+        }
+
+        .rank-heading,
+        .points-heading {
+          font-size: 11px;
+          color: $help_text_color;
+          line-height: 1.1;
+        }
+
+        .points-heading {
+          text-align: right;
+        }
+
+        .user-img {
+          width: 40px;
+          height: 40px;
+          border-radius: 100%;
+          display: inline-block;
+          margin: 0;
+          margin-right: 10px;
+          overflow: hidden;
+
+          @media (max-width: 320px) {
+            margin-right: 8px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+
+          &.shimmer {
+            vertical-align: middle;
+          }
+        }
+
+        .user-team-name {
+          font-size: 12px;
+          color: $help_text_color;
+          font-family: $font-regular;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          vertical-align: middle;
+          color: $help_text_color;
+          line-height: 1.5;
+          margin-top: 3px;
+          font-weight: bold;
+
+          .won-amount {
+            color: $primary;
+            line-height: 15px;
+            font-size: 12px;
+            font-weight: bold;
+
+            i.icon-bonus {
+              position: relative;
+              top: -1px;
+            }
+
+            .won {
+              color: $help_text_color;
+            }
+          }
+        }
+
+        .user-name-container {
+          display: inline-block;
+          padding-left: 7px;
+
+          &.shimmer {
+            width: 80%;
+            vertical-align: middle;
+
+            @media screen and(max-width: 430px) {
+              width: 72%;
+            }
+          }
+
+          @media screen and(max-width: 453px) {
+            width: 72%;
+          }
+        }
+
+        .user-name {
+          font-size: 14px;
+          color: $primary_text_color;
+          font-family: $font-regular;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          vertical-align: middle;
+          text-decoration: underline;
+
+          &.display-none {
+            display: none;
+          }
+        }
+
+        &:first-child {
+          width: 8%;
+        }
+
+        &:last-child {
+          width: 20%;
+        }
+
+        .list-header-text {
+          font-family: $font-regular;
+          color: $help_text_color;
+          font-size: 12px;
+          line-height: 15px;
+          text-align: center;
+          vertical-align: middle;
+
+          &.left {
+            text-align: left;
+          }
+        }
+      }
+
+      &.user-list-header {
+        height: 34px;
+        background-color: $disabled_text_color;
+        padding: 0 10px;
+      }
+
+      &.shimmer {
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+    }
+
+  }
+
+}
+
+.stats-header {
+  background-color: $primary;
+  display: flex;
+  width: 100%;
+
+  .stats-header-item {
+    padding: 3px 0;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+
+    &:first-child {
+      border-right: 1px solid $white;
+    }
+
+    h4 {
+      color: $white;
+      font-size: 36px;
+      font-family: $font-semibold;
+      float: left;
+      margin: 0 5px 0 0;
+    }
+
+    .stats-info {
+      overflow: hidden;
+      padding: 4px 0;
+
+      span {
+        display: block;
+        color: $white;
+        font-size: 11px;
+        opacity: 0.7;
+
+        &:last-child {
+          color: $white;
+          font-size: 12px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.stats-sub-header {
+  background-color: #E8E8E8;
+  color: $help_text_color;
+  font-size: 12px;
+  padding: 10px;
+  text-align: center;
+  margin: 8px 0;
+}
+
+.blue-header {
+  background: $primary;
+
+  .header-action {
+    color: $white;
+  }
+
+  .center-container {
+    .balance-box-style {
+      @include background-opacity($black, 0.4);
+      border: none;
+      color: $white;
+
+      span {
+        color: $white;
+      }
+    }
+  }
+
+}
+
+// Participants popup
+.participants-view {
+  // position: absolute;
+  // bottom: 0;
+  width: 100%;
+  border-radius: 30px 30px 0 0;
+  background-color: #F2F2F2;
+  max-height: 464px;
+  overflow: hidden;
+
+  .heading-view {
+    margin: 35px 20px 25px;
+    display: flex;
+    justify-content: space-between;
+
+    .participants-number {
+      color: $body_text_color2;
+      font-family: $font-bold;
+      font-size: $font-size-medium;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .team-name {
+      color: $body_text_color2;
+      font-family: $font-exo-regular;
+      font-size: $font-base;
+      letter-spacing: 0;
+      line-height: 1.5;
+    }
+  }
+
+  .slider-view {
+    margin: 0 20px 10px;
+
+    .progress {
+      background-color: $secondary;
+      border-radius: 4px;
+    }
+    .primary-progress-bar{
+      background-color: $primary !important;
+    }
+    .secondary-progress-bar{
+      background-color: $secondary !important;
+    }
+    .draw-progress-bar{
+      background-color: $help_text_color !important;
+    }
+
+    .team-fullname-percentage {
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        color: $body_text_color2;
+        font-family: $font-exo-bold;
+        font-size: $font-size-small;
+        line-height: 1.7;
+      }
+    }
+  }
+
+  .participants-name-container {
+    max-height: 330px;
+    overflow: auto;
+
+    .participants-name-view {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px 20px;
+
+      .images-name-view {
+        img {
+          height: 44px;
+          width: 44px;
+          object-fit: cover;
+          border-radius: 100%;
+        }
+
+        span {
+          color: $primary_text_color;
+          font-family: $font-regular;
+          font-size: $font-base;
+          line-height: 1.5;
+          margin-left: 15px;
+        }
+      }
+
+      .Team-name-view {
+        color: $help_text_color;
+        font-family: $font-exo-regular;
+        font-size: $font-size-small;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.participants-modal-backdrop {
+  position: fixed;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0;
+  left: auto !important;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+  width: 550px ;
+  @media (max-width: 550px) {
+    width: 100%;
+  }
+
+  .modal-dialog {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .modal-content {
+    border-radius: 30px 30px 0 0;
+  }
+}
+
+.out-of-string-text {
+  font-size: 10px !important;
+  color: $help_text_color;
+  font-family: $font-exo-regular;
+}

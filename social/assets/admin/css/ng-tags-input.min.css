@@ -1,0 +1,41 @@
+tags-input { display: block }
+tags-input *, tags-input :after, tags-input :before { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; transition: none!important; }
+tags-input .host { position: relative; margin-top:0px; margin-bottom:0px; height: 100%; outline: none; }
+tags-input .host:active { outline: 0 }
+tags-input .tags { -moz-appearance: textfield; -webkit-appearance: textfield; padding: 1px; overflow: hidden; word-wrap: break-word; cursor: text; background-color: #fff; height: 100% }
+tags-input .tags.focused { outline: 0;}
+tags-input .tags .tag-list { margin: 0; padding: 0; list-style-type: none ;}
+tags-input .tags .tag-item { 
+	margin: 2px; display: inline-block; float: left; height: 24px; border-radius: 100px; 
+	background:#fff; color:#444; overflow: hidden; position: relative; 
+	border: 1px solid rgba(131,131,131,0.7); padding:0 4px 0 10px; max-width:calc(100% - 4px);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1); text-transform: capitalize; line-height: 21px; font-size: 12px; font-weight: 600;
+}
+tags-input .tags .tag-item.selected {   background: #B20000;  color: #fff;}
+tags-input .tags .tag-item.selected .skill .endorse-item-name > abbr {color: #fff;}
+tags-input .tags .tag-item.selected .endorse-item-close > svg {fill:#fff;}
+tags-input .tags .tag-item.selected .remove-button { color:#fff}
+tags-input .tags .tag-item .remove-button { margin: 0; padding: 0; border: none; background: 0 0; cursor: pointer; vertical-align: middle; color: rgba(68, 68, 68, 0.4); float: right; width: 20px; height: 24px;  position: relative; text-align: center; border-radius: 0 3px 3px 0; font-size: 16px; line-height: 22px;}
+tags-input .tags .tag-item .remove-button:hover {color: #B20000;}
+tags-input .tags .tag-item .remove-button:active { color: red;}
+tags-input .tags .input { border: 0; outline: 0; margin: 2px; padding: 0; padding-left: 5px; float: left; height: 26px; width: auto;}
+tags-input .tags .input.invalid-tag { color: red }
+tags-input .tags .input::-ms-clear {display:none}
+tags-input.ng-invalid .tags {border: 1px solid red !important;}
+tags-input.ng-invalid .tags .tag-item{color:red}
+tags-input .autocomplete { margin-top: 5px; position: absolute; z-index: 99; width: 100%; background-color: #fff;  -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);  -khtml-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);  -moz-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);  -ms-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);  -o-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2); }
+tags-input .autocomplete .suggestion-list { margin: 0; padding: 0; list-style-type: none;}
+tags-input .autocomplete .suggestion-item { padding: 6px 10px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size:13px; /* color:#00529F; */ background-color: #fff; font-weight:400;  transition: none;}
+tags-input .autocomplete .suggestion-item.selected, tags-input .autocomplete .suggestion-item.selected em { background-color:#F0F0F0;}
+tags-input .autocomplete .suggestion-item em { font-style:normal; font-weight:500; }
+.bootstrap .tags { background-color: #fff; border: 1px solid #ddd; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,0.075); transition: none; }
+.bootstrap .tags.focused { border-color: #66afe9; box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6); }
+.bootstrap .tags .tag-item { background: #428bca; border: 1px solid #357ebd; border-radius: 4px; color: #fff; }
+.bootstrap .tags .tag-item.selected { border: 1px solid #d43f3a; border-radius: 4px; color: #00529F; }
+.bootstrap .tags .tag-item button { background: transparent; color: #000; opacity: .4; }
+.bootstrap .autocomplete { border-radius: 4px; }
+.bootstrap .autocomplete .suggestion-item.selected { color: #262626; background-color: #e9e9e9; }
+.bootstrap .autocomplete .suggestion-item em { font-weight: normal; background-color: #ffff00; }
+.bootstrap .autocomplete .suggestion-item.selected em { color: #262626; background-color: #ffff00; }
+.tag-item span {float: left; padding: 0; max-width: calc(100% - 20px); overflow: hidden; white-space: nowrap; text-overflow:ellipsis;  transition: none;}
+tags-input .tags {border:1px solid #ddd; border-radius: 3px;} 

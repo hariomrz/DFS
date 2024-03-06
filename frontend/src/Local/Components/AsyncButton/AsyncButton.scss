@@ -1,0 +1,9 @@
+// @import '../../../assets/scss/bootstrap/bootstrap.scss';
+
+
+.btn-bordered{
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+    padding: 7px 10px;
+}

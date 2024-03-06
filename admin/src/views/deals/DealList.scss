@@ -1,0 +1,20 @@
+.details-view-text{
+   text-decoration: underline!important;
+   cursor: pointer;
+}
+.deal-user-view{
+   display: flex;
+   justify-content: space-between;
+}
+.back-dashboard-text{
+text-align: right;
+font-size: 18px;
+color: $black;
+cursor: pointer;
+text-decoration: underline;
+}
+.icon-ic-view{
+      color: #030f09 !important;
+      font-family: $font-bold;
+      font-size: 12px;
+}

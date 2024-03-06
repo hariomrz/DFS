@@ -1,0 +1,33 @@
+<div ng-if="SettingsData.m1=='1'" class="panel panel-info" ng-cloak ng-controller="GroupPageCtrl" id="GroupPageCtrl" ng-init="suggestedGroupList(6, '0', 0)" ng-show="suggestedlist.length > 0">
+    <div class="panel-heading">
+        <h3 class="panel-title extra-bold" ng-bind="::lang.suggested_groups"></h3>
+    </div>
+    <div class="panel-body no-padding" ng-cloak>
+        <div class="slick-slider-fluid suggested-slider" >
+            <ul ng-cloak class="list-items-vertical row" id="suggestedSlider">
+                <li ng-repeat="list in listObj = suggestedlist|limitTo:extra_param.WidgetItemSize" id="grp{{list.GroupGUID}}" class="col-md-2 col-sm-3" ng-class="(list.Loading=='1') ? 'pop-in' : (list.Loading=='2') ? 'pop-out' : '' ;" ng-cloak>
+                    <div ng-show="list.IsJoined!='1'" class="list-items-xlg">
+                        <div class="list-inner">                                                        
+                            <figure>
+                                <a entitytype="group" entityguid="{{list.GroupGUID}}" class="loadbusinesscard" href="{{SiteURL + list.ProfileURL}}"> 
+                                    <img ng-if="list.ProfilePicture != ''" ng-src="{{ImageServerPath + 'upload/profile/220x220/' + list.ProfilePicture}}" class="img-circle"  > 
+                                </a>
+                            </figure>
+
+                            <div class="list-item-body">
+                                <a class="list-heading-base bold" ng-bind="::list.GroupName"></a>
+                                <div class="text-sm-off semi-bold" ng-if="::list.Category" ng-bind="::list.Category.Name"></div>
+                                <div class="listing-footer">
+                                    <a class="btn btn-default btn-sm" ng-cloak  ng-click="joinPublicGroup(list.GroupGUID, 'discoverslider')" ng-bind="::lang.join"></a>                                                                                                       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="list.IsJoined=='1'">
+                        <div class="list-inner">&nbsp;</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

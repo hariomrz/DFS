@@ -1,0 +1,1063 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/users/list": {
+            "post": {
+                "tags": [
+                    "User List for @Tagging"
+                ],
+                "summary": "This api is used to getting list of users for tagging.",
+                "description": "",
+                "operationId": "list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/change_status": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "This api is used to update user status.",
+                "description": "",
+                "operationId": "change_status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Status value may be 3 (for delete), 4 (for block).",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\change_status"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/make_admin": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "This api is used to make any user as sub admin.",
+                "description": "",
+                "operationId": "make_admin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\make_admin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/remove_admin": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "This api is used to remove admin rights for user.",
+                "description": "",
+                "operationId": "remove_admin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\remove_admin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/recovery_password/forgot_password": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "This api is used forgot password..",
+                "description": "",
+                "operationId": "forgot_password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Recovery_password\\forgot_password"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/recovery_password/validate_forgot_password_token": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "This api is used validate forgot password token.",
+                "description": "",
+                "operationId": "validate_forgot_password_token",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Recovery_password\\validate_forgot_password_token"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/recovery_password/set_password": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "This api is used to set new password based on forgot password token.",
+                "description": "",
+                "operationId": "set_password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Recovery_password\\set_password"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/change_password/index": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "This api is used to change user password.",
+                "description": "",
+                "operationId": "change_password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Change_password\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/remove_profile_picture": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "This api is used to remove profile picture.",
+                "description": "",
+                "operationId": "remove_profile_picture",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\remove_profile_picture"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/change_locality": {
+            "post": {
+                "tags": [
+                    "Change Locality"
+                ],
+                "summary": "This api is used to change user locality.",
+                "description": "",
+                "operationId": "change_locality",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\change_locality"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/get_association_user": {
+            "post": {
+                "tags": [
+                    "Association User"
+                ],
+                "summary": "Association user list",
+                "description": "",
+                "operationId": "get_association_user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\get_association_user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/get_vip_user": {
+            "post": {
+                "tags": [
+                    "VIP User"
+                ],
+                "summary": "VIP user list",
+                "description": "",
+                "operationId": "get_vip_user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\get_vip_user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/toggle_block_user": {
+            "post": {
+                "tags": [
+                    "Block User"
+                ],
+                "summary": "Used to block/unblock user",
+                "description": "",
+                "operationId": "toggle_block_user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\toggle_block_user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/blocked_user_list": {
+            "post": {
+                "tags": [
+                    "Block User"
+                ],
+                "summary": "Used to get block user list",
+                "description": "",
+                "operationId": "blocked_user_list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\blocked_user_list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/get_preferred_category": {
+            "post": {
+                "tags": [
+                    "Preferred Category"
+                ],
+                "summary": "Used to get user preferred category list",
+                "description": "",
+                "operationId": "get_preferred_category",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\get_preferred_category"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/save_preferred_categories": {
+            "post": {
+                "tags": [
+                    "Preferred Category"
+                ],
+                "summary": "Used to save user preferred categories",
+                "description": "",
+                "operationId": "save_preferred_categories",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\save_preferred_categories"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/users/profession_list": {
+            "post": {
+                "tags": [
+                    "Profession List"
+                ],
+                "summary": "Used to get user profession list",
+                "description": "",
+                "operationId": "profession_list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Users\\profession_list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Users\\change_status": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "UserID": {
+                    "description": "UserID",
+                    "type": "integer",
+                    "example": "2"
+                },
+                "Status": {
+                    "description": "Status",
+                    "type": "integer",
+                    "example": "4"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\make_admin": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "UserID": {
+                    "description": "UserID",
+                    "type": "integer",
+                    "example": "2"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\remove_admin": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "UserID": {
+                    "description": "UserID",
+                    "type": "integer",
+                    "example": "2"
+                }
+            }
+        },
+        "Inclusify\\Api\\Recovery_password\\forgot_password": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Type": {
+                    "description": "Type may be Email or Mobile",
+                    "type": "string",
+                    "example": "Mobile"
+                },
+                "Value": {
+                    "description": "Value",
+                    "type": "string",
+                    "example": "9827298272"
+                }
+            }
+        },
+        "Inclusify\\Api\\Recovery_password\\validate_forgot_password_token": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "OTP": {
+                    "description": "Forgot password token",
+                    "type": "string",
+                    "example": "982729"
+                }
+            }
+        },
+        "Inclusify\\Api\\Recovery_password\\set_password": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "OTP": {
+                    "description": "Forgot password token",
+                    "type": "string",
+                    "example": "982729"
+                },
+                "Password": {
+                    "description": "New password",
+                    "type": "string",
+                    "example": "98272956"
+                },
+                "Type": {
+                    "description": "Mobile or Email",
+                    "type": "string",
+                    "example": "Mobile"
+                }
+            }
+        },
+        "Inclusify\\Api\\Change_password\\index": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PasswordNew": {
+                    "description": "New password",
+                    "type": "string",
+                    "example": "9827294567"
+                },
+                "Password": {
+                    "description": "Old password",
+                    "type": "string",
+                    "example": "98272956"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\remove_profile_picture": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Users\\change_locality": {
+            "required": [
+                "LocalityID"
+            ],
+            "properties": {
+                "LocalityID": {
+                    "description": "New Locality",
+                    "type": "integer",
+                    "example": 2
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\get_association_user": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "OrderBy": {
+                    "description": "Name or Activity",
+                    "type": "string",
+                    "example": "Name"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\get_vip_user": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "OrderBy": {
+                    "description": "Name or Activity",
+                    "type": "string",
+                    "example": "Name"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\toggle_block_user": {
+            "required": [
+                "UserGUID"
+            ],
+            "properties": {
+                "UserGUID": {
+                    "description": "User GUID",
+                    "type": "string",
+                    "example": "9d6937c6-5350-ee50-0670-2e3d9d84ab51"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\blocked_user_list": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "Page number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page size",
+                    "type": "integer",
+                    "example": "20"
+                },
+                "SearchKeyword": {
+                    "description": "Search Keyword",
+                    "type": "string",
+                    "example": "su"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\list": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "Type": {
+                    "description": "values:NewsFeedTagging",
+                    "type": "string",
+                    "example": "NewsFeedTagging"
+                },
+                "ModuleID": {
+                    "description": "Group=1,Page=18,user=3",
+                    "type": "string",
+                    "example": "3"
+                },
+                "ModuleEntityID": {
+                    "description": "UID",
+                    "type": "string",
+                    "example": "9d6937c6-5350-ee50-0670-2e3d9d84ab51"
+                },
+                "SearchKey": {
+                    "description": "search string",
+                    "type": "string",
+                    "example": "test"
+                },
+                "WID": {
+                    "description": "Ward ID",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\get_preferred_category": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Users\\save_preferred_categories": {
+            "required": [
+                "CategoryIDs"
+            ],
+            "properties": {
+                "CategoryIDs": {
+                    "description": "Array of Category Ids",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Users\\profession_list": {
+            "required": [
+                ""
+            ]
+        }
+    }
+}

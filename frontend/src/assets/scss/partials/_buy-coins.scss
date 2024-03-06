@@ -1,0 +1,146 @@
+
+.buy-coins-wrap{
+    padding: 57px 40px 50px;
+    .infinite-scroll-component {
+        overflow: visible !important;
+        height: auto;
+    }
+    @media (max-width: 320px){
+        padding: 57px 25px 50px;
+    }
+    .app-header-style{
+        // background: transparent;
+    }
+    .buy-coin-header{
+        margin-top: 20px;
+        margin-bottom: 30px;
+        .buy-sec{
+            font-size: $font-size-h4;
+            font-family: $font-bold;
+            color: $primary_text_color;
+            line-height: 1;
+            text-transform: uppercase;
+            .userbal{
+                float: right;
+                font-size: $font-size-medium;
+                font-family: $font-bold;
+                color: $primary;
+            }
+        }
+        .ava-sec{
+            color: #B5B5B5;
+            line-height: 1;
+            font-family: $font-regular;
+            font-size: $font-size-small;
+            text-align: right;
+            text-transform: capitalize;
+        }
+    }
+    .coins-opt-sec{
+        text-align: center;
+        .coins-card{
+            margin-top: 20px;
+            background: $view_bg_color;
+            border-radius: 10px;
+            padding: 15px 10px; 
+            display: inline-block;
+            border: 1px solid $border-color;
+            // max-width: 140px;
+            width: calc(50% - 10px);
+            &:nth-child(2n){
+                margin-left: 20px;
+            }
+            img{
+                width: 60px;
+                margin: 0 auto;
+            }
+            .coin-cnt{
+                font-size: $font-size-h5;
+                font-family: $font-bold;
+                color: $primary_text_color;
+                margin: 5px 0;
+            }
+            .btn{
+                font-size: $font-base;
+                padding: 5px 10px 3px;
+                width: 94px;  
+                &:hover{
+                   color: $white;
+                }
+            }
+            &.active{
+                border: 1px solid $secondary;
+            }
+            transition: transform .2s; 
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+    .btm-bxt{
+        color: $help_text_color;
+        font-size: $font-size-small;
+        font-family: $font-regular;
+        text-align: center;
+        margin-top: 40px;
+    }
+}
+.header-action {
+    .stan-close-header{
+        font-size: 18px;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        color: $white;
+        i{
+            color: $white;
+        }
+    }
+}
+.wallet-wrapper{
+    button.button-abs.button-primary-rounded-xs{
+        width: 67px;
+        // padding: 7px 10px 5px;
+        padding: 5px 10px 5px;
+        &~.button-abs{
+            right: 90px;
+        }
+    }
+}
+
+.web-container{
+    &.buy-coins-wrap{
+        background: $view_bg_color;
+    }
+}
+
+
+
+// changes for dark theme overall
+.body-dark-theme{
+    .web-container{
+        &.buy-coins-wrap{
+            background: $darkT_view_bg_color;            
+            .buy-coin-header{
+                .buy-sec{
+                    color: $darkT_primary_text_color;
+                    .userbal{
+                        color: $darkT_primary;
+                    }
+                }
+            }
+            .coins-opt-sec{
+                .coins-card{
+                    background: $darkT_app_bg_color;
+                    border-color:  $darkT_app_bg_color;
+                    .coin-cnt{
+                        color:  $darkT_primary_text_color;
+                    }
+                    .btn:hover{
+                        color: $darkT_secondary_text_color;
+                    }
+                }
+            }
+        }
+    }
+}

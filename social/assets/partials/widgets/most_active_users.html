@@ -1,0 +1,47 @@
+<div class="panel panel-info most-active-users-widget"  ng-init="get_most_active_users();">
+    <div class="panel-heading">
+        <h3 class="panel-title extra-bold" ng-bind="::lang.MostActiveUsers_MostActiveUsers"></h3>
+    </div>
+    <div class="panel-body no-padding" ng-cloak>
+        <div class="slick-slider-fluid user-slider">
+            <ul ng-cloak class="list-items-vertical" id="activeUserSlider">
+                <slick class="slider" ng-if="active_users.length>0" settings="mostActiveUsersSilckSttng" slickarr3123="active_users">
+                <li ng-repeat="user in active_users track by $index" ng-cloak>
+                    <div class="list-items-xlg">
+                        <div class="list-inner">
+                                                        
+                            <figure>
+                                <a ng-href="{{BaseUrl+user.ProfileUrl}}">
+                                    <img ng-src="{{ImageServerPath+'upload/profile/220x220/'+user.ProfilePicture}}" err-Name="{{user.FirstName+' '+user.LastName}}" class="img-circle"  >
+                                </a>
+                            </figure>
+                            
+                            <div class="list-item-body">                                
+                                <a class="list-heading-base bold" ng-href="{{BaseUrl+user.ProfileUrl}}" ng-bind="user.FirstName+' '+user.LastName"></a>
+                                
+                                <div class="text-sm-off semi-bold" ng-if="::SettingsData.m10=='1' && user.MutualFriendCount==0">No Mutual Friend</div>
+                                <div class="text-sm-off semi-bold" ng-if="::SettingsData.m10=='1' && user.MutualFriendCount==1" ng-bind="::user.MutualFriendCount+' Mutual Friend'"></div>
+                                <div class="text-sm-off semi-bold" ng-if="::SettingsData.m10=='1' && user.MutualFriendCount>1" ng-bind="::user.MutualFriendCount+' Mutual Friends'"></div>
+                                
+                                <div class="text-sm-off semi-bold" ng-if="user.Discussions==1" ng-bind="user.Discussions+' Discussion'"></div>
+                                <div class="text-sm-off semi-bold" ng-if="user.Discussions>1" ng-bind="user.Discussions+' Discussions'"></div>
+                                
+                                
+                                <div class="listing-footer">
+                                    <a class="btn btn-default btn-sm btn-block" ng-click="toggle_follow(user);" ng-if="!user.IsFollow || user.IsFollow == '0'"  ng-bind="::lang.follow"></a>
+                                    <a class="btn btn-default btn-sm btn-block" ng-click="toggle_follow(user);" ng-if="user.IsFollow == '1'" ng-bind="::lang.followings" ></a>
+                                    
+                                    <a class="btn btn-default btn-sm btn-block hide" ng-if="::SettingsData.m10=='1'">
+                                        <span class="icon"><i class="ficon-add-friend"></i></span>
+                                        <span class="text">Add as Friend</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </slick>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<div ng-controller="ForumMngAdminsCtrl">
+    <div ng-include="AssetBaseUrl + 'partials/widgets/breadcrumb.html'"></div>
+    <div ng-include="AssetBaseUrl + 'partials/widgets/category_details.html'"></div>
+    <div class="nav-tab-nav" data-scrollfix="scrollFix">
+        <!--  secondary-nav -->
+        <div class="container">
+            <div class="nav-tab-filter">                
+                <div ng-include="AssetBaseUrl + 'partials/forum/nav.html'"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container wrapper">
+        <div class="row">
+            <div class="pull-right col-md-3 col-sm-4" data-scroll="sticky">
+                <div ng-include="AssetBaseUrl + 'partials/widgets/more_in_category.html'"></div>
+                <div ng-if="LoginSessionKey!='' && SettingsData.m10=='0'" ng-include="AssetBaseUrl + 'partials/widgets/people_you_may_follow.html'"></div>
+                <div ng-if="LoginSessionKey!='' && SettingsData.m10=='1'" ng-include="AssetBaseUrl + 'partials/widgets/people_you_may_know.html'"></div>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <!-- Post Activity-->
+                <div ng-show="(category_detail.CanPostOnWall=='1' || !category_detail.Permissions.IsMember) && category_detail.IsDiscussionAllowed=='1'">
+                    <div ng-include="AssetBaseUrl + 'partials/include/post/forum_category.html' + app_version"></div>
+                </div>
+                <!-- //Post Activity-->
+                <div class="panel panel-secondary" ng-init="get_category_members_list()">
+                    <div class="panel-body">
+                        <ul class="listing-group list-group-hover list-group-v10 list-group-inline member-list-group row">
+                            <li class="col-sm-6 col-md-3 usr{{list.ModuleEntityGUID}}" ng-repeat="list in listObj = ListMembers" ng-hide="list.length>0" ng-cloak>
+                                <div class="list-items-sm list-group-close">
+                                    <div class="list-inner">
+                                        <figure>
+                                            <a target="_self" entitytype="user" entityguid="{{list.ModuleEntityGUID}}" class="loadbusinesscard" href="{{BaseUrl+list.ProfileURL}}">
+                                                <img   ng-if="list.ProfilePicture!='' && list.ProfilePicture!='user_default.jpg' " class="img-circle" ng-src="{{ImageServerPath+'upload/profile/220x220/'+list.ProfilePicture}}">
+                                                <img   ng-if="list.ProfilePicture=='' || list.ProfilePicture=='user_default.jpg' " class="img-circle" err-Name="{{list.Name}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'}}">
+                                            </a>
+                                        </figure>
+                                        <div class="list-item-body" ng-cloak>
+                                            <a target="_self" tooltip data-placement="top" title="Remove Member" class="list-close" href="javascript:void(0);" ng-if="category_detail.Permissions.IsAdmin && (list.ModuleRoleID=='16' || list.ModuleRoleID=='17')" ng-click='remove_category_member(category_detail.ForumCategoryID,list.ModuleID,list.ModuleEntityGUID)'>
+                                                    <span class="icon">
+                                                       <i class="ficon-cross"></i>
+                                                   </span>
+                                            </a>
+                                            <a target="_self" entitytype="user" entityguid="{{list.ModuleEntityGUID}}" href="{{BaseUrl+list.ProfileURL}}" class="list-heading-xs text-black ellipsis loadbusinesscard" ng-bind="list.Name">
+                                            </a>
+                                            <p class="text-sm-off semi-bold ellipsis" ng-bind='list.Location'></p>
+
+
+
+                                        </div>
+                                        <div class="listing-footer" ng-cloak >
+                                            <div class="btn-toolbar btn-toolbar-xs left" ng-if="list.ShowFriendsBtn=='1'">
+                                                <button ng-if="list.FriendStatus == '0' || list.FriendStatus =='4' || list.FriendStatus =='3'" ng-click="sendFriendRequest(list.ModuleEntityGUID)" class="btn btn-default btn-xs" >
+                                                    Add Friend
+                                                </button>
+                                                <button ng-if="list.FriendStatus == '2'" ng-click="RejectFriendRequest(list.ModuleEntityGUID)" class="btn btn-default btn-xs" >
+                                                    Cancel Request
+                                                </button>
+                                            </div>
+                                            <div class="btn-toolbar btn-toolbar-xs left" ng-if="list.ShowMessageBtn==1 && list.FriendStatus==1">
+                                                <button class="btn btn-default btn-xs" ng-click="messageModal(list.Name,list.ModuleEntityGUID);" >
+                                                    {{::lang.message}}
+                                                </button>
+                                            </div>
+                                            <div class="btn-toolbar btn-toolbar-xs left" ng-if="list.ShowFriendsBtn!='1' && list.ShowFollowBtn=='1'">
+                                                <button ng-if="list.IsFollow == '1'" ng-click="toggle_follow(list)" class="btn btn-default btn-xs" ng-bind="::lang.followings">
+                                                    
+                                                </button>
+                                                <button ng-if="list.IsFollow == '0'" ng-click="toggle_follow(list)" class="btn btn-default btn-xs" ng-bind="::lang.follow">
+                                                    
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- load more -->
+                        <div class="panel-bottom p-b-0" ng-show="ListMembers.length<TotalRecordsMembers" ng-cloak>
+                            <button type="button" data-ng-click="LoadMoreMembers()" class="btn  btn-link">
+                                {{::lang.load_more}} <span><i class="caret"></i></span></button>
+                        </div>
+                        <div ng-if='ListMembers.length==0' class="blank-block group-blank" ng-cloak>
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+                                    <img ng-src="{{AssetBaseUrl+'img/group-no-img.png'}}"  >
+                                    <p class="m-t-15">
+                                        {{::lang.no_record}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- load more -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

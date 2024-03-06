@@ -1,0 +1,356 @@
+.all-tour-leaderboard{
+    &.web-container.web-container-fixed{
+        padding-top: 56px;
+        height: 100vh;
+        .leaderboard-new-wrap{
+            min-height: calc(100vh - 196px);
+            max-height: calc(100vh - 196px);
+        }
+        .upd-dt-txt{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 12px;
+            color: $help_text_color;
+        }
+        
+        .tr-status{
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 12px;
+            color: $help_text_color;
+            height: 15px;
+            // width: 58px;
+            border-radius: 6px;
+            background-color: #A5A5A5;
+            color: $white;
+            text-align: center;
+            font-size: 10px;
+            font-family: $font-exo-bold;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+            &.live{
+                background-color: $alert_danger_color;
+                .dot-view{
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 100%;
+                    background-color: #fff;
+                    margin-right: 2px;
+                }
+            }
+           
+        }
+        .new-tab{
+            display: none;
+        }
+        &.single-gt{
+            padding-top: 97px;
+            .new-tab{
+                display: block;
+                li{
+                    width: 100%;
+                }
+            }
+        }
+        &.dual-gt{
+            padding-top: 97px;
+            .new-tab{
+                display: block;
+                li{
+                    width: 50%;
+                }
+            }
+        }
+        &.triple-gt{
+            padding-top: 97px;
+            .new-tab{
+                display: block;
+                li{
+                    width: 33.33%;
+                }
+            }
+        }
+    }
+    .new-tab{
+        background-color: $primary;
+        padding: 0 30px;
+        position: fixed;
+        max-width: 550px;
+        width: 100%;
+        z-index: 9;
+        top: 56px;    
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            li{
+                a{
+                    font-size: 14px;
+                    font-family: $font-exo-bold;
+                    @include color-opacity(#fff,0.58);
+                    display: block;
+                    padding: 10px;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+                &.active{
+                    a{
+                        color: $white;
+                        position: relative;
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            margin: 0 auto;
+                            bottom: 0;
+                            height: 3px;
+                            width: 80%;
+                            background: $white;
+                            border-radius: 1.5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .all-tour-lead-wrap{
+        width: 100%;
+        border: 0;
+        max-width: 550px;
+        padding: 16px;
+        .slick-slider{
+            max-width: calc(100% - 40px);
+            margin: 0 auto;
+            width: 100%;
+        }
+        .slick-list{
+            border: 1px solid #E5E5E5;
+            border-radius: 22px;
+            background-color: #FFFFFF;
+        }
+        li{
+            a{
+                padding: 5px 0;
+                text-align: center;
+                display: block;
+                font-size: 12px;
+                font-family: $font-exo-bold;
+                color: $help_text_color;
+                text-transform: uppercase;
+                border-radius: 22px;
+            }
+            &.active{
+                a{
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+        }
+    }
+    .leaderboard-select-view{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .slick-arrow.slick-next, .slick-arrow.slick-prev{
+        display: block !important;
+        @include background-opacity($black,0.2);
+        border-radius: 50%;
+        @media (max-width: 767px){
+            display: none !important;
+        }
+    }
+    .slick-next{
+        right: -30px;
+        &:before{
+            font-size: 12px;
+            position: relative;
+            right: -1.5px;
+        }
+    }
+    .slick-prev{
+        left: -30px;
+        &:before{
+            font-size: 12px;
+            position: relative;
+            left: -1.5px;
+        }
+    }
+    
+
+    .rts___tabs___container{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 5px;
+    }
+    .sp-tb-scroll-container {
+        white-space: nowrap;
+        overflow: hidden;
+        // margin: 0 -20px 10px;
+    }
+    // .sp-tb-scroll-container {
+    //     height: 180px;
+    // }
+
+    .rts___tabs {
+        @include scrollbars(0px, rgba($black, .3), transparent, 10px);
+        display: flex;
+        white-space: nowrap;
+        overflow-x: auto;
+        padding: 0;
+        // height: 30px;
+        overflow-y: hidden;
+
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        border: 1px solid #E5E5E5;
+        border-radius: 22px;
+        background-color: #FFFFFF;
+    }
+
+    .sp-item {
+        display: flex;
+        flex: auto;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        min-width: 100px;
+        height: 30px;
+        // background-color: darken($color: $primary, $amount: 4);
+        color: $white;
+        // padding: 5px 7px 7px;
+        padding: 0;
+        border-radius: 22px;
+        cursor: pointer;
+        border: none;
+        // margin-left: 10px;
+        background-color: $white;
+        color: $help_text_color;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-family: $font-exo-bold;
+        line-height: 1;
+        span{
+            line-height: 1;
+            margin: 0;
+            // padding: 5px 7px 7px;
+            // display: block;
+            padding: 5px 7px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        // &:first-child {
+        //     margin-left: 20px;
+        // }
+        // &:last-child {
+        //     margin-right: 20px;
+        // }
+        &.rts___tab___selected{
+            background-color: $primary;
+            color: $white;
+        }
+    }
+    .rts___nav___btn___container{
+        position: static !important;
+        margin: 0 !important;
+        transform: translate(0, 0) !important;
+        button {
+            border: none;
+            @include background-opacity($black,0.2);
+            border-radius: 40px;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $primary;
+            cursor: pointer;
+            animation: none;
+            &:disabled{
+                opacity: 0.8;
+                animation: none;
+            }
+        }
+    } 
+}
+.with-tour-lead{
+    .dashboard-container{
+        // margin-top: 56px;
+    }
+}
+.dashboard-container{
+    &:not(.without-sports-tab) .fantasy-ref-l.leaderboard-frm-more.open-predict-leaderboard.prediction-part-v{
+        padding-top: 0 !important;
+    }
+    .all-tour-leaderboard.web-container.web-container-fixed{
+        padding-top: 42px;  
+        min-height: calc(100vh - 150px);
+        height: calc(100vh - 150px);
+        .leaderboard-new-wrap-view{
+            padding-bottom: 140px;
+            max-height: calc(100vh - 126px);
+        }
+        .upd-dt-txt{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 12px;
+            color: $help_text_color;
+        }
+        &.single-gt{
+            padding-top: 0;
+        }
+        &.dual-gt{
+            padding-top: 0;
+        }
+    }
+    &.without-sports-tab{
+        .all-tour-leaderboard.web-container.web-container-fixed{
+            &.single-gt{
+                padding-top: 42px;
+            }
+            &.dual-gt{
+                padding-top: 42px;
+            }
+        }
+    }
+}
+.css-1szy77t-control:hover {
+    border-color: $primary !important;
+}
+.rts___tab {
+    margin: 0 0px !important;
+}
+
+.dashboard-container{
+    .all-tour-leaderboard.leaderboard-new-web-container.web-container-fixed{
+        margin-top: -42px;
+        min-height: calc(100vh - 110px);
+        height: calc(100vh - 110px);
+        .top-fixed.new-tab{
+            display: none;
+        }
+    }
+}
+
+.dfs-tournament-card-new{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: inherit;
+}
+.rts___tabs___container{
+    display: flex;
+    justify-content: center;
+}

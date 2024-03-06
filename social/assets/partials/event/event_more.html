@@ -1,0 +1,63 @@
+<div class="panel panel-widget" ng-if="eventSimilar.length > 0" data-ng-controller="EventUserController">
+    <div class="panel-heading no-border">
+        <h3 class="panel-title"> 
+            <span class="text">More Events</span>
+        </h3>        
+    </div>
+    <div class="panel-body no-padding widget-slider" ng-repeat="event in eventSimilar|limitTo:1" ng-cloak>
+        <div class="thumbnail thumbnail-card thumbnail-event">
+            <figure class="img-panel">
+                <a class="block overlay-1">
+                    <img ng-src="{{AssetBaseUrl}}img/blank-2x1.png " class="img-full ">
+                    <img ng-src="{{lang.image_server_path}}upload/profile/220x220/{{event.ProfilePicture}}" class="main-img"   ng-if="event.ProfilePicture != '' && event.ProfilePicture != 'event-placeholder.png'">
+                    <img ng-src="{{lang.image_server_path}}upload/profile/220x220/event-placeholder.png" class="main-img"   ng-if="event.ProfilePicture == '' || event.ProfilePicture == 'event-placeholder.png'">
+                </a>
+                <h5 class="thumbnail-subtitle">
+                    <span class="text" ng-bind="event.CategoryName"></span>
+                </h5>
+                <span class="thumbnail-date">
+                    <span class="date-txt" ng-bind="event.StartDay"></span>
+                    <span class="mon-txt" ng-bind="event.StartMonth"></span>
+                </span>
+            </figure>
+            <div class="thumbnail-body">  
+                <div class="caption">      
+                    <div class="content">           
+                        <h4 class="thumbnail-title">
+                            <a ng-bind="event.Title" ng-href="{{BaseUrl + event.ProfileURL}}" target="_self"></a>
+                        </h4>                        
+                        <p class="text-md-off bold" ng-bind="event.Venue + ', ' + event.Location.FormattedAddress"></p>
+                    </div>
+                    <div class="caption-btm">
+                        <div class="action" ng-if="event.loggedUserPresence=='' || event.loggedUserPresence!='ATTENDING'">
+                            <a class="btn btn-default btn-xs" ng-click="UpdateUsersPresence('ATTENDING','NOT_ATTENDING',event.EventGUID,'more_events');">JOIN</a>
+                        </div>
+                        <div class="action" ng-if="event.loggedUserPresence=='ATTENDING'">
+                            <span class="text-sm-off" ng-bind="event.loggedUserPresence"></span>
+                        </div>
+                        <div class="member-list-block">
+                            <ul class="member-list">
+                                <li class="member-item">                                                    
+                                    <a class="thumb-item" target="_self" ng-href="{{baseUrl + EventDetail.CreatedBy.ProfileURL}}">
+                                        <img ng-if="event.CreatedBy.ProfilePicture != '' && event.CreatedBy.ProfilePicture !== 'user_default.jpg'" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{event.CreatedBy.ProfilePicture}}">
+                                        <span ng-if="event.CreatedBy.ProfilePicture == '' || event.CreatedBy.ProfilePicture === 'user_default.jpg'" class="default-thumb">
+                                            <span ng-bind="getDefaultImgPlaceholder(event.CreatedBy.Name)"></span>
+                                        </span>   
+                                    </a>          
+                                </li>
+                            </ul>
+                            <ul class="list-activites text-off">
+                                <li>
+                                    <a class="text-muted" ng-bind="event.CreatedBy.Name"></a>                  
+                                </li> 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="view-link" target="_self" ng-href="{{BaseUrl+'events'}}">View All</a>
+    </div>
+</div>

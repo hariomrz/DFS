@@ -1,0 +1,967 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?u7wau0');
+  src:  url('fonts/icomoon.eot?u7wau0#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?u7wau0') format('truetype'),
+    url('fonts/icomoon.woff?u7wau0') format('woff'),
+    url('fonts/icomoon.svg?u7wau0#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ic-faq:before {
+  content: "\ea34";
+}
+.icon-ic-terms:before {
+  content: "\ea33";
+}
+.icon-bel:before {
+  content: "\ea32";
+}
+.icon-star-rounded:before {
+  content: "\ea30";
+}
+.icon-status-show:before {
+  content: "\ea2f";
+}
+.icon-bronze-ic:before {
+  content: "\ea2e";
+}
+.icon-diamond-ic:before {
+  content: "\ea28";
+}
+.icon-platinum-ic:before {
+  content: "\ea29";
+}
+.icon-gold-ic:before {
+  content: "\ea2a";
+}
+.icon-silver-ic:before {
+  content: "\ea2b";
+}
+.icon-elite-ic:before {
+  content: "\ea2c";
+}
+.icon-thumb-ic:before {
+  content: "\ea2d";
+}
+.icon-sports-info:before {
+  content: "\ea26";
+}
+.icon-download-csv:before {
+  content: "\e9f2";
+}
+.icon-view-eye:before {
+  content: "\e9f3";
+}
+.icon-download-pdf:before {
+  content: "\e9f4";
+}
+.icon-tds:before {
+  content: "\e9f5";
+}
+.icon-res-game:before {
+  content: "\ea31";
+}
+.icon-redeem:before {
+  content: "\e9ef";
+}
+.icon-feed:before {
+  content: "\e9f0";
+}
+.icon-draw:before {
+  content: "\ea24";
+}
+.icon-flash-ic:before {
+  content: "\ea23";
+}
+.icon-ic-trophy:before {
+  content: "\ea22";
+}
+.icon-pick-team-ic:before {
+  content: "\ea21";
+}
+.icon-respo-game:before {
+  content: "\ea20";
+}
+.icon-zigzag-arrow:before {
+  content: "\ea1f";
+}
+.icon-gst:before {
+  content: "\ea1d";
+}
+.icon-tournament:before {
+  content: "\ea1e";
+}
+.icon-Combined:before {
+  content: "\ea1c";
+}
+.icon-cricket-bat-live:before {
+  content: "\e9dd";
+}
+.icon-challenge:before {
+  content: "\e9e1";
+}
+.icon-game-ball:before {
+  content: "\e9e2";
+}
+.icon-match:before {
+  content: "\e9e3";
+}
+.icon-sheild:before {
+  content: "\e9e4";
+}
+.icon-transaction-circle:before {
+  content: "\e9e5";
+}
+.icon-circle-line-ic:before {
+  content: "\ea1b";
+}
+.icon-nn-ic:before {
+  content: "\ea1a";
+}
+.icon-fs-social:before {
+  content: "\e9d3";
+  color: #999;
+}
+.icon-flash:before {
+  content: "\e9d2";
+}
+.icon-h2h-logo:before {
+  content: "\ea11";
+}
+.icon-star-circle:before {
+  content: "\e9cf";
+}
+.icon-quotes:before {
+  content: "\e9d0";
+}
+.icon-pie:before {
+  content: "\e9ce";
+}
+.icon-list-ic:before {
+  content: "\e9cd";
+}
+.icon-bench-substitute:before {
+  content: "\ea10";
+}
+.icon-renewable:before {
+  content: "\ea0e";
+  color: #6b6b6b;
+}
+.icon-subscription:before {
+  content: "\ea0f";
+  color: #6b6b6b;
+}
+.icon-sub-success:before {
+  content: "\e9c8";
+  color: #6b6b6b;
+}
+.icon-unsubcribed:before {
+  content: "\e9c9";
+  color: #6b6b6b;
+}
+.icon-bench:before {
+  content: "\e9ca";
+}
+.icon-booster:before {
+  content: "\e9cb";
+}
+.icon-stock_chart:before {
+  content: "\e9c1";
+}
+.icon-statistics:before {
+  content: "\e9c2";
+}
+.icon-wishlist:before {
+  content: "\e9c3";
+}
+.icon-stock_down:before {
+  content: "\e9c4";
+}
+.icon-stock_up:before {
+  content: "\e9c5";
+}
+.icon-leaderboard:before {
+  content: "\e9c0";
+}
+.icon-pinned-ic:before {
+  content: "\ea0d";
+}
+.icon-un-mute-ic:before {
+  content: "\ea0c";
+}
+.icon-mute-ic:before {
+  content: "\ea0b";
+}
+.icon-solid-info:before {
+  content: "\ea0a";
+}
+.icon-no-negative:before {
+  content: "\e9ba";
+}
+.icon-2x-point:before {
+  content: "\e9bb";
+}
+.icon-friends:before {
+  content: "\e9b8";
+}
+.icon-chat:before {
+  content: "\e9b9";
+}
+.icon-ic-chat:before {
+  content: "\e9b4";
+  color: #828282;
+}
+.icon-prize-breakup:before {
+  content: "\ea09";
+}
+.icon-login:before {
+  content: "\ea07";
+}
+.icon-no-currency:before {
+  content: "\ea08";
+}
+.icon-warning:before {
+  content: "\ea06";
+}
+.icon-filter-v2:before {
+  content: "\ea05";
+}
+.icon-pick-team:before {
+  content: "\ea04";
+}
+.icon-versus:before {
+  content: "\ea03";
+}
+.icon-ic-affiliate:before {
+  content: "\e9ad";
+}
+.icon-stats-ic:before {
+  content: "\ea02";
+}
+.icon-bonuscash-ic:before {
+  content: "\ea01";
+}
+.icon-card-ic:before {
+  content: "\ea00";
+}
+.icon-note:before {
+  content: "\e9a7";
+}
+.icon-download1:before {
+  content: "\e9a8";
+}
+.icon-seprator:before {
+  content: "\e9a9";
+}
+.icon-linkedin:before {
+  content: "\e9a0";
+}
+.icon-twitter-empty:before {
+  content: "\e9a1";
+}
+.icon-fb-empty:before {
+  content: "\e9a2";
+}
+.icon-mail-ic:before {
+  content: "\e9a3";
+}
+.icon-location-ic:before {
+  content: "\e9a4";
+}
+.icon-phone-ic:before {
+  content: "\e9a5";
+}
+.icon-common-shape:before {
+  content: "\e9a6";
+}
+.icon-1-ic:before {
+  content: "\e9ff";
+}
+.icon-wallet-ic:before {
+  content: "\e9fe";
+}
+.icon-trophy-cup:before {
+  content: "\e9fd";
+}
+.icon-step:before {
+  content: "\e9fc";
+}
+.icon-tshirt:before {
+  content: "\e9fb";
+}
+.icon-helmet:before {
+  content: "\e9f8";
+}
+.icon-info-solid:before {
+  content: "\e9f1";
+}
+.icon-thumb:before {
+  content: "\e9ee";
+}
+.icon-gift:before {
+  content: "\e9ed";
+}
+.icon-7-ic:before {
+  content: "\e996";
+}
+.icon-search-bg:before {
+  content: "\e995";
+}
+.icon-star:before {
+  content: "\e994";
+}
+.icon-down-substitute:before {
+  content: "\e991";
+}
+.icon-up-substitute:before {
+  content: "\e9ec";
+}
+.icon-glasshour:before {
+  content: "\e9eb";
+}
+.icon-substitute:before {
+  content: "\e990";
+}
+.icon-8-ic:before {
+  content: "\e9ea";
+}
+.icon-7-icn:before {
+  content: "\e9e6";
+}
+.icon-5-ic:before {
+  content: "\e9e0";
+}
+.icon-2-ic:before {
+  content: "\e9df";
+}
+.icon-megaphone:before {
+  content: "\e9dc";
+}
+.icon-basketball:before {
+  content: "\e9de";
+}
+.icon-4-ic:before {
+  content: "\e9e7";
+}
+.icon-coins-bal-ic:before {
+  content: "\e9da";
+}
+.icon-lock-ic:before {
+  content: "\e98a";
+}
+.icon-copy-ic:before {
+  content: "\e988";
+}
+.icon-bonus-ic:before {
+  content: "\e987";
+}
+.icon-export-ic:before {
+  content: "\e986";
+}
+.icon-tick-ic:before {
+  content: "\e985";
+}
+.icon-plus-ic:before {
+  content: "\e984";
+}
+.icon-whatapp-ic:before {
+  content: "\e982";
+}
+.icon-link-ic:before {
+  content: "\e9d8";
+}
+.icon-delete:before {
+  content: "\e9d7";
+}
+.icon-promocode:before {
+  content: "\e9d6";
+}
+.icon-support1:before {
+  content: "\e9d5";
+}
+.icon-transaction1:before {
+  content: "\e9d4";
+}
+.icon-withdraw1:before {
+  content: "\e9d1";
+}
+.icon-add-cash1:before {
+  content: "\e9cc";
+}
+.icon-bonus11:before {
+  content: "\e9c7";
+}
+.icon-deposit1:before {
+  content: "\e9c6";
+}
+.icon-email2:before {
+  content: "\e9bf";
+}
+.icon-bank:before {
+  content: "\e9be";
+}
+.icon-pancard:before {
+  content: "\e9bd";
+}
+.icon-mobile:before {
+  content: "\e9bc";
+}
+.icon-camera-fill:before {
+  content: "\e9b7";
+}
+.icon-tickets:before {
+  content: "\e968";
+}
+.icon-trophy2-ic:before {
+  content: "\e969";
+}
+.icon-vs-ic:before {
+  content: "\e96c";
+}
+.icon-badge:before {
+  content: "\e973";
+}
+.icon-stop-watch:before {
+  content: "\e9b6";
+}
+.icon-android-logo:before {
+  content: "\e9b3";
+}
+.icon-ic-download:before {
+  content: "\e9aa";
+}
+.icon-ic-team:before {
+  content: "\e9b0";
+}
+.icon-ic-privacy:before {
+  content: "\e9b2";
+}
+.icon-ic_camera:before {
+  content: "\e9ae";
+}
+.icon-ic-contact:before {
+  content: "\e9af";
+}
+.icon-ic-info:before {
+  content: "\e9ab";
+}
+.icon-icon-more-large:before {
+  content: "\e9b5";
+}
+.icon-alarm-new:before {
+  content: "\e99f";
+}
+.icon-icon-ground:before {
+  content: "\e963";
+}
+.icon-ic-pinned:before {
+  content: "\e99d";
+}
+.icon-nextArrow:before {
+  content: "\e99e";
+}
+.icon-profile:before {
+  content: "\e962";
+}
+.icon-trophy-cancelled:before {
+  content: "\e95e";
+}
+.icon-bonus1:before {
+  content: "\e95c";
+}
+.icon-download-circle:before {
+  content: "\e95b";
+}
+.icon-lock1 .path1:before {
+  content: "\e957";
+  color: rgb(51, 51, 51);
+}
+.icon-lock1 .path2:before {
+  content: "\e970";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-lock1 .path3:before {
+  content: "\e971";
+  margin-left: -1em;
+  color: rgb(33, 33, 33);
+}
+.icon-lock1 .path4:before {
+  content: "\e972";
+  margin-left: -1em;
+  color: rgb(33, 33, 33);
+}
+.icon-redeem1:before {
+  content: "\e958";
+}
+.icon-rules:before {
+  content: "\e9ac";
+}
+.icon-history:before {
+  content: "\e95a";
+}
+.icon-switch-team:before {
+  content: "\e956";
+}
+.icon-linkdin:before {
+  content: "\e955";
+}
+.icon-like-empty:before {
+  content: "\e953";
+}
+.icon-reply:before {
+  content: "\e954";
+}
+.icon-admin:before {
+  content: "\e952";
+}
+.icon-like:before {
+  content: "\e951";
+}
+.icon-instagram:before {
+  content: "\e94c";
+}
+.icon-comment:before {
+  content: "\e94d";
+}
+.icon-dislike:before {
+  content: "\e94e";
+}
+.icon-fire:before {
+  content: "\e94f";
+}
+.icon-twitter:before {
+  content: "\e950";
+}
+.icon-download:before {
+  content: "\e94b";
+}
+.icon-careers:before {
+  content: "\e946";
+}
+.icon-message:before {
+  content: "\e947";
+}
+.icon-leaderboard1:before {
+  content: "\e948";
+}
+.icon-envelop:before {
+  content: "\e949";
+}
+.icon-redeem-coins:before {
+  content: "\e94a";
+}
+.icon-badminton:before {
+  content: "\e942";
+}
+.icon-10-ic:before {
+  content: "\e9e8";
+}
+.icon-football:before {
+  content: "\e943";
+}
+.icon-tennis:before {
+  content: "\e944";
+}
+.icon-11-ic:before {
+  content: "\e9e9";
+}
+.icon-boxing:before {
+  content: "\e945";
+}
+.icon-more1:before {
+  content: "\e93d";
+}
+.icon-wallet:before {
+  content: "\e93e";
+}
+.icon-wall:before {
+  content: "\e93f";
+}
+.icon-refer:before {
+  content: "\e940";
+}
+.icon-my-contests:before {
+  content: "\e941";
+}
+.icon-circular-menu:before {
+  content: "\e93b";
+}
+.icon-cross-circular:before {
+  content: "\e93c";
+}
+.icon-bell:before {
+  content: "\e93a";
+}
+.icon-clock:before {
+  content: "\e939";
+}
+.icon-thumbs-down:before {
+  content: "\e937";
+}
+.icon-thumbs-up:before {
+  content: "\e938";
+}
+.icon-coins:before {
+  content: "\e936";
+}
+.icon-calendar-ic:before {
+  content: "\e935";
+}
+.icon-debit:before {
+  content: "\e933";
+}
+.icon-credit:before {
+  content: "\e934";
+}
+.icon-ruppee:before {
+  content: "\e932";
+}
+.icon-link1:before {
+  content: "\e92f";
+}
+.icon-email:before {
+  content: "\e930";
+}
+.icon-whatsapp:before {
+  content: "\e931";
+}
+.icon-mail:before {
+  content: "\e92d";
+}
+.icon-trophy-ic:before {
+  content: "\e92e";
+}
+.icon-reload1:before {
+  content: "\e959";
+}
+.icon-add-user:before {
+  content: "\e95d";
+}
+.icon-calendar:before {
+  content: "\e95f";
+}
+.icon-standings:before {
+  content: "\e960";
+}
+.icon-edit-line:before {
+  content: "\e961";
+}
+.icon-share1:before {
+  content: "\e964";
+}
+.icon-add-circular:before {
+  content: "\e965";
+}
+.icon-logout:before {
+  content: "\e966";
+}
+.icon-league-code:before {
+  content: "\e967";
+}
+.icon-file:before {
+  content: "\e96a";
+}
+.icon-question:before {
+  content: "\e96b";
+}
+.icon-vessel:before {
+  content: "\e96d";
+}
+.icon-notification:before {
+  content: "\e96e";
+}
+.icon-user:before {
+  content: "\e96f";
+}
+.icon-Wallet:before {
+  content: "\e974";
+}
+.icon-trophy1:before {
+  content: "\e975";
+}
+.icon-Winner:before {
+  content: "\e976";
+}
+.icon-home:before {
+  content: "\e977";
+}
+.icon-bat:before {
+  content: "\e978";
+}
+.icon-remove:before {
+  content: "\e979";
+}
+.icon-eye:before {
+  content: "\e97a";
+}
+.icon-eye-cancel:before {
+  content: "\e97b";
+}
+.icon-tick-circular:before {
+  content: "\ea27";
+}
+.icon-arrow-down:before {
+  content: "\e97c";
+}
+.icon-arrow-up:before {
+  content: "\e99c";
+}
+.icon-return:before {
+  content: "\e97d";
+}
+.icon-listview:before {
+  content: "\e97e";
+}
+.icon-minus-square:before {
+  content: "\e97f";
+}
+.icon-plus1:before {
+  content: "\e980";
+}
+.icon-search:before {
+  content: "\e981";
+}
+.icon-info1:before {
+  content: "\e9d9";
+}
+.icon-info-down:before {
+  content: "\e983";
+}
+.icon-g:before {
+  content: "\e989";
+}
+.icon-m:before {
+  content: "\e98c";
+}
+.icon-tick1:before {
+  content: "\e98d";
+}
+.icon-pitch:before {
+  content: "\e98e";
+}
+.icon-navigation:before {
+  content: "\e98f";
+}
+.icon-filter1:before {
+  content: "\e992";
+}
+.icon-left-arrow:before {
+  content: "\e993";
+}
+.icon-close1:before {
+  content: "\e997";
+}
+.icon-arrow-sort:before {
+  content: "\e998";
+}
+.icon-next-btn:before {
+  content: "\e999";
+}
+.icon-check:before {
+  content: "\ea17";
+}
+.icon-edit1:before {
+  content: "\e99a";
+}
+.icon-facebook1:before {
+  content: "\e9b1";
+}
+.icon-g-plus:before {
+  content: "\e99b";
+}
+.icon-edit-copy:before {
+  content: "\e9db";
+}
+.icon-timer:before {
+  content: "\ea16";
+}
+.icon-time:before {
+  content: "\ea12";
+}
+.icon-user2:before {
+  content: "\ea13";
+}
+.icon-calendar2:before {
+  content: "\ea14";
+}
+.icon-pick:before {
+  content: "\ea15";
+}
+.icon-send:before {
+  content: "\e98b";
+}
+.icon-sound-unmute:before {
+  content: "\ea18";
+}
+.icon-sound-mute:before {
+  content: "\ea19";
+}
+.icon-copy:before {
+  content: "\e9f6";
+}
+.icon-track:before {
+  content: "\e9f7";
+}
+.icon-pin-solid:before {
+  content: "\ea25";
+}
+.icon-filter-ic:before {
+  content: "\e9f9";
+}
+.icon-h2h_ic:before {
+  content: "\e9fa";
+}
+.icon-close:before {
+  content: "\e92c";
+}
+.icon-reload:before {
+  content: "\e929";
+}
+.icon-whatapp:before {
+  content: "\e92a";
+}
+.icon-link:before {
+  content: "\e92b";
+}
+.icon-flash1:before {
+  content: "\e928";
+}
+.icon-filter-ic1:before {
+  content: "\e926";
+}
+.icon-share:before {
+  content: "\e927";
+}
+.icon-note1:before {
+  content: "\e925";
+}
+.icon-google:before {
+  content: "\e923";
+}
+.icon-facebook:before {
+  content: "\e924";
+}
+.icon-leader:before {
+  content: "\e922";
+}
+.icon-info:before {
+  content: "\e921";
+}
+.icon-plus:before {
+  content: "\e920";
+}
+.icon-lock:before {
+  content: "\e91f";
+}
+.icon-ground:before {
+  content: "\e918";
+}
+.icon-more:before {
+  content: "\e919";
+}
+.icon-switch:before {
+  content: "\e91a";
+}
+.icon-lg-arrow:before {
+  content: "\e91b";
+}
+.icon-edit:before {
+  content: "\e91c";
+}
+.icon-copy1:before {
+  content: "\e91d";
+}
+.icon-tick:before {
+  content: "\e91e";
+}
+.icon-bank-ic:before {
+  content: "\e913";
+}
+.icon-filter:before {
+  content: "\e914";
+}
+.icon-email-ic:before {
+  content: "\e915";
+}
+.icon-pancard-ic:before {
+  content: "\e916";
+}
+.icon-mobile-ic:before {
+  content: "\e917";
+}
+.icon-bottom-arrow:before {
+  content: "\e911";
+}
+.icon-top-arrow:before {
+  content: "\e912";
+}
+.icon-arrow-left:before {
+  content: "\e910";
+}
+.icon-arrow-right:before {
+  content: "\e90f";
+}
+.icon-camera:before {
+  content: "\e900";
+}
+.icon-vs:before {
+  content: "\e901";
+}
+.icon-tickets1:before {
+  content: "\e902";
+}
+.icon-trophy:before {
+  content: "\e903";
+}
+.icon-deposit:before {
+  content: "\e904";
+}
+.icon-bonus-ic1:before {
+  content: "\e905";
+}
+.icon-badge1:before {
+  content: "\e906";
+}
+.icon-coins-bal:before {
+  content: "\e907";
+}
+.icon-support:before {
+  content: "\e908";
+}
+.icon-tds1:before {
+  content: "\e909";
+}
+.icon-transaction:before {
+  content: "\e90a";
+}
+.icon-withdraw:before {
+  content: "\e90b";
+}
+.icon-star-circle1:before {
+  content: "\e90c";
+}
+.icon-add-cash:before {
+  content: "\e90d";
+}
+.icon-bonus:before {
+  content: "\e90e";
+}

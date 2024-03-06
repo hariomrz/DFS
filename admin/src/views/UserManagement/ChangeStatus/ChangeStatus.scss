@@ -1,0 +1,14 @@
+.inactive-modal {
+    label{
+        color: $gray-5;
+        font-family: $font-regular;
+        font-size: 16px;
+        font-style: inherit;
+        font-weight: normal;
+        margin: 0;
+    }
+    .reject-reason{
+        resize: none;
+        width: 100%;
+    }
+}

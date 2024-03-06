@@ -1,0 +1,38 @@
+<div class="panel panel-primary panel-hostedby">
+  <div class="panel-body">
+    <div class="hostedby-title" ng-bind="lang.hosted_by"></div>
+    <ul class="listing-group">
+      <li class="list-items-xmd">
+        <div class="list-inner">
+          <figure>
+            <a entitytype="user" entityguid="{{eventHostedByDetail.UserGUID}}" class="loadbusinesscard" ng-href="{{eventHostedByDetail.ProfileURL}}">
+              <img ng-if="eventHostedByDetail.ProfilePicture != '' && eventHostedByDetail.ProfilePicture !== 'user_default.jpg'" ng-src="{{lang.image_server_path}}upload/profile/220x220/{{eventHostedByDetail.ProfilePicture}}" />
+
+              <span ng-if="eventHostedByDetail.ProfilePicture == '' || eventHostedByDetail.ProfilePicture === 'user_default.jpg'" class="default-thumb">
+                <span ng-bind="getDefaultImgPlaceholder(eventHostedByDetail.Name)"></span>
+              </span>
+            </a>
+          </figure> 
+          <div class="list-item-body">
+            <h4 class="list-heading-xs"><a entitytype="user" ng-href="{{eventHostedByDetail.ProfileURL}}" entityguid="{{eventHostedByDetail.UserGUID}}" class="loadbusinesscard ellipsis" ng-bind="eventHostedByDetail.Name"></a></h4>
+            <small ng-bind="eventHostedByDetail.location.Location"></small>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <ul class="events-by-host">
+    <li>
+      <div class="event-count-wrapper">
+        <div class="event-count" ng-bind="eventHostedByDetail.upcoming_event_count"></div>
+        <div ng-bind="lang.upcoming_events"></div>
+      </div>
+    </li>
+    <li>
+      <div class="event-count-wrapper">
+        <div class="event-count" ng-bind="eventHostedByDetail.past_event_count"></div>
+        <div ng-bind="lang.past_events"></div>
+      </div>
+    </li>
+  </ul>
+</div>

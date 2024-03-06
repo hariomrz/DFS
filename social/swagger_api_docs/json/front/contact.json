@@ -1,0 +1,83 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/contact/index": {
+            "post": {
+                "tags": [
+                    "Activity Section"
+                ],
+                "summary": "Used to submit contact us form",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Contact\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Contact\\index": {
+            "required": [
+                "Name",
+                "Mobile",
+                "Message"
+            ],
+            "properties": {
+                "Name": {
+                    "description": "User name",
+                    "type": "string",
+                    "example": "Suresh Patidar"
+                },
+                "Mobile": {
+                    "description": "Mobile Number",
+                    "type": "string",
+                    "example": "9827298272"
+                },
+                "Message": {
+                    "description": "Message",
+                    "type": "string",
+                    "example": "MahaLaxmi Nagar"
+                }
+            }
+        }
+    }
+}

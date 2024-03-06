@@ -1,0 +1,126 @@
+.op-create-category {
+  .op-heading {
+    border-bottom: 1px solid #D8D8D8;
+  }
+
+  .question-input {
+    max-width: 320px;
+    height: 40px;
+    background-color: #ededed;
+    resize: none;
+    &.pf-desc-wdt {
+      height: 80px;
+    }
+  }
+
+  .select-image-box {
+    height: 120px;
+    width: 320px;
+    border-radius: 4px;
+    background-color: #EDEDED;
+    padding: 12px 16px;
+  }
+
+  input[type=file],
+  input[type=file]::-webkit-file-upload-button {
+    cursor: pointer;
+  }
+
+  .dashed-box {
+    position: relative;
+    box-sizing: border-box;
+    height: 97px;
+    width: 289px;
+    border: 2px dashed #C8C8C8;
+    border-radius: 4px;
+
+    .form-control-file {
+      width: 58px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      z-index: 1;
+      opacity: 0;
+    }
+
+    .icon-close {
+      cursor: pointer;
+      position: absolute;
+      color: $white;
+      right: 0;
+      top: 0;
+      padding: 4px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 100%;
+      margin: 8px;
+    }
+
+    .def-addphoto {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+
+  .redeem-box {
+    max-width: 600px;
+  }
+
+  .publish-box {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .after-div::before {
+    content: '';
+    box-sizing: border-box;
+    height: 230px;
+    border: 1px dashed $gray-9;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .img-preview-box {
+    width: 320px;
+    height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &.dot-border {
+      border: none;
+    }
+
+    .cat-title {
+      font-style: normal;
+    }
+  }
+
+  .category-list-box {
+    margin-top: 30px;
+  }
+
+  .icons-box {
+    position: absolute;
+    top: 8px;
+    color: #fff;
+    right: 10px;
+    font-size: 12px;
+    z-index: 2;
+
+    i {
+      margin-left: 6px;
+      padding: 4px;
+      cursor: pointer;
+    }
+  }
+}

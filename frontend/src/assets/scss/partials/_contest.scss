@@ -1,0 +1,76 @@
+.share-contest-wrapper{
+    &.share-collection-wrapper{
+        .contest-card-wrapper.contest-card{
+            padding: 0;
+            background: $white;
+            .contest-card-header{
+                padding-bottom: 0;
+                box-shadow: none;
+                border-radius: 0;
+                ul{
+                    border-radius: 14px 14px 0 0;
+                    box-shadow: none;
+                    padding: 15px 0 0;
+                    li.progress-middle{
+                        &.progress-middle-fullwidth{
+                            width: 100%;
+                        }
+                    }
+                    li{
+                        @media (max-width: 414px){
+                            p{
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .contest-card-body{
+                border-radius: 0 0 14px 14px;
+                border: 0;
+                box-shadow: none;
+                padding: 5px 15px 15px;
+                .contest-list-header{
+                    border: 1px solid $border_color;
+                    border-radius: 10px;
+                }
+                 
+            }
+        }
+    }
+}
+
+.share-contest-wrapper-ML{
+    &.share-contest-wrapper .contest-card-wrapper.contest-card .progress-bar-default{
+        .progress-bar, .progress{
+            height: 8px;
+            border-radius: 4px;
+        }
+    }
+}
+
+// changes for dark theme overall
+.body-dark-theme{
+    .share-contest-wrapper .contest-card-wrapper.contest-card .contest-card-header ul li span.team-name{
+        color: $darkT_primary_text_color;
+    }
+    .share-contest-wrapper.share-collection-wrapper .contest-card-wrapper.contest-card{
+        background: transparent;
+        padding: 0 20px;
+        .contest-card-header ul li p{
+            color: $darkT_primary_text_color;
+        }
+        .contest-card-body .contest-list-header{
+            border-color: $darkT_border_color2;
+        }
+        .contest-list .contest-heading h3.win-type span{
+            color: $darkT_primary;
+        }
+    }
+}
+.contest-list .contest-heading img.rev-fan-img{
+    position: relative;
+    top: -1px;
+    width: 15px;
+    margin-left: 5px;
+}

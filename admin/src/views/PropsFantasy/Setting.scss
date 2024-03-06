@@ -1,0 +1,112 @@
+.table-responsive.common-table.player-mng-tbl{
+    table{
+        tr{
+            td,th{
+                text-align: left;
+                padding: 20px 0;
+                width: 15%;
+                vertical-align: middle;
+                &:first-child{
+                    width: 20%;
+                    padding-left: 28px;
+                }
+                &.wid-20{
+                    width: 20%;
+                }
+                &:last-child{
+                    padding-right: 28px;
+                }
+            }
+            td{
+                &:first-child{
+                    font-family: "MuliBold";
+                }
+                &.plyr-img-sec{
+                    .img-wrap{
+                        display: inline-block;
+                        border-radius: 100%;
+                        height: 40px;
+                        width: 40px;
+                        background-color: #D8D8D8;
+                        vertical-align: middle;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .txt{
+                        margin-left: 15px;
+                        color: #999999;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        tbody{
+            tr{
+                &:nth-child(2n){
+                    background-color: #EFEFEF;
+                }
+            }
+        }
+    }
+}
+.edit-player-img-modal{
+    .modal-header{
+        padding: 18px;
+        height: 62px;
+    }
+    .modal-body{
+        padding: 30px 22px 0;
+        .form-horizontal{
+            background-color: #EDEDED;
+        }
+        .form-group{
+            padding: 25px;
+        }
+    }
+    .modal-footer{
+        padding: 50px;
+    }
+}
+
+.save-button {
+    position: absolute;
+    bottom: 0;
+ 
+}
+.save_btn{
+    height: 35px !important;
+    width: 138px !important;
+    border-radius: 3px !important;
+}
+
+.setting-management-filter-details-heading {
+    padding: 10px 10px 30px 10px;
+    background: #fff;
+    border-radius: 13px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.setting_heading p {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
+
+.save-payout-button {
+    text-align: center;
+    margin-top: 6%;
+}
+
+button.save_payout_btn.btn.btn-secondary {
+    width: 220px;
+}
+
+.props-title {
+    margin-top: 2%;
+    color: #000;
+    font-weight: bold;
+}

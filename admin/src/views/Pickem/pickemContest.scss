@@ -1,0 +1,225 @@
+.pickem-contest{
+    .que-set{
+        max-height: 161px !important;
+        height: 100%;
+        width: 311px;
+    }
+    .qa-card{
+            display: flex;
+            height: 148px;
+        }
+    // .qa-card{
+    // //    min-width: calc(100% - 346px);
+    //     display: flex;
+    //     height: 148px;
+    //     max-width: 100%;
+    //     min-width: 100%;
+    //     width: 100%;
+    //     // justify-content: space-evenly;
+    // }
+    .pt-c-gray{
+        background: white;
+        margin-top: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: 2px solid #EDEDED;
+        padding: 4px;
+        margin-top: 30px;
+    }
+    .option-set{
+        display: flex;
+        max-height: 114px;
+        height: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        // margin-top: 30px;
+    }
+    .option-set-cond{
+        display: flex;
+        max-height: 160px;
+        height: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        // margin-top: 30px;
+    }
+    .option-set-completed{
+        display: flex;
+        max-height: 150px;
+        height: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        // margin-top: 30px;
+    }
+    .scoring{
+        border-top: 2px solid #EDEDED;
+        margin: 0;
+        padding-top: 5px;;
+    }
+    .answer-input{
+        background: #EDEDED;
+        // max-width: 500px;
+        height: 39px;
+        // min-width: 100%;
+        // width: 100%;
+    }
+    .flex-input{
+        display: flex;
+        button{
+            margin-left: 15px;
+        }
+    }
+    .questionary{
+        // border-right: 2px solid #EDEDED;
+        padding: 0 17px;
+        // width: 100%;
+        .que{
+            font-size: 16px;
+            color: #555555;
+            margin-bottom: 0;
+        }
+        .ans{
+            color: #999999;
+            font-size: 12px;
+            width: 350px;
+            margin-bottom: 5px !important;
+            // width: max-content;
+        }
+       
+    }
+
+    .correct-answer-section{
+        border-left: 2px solid #EDEDED;
+        padding: 0 17px;
+    }
+    .draw{
+        text-align: center;
+        border-right: 2px solid #EDEDED;
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+    }
+    .home{
+        border-right:2px solid #EDEDED;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+    }
+    .away{
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+    }
+    .draw-home{
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        color: #000000;
+        text-transform: uppercase;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .background-home{
+        background-color: #E4FDE8;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        position: relative;
+    }
+    .background-away{
+        background-color: #E4FDE8;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+    }
+    .background-draw{
+        background-color: #E4FDE8;
+        position: relative;
+    }
+    .approval{
+        position: absolute;
+        left: 3px;
+        top: 6px;
+    }
+    .right-approval{
+        position: absolute;
+        right: 3px;
+        top: 6px;
+    }
+    
+}
+.cancel-tour-modal{
+    padding: 10px;
+    text-align: center;
+    .cancel-wrap{
+        text-align: center;
+        .cancel-heading{
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .cancel-heading-undo{
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .cancel-input{
+            width: 327px;
+            height: 100px;
+            border: none;
+            padding: 14px;
+            background: #EDEDED;
+            padding-bottom: 78px;
+            border-radius: 10px;
+            &:focus-visible{
+                outline: none;
+            }
+        }
+    }
+}
+.pick-perc-value{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    .CircularProgressbar {
+        width: 14px;
+        height: 14px;
+       .CircularProgressbar-path{
+            stroke: #00BFEB;
+       }
+        .CircularProgressbar-text{
+            color: $gray-9;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+}
+.pickem-contest .correct-answer-section{
+    width: calc(100% - 395px);
+}
+.scoreTextbox{
+    width: 64%;
+    margin: 0 auto;
+    @media (max-width: 1400px){
+        width: 100%;
+    }
+}
+.scoreTextboxRed{
+    border: 1px solid rgba(248,67,110,0.8);
+}
+.deletePickMatch{
+    color: black;
+    font-weight: 700;
+    float: right;
+    margin-right: 0px;
+    position: relative;
+    right: 10px;
+    top: 2px;
+    cursor: pointer;
+}

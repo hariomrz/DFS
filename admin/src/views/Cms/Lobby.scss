@@ -1,0 +1,27 @@
+.lobby-page{
+    .sn-item {
+      color: $gray-5;
+      font-family: $font-bold;
+      font-size: 16px;
+    }
+    .sn-list {
+      color: #27272D;
+      font-family: $font-regular;
+      font-size: 16px;
+      span{
+          vertical-align: -webkit-baseline-middle;
+      }
+      .dl-item {
+        height: 48px;
+        margin-top: 10px;
+      }
+      .ml-xxxl{
+        margin-left: -10rem;
+      }
+      .sw-po-icon {
+        font-size: 24px;
+        color: $gray-9;
+        cursor: pointer;
+      }
+    }
+}

@@ -1,0 +1,41 @@
+<!-- Add Forum Modal -->
+<div class="modal fade" id="addForum" ng-controller="saveForumController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="resetFormdata()">
+                    <span aria-hidden="true"><i class="icon-close"></i></span>
+                </button>
+                <h4 class="modal-title" ng-bind="addEditForumPopupTitle"></h4>
+            </div>
+            <form method="post" id="createUpdateForum" name="createUpdateForum">
+                <div class="modal-body">
+                    <div class="form-group" ng-class="(!CreateUpdate.Name && !createUpdateForum.ForumName.$pristine) ? 'has-error' : '' ;">
+                        <label class="control-label">
+                            <span ng-bind="::lang.forum_name"></span>
+                            <span class="help-block" ng-bind="(100 - CreateUpdate.Name.length)"></span>
+                        </label>
+                        <input ng-keyup="prefill_url_forum(CreateUpdate.Name)" ng-model="CreateUpdate.Name" data-req-minlen="2" maxlength="100" data-req-maxlen="100" class="form-control" type="text" value="" name="ForumName" placeholder="Enter forum name">
+                        <span class="block-error" ng-bind="lang.f_r_forum_name"></span>
+                    </div>
+                    <div class="form-group" ng-class="(!CreateUpdate.Description && !createUpdateForum.ForumDescription.$pristine) ? 'has-error' : '' ;">
+                        <label class="control-label">
+                            <span ng-bind="::lang.description"></span>
+                            <span class="help-block" ng-bind="(200 - CreateUpdate.Description.length)"></span>
+                        </label>
+                        <textarea ng-model="CreateUpdate.Description" maxcount="200" rows="3" maxlength="200" class="form-control" id="forum_description" name="ForumDescription"  placeholder="{{::lang.enter_description}}"></textarea>
+                        <span class="block-error" ng-bind="lang.f_r_forum_description"></span>
+                    </div>
+                    <div class="form-group" ng-class="(!CreateUpdate.URL && !createUpdateForum.ForumUrl.$pristine) ? 'has-error' : '' ;">
+                        <label ng-bind="::lang.url"></label>
+                        <input ng-model="CreateUpdate.URL"  data-req-minlen="2" maxlength="40" data-req-maxlen="40" class="form-control" type="text" value="" name="ForumUrl" placeholder="{{::lang.enter_url}}">
+                        <span class="block-error" ng-bind="lang.f_r_forum_url"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button ng-disabled="CreateUpdate.Name=='' || CreateUpdate.Description=='' || CreateUpdate.URL==''" id="submitForum" type="submit" ng-click="CreateUpdateForum()"  class="btn btn-primary pull-right" ng-bind="::lang.finish"> </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

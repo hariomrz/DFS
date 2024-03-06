@@ -1,0 +1,49 @@
+.sub-report {
+  margin-top: 60px;
+
+  .tr-count {
+    font-size: 22px;
+    color: #555555;
+    font-family: $font-bold;
+  }
+
+  .t-earn {
+    font-size: 30px;
+    color: $text-color;
+    font-family: $font-bold;
+  }
+
+  .sr-filter {
+    width: 190px;
+    float: left;
+    margin-right: 10px;
+  }
+
+  .sr-date {
+    width: 210px;
+    > div:nth-child(2)
+    {
+      margin-top: 26px;
+    }
+  }
+
+  .sr-totals {
+    width: 34%;
+    float: right;
+    margin-right: 0;
+  }
+
+  .export-list{
+      padding: 4px 6px;
+      margin-top: 8px;
+      margin-left: 10px;
+  }
+  .Select-placeholder,
+  .Select-value {
+    line-height: 36px;
+  }
+  ::placeholder{
+    font-family: $font-regular;
+    color: #aaaaaa;
+  }
+}

@@ -1,0 +1,284 @@
+.set-p-lrdbrd {
+  margin-bottom: 28px;
+
+  .fx-top-header {
+    height: 52px;
+    background-color: $theme-color;
+    padding: 12px 20px;
+    color: $white;
+    font-family: $font-bold;
+    font-size: 20px;
+  }
+
+  .prize-duration {
+    color: #111111;
+    font-family: $font-black;
+    font-size: 24px;
+    margin: 24px 20px 30px;
+  }
+
+  .fx-border-right {
+    box-sizing: border-box;
+    max-width: 690px;
+  }
+
+  .set-prizes-title {
+    color: #555555;
+    font-family: $font-bold;
+    font-size: 16px;
+    margin: 0 0 20px 20px;
+
+    i {
+      cursor: pointer;
+    }
+  }
+
+  .select-prize-op {
+    color: $black;
+    font-family: $font-regular;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+
+    label {
+      display: inline;
+      margin-right: 40px;
+      font-size: 16px;
+      padding-top: 2px;
+
+      @media (max-width : 1366px) {
+        margin-right: 38px;
+      }
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .form-check-input {
+      margin-left: -2.25rem;
+      margin-top: 0px;
+    }
+  }
+
+  .proof-box {
+    border-top: 1px solid rgba(151, 151, 151, 0.2);
+    margin-bottom: 22px;
+
+    .dashed-box {
+      width: 100%;
+    }
+
+    label {
+      color: #555555;
+      margin-bottom: 8px;
+    }
+
+    .select-prize-op label {
+      font-family: $font-regular;
+    }
+
+    .set-prizes-title {
+      margin: 40px 0;
+    }
+  }
+
+  .sponsor-action {
+    float: left;
+    margin-right: 80px;
+
+    @media (max-width : 1366px) {
+      margin-right: 40px;
+    }
+  }
+
+  .sp-filters {
+    padding: 20px 20px 30px;
+
+    label {
+      color: #9398A0;
+      font-family: $font-bold;
+      margin-bottom: 4px;
+    }
+
+    .Select-control {
+      border: none;
+      border-radius: 5px;
+      height: 48px;
+      background-color: #EDEDED !important;
+    }
+    .Select-value{
+      line-height: 48px !important;
+    }
+  }
+}
+
+.setp-prize-dist-table {
+  margin: 30px 0 50px 12px;
+
+  .prize-head {
+    height: 48px;
+    border-radius: 4px;
+    background-color: #EDEDED;
+  }
+
+  .head-title {
+    color: #555555;
+    font-family: $font-bold;
+    float: left;
+    margin: 14px 0px;
+    text-align: center;
+    width: 208px;
+  }
+
+  .prize-add-body {
+    padding: 20px 4px 14px;
+    border-top: 1px solid #D8D8D8;
+  }
+
+  .rank-add {
+    .rank-input {
+      width: 100px;
+      border-radius: 5px;
+      float: left;
+
+      .form-control {
+        height: 38px;
+        background-color: #EDEDED;
+        color: $black;
+        font-family: $font-regular;
+        font-size: 18px;
+        padding: 2px;
+        text-align: center;
+      }
+    }
+  }
+
+  .rank-seprator {
+    color: $black;
+    font-family: $font-regular;
+    font-size: 18px;
+    float: left;
+    margin: 6px;
+  }
+
+  .prize-type {
+    height: 38px;
+    width: 190px;
+    margin: 0 20px;
+
+    .is-focused:focus,
+    .Select:focus {
+      outline: none;
+    }
+
+    .Select-control {
+      background-color: #EDEDED;
+      border: none;
+      height: 38px;
+
+      color: #030F09;
+      font-family: $font-regular;
+
+      .Select-placeholder {
+        background-color: #EDEDED;
+        line-height: 38px !important;
+      }
+
+      .Select-value {
+        line-height: 38px !important;
+      }
+    }
+  }
+
+  .fx-distribution {
+    width: 190px;
+    position: relative;
+
+    .form-control {
+      height: 38px;
+      padding: 6px;
+      background-color: #EDEDED;
+      color: $black;
+      font-family: $font-regular;
+    }
+  }
+
+  @media (max-width : 1366px) {
+    .dis-each {
+      font-size: 14px;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      opacity: 0.4;
+      color: #030F09;
+      user-select: none;
+    }
+  }
+
+  .add-prize-btn {
+    height: 40px;
+    background-color: #EDEDED;
+    text-align: center;
+    color: #030F09;
+    font-family: $font-bold;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    width: 140px;
+    display: inline-block;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba(102, 102, 102, 0.4);
+    }
+  }
+
+  .icon-style {
+    height: 20px;
+    width: 20px;
+    background-color: #F8436E;
+    color: $white;
+    padding: 4px;
+    border-radius: 100%;
+
+    &.icon-cross {
+      float: right;
+      margin-top: 4px;
+      font-size: 10px;
+      padding: 5px;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 5px 15px rgba(248, 67, 110, 0.48);
+      }
+
+      @media (max-width : 1366px) {
+        width: 16px;
+        height: 16px;
+        padding: 4px;
+        font-size: 8px;
+      }
+    }
+  }
+}
+
+.setp-updatebtn-box {
+  text-align: center;
+  margin-bottom: 28px;
+
+  .component-loader {
+    min-height: 30px;
+    margin-top: -4px;
+    background-size: 34px;
+  }
+
+  .btn {
+    width: 164px;
+    height: 42px;
+  }
+}

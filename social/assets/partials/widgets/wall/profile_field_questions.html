@@ -1,0 +1,315 @@
+<span ng-init="get_profile_field_questions()"></span>
+<div class="hiddendiv" id="profile-picture"></div>
+
+
+<form ng-show="!IsMyDeskTab">
+    <div ng-cloak ng-if="!(IsSingleActivity)" ng-repeat="pfq in profile_field_questions| limitTo:1" class="user-profile-completion">
+        <h3><span ng-bind="pfq.Description"></span> 
+            <i ng-click="update_last_date('Questions')"  class="ficon-cross"></i>            
+        </h3>
+        <div class="completion-content">
+            <!-- start -->
+            <div class="form-group" ng-if="pfq.FieldKey == 'ProfilePicture'">
+                <div class="upload-picture">
+                    <div class="upload-button">
+                        <i onclick="$('.select-image-btn').trigger('click')" class="ficon-camera f-lg"></i>                        
+                    </div>
+                    <div>Upload Your Picture</div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="pfq.FieldKey == 'Username'">
+                <label>Username</label>
+                <div data-error="hasError" class="text-field">
+                    <input ng-init="questions.Username = ''" name="Username" ng-model="questions.Username" type="text" uix-input="" data-req-minlen="4" maxlength="50" data-req-maxlen="50" placeholder="Username" id="usernameCtrlID" data-controltype="username" data-mandatory="true" data-msglocation="errorUsername" data-data-requiredmessage="Required" class="ng-valid ng-valid-maxlength ng-touched">
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="pfq.FieldKey == 'DOB'" ng-init="triggerDatepicker('DatepickerDOB')">
+                <label>Date of Birth</label>
+                <div data-error="hasError" class="text-field">
+                    <input ng-init="questions.DOB = ''" name="DOB" ng-model="questions.DOB" type="text" readonly id="DatepickerDOB" name="DOB" placeholder="__/__/____" class="ng-pristine ng-valid ng-touched">
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="pfq.FieldKey == 'Gender'">
+                <label>Gender</label>
+                <div data-error="hasError" class="text-field-select hide-search">
+                    <select ng-init="questions.Gender = ''" ng-cloak data-chosen=""  data-disable-search="true"  
+                            ng-model="questions.Gender"
+                            name="Gender"
+                            id="GenderDropDown" placeholder="Select Gender">
+                        <option value="0">Select Gender</option>
+                        <option value="1"> Male </option>
+                        <option value="2"> Female </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="pfq.FieldKey == 'Location'" ng-init="initLocationAuto('address')">
+                <label>Location</label>
+                <div data-error="hasError" class="text-field">
+                    <input ng-init="questions.Location = ''" type="text" uix-input="" data-req-minlen="2" data-req-maxlen="50" maxlength="50" ng-model="questions.Location" id="address" name="Location" value="" data-controltype="namefield" data-mandatory="true" data-msglocation="errorFirstname" data-requiredmessage="Required" placeholder="Location" />
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="pfq.FieldKey == 'HomeLocation'" ng-init="initLocationAuto('hometown')">
+                <label>Home Location</label>
+                <div data-error="hasError" class="text-field">
+                    <input ng-init="questions.HomeLocation = ''" type="text" uix-input="" data-req-minlen="2" data-req-maxlen="50" maxlength="50" ng-model="questions.HomeLocation" id="hometown" name="HomeLocation" value="" data-controltype="namefield" data-mandatory="true" data-msglocation="errorFirstname" data-requiredmessage="Required" placeholder="Location" />
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="pfq.FieldKey == 'TimeZoneID'" ng-init="getTimeZoneList();">
+                <label>Timezone</label>
+                <div data-error="hasError" class="text-field-select hide-search">
+                    <select ng-init="questions.TimeZoneID = ''" name="TimeZoneID" class="start-year" data-chosen=""  ng-model="questions.TimeZoneID" data-disable-search="false" data-placeholder="Select Timezone" ng-options="timezone.TimeZoneName for timezone in TimeZoneList track by timezone.TimeZoneID">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" ng-if="pfq.FieldKey == 'UserWallStatus'">
+                <label>{{lang.about_text}}</label>
+                <div data-error="hasError" class="text-field">
+                    <textarea ng-init="questions.UserWallStatus = ''" 
+                              name="UserWallStatus" uix-textarea="" data-req-minlen="2" maxlength="200" data-req-maxlen="200" class="form-control" placeholder="Please enter something about yourself &#10;Eg. I am a sheriff with lot of stories to share..." ng-model="questions.UserWallStatus" id="aboutText1" maxcount="200"></textarea>
+                    <span id="spn2textareaID" style="cursor: pointer; color: Red; position: inherit;"></span><br>
+                    <span id="noOfCharaboutText" ng-bind="200 - questions.UserWallStatus.length"></span>
+                </div>
+            </div>
+
+            <div ng-if="pfq.FieldKey == 'SocialProfile'">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Facebook</label>
+                            <div data-error="hasError" class="text-field">
+                                <input ng-init="questions.FB = ''" type="text" name="FB" ng-model="questions.FB" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Twitter</label>
+                            <div data-error="hasError" class="text-field">
+                                <input name="Twitter"  ng-init="questions.Twitter = ''" type="text" ng-model="questions.Twitter" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Google+</label>
+                            <div data-error="hasError" class="text-field">
+                                <input name="GogglePlus"  ng-init="questions.GooglePlus = ''" ng-init="questions.FB = ''" type="text" ng-model="questions.GooglePlus" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>LinkedIn</label>
+                            <div data-error="hasError" class="text-field">
+                                <input name="LinkedIn"  ng-init="questions.LinkedIn = ''" type="text" ng-model="questions.LinkedIn" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="pfq.FieldKey == 'FirstName'">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <div data-error="hasError" class="text-field">
+                                <input name="FirstName"  ng-init="questions.FirstName = ''" type="text" ng-model="questions.FirstName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <div data-error="hasError" class="text-field">
+                                <input name="LastName"  ng-init="questions.LastName = ''" type="text" ng-model="questions.LastName" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="pfq.FieldKey == 'RelationWithName'">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Relationship</label>
+                            <div data-error="hasError" class="text-field-select hide-search">
+                                <select ng-init="questions.MartialStatus = ''"  
+                                        ng-model="questions.MartialStatus" 
+                                        id="MStatus" 
+                                        name="MartialStatus" 
+                                        data-chosen=""  
+                                        data-disable-search="true" 
+                                        data-ng-change="showRelationWith();" 
+                                        data-placeholder="Choose Marital Status"
+                                        ng-options="Relationship.val as Relationship.Relation for Relationship in RelationshipOptions">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group" ng-show="showRelationOption == 1" ng-init="InitRelationTo();">
+                            <label ng-if="RelationReferenceTxt == 0">To</label>
+                            <label ng-if="RelationReferenceTxt == 1">With</label>
+                            <div data-error="hasError" class="text-field">
+                                <input type="text" ng-model="questions.RelationWithInputEdit" name="RelationWithInputEdit"  data-requiredmessage="Required" data-msglocation="errorTo" data-mandatory="false" data-controltype="relationfield" value="" id="RelationTo" class="form-control ui-autocomplete-input" placeholder="Start typing" uix-input="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="pfq.FieldKey == 'WorkExperience'" >
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>{{::lang.company_name}}</label>
+                            <div data-error="hasError" class="text-field">
+                                <input ng-init="questions.Organisation = ''" data-controltype="customval" data-req-minlen="2" maxlength="50" data-req-maxlen="50" type="text" ng-model="questions.Organisation" value="" name="Organisation" placeholder="{{::lang.company_name}}" uix-input="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>{{::lang.designation}}</label>
+                            <div data-error="hasError" class="text-field">
+                                <input ng-init="questions.Designation = ''" data-controltype="alphanum" data-req-minlen="2" maxlength="50" data-req-maxlen="50" type="text" ng-model="questions.Designation" value=""  name="Designation" placeholder="{{::lang.designation}}" uix-input=/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>
+                    Time period
+                    <span class="checkbox">
+                        <input id="tillDate" type="checkbox" value="1" ng-model="questions.CurrentlyWorkingHere"  name="CurrentlyWorkingHere" class="till-date-checkbox">
+                        <label onclick="updateCheckBoxStatus(this);" for="tillDate">{{lang.currently_work_here}}</label>
+                    </span>    
+                </h3>
+                <div class="row m-t-10">
+                    <div class="col-sm-6">
+                        <div class="form-group select-time small-select">
+                            <label>From Date</label>
+                            <div data-error="hasError" class="text-field-select left hide-search">
+                                <select ng-init="questions.StartMonth = ''" 
+                                        onchange="resetChosen(this)" ng-model="questions.StartMonth"  
+                                        name="StartMonth" data-chosen=""  data-disable-search="true" data-placeholder="From Month"
+                                        
+                                        ng-options="monthObj.val as monthObj.label for monthObj in getProfileQuestionMonths()"
+                                >
+                                    
+                                </select>
+                            </div>
+                            <div data-error="hasError" class="text-field-select border-left right hide-search">
+                                <select ng-init="questions.StartYear = ''" 
+                                        onchange="resetChosen(this)"  
+                                        ng-model="questions.StartYear"  
+                                        name="StartYear" 
+                                        data-chosen=""  
+                                        data-disable-search="true" 
+                                        data-placeholder="From Year"
+                                        
+                                        ng-options="year for year in getProfileQuestionYears()"
+                                >
+                                    
+                                    
+                                   
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group select-time small-select till-date-div">
+                            <label>To Date</label>
+                            <div data-error="hasError" class="text-field-select left till-date-mon hide-search">
+                                <select ng-init="questions.EndMonth = ''" onchange="resetChosen(this)"  name="EndMonth"  
+                                        ng-model="questions.EndMonth" data-chosen=""  data-disable-search="true" data-placeholder="To Month"
+                                        
+                                        ng-options="monthObj.val as monthObj.label for monthObj in getProfileQuestionMonths()"
+                                >
+                                    
+                                </select>
+                            </div>
+                            <div data-error="hasError" class="till-date-year text-field-select border-left right hide-search">
+                                <select ng-init="questions.EndYear = ''" 
+                                        onchange="resetChosen(this)"  name="EndYear"  
+                                        ng-model="questions.EndYear" data-chosen=""  data-disable-search="true" data-placeholder="To Year"
+                                        
+                                        ng-options="year for year in getProfileQuestionYears()"
+                                >
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="pfq.FieldKey == 'Education'">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>University</label>
+                            <div data-error="hasError" class="text-field">
+                                <input ng-init="questions.University = ''" data-controltype="customval" data-req-minlen="2"  name="University"  maxlength="50" data-req-maxlen="50" ng-model="questions.University" type="text" value="" placeholder="University Name" uix-input="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Course Name</label>
+                            <div data-error="hasError" class="text-field">
+                                <input ng-init="questions.Course = ''" data-controltype="alphanum" data-req-minlen="2"  name="Course"  maxlength="50" data-req-maxlen="50" ng-model="questions.Course" type="text" value="" placeholder="Course Name" uix-input="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div data-error="hasError" class="text-field-select hide-search">
+                                <select ng-init="questions.StartYear = ''"  onchange="resetChosen(this)" 
+                                        ng-model="questions.StartYear" data-chosen=""  data-disable-search="true" data-placeholder="From Year" name="StartYear"  
+                                        
+                                        ng-options="year for year in getProfileQuestionYears()"
+                                >
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div data-error="hasError" class="text-field-select hide-search">
+                                <select ng-init="questions.EndYear = ''"  name="EndYear"  onchange="resetChosen(this)" 
+                                        ng-model="questions.EndYear" data-chosen=""  data-disable-search="true" data-placeholder="To Year"
+                                    ng-options="year for year in getProfileQuestionYears()"   
+                                >
+                                   
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- End -->
+            <div class="button-footer">
+                <button type="reset" ng-click="skipQuestion(pfq.FieldKey)" class="btn btn-default btn-sm pull-right">Skip</button>
+                <button type="button" ng-click="saveAnswer(pfq.FieldKey)" class="btn btn-primary btn-sm pull-right">Save</button>
+            </div>
+        </div>
+    </div> 
+</form>

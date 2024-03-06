@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="13px" viewBox="0 0 12 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>63E84F27-67DC-4E50-9B2A-84E00F4F753B@2x</title>
+    <defs>
+        <radialGradient cx="51.3860024%" cy="45.0177757%" fx="51.3860024%" fy="45.0177757%" r="84.8076597%" gradientTransform="translate(0.513860,0.450178),scale(1.000000,0.909091),rotate(88.642103),translate(-0.513860,-0.450178)" id="radialGradient-1">
+            <stop stop-color="#FEF8C9" offset="0%"></stop>
+            <stop stop-color="#FEEA00" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="5.1-DFS-tournament-game-white" transform="translate(-57.000000, -284.000000)" fill="url(#radialGradient-1)" stroke="#FFBB00">
+            <g id="Group-4" transform="translate(46.000000, 278.000000)">
+                <path d="M14.5,10.5 L14.5,18.5 L11.5,18.5 L11.5,10.5 L14.5,10.5 Z M18.5,6.5 L18.5,18.5 L15.5,18.5 L15.5,6.5 L18.5,6.5 Z M22.5,12.5 L22.5,18.5 L19.5,18.5 L19.5,12.5 L22.5,12.5 Z" id="leader-1"></path>
+            </g>
+        </g>
+    </g>
+</svg>

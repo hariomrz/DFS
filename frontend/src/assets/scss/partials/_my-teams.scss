@@ -1,0 +1,927 @@
+.my-team-root{
+    &.ios-header-fix{
+        @media (max-width: 500px){
+            max-height: 100vh !important;
+            overflow: auto !important;
+        }
+    }
+    .create-team-button{
+
+        margin: 0 auto;
+        margin-top: 10px;
+        // margin-bottom: 10px;
+        text-align: center;
+        border-radius: 15px;
+        background-color: $primary;
+        padding: 5px;
+        width: 50%;
+        cursor: pointer;
+        background-position: center;
+        transition: 0.8s;
+
+        &:active {
+            // background-color: rgba(12, 191, 235, 0.8);
+            @include background-opacity($primary,0.8);
+            background-size: 100%;
+            transition: 0s;
+        }
+
+
+        @media screen and (max-width: 420px){
+            width: 90%;
+        }
+
+        span {
+            color: $white;
+            font-family: $font-bold;        
+            font-size: $font-size-small;
+            line-height: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 0 0 4px 0 rgba(0,0,0,0.4);
+        }
+    }
+
+    .my-team-list-item{
+        list-style: none;
+        padding: 0;
+        border-bottom: 0px;
+        border-radius: 14px;
+        margin: 15px;
+
+        .drawer-menu-item{
+            &.collpased-list-hide {
+                transition: all 5s ease-in-out;
+                overflow: hidden;
+                height: 0px;
+            }
+            &.collpased-list-show{
+                transition: all 5s ease-in-out;
+                height: auto;
+            }
+        }
+    }
+    .my-teams-item {
+        width: 100%;
+        border-radius: 14px;
+        background-color: $white;
+        border: 1px solid $white;
+        position: relative;
+        &.no-booster{
+            background-color: rgba(228,32,32,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        &.selected{
+            opacity: 0.4px;
+            border: 1px solid $primary;
+        }
+        
+        table{
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            &.no-booster{
+                background-color: rgba(255,255,255,0.7);
+
+            }
+            .captain-vice-captain{
+                background-color: $app_bg_color;
+            }
+            tr{
+                background-color: $white;
+                &.captain-vice-captain{
+                    &.full-width-content{
+                        td{
+                            width: 100%;
+                        }
+                    }
+                    td{
+                        vertical-align: middle;
+                        width: 50%;
+                        position: relative;
+                        padding-left: 44px;
+                        .image-container{
+                            display: inline-block;
+                            width: 58px;
+                            position: absolute;
+                            left: 10px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                        .player-name-container{
+                            padding-left: 12px;  
+                        }
+                    }
+                }
+                td{
+                    border-top: 0px;
+                    .image-container{
+                        display: inline-block;
+                        width: 58px;
+                        position: relative;
+
+                        .player-image{
+                            height: 40px;
+                            width: 40px;
+                            border-radius: 50%;
+                        }
+
+                        .player-post{
+                            height: 16px;
+                            width: 16px;
+                            border-radius: 50%;
+                            position: absolute;
+                            bottom: 0;
+                            right: 15px;
+                            text-align: center;
+                            color: $white;
+                            background-color: $primary;
+                            font-weight: bold;
+                            display: inline-block;
+                            vertical-align: middle;
+                            line-height: 18px;
+                        }
+                    }
+                    .player-name-container{
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-left: 7px;
+                        
+                        .player-name{
+                            color: $primary_text_color;
+                            font-family: $font-book;
+                            font-size: $font-size-small;
+                            line-height: 1;
+                            margin-bottom: 4px;
+                        }
+                        .team-vs-team{
+                            color: $help_text_color;
+                            font-family: $font-regular;
+                            font-size: $font-size-h6;
+                            line-height: 13px;
+                            margin-top: 0px;
+                        }
+
+                       
+                        @media screen and(max-width: 420px) {
+                            .player-name{
+                                font-size: $font-size-small;
+                            }
+                            .team-vs-team{
+                                font-size: $font-size-h6;                            
+                            }
+                        }
+                        @media screen and(max-width: 320px) {
+                            .player-name{
+                                font-size: $font-size-small;
+                            }
+                            .team-vs-team{
+                                font-size: 9px;                            
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        .bottom-row{
+            width: 100%;
+            background-color: $white;
+            text-align: center;
+            padding: 10px 8px;
+            vertical-align: middle;
+            cursor: pointer;
+            border-radius: 0 0 14px 14px;
+            &.no-booster{
+                background-color: rgba(228,32,32,-0.9);
+
+            }
+
+            span {
+                color: $primary;
+                font-family: $font-bold;
+                font-size: $font-size-small;
+                line-height: 15px;
+                text-align: center;
+            }
+
+            i{
+                color: $primary;
+                font-size: $font-size-h6;
+                margin: -1px 0 0 5px;
+                transform: rotate(90deg);
+                display: inline-block;
+            }
+        }
+
+        .player-list-container{
+            .player-list-item{
+                .item-header{
+                    padding: 5px;
+                    text-align: center;
+                    background-color: $app_bg_color;
+                    box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.1);
+
+                    color: $help_text_color;
+                    font-family: $font-bold;
+                    font-size: $font-size-small;
+                    letter-spacing: -0.1px;
+                    line-height: 15px;
+                    text-align: center;
+                    & ~ .item table tr td{
+                        border-top: 0;
+                    }
+                }
+                .item{
+
+                    table{
+                        border: 0px;
+                        padding: 0px;
+                        margin: 0px;
+                        .captain-vice-captain{
+                            background-color: $app_bg_color;
+                            box-shadow: 0 16px 16px 0 rgba(0,0,0,0.05);
+                        }
+                        tr{
+                            background-color: $white;
+                            
+                            td{
+                                border-top: 1px solid $border-light;
+                                padding: 4px 15px;
+                                &.left{
+                                    text-align: left;
+                                    vertical-align: middle;
+                                }
+
+                                &.right{
+                                    text-align: right;
+                                    vertical-align: middle;
+                                }
+
+                                .image-container{
+                                    display: inline-block;
+                                    width: 58px;
+                                    position: relative;
+                
+                                    .player-image{
+                                        height: 40px;
+                                        width: 40px;
+                                        border-radius: 50%;
+                                    }
+                
+                                    .player-post{
+                                        height: 16px;
+                                        width: 16px;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        bottom: 0;
+                                        right: 15px;
+                                        color:$white;
+                                        text-align: center;
+                                        background-color: $primary;
+                
+                                        &.captain{
+                                            background-color: $primary;
+                                        }
+                
+                                        &.vice-captain{
+                                            background-color: $primary;
+                                        }
+                                        
+                                    }
+                                }
+                                
+                                .credit-container{
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    margin-left: 7px;
+                                    
+                                    .credit-amount{
+                                        font-family: $font-regular;                        
+                                        color: $help_text_color;
+                                        font-size: $font-base;
+                                        letter-spacing: -0.12px;
+                                        line-height: 18px;
+                                        text-align: right;
+                                    }
+                                    .credit-text{
+                                        font-family: $font-bold;
+                                        color: $help_text_color;
+                                        font-size: $font-size-xsmall;
+                                        letter-spacing: -0.07px;
+                                        line-height: 13px;
+                                        text-align: right;
+                                    }
+
+                                    @media screen and(max-width: 420px) {
+                                        .player-name{
+                                            font-size: $font-size-small;
+                                        }
+                                        .team-vs-team{
+                                            font-size: $font-size-h6;                            
+                                        }
+                                    }
+                                    @media screen and(max-width: 320px) {
+                                        .player-name{
+                                            font-size: $font-size-xsmall;
+                                        }
+                                        .team-vs-team{
+                                            font-size: 9px;                            
+                                        }
+                                    }
+                                }
+                
+                            }
+                        }
+                
+                    }
+                }
+                &:last-child{
+                    border-bottom: 1px solid $border-light;
+                }
+            }
+        }
+        a.edit-team{
+            position: absolute;
+            top: 12px;
+            right: 45px;
+            font-size: $font-size-h5;
+            color: $body_text_color;
+        }
+        a.clone-team{
+            position: absolute;
+            top: 12px;
+            right: 75px;
+            font-size: $font-size-h5;
+            color: $body_text_color;
+        }
+    }
+
+    .row-header {
+        background-color: $white;
+        justify-content: space-between;
+        // padding: 10px;
+        // margin: 5px;
+        padding: 10px 10px 0;
+        margin: 5px 5px 0;
+
+        border-radius: 14px 14px 0 0;
+        &.no-booster{
+            background-color: transparent
+
+        }
+
+        .name-container{
+            float: left;
+
+            .team-name {
+                height: 18px;
+                color: $primary_text_color;
+                font-family: $font-book;
+                font-size: $font-size-medium;
+                line-height: 18px;
+                margin-bottom: 4px;
+                &.sec-in{
+                    max-width: 160px !important;
+                }
+            }
+
+            .contests-joined {
+                color: $help_text_color;
+                font-family: $font-regular;
+                font-size: $font-size-h6;
+                line-height: 10px;
+                padding-bottom: 5px;
+            }
+        }
+
+        .select-team-checkbox {
+            float: right;
+            box-sizing: border-box;
+            height: 20px;
+            width: 20px;
+            border-radius: 10px;
+            border: 1px solid $border_color;
+            cursor: pointer;
+            line-height: 1;
+            &.selected{
+                border: 5px solid $primary;
+            }
+        }
+    }
+
+    .rectangle-11-copy-21 {
+        height: 60px;
+        width: 100%;
+        background-color: rgb(160, 31, 31);
+        box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .bottom{
+        width: 100%;
+        background-color: $primary;
+        color: $white;
+        font-family: $font-bold;
+        font-size: $font-base;
+        line-height: 16px;
+        text-align: center;
+        text-shadow: 0 0 4px 0 rgba(0,0,0,0.4);
+    }
+
+
+    .header-content{
+        text-align: center;
+        height: 60px;
+        padding-top: 10px;
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        div{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .team-img-block{
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+         .team-header-content{
+            color:$primary_text_color;
+            font-family: $font-bold;
+            font-size: $font-base;
+            padding-left: 10px;
+            padding-right: 10px;
+            small{
+                font-size: $font-size-xsmall;
+            }
+            p{
+                margin: 0;
+                font-size: 8px;
+                font-family: $font-bold-italic;
+                color:$body_text_color
+                
+            }
+        }
+        .team-header-detail{
+            margin:  0 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+            .team-header-content{
+                color:$primary_text_color;
+                font-family: $font-bold;
+                font-size: $font-base;
+                small{
+                    font-size: $font-base;
+                }
+            }
+            p{
+                margin: 0;
+                font-size: 8px;
+                font-family: $font-bold-italic;
+                color:$body_text_color;
+                
+                .date{
+                    color: $help_text_color;
+                    font-family: $font-bold;
+                    font-size: $font-size-xsmall;
+                    line-height: 13px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+.guru-pl-container{
+      margin-top: 20px ;
+    .you-can-also-try-our {
+        color: $body_text_color;
+        font-family: $font-regular;
+        font-size: 11px;
+        letter-spacing: 0;
+        line-height: 18px;
+        text-align: center;
+        margin-left: 150px;
+        margin-right: 150px;
+        @media (max-width: 650px) {
+            margin-left: 65px;
+            margin-right: 65px;
+        }
+      }
+      .inner-container {
+        cursor: pointer;
+        height: 80px;
+        margin-top: 10px;
+        margin-left: 150px;
+        margin-right: 150px;
+        border-radius: 8px;
+        background-color: #EFEFEF;
+        @media (max-width: 650px) {
+            margin-left: 65px;
+            margin-right: 65px;
+        }
+        .top-row{
+            display: flex;
+            justify-content: center;
+            flex-direction: row; 
+            align-items: center;
+            .img-icon{
+                margin-top: 5px;
+                height: 35px;
+                width: 40px;
+            }
+            .text-pl-conatiner{
+                margin-top: 5px;
+                margin-left: 5px;
+                display: flex;
+                justify-content: center;
+                flex-direction: row; 
+                align-items: center;
+                .try {
+                    margin-left: 5px;
+                    color: $primary_text_color;
+                    font-family:$font-regular;
+                    font-size: 14px;
+                    letter-spacing: 0;
+                    line-height: 18px;
+                  }
+                  .pl-text {
+                    margin-left: 5px;
+                    text-decoration: underline;
+                    color: $black;
+                    font-family:$font-bold;
+                    font-size: 14px;
+                    letter-spacing: 0;
+                    line-height: 18px;
+                  }
+                  .pl-app {
+                    margin-left: 5px;
+                    color: $primary_text_color;
+                    font-family:$font-regular;
+                    font-size: 14px;
+                    letter-spacing: 0;
+                    line-height: 18px;
+                  }
+            }
+            
+        }
+
+        .an-a-i-brain-that-he {
+            margin-top: 5px;
+            color: $body_text_color;
+            font-family: $font-regular;
+            font-size: 11px;
+            letter-spacing: 0;
+            line-height: 15px;
+            text-align: center;
+          }
+      }
+}
+.reverse-heading{
+    font-size: $font-base;
+    color: $body_text_color;
+    font-family: $font-bold;
+    text-align: center;
+    margin-top: 20px;
+    background: $app_bg_color2;
+    text-transform: uppercase;
+    img{
+        width: 18px;
+        margin-right: 1px;
+    } 
+    &.select-all{
+        text-align: left;
+        padding: 5px 16px 3px;
+        display: flex;
+        justify-content: space-between;
+        .select-team-checkbox {
+            float: right;
+            box-sizing: border-box;
+            height: 20px;
+            width: 20px;
+            min-width: 20px;
+            border-radius: 10px;
+            border: 1px solid $primary;
+            cursor: pointer;
+        
+            &.selected {
+                border: 5px solid $primary;
+            }
+        }
+    }
+}
+
+.my-t-j-width {
+    display: block;
+    font-size: $font-size-h6;
+    font-family: $font-book;
+    line-height: 6px;
+    margin-top: 2px;
+}
+.my-team-root .my-teams-item .more-option-dp.dropdown{
+    position: absolute;
+    top: 12px;
+    right: 55px;
+    font-size: 18px;
+    color: #555;
+    margin: 0;
+}
+
+
+.my-team-tennis-player-bottom {
+    .tennis-player-list {
+        height: 60px;
+        background-color: rgba($app_bg_color, .6);
+        padding: 0 20px;
+        gap: 0 7px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        align-content: center;
+        .pl-name {
+            font-size: 14px;
+            color: $primary_text_color;
+            display: flex;
+            align-items: center;
+            &.cap {
+                font-family: $font-bold;
+            }
+            &::after {
+                content: ',';
+                margin-left: 1px;
+            }
+            // &:nth-last-child(2) {
+            //     &::after {
+            //         display: none;  
+            //     }
+            // }
+            &:nth-last-child(1) {
+                &::after {
+                    display: none;  
+                }
+            }
+            &.last {
+                // position: relative;
+                &::after {
+                    display: none;  
+                }
+            }
+        }
+        .pl-remains {
+            // top: 100%;
+            // position: absolute;
+            width: 50px;
+            background-color: $white;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-size: 12px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+        }
+        .captain-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            color: $white;
+            background-color: $primary;
+            font-size: 10px;
+            margin-right: 5px;
+            text-align: center;
+        }
+    }
+    .my-team-tennis-footer {
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-bold;        
+        font-size: $font-size-small;
+        color: $primary;
+        cursor: default;
+        .icon-arrow-right {
+            margin-bottom: -3px;
+        }
+    }
+}
+
+.tennis-collection-name{
+    font-family: $font-bold;
+    color: $primary_text_color;
+    font-size: 16px;
+    width: 100%;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+.my-team-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px ;
+    .my-team-list-item {
+        margin: 0 15px;
+        border: none;
+        &:first-child {
+            margin-top: 15px;
+        }
+    }
+}
+
+.my-team-list-item {
+    &.selected {
+        border-color: $primary !important;
+    }
+}
+.my-team-card-sm {
+    min-height: 136px;
+    border-radius: 14px;
+    &.no-booster{
+        background-color: rgba(228,32,32,0.1);
+    }
+}
+.my-team-header {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: 60px;
+    .mth-title {
+        flex: 1;
+        h2 {
+            font-size: 16px;
+            font-family: $font-exo-medium;
+            margin-bottom: 5px;
+            color: $primary_text_color;
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+        }
+        .sec-in-tool {
+            position: unset;
+            margin: 0;
+        }
+        .subtitile {
+            font-size: 11px;
+        }
+        .img-alert {
+            width: 18px;
+            height: 16px;
+        }
+    }
+    .mth-ctrl {
+        display: flex;
+        gap: 12px;
+        .more-option-dp {
+            margin: 0;
+        }
+        .icn-action {
+            color: $body_text_color;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.pl-logo {
+                width: 41px;
+                height: 35px;
+                margin-top: -6px;
+            }
+        }
+    }
+    .select-team-checkbox {
+        height: 2px;
+        width: 21px;
+        border: 1px solid rgba($help_text_color, .5);
+        border-radius: 100%;
+        .icon-tick-ic {
+            display: none;
+            font-size: 9px;
+            color: $white;
+            margin-top: 1px;
+        }
+        &.selected {
+            background-color: $primary;
+            border-color: $primary;
+            .icon-tick-ic {
+                display: block;
+            }
+        }
+    }
+    .dropdown-menu {
+        overflow: hidden;
+    }
+}
+
+.my-team-middle {
+    height: 60px;
+    background: url('../img/teamList-bg.png') no-repeat;   
+    display: flex;
+    padding: 0 10px;
+    .cvc-block {
+        display: flex;
+        flex: 1;
+        gap: 10px;
+        align-items: center;
+        .image-container {
+            height: 48px;
+            max-width: 48px;
+            position: relative;
+            .player-image {
+                height: 48px;
+                max-width: 48px;
+            }
+            .player-post {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 16px;
+                height: 16px;
+                border-radius: 100%;
+                background-color: $primary;
+                color: $white;
+                font-family: $font-bold;
+                font-size: 12px;
+                line-height: 1.2;
+                text-align: center;
+            }
+        }
+        .player-name-container {
+            flex: 1;
+            color: $white;
+            
+            .player-name {
+                font-size: 14px;
+                font-family: $font-bold;
+            }
+            .team-vs-team {
+                font-size: 11px;
+                font-family: $font-semibold;
+            }
+        }
+        &:last-child {
+            position: relative;
+            &::before {
+                display: block;
+                content: '';
+                position: absolute;
+                height: 36px;
+                border-left: 1px dashed #FFFFFF;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .image-container {
+                order: 2;
+                .player-post {
+                    right: auto;
+                    left: 0;
+                }
+            }
+            .player-name-container {
+                order: 1;
+                text-align: right;
+            }
+        }
+    }
+    &.motorsports {
+        background: rgba($app_bg_color, .6);
+        .cvc-block {
+            .player-name-container {
+                color: $primary_text_color;
+                .color-help {
+                    color: $help_text_color;
+                }
+            }
+        }
+    }
+}
+
+.my-team-footer {
+    padding: 0 15px;
+    display: flex;
+    height: 36px;
+    align-items: center;
+    justify-content: space-between;
+    .team-pos-list {
+        display: flex;
+        gap: 10px;
+        span {
+            display: block;
+            font-size: 11px;
+            color: $help_text_color;
+        }
+    }
+    &.center {
+        justify-content: center;
+    }
+}

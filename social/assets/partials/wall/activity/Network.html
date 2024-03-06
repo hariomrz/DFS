@@ -1,0 +1,12 @@
+<!-- New Start -->
+<h4><a ng-href="{{link.LinkURL}}" ng-bind="get_domain(link.LinkURL)"></a></h4>
+<div class="link-post">
+  <figure class="link-thumb">
+    <img err-SRC="{{AssetBaseUrl}}img/profiles/user_default.jpg" ng-src="{{data.ImageServerPath+link.LinkImgURL}}"  />
+  </figure>
+  <div class="link-content">
+    <h5 ng-bind="link.LinkTitle"></h5>
+    <p ng-bind="link.Description"></p>
+    <a ng-href="{{link.LinkURL}}" ng-bind="link.LinkURL" target="_blank"></a>
+  </div>
+</div>

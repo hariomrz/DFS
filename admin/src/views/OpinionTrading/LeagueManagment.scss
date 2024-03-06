@@ -1,0 +1,216 @@
+.league-table-booster{
+   .booster .table-responsive {
+      overflow-x: auto;
+  }
+}
+.league-text-main-heading{
+   color: #111111;
+  font-family: $font-bold;
+  font-size: 24px;
+}
+.league-management{
+   color: #2B2E47;
+   font-family: $font-bold;
+   font-size: 24px;
+}
+
+.league-details-header {
+   display: flex;
+   justify-content: space-between;
+   // border-bottom: none!important;
+   padding-bottom: 10px;
+   margin-top: 30px;
+}
+
+ .search-input-view i {
+   position: absolute;
+   z-index: 100;
+   top: 12px;
+   right: 10px;
+}
+.league-table-booster .input-group>.form-control:not(:first-child),
+.league-table-booster .input-group>.custom-select:not(:first-child){
+   border-radius:2px!important;
+   border:2px solid #dadada;
+}
+.league-table-booster .input-group {
+   width: 100%!important;
+   height: 100%!important;
+}
+
+.league-management-filter-details-heading {
+   margin-top: 30px;
+   margin-bottom: 10px;
+}
+
+
+.league-management-inner-header {
+   display: flex;
+   justify-content: space-between;
+   padding-top: 20px;
+   align-items: center;
+
+   .serch-label {
+      color: #555555;
+      font-family: $font-bold;
+      font-size: 14px;
+   }
+   .search-input-view{
+      i{
+         position: absolute;
+         z-index: 100;
+         top: 12px;
+         right: 10px;
+      }
+   }
+}
+
+
+.payment-processor-container {
+   width: 65%;
+   margin: 0 auto;
+   margin-top: 100px;
+   background-color: #FFFFFF;
+   padding: 30px;
+   border-radius: 10px;
+   border: 1px dashed #333333;
+   // animation: flip-animation 0.4s linear;
+   // animation-fill-mode: both;
+   // transform: rotateY(-90deg);
+   // transition: all 0.2s cubic-bezier(0.36, -0.64, 0.34, 1.76);
+   .no-payment-text{
+      color: #2B2E47;
+     font-family:$font-bold;
+     font-size: 24px;
+     text-align: center;
+     padding: 0 150px;
+   }
+   .no-payment-screen{
+      margin: 53px auto;
+      text-align: center;
+      img{
+         height: 300px;
+         width: 300px;
+      }
+   }
+}
+.add-proceesor-button{
+   margin-bottom: 40px;
+}
+.payments-icon{
+   text-align: center;
+   i{
+   font-size: 24px;
+   color: $black;
+   cursor: pointer;
+   }
+}
+.inactive-and-active{
+.booster .activate-module .switch-slide {
+   background-color: #D8D8D8;
+}
+.booster .activate-module .global-switch input:checked + .switch-slide {
+   background-color: #D8D8D8;
+}
+.booster .activate-module .switch-slide:before {
+   background-color: $white;
+}
+.booster .activate-module .global-switch input:checked + .switch-slide:before {
+   background: #34B11A;
+}
+
+}
+
+.model-header-payment{
+   .modal-content {
+       border: none !important; 
+  }
+}
+
+.disabled-row {
+   // background-color: red;
+   // pointer-events: none;
+   td{
+      color: rgba(39, 39, 45, 0.4) !important;
+   }
+ }
+
+
+ .league-table{
+.common-table .table tbody td {
+   padding: 20px;
+}
+.common-table .table th {
+   padding: 0.75rem; 
+}
+ }
+ .league-management-details-heading{
+   font-size: 24px;
+   font-family: $font-bold;
+ }
+ .fetaured-mark-view{
+   i{
+      font-size: 24px;
+      margin-left: 5px;
+   }
+   .icon-close-ic{
+      color: #DB0000;
+   }
+   .icon-check-ic{
+      color: #44CF29;
+   }
+   span{
+      font-size: 18px;
+      color: #2B2E47;
+      text-decoration: underline;
+   }
+ }
+ .league-text-view{
+   font-size: 18px !important;
+   color: #27272D !important;
+   font-family: $font-bold;
+ }
+.league-table-booster{
+ .input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
+   border-radius: 20px;
+}
+.input-group {
+   width: 268px;
+   height: 46px;
+}
+}
+
+.inputFields.inPutBg.lge-manage {
+   display: flex;
+}
+
+.clear-filter-button {
+   position: absolute;
+   right: 27px;
+   top: 24px;
+}
+
+.lge-manage .Ccalender {
+   position: relative;
+   top: -30px;
+   left: 74% !important;  
+}
+
+.inPutBg.lge-manage .Select-control {
+   background-color: #fff!important;
+}
+.end_label{
+   visibility: hidden;
+}
+
+.league-switch .switch-on {
+   left: 20px!important;
+}
+.league-switch .switch-off {
+   right: 17px!important;
+}
+.switch-style,
+.league-switch .switch-on,
+.league-switch .switch-off{
+   font-size: 10px!important;
+}

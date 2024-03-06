@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "perfectlineup-c367d",
+  "private_key_id": "4e5ab8101e1ccd7f5bb8ddae8b19d8c32b110295",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDjABSajGk91OWF\nYEVSbV9rHpzhDoyC3sUCX2urFU+1NZrsprtqcpyu0XmjSz9tPpi07QOWd65T71ol\nby9d7SUW7J98XRZ1aGqbIYXuXfPbe2lQQZ7a7mXQ6I7iTFMwznux8DXAoWwagJkR\nl5phrqEAImgK5cq03yyhQcZEXYxkDTgu0/6au7ma7jlSFbInJfRrossflRV4xlj8\nvSLXrf1AK1GdxRMQ7biedKSyOXM7VugstCiFW/lnBL3641Pb8mdIEu/G+LTv9mk4\nibPzwXe4dw6vESHqGrnKslKEXeYb9e1O641/BN0PEu4MFkNXn9ZNfHXWVyXJUluJ\naEtWcoLdAgMBAAECgf8U1m0NwtXmVyS6mZvDdUbNDoJYJn2/hbOQBDJeAhbPC5yt\nHKEXpG29nn0MAFxSKuzZruglZ9cY3V/pD8vJU3uUHySExgbJwEwI8YrZ1sYL38hL\nFbr/XeL6yl5TZ647TLkOHH7Sr/68cBGdC82gKeedm4rxdSamc9Yk92S74dqBVIkB\nh45Z/oj+edBmOW0oTQxU5If+tSaeUGDtjYH4OHWR8I+6NgCQpUJBJVzbv4GU0PQP\nJl3pKbV4qowaobJSTbOEqzDsCxZGw3xHWqv97MGoOPWEx8a2oB8cNdVXEgPX22DL\nLm6sIstrunhCXxVOIQhtvm96hH0GE9sSCaKc9NMCgYEA/k5x7635liPRSCACQqbq\n91OjL44+gUERStzE6+iv6SLvkX8vTTQQKSt+7xVFvF8EYLJg/TyU3LiJZSeK47dI\n4EpN180NC55X/vhbHukmvMWOKofM030OnQvy9goUHd7yjEpfmPXiJg1kdDBZJq4j\niYIPPpCPgNHZSMJOq7HX16sCgYEA5IMVII+dPtOW3MS4vQte4GpYQDIj+Ce/+yYp\n7+Gcz5Yp+jbaFI8AKQyCDLb6ou6Y9cV0p+ZpNnPthucvCSobqZ0k2xKZ3E3MlV0p\nrIFhjntPHXDp8eXyrT3bNc0J/6Xlu/kBUrlp4faJilVMceMWkvlusiAqDAGl9e5j\no3KV55cCgYEAys10P1fWus1FkOc15kGHEEY61Sny3tEtIS5+PEQMRTf/JWDwL/ld\nCfgN+kxUmKyNqS+X+Vveu0bPC0RFluQL0hJvkbGMvb9BHayhvjzhD5ncjj5OMjqA\n9O0ajOvsrwWlGAwXwLwV5ZK4kZAdCKPG41o9Hf/a8Thot4V9h58EKpECgYEA367Q\nx4bNTeqhCoomrCatQM/Ygz6RpyCB9L5u3rniXfGINb3ry6QPbB8qTnfu7/7PDAW1\nI4WQCBWCtUMn77igS2/f2/JhWh1t3efMG2iqrmZWE2OsHXYSDzM1mXyUBQPH1jDw\n8qE83EwQZrEIm5LHTieMDCEgB5C1e/9W2XAY/RECgYAMaej720LbPdNqunn8o0Rs\nxCsoFyB8b8xxfeB4FMAy8W3eWp6C9xCKkGdpHG6cS5vbbXejaxAsAGc/HS/Hz7PK\nhVeoO+C/9gPO1F2zrhR+QjAB3CvyYK5QkmFmwvK4i4QB1DwoyppXMPnQDdKpitxt\nKZ515O5YNAh1iiDIo5G/MQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "pub-sub@perfectlineup-c367d.iam.gserviceaccount.com",
+  "client_id": "113311155123138875529",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pub-sub%40perfectlineup-c367d.iam.gserviceaccount.com"
+}

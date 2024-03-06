@@ -1,0 +1,3571 @@
+.stock-f {
+    .h2h-modal {
+        background: $white;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 550px;
+        .h2h-image{
+            width: 33px;
+        }
+
+        .modal-content {
+            width: 100%;
+            height: 100vh;
+            border-radius: 0;
+            background: $white;
+            overflow: auto;
+        }
+
+        .modal-body {
+            padding: 0px 0;
+        }
+
+        .header-sec {
+            height: 274px;
+            background-position: center;
+            background-size: cover;
+            background-image: url("../img/wih2h-image-bg.png");
+            i {
+                color: $white;
+                font-size: $font-base;
+                position: absolute;
+                right: 25px;
+                top: 35px;
+                cursor: pointer;
+                padding: 5px;
+            }
+            .container-top{
+                width: 100%;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                display: flex;
+                .image-header{
+                    margin-top: 50px;
+                    height: 95px;
+                    width: 95px;
+                  
+                }
+            }
+         
+
+            h2 {
+                padding: 32px 10px;
+                font-size: 32px;
+                font-family: $font-bold;
+                color: $white;
+                margin: auto;
+                max-width: 250px;
+                line-height: 40px;
+                text-align: center;
+
+                @media (max-width: 360px) {
+                    padding: 25px 15px;
+                }
+
+                @media (max-width: 320px) {
+                    padding: 15px;
+                }
+            }
+        }
+
+        .step-sec-body {
+            padding: 30px;
+
+            @media (max-height: 700px) {
+                padding: 10px;
+            }
+
+            @media (max-width: 450px) {
+                padding: 10px;
+            }
+
+            .step-sec {
+                padding: 30px 10px 25px 109px;
+
+                @media (max-height: 700px) {
+                    padding-left: 100px;
+                }
+
+                @media (max-width: 450px) {
+                    padding-left: 100px;
+                    margin-bottom: 5px;
+                }
+
+                position: relative;
+                color: $primary_text_color;
+                margin-bottom: 20px;
+
+                &:not(:last-child) {
+                    &:before {
+                        content: "";
+                        width: 1px;
+                        height: 100%;
+                        position: absolute;
+                        top: 60px;
+                        border: 1px dashed $help_text_color;
+                        left: 46px;
+                        opacity: 0.32;
+                    }
+                }
+
+                .img-circle {
+                    background: $white;
+                    width: 64px;
+                    height: 64px;
+                    position: absolute;
+                    top: 30px;
+                    left: 14px;
+                    text-align: center;
+                    border-radius: 100%;
+                    border: 1px solid $border_color;
+
+                    .icon-image {
+                        margin-top: 15px;
+  
+                    }
+                }
+
+                .label {
+                    font-size: $font-size-medium;
+                    font-family: $font-semibold;
+                    max-width: 270px;
+                    line-height: 20px;
+                    margin-bottom: 4px;
+                }
+
+                .value {
+                    font-size: $font-base;
+                    font-family: $font-regular;
+                    max-width: 270px;
+                    line-height: 18px;
+                }
+            }
+        }
+       
+
+        .footer-msg {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            .start-playing {
+                border-radius: 20px;
+                padding: 14px 12px 11px;
+                width: 194.77px;
+                color: $white;
+                font-family: $font-regular;
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 0;
+                line-height: 16px;
+                text-align: center;
+                background-color: $primary;
+              }
+        }
+    }
+
+    .tour-card {
+        position: relative;
+
+        .bg-graph {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            opacity: 0.6;
+        }
+
+        .tour-body {
+            padding: 15px;
+
+            .tour-info-text {
+                margin-top: -6px;
+
+                @media (max-width: 360px) {
+                    width: calc(100% - 60px);
+                }
+
+                .tour-nm {
+                    font-size: 15px;
+                    line-height: 18px;
+                    font-family: $font-semibold;
+                    margin-top: 0;
+                }
+
+                .sch-date {
+                    time {
+                        display: inline-block;
+                        font-size: $font-size-xsmall;
+                    }
+                }
+
+                time {
+                    font-size: $font-size-small;
+                    color: $help_text_color;
+                    font-family: $font-regular;
+                    line-height: 15px;
+                    margin-top: 5px;
+                    display: block;
+                }
+
+                .countdown {
+                    letter-spacing: 1px;
+                    font-size: 10px;
+                    line-height: 15px;
+                    margin-top: 5px;
+                    font-family: $font-semibold;
+                }
+
+                .tour-btn {
+                    // padding: 5px 0 2px;
+                    padding: 4px 0 5px;
+                    font-family: $font-semibold;
+                    bottom: -12px;
+                    width: 40%;
+                    text-align: center;
+                    max-width: 96px;
+                    min-width: 80px;
+                }
+
+                a {
+                    text-decoration: underline;
+                    color: $primary;
+                    font-size: $font-base;
+                    font-family: $font-regular;
+                    display: inline-block;
+                    margin-top: 2px;
+                }
+            }
+
+            .spon-img-sec {
+                img {
+                    width: 38px;
+                    height: 38px;
+                    transform: translate(-50%, -50%);
+                    top: 50%;
+                    left: 50%;
+                    right: unset;
+                    border-radius: 0;
+                    object-fit: contain;
+                }
+            }
+
+            &.upcoming {
+                padding: 15px;
+                border: 1px solid $border-color;
+                border-radius: 13px;
+
+                .spon-img-sec {
+                    border: none !important;
+                    width: 56px;
+                    height: 56px;
+
+                    img {
+                        width: 82%;
+                        height: 82%;
+                    }
+                }
+
+                .tour-nm {
+                    font-size: $font-size-medium;
+                    line-height: 24px;
+                    font-family: $font-regular;
+                    margin-top: 0;
+                    max-width: 260px;
+
+                    time {
+                        display: inline;
+                        font-size: $font-size-medium;
+                        line-height: 24px;
+                        font-family: $font-semibold;
+                        color: $primary_text_color;
+                    }
+                }
+
+                .tour-info-text {
+                    margin-top: 0;
+                }
+            }
+
+            .live-status {
+                color: $alert_danger_color;
+                text-transform: capitalize;
+                display: inline-block;
+                font-family: $font-semibold;
+                font-size: $font-size-small;
+                line-height: 15px;
+                margin-top: 5px;
+
+                span {
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 100%;
+                    display: inline-block;
+                    margin-right: 3px;
+                    margin-bottom: 2px;
+                    background: $alert_danger_color;
+                }
+            }
+
+            .com-status {
+                font-size: $font-size-small;
+                color: $success;
+                font-family: $font-semibold;
+                line-height: 15px;
+                margin-top: 5px;
+                display: flex;
+                text-transform: capitalize;
+
+                time {
+                    margin-right: 2px;
+                    color: $success;
+                    font-family: $font-semibold;
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .entry-btn {
+            padding-bottom: 10px;
+            margin-top: -3px;
+        }
+
+        .league-name {
+            top: 0 !important;
+        }
+
+        .rank-sec {
+            &.winning-sec {
+                span {
+                    font-size: $font-size-small !important;
+                }
+            }
+        }
+    }
+
+    .stats-fixed-btn {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.26);
+        border-radius: 100%;
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        position: fixed;
+        left: 470px;
+        z-index: 9;
+        bottom: 74px;
+        background: $white;
+        text-align: center;
+        padding: 6px 2px;
+        color: $primary;
+        cursor: pointer;
+
+        @media (max-width: 550px) {
+            right: 20px;
+            left: auto;
+        }
+
+        span {
+            color: $help_text_color;
+            font-size: 10px;
+            font-family: $font-bold;
+            display: block;
+            line-height: 10px;
+        }
+    }
+
+    .my-team-list-item {
+        &.stk {
+            .player-image {
+                object-fit: contain;
+            }
+
+            .team-name {
+                margin-bottom: 6px !important;
+            }
+
+            .captain-vice-captain td {
+                padding: 14px 16px 14px 46px !important;
+
+                .player-name {
+                    font-size: 13px !important;
+                    margin-bottom: 6px !important;
+                }
+            }
+
+            .team-vs-team {
+                color: $success_sec !important;
+
+                i {
+                    font-size: 8px;
+                    margin-right: 4px;
+                }
+
+                span {
+                    color: $primary_text_color;
+                    margin-left: 4px;
+                }
+
+                &.down {
+                    color: $red !important;
+                }
+            }
+        }
+    }
+}
+
+.stock-player-list-item {
+    &.disabled {
+        opacity: 0.45;
+        pointer-events: none;
+    }
+
+    &.selected {
+        background: $app_bg_color2;
+    }
+
+    table {
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+
+        .captain-vice-captain {
+            background-color: $gray-125;
+            box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        tr {
+            border: none;
+            // border-bottom: 1px solid $border-light;
+
+            td {
+                border: none;
+
+                &.left {
+                    text-align: left;
+                    vertical-align: middle;
+                    padding: 12px 0 12px 15px;
+                    // padding: 12px 15px;
+                    &.width-se-l{
+                        // width: 60%;
+
+                    }
+                }
+
+                &.right {
+                    text-align: right;
+                    vertical-align: middle;
+                    padding: 0 15px;
+                    &.width-se-r{
+                        width: 39%;
+
+                    }
+                }
+
+                .image-container {
+                    display: inline-block;
+                    position: relative;
+
+                    .icon-wishlist {
+                        padding: 8px 10px 8px 0;
+                        font-size: 12px;
+                        cursor: pointer;
+                        color: $secondary_border_color;
+
+                        &.active {
+                            color: #ffd12d;
+                        }
+                    }
+
+                    .player-image {
+                        height: 45px;
+                        width: 45px;
+                        border-radius: 5px;
+                        border: 1px solid $border_color;
+                        object-fit: contain;                     
+                    }
+
+                    .player-post {
+                        height: 15px;
+                        width: 15px;
+                        border-radius: 50%;
+                        position: absolute;
+                        bottom: -4px;
+                        right: -4px;
+                        color: $white;
+                        text-align: center;
+                        background-color: $primary;
+                        font-size: 10px;
+                        font-family: $font-semibold;
+                        line-height: 17px;
+                    }
+                }
+
+                .player-name-container {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 14px;
+                    word-break: break-all;
+                    white-space: break-spaces;
+                    // max-width: calc(100% - 85px);
+
+                    .player-name {
+                        color: $primary_text_color;
+                        font-family: $font-exo-semibold;
+                        font-size: $font-base;
+                        line-height: 16px;
+                        margin-bottom: 5px;
+
+                        .icon-wishlist {
+                            margin-left: 4px;
+                            font-size: 12px;
+                            color: #ffd12d;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .team-vs-team {
+                        color: $success_sec !important;
+                        font-family: $font-exo-regular;
+                        font-size: $font-size-h6;
+                        line-height: 12px;
+                        text-transform: capitalize;
+
+                        i {
+                            font-size: 8px;
+                            margin-right: 4px;
+                        }
+
+                        span {
+                            color: $primary_text_color;
+                            margin-left: 4px;
+                            font-family: $font-exo-regular;
+                        }
+
+                        &.down {
+                            color: $red !important;
+                        }
+                        &.blk-txt{
+                            font-family: $font-regular;
+                            color: $primary_text_color !important;
+                        }
+                        .stk-prd{
+                            color: $success_sec !important;
+                            &.down {
+                                color: $red !important;
+                            } 
+                            i{
+                                margin-left: 3px;
+                            }
+                        }
+                    }
+                }
+
+                .credit-container {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 7px;
+                    .cr-per {
+                        font-size: $font-size-medium;
+                        font-family: $font-bold;
+                    }
+                    .lot-text {
+                        font-family: $font-regular;
+                        color: $help_text_color;
+                        font-size: $font-size-h6;
+                        line-height: 15px;
+                        text-align: center;
+                    }
+
+                    .stock-point {
+                        color: $primary_text_color;
+                        font-family: $font-semibold;
+                        font-size: $font-size-medium;
+                        line-height: 16px;
+                        margin-bottom: 2px;
+                        text-align: right;
+                        span {
+                            font-family: $font-regular;
+                            &.pts-txt {
+                                display: block;
+                                font-family: $font-regular;
+                                font-size: $font-size-small;
+                                position: relative;
+                                color: $body_text_color2;
+                            }
+                            &.cut-score {
+                                position: relative;
+                                font-family: $font-bold;
+                                color: $help_text_color;
+                                margin-right: 3px;
+
+                                line-height: 14px;
+                                display: inline-block;
+                                padding-top: 3px;
+                                @media (max-width: 1366px) and (max-height: 800px){
+                                    padding-top: 0;
+                                }
+                                @media (max-width: 1200px) and (max-height: 800px){
+                                    padding-top: 3px;
+                                }
+                                &:after{
+                                    content: '';
+                                    position: absolute;
+                                    // top: 6px;
+                                    width: 100%;
+                                    background-color: $help_text_color;
+                                    height: 1px;
+                                    left: 0;
+
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+                            }
+                        }
+                    }
+
+                    .buy-sell-btn {
+                        border-radius: 17px;
+                        font-size: 10px;
+                        text-transform: uppercase;
+                        font-family: $font-semibold;
+                        background-color: $help_text_color;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 7px;
+                        position: relative;
+                        top: 2px;
+                        overflow: hidden;
+
+                        .btn-v-buy {
+                            padding: 8px 14px 8px;
+                            color: $white;
+                            border-right: 1px solid $white;
+
+                            &.selected {
+                                background: $success_sec;
+                            }
+                        }
+
+                        .btn-v-sell {
+                            padding: 8px 14px 8px;
+                            color: $white;
+
+                            &.selected {
+                                background: $red;
+                            }
+                        }
+                    }
+
+                    .current-text {
+                        color: $success_sec !important;
+                        font-family: $font-semibold;
+                        font-size: $font-size-h6;
+                        line-height: 12px;
+
+                        i {
+                            font-size: 8px;
+                            margin-right: 4px;
+                        }
+
+                        &.down {
+                            color: $red !important;
+                        }
+                        &.per-current-text {
+                            color: $body_text_color2 !important;
+                            font-family: $font-exo-regular;
+                            font-size: $font-base;
+                        }
+                    }
+                }
+                .credit-container-equity {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 7px;
+                    width: 100px;
+                    .cr-per {
+                        font-size: $font-size-medium;
+                        font-family: $font-bold;
+                    }
+                    .cr-per-equity-conatiner {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        .cr-per {
+                            text-align: right;
+                            font-size: $font-size-medium;
+                            font-family: $font-bold;
+                        }
+                        .no-of-shares {
+                            color: $help_text_color;
+                            font-family: $font-regular;
+                            font-size: 12px;
+                            letter-spacing: 0;
+                            line-height: 15px;
+                            text-align: right;
+                        }
+                    }
+                    .lot-text {
+                        font-family: $font-regular;
+                        color: $help_text_color;
+                        font-size: $font-size-h6;
+                        line-height: 15px;
+                        text-align: center;
+                    }
+
+                    .stock-point {
+                        color: $primary_text_color;
+                        font-family: $font-semibold;
+                        font-size: $font-size-medium;
+                        line-height: 16px;
+                        margin-bottom: 2px;
+                        text-align: right;
+                        span {
+                            font-family: $font-regular;
+                            &.pts-txt {
+                                display: block;
+                                font-family: $font-regular;
+                                font-size: $font-size-small;
+                                position: relative;
+                                color: $body_text_color2;
+                            }
+                            &.cut-score {
+                                position: relative;
+                                font-family: $font-bold;
+                                color: $help_text_color;
+                                margin-right: 3px;
+                                &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 6px;
+                                    width: 100%;
+                                    background-color: $help_text_color;
+                                    height: 1px;
+                                    left: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .buy-sell-btn {
+                        border-radius: 17px;
+                        font-size: 10px;
+                        text-transform: uppercase;
+                        font-family: $font-semibold;
+                        background-color: $white;
+                        border: 0.1px solid $help_text_color;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 7px;
+                        position: relative;
+                        top: 2px;
+                        overflow: hidden;
+                        &.selected-buy {
+                            background-color: $success_sec;
+                            color: $white;
+                            border: none;
+                        }
+                        &.selected-sell {
+                            background-color: $red;
+                            color: $white;
+                            border: none;
+                        }
+
+                        .btn-v-buy {
+                            padding: 8px 14px 8px;
+                            color: $primary;
+                            border-right: 1px solid $help_text_color;
+
+                            &.selected {
+                                background: $success_sec;
+                                color: $white;
+                            }
+                        }
+
+                        .btn-v-sell {
+                            padding: 8px 14px 8px;
+                            color: $primary;
+
+                            &.selected {
+                                background: $red;
+                                color: $white;
+                            }
+                        }
+                    }
+                    .buy-sell-btn-selected {
+                        border-radius: 17px;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        font-family: $font-bold;
+                        background-color: $white;
+                        border: 0.1px solid $help_text_color;
+                        display: block;
+                        text-align: center;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 7px;
+                        position: relative;
+                        top: 2px;
+                        overflow: hidden;
+                        padding-left: 28px;
+                        padding-right: 28px;
+                        padding-top: 3px;
+                        padding-bottom: 3px;
+                        &.selected-buy {
+                            background-color: $success_sec;
+                            color: $white;
+                            border: none;
+                        }
+                        &.selected-sell {
+                            background-color: $red;
+                            color: $white;
+                            border: none;
+                        }
+                        .b-s-text {
+                            color: $white;
+                            font-family: $font-regular;
+                            font-size: 10px;
+                            font-weight: bold;
+                            letter-spacing: 0;
+                            line-height: 13px;
+                            text-align: center;
+                        }
+                    }
+
+                    .current-text {
+                        color: $success_sec !important;
+                        font-family: $font-semibold;
+                        font-size: $font-size-h6;
+                        line-height: 12px;
+
+                        i {
+                            font-size: 8px;
+                            margin-right: 4px;
+                        }
+
+                        &.down {
+                            color: $red !important;
+                        }
+                        &.per-current-text {
+                            color: $body_text_color2 !important;
+                            font-family: $font-bold;
+                            font-size: $font-size-medium;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .selected-captain-v {
+        display: inline-block;
+        border: 1px solid $border_color;
+        border-radius: 50%;
+        color: $help_text_color;
+        font-size: $font-size-h4;
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        font-family: $font-semibold;
+        position: relative;
+        padding: 6px;
+        margin-left: 8px;
+        @media (max-width: 550px){
+            margin-left: 6px;
+        }
+        &.selected-captain {
+            background-color: $primary;
+            color: $white;
+            border-color: $primary;
+            text-align: center;
+
+            span.captain-c {
+                font-size: $font-size-medium;
+                text-align: center;
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
+}
+
+.stock-fm {
+    width: 90% !important;
+    max-width: 320px !important;
+
+    .modal-content {
+        border-radius: 40px !important;
+
+        .modal-body {
+            border-radius: 0 0 40px 40px !important;
+        }
+    }
+
+    .nav-tabs {
+        margin-bottom: 0 !important;
+
+        li {
+            width: 33.33% !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .scoring-chart {
+        margin: 0 !important;
+    }
+
+    .tab-content {
+        max-height: 440px;
+    }
+
+    &.sf-player-c {
+        .modal-header .close{
+            background: transparent;
+            font-size: 14px;
+            .icon-close{
+                color: $white;
+            }
+            @media (max-width: 550px){
+                top: -40px;
+            }
+            @media (max-width: 550px) and (max-height: 720px){
+                top: -20px;
+            }
+        }
+        .modal-img-wrap {
+            .wrap {
+                background: none !important;
+                border: 1px solid $border_color;
+                padding: 11px !important;
+
+                img {
+                    width: 36px;
+                    height: 36px;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .modal-body {
+            padding: 1rem 10px;
+            padding-top: 0;
+        }
+
+        .modal-header {
+            font-size: 24px;
+        }
+
+        .highcharts-background {
+            fill: transparent !important;
+        }
+
+        .webcontainer-inner {
+            max-height: calc(100vh - 230px);
+            overflow-y: auto;
+        }
+
+        .point-c {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 11px;
+
+            .p1 {
+                color: $success_sec;
+                font-family: $font-semibold !important;
+                padding-top: 4px;
+
+                &.down {
+                    color: $red;
+                }
+
+                i {
+                    font-size: 8px;
+                    margin-left: 2px;
+                }
+            }
+
+            .p2 {
+                border: 1px solid $border_color;
+                border-radius: 11px;
+                padding: 0 7px;
+                padding-top: 3px;
+
+                span {
+                    margin-left: 14px;
+                }
+            }
+
+            .p3 {
+                padding-top: 4px;
+            }
+        }
+
+        .time-vc {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            font-family: $font-regular;
+            padding: 5px 4px 15px;
+
+            a {
+                color: $primary_text_color;
+                padding: 4px 10px 1.5px;
+
+                &.active {
+                    background: $primary;
+                    border-radius: 11px;
+                    color: $white;
+                    font-family: $font-semibold !important;
+                }
+            }
+        }
+
+        .performance-v {
+            padding: 40px 14px 0;
+
+            .lbl {
+                font-size: $font-size-medium;
+                font-family: $font-bold !important;
+                display: block;
+                text-align: left;
+                line-height: 16px;
+                color: $body_text_color2;
+
+                i {
+                    margin-left: 8px;
+                    color: $help_text_color;
+                    position: relative;
+                    top: -1px;
+                }
+            }
+
+            .details-v {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+
+                &.top-b {
+                    border-top: 1px solid $border_color;
+                }
+
+                .todays-v {
+                    text-align: right;
+
+                    span {
+                        display: block;
+                        color: $body_text_color2 !important;
+                        font-size: 11px;
+                        font-family: $font-regular;
+                    }
+
+                    .pts {
+                        color: $success_sec !important;
+                        font-size: 15.5px;
+                        font-family: $font-bold !important;
+                    }
+
+                    &.low {
+                        text-align: left;
+
+                        .pts {
+                            color: $red !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .btn-c {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .btn-watch-l {
+                border-radius: 17px;
+                font-size: 14px;
+                font-family: $font-semibold;
+                color: $primary;
+                border: 1px solid $border_color;
+                padding: 0 10px;
+                height: 34px;
+                line-height: 35px;
+                overflow: hidden;
+                max-width: 170px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                margin-left: 15px;
+
+                &.active {
+                    background: $primary;
+                    color: $white;
+                }
+
+                .icon-wishlist {
+                    font-size: 12px;
+                    margin-right: 6px;
+                    color: #ffd12d;
+                }
+            }
+
+            .buy-sell-btn {
+                border-radius: 17px;
+                font-size: 10px;
+                text-transform: uppercase;
+                font-family: $font-semibold;
+                background-color: $help_text_color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 7px;
+                position: relative;
+                top: 2px;
+                overflow: hidden;
+
+                .btn-v-buy {
+                    padding: 8px 14px 8px;
+                    color: $white;
+                    border-right: 1px solid $white;
+
+                    &.selected {
+                        background: $success_sec;
+                    }
+                }
+
+                .btn-v-sell {
+                    padding: 8px 14px 8px;
+                    color: $white;
+
+                    &.selected {
+                        background: $red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.stock-buy-sell {
+    width: 90% !important;
+    max-width: 320px !important;
+
+    .modal-content {
+        border-radius: 40px !important;
+
+        .modal-body {
+            border-radius: 0 0 40px 40px !important;
+        }
+    }
+
+    .nav-tabs {
+        margin-bottom: 0 !important;
+
+        li {
+            width: 33.33% !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .scoring-chart {
+        margin: 0 !important;
+    }
+
+    .tab-content {
+        max-height: 440px;
+    }
+
+    &.sf-player-c {
+        .modal-img-wrap {
+            .wrap {
+                background: none !important;
+                border: 1px solid $border_color;
+                padding: 11px !important;
+
+                img {
+                    width: 36px;
+                    height: 36px;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .modal-body {
+            padding: 1rem 10px;
+            padding-top: 0;
+        }
+
+        .modal-header {
+            font-size: 24px;
+        }
+
+        .highcharts-background {
+            fill: transparent !important;
+        }
+
+        .webcontainer-inner {
+            max-height: calc(100vh - 230px);
+            overflow-y: auto;
+        }
+
+        .point-c {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 11px;
+
+            .p1 {
+                color: $success_sec;
+                font-family: $font-semibold !important;
+                padding-top: 4px;
+
+                &.down {
+                    color: $red;
+                }
+
+                i {
+                    font-size: 8px;
+                    margin-left: 2px;
+                }
+            }
+
+            .p2 {
+                border: 1px solid $border_color;
+                border-radius: 11px;
+                padding: 0 7px;
+                padding-top: 3px;
+
+                span {
+                    margin-left: 14px;
+                }
+            }
+
+            .p3 {
+                padding-top: 4px;
+            }
+        }
+
+        .time-vc {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            font-family: $font-regular;
+            padding: 5px 4px 15px;
+
+            a {
+                color: $primary_text_color;
+                padding: 4px 10px 1.5px;
+
+                &.active {
+                    background: $primary;
+                    border-radius: 11px;
+                    color: $white;
+                    font-family: $font-semibold !important;
+                }
+            }
+        }
+
+        .performance-v {
+            padding: 40px 14px 0;
+
+            .lbl {
+                font-size: $font-size-medium;
+                font-family: $font-bold !important;
+                display: block;
+                text-align: left;
+                line-height: 16px;
+                color: $body_text_color2;
+
+                i {
+                    margin-left: 8px;
+                    color: $help_text_color;
+                    position: relative;
+                    top: -1px;
+                }
+            }
+
+            .details-v {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+
+                &.top-b {
+                    border-top: 1px solid $border_color;
+                }
+
+                .todays-v {
+                    text-align: right;
+
+                    span {
+                        display: block;
+                        color: $body_text_color2 !important;
+                        font-size: 11px;
+                        font-family: $font-regular;
+                    }
+
+                    .pts {
+                        color: $success_sec !important;
+                        font-size: 15.5px;
+                        font-family: $font-bold !important;
+                    }
+
+                    &.low {
+                        text-align: left;
+
+                        .pts {
+                            color: $red !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .btn-c {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .btn-watch-l {
+                border-radius: 17px;
+                font-size: 14px;
+                font-family: $font-semibold;
+                color: $primary;
+                border: 1px solid $border_color;
+                padding: 0 10px;
+                height: 34px;
+                line-height: 35px;
+                overflow: hidden;
+                max-width: 170px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                margin-left: 15px;
+
+                &.active {
+                    background: $primary;
+                    color: $white;
+                }
+
+                .icon-wishlist {
+                    font-size: 12px;
+                    margin-right: 6px;
+                    color: #ffd12d;
+                }
+            }
+
+            .buy-sell-btn {
+                border-radius: 17px;
+                font-size: 10px;
+                text-transform: uppercase;
+                font-family: $font-semibold;
+                background-color: $help_text_color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 7px;
+                position: relative;
+                top: 2px;
+                overflow: hidden;
+
+                .btn-v-buy {
+                    padding: 8px 14px 8px;
+                    color: $white;
+                    border-right: 1px solid $white;
+
+                    &.selected {
+                        background: $success_sec;
+                    }
+                }
+
+                .btn-v-sell {
+                    padding: 8px 14px 8px;
+                    color: $white;
+
+                    &.selected {
+                        background: $red;
+                    }
+                }
+            }
+        }
+    }
+}
+.stock-team-view-modal {
+    .modal-dialog {
+        max-width: $window_width;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: $white;
+
+        @media (max-width: 767px) {
+            margin: 0;
+        }
+
+        .modal-content {
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .modal-header {
+            padding: 8px 10px;
+            border: 0;
+
+            .modal-close {
+                top: 50%;
+                transform: translateY(-50%);
+                right: 4px;
+                left: unset;
+                font-size: $font-base;
+                padding: 8px 0;
+                width: 50px;
+                &.left-side {
+                    left: 4px;
+                }
+
+                i {
+                    color: $gray-550;
+                }
+            }
+
+            .modal-title {
+                .name-container {
+                    text-align: center;
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+
+                    .team-name {
+                        color: $primary_text_color;
+                        font-family: $font-semibold;
+                        font-size: $font-base;
+                        line-height: 18px;
+                        margin-bottom: 2px;
+                        text-align: center;
+                    }
+
+                    .contests-detail {
+                        color: $help_text_color;
+                        font-size: $font-size-xsmall;
+                        font-family: $font-semibold;
+                        line-height: 14px;
+                        text-align: center;
+                    }
+                }
+            }
+            .pie-list-view {
+                right: 4px;
+                position: absolute;
+                margin-top: -34px;
+                .header-pie-list-view {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    .list-view-container {
+                        height: 30px;
+                        width: 32px;
+                        border-radius: 5px 0 0 5px;
+                        background-color: rgba($primary, 0.1);
+                        border-right: 1px solid $primary;
+                        justify-content: center;
+                        display: flex;
+                        align-items: center;
+                        &.active {
+                            color: $primary;
+                            background-color: $primary;
+                        }
+                        .icon-list {
+                            color: $primary;
+                            font-size: 15px;
+
+                            &.list-active {
+                                color: $white !important;
+                            }
+                        }
+                    }
+                    .pi-view-container {
+                        justify-content: center;
+                        display: flex;
+                        height: 30px;
+                        width: 32px;
+                        border-radius: 0px 5px 5px 0px;
+                        background-color: rgba($primary, 0.1);
+                        border-right: 1px solid $white;
+                        align-items: center;
+                        &.active {
+                            background-color: $primary;
+                        }
+                        .icon-pi {
+                            font-size: 17px;
+                            color: $primary;
+                            &.pi-active {
+                                color: $white !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-body {
+            padding: 0;
+            padding-bottom: 20px;
+            position: relative;
+            .player-list-container {
+                &.scoring {
+                    .item-header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 100%;
+                        padding: 8px 15px 4px;
+                        span {
+                            display: block;
+                            color: $help_text_color;
+                            font-family: $font-regular;
+                            font-size: $font-size-small;
+                            text-transform: capitalize;
+                            width: 20%;
+                            text-align: left;
+                        }
+                    }
+                    .scoring-name-c {
+                        display: flex;
+                        align-items: center;
+                        padding: 12px 15px;
+                        .player-image {
+                            width: 35px;
+                            object-fit: contain;
+                            margin-right: 10px;    
+                            border: 1px solid $border-color;
+                            border-radius: 13px;
+                            // padding: 5px;
+                            height: 41px;
+                            width: 41px;
+                        }
+                        .player-name {
+                            font-family: $font-bold;
+                            font-size: $font-size-medium;
+                            color: $primary_text_color;
+                            span {
+                                color: $white;
+                                font-size: $font-size-small - 1;
+                                height: 16px;
+                                width: 16px;
+                                font-family: $font-bold;
+                                border-radius: 50%;
+                                background: $primary;
+                                line-height: 1;
+                                display: inline-block;
+                                text-align: center;
+                                line-height: 19px;
+                                vertical-align: middle;
+                                margin-left: 4px;
+                            }
+                        }
+                    }
+                    .value-v {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 15px 5px;
+                        border-bottom: 1px solid $border_color;
+                        span {
+                            display: block;
+                            font-family: $font-regular;
+                            font-size: $font-size-small;
+                            text-transform: capitalize;
+                            color: $primary_text_color;
+                            width: 20%;
+                            text-align: left;
+                            i {
+                                font-size: 9px;
+                                margin-right: 4px;
+                            }
+                            &.bt {
+                                font-family: $font-bold;
+                            }
+                            &.buy {
+                                color: $success_sec;
+                            }
+                            &.sell {
+                                color: $red;
+                            }
+                        }
+                    }
+                }
+                .item-header {
+                    padding: 7px 8px 5px;
+                    text-align: center;
+                    background-color: $app_bg_color;
+                    color: $primary_text_color;
+                    font-family: $font-semibold;
+                    font-size: $font-base;
+                    letter-spacing: normal;
+                    line-height: 18px;
+                    text-transform: uppercase;
+
+                    i {
+                        margin-left: 8px;
+                        font-size: 9px;
+                        color: $success_sec;
+                    }
+                }
+
+                &.down {
+                    .item-header {
+                        i {
+                            color: $red;
+                        }
+                    }
+                }
+            }
+            .container-top {
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: row;
+                align-items: center;
+                margin-top: 50px;
+                .buy-container {
+                    justify-content: center;
+                    display: flex;
+                    .oval {
+                        border-radius: 50px;
+                        height: 12px;
+                        width: 12px;
+                        background-color: $success;
+                    }
+                    .b-s-o-text {
+                        margin-left: 10px;
+                        color: $help_text_color;
+                        font-family: $font-regular;
+                        font-size: 12px;
+                        letter-spacing: 0;
+                        line-height: 15px;
+                    }
+                }
+                .sell-container {
+                    justify-content: center;
+                    display: flex;
+                    .oval {
+                        border-radius: 50px;
+                        height: 12px;
+                        width: 12px;
+                        background-color: $alert_danger_color;
+                    }
+                    .b-s-o-text {
+                        margin-left: 10px;
+                        color: $help_text_color;
+                        font-family: $font-regular;
+                        font-size: 12px;
+                        letter-spacing: 0;
+                        line-height: 15px;
+                    }
+                }
+                .other-container {
+                    justify-content: center;
+                    display: flex;
+                    .oval {
+                        border-radius: 50px;
+                        height: 12px;
+                        width: 12px;
+                        background-color: $secondary_border_color;
+                    }
+                    .b-s-o-text {
+                        margin-left: 10px;
+                        color: $help_text_color;
+                        font-family: $font-regular;
+                        font-size: 12px;
+                        letter-spacing: 0;
+                        line-height: 15px;
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            padding: 0;
+            border: 0;
+
+            .btn {
+                border-radius: 0;
+                font-size: 14px;
+            }
+            .bottom-conatiner {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                max-width: 550px;
+                height: 50px;
+                background-color: $white;
+                box-shadow: 0px -1px 10px rgba(50, 50, 50, 0.4);
+                .total-conatiner {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    align-items: center;
+                    height: 50px;
+                    .total {
+                        color: $help_text_color;
+                        font-family: $font-regular;
+                        font-size: 14px;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                        line-height: 22px;
+                    }
+                    .total-amount {
+                        color: $body_text_color2;
+                        font-family: $font-bold;
+                        font-size: 20px;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                        line-height: 22px;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        &.contest-detail-with-btn {
+            .modal-body {
+                height: calc(100vh - 50px);
+            }
+        }
+    }
+}
+
+.body-dark-theme {
+    .h2h-modal {
+        background: $darkT_app_bg_color;
+
+        .modal-content {
+            background: $darkT_app_bg_color;
+
+            .icon-close {
+                color: $white;
+            }
+        }
+
+        .img-circle {
+            background: $darkT_app_bg_color !important;
+
+            i {
+                color: $darkT_primary !important;
+            }
+        }
+
+        h2 {
+            color: $white !important;
+        }
+
+        .label {
+            color: $white !important;
+        }
+
+        .value {
+            color: $white !important;
+        }
+
+        a {
+            color: $darkT_primary !important;
+        }
+    }
+
+    .tour-card {
+        .tour-body {
+            &.upcoming {
+                border: 1px solid $help_text_color;
+
+                .tour-nm time {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .stats-fixed-btn {
+        background: $darkT_app_bg_color !important;
+        color: $darkT_primary;
+    }
+
+    .my-team-list-item {
+        &.stk {
+            .team-vs-team {
+                color: $success_sec !important;
+
+                span {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .stock-player-list-item {
+        &.selected {
+            background: $darkT_app_bg_color2 !important;
+        }
+
+        table {
+            tr {
+                border-bottom-color: $primary_text_color !important;
+
+                .player-image {
+                    border-color: $help_text_color !important;
+                }
+
+                .player-post {
+                    background: $darkT_primary !important;
+                    color: $primary_text_color !important;
+                }
+
+                .lot-text {
+                    color: $white !important;
+                }
+
+                .player-name {
+                    color: $white !important;
+                }
+
+                .team-vs-team span {
+                    color: $white !important;
+                }
+
+                .credit-container {
+                    .stock-point {
+                        color: $white !important;
+                    }
+
+                    .cr-per {
+                        font-size: $font-size-medium;
+                        font-family: $font-bold;
+                    }
+                    .buy-sell-btn {
+                        background-color: $darkT_app_bg_color2 !important;
+
+                        .btn-v-buy {
+                            border-color: $darkT_view_bg_color !important;
+                        }
+                    }
+                }
+
+                .selected-captain-v {
+                    border-color: $help_text_color !important;
+                    color: $white !important;
+
+                    &.selected-captain {
+                        background-color: $darkT_primary !important;
+                        color: $primary_text_color !important;
+                        border-color: $darkT_primary !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .stock-team-view-modal {
+        .modal-dialog {
+            background: $darkT_app_bg_color !important;
+        }
+
+        .modal-close {
+            .icon-close {
+                color: $white !important;
+            }
+        }
+
+        .modal-title {
+            .team-name {
+                color: $white !important;
+            }
+
+            .contests-detail {
+                color: $white !important;
+            }
+        }
+
+        .player-list-container {
+            .item-header {
+                background: $darkT_app_bg_color2 !important;
+                color: $white !important;
+            }
+        }
+    }
+    .select-captian-wrap.stock-f {
+        .player-list-container {
+            .item-header {
+                background: $darkT_app_bg_color !important;
+                color: $white !important;
+            }
+        }
+    }
+    .stocks-stats {
+        .time-btn.active {
+            color: $darkT_primary !important;
+        }
+        .item-header {
+            color: $white !important;
+            border-color: $darkT_app_bg_color2 !important;
+            &.watchlist {
+                color: $white !important;
+                background: $darkT_app_bg_color2 !important;
+            }
+        }
+        .v-more {
+            color: $darkT_primary !important;
+        }
+        .btn-primary-bottom-stk {
+            background: $darkT_app_bg_color2 !important;
+            color: $darkT_primary !important;
+        }
+    }
+
+    .btn-primary-bottom-stk {
+        background: $darkT_app_bg_color2 !important;
+        color: $darkT_primary !important;
+    }
+
+    .stock-fm {
+        &.sf-player-c {
+            .modal-header {
+                color: $white !important;
+            }
+
+            .modal-body {
+                background: $darkT_app_bg_color !important;
+            }
+
+            .buy-sell-btn {
+                background-color: $darkT_app_bg_color2 !important;
+
+                .btn-v-buy {
+                    border-color: $darkT_view_bg_color !important;
+                }
+            }
+
+            .btn-watch-l {
+                border-color: $darkT_view_bg_color !important;
+                color: $darkT_primary !important;
+
+                &.active {
+                    background: $darkT_primary !important;
+                    color: $primary_text_color !important;
+
+                    .icon-wishlist {
+                        color: $primary_text_color !important;
+                    }
+                }
+            }
+
+            .point-c {
+                .p2 {
+                    border-color: $darkT_view_bg_color !important;
+                }
+            }
+
+            .time-vc {
+                a {
+                    color: $white !important;
+
+                    &.active {
+                        background: $darkT_primary;
+                        color: $primary_text_color;
+                    }
+                }
+            }
+
+            .performance-v {
+                .lbl {
+                    color: $white !important;
+
+                    i {
+                        color: $white !important;
+                    }
+                }
+
+                .todays-v span {
+                    color: $white !important;
+                }
+
+                .details-v.top-b {
+                    border-color: $darkT_view_bg_color !important;
+                }
+            }
+        }
+    }
+
+    .stock-roster {
+        .stock-roster-header {
+            .item-header {
+                background: $darkT_app_bg_color2 !important;
+                color: $white !important;
+            }
+
+            .count-header {
+                background: $darkT_primary !important;
+
+                .sel-stk {
+                    color: $primary_text_color !important;
+                }
+
+                .stk-left {
+                    color: $primary_text_color !important;
+                }
+
+                .stk-b-s {
+                    color: $primary_text_color !important;
+                }
+
+                .prog-v {
+                    .circular-progress {
+                        .progress-bar {
+                            border-color: $darkT_app_bg_color2 !important;
+                        }
+                        .progress-value {
+                            background: $darkT_primary_dark !important;
+
+                            div {
+                                color: $primary_text_color !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .roster-footer {
+            .btn-primary {
+                background: $darkT_primary !important;
+                color: $primary_text_color !important;
+            }
+            .stk-preview {
+                background: $darkT_app_bg_color2 !important;
+                color: $darkT_primary !important;
+            }
+        }
+    }
+}
+
+.stocks-stats {
+    background: $white;
+
+    .filter-time-v {
+        margin: 0 auto;
+        width: 100%;
+        padding: 0;
+        list-style-type: none;
+        margin-top: 56px;
+        padding: 16px 15px 0;
+
+        .time-btn {
+            cursor: pointer;
+            width: 33.33%;
+            color: $help_text_color;
+            text-transform: uppercase;
+            font-size: $font-base;
+            font-family: $font-exo-bold;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0;
+            border: none;
+
+            &.active {
+                color: $primary;
+            }
+        }
+    }
+
+    .inner-v {
+        .item-header {
+            padding: 25px 20px 10px;
+            color: $primary_text_color;
+            font-family: $font-exo-bold;
+            font-size: $font-base;
+            letter-spacing: normal;
+            line-height: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+
+            &.watchlist {
+                color: $help_text_color;
+                font-family: $font-regular;
+                font-size: $font-size-small;
+                line-height: 12px;
+                border-bottom: none;
+                background: $app_bg_color;
+                padding: 11px 15px 7px 35px;
+            }
+
+            i {
+                margin-left: 6px;
+                font-size: 9px;
+                color: $success_sec;
+            }
+
+            &.down {
+                i {
+                    color: $red;
+                }
+            }
+
+            .v-more {
+                font-size: $font-size-small;
+                font-family: $font-exo-semibold;
+                padding: 0 10px 3px;
+                line-height: 12px;
+                border-radius: 5px;
+                // border: 1px solid $border_color;
+                color: $primary;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+.btn-primary-bottom-stk {
+    box-shadow: 0 -2px 15px 0 rgba(0, 0, 0, 0.15) !important;
+    background: $white !important;
+    color: $primary !important;
+
+    &.pts {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 17px 30px 13px;
+        text-transform: capitalize;
+        color: $primary_text_color !important;
+        border-radius: 0;
+    }
+    span .ttl-per{
+        color: $primary_text_color;
+        font-family: $font-regular;
+        font-size: $font-base;
+    }
+}
+
+.stock-roster {
+    padding-top: 206px;
+    padding-bottom: 80px;
+
+    .stock-roster-header {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 100%;
+        max-width: 550px;
+        z-index: 1000;
+
+        .item-header {
+            text-align: center;
+            letter-spacing: normal;
+            color: $help_text_color;
+            font-family: $font-regular;
+            font-size: $font-size-small;
+            line-height: 12px;
+            border-bottom: none;
+            background: $app_bg_color;
+            padding: 11px 35px 7px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            i {
+                margin-left: 6px;
+                font-size: 12px;
+                color: $help_text_color;
+            }
+        }
+
+        .count-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 25px;
+            background: $primary;
+            &.equity-padding {
+                padding: 15px 20px;
+            }
+
+            .sel-stk {
+                font-size: 12px;
+                line-height: 18px;
+                font-family: $font-regular;
+                color: $white;
+            }
+
+            .stk-left {
+                font-size: $font-size-h4;
+                line-height: 25px;
+                font-family: $font-bold;
+                color: $white;
+                margin: 3px 0;
+            }
+            .header-text-equity {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                color: $white;
+                .sel-stk-equity {
+                    font-size: $font-base;
+                    line-height: 18px;
+                    font-family: $font-regular;
+                    color: $white;
+                }
+                .remaining-budget {
+                    font-size: $font-base;
+                    line-height: 18px;
+                    font-family: $font-regular;
+                    color: $white;
+                }
+            }
+            .stock-equity {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                color: $white;
+                .sel-stk-equity {
+                    display: flex;
+
+                    .stk-left-equity {
+                        font-size: $font-size-h5;
+                        line-height: 25px;
+                        font-family: $font-bold;
+                        color: $white;
+                        margin: 3px 0;
+                    }
+                    .scoring-rule {
+                        display: flex;
+                        margin-top: 10px;
+                        margin-left: 15px;
+                        font-size: 11px;
+                        .scoring-rules-txt {
+                            margin-left: 3px !important ;
+                            cursor: pointer !important ;
+                            color: $white !important ;
+                            font-family: $font-regular !important ;
+                            font-size: 11px !important ;
+                            font-weight: 600 !important ;
+                            letter-spacing: 0 !important ;
+                            line-height: 14px !important ;
+                            text-decoration: underline !important ;
+                            display: flex !important ;
+                        }
+                    }
+                }
+            }
+
+            .stk-b-s {
+                font-size: $font-size-h6;
+                line-height: 14px;
+                font-family: $font-regular;
+                color: $white;
+                max-height: 18px;
+            }
+            .stk-b-s-link a {
+                font-size: $font-size-h6;
+                line-height: 14px;
+                font-family: $font-regular;
+                color: $white;
+                max-height: 18px;
+                span {
+                    text-decoration: underline;
+                }
+                i {
+                    margin-right: 4px;
+                }
+            }
+            .remaining-budget-layout {
+                position: relative;
+                width: 200px;
+                .remaining-budget {
+                    text-align: end;
+                    font-size: 12px;
+                    line-height: 18px;
+                    font-family: $font-regular;
+                    color: $white;
+                }
+                .remaining-salary-count {
+                    color: $white;
+                    font-family: $font-bold;
+                    font-size: 30px;
+                    font-weight: bold;
+                    letter-spacing: 0;
+                    line-height: 38px;
+                    text-align: right;
+                }
+            }
+
+            .prog-v {
+                position: relative;
+                width: 66px;
+                height: 66px;
+
+                .circular-progress {
+                    @include circular-progress-style(3px, $white, $white, 64px);
+                    right: auto;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    .progress-bar {
+                        animation-duration: 0s;
+                        animation-delay: 0s;
+                    }
+
+                    .progress-value {
+                        background: #5e64a4;
+                        height: 58px;
+                        width: 58px;
+                        font-weight: 300;
+                        top: 3px;
+                        left: 3px;
+                        position: relative;
+                        z-index: 1;
+
+                        div {
+                            font-size: 28px;
+                            color: $white;
+                            // margin-top: 5px;
+                        }
+
+                        span {
+                            display: none;
+                        }
+                    }
+
+                    &:after {
+                        border: none;
+                        width: 60px;
+                        height: 60px;
+                        top: 2px;
+                        left: 2px;
+                    }
+                }
+            }
+        }
+       
+        .player-count-slider {
+            background-color: $primary;
+            padding: 2px 5px;
+            max-height: 25px;
+            div {
+                border: 1px solid $primary;
+                border-left: none;
+                @include background-opacity($black, 0.09);
+                height: 15px;
+                display: inline-block;
+                vertical-align: middle;
+                &:first-child {
+                    &.active {
+                        &:before {
+                            border-left: 1px solid $white;
+                        }
+                    }
+                }
+                &:not(.show-number) {
+                    span {
+                        display: none;
+                        opacity: 0;
+                    }
+                }
+                &.active {
+                    position: relative;
+                    text-align: center;
+                    &.show-number {
+                        &:before {
+                            animation: fillColor 0.6s linear;
+                            -webkit-animation: fillColor 0.6s linear;
+                        }
+                    }
+                    &:before {
+                        content: "";
+                        left: -1px;
+                        top: -1px;
+                        width: calc(100% + 1px);
+                        height: calc(100% + 2px);
+                        position: absolute;
+                        background: $success;
+                        border: 1px solid $white;
+                        border-left: none;
+                    }
+                    &.show-number {
+                        span {
+                            color: $white;
+                            font-size: 12px;
+                            position: relative;
+                            font-family: $font-bold;
+                            top: -2.5px;
+                            opacity: 1;
+                            animation: showNo 0.6s linear;
+                            -webkit-animation: showNo 0.6s linear;
+                        }
+                    }
+                    @keyframes showNo {
+                        0% {
+                            opacity: 0;
+                        }
+
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+                    @-webkit-keyframes showNo {
+                        0% {
+                            opacity: 0;
+                        }
+
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+                }
+                &.active-sell {
+                    position: relative;
+                    text-align: center;
+                    &.show-number {
+                        &:before {
+                            animation: fillColor 0.6s linear;
+                            -webkit-animation: fillColor 0.6s linear;
+                        }
+                    }
+                    &:before {
+                        content: "";
+                        left: -1px;
+                        top: -1px;
+                        width: calc(100% + 1px);
+                        height: calc(100% + 2px);
+                        position: absolute;
+                        background: $alert_danger_color;
+                        border: 1px solid $white;
+                        border-left: none;
+                    }
+                    &.show-number {
+                        span {
+                            color: $white;
+                            font-size: 12px;
+                            position: relative;
+                            font-family: $font-bold;
+                            top: -2.5px;
+                            opacity: 1;
+                            animation: showNo 0.6s linear;
+                            -webkit-animation: showNo 0.6s linear;
+                        }
+                    }
+                    @keyframes showNo {
+                        0% {
+                            opacity: 0;
+                        }
+
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+                    @-webkit-keyframes showNo {
+                        0% {
+                            opacity: 0;
+                        }
+
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+                }
+                @keyframes fillColor {
+                    0% {
+                        width: 0;
+                    }
+
+                    100% {
+                        width: calc(100% + 1px);
+                    }
+                }
+                @-webkit-keyframes fillColor {
+                    0% {
+                        width: 0;
+                    }
+
+                    100% {
+                        width: calc(100% + 1px);
+                    }
+                }
+            }
+        }
+        .search-stock-container{
+            background-color: $white;
+            height: 30px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            margin-left: 20px;
+            input{
+                border: none;
+
+            }
+            .search-icon{
+                height: 14px;
+                width: 14px;
+                color: black;
+            }
+   
+        }
+    }
+}
+
+.select-captian-wrap.stock-f {
+    .player-list-container {
+        .item-header {
+            padding: 7px 8px 5px;
+            text-align: center;
+            background-color: $app_bg_color;
+            color: $primary_text_color;
+            font-family: $font-semibold;
+            font-size: $font-base;
+            letter-spacing: normal;
+            line-height: 18px;
+            text-transform: uppercase;
+
+            i {
+                margin-left: 8px;
+                font-size: 9px;
+                color: $success_sec;
+            }
+        }
+
+        &.down {
+            .item-header {
+                i {
+                    color: $red;
+                }
+            }
+        }
+    }
+}
+.select-cap-vc-option {
+    position: fixed;
+    border: 1px solid $disabled_text_color;
+    border-radius: 8px;
+    background: $white;
+    left: 55;
+    color: $primary_text_color;
+    font-size: $font-size-small;
+    top: 120px;
+    left: 20%;
+    z-index: 2;
+    min-width: 250px;
+    box-shadow: 0 0 20px 0 rgba(50, 50, 50, 0.65);
+    span {
+        border-bottom: 1px solid $disabled_text_color;
+        padding: 5px;
+        cursor: pointer;
+        color: $primary_text_color;
+        display: block;
+        &.disable {
+            pointer-events: none;
+            color: #b0b0b0;
+        }
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.pie-chart {
+    margin-top: 70px;
+    .choose-your-core-stock {
+        text-align: center;
+        color: $help_text_color;
+        font-family: $font-regular;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 15px;
+        &.vc-stock {
+            margin-top: 20px;
+        }
+    }
+    .select-captain-stock-conatiner {
+        cursor: pointer;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 70px;
+        margin-right: 70px;
+        .combined {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            .oval {
+                display: flex;
+                justify-content: center;
+                box-sizing: border-box;
+                height: 25px;
+                width: 25px;
+                border: 1.5px solid $body_text_color2;
+                font-family: $font-regular;
+                border-radius: 20px;
+                .text-lable {
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 10px;
+                    display: flex;
+                    margin-top: 2px;
+                }
+            }
+            .stockName {
+                margin-left: 10px;
+                margin-top: 3px;
+                color: #b0b0b0;
+                font-family: $font-regular;
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 25px;
+                &.selected {
+                    color: $primary_text_color;
+                    font-family: $font-bold;
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .down-arrow {
+            height: 9px;
+            width: 16px;
+        }
+    }
+    .path-3 {
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        height: 1px;
+        margin-top: 5px;
+        border: 1px solid #e1e1e1;
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+}
+.header-circular-modal.rules-scoring-modal {
+    .dynamic-stk-rules {
+        .tab-content {
+            padding: 0 !important;
+        }
+        .stk-dyn-rules-text {
+            padding: 20px 0;
+        }
+        &.hide-tab {
+            .nav.nav-tabs {
+                display: none;
+            }
+        }
+    }
+    .stk-dyn-rules-text {
+        .new-rules-list {
+            text-align: left;
+            padding: 10px 25px;
+            border-bottom: 1px solid $border-color;
+            li {
+                position: relative;
+                padding-left: 10px;
+                span.disc {
+                    display: block;
+                    background-color: #7a7a7a;
+                    width: 6px;
+                    height: 6px;
+                    position: absolute;
+                    left: 0;
+                    top: 4px;
+                    border-radius: 50%;
+                }
+                span {
+                    &.bold-text {
+                        font-family: $font-bold !important;
+                    }
+                    &.succ-text {
+                        color: $alert_success_color;
+                        font-family: $font-bold !important;
+                    }
+                    &.dang-text {
+                        font-family: $font-bold !important;
+                        color: $alert_danger_color;
+                    }
+                }
+            }
+        }
+    }
+    .rules-system-head {
+        font-size: $font-base;
+        color: $black;
+        font-family: $font-bold;
+        padding: 25px 20px 0 20px;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .pts-sys-sec {
+        text-align: left;
+        font-size: $font-size-small;
+        font-family: $font-regular;
+        color: $body_text_color;
+        padding: 0 30px 35px;
+        .bold-text {
+            font-family: $font-bold !important;
+            color: $body_text_color;
+        }
+        .succ-text {
+            color: $alert_success_color;
+            font-family: $font-bold !important;
+        }
+        .dang-text {
+            font-family: $font-bold !important;
+            color: $alert_danger_color;
+        }
+        > div {
+            margin-top: 10px;
+        }
+        .buy-box {
+            height: 15px;
+            width: 35px;
+            color: $white;
+            background-color: $alert_success_color;
+            font-size: $font-base;
+            font-family: $font-bold;
+            line-height: 1.3;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .sell-box {
+            height: 15px;
+            width: 35px;
+            color: $white;
+            background-color: $alert_danger_color;
+            font-size: $font-base;
+            font-family: $font-bold;
+            line-height: 1.3;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    .custom-nav-tabs {
+        &.hide-tab {
+            .nav.nav-tabs {
+                display: none;
+            }
+        }
+    }
+}
+
+.stock-f .h2h-modal.stock-htp-modal-new {
+    .modal-body {
+        padding: 0;
+        .modal-close {
+            color: $white;
+            top: 20px;
+            right: 20px;
+            left: auto;
+            z-index: 2;
+            transform: translate(0, 0);
+            font-size: $font-base;
+            .icon-close {
+                color: $white;
+            }
+        }
+    }
+    .top-HTP-sec {
+        background-color: $primary;
+        padding: 40px 40px 0 40px;
+        // @media (max-height: 700px) and (max-width: 1366px){
+        //     padding: 40px 40px 0 40px;
+        // }
+        h2 {
+            margin: 0 auto 22px;
+            font-size: 34px;
+            width: 237px;
+            font-family: $font-bold;
+            text-align: center;
+            color: $white;
+        }
+        .img-sec {
+            text-align: center;
+            img {
+                width: 260px;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 767px) {
+            padding: 60px 40px 0 40px;
+            h2 {
+                margin: 0 auto 42px;
+            }
+        }
+        @media (max-width: 375px) and (max-height: 700px) {
+            padding: 40px 40px 0 40px;
+            h2 {
+                margin: 0 auto 22px;
+            }
+        }
+        @media (max-width: 360px) {
+            h2 {
+                font-size: 30px;
+            }
+            .img-sec {
+                img {
+                    width: 240px;
+                }
+            }
+        }
+        @media (max-width: 1370px) and (max-height: 600px) {
+            h2 {
+                font-size: 30px;
+            }
+            .img-sec {
+                img {
+                    width: 240px;
+                }
+            }
+        }
+    }
+    .HTP-step-sec {
+        // height: calc(100vh - 487px);
+        height: calc(100vh - 437px);
+        padding: 15px 0;
+        @media (max-width: 767px) {
+            height: calc(100vh - 477px);
+        }
+        @media (max-width: 375px) and (max-height: 700px) {
+            height: calc(100vh - 437px);
+        }
+        @media (max-width: 360px) {
+            height: calc(100vh - 406px);
+        }
+        @media (max-width: 1370px) and (max-height: 600px) {
+            height: calc(100vh - 407px);
+            padding: 10px 0;
+        }
+        .step-ct {
+            text-align: center;
+            font-size: $font-size-small;
+            font-family: $font-regular;
+            line-height: 2;
+            font-size: $primary_text_color;
+        }
+        .HTP-step-heading {
+            text-align: center;
+            font-size: $font-size-h4;
+            font-family: $font-bold;
+            line-height: 1.2;
+            font-size: $primary_text_color;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            @media (max-width: 1370px) and (max-height: 600px) {
+                margin-bottom: 10px;
+            }
+        }
+        .HTP-step-desc {
+            .single-step-desc {
+                max-width: 292px;
+                text-align: center;
+                margin: 0 auto;
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                padding: 0 15px;
+                // height: calc(100vh - 630px);
+                height: calc(100vh - 580px);
+                height: calc(100vh - 610px);
+                @media (max-width: 1370px) and (max-height: 600px) {
+                    height: calc(100vh - 550px);
+                    li {
+                        margin-bottom: 5px;
+                    }
+                }
+                @media (max-width: 767px) {
+                    height: calc(100vh - 650px);
+                }
+                @media (max-width: 375px) and (max-height: 700px) {
+                    height: calc(100vh - 610px);
+                }
+                @media (max-width: 360px) {
+                    height: calc(100vh - 580px);
+                }
+                overflow-y: auto;
+                li {
+                    font-size: $font-base;
+                    font-family: $font-regular;
+                    color: $primary_text_color;
+                    list-style-type: none;
+                    margin-bottom: 10px;
+                    position: relative;
+                    padding-left: 22px;
+                    span {
+                        height: 12px;
+                        width: 2px;
+                        background-color: $primary;
+                        display: inline-block;
+                        margin: 0 9px;
+                        position: absolute;
+                        left: 0;
+                        top: 3px;
+                    }
+                }
+            }
+        }
+    }
+    .btm-rules-sec {
+        border-top: 1px solid $secondary_border_color;
+        padding: 18px;
+        text-align: center;
+        font-size: $font-base;
+        font-family: $font-semibold;
+        text-transform: capitalize;
+        color: $help_text_color;
+        a {
+            color: $primary_text_color;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1370px) and (max-height: 600px) {
+            padding: 10px;
+        }
+
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        max-width: 550px;
+    }
+    .slick-track {
+        .slick-slide {
+            .btm-rules-sec span {
+                visibility: hidden;
+            }
+        }
+        .slick-slide:last-child {
+            .btm-rules-sec span {
+                visibility: visible;
+            }
+        }
+    }
+    .slick-dots {
+        margin: 20px auto;
+        bottom: 38px;
+        li {
+            width: 7px;
+            margin: 0 2px;
+            button {
+                height: 7px;
+                width: 7px;
+                border-radius: 50%;
+                background-color: $help_text_color;
+                padding: 0;
+                &:before {
+                    display: none;
+                }
+            }
+            &.slick-active {
+                width: 20px;
+                button {
+                    height: 7px;
+                    width: 20px;
+                    border-radius: 3.5px;
+                    background-color: $primary;
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+        @media (max-width: 1370px) and (max-height: 600px) {
+            bottom: 20px;
+        }
+    }
+    .c-view.with-footer-anchor .HTP-step-sec {
+        height: calc(100vh - 537px);
+    }
+    .slick-arrow.slick-next,
+    .slick-arrow.slick-prev {
+        display: block !important;
+        @media (max-width: 767px) {
+            display: none !important;
+        }
+        &::before {
+            color: $white;
+        }
+    }
+    .slick-prev {
+        left: 10px;
+    }
+    .slick-next {
+        right: 10px;
+    }
+}
+.app-header-style .match-timing .time-line.countdown {
+    .date-sch {
+        margin-left: 5px;
+    }
+}
+.contest-card .contest-card-header ul li .team-content span {
+    &.date-sch {
+        font-size: $font-size-xsmall;
+        color: $primary;
+        font-family: $font-regular;
+    }
+}
+.last-pts-updated {
+    margin: 15px 15px 5px 15px;
+    font-size: $font-size-xsmall;
+    color: $help_text_color;
+    font-family: $font-regular;
+}
+.contest-card.live-contest-card.live-contest-card-new {
+    margin-top: 0;
+}
+.team-comparison-wrapper {
+    .last-pts-updated {
+        margin: 0 15px 5px 15px;
+        font-size: $font-size-small;
+    }
+}
+.contest-listing-table {
+    td {
+        &.text-danger {
+            color: $alert_danger_color;
+            font-family: $font-semibold;
+        }
+        &.text-success {
+            color: $alert_success_color;
+            font-family: $font-semibold;
+        }
+    }
+}
+.header-circular-modal.rules-scoring-modal
+    .modal-content
+    .modal-body
+    .webcontainer-inner
+    .custom-nav-tabs.stk
+    .tab-content {
+    padding: 15px 0;
+}
+.stk-team-comp {
+    .comparison-sec .players-selected .opp-player-sec,
+    .comparison-sec .players-selected .you-player-sec {
+        .player-nm {
+            text-overflow: unset;
+            max-width: 100% !important;
+            span {
+                max-width: 135px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                display: inline-block;
+                vertical-align: middle;
+                @media (max-width: 767px) {
+                    max-width: 65px;
+                }
+                @media (max-width: 400px) {
+                    max-width: 50px;
+                }
+                @media (max-width: 320px) {
+                    max-width: 35px;
+                }
+            }
+            .icon-stock_up {
+                color: $success_sec;
+                font-size: 8px;
+            }
+            .icon-stock_down {
+                color: $alert_danger_color;
+                font-size: 8px;
+            }
+        }
+        .img-wrap {
+            height: 45px;
+            width: 45px;
+            border-radius: 13px;
+            padding: 5px;
+            border: 1px solid #eaeaea;
+            img {
+                border-radius: 8px;
+            }
+        }
+    }
+}
+.leaderboard-new-wrap {
+    .top-three-user.stk-nw-top-three-user {
+        position: relative;
+        text-align: center;
+        background-color: $primary;
+        height: 180px;
+        .last-pts-updated {
+            margin: 0;
+            position: absolute;
+            bottom: 12px;
+            left: 15px;
+            font-size: $font-size-small;
+            color: $white;
+            font-weight: 600;
+            width: 84px;
+            text-align: left;
+        }
+        img {
+            width: 160.56px;
+            margin: 0 auto;
+            position: relative;
+            bottom: -35px;
+        }
+        a {
+            position: absolute;
+            right: 12px;
+            bottom: 16px;
+            i {
+                font-size: $font-size-h4;
+                color: $white;
+            }
+        }
+    }
+    .user-list-wrap.stk-user-list-wrap {
+        margin-top: 40px;
+        thead tr th {
+            border-top: none;
+        }
+    }
+}
+.stay-tuned-card {
+    padding: 31px 30px 40px;
+    border-radius: 14px;
+    background-color: $white;
+    text-align: center;
+    margin-bottom: 20px;
+    .bg-graph {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        opacity: 0.6;
+        transform: translateY(-50%);
+    }
+    .label {
+        margin-bottom: 9px;
+        font-size: $font-size-h2;
+        text-transform: capitalize;
+        line-height: 1;
+        font-family: $font-bold;
+        color: $black;
+    }
+    .open-at {
+        font-size: $font-size-medium;
+        color: $black;
+        line-height: 1.5;
+        font-family: $font-regular;
+        width: 218px;
+        margin: 0 auto;
+        span {
+            font-family: $font-bold;
+        }
+    }
+    .link-sec {
+        font-family: $font-semibold;
+        color: $help_text_color;
+        font-size: $font-base;
+        margin: 60px auto 0;
+        width: 195px;
+        a {
+            color: $primary;
+            text-decoration: underline;
+        }
+    }
+}
+
+.time-upd {
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: $font-base;
+    font-family: $font-bold;
+    color: $black;
+}
+
+.stk-team-comp {
+    .player-dtl-list {
+        .you-player-sec,
+        .opp-player-sec {
+            position: relative;
+            padding: 12px;
+            &:first-child {
+                padding-top: 25px;
+            }
+            &:last-child {
+                padding-bottom: 50px;
+            }
+            .player-nm {
+                font-size: $font-size-small;
+                font-family: $font-semibold;
+                color: $primary_text_color;
+                .stk-pos {
+                    color: $help_text_color;
+                    padding-left: 2px;
+                }
+            }
+            .img-wrap {
+                height: 41px;
+                width: 41px;
+                display: inline-block;
+                border: 1px solid $border-color;
+                border-radius: 13px;
+                background-color: $white;
+                padding: 6px;
+                text-align: center;
+                position: absolute;
+                img {
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 8px;
+                }
+                span {
+                    background: $primary;
+                    border-radius: 100%;
+                    color: $white;
+                    display: inline-block;
+                    height: 16px;
+                    width: 16px;
+                    font-size: 11px;
+                    line-height: 19px;
+                    font-family: $font-bold;
+                    text-align: center;
+                }
+            }
+            .stk-prc-dtl {
+                font-size: $font-size-xsmall;
+                color: $primary_text_color;
+                font-family: $font-semibold;
+                .icon-stock_down {
+                    color: $alert_danger_color;
+                    font-size: 8px;
+                    margin-right: 2px;
+                }
+                .icon-stock_up {
+                    color: $success_sec;
+                    font-size: 8px;
+                    margin-right: 2px;
+                }
+                span {
+                    color: $help_text_color;
+                    margin-right: 2px;
+                }
+            }
+            .score-diff-inner-sec.stk {
+                font-size: $font-size-xsmall;
+                font-family: $font-semibold;
+                color: $success_sec;
+                &.danger-text {
+                    color: $alert_danger_color;
+                }
+            }
+        }
+        .you-player-sec {
+            padding-left: 60px;
+            .img-wrap {
+                left: 10px;
+                span {
+                    position: relative;
+                    right: -15px;
+                    top: -5px;
+                }
+            }
+        }
+        .opp-player-sec {
+            padding-right: 60px;
+            text-align: right;
+            background-color: $app_bg_color;
+            .img-wrap {
+                right: 10px;
+                span {
+                    position: relative;
+                    left: -15px;
+                    top: -5px;
+                }
+            }
+        }
+    }
+    .opp-bg {
+        background-color: $app_bg_color;
+    }
+    &.stk-eqt-team-comp {
+        .team-comp-header-new {
+            .team-names-wrap {
+                border-bottom: 1px solid $border-color;
+            }
+            .team-info-sec {
+                padding-top: 15px;
+                .user-img-sec {
+                    text-align: center;
+                    padding-bottom: 16px;
+                    img {
+                        height: 58px;
+                        width: 58px;
+                        border-radius: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .team-name {
+                    color: $primary;
+                    font-size: $font-base;
+                    font-family: $font-bold;
+                    line-height: 1;
+                    max-width: 100%;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    &.you-team-name {
+                        position: static;
+                        text-align: center;
+                    }
+                    &.opp-team-name {
+                        text-transform: capitalize;
+                        min-height: 1px;
+                    }
+                }
+                .lnp-ttl-scr {
+                    font-size: $font-size-h4;
+                    font-family: $font-bold;
+                    color: $body_text_color2;
+                    line-height: 1;
+                    margin-bottom: 25px;
+                }
+            }
+            .team-names-wrap .team-info-sec .post-wrap-inner {
+                margin: 10px 0;
+                &.you-post-wrap-inner {
+                    position: relative;
+                    i.icon-arrow-down {
+                        top: 0;
+                    }
+                    .select__control {
+                        border: none;
+                        padding: 0;
+                        height: auto;
+                        min-height: 1px;
+                    }
+                    .select__value-container {
+                        text-align: center;
+                        padding: 0;
+                        .select__placeholder {
+                            text-align: center;
+                            padding: 0;
+                            max-width: 100%;
+                        }
+                    }
+                    .select__single-value {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .team-comparison-wrapper {
+            padding: 0;
+            position: relative;
+            .last-pts-updated {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                top: 12px;
+                font-size: $font-size-xsmall;
+                color: $help_text_color;
+                font-family: $font-bold;
+                text-align: center;
+                z-index: 2;
+            }
+        }
+        &.web-container.web-container-fixed {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.stock-team-view-modal.eqt-stk .modal-dialog .modal-body {
+    .stock-type {
+        background-color: $app_bg_color;
+        padding: 6px;
+        text-align: center;
+        color: $body_text_color2;
+        font-size: $font-size-medium;
+        font-family: $font-bold;
+        text-transform: capitalize;
+        margin-bottom: 2px;
+    }
+    .player-list-container.scoring .value-v {
+        span {
+            font-size: $font-size-small;
+            &.bold-text {
+                font-family: $font-bold;
+            }
+            span.inn-block {
+                display: block;
+                width: 100%;
+                &.text-danger {
+                    color: $alert_danger_color;
+                }
+                &.text-succ {
+                    color: $success_sec;
+                }
+                &.nrml-text {
+                    font-family: $font-regular;
+                }
+                &.opn-prc {
+                    color: $help_text_color;
+                }
+            }
+            &.player-role-pts {
+                font-family: $font-regular;
+                color: $help_text_color;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 2px;
+            }
+        }
+    }
+}
+.btm-ttl-sec{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    max-width: 550px;
+    box-shadow: 0 -2px 15px 0 rgba(0,0,0,.15)!important;
+    background: $white !important;
+    display: table;
+    width: 100%;
+    padding: 5px;
+    span{
+        font-size: $font-size-medium;
+        color: $primary_text_color;
+        display: table-cell;
+        vertical-align: middle;
+        font-family: $font-bold;
+        padding: 5px;
+        .lbl-for{
+            display: block;
+            color: $help_text_color;
+            font-size: $font-size-small;
+            font-family: $font-regular;
+            padding: 0;
+        }
+        .ttl-per{
+            display: inline-block;
+            color: $primary_text_color;
+            font-family: $font-regular;
+            font-size: $font-base;
+            font-family: $font-regular;
+            padding: 0;
+        }
+    }
+}
+
+
+
+// changes for dark theme overall
+.body-dark-theme{
+    .stk-team-comp{
+        .opp-bg{
+            background-color: #171717;
+        }
+        .player-dtl-list{
+            .opp-player-sec{
+                background-color: #171717;
+            }
+            .you-player-sec ,
+            .opp-player-sec{
+                .player-nm,.stk-prc-dtl{
+                    color: $white;
+                }
+                .img-wrap{
+                    background-color: $darkT_app_bg_color;
+                    border-color: $black;
+                    span{
+                        background-color: $darkT_primary;
+                        color: $darkT_secondary_text_color;
+                    }
+                }
+            }
+        }
+        &.stk-eqt-team-comp .team-comp-header-new{
+            .team-names-wrap{
+                border-color: $darkT_border_color2;
+            }
+            .team-info-sec {
+                .team-name{
+                    color: $darkT_primary;
+                }
+                .lnp-ttl-scr{
+                    color: $darkT_primary_text_color;
+                }
+            }
+        }
+    }
+    .stock-team-view-modal.eqt-stk{
+        .modal-dialog{
+            .modal-body{
+                .stock-type{
+                    background-color: $darkT_view_bg_color;
+                    color: $darkT_primary_text_color;
+                }
+                .player-list-container.scoring{
+                    .scoring-name-c{
+                        .player-image{
+                            background-color: $darkT_app_bg_color;
+                            border-color: $black;
+                        }
+                        .player-name{
+                            color: $darkT_primary_text_color;
+                            span{
+                                background-color: $darkT_primary;
+                                color: $darkT_secondary_text_color;
+                            }
+                        }
+                    }
+                    .value-v{
+                        border-color: $darkT_border_color2;
+                        span{
+                            color: $darkT_primary_text_color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btm-ttl-sec{
+        background: $darkT_view_bg_color !important;
+        color: $darkT_primary_text_color;
+        span{
+            color: $darkT_primary_text_color;
+        }
+    }
+    .stock-player-list-item table tr td .credit-container-equity .current-text.per-current-text{
+        color: $darkT_primary_text_color !important;
+    }
+}
+.select-captian-wrap.stock-f{
+    .stock-player-list-item table tr td{
+        &.right{
+            @media (max-width: 500px){
+                padding: 0 12px !important;
+            }
+        }
+        .credit-container-equity{
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,109 @@
+<div ng-if="data.CardType=='activity'" class="business-card card-default" data-type="cardTip">
+    <div class="card-content-wrap">
+        <div class="card-body">
+            <div class="content">
+               <span class="label-text label-default" ng-bind="data.EntityName"></span>
+               <h4 class="card-title" ng-bind="data.PostTitle"></h4>
+               <p ng-bind-html="textToLink(data.PostContent,1)"></p>
+           </div>
+        </div>
+        <div class="card-footer">
+            <ul class="feed-like-nav">
+                <li ng-click="likeEmit(data.ActivityGUID,'Activity')" class="iconlike" ng-class="(data.IsLike=='1') ? 'active' : '' ;">
+                    <svg height="16px" width="16px" class="svg-icon">
+                        <use xlink:href="{{SiteURL+'assets/img/sprite.svg#iconLike'}}"></use>
+                    </svg>
+                </li>
+                <li class="view-count" ng-if="data.NoOfLikes>0" ng-bind="data.NoOfLikes"></li>
+                <li>
+                    <svg height="18px" width="18px" class="svg-icon">
+                        <use xlink:href="{{SiteURL+'assets/img/sprite.svg#icnComment'}}"></use>
+                    </svg>
+                </li>
+                <li class="view-count" ng-if="data.NoOfComments>0" ng-bind="data.NoOfComments"></li>
+            </ul>
+            <button ng-if="data.IsSubscribed=='1'" ng-cloak ng-click="subscribe_article(data.ActivityGUID)" class="btn btn-default btn-xs">Unfollow</button>
+            <button ng-if="data.IsSubscribed=='0'" ng-clock ng-click="subscribe_article(data.ActivityGUID)" class="btn btn-default btn-xs">Follow</button>
+        </div>
+    </div>
+</div>
+
+<!-- original -->
+<div ng-if="data.CardType!=='activity'" class="business-card" data-type="cardTip">
+    <div class="card-content-wrap">
+        <div class="notification-loader" ng-if="bloader==1" style="left:50%; top:50%;">
+            <div class="spinner32"></div>
+        </div>
+        <div class="card-banner">
+            <div class="b-banner-img">
+                <a ng-if="data.ProfileCover!=''" style="background-image: url({{data.ImageServerPath+'upload/profilebanner/1200x300/'+data.ProfileCover}});"></a>
+            </div>
+            <div class="card-arrow">
+                <div class="arrow-content" ng-if="data.ProfileCover!=''" style="background-image: url({{data.ImageServerPath+'upload/profilebanner/1200x300/'+data.ProfileCover}});"></div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-content"> 
+                <a class="user-thumb-card" ng-href="{{data.SiteUrl+data.ProfileURL}}">
+                    
+                    <img ng-if="data.CardType=='user' && (data.ProfilePicture=='' || data.ProfilePicture=='user_default.jpg')" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'}}" err-Name="{{data.Name}}" >
+
+                    <img ng-if="data.CardType=='user' && data.ProfilePicture!='' && data.ProfilePicture!='user_default.jpg'" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.ProfilePicture}}" >
+                    
+                    <img err-SRC="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" ng-if="data.CardType!='group' || data.CardType!='group' || data.Type=='FORMAL'" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.ProfilePicture}}" >
+                   
+
+                    <img ng-if="data.Type=='INFORMAL' && data.ProfilePicture!='' && data.ProfilePicture!='group-no-img.jpg'" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.ProfilePicture}}" class="img-circle"  >
+                    <div ng-if="data.Type=='INFORMAL' && data.ProfilePicture=='group-no-img.jpg'" ng-class="(data.EntityMembers.length>2) ? 'group-thumb' : 'group-thumb-two' ;" class="m72 ng-scope group-thumb" ng-if="thread.ThreadImageName==''">
+                        <span ng-repeat="recipients in data.EntityMembers" class="ng-scope">
+                        <img  ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+recipients.ProfilePicture}}" entitytype="user" ng-if="$index<=2" class="ng-scope">
+                      </span>
+                    </div>
+                </a>
+                <div class="detail-of-cartd">
+                <a class="user-name-card ellipsis" ng-href="{{data.SiteUrl+data.ProfileURL}}">
+                    <span ng-if="(data.CardType!='group' || data.CardType!='Group') || data.Type=='FORMAL'" ng-bind="data.Name"></span>
+                    <span ng-if="(data.CardType=='group' || data.CardType=='Group') && data.Type=='INFORMAL'">
+                    <span ng-repeat="Member in data.EntityMembers"><span ng-bind="Member.FirstName" ng-if="$index<=2"></span><span ng-if="$index<2 && data.EntityMembers.length>=3">,</span><span ng-if="$index<(data.EntityMembers.length-1) && data.EntityMembers.length<3">,</span> </span>
+                    <span ng-if="data.EntityMembers.length>3">and {{data.EntityMembers.length-3}} others</span>
+                    </span>
+                    <i class="ficon-globe" ng-if="data.CardType=='Group' && data.Privacy==1"></i>
+                    <i class="ficon-closes" ng-if="data.CardType=='Group' && data.Privacy==0"></i>
+                    <i class="ficon-secret" ng-if="data.CardType=='Group' && data.Privacy==2"></i>                     
+                    <i class="icon-lock" ng-if="data.CardType=='event'" ng-class="{'icon-lock':data.Privacy=='PUBLIC','icon-unlock':data.Privacy=='PRIVATE','icon-msgm':data.Privacy=='INVITE_ONLY'}"></i>
+                </a>
+                </div>  
+
+                <ul class="card-detail">
+                    <li ng-if="data.About && data.About!==''"><i class="icon-n-bio"></i> <span ng-bind="data.About | limitTo:50"></span><span ng-if='data.About.length > 50'>...</span></li>
+                    <li ng-if="data.MutualFriend.length">
+                        <i class="icon-n-friends"></i>
+                        <a ng-repeat="mf in data.MutualFriend" ng-bind="!$last?mf.FirstName+' '+mf.LastName+', ':mf.FirstName+' '+mf.LastName" ng-href="{{mf.ProfileURL}}"></a>
+                        <span ng-if="data.MutualFriendCount > 2">and <a>{{data.MutualFriendCount-2}} others</a> are Mutual friends</span>
+                    </li>
+                    <li ng-if="!data.MutualFriend.length && data.CardType=='user' && data.TotalFriends > 0"><i class="icon-n-friends"></i>
+                        <a ng-bind="data.TotalFriends"></a> friends</li>
+                    <li ng-if="data.Members.length">
+                        <i class="icon-n-friends"></i>
+                        <a ng-repeat="member in data.Members" ng-href="{{member.SiteUrl+member.ProfileURL}}" ng-bind="!$last?member.FirstName+' '+member.LastName+', ':member.FirstName+' '+member.LastName"></a>
+                    </li>
+                    <li ng-if="!data.Members.length && data.CardType=='Group'"><i class="icon-n-friends"></i>
+                        <a ng-bind="data.TotalMembers"></a> member<span ng-if="data.TotalMembers>1">s</span></li>
+                    <li ng-if="!data.Members.length && data.CardType=='event'"><i class="icon-n-friends"></i>
+                        <a ng-bind="data.TotalMembers"></a> attendee<span ng-if="data.TotalMembers>1">s</span></li>
+                    <li ng-if="!data.Members.length && data.CardType=='page'"><i class="icon-n-friends"></i>
+                        <a ng-bind="data.TotalMembers"></a> follower<span ng-if="data.TotalMembers>1">s</span></li>
+                    <li ng-hide="!data.Category || data.Category==''"><i class="icon-n-page-follow"></i> <span ng-bind="data.Category"></span></li>
+                    <li ng-if="data.StartDateTime && data.CardType=='event'">
+                        <i class="icon-datepkr">&nbsp;</i>
+                        <span ng-bind="data.StartDateTime"></span>
+                    </li>
+                    <li ng-if="data.Location && data.Location.Location !== ''"><i class="icon-n-location"></i> <span ng-bind="data.Location.Location"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-footer" style="height: 0; padding: 0;">
+            <div class="card-arrow"></div>
+        </div>
+    </div>
+</div> 

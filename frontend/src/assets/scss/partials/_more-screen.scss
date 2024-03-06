@@ -1,0 +1,265 @@
+.more-screen-container {
+    .drawer-menu-list {
+        float: left;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        background-color: $white;
+        min-height: calc(100% - 266px);
+        overflow: hidden;
+
+        .drawer-menu-item {
+            display: block;
+            overflow: hidden;
+
+            &:last-child {
+                a {
+                    border-bottom: 1px solid transparent;
+                }
+            }
+            &.bottom-border-hide {
+                a {
+                    border-bottom: 1px solid transparent;
+                }
+            }
+            a {
+                display: flex;
+                text-transform: capitalize;
+                padding: 14px 12px 13px 0;
+                line-height: 22px;
+                font-size: $font-base;
+                color: $body_text_color;
+                position: relative;
+                font-family: $font-regular;
+                border-bottom: 1px solid rgba($color: $border_color, $alpha: 0.5);
+                .ic {
+                    float: left;
+                    width: 58px;
+                    height: 40px;
+                    margin: -13px 0;
+                    font-size: 20px;
+                    line-height: 45px;
+                    text-align: center;
+                    color: $primary_text_color;
+                    &.icon-wallet-ic {
+                        font-size: 16px;
+                        color: #515151;
+                    }
+
+                    &.arrow-right {
+                        float: right;
+                        font-size: $font-base;
+                        padding-top: 2px;
+                        color: $help_text_color;
+                        position: relative;
+                        top: -3px;
+                        &.warning {
+                            // color: $warning;
+                            color: $primary;
+                        }
+                        &.reject {
+                            color: $danger;
+                        }
+
+                        &.arrow-open {
+                            -webkit-animation: open 0.5s 1; /* Safari 4.0 - 8.0 */
+                            -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+                            animation: open 0.5s 1;
+                            animation-direction: normal;
+                        }
+                        &.arrow-close {
+                            -webkit-animation: close 0.5s 1; /* Safari 4.0 - 8.0 */
+                            -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+                            animation: close 0.5s 1;
+                            animation-direction: normal;
+                        }
+
+                        /* Safari 4.0 - 8.0 */
+                        @-webkit-keyframes open {
+                            from {
+                                transform: rotateX(180deg);
+                            }
+                            to {
+                                transform: rotateX(0deg);
+                            }
+                        }
+                        @keyframes open {
+                            from {
+                                transform: rotateX(180deg);
+                            }
+                            to {
+                                transform: rotateX(0deg);
+                            }
+                        }
+
+                        /* Safari 4.0 - 8.0 */
+                        @-webkit-keyframes close {
+                            from {
+                                transform: rotateX(180deg);
+                            }
+                            to {
+                                transform: rotateX(0deg);
+                            }
+                        }
+                        @keyframes close {
+                            from {
+                                transform: rotateX(180deg);
+                            }
+                            to {
+                                transform: rotateX(0deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sub-menu-open {
+            transition: all 0.5s ease-in-out;
+            height: 600px;
+            margin-bottom: 40px;
+        }
+        .sub-menu-close {
+            transition: all 0.5s ease-in-out;
+            overflow: hidden;
+            height: 0px;
+        }
+    }
+
+    &.container-height {
+        min-height: calc(100vh - 116px);
+        padding-bottom: 100px;
+        .max-current-sec .switch-container .switch {
+            z-index: 0;
+        }
+        .drawer-menu-list .sub-menu-open {
+            margin-bottom: 0;
+        }
+    }
+
+    .more-footer {
+        position: fixed;
+        bottom: 56px;
+        @media (max-width: 400px) {
+            bottom: 55px;
+        }
+        width: 100%;
+        max-width: $window_width;
+
+        // @media screen and (max-width: 375px){
+        //     bottom: 43px;
+        // }
+
+        .drawer-footer {
+            // float: left;
+            width: 100%;
+            height: 48px;
+            background: $white;
+            border-top: solid 1px $border_color;
+            .league-code-btn {
+                float: left;
+                margin: 13px;
+                color: $primary_text_color;
+                font-family: $font-regular;
+                font-size: $font-size-small;
+                font-weight: bold;
+                line-height: 15px;
+                cursor: pointer;
+                max-width: 160px;
+                display: flex;
+                align-items: center;
+            }
+            .logout-btn {
+                float: right;
+                margin: 15px 20px 15px 0px;
+                color: $primary;
+                font-family: $font-regular;
+                font-size: $font-size-small;
+                font-weight: bold;
+                line-height: 15px;
+            }
+            i.icon-league-code {
+                font-size: 24px;
+                margin-right: 3px;
+                color: $gray-900;
+            }
+            i.icon-logout {
+                color: $primary_text_color;
+                font-size: 20px;
+                margin-right: 5px;
+                position: relative;
+                top: -2px;
+            }
+        }
+        .bottom-container {
+            width: 100%;
+            background-color: $app_bg_color;
+            align-content: center;
+
+            .app-version-container {
+                width: 50%;
+                background-color: $app_bg_color;
+                display: inline-block;
+                padding-left: 15px;
+                &.dark-mode{
+                    background-color: $darkT_app_bg_color;
+                }
+                .version-name{
+                    color: $primary_text_color;
+                    font-size: $font-size-xsmall;
+                    font-family: $font-base;
+                    margin-top: 10px;
+                    &.dark-mode-text{
+                        color: $app_text_color;
+                    }
+                }
+                .update-btn {
+                    color: $primary;
+                    font-size: $font-size-small;
+                    font-family: $font-black;
+                }
+            }
+
+            .developed-by-container {
+                width: 100%;
+                display: inline-block;
+                text-align: right;
+                &.text-right {
+                    width: 50%;
+                    text-align: right;
+                }
+                line-height: 2.5;
+
+                span {
+                    opacity: 0.59;
+                    color: $help_text_color;
+                    font-family: $font-regular;
+                    font-size: 8px;
+                    font-weight: bold;
+                    line-height: 10px;
+                    text-transform: uppercase;
+                    padding: 15px;
+                    display: inline-block;
+                }
+
+                img {
+                    height: 12px;
+                    width: 15px;
+                }
+            }
+        }
+    }
+}
+.d-block > div {
+    height: 100% !important;
+}
+
+// changes for dark theme overall
+.body-dark-theme {
+    .more-screen-container .drawer-menu-list .drawer-menu-item a .ic.arrow-right.warning {
+        color: $darkT_primary;
+    }
+}

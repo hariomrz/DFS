@@ -1,0 +1,32 @@
+<div class="panel panel-info" ng-cloak ng-show="user_media.length > 0">
+    <div class="panel-body">
+        <div class="row gutter-1">
+            <ul class="media-listing row">
+                <li class="media-thumbwrap col-sm-2 col-xs-3" ng-repeat="um in user_media" ng-click="$emit('showMediaPopupGlobalEmit', um.MediaGUID, '');" infinite-scroll="get_category_media(category_detail.ForumCategoryGUID,'18')" infinite-scroll-use-document-bottom="true" infinite-scroll-disabled="busy">
+                    <div class="recent-media-listing">
+                        <img ng-cloak ng-if="um.MediaType !== 'Video'" ng-src="{{ImageServerPath + 'upload/' + um.MediaFolder + '/220x220/' + um.ImageName}}"  /> 
+                        <img ng-cloak ng-if="um.MediaType == 'Video' && um.ConversionStatus == 'Finished'"   ng-src="{{ImageServerPath + 'upload/' + um.MediaFolder + '/220x220/' + um.ImageName.substr(0, um.ImageName.lastIndexOf('.')) + '.jpg'}}" /> 
+                        <i class="icon-n-video-big" ng-if="um.MediaType == 'Video' && um.ConversionStatus == 'Finished'"></i> 
+                        <div class="post-video" ng-if="um.MediaType == 'Video' && um.ConversionStatus == 'Pending'">
+                            <div class="wall-video pending-rating-video">
+                                <i class="icon-video-c"></i>
+                            </div>  
+                        </div>
+                    </div>  
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info" ng-show="TotalRecords == 0">
+    <div class="panel-body nodata-panel">
+        <div class="nodata-text p-v-elg">
+            <span class="nodata-media">
+                <img src="assets/img/empty-img/empty-media.png" >
+            </span>
+            <h5 ng-bind="lang.no_media"></h5>
+            <p class="text-off no-margin" ng-bind-html="lang.no_media_text"></p>
+        </div>
+    </div>
+</div>

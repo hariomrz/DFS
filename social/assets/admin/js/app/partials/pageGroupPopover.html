@@ -1,0 +1,71 @@
+<div class="business-card card-inline">
+    <div class="card-content-wrap">
+        <div class="card-banner">
+            <div class="b-banner-img ">
+                <i class="ficon-file-empty"></i>
+                <a>
+                    <!--<img src="http://media-cache-ec0.pinimg.com/originals/ae/70/02/ae7002bc523db82d9d57b64b88501108.jpg " alt=" ">-->
+                    <img ng-if="( entityList.CoverImage && ( entityList.ModuleID == 18 ) )" ng-src="{{ imageServerPath + 'upload/profilebanner/1200x300/' + entityList.CoverImage}}" alt="No cover image">
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-content">
+                <a class="user-thumb-card ">
+                    <img ng-if="( entityList.ProfilePicture && ( entityList.ModuleID == 18 ) )" ng-src="{{ imageServerPath + 'upload/profile/' + entityList.ProfilePicture}}" class="img-circle img-responsive" alt="No image" title="{{entityList.Name}}">
+                    <img ng-if="( !entityList.ProfilePicture && ( entityList.ModuleID == 18 ) )" ng-src="{{ imageServerPath + 'upload/profile/user_default.jpg'}}" class="img-circle img-responsive" alt="No image" title="{{entityList.Name}}">
+                </a>
+                <div class="detail-of-cartd">
+                    <div class="name-of-card">
+                        <a class="user-name-card ellipsis " ng-bind="entityList.Name"></a>
+                        <i class="ficon-globe"></i>
+                        <i class="ficon-trending"></i>
+                    </div>
+                    <span ng-if="( entityList.CreatorName || entityList.CreatedDate )">
+                        <span>Created </span>
+                        <span ng-if="entityList.CreatorName" ng-bind="'by ' + entityList.CreatorName"></span>
+                        <span ng-if="entityList.CreatedDate" ng-bind="'on ' + ( parseDateOnly( entityList.CreatedDate ) | date: 'd MMMM yy' )"></span>
+                    </span>
+                </div>
+                <ul ng-if="( ( ( entityList.MemberCount != '' ) && ( entityList.MemberCount > 0 ) ) || ( ( entityList.PostCount != '' ) && ( entityList.PostCount > 0 ) ) )" class="activity-detail clearfix">
+                    <li>Discussion</li>
+                    <li ng-if="( ( entityList.MemberCount != '' ) && ( entityList.MemberCount > 0 ) )" ng-bind="( ( entityList.MemberCount > 1 ) ? entityList.MemberCount + ' Members' : entityList.MemberCount + ' Member' )"></li>
+                    <li ng-if="( ( entityList.PostCount != '' ) && ( entityList.PostCount > 0 ) )" ng-bind="( ( entityList.PostCount > 1 ) ? entityList.PostCount + ' Posts' : entityList.PostCount + ' Post' )"></li>
+                </ul>
+            </div>
+            <div class="card-detail clearfix">
+                <div class="card-detail-content" ng-if="( entityList.ParseTags.length > 0 )">
+                    <label>Tags</label>
+                    <ul class="tags-list">
+                        <li ng-repeat="tag in entityList.ParseTags | limitTo: 3">
+                            <span ng-bind="tag"></span>
+                        </li>
+<!--                                                            <li><span>Suggestions</span></li>
+                        <li><span>Professionals</span></li>-->
+                    </ul>
+                    <a ng-if="( entityList.ParseTags.length > 3 )" class="view-more" ng-bind=" '+ ' + ( entityList.ParseTags.length - 3 ) + ' more' ">+ 4 more</a>
+                </div>
+                <div class="card-detail-content" ng-if="entityList.Note">
+                    <label>Admin Notes</label>
+                    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry dummy text of the printing, <a>See more…</a></p>-->
+                    <p ng-cloak>{{ entityList.Note | limitTo: charDisplayLimit }} {{ ( entityList.Note.length > charDisplayLimit ) ? '...' : ''}} <a ng-if="( entityList.Note.length > charDisplayLimit )">See more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer ">
+            <div class="btn-toolbar btn-toolbar-right">
+                <a class="btn btn-xs btn-icn btn-default" ng-click="updateEntity(entityList.ModuleID, entityList.ModuleEntityID, 'delete', entityIndex);">
+                    <span class="icn"><i class="ficon-bin"></i></span>
+                </a>
+                <a class="btn btn-xs btn-icn btn-default"><span class="icn"><i class="ficon-envelope"></i></span></a>
+                <a class="btn btn-xs btn-default" ng-click="updateEntity(entityList.ModuleID, entityList.ModuleEntityID, 'verify', entityIndex);">Mark As Safe</a>
+                <a class="btn btn-xs btn-default" ng-click="updateEntityTags(entityList, entityIndex);">
+                    <span ng-if="( entityList.Featured_TagID != 0 )" class="icn">
+                        <i class="ficon-check"></i>
+                    </span>
+                    <span class="text">Feature</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

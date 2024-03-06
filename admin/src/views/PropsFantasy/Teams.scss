@@ -1,0 +1,74 @@
+.team-list {
+  .teamrow-heading {
+    margin-left: 20px;
+  }
+  .dfsrow.row {
+    margin-top: 4rem;
+    justify-content: space-between;
+  }
+  .card {
+    border: none;
+  }
+  .input-group {
+    .form-control {
+      height: 42px;
+    }
+  }
+  .dfs-selector {
+    margin-right: 20px;
+    height: 42px;
+    width: 146px;
+    border: 1px solid #d2dfec;
+    border-radius: 4px;
+    background-color: #f5f9fb;
+    box-shadow: 0 2px 15px 1px rgba(184, 181, 181, 0.5);
+    .Select-placeholder{
+      line-height: 42px;
+    }
+    .Select-control {
+      margin: 0;
+      height: 40px;
+      width: 146px;
+      border: none;
+      border-radius: 4px;
+      background-color: transparent;
+      .Select-multi-value-wrapper {
+        height: 42px;
+        .Select-value{
+          line-height: 42px;
+        }
+        .Select-value-label {
+          color: $black;
+          font-family: $font-bold;          
+        }
+      }
+    }
+  }
+  .team-item {
+    text-align: left;
+    padding: 10px;
+    margin-left: 2rem;
+    label {
+      padding-top: 10px;
+    }
+    @media screen {
+      margin-left: 0rem;
+    }
+  }
+  .upload-logo{
+    color: $gray-9;
+    cursor: pointer;    
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+input#position {
+  border: none !important;
+  background: none !important;
+}
+
+.props-team-list .input-group .form-control {
+  height: 38px!important;
+}

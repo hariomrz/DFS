@@ -1,0 +1,223 @@
+#Stock fantasy
+allow_stock_fantasy 0/1
+
+{
+    "contest_end_time": "10:00:00",
+    "contest_start_time": "03:45:00",
+    "contest_publish_time": "10:45:00"
+}
+
+#Stock Equity vi_app_config 
+
+allow_equity 0/1    
+
+{"salary_cap": "500000", 
+"currency_symbol": "u20b9", 
+"contest_end_time": "10:00:00", 
+"max_cap_per_stock": "100000", 
+"min_cap_per_stock": "50", 
+"contest_start_time": "03:45:00",
+ "contest_publish_time": "10:45:01"}
+
+
+
+#stock fantasy Crons
+-------------------STOCK COMMON FEDD API--------------------------
+*/2 3-10 * * 1-5 wget -O - -q -t 1 http://localhost/stock/cron/stock_feed/update_stock_latest_quote
+*/3 3-10 * * 1-5 wget -O - -q -t 1 http://localhost/stock/cron/stock_feed/stock_historical_data_minute_wise
+55 18 * * * wget -O - -q -t 1 http://localhost/stock/cron/stock_feed/stock_list
+
+*/13 * * * * wget -O - -q -t 1 http://localhost/stock/cron/cron_queue/game_cancellation
+*/10 * * * * wget -O - -q -t 1 http://localhost/stock/cron/cron/match_cancel_notification
+
+*/4 * * * * wget -O - -q -t 1 http://localhost:4000/stocks/lineup_move
+
+*/15 * * * * wget -O - -q -t 1 http://localhost/stock/cron/cron_queue/prize_distribution
+*/2 * * * * wget -O - -q -t 1 http://localhost/stock/cron/cron_queue/update_scores_in_lineup
+*/16 * * * * wget -O - -q -t 1 http://localhost/stock/cron/cron_queue/update_contest_status
+*/15 * * * * wget -O - -q -t 1 http://localhost/stock/cron/move_completed_collection_team
+*/15 * * * * wget -O - -q -t 1 http://localhost/stock/cron/collection_prize_distribute_notification
+
+#equity cron
+*/15 * * * * wget -O - -q -t 1 http://localhost/stock/cron/move_completed_collection_team_equity
+#stock
+* 11 * * * wget -O - -q -t 1 http://localhost/stock/cron/cron/evening_push
+29 3 * * * wget -O - -q -t 1 http://localhost/stock/cron/cron/morning_push
+
+#stock Leaderboard
+30 3-11 * * 1-5 wget -O - -q -t 1 http://localhost/stock/cron/cron_queue/update_leaderboard
+30 3-11/2 * * 1-5 wget -O - -q -t 1 http://localhost/stock/cron/cron_queue/update_leaderboard_status
+
+
+
+
+-------------------------------------------------------------------------------------
+#supervisor scripts
+[program:stprizecronscript]
+command=php /var/www/html/stock/index.php cron/worker process_prize_cron --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stprizecronscript.err.log
+stdout_logfile=/var/log/stprizecronscript.out.log
+
+[program:stprizenotiscript]
+command=php /var/www/html/stock/index.php cron/worker process_prize_notify --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stprizenotiscript.err.log
+stdout_logfile=/var/log/stprizenotiscript.out.log
+
+[program:stpointsscript]
+command=php /var/www/html/stock/index.php cron/worker process_sc_points_cron --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stpointsscript.err.log
+stdout_logfile=/var/log/stpointsscript.out.log
+
+[program:stcontestscript]
+command=php /var/www/html/stock/index.php cron/worker process_contest --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stcontestscript.err.log
+stdout_logfile=/var/log/stcontestscript.out.log
+
+
+[program:stemailscript]
+command=php /var/www/html/stock/index.php cron/worker process_email --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stemailscript.err.log
+stdout_logfile=/var/log/stemailscript.out.log
+
+[program:stcontestclosescript]
+command=php /var/www/html/stock/index.php cron/worker process_contest_close --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stcontestclosescript.err.log
+stdout_logfile=/var/log/stcontestclosescript.out.log
+
+[program:stcontestpdfscript]
+command=php /var/www/html/stock/index.php cron/worker process_contestpdf --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stcontestpdfscript.err.log
+stdout_logfile=/var/log/stcontestpdfscript.out.log
+
+[program:stscorecalculatescript]
+command=php /var/www/html/stock/index.php cron/worker process_score_calculation --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stscorecalculatescript.err.log
+stdout_logfile=/var/log/stscorecalculatescript.out.log
+
+[program:stockreportscript]
+command=php /var/www/html/stock/index.php cron/worker report_queue_process --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stockreportscript.err.log
+stdout_logfile=/var/log/stockreportscript.out.log
+
+[program:stockgamecancelscript]
+command=php /var/www/html/stock/index.php cron/worker process_game_cancellation --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stockgamecancelscript.err.log
+stdout_logfile=/var/log/stockgamecancelscript.out.log
+
+[program:process_stock_feed_data]
+command=php /var/www/html/stock/index.php cron/worker process_stock_feed_data --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stockdata.err.log
+stdout_logfile=/var/log/stockdata.out.log
+
+[program:stockleaderboardscript]
+command=php /var/www/html/stock/index.php cron/worker process_leaderboard --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stockleaderboardscript.err.log
+stdout_logfile=/var/log/stockleaderboardscript.out.log
+
+[program:stocklnodescript]
+command=php /var/www/html/stock/index.php cron/worker process_notify_node --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stocklnodescript.err.log
+stdout_logfile=/var/log/stocklnodescript.out.log
+
+[program:stockpushscript]
+command=php /var/www/html/stock/index.php cron/worker push_queue_prepare --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stockpushscript.err.log
+stdout_logfile=/var/log/stockpushscript.out.log
+
+[program:stockautopushscript]
+command=php /var/www/html/stock/index.php cron/worker stock_auto_push_queue_process --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/dfsautopushscript.err.log
+stdout_logfile=/var/log/dfsautopushscript.out.log
+
+[program:process_stock_remaining_cap]
+command=php /var/www/html/stock/index.php cron/worker process_remaining_cap --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/process_stock_remaining_cap.err.log
+stdout_logfile=/var/log/process_stock_remaining_cap.out.log
+
+[program:stfcmtopicscript]
+command=php /var/www/html/stock/index.php cron/worker process_stock_fcm_topic --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/stfcmtopicscript.err.log
+stdout_logfile=/var/log/stfcmtopicscript.out.log
+
+After code deploy restart pm2 service
+-----------------------------------------------------------------------------------------
+
+
+#migratino files
+001_stock_fantasy.php
+http://predev.vinfotech.org/stock/migration/do_migration
+
+user folder
+093_stock_module.php
+http://predev.vinfotech.org/user/migration/do_migration
+
+#activate Stock Fantasy 
+http://predev.vinfotech.org/admin/#/app_config?auth_key=VSPADMIN
+
+select Yes and update start and end time in UTC
+
+
+--------------------------Daily Logic start--------------------------------
+Create Portfolio (Upcoming)= Last day closing price- opening Price = + wali value and %chg difference
+
+Live-
+Same Day Current Price-Opening Price
+
+Completed- 
+Completion date Close price- Open price
+--------------------------Daily Logic end--------------------------------
+
+--------------------------Weekly Logic start--------------------------------
+1. Create Portfolio-  Friday Closing Price- Week Opening Price
+2. Live- Monday Open Price- same day Current Price/Closing Price
+3. Completed- Monday Opening Price- Friday Closing Price
+--------------------------Weekly Logic end--------------------------------
+
+--------------------------Monthly Logic start--------------------------------
+1. Create Portfolio-  Friday Closing Price- Week Opening Price
+2. Live- Monday Open Price- same day Current Price/Closing Price
+3. Completed- Monday Opening Price- Friday Closing Price
+--------------------------Monthly Logic end--------------------------------
+
+
+ALTER TABLE `vi_lineup_master_contest` CHANGE `total_score` `total_score` DECIMAL(10,2) NULL DEFAULT '0';
+ALTER TABLE `vi_lineup_master_contest` CHANGE `last_score` `last_score` DECIMAL(10,2) NULL DEFAULT '0';
+
+
+
+
+

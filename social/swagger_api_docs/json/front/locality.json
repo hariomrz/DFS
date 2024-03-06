@@ -1,0 +1,231 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/locality/index": {
+            "get": {
+                "tags": [
+                    "Locality"
+                ],
+                "summary": "locality API",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/locality/list": {
+            "post": {
+                "tags": [
+                    "Locality"
+                ],
+                "summary": "locality API",
+                "description": "",
+                "operationId": "list",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Locality\\list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/locality/ward_user_count": {
+            "post": {
+                "tags": [
+                    "Ward User Count"
+                ],
+                "summary": "Ward User Count",
+                "description": "",
+                "operationId": "ward_user_count",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Locality\\ward_user_count"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/locality/add_locality": {
+            "post": {
+                "tags": [
+                    "Add Locality"
+                ],
+                "summary": "Add Suggested Locality",
+                "description": "",
+                "operationId": "add_locality",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Locality\\add_locality"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Locality\\index": {
+            "required": [
+                ""
+            ]
+        },
+        "Inclusify\\Api\\Locality\\list": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "PageNo",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "PageSize",
+                    "type": "string",
+                    "example": "10"
+                },
+                "Keyword": {
+                    "description": "Keyword",
+                    "type": "string",
+                    "example": "ram"
+                }
+            }
+        },
+        "Inclusify\\Api\\Locality\\ward_user_count": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "WID": {
+                    "description": "Ward ID",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Locality\\add_locality": {
+            "required": [
+                "Name",
+                "WID"
+            ],
+            "properties": {
+                "WID": {
+                    "description": "Ward ID",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "Name": {
+                    "description": "Locality Name",
+                    "type": "string",
+                    "example": "abc"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scores sport="formula 1">
+  <tournament name="Australian Grand Prix" id="819705">
+    <race status="Finished" date="02.04.2023" time="05:00" track="Melbourne Grand Prix Circuit" distance="307.6" total_laps="58" laps_running="" fastest_lap_id="2013" fastest_lap="1:20.235">
+      <results>
+        <driver pos="1" name="Max Verstappen (NED)" driver_id="2291" team="Red Bull" team_id="1019" time="2:32:38.371" laps="58" grid="1" pit="3" />
+        <driver pos="2" name="Lewis Hamilton (ENG)" driver_id="1057" team="Mercedes" team_id="1021" time="+0.179" laps="58" grid="3" pit="3" />
+        <driver pos="3" name="Fernando Alonso (ESP)" driver_id="1015" team="Aston Martin" team_id="1029" time="+0.769" laps="58" grid="4" pit="3" />
+        <driver pos="4" name="Lance Stroll (CAN)" driver_id="2297" team="Aston Martin" team_id="1029" time="+3.082" laps="58" grid="6" pit="3" />
+        <driver pos="5" name="Sergio Perez (MEX)" driver_id="2013" team="Red Bull" team_id="1019" time="+3.220" laps="58" grid="20" pit="5" />
+        <driver pos="6" name="Lando Norris (GBR)" driver_id="3014" team="McLaren" team_id="1024" time="+3.701" laps="58" grid="13" pit="3" />
+        <driver pos="7" name="Nico Hulkenberg (GER)" driver_id="1068" team="Haas" team_id="1034" time="+4.939" laps="58" grid="10" pit="3" />
+        <driver pos="8" name="Oscar Piastri (AUS)" driver_id="4016" team="McLaren" team_id="1024" time="+5.382" laps="58" grid="16" pit="4" />
+        <driver pos="9" name="Zhou Guanyu (CHN)" driver_id="4012" team="Alfa Romeo" team_id="1026" time="+5.713" laps="58" grid="17" pit="5" />
+        <driver pos="10" name="Yuki Tsunoda (JAP)" driver_id="4010" team="AlphaTauri" team_id="2031" time="+6.052" laps="58" grid="12" pit="4" />
+        <driver pos="11" name="Valtteri Bottas (FIN)" driver_id="2258" team="Alfa Romeo" team_id="1026" time="+6.513" laps="58" grid="19" pit="6" />
+        <driver pos="12" name="Carlos Sainz Jr (ESP)" driver_id="2290" team="Ferrari" team_id="1011" time="+6.594" laps="58" grid="5" pit="4" />
+        <driver pos="13" name="Pierre Gasly (FRA)" driver_id="3010" team="Alpine" team_id="1016" time="DNF" laps="56" grid="9" pit="2" />
+        <driver pos="14" name="Esteban Ocon (FRA)" driver_id="2289" team="Alpine" team_id="1016" time="DNF" laps="56" grid="11" pit="3" />
+        <driver pos="15" name="Nyck de Vries (NED)" driver_id="4014" team="AlphaTauri" team_id="2031" time="DNF" laps="56" grid="15" pit="4" />
+        <driver pos="16" name="Logan Sargeant (USA)" driver_id="4017" team="Williams" team_id="1010" time="DNF" laps="56" grid="18" pit="6" />
+        <driver pos="17" name="Kevin Magnussen (DEN)" driver_id="2271" team="Haas" team_id="1034" time="DNF" laps="52" grid="14" pit="2" />
+        <driver pos="18" name="George Russel (ENG)" driver_id="3024" team="Mercedes" team_id="1021" time="DNF" laps="17" grid="2" pit="2" />
+        <driver pos="19" name="Alexander Albon (THA)" driver_id="3023" team="Williams" team_id="1010" time="DNF" laps="7" grid="8" pit="" />
+        <driver pos="20" name="Charles Leclerc (MON)" driver_id="3009" team="Ferrari" team_id="1011" time="DNF" laps="1" grid="7" pit="" />
+      </results>
+    </race>
+    <third_qualification status="Finished" date="01.04.2023" time="05:42" track="Melbourne Grand Prix Circuit">
+      <results>
+        <driver pos="1" name="Max Verstappen (NED)" driver_id="2291" team="Red Bull" team_id="1019" time="1:16.732" laps="8" grid="" pit="" />
+        <driver pos="2" name="George Russel (ENG)" driver_id="3024" team="Mercedes" team_id="1021" time="1:16.968" laps="8" grid="" pit="" />
+        <driver pos="3" name="Lewis Hamilton (ENG)" driver_id="1057" team="Mercedes" team_id="1021" time="1:17.104" laps="8" grid="" pit="" />
+        <driver pos="4" name="Fernando Alonso (ESP)" driver_id="1015" team="Aston Martin" team_id="1029" time="1:17.139" laps="8" grid="" pit="" />
+        <driver pos="5" name="Carlos Sainz Jr (ESP)" driver_id="2290" team="Ferrari" team_id="1011" time="1:17.270" laps="8" grid="" pit="" />
+        <driver pos="6" name="Lance Stroll (CAN)" driver_id="2297" team="Aston Martin" team_id="1029" time="1:17.308" laps="6" grid="" pit="" />
+        <driver pos="7" name="Charles Leclerc (MON)" driver_id="3009" team="Ferrari" team_id="1011" time="1:17.369" laps="7" grid="" pit="" />
+        <driver pos="8" name="Alexander Albon (THA)" driver_id="3023" team="Williams" team_id="1010" time="1:17.609" laps="6" grid="" pit="" />
+        <driver pos="9" name="Pierre Gasly (FRA)" driver_id="3010" team="Alpine" team_id="1016" time="1:17.675" laps="8" grid="" pit="" />
+        <driver pos="10" name="Nico Hulkenberg (GER)" driver_id="1068" team="Haas" team_id="1034" time="1:17.735" laps="7" grid="" pit="" />
+      </results>
+    </third_qualification>
+    <second_qualification status="Finished" date="01.04.2023" time="05:21" track="Melbourne Grand Prix Circuit">
+      <results>
+        <driver pos="1" name="Max Verstappen (NED)" driver_id="2291" team="Red Bull" team_id="1019" time="1:17.056" laps="7" grid="" pit="" />
+        <driver pos="2" name="Fernando Alonso (ESP)" driver_id="1015" team="Aston Martin" team_id="1029" time="1:17.283" laps="7" grid="" pit="" />
+        <driver pos="3" name="Carlos Sainz Jr (ESP)" driver_id="2290" team="Ferrari" team_id="1011" time="1:17.349" laps="10" grid="" pit="" />
+        <driver pos="4" name="Charles Leclerc (MON)" driver_id="3009" team="Ferrari" team_id="1011" time="1:17.390" laps="9" grid="" pit="" />
+        <driver pos="5" name="Nico Hulkenberg (GER)" driver_id="1068" team="Haas" team_id="1034" time="1:17.412" laps="9" grid="" pit="" />
+        <driver pos="6" name="George Russel (ENG)" driver_id="3024" team="Mercedes" team_id="1021" time="1:17.513" laps="10" grid="" pit="" />
+        <driver pos="7" name="Lewis Hamilton (ENG)" driver_id="1057" team="Mercedes" team_id="1021" time="1:17.551" laps="10" grid="" pit="" />
+        <driver pos="8" name="Pierre Gasly (FRA)" driver_id="3010" team="Alpine" team_id="1016" time="1:17.574" laps="8" grid="" pit="" />
+        <driver pos="9" name="Lance Stroll (CAN)" driver_id="2297" team="Aston Martin" team_id="1029" time="1:17.616" laps="9" grid="" pit="" />
+        <driver pos="10" name="Alexander Albon (THA)" driver_id="3023" team="Williams" team_id="1010" time="1:17.761" laps="9" grid="" pit="" />
+        <driver pos="11" name="Esteban Ocon (FRA)" driver_id="2289" team="Alpine" team_id="1016" time="1:17.768" laps="8" grid="" pit="" />
+        <driver pos="12" name="Yuki Tsunoda (JAP)" driver_id="4010" team="AlphaTauri" team_id="2031" time="1:18.099" laps="10" grid="" pit="" />
+        <driver pos="13" name="Lando Norris (GBR)" driver_id="3014" team="McLaren" team_id="1024" time="1:18.119" laps="11" grid="" pit="" />
+        <driver pos="14" name="Kevin Magnussen (DEN)" driver_id="2271" team="Haas" team_id="1034" time="1:18.129" laps="8" grid="" pit="" />
+        <driver pos="15" name="Nyck de Vries (NED)" driver_id="4014" team="AlphaTauri" team_id="2031" time="1:18.335" laps="11" grid="" pit="" />
+      </results>
+    </second_qualification>
+    <first_qualification status="Finished" date="01.04.2023" time="05:00" track="Melbourne Grand Prix Circuit">
+      <results>
+        <driver pos="1" name="Max Verstappen (NED)" driver_id="2291" team="Red Bull" team_id="1019" time="1:17.384" laps="9" grid="" pit="" />
+        <driver pos="2" name="George Russel (ENG)" driver_id="3024" team="Mercedes" team_id="1021" time="1:17.654" laps="11" grid="" pit="" />
+        <driver pos="3" name="Lewis Hamilton (ENG)" driver_id="1057" team="Mercedes" team_id="1021" time="1:17.689" laps="10" grid="" pit="" />
+        <driver pos="4" name="Esteban Ocon (FRA)" driver_id="2289" team="Alpine" team_id="1016" time="1:17.770" laps="10" grid="" pit="" />
+        <driver pos="5" name="Fernando Alonso (ESP)" driver_id="1015" team="Aston Martin" team_id="1029" time="1:17.832" laps="11" grid="" pit="" />
+        <driver pos="6" name="Lance Stroll (CAN)" driver_id="2297" team="Aston Martin" team_id="1029" time="1:17.873" laps="11" grid="" pit="" />
+        <driver pos="7" name="Carlos Sainz Jr (ESP)" driver_id="2290" team="Ferrari" team_id="1011" time="1:17.928" laps="10" grid="" pit="" />
+        <driver pos="8" name="Alexander Albon (THA)" driver_id="3023" team="Williams" team_id="1010" time="1:17.962" laps="12" grid="" pit="" />
+        <driver pos="9" name="Nico Hulkenberg (GER)" driver_id="1068" team="Haas" team_id="1034" time="1:18.029" laps="10" grid="" pit="" />
+        <driver pos="10" name="Kevin Magnussen (DEN)" driver_id="2271" team="Haas" team_id="1034" time="1:18.159" laps="10" grid="" pit="" />
+        <driver pos="11" name="Charles Leclerc (MON)" driver_id="3009" team="Ferrari" team_id="1011" time="1:18.218" laps="9" grid="" pit="" />
+        <driver pos="12" name="Lando Norris (GBR)" driver_id="3014" team="McLaren" team_id="1024" time="1:18.243" laps="13" grid="" pit="" />
+        <driver pos="13" name="Pierre Gasly (FRA)" driver_id="3010" team="Alpine" team_id="1016" time="1:18.312" laps="9" grid="" pit="" />
+        <driver pos="14" name="Nyck de Vries (NED)" driver_id="4014" team="AlphaTauri" team_id="2031" time="1:18.450" laps="12" grid="" pit="" />
+        <driver pos="15" name="Yuki Tsunoda (JAP)" driver_id="4010" team="AlphaTauri" team_id="2031" time="1:18.471" laps="12" grid="" pit="" />
+        <driver pos="16" name="Oscar Piastri (AUS)" driver_id="4016" team="McLaren" team_id="1024" time="1:18.517" laps="12" grid="" pit="" />
+        <driver pos="17" name="Zhou Guanyu (CHN)" driver_id="4012" team="Alfa Romeo" team_id="1026" time="1:18.540" laps="12" grid="" pit="" />
+        <driver pos="18" name="Logan Sargeant (USA)" driver_id="4017" team="Williams" team_id="1010" time="1:18.557" laps="12" grid="" pit="" />
+        <driver pos="19" name="Valtteri Bottas (FIN)" driver_id="2258" team="Alfa Romeo" team_id="1026" time="1:18.840" laps="12" grid="" pit="" />
+        <driver pos="20" name="Sergio Perez (MEX)" driver_id="2013" team="Red Bull" team_id="1019" time="DNF" laps="2" grid="" pit="" />
+      </results>
+    </first_qualification>
+    <last_practice status="Finished" date="01.04.2023" time="01:30" track="Melbourne Grand Prix Circuit">
+      <results>
+        <driver pos="1" name="Max Verstappen (NED)" driver_id="2291" team="Red Bull" team_id="1019" time="1:17.565" laps="24" grid="" pit="" />
+        <driver pos="2" name="Fernando Alonso (ESP)" driver_id="1015" team="Aston Martin" team_id="1029" time="1:17.727" laps="26" grid="" pit="" />
+        <driver pos="3" name="Esteban Ocon (FRA)" driver_id="2289" team="Alpine" team_id="1016" time="1:17.938" laps="23" grid="" pit="" />
+        <driver pos="4" name="George Russel (ENG)" driver_id="3024" team="Mercedes" team_id="1021" time="1:17.955" laps="23" grid="" pit="" />
+        <driver pos="5" name="Pierre Gasly (FRA)" driver_id="3010" team="Alpine" team_id="1016" time="1:18.094" laps="23" grid="" pit="" />
+        <driver pos="6" name="Sergio Perez (MEX)" driver_id="2013" team="Red Bull" team_id="1019" time="1:18.123" laps="18" grid="" pit="" />
+        <driver pos="7" name="Carlos Sainz Jr (ESP)" driver_id="2290" team="Ferrari" team_id="1011" time="1:18.127" laps="29" grid="" pit="" />
+        <driver pos="8" name="Lewis Hamilton (ENG)" driver_id="1057" team="Mercedes" team_id="1021" time="1:18.138" laps="25" grid="" pit="" />
+        <driver pos="9" name="Lance Stroll (CAN)" driver_id="2297" team="Aston Martin" team_id="1029" time="1:18.198" laps="22" grid="" pit="" />
+        <driver pos="10" name="Zhou Guanyu (CHN)" driver_id="4012" team="Alfa Romeo" team_id="1026" time="1:18.330" laps="20" grid="" pit="" />
+        <driver pos="11" name="Nico Hulkenberg (GER)" driver_id="1068" team="Haas" team_id="1034" time="1:18.410" laps="24" grid="" pit="" />
+        <driver pos="12" name="Alexander Albon (THA)" driver_id="3023" team="Williams" team_id="1010" time="1:18.553" laps="21" grid="" pit="" />
+        <driver pos="13" name="Charles Leclerc (MON)" driver_id="3009" team="Ferrari" team_id="1011" time="1:18.691" laps="28" grid="" pit="" />
+        <driver pos="14" name="Oscar Piastri (AUS)" driver_id="4016" team="McLaren" team_id="1024" time="1:18.713" laps="21" grid="" pit="" />
+        <driver pos="15" name="Valtteri Bottas (FIN)" driver_id="2258" team="Alfa Romeo" team_id="1026" time="1:18.809" laps="24" grid="" pit="" />
+        <driver pos="16" name="Yuki Tsunoda (JAP)" driver_id="4010" team="AlphaTauri" team_id="2031" time="1:18.901" laps="22" grid="" pit="" />
+        <driver pos="17" name="Logan Sargeant (USA)" driver_id="4017" team="Williams" team_id="1010" time="1:18.947" laps="20" grid="" pit="" />
+        <driver pos="18" name="Kevin Magnussen (DEN)" driver_id="2271" team="Haas" team_id="1034" time="1:19.056" laps="26" grid="" pit="" />
+        <driver pos="19" name="Nyck de Vries (NED)" driver_id="4014" team="AlphaTauri" team_id="2031" time="1:19.092" laps="23" grid="" pit="" />
+        <driver pos="20" name="Lando Norris (GBR)" driver_id="3014" team="McLaren" team_id="1024" time="1:19.146" laps="12" grid="" pit="" />
+      </results>
+    </last_practice>
+    <second_practice status="Finished" date="31.03.2023" time="05:00" track="Melbourne Grand Prix Circuit">
+      <results>
+        <driver pos="1" name="Fernando Alonso (ESP)" driver_id="1015" team="Aston Martin" team_id="1029" time="1:18.887" laps="13" grid="" pit="" />
+        <driver pos="2" name="Charles Leclerc (MON)" driver_id="3009" team="Ferrari" team_id="1011" time="1:19.332" laps="10" grid="" pit="" />
+        <driver pos="3" name="Max Verstappen (NED)" driver_id="2291" team="Red Bull" team_id="1019" time="1:19.502" laps="12" grid="" pit="" />
+        <driver pos="4" name="George Russel (ENG)" driver_id="3024" team="Mercedes" team_id="1021" time="1:19.672" laps="20" grid="" pit="" />
+        <driver pos="5" name="Carlos Sainz Jr (ESP)" driver_id="2290" team="Ferrari" team_id="1011" time="1:19.695" laps="12" grid="" pit="" />
+        <driver pos="6" name="Esteban Ocon (FRA)" driver_id="2289" team="Alpine" team_id="1016" time="1:19.725" laps="12" grid="" pit="" />
+        <driver pos="7" name="Sergio Perez (MEX)" driver_id="2013" team="Red Bull" team_id="1019" time="1:20.083" laps="15" grid="" pit="" />
+        <driver pos="8" name="Lando Norris (GBR)" driver_id="3014" team="McLaren" team_id="1024" time="1:20.176" laps="20" grid="" pit="" />
+        <driver pos="9" name="Nico Hulkenberg (GER)" driver_id="1068" team="Haas" team_id="1034" time="1:20.194" laps="19" grid="" pit="" />
+        <driver pos="10" name="Pierre Gasly (FRA)" driver_id="3010" team="Alpine" team_id="1016" time="1:20.206" laps="12" grid="" pit="" />
+        <driver pos="11" name="Yuki Tsunoda (JAP)" driver_id="4010" team="AlphaTauri" team_id="2031" time="1:20.220" laps="18" grid="" pit="" />
+        <driver pos="12" name="Valtteri Bottas (FIN)" driver_id="2258" team="Alfa Romeo" team_id="1026" time="1:20.312" laps="22" grid="" pit="" />
+        <driver pos="13" name="Lewis Hamilton (ENG)" driver_id="1057" team="Mercedes" team_id="1021" time="1:20.323" laps="17" grid="" pit="" />
+        <driver pos="14" name="Oscar Piastri (AUS)" driver_id="4016" team="McLaren" team_id="1024" time="1:20.380" laps="24" grid="" pit="" />
+        <driver pos="15" name="Zhou Guanyu (CHN)" driver_id="4012" team="Alfa Romeo" team_id="1026" time="1:20.470" laps="22" grid="" pit="" />
+        <driver pos="16" name="Lance Stroll (CAN)" driver_id="2297" team="Aston Martin" team_id="1029" time="1:20.579" laps="15" grid="" pit="" />
+        <driver pos="17" name="Nyck de Vries (NED)" driver_id="4014" team="AlphaTauri" team_id="2031" time="1:20.600" laps="8" grid="" pit="" />
+        <driver pos="18" name="Alexander Albon (THA)" driver_id="3023" team="Williams" team_id="1010" time="1:21.182" laps="18" grid="" pit="" />
+        <driver pos="19" name="Kevin Magnussen (DEN)" driver_id="2271" team="Haas" team_id="1034" time="1:21.266" laps="18" grid="" pit="" />
+        <driver pos="20" name="Logan Sargeant (USA)" driver_id="4017" team="Williams" team_id="1010" time="DNF" laps="" grid="" pit="" />
+      </results>
+    </second_practice>
+    <first_practice status="Finished" date="31.03.2023" time="01:30" track="Melbourne Grand Prix Circuit">
+      <results>
+        <driver pos="1" name="Max Verstappen (NED)" driver_id="2291" team="Red Bull" team_id="1019" time="1:18.790" laps="17" grid="" pit="" />
+        <driver pos="2" name="Lewis Hamilton (ENG)" driver_id="1057" team="Mercedes" team_id="1021" time="1:19.223" laps="18" grid="" pit="" />
+        <driver pos="3" name="Sergio Perez (MEX)" driver_id="2013" team="Red Bull" team_id="1019" time="1:19.293" laps="19" grid="" pit="" />
+        <driver pos="4" name="Fernando Alonso (ESP)" driver_id="1015" team="Aston Martin" team_id="1029" time="1:19.317" laps="23" grid="" pit="" />
+        <driver pos="5" name="Charles Leclerc (MON)" driver_id="3009" team="Ferrari" team_id="1011" time="1:19.378" laps="15" grid="" pit="" />
+        <driver pos="6" name="Carlos Sainz Jr (ESP)" driver_id="2290" team="Ferrari" team_id="1011" time="1:19.505" laps="20" grid="" pit="" />
+        <driver pos="7" name="Lando Norris (GBR)" driver_id="3014" team="McLaren" team_id="1024" time="1:19.536" laps="16" grid="" pit="" />
+        <driver pos="8" name="Pierre Gasly (FRA)" driver_id="3010" team="Alpine" team_id="1016" time="1:19.646" laps="22" grid="" pit="" />
+        <driver pos="9" name="George Russel (ENG)" driver_id="3024" team="Mercedes" team_id="1021" time="1:19.699" laps="23" grid="" pit="" />
+        <driver pos="10" name="Alexander Albon (THA)" driver_id="3023" team="Williams" team_id="1010" time="1:19.766" laps="21" grid="" pit="" />
+        <driver pos="11" name="Lance Stroll (CAN)" driver_id="2297" team="Aston Martin" team_id="1029" time="1:19.766" laps="19" grid="" pit="" />
+        <driver pos="12" name="Oscar Piastri (AUS)" driver_id="4016" team="McLaren" team_id="1024" time="1:19.777" laps="22" grid="" pit="" />
+        <driver pos="13" name="Nico Hulkenberg (GER)" driver_id="1068" team="Haas" team_id="1034" time="1:19.806" laps="19" grid="" pit="" />
+        <driver pos="14" name="Nyck de Vries (NED)" driver_id="4014" team="AlphaTauri" team_id="2031" time="1:19.933" laps="25" grid="" pit="" />
+        <driver pos="15" name="Logan Sargeant (USA)" driver_id="4017" team="Williams" team_id="1010" time="1:20.074" laps="21" grid="" pit="" />
+        <driver pos="16" name="Esteban Ocon (FRA)" driver_id="2289" team="Alpine" team_id="1016" time="1:20.175" laps="20" grid="" pit="" />
+        <driver pos="17" name="Yuki Tsunoda (JAP)" driver_id="4010" team="AlphaTauri" team_id="2031" time="1:20.399" laps="14" grid="" pit="" />
+        <driver pos="18" name="Valtteri Bottas (FIN)" driver_id="2258" team="Alfa Romeo" team_id="1026" time="1:20.399" laps="21" grid="" pit="" />
+        <driver pos="19" name="Zhou Guanyu (CHN)" driver_id="4012" team="Alfa Romeo" team_id="1026" time="1:20.569" laps="22" grid="" pit="" />
+        <driver pos="20" name="Kevin Magnussen (DEN)" driver_id="2271" team="Haas" team_id="1034" time="1:21.147" laps="17" grid="" pit="" />
+      </results>
+    </first_practice>
+  </tournament>
+</scores>

@@ -1,0 +1,40 @@
+.PC-dashboard {
+  .pc-headbox-list {
+    list-style-type: none;
+  }
+
+  .pc-headbox-item {
+    height: 117px;
+    width: 280px;
+    border-radius: 4px;
+    background-color: $white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    float: left;
+    margin-right: 30px;
+    text-align: center;
+    padding: 10px;
+  }
+  .pc-b-title {
+      opacity: 0.8;
+      color: #666666;
+      font-family: $font-bold;
+      font-size: 20px;
+  }
+  .pc-b-count{
+      color: $secondary-color;
+      font-family: $font-bold;
+      font-size: 36px;
+      line-height: 40px;
+  }
+
+  .pc-tbl-title {
+    color: #27272D;
+    font-family: $font-bold;
+    font-size: 18px;
+  }
+  .common-table{
+    th, td{
+      text-align: center !important;
+    }
+  }
+}

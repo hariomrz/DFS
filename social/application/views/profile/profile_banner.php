@@ -1,0 +1,18 @@
+<?php
+    if($ModuleID=='1')
+    {
+        $this->load->view('profile/banner/group');
+    }
+    if($ModuleID=='3')
+    {
+        $this->load->view('profile/banner/user');
+    }
+    if($ModuleID=='14')
+    {
+        $this->load->view('profile/banner/event');
+    }
+    if($ModuleID=='18')
+    {
+        $this->load->view('profile/banner/page');
+    }
+?>

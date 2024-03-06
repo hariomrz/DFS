@@ -1,0 +1,305 @@
+<div ng-controller="ForumMngAdminsCtrl">
+<div ng-include="AssetBaseUrl + 'partials/widgets/breadcrumb.html'"></div>
+<div class="container wrapper">
+    <div class="row">
+        <div ng-cloak  class="col-sm-12">
+            <div class="panel panel-secondary">
+                <div class="panel-body" ng-init="get_category_details();">
+                    <ul class="listing-group">
+                        <li class="list-items-lg">
+                            <div class="list-inner">
+                                <figure>
+                                    <a><img err-SRC="{{ImageServerPath+'upload/profile/220x220/category_default.png'}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+category_detail.ProfilePicture}}" class="img-circle"  ></a>
+                                </figure>
+                                <div class="list-item-body">
+                                    <h4 class="list-heading-xlg bold" ng-bind="category_detail.Name"></h4>
+                                    <p class="ellipsis semi-bold" ng-bind="category_detail.Description"></p>
+                                    <ul class="list-activites semi-bold">
+                                        <li>
+                                            <span ng-if="category_detail.NoOfMembers==1" ng-bind="category_detail.NoOfMembers+' Member'"></span>
+                                            <span ng-if="category_detail.NoOfMembers>1" ng-bind="category_detail.NoOfMembers+' Members'"></span>
+                                        </li>
+                                        <li>
+                                            <span ng-if="category_detail.NoOfDiscussions==1" ng-bind="category_detail.NoOfDiscussions+' Discussion'"></span>
+                                            <span ng-if="category_detail.NoOfDiscussions>1" ng-bind="category_detail.NoOfDiscussions+' Discussions'"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-cloak class="panel-body" ng-if="category_detail.Visibility=='2'">
+                    <div ng-if="category_detail.Visibility=='2'" class="form-group m-b" ng-cloak>
+                        <div>
+                            <label class="text-lg" ng-bind="::lang.restrict_category_visibility_to"></label>
+                        </div>
+                        <div class="row member-add">
+                            <div class="col-xs-10 col-sm-11">
+                                <tags-input add-from-autocomplete-only="true" key-property="KeyProperty" ng-model="visibilitylist" display-property="Name" placeholder="{{::lang.type_member_or_group_name}}" replace-spaces-with-dashes="false">
+                                    <auto-complete source="loadVisibilitylist($query)" min-length="2" load-on-focus="true" load-on-empty="false" max-results-to-show="100" template="userlistTemplate"></auto-complete>
+                                </tags-input>
+                                <script type="text/ng-template" id="userlistTemplate">
+                                    <a class="m-conv-list-thmb">
+                                        <figure>
+                                            <img err-Name="{{data.Name}}" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.ProfilePicture}}" >
+                                        </figure>
+                                    </a>
+                                    <div class="m-u-list-name with-location">
+                                        <a ng-bind-html="$highlight($getDisplayText())"></a>
+                                        <span class="location" ng-if="data.ModuleID=='1' && data.TotalMembers==1" ng-bind="data.TotalMembers+' Member'"></span>
+                                        <span class="location" ng-if="data.ModuleID=='1' && data.TotalMembers>1" ng-bind="data.TotalMembers+' Members'"></span>
+                                        <span class="location" ng-if="data.ModuleID=='3'" ng-bind="data.Location"></span>
+                                    </div>
+                                </script>
+                            </div>
+                            <div class="col-xs-2 col-sm-1 ">
+                                <button ng-click="add_multiple_visibility('visibilitylist')" class="btn btn-primary btn-block" ng-bind="::lang.add"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-if="category_detail.Visibility=='2'" class="form-group m-b" ng-init="get_category_visibility_suggestions();">
+                        <label class="text-lg" ng-bind="::lang.suggested_members_and_groups_for_visibility"></label>
+                        <ul class="suggested-addition">
+                            <li ng-cloak ng-repeat="cvs in category_visibility_suggestions" id="cvs1-{{cvs.ModuleID+'-'+cvs.ModuleEntityID}}">
+                                <figure ng-click="add_member_to_visibility(cvs.ModuleID,cvs.ModuleEntityID,'cvs1')">
+                                    <img entitytype="group" entityguid="{{cvs.ModuleEntityGUID}}" class="loadbusinesscard" ng-if="cvs.ModuleID=='1'" err-SRC="{{AssetBaseUrl}}img/profiles/user_default.jpg" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cvs.ProfilePicture}}" >
+                                    <img entitytype="user" entityguid="{{cvs.ModuleEntityGUID}}" ng-if="cvs.ModuleID=='3'" class="loadbusinesscard" err-Name="{{cvs.Name}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cvs.ProfilePicture}}" >
+                                    <span class="overlay loadbusinesscard" entitytype="{{(cvs.ModuleID==1)?'group':'user';}}" entityguid="{{cvs.ModuleEntityGUID}}"><span>+</span> </span>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                    <div ng-init="get_category_visibilty()" ng-if="category_detail.Visibility=='2'" class="form-group no-margin-b" >
+                        <label ng-if="category_visibilty_total_records > 0" class="text-lg"><span class="text-black">{{::lang.current_visibility_to}} (<a data-toggle="modal" data-target="#visibility" ng-bind="category_visibilty_total_records"></a>)</span></label>
+                        <label ng-if="category_visibilty_total_records <= 0" class="text-lg"><span class="text-black">{{::lang.current_visibility_to}} ({{category_visibilty_total_records}})</span></label>
+                        <ul class="suggested-addition">
+                            <li ng-cloak ng-repeat="cvs in category_visibilty" id="cvs2-{{cvs.ModuleID+'-'+cvs.ModuleEntityID}}">
+                                <figure>
+                                    <img entitytype="group" entityguid="{{cvs.ModuleEntityGUID}}" class="loadbusinesscard" ng-if="cvs.ModuleID=='1'" err-SRC="{{AssetBaseUrl}}img/profiles/user_default.jpg" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cvs.ProfilePicture}}" >
+                                    <img entitytype="user" entityguid="{{cvs.ModuleEntityGUID}}" class="loadbusinesscard" ng-if="cvs.ModuleID=='3'" err-Name="{{cvs.Name}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cvs.ProfilePicture}}" >
+                                    <span class="overlay loadbusinesscard" entitytype="{{(cvs.ModuleID==1)?'group':'user';}}" entityguid="{{cvs.ModuleEntityGUID}}"><span></span> </span>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="panel-body">
+                    <div class="form-group m-b" ng-cloak>
+                        <div>
+                            <label class="text-lg" ng-bind="::lang.add_members_and_groups"></label>
+                        </div>
+                        <div class="row member-add">
+                            <div class="col-xs-10 col-sm-11">
+                                <tags-input add-from-autocomplete-only="true" ng-model="memberslist" key-property="KeyProperty" display-property="Name" placeholder="{{::lang.type_member_or_group_name}}" replace-spaces-with-dashes="false">
+                                    <auto-complete source="loadMemberslist($query)" min-length="2" load-on-focus="true" load-on-empty="false" max-results-to-show="100" template="userlistTemplate"></auto-complete>
+                                </tags-input>
+                                <script type="text/ng-template" id="userlistTemplate">
+                                    <a class="m-conv-list-thmb">
+                                        <figure>
+                                            <img err-Name="{{data.Name}}" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.ProfilePicture}}" >
+                                        </figure>
+                                    </a>
+                                    <div class="m-u-list-name with-location">
+                                        <a ng-bind-html="$highlight($getDisplayText())"></a>
+                                        <span class="location" ng-if="data.ModuleID=='1' && data.TotalMembers==1" ng-bind="data.TotalMembers+' Member'"></span>
+                                        <span class="location" ng-if="data.ModuleID=='1' && data.TotalMembers>1" ng-bind="data.TotalMembers+' Members'"></span>
+                                        <span class="location" ng-if="data.ModuleID=='3'" ng-bind="data.Location"></span>
+                                    </div>
+                                </script>
+                            </div>
+                            <div class="col-xs-2 col-sm-1 ">
+                                <button ng-click="add_multiple_members('memberslist')" class="btn btn-primary btn-block" ng-bind="::lang.add"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group no-margin-b" ng-init="get_category_member_suggestions()">
+                        <label class="text-lg" ng-bind="::lang.suggested_members_and_groups_for_addition"></label>
+                        <ul class="suggested-addition">
+                            <li ng-cloak ng-repeat="cvs in category_member_suggestions" id="cvs-{{cvs.ModuleID+'-'+cvs.ModuleEntityID}}" ng-click="hideBusinessCard();">
+                                <figure data-toggle="dropdown">
+                                    <img entitytype="group" entityguid="{{cvs.ModuleEntityGUID}}" class="loadbusinesscard" ng-if="cvs.ModuleID=='1'" err-SRC="{{AssetBaseUrl}}img/profiles/user_default.jpg" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cvs.ProfilePicture}}" >
+                                    <img entitytype="user" entityguid="{{cvs.ModuleEntityGUID}}" class="loadbusinesscard" ng-if="cvs.ModuleID=='3'" err-Name="{{cvs.Name}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cvs.ProfilePicture}}" >
+                                    <span class="overlay loadbusinesscard" entitytype="{{(cvs.ModuleID==1)?'group':'user';}}" entityguid="{{cvs.ModuleEntityGUID}}"><span>+</span> </span>
+                                </figure>
+                                <ul class="dropdown-menu setting-dropdown" data-type="stopPropagation">
+                                    <li><a class="text-center" ng-bind="cvs.Name"></a></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <label class="checkbox">
+                                            <input ng-checked="(category_detail.Param.a) ? true : false ;" class="chk-module-role-id" type="checkbox" >
+                                            <span class="label" ng-bind="::lang.admin"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="checkbox">
+                                            <input ng-checked="(category_detail.Param.ge) ? true : false ;" class="chk-subject-experts" type="checkbox" >
+                                            <span class="label" ng-bind="::lang.subject_expert"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="checkbox">
+                                            <input ng-checked="(category_detail.Param.p) ? true : false ;" class="chk-can-post" type="checkbox" >
+                                            <span class="label" ng-bind="::lang.can_post"></span>
+                                        </label>
+                                    </li>
+                                    <li class="list-footer">
+                                        <button ng-click="add_member_to_category(cvs.ModuleID,cvs.ModuleEntityID,'cvs')" class="btn btn-default btn-xs" ng-bind="::lang.add_member"></button>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-search-heading">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="search-heading">
+                                    <h5 class="title" ng-bind="::lang.all_members"></h5>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="filters-search pull-right">
+                                    <div class="input-search form-control right">
+                                        <input ng-keyup="get_category_members(1);" ng-model="MemberSearchKeyword" type="text" name="Search" placeholder="{{::lang.search}}" class="form-control">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn"
+                                                    ng-click="clearMemberSearch();">
+                                                <i ng-if="!MemberSearchKeyword" class="ficon-search"></i>
+                                                <i ng-if="MemberSearchKeyword" class="ficon-cross"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive" ng-cloak ng-init="get_category_members(1);">
+                        <table class="table table-noborderd table-hover table-middle table-sort">
+                            <thead>
+                            <tr ng-cloak>
+                                <th ng-click="MemberOrderBy='Name'; ReverseSort = !ReverseSort; get_category_members(1,'Name',ReverseSort);">
+                                    {{::lang.members_name}}
+                                    <span class="icon">
+                                                    <svg class="svg-icons" width="10px" height="10px">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#iconShort'}}"></use>
+                                                    </svg>
+                                                </span>
+                                </th>
+                                <th ng-click="MemberOrderBy='Admin'; ReverseSort = !ReverseSort; get_category_members(1,'Admin',ReverseSort);">
+                                    {{::lang.admin}}
+                                    <span class="icon">
+                                                    <svg class="svg-icons" width="10px" height="10px">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#iconShort'}}"></use>
+                                                    </svg>
+                                                </span>
+                                    <span class="icon" tootip data-toggle="tooltip" data-placement="top" title="These can create sub-categories, manage members and edit settings.">
+                                                    <svg class="svg-icons" width="16px" height="16px">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#iconInfotip'}}"></use>
+                                                    </svg>
+                                                </span>
+                                </th>
+                                <th ng-click="MemberOrderBy='Expert'; ReverseSort = !ReverseSort; get_category_members(1,'Expert',ReverseSort);">
+                                    {{::lang.subject_expert}}
+                                    <span class="icon">
+                                                    <svg class="svg-icons" width="10px" height="10px">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#iconShort'}}"></use>
+                                                    </svg>
+                                                </span>
+                                    <span class="icon" tootip data-toggle="tooltip" data-placement="top" title="These are subject experts and their posts are highlighted.">
+                                                    <svg class="svg-icons" width="16px" height="16px">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#iconInfotip'}}"></use>
+                                                    </svg>
+                                                </span>
+                                </th>
+                                <th ng-click="MemberOrderBy='CanPost'; ReverseSort = !ReverseSort; get_category_members(1,'CanPost',ReverseSort);" ng-if="category_detail.IsDiscussionAllowed=='1'" ng-cloak>
+                                    {{::lang.can_post}}
+                                    <span class="icon">
+                                                    <svg class="svg-icons" width="10px" height="10px">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#iconShort'}}"></use>
+                                                    </svg>
+                                                </span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-cloak class="default-row">
+                                <td>
+                                    <div class="table-media">
+                                        <div class="table-media-body table-media-middle">
+                                            <h5 class="table-media-heading"><a class="text-black" ng-bind="::lang.default"></a></h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <label class="checkbox">
+                                        <input type="checkbox" ng-click="change_default_permissions('a')" value="" ng-checked="(category_detail.Param.a) ? true : false ;">
+                                        <span class="label">&nbsp;</span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox">
+                                        <input type="checkbox" ng-click="change_default_permissions('ge')" value="" ng-checked="(category_detail.Param.ge) ? true : false ;">
+                                        <span class="label">&nbsp;</span>
+                                    </label>
+                                </td>
+                                <td ng-if="category_detail.IsDiscussionAllowed=='1'" ng-cloak>
+                                    <label class="checkbox">
+                                        <input type="checkbox" ng-click="change_default_permissions('p')" value="" ng-checked="(category_detail.Param.p) ? true : false ;">
+                                        <span class="label">&nbsp;</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr ng-cloak ng-repeat="cm in category_member" ng-click="hideBusinessCard();">
+                                <td>
+                                    <div class="table-media-body table-media-middle">
+                                        <div class="table-media-left table-media-middle">
+                                            <figure class="object-36 img-circle">
+                                                <img entitytype="group" entityguid="{{cm.ModuleEntityGUID}}" ng-if="cm.ModuleID=='1'" err-SRC="{{AssetBaseUrl}}img/profiles/user_default.jpg" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cm.ProfilePicture}}"  class="img-circle loadbusinesscard" width="36" height="36">
+                                                <img entitytype="user" entityguid="{{cm.ModuleEntityGUID}}" ng-if="cm.ModuleID=='3'" err-Name="{{cm.Name}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cm.ProfilePicture}}"  class="img-circle loadbusinesscard" width="36" height="36">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="table-media-body table-media-middle">
+                                        <h5 class="table-media-heading"><a entitytype="{{(cm.ModuleID==1)?'group':'user';}}" entityguid="{{cm.ModuleEntityGUID}}" ng-bind="cm.Name" class="text-black ng-binding loadbusinesscard"></a></h5>
+                                    </div>
+                                </td>
+                                <td>
+                                    <label class="checkbox">
+                                        <input ng-disabled="cm.ModuleRoleID=='15'" ng-click="change_default_value('ModuleRoleID',cm.ModuleID,cm.ModuleEntityID,cm.ModuleRoleID)" ng-checked="(cm.ModuleRoleID!=='17') ? true : false ;" type="checkbox" >
+                                        <span class="label">&nbsp;</span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox">
+                                        <input ng-click="change_default_value('IsExpert',cm.ModuleID,cm.ModuleEntityID,cm.IsExpert)" ng-checked="(cm.IsExpert=='1') ? true : false ;" type="checkbox" value="" checked="">
+                                        <span class="label">&nbsp;</span>
+                                    </label>
+                                </td>
+                                <td ng-if="category_detail.IsDiscussionAllowed=='1'" ng-cloak>
+                                    <label class="checkbox">
+                                        <input ng-click="change_default_value('CanPostOnWall',cm.ModuleID,cm.ModuleEntityID,cm.CanPostOnWall)" ng-checked="(cm.CanPostOnWall=='1') ? true : false ;" type="checkbox" value="" checked="">
+                                        <span class="label">&nbsp;</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav aria-label="Page navigation" class="pagination-nav" ng-cloak ng-if='total_category_member>0'>
+                        <div class="showing-content pull-left" ng-cloak>
+                            {{::lang.showing}} {{ StartPageLimit() }}  to {{ EndPageLimit() }} of {{total_category_member}} {{::lang.members}}
+                        </div>
+                        <pagination  class="pagination pagination-sm pull-right"  page="1" on-select-page="get_category_members(page)"  total-items="total_category_member" items-per-page="numPerPage"></pagination>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="AssetBaseUrl + 'partials/forum/manage_feature_modal.html'"></div>
+</div>

@@ -1,0 +1,448 @@
+.ot-completed-wrap {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px !important;
+    background-color: $app_bg_color;
+    margin-top: 56px !important;
+    .right-container {
+        flex: 1;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        .container-list-question {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-bottom: 22px;
+            margin-top: 5px;
+            .container-total-trades {
+                display: flex;
+                flex-direction: column;
+                background-color: $white;
+                align-items: center;
+                padding-top: 18px;
+                padding-bottom: 33px;
+                justify-content: center;
+                border-radius: 14px;
+                margin-top: 5px;
+                .tab-container-option {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    height: 30px;
+
+                    .tab-view {
+                        width: 110px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding-bottom: 10px;
+                        cursor: pointer;
+
+                        span {
+                            color: #999999;
+                            font-family: $font-bold;
+                            font-size: 14px;
+                            text-transform: uppercase;
+                            text-align: center;
+                        }
+
+                        .active-clr {
+                            color: $primary;
+                        }
+
+                    }
+
+                    .active-indiactor {
+                        border-bottom: 2px solid $primary;
+                    }
+                }
+
+                .sparater-line {
+                    height: 1px;
+                    display: flex;
+                    width: 100%;
+                    background: linear-gradient(270deg, rgba(241, 241, 241, 0) 0%, #E8E8E8 49.79%, rgba(222, 222, 222, 0) 100%);
+                }
+
+                .view-total-trades-question {
+                    width: 100%;
+                    border-radius: 14px;
+                   
+                    .order-container{
+                        display: flex;
+                        flex-direction: column;
+                        .toggle-container{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            height: 46px;
+                            border-bottom: 1px solid #F2F2F2;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            .toogle-text{
+                                font-family: $font-regular;
+                                font-size: 12px;
+                                text-align: center;
+                                overflow: hidden;
+                                color: #999999;
+                                text-transform: uppercase;
+                            }
+                        }
+                        .view-list-order{
+                            display: flex;
+                            flex-direction: column;
+                            .view-order{
+                                display: flex;
+                                flex-direction: row;
+                                height: 36px;
+                                border-bottom: 1px solid #F2F2F2;
+                                padding-left: 15px;
+                                padding-right: 15px;
+                                .vertical-line{
+                                    box-sizing: border-box;
+                                    height: 100%;
+                                    width: 2px;
+                                    border: 1px solid #FFFFFF;
+                                    background-color: #5853C3;
+                                }
+                                .left_view{
+                                    flex:0.5;
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    &.right{
+                                        align-items: flex-end;
+                                    }
+                                    .text-entry{
+                                        color: #999999;
+                                        font-family: $font-regular;
+                                        font-size: 12px;
+                                        text-align: center;
+                                        width: 32px;
+                                    }
+                                    .contains-graph{
+                                        display: flex;
+                                        flex: 1;
+                                        height: 100%;
+                                        flex-direction: column;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                        &.left{
+                                            align-items: flex-end;
+                                            padding-left: 10%;
+                                        }
+                                        &.right{
+                                            padding-right: 10%;
+                                        }
+                                        .filled-view-progress{
+                                            width:0%;
+                                            height: 16px;
+                                            display: flex;
+                                            animation: grow0 2.5s forwards;
+                                            transition: color, background-color, max-width 0.2s linear;
+                                            max-width: 75%; /*Set max-wdith*/
+                                            align-items: center;
+                                            &.right{
+                                                justify-content: flex-end;
+                                                padding-right: 6px;
+                                            }
+                                            &.left{
+                                                padding-left: 6px;
+                                            }
+                                            span{
+                                                font-family: $font-regular;
+                                                font-size: 12px;
+                                            }
+                                          }
+                                          @keyframes grow0 {
+                                            from {
+                                              max-width: 0%;
+                                            }
+                                            to {
+                                              max-width: 100%;
+                                            }
+                                          }
+                                    }
+                                }
+                                .right_view{
+                                    flex:0.5;
+                                    height: 100%;
+                                    background-color: blue;
+                                }
+                            }
+                        }
+                    }
+                    .view-join-toggle{
+                        display: flex;
+                        flex-direction: row;
+                        margin-bottom: 21px;
+                        margin-left: 15px;
+                        .btn-view-toggle{
+                            height: 24px;
+                            padding-left: 18px; 
+                            padding-right: 18px;
+                            border: 1px solid #28292D;
+                            border-radius: 15px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-right: 6px;
+                            cursor: pointer;
+                            &.active-yes-bg{
+                                border: 1px solid #108B46 !important;
+                            }
+                            &.active-no-bg{
+                                border: 1px solid #FF2828 !important;
+                            }
+                            .txt-view-toggle{
+                                color: #28292D;
+                                font-family: $font-regular;
+                                font-size: 12px;
+                                text-align: left;  
+                                text-transform: uppercase;
+                                &.active-yes-clr{
+                                    color: #108B46 !important;
+                                }
+                                &.active-no-clr{
+                                    color: #FF2828 !important;
+                                }
+                            }
+                        }
+                    }
+                    .view-join-trades-question {
+                        box-sizing: border-box;
+                        max-height: 169px;
+                        width: 94%;
+                        margin-left: 3%;
+                        border: 1px solid #F2F2F2;
+                        border-radius: 14px;
+                        background-color: #E7E6FF;
+                        margin-bottom: 16px;
+                        .btn-brder{
+                            border-bottom: 1px solid $white;
+                        }
+                        .view-total-records {
+                            display: flex;
+                            width: 100%;
+                            align-items: center;
+                            justify-content: center;
+                            height: 119px;
+                            flex-direction: row;
+                            
+                            
+                            .item-total-records {
+                                display: flex;
+                                flex: 0.5;
+                                height: 100%;
+                                align-items: center;
+                                justify-content: center;
+                                flex-direction: column;
+
+                                span {
+                                    color: #999999;
+                                    font-family: $font-regular;
+                                    font-size: 12px;
+                                    letter-spacing: 0;
+                                    text-align: center;
+                                }
+
+                                .txt-quantity-val {
+                                    color: #282E48;
+                                    font-family: $font-bold;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    text-align: center;
+
+                                    img {
+                                        width: 16px;
+                                        height: 16px;
+                                        margin-right: 4px;
+                                        margin-bottom: 2px;
+                                    }
+                                }
+                            }
+
+                            .line-vertical {
+                                height: 60px;
+                                width: 1px;
+                                background-color: $white;
+                            }
+                        }
+                        .view-cancel-container{
+                            display: flex;
+                            width: 100%;
+                            align-items: center;
+                            justify-content: space-between;
+                            height: 50px;
+                            flex-direction: row;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            span{
+                                color: #282E48;
+                                font-family: $font-semibold;
+                                font-size: 14px;
+                                letter-spacing: 0;
+                                text-align: left;
+                            }
+                            .cancel-view{
+                                display: flex;
+                                width: 110px;
+                                height: 30px;
+                                align-items: center;
+                                justify-content: center;
+                                cursor: pointer;
+                                background-color: $primary;
+                                border-radius: 15px;
+                                .txt-cancel-view{
+                                    color: $white;
+                                    font-family: $font-semibold;
+                                    font-size: 12px;
+                                    letter-spacing: 0;
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+                    }
+                    .container-total-participent {
+                        display: flex;
+                        flex-direction: column;
+                        padding-top: 20px;
+                        span{
+                            color: #28292D;
+                            font-family: $font-bold;
+                            margin-left: 18px;
+                            font-size: 14px;
+                            letter-spacing: 0;
+                            text-transform: uppercase;
+                        }
+                        .participent-conatins{
+                            display: flex;
+                            flex-direction: column;
+                            .item-participent{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                height: 63px;
+                                margin-top: 14px;
+                                padding-bottom: 11px;
+                                border-bottom: 0.5px solid #F2F2F2;
+                                padding-left: 15px;
+                                padding-right: 15px;
+                                .item-user{
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 20%;
+                                    img{
+                                        width: 30px;
+                                        height: 30px;
+                                        border-radius: 50%;
+                                        margin-bottom: 5px;    
+                                    }
+                                    .text-user-name{
+                                        color: #999999;
+                                        font-family: $font-regular;
+                                        font-size: 14px;
+                                        text-align: center;
+                                        width: 100%;
+                                        text-overflow: ellipsis;
+                                        overflow: hidden;
+                                        margin-bottom: -2px;
+                                    }
+                                }
+                                .tag-container{
+                                    width: 230px;
+                                    height: 52px;
+                                    margin-left: 20px;
+                                    margin-right: 20px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 50%;
+                                    .text-match{
+                                        margin-top: 5px;
+                                        color: #108B46;
+                                        font-family: $font-bold;
+                                        font-size: 12px;
+                                        font-weight: bold;
+                                        letter-spacing: 0;
+                                        text-align: center;
+                                        width: 100%;
+                                    }
+                                    .pending-clr{
+                                        color: #FAA300 !important;
+                                    }
+                                    .tag-container-view{
+                                        width: 100%;
+                                        height: 22px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        flex-direction: row;
+                                        border-radius: 5px;
+                                        overflow: hidden;
+                                        .left_view{
+                                            display: flex;
+                                            height: 100%;
+                                            background-color: #D5F7E7;
+                                            align-items: flex-start;
+                                            justify-content: flex-start;
+                                            span{
+                                                margin-left: 8px;
+                                                margin-top: 2px;
+                                                color: #108B46;
+                                                font-family: $font-bold;
+                                                font-size: 12px;
+                                                font-weight: bold;
+                                                letter-spacing: 0;
+                                                text-align: center;  
+                                            }
+                                            img{
+                                                width: 12px;
+                                                height: 12px;
+                                                margin-right: 3px;
+                                                margin-bottom: 3px;
+                                            }
+                                        }
+                                        .right_view{
+                                            display: flex;
+                                            justify-content: flex-end;
+                                            height: 100%;
+                                            background-color: #FEDDDD;
+                                            span{
+                                                margin-right: 8px;
+                                                margin-top: 2px;
+                                                color: #FF2828;
+                                                font-family: $font-bold;
+                                                font-size: 12px;
+                                                font-weight: bold;
+                                                text-align: center;  
+                                            }
+                                            img{
+                                                width: 12px;
+                                                height: 12px;
+                                                margin-right: 3px;
+                                                margin-bottom: 3px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+        
+                    }
+                }
+            }
+          
+        }
+    }
+
+
+}

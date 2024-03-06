@@ -1,0 +1,8 @@
+{
+    "require": {
+        "facebook/graph-sdk": "^5.4",
+        "abraham/twitteroauth": "^0.6.6",
+        "google/apiclient": "2.0",
+        "php-amqplib/php-amqplib": "2.5.*"
+    }
+}

@@ -1,0 +1,29 @@
+.dfst {
+  &.common-fixture {
+    min-width: 290px;
+    width: 290px;
+    position: relative;
+    .com-fixture-flag {
+      height: 54px;
+      width: 54px;
+    }
+
+    .com-fixture-name {
+      font-size: 16px;
+      cursor: inherit;
+      user-select: none;
+    }
+
+    .com-fixture-title {
+      font-size: 10px;
+      color: $gray-9;
+      font-family: $font-regular;
+    }
+
+    .bg-card {
+      padding: 25px 16px 12px;
+      height: auto;
+      border-radius: 14px !important;
+    }
+  }  
+}

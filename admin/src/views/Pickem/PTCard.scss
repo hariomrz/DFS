@@ -1,0 +1,132 @@
+.pt-card {
+  animation: flip-animation 0.4s linear;
+  animation-fill-mode: both;
+  transform: rotateY(-90deg);
+  transition: all 0.2s cubic-bezier(.36, -0.64, .34, 1.76);
+  margin-bottom: 40px;
+  .pt-info {
+    height: 142px;
+    max-width: 345px;
+    width: 100%;
+    border-radius: 14px 14px 0 0;
+    background-color: $white;
+    display: table;
+    position: relative;
+  }
+
+  .pt-icon {
+    box-sizing: border-box;
+    height: 62px;
+    width: 62px;
+    border: 1px solid #EAEAEA;
+    border-radius: 10px;
+    float: left;
+    margin-right: 14px;
+    display: table-cell;
+
+    .img-cover {
+      border-radius: 10px;
+    }
+  }
+
+  .pt-info-box {
+    display: table;
+    padding: 20px 15px;
+  }
+
+  .pt-detail {
+    display: table;
+  }
+
+  .pt-tag {
+    box-sizing: border-box;
+    height: 13.5px;
+    width: 94px;
+    border: 0.5px solid #00BFEB;
+    border-radius: 2px;
+    color: #00BFEB;
+    font-family: $font-bold;
+    font-size: 8px;
+    letter-spacing: -0.2px;
+    line-height: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 1px;
+  }
+
+  .pt-title {
+    color: #212121;
+    font-family: $font-black;
+    line-height: 18px;
+    margin-top: 6px;
+    user-select: none;
+    &.pt-hover:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  .pt-dt-fx {
+    color: $gray-9;
+    font-family: $font-regular;
+    font-size: 10px;
+    line-height: 13px;
+    margin-top: 4px;
+
+    span {
+      &::after {
+        content: '';
+        border-right: 1px solid $gray-9;
+        margin: 10px;
+      }
+    }
+  }
+
+  .pt-leg-name {
+    color: $gray-9;
+    font-family: $font-regular;
+    font-size: 12px;
+  }
+
+  .pt-win-box {
+    padding: 6px 10px;
+    border-top: 1px solid #EAEAEA;
+  }
+
+  .pt-prize {
+    color: #0CBFEB;
+    font-family: $font-bold;
+    font-size: 12px;
+    margin-left: 2px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .pt-parti-box {
+    height: 30px;
+    max-width: 345px;
+    border-radius: 0 0 14px 14px;
+    background-color: rgba(153, 153, 153, 0.2);
+    text-align: center;
+    padding: 8px 12px;
+    color: #00BFEB;
+  }
+
+  .pt-parti {
+    font-family: $font-bold;
+    font-size: 10px;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  .pt-edit{
+    right: 0;
+    top: 0;
+    height: 28px;
+    .icon-edit{
+      color: $white;
+      font-size: 10px;
+    }
+  }
+}

@@ -1,0 +1,185 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class NOSQL_Model extends CI_Model {
+
+    function __construct()
+    {
+        // Load Mongo Library
+        $this->load->library('mongo_db');
+    }
+
+    function __destruct()
+    {
+        //$this->db->close();
+    }
+    /**
+	 * Used for insert data in nosql
+	 * @param array $data
+	 * @param string $table document name
+	 * @return 
+	 */
+    public function insert_nosql($table,$data){
+    	if(!$table || empty($data)){
+            return false;
+        }
+		if(in_array($table, [MANAGE_OTP])){
+            $data['insert_date_time'] = $this->normal_to_mongo_date(date('Y-m-d H:i:s'));
+        }
+    	$result = $this->mongo_db->insert($table,$data);
+    	return $result;
+    }
+
+	public function batch_insert($table = "", $data = array())
+	{
+		if(!$table){
+            return false;
+        }
+		return $this->mongo_db->batch_insert($table,$data);
+	}
+    /**
+	 * Used for Last insert data in nosql
+	 * @param array $data
+	 * @param string $table document name
+	 * @return 
+	 */
+    public function insert_id_nosql($table){
+    	if(!$table){
+            return false;
+        }
+        $this->mongo_db->order_by(array('_id' => 'desc'));	
+    	$result = $this->mongo_db->find_one($table);
+
+    	if(!empty($result)){
+    		return $result[0]['_id'];
+    	}else{
+    	 return FALSE;
+    	}
+    }
+    /**
+	 * Used for select documents in nosql
+	 * @param array $where
+	 * @param string $table document name
+	 * @param Int $limit
+	 * @param Int $offset
+	 * @return 
+	 */
+    public function select_nosql($table,$where=array(),$limit=NULL,$offset=NULL,$sort =NULL){
+    	if(!$table){
+            return false;
+        }
+    	if(!empty($limit)){
+    		$this->mongo_db->limit($limit);
+    	}
+    	if(!empty($offset)){
+    		$this->mongo_db->offset($offset);
+    	}
+    	if(!empty($where)){
+    		$this->mongo_db->where($where);
+		}
+		if(!empty($sort))
+		{
+			$this->mongo_db->order_by($sort);
+		}
+    	$result = $this->mongo_db->get($table);
+    	return $result;
+    }
+
+	public function count($table,$where)
+	{
+		if(!$table){
+            return false;
+		}
+		
+		if(!empty($where)){
+    		$this->mongo_db->where($where);
+    	}
+    	$result = $this->mongo_db->count($table);
+    	return $result;
+	}
+
+    /**
+	 * Used for select single record in nosql
+	 * @param array $where
+	 * @param string $table document name
+	 * @return 
+	 */
+    public function select_one_nosql($table,$where)
+    {
+    	if(!$table || empty($where)){
+            return false;
+        }
+    	$result = $this->mongo_db->where($where)->find_one($table);
+    	if(!empty($result)){
+    		return $result[0];
+    	}else{
+    	 return FALSE;
+    	}
+    }
+
+    /**
+	 * Used for update record in nosql
+	 * @param string $table document name
+	 * @param array $where
+	 * @param array $set
+	 * @return 
+	 */
+    public function update_nosql($table,$where,$set)
+    {
+    	if(!$table || empty($where) || empty($set)){
+            return false;
+        }
+    	$result = $this->mongo_db->where($where)->set($set)->update($table);
+		return $result;
+    }
+
+	    /**
+     * Used for update_all_nosql record in multiple document
+     * @param string $table document name
+     * @param array $where
+     * @param array $set
+     * @return 
+     */
+    public function update_all_nosql($table,$where,$set)
+    {
+        if(!$table || empty($where) || empty($set)){
+            return false;
+        }
+        return $this->mongo_db->where($where)->set($set)->update_all($table);
+    }
+
+    /**
+	 * Used to delete record in nosql
+	 * @param string $table document name
+	 * @param array $where
+	 * @return 
+	 */
+    public function delete_nosql($table,$where)
+    {
+    	if(!$table || empty($where)){
+            return false;
+        }
+    	$result = $this->mongo_db->where($where)->delete($table);
+		return $result;
+	}
+	
+	public function aggregate($table,$ops)
+	{
+		return $this->mongo_db->aggregate($table,$ops);
+	}
+
+    public function mongo_to_normal_date($mongo_date)
+    {
+         /********************retrieve time in UTC**********************************/
+         $datetime = $mongo_date->toDateTime();
+         $time=$datetime->format(DATE_RSS);
+         /********************Convert time local timezone*******************/
+         $dateInUTC=$time;
+         $time = strtotime($dateInUTC.' UTC');
+         $dateInLocal = date("Y-m-d H:i:s", $time);
+         return $dateInLocal;
+    }
+
+    public function normal_to_mongo_date($normal_date)
+    {
+       return new MongoDB\BSON\UTCDatetime(strtotime($normal_date) * 1000);
+    }
+}

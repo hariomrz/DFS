@@ -1,0 +1,83 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/activity_hide/index": {
+            "post": {
+                "tags": [
+                    "Activity Hide"
+                ],
+                "summary": "Used to hide activity from user news feed",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to set the activity title",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Hide\\index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Activity_Hide\\index": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                },
+                "Status": {
+                    "description": "hide status, 1 - Hide, 2 - Unhide",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        }
+    }
+}

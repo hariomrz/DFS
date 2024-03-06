@@ -1,0 +1,55 @@
+.common-cus-checkbox {
+  /* The com-chekbox-container */
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the com-chekbox-checkmark/indicator (hidden when not checked) */
+  /* Show the com-chekbox-checkmark when checked */
+  /* Style the com-chekbox-checkmark/indicator */ }
+  .common-cus-checkbox .com-chekbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .common-cus-checkbox .com-chekbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0; }
+  .common-cus-checkbox .com-chekbox-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 1px solid #979797;
+    border-radius: 4px; }
+  .common-cus-checkbox .com-chekbox-container input:checked ~ .com-chekbox-checkmark {
+    background-color: #fff;
+    border: 1px solid #979797;
+    border-radius: 4px; }
+  .common-cus-checkbox .com-chekbox-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none; }
+  .common-cus-checkbox .com-chekbox-container input:checked ~ .com-chekbox-checkmark:after {
+    display: block; }
+  .common-cus-checkbox .com-chekbox-container .com-chekbox-checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 7px;
+    height: 12px;
+    border: solid #F8436E;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }

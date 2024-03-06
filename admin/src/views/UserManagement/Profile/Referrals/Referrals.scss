@@ -1,0 +1,82 @@
+.ref-box {
+  @extend .reffral-box;
+  padding: 20px 60px 30px;
+  @media (max-width: 1280px) {
+    padding: 20px;
+  }
+}
+.referral-box-view {
+  .reffral-box {
+    margin-top: 10px;
+    
+    border-radius: 6px;
+    background-color: #ffffff;
+    text-align: center;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    min-height: 300px;
+    @media (max-width: 1330px) {
+      min-height: 277px;
+    }
+  }
+
+  .trend-box {
+    @extend .reffral-box;
+    padding: 44px;
+    &.trd-hgt {
+      height: 345px;
+      min-height: 345px;
+      @media (max-width: 1330px) {
+        height: 315px;
+        min-height: 315px;
+      }
+    }
+  }
+  .inner-div {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border-right: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+
+    @media (max-width: 1280px) {
+      padding: 18px;
+    }
+  }
+  .custom-pagination {
+    float: right;
+    margin: 10px 0 30px;
+  }
+
+  .ref-title {
+    color: #a8a8a8;
+    font-family: $font-bold;
+    margin-bottom: 5px;
+  }
+  .ref-count {
+    color: $text-color;
+    font-size: 25px;
+    font-family: $font-bold;
+    line-height: 1;
+    @media (max-width: 1330px) {
+      font-size: 22px;
+    }
+    @media (min-width: 1650px) {
+      font-size: 32px;
+    }
+  }
+  .main-div {
+    float: left;
+    width: 100%;
+  }
+}
+.referrals {
+  margin-top: 20px;
+  .react-datepicker-wrapper {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    input{
+      outline: none;
+    }
+  }
+}

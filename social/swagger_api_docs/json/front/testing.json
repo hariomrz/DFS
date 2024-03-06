@@ -1,0 +1,55 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "http://rest.infinitysn.com",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "api/v1/search/?isProximity=1&interestCheck=0&interestSearch=&searchPref=people&value=&limit=10&showCount=true&getCommonlities=false&userlat=22.7284057&userlon=75.8860644&radius=75&fromAge=18&toAge=120&sbp=1&offset=1&gender": {
+            "post": {
+                "tags": [
+                    "Activity Helper"
+                ],
+                "summary": "Activity Helper API",
+                "description": "",
+                "operationId": "set_promotion_status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to set the promotion status of an activity. Possible values for status( 0, 1)",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {},
+    "responses": {
+        "200": {
+            "description": "success message with data array"
+        },
+        "500": {
+            "description": "Error Message"
+        }
+    }
+}

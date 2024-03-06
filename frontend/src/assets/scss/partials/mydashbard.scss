@@ -1,0 +1,524 @@
+.web-container-no-fixed {
+    .dashboard-container.dashboard-my-contest {
+        .tabs-primary {
+            .top-fixed {
+                top: 56px;
+            }
+        }
+    }
+}
+
+.dashboard-container {
+    margin-top: 98px;
+
+    &.dashboard-my-contest {
+        .tabs-primary {
+            .nav {
+                border-radius: 22px;
+                overflow: hidden;
+                background: $white;
+                box-shadow: none !important;
+
+                li {
+                    border-radius: 22px;
+                    overflow: hidden;
+
+                    a {
+                        padding: 8px 13px 6px;
+                        color: $help_text_color;
+                        font-family: $font-semibold;
+                    }
+
+                    &.active {
+                        a {
+                            background: $primary;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+
+            .top-fixed {
+                position: static;
+                padding: 15px 20px 0px;
+            }
+
+            .top-tab-margin {
+                margin-top: 0;
+            }
+        }
+
+        .tab-two-height {
+            min-height: auto;
+            overflow-y: hidden;
+        } 
+    }
+
+    &.without-sports-tab {
+        margin-top: 56px;
+    }
+
+    &.without-header {
+        margin-top: 0px;
+    }
+
+    .sports-tab-nav {
+        width: 100%;
+        max-width: $window_width;
+        position: fixed;
+        top: 56px;
+        z-index: 3;
+        background: $white;
+        padding: 0 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        height: 42px; 
+        
+        &.sports-tab-rules{
+            height: 57px;
+            background: $app_bg_color;
+            border: none;
+            overflow: hidden;
+            overflow-x: auto;
+            .nav {
+                overflow: unset;
+            }
+        }  
+        .nav {
+            width: 100%;
+            border: 0;
+            // box-shadow: 0px 3px 16px 4px rgba(0, 0, 0, 0.25);
+            max-width: $window_width;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            height: 42px;
+            display: inline-block;
+            background: $white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+
+            li {
+                min-width: 110px;
+                height: 42px;
+                display: inline-block;
+                text-transform: uppercase;
+
+                a {
+                    width: 100%;
+                    background: $white;
+                    color: $help_text_color;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-size: $font-base;
+                    font-family: $font-semibold;
+                    display: inline-block;
+                    padding: 13px;
+                    line-height: 16px;
+                    height: 42px;
+                    span{
+                        position: relative;
+                        i{
+                            font-size: $font-size-h4;
+                            margin-right: 4px;
+                            top: -1px;
+                            position: relative;
+                        }
+                    }
+                }
+
+                &.active {
+                    a {
+                        color: $primary;
+                        position: relative;
+
+                        // &:after {
+                        //     content: '';
+                        //     position: absolute;
+                        //     bottom: 1px;
+                        //     height: 2px;
+                        //     width: 100%;
+                        //     background: $primary;
+                        //     left: 0;
+                        // }
+                    }
+                }
+            }
+        }
+    }
+
+    .dasboard-footer-tabs {
+        &>.nav-tabs {
+            max-width: $window_width;
+            border: 0;
+            bottom: 0;
+            background-color: $white;
+            box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.1);
+            bottom: 0;
+            position: fixed;
+            z-index: 999;
+            width: 100%;
+            // display: flex;
+            // flex-direction: row;
+            // justify-content: space-around;
+            max-height: 56px;
+            display: table;
+            // @media screen and (max-width:414px) {
+            //     justify-content: space-between;
+            // }
+            li {
+                min-width: 70px;
+                display: table-cell;
+                vertical-align: middle;
+                width: 20%;
+                height: 56px;
+                @media screen and (max-width:414px) {
+                    min-width: 56px;
+                }
+                &.disabled{
+                    a{
+                        @include color-opacity($help_text_color,0.7)
+                    }
+                }
+                a {
+                    height: 56px;
+                    color: $help_text_color;
+                    font-family: $font-semibold;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    font-size: $font-size-h6;
+                    @media screen and (max-width:375px) {
+                        font-size: $font-size-xsmall;
+                    }
+                    @media screen and (max-width:320px) {
+                        font-size: $font-size-xsmall - 1;
+                    }
+                    // height: 100%;
+                    i {
+                        font-size: 20px;
+                        &.icon-profile {
+                            font-size: $font-size-h5;
+                            margin-bottom: 2px;
+                            display: inline-block;
+                        }
+                    }
+                    .tab-label{
+                        position: relative;
+                        top: 3px;
+                    }
+                    .coins-tab-label {
+                        position: absolute;
+                        bottom: 9px;
+                        font-size: 9px;
+                        color: $white;
+                        transform: rotate(-3deg);
+                        letter-spacing: -0.4px;
+                        z-index: 2;
+                        @media screen and (max-width:414px) {
+                            font-size: 8px;
+                            bottom: 8px;
+                        }
+                    }
+                    .isCoin {
+                        height: 70px;
+                        width: 70px;
+                        background: $white;
+                        border-radius: 100%;
+                        box-shadow: 0 -8px 18px 0 rgba(0, 0, 0, 0.1);
+                        top: -30px;
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0 auto;
+                        img{
+                            width: 100%;
+                        }
+                        .upload-img{
+                            img {
+                                width: 80%;
+                                border-radius: 100%;
+                                overflow: hidden;
+                            }
+                        }
+                        @media screen and (max-width:414px) {
+                            height: 64px;
+                            width: 64px;
+                            top: -28px;
+                        }
+                    }
+                    .shadow-v{
+                        position: absolute;
+                        top: 20px;
+                        height: 50px;
+                        width: 80px;
+                        background: $white;
+                        width: 100px;
+                        pointer-events: none;
+                        &.logo-hub{
+                            height: 35px;
+                        }
+                        @media screen and (max-width:414px) {
+                            top: 18px;
+                        }
+                    }
+                }
+                
+                &.active {
+                    a {
+                        .animated-tab-div {
+                            animation: fadein-slide1 0.8s;
+                            opacity: 1;
+                            position: relative;
+                            transform: scale(1.01);
+
+                            @keyframes fadein-slide1 {
+                                0% {
+                                    opacity: 1;
+                                    top: 0;
+                                    color: $help_text_color;
+                                    transform: scale(1);
+                                }
+
+                                15% {
+                                    opacity: 1;
+                                    color: $help_text_color;
+                                }
+
+                                45% {
+                                    opacity: 0;
+                                    top: -10px;
+                                    color: $help_text_color;
+                                    transform: scale(0.95);
+                                }
+
+                                50% {
+                                    opacity: 0;
+                                    top: 20px;
+                                    color: $help_text_color;
+                                    transform: scale(0.95);
+                                }
+
+                                55% {
+                                    opacity: 0;
+                                    top: 20px;
+                                    color: $help_text_color;
+                                    transform: scale(0.95);
+                                }
+
+                                70% {
+                                    opacity: 0;
+                                }
+    
+                                100% {
+                                    opacity: 1;
+                                    top: 0;
+                                    transform: scale(1.01);
+                                }
+                            }
+                        }
+                        color: $primary;
+                        font-size: $font-size-h6;
+                        @media screen and (max-width:375px) {
+                            font-size: $font-size-xsmall;
+                        }
+
+                        position: relative;
+
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            height: 0px;
+                            width: 100%;
+                            background: $white;
+                            bottom: 0px;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }                
+    }
+    &.sports-tab-primary{
+        .sports-tab-nav{
+            background: $primary;
+            .nav{
+                background: $primary;
+                li{
+                    a{
+                        background: $primary;
+                        // @include background-opacity($black,0.3);
+                        @include color-opacity($white,0.55);
+                    }
+                    &.active{
+                        a{
+                            color: $white;
+                            &:after{
+                                background: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .active-nav-indicator{
+            background: $white;
+        }
+    }
+}
+.slide-pane__content .filter-body.hub-filter{
+    height: auto !important;
+}
+.active-nav-indicator{
+    height:3px;
+    // background:$white;
+    background:$primary;
+    position:absolute;
+    left:0;
+    bottom:0;
+    transition: left 300ms linear;
+    border-radius: 2px;
+    &.con-list{
+        height: 3px;
+        border-radius: 1.5px;
+    }
+    &.con-detail{
+        top: 42px;
+        bottom: auto;
+        z-index: 1;
+    }
+    &.rule{
+        top: 36px;
+        bottom: auto;
+        z-index: 1;
+    }
+    &.trans{
+        margin-bottom: 5px;
+    }
+}
+
+.fantasy-ref-l .sports-tab-rules.overall-leadbrd-slider {
+    .nav{
+        padding: 0 15px;
+        max-width: 530px;
+        li a{
+            padding: 13px 5px;
+        }
+    }
+    .slick-prev{
+        left: -10px;
+    }
+}
+
+// changes for dark theme overall
+.body-dark-theme{
+    .active-nav-indicator{
+        background: $darkT_primary;
+    }
+    .dashboard-container .sports-tab-nav.sports-tab-rules{
+        background: transparent;
+    }
+    .dashboard-container{
+        &.sports-tab-primary {
+            .sports-tab-nav{
+                background: $darkT_ternary;
+                .nav li a{
+                    background: $darkT_ternary;
+                }
+            }
+            .active-nav-indicator{
+                background: $darkT_primary;
+            }
+        }
+        &.dashboard-new .sports-tab-nav .nav{
+            height: 42px;
+        }
+       
+            &.dashboard-my-contest {
+                .tabs-primary {
+                    .new-tab .nav {
+                        li {
+                            &.active {
+                                a {
+                                    color: $darkT_primary;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    }
+    .prediction-wrap-v .bg-primary{
+        background: $darkT_ternary !important;
+    }
+    .app-header-style.coin-headr{
+        // background: $darkT_ternary;
+        .header-action,.app-header-text{
+            color: $darkT_primary_text_color !important;
+        }
+        i{
+            // color: $darkT_primary !important;
+            color: $darkT_primary_text_color !important;
+        }
+    }
+    .contest-card .contest-card-header ul li .team-content span.date-sch{
+        color: $darkT_primary;
+    }
+}
+.dashboard-container .sports-tab-nav{
+    &.custom-scrollbar{
+        ::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+            border-radius: 3px;
+            background: $app_bg_color;
+        }
+
+        ::-webkit-scrollbar-thumb:horizontal {
+            background: $gray-450;
+            border-radius: 3px;
+        }
+    }
+}
+.sports-hub-footer-tabs .isCoin{
+    @keyframes bounce {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(-5px);
+        }
+      }
+      
+    &.single-gt-img{
+        background: transparent;
+        box-shadow: none;
+        .fcoin {
+            overflow: visible;
+            &::after {
+                display: none;
+            }
+          }
+        .single-sport-icon.ani {
+            animation: bounce 1s infinite alternate;
+          }
+    }
+}
+.dashboard-new{
+    .fantasy-ref-l.leaderboard-frm-more.open-predict-leaderboard.prediction-part-v{
+        padding-top: 0 !important;
+    }
+}
+.dashboard-container{
+    .profile-view-section.profile-section{
+        margin-top: -42px;
+    }
+    &.without-sports-tab{
+        .profile-view-section.profile-section{
+            margin-top: 56px;
+        }
+    }
+}

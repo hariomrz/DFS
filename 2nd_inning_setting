@@ -1,0 +1,30 @@
+$sql = "INSERT INTO `vi_app_config` (`config_id`, `name`, `key_name`, `key_value`, `custom_data`) VALUES (NULL, 'Allow 2nd inning', 'allow_2nd_inning', '0', '[]')";
+$this->db->query($sql);
+$sql = "ALTER TABLE `vi_contest` ADD `is_2nd_inning` TINYINT(1) NOT NULL DEFAULT '0' AFTER `is_scratchwin`";
+$this->db->query($sql);
+$sql = "ALTER TABLE `vi_contest_template` ADD `is_2nd_inning` TINYINT(1) NULL DEFAULT '0' AFTER `is_scratchwin`";
+$this->db->query($sql);
+$sql = "ALTER TABLE `vi_collection_master` ADD `2nd_inning_date` DATETIME NULL DEFAULT NULL AFTER `season_scheduled_date`";
+$this->db->query($sql);
+$sql = "ALTER TABLE `vi_season` ADD `2nd_inning_date` VARCHAR(50) NOT NULL AFTER `scheduled_date`, ADD `second_inning_update` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '1=>Update by Admin' AFTER `2nd_inning_date`";
+$this->db->query($sql);
+$sql = "ALTER TABLE `vi_lineup_master` ADD `is_2nd_inning` TINYINT(1) NOT NULL DEFAULT '0' AFTER `is_pl_team`";
+$this->db->query($sql);
+$sql = "ALTER TABLE `vi_collection_master` ADD `is_2nd_inn_lineup_processed` TINYINT(1) NOT NULL DEFAULT '0' AFTER `2nd_inning_date"`
+$this->db->query($sql);
+$sql = "ALTER TABLE `vi_season` ADD `2nd_inning_team_uid` VARCHAR(100) NULL DEFAULT NULL COMMENT 'team_uid for Batting second inning' AFTER `result_info`";
+$this->db->query($sql);
+$sql = "ALTER TABLE `vi_game_player_scoring` ADD `2nd_inning_score` FLOAT NOT NULL DEFAULT '0' AFTER `expected_score`";
+$this->db->query($sql);
+
+#crontab change 
+remove
+*/2 * * * * wget -O - -q -t 1 http://localhost:4000/lineup/lineup_move
+
+add
+*/2 * * * * wget -O - -q -t 1 http://localhost:4000/lineup/lineup_move/0
+*/2 * * * * wget -O - -q -t 1 http://localhost:4000/lineup/lineup_move/1
+
+------- fantasy ------
+http://framework.vinfotech.org/fantasy/migration/do_migration
+

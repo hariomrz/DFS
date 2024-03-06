@@ -1,0 +1,92 @@
+.lineup-list-view{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    .captain-player{
+        top: 0;
+        right: 0;
+        position: inherit;
+        margin-left: 5px;
+        padding: 5px;
+    }
+    .vcaptain-player{
+        top: 0;
+        right: 0;
+        margin-left: 5px;
+        position: inherit;
+        padding: 5px;
+    }
+    .list-view-header{
+        background-color: $app_bg_color;
+        color: $help_text_color;
+        font-family: $font-book;
+        text-align: center;
+        padding: 8px 0;
+        font-size: $font-size-small;
+        text-transform: capitalize;
+    }
+    .list-view-detail{
+        overflow: hidden;
+    }
+}
+.list-secondary{
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: $white;
+    > li{
+        padding: 6px 15px 4px;
+        height: 54px;
+        border-bottom: 1px solid $border-light;
+        &:last-child{
+            border-bottom:0;
+        }
+        h4{
+            color:$primary_text_color;
+            font-family: $font-book;
+            margin: 0;
+            font-size: $font-base;
+            line-height: 1;
+        }
+        span{
+            font-size: $font-size-small;
+            margin: 0;
+            color: $help_text_color;
+            font-family: $font-regular;
+            &.pts-style{
+                color: $body_text_color;
+                font-size: $font-base;
+            }
+        }
+        p{
+            margin: 8px 30px 0 0;
+            color:$body_text_color;
+            display: inline-block;
+        }
+        .btn-removeplayer{
+            background-color: $gray-450;
+            box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.1);
+            padding: 4px 7px;
+            i{
+                color:$white;
+            }
+        }
+       .style{
+        line-height: 2;
+       }
+       .player-fullname h4{
+           line-height: 1.1;
+       }
+    }
+}
+
+
+html[dir="rtl"] {
+    .list-secondary{
+        li{
+            .btn-removeplayer{
+                margin-right: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.exportData{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filter-label {
+    color: #555555;
+    font-family: $font-bold;
+    font-style: normal;
+    margin-bottom: 4px;
+    display: block;
+    .right-m20{
+      margin-right: 10px;
+      line-height: 35px;
+    }
+  }
+  .TopBot{
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }  
+.dates{
+  width: 160px;
+  float: left;
+}  

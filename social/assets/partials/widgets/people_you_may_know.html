@@ -1,0 +1,37 @@
+<div ng-cloak ng-init="getPeopleYouMayKnow(20,0,0)" ng-show="peopleYouMayKnow.length>0 && LoginSessionKey!=='' && !IsMyDeskTab" class="panel panel-widget">
+    <div class="panel-heading">
+        <h3 class="panel-title">people you may know</h3>
+    </div>
+    <div class="panel-body">
+        <div class="people-you-know">
+            <ul class="vertical-list" id="peopleYouknow" ng-if="peopleYouMayKnow.length>0">
+                <slick class="slider"  settings="peopleYouMayKnowConfig">
+                    <li ng-repeat="peopleYouKnow in peopleYouMayKnow" repeat-done="triggerTooltip();" class="ng-scope">
+                        <div class="list-inner">
+                            <figure>
+                                <a entitytype="user" entityguid="{{peopleYouKnow.UserGUID}}" class="loadbusinesscard" ng-href="{{::BaseUrl+peopleYouKnow.ProfileURL}}" target="_self">
+                                    <img err-name="{{peopleYouKnow.FirstName+' '+peopleYouKnow.LastName}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+peopleYouKnow.ProfilePicture}}"  class="img-circle"   err-Name="{{peopleYouKnow.FirstName+' '+peopleYouKnow.LastName}}" />
+                                </a>
+                            </figure>
+                            <div class="list-item-body">
+                                <h4 class="list-heading-xs ellipsis">
+                                    <a entitytype="user" entityguid="{{peopleYouKnow.UserGUID}}" class="a-link name loadbusinesscard" ng-href="{{::BaseUrl+peopleYouKnow.ProfileURL}}" target="_self">{{::peopleYouKnow.FirstName+' '+peopleYouKnow.LastName}}</a>
+                                </h4>
+                                <small class="location" ng-if="peopleYouKnow.MutualFriends=='0'">&nbsp;</small>
+                                <small class="location" ng-if="peopleYouKnow.MutualFriends=='1'">{{::peopleYouKnow.MutualFriends+' Mutual Friend'}}</small>
+                                <small class="location" ng-if="peopleYouKnow.MutualFriends>'1'">{{::peopleYouKnow.MutualFriends+' Mutual Friends'}}</small>
+
+                                <button ng-cloak ng-if="peopleYouKnow.SentRequest=='1'" ng-click="rejectRequest(peopleYouKnow.UserGUID,'peopleyoumayknow')" class="btn btn-default btn-sm">Cancel Request</button>
+                                <button ng-cloak ng-if="peopleYouKnow.SentRequest=='0'" ng-click="sendRequest(peopleYouKnow.UserGUID,'peopleyoumayknow');" class="btn btn-default btn-sm"><i class="ficon-add-friend"></i> Add As Friend</button>
+                            </div>
+                        </div>
+                    </li>
+                </slick>
+            </ul>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a ng-if="LoginSessionKey!=''" class="view-link" ng-href="{{BaseUrl+'network/grow_your_network'}}" target="_self">View All</a>
+        <a ng-if="LoginSessionKey==''" class="view-link" ng-click="loginRequired()">View All</a>
+    </div>
+</div>

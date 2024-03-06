@@ -1,0 +1,98 @@
+<button type="button" class="btn-circle" ng-if="!data.ReminderData || data.ReminderData.ReminderGUID == ''" ng-click="clearReminderState(data.ActivityGUID, 0)" ng-cloak>
+    <i class="ficon-history btn-circle " data-toggle="tooltip" data-original-title="Reminder" ></i>    
+</button> 
+<button ng-click="clearReminderState(data.ActivityGUID, 1)" class="btn-circle reminderset" type="button" ng-cloak aria-expanded="false" ng-if="data.ReminderData && data.ReminderData.ReminderGUID != ''">
+    {{data.ReminderData.ReminderDay}} <span ng-bind="data.ReminderData.MonthName"></span>
+</button>
+
+<ul id="reminderDropDownBox{{data.ActivityGUID}}" class="dropdown-menu reminderDropdown" ng-init="setReminderData(data.ActivityGUID, data.Reminder);">
+    <li ng-if="!data.ReminderData || data.ReminderData.ReminderGUID == ''">
+        <i class="icon-n-backarrow" id="clearReminder{{data.ActivityGUID}}" data-arrow="backReminder" style="display:none;">&nbsp;</i>
+        <span data-reminder="title">Set Reminder</span> 
+        <i onclick="closeReminder(this)" data-reminder="close" class="icon-n-close pull-right">&nbsp;</i>
+    </li>
+    <li ng-if="data.ReminderData && data.ReminderData.ReminderGUID != ''">
+        <i id="backeditReminder{{data.ActivityGUID}}" class="icon-n-backarrow" data-arrow="backeditReminder" style="display:none;">&nbsp;</i>
+        <i id="backReminder{{data.ActivityGUID}}" class="icon-n-backarrow" data-arrow="backReminder" style="display:none;">&nbsp;</i>
+        <span data-reminder="title" ng-bind="data.ReminderData.EditPopupDate" data-reminder-date="{{data.ReminderData.EditPopupDate}}"></span> 
+        <i data-reminder="close" onclick="closeReminder(this)" class="icon-n-close pull-right" style="display:none;">&nbsp;</i>
+    </li>
+
+    <li id="reminderUl{{data.ActivityGUID}}" data-type="fixed-date" data-set="reminder" ng-class="data.ReminderData && data.ReminderData.ReminderGUID!=''?'hidediv':''">
+        <ul>
+            <li class="fixed-date" data-fixed-activityGUID="{{data.ActivityGUID}}">
+                <a data-fixed-type="Tommorrow" ng-click="activeClassAddAnnouncement(data.ActivityGUID, 1)" ng-class="getSelectedDate(data.ReminderData, 1);">
+                    <label>Tomorrow</label> <span ng-bind="data.DisplayTomorrowDate"></span> <i class="icon-n-right pull-right"></i>
+                </a>
+                <a data-fixed-type="NextWeek" ng-click="activeClassAddAnnouncement(data.ActivityGUID, 2)" ng-class="getSelectedDate(data.ReminderData, 2);">
+                    <label>Next week</label> <span ng-bind="data.DisplayNextWeekDate"></span> <i class="icon-n-right pull-right"></i>
+                </a>
+            </li>
+            <li data-set="reminderDate">
+                <a ng-click="initDatepicker(data.ActivityGUID, data.ReminderData);">
+                    <i class="icon-n-calendar">&nbsp;</i><label>Select  Date and Time</label>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="select-date" data-calendar="reminderCalendar" style="display:none;">
+        <div class="datePicker">
+            <label>Date</label>
+            <div class="reminder-calendar">
+                <div data-calendar="reminderCalendar" id="reminderCal{{data.ActivityGUID}}" data-activityGUID="{{data.ActivityGUID}}"></div>
+            </div>
+        </div>
+        <div class="timePicker" id="reminderCalTimePicker{{data.ActivityGUID}}" data-time-activityGUID="{{data.ActivityGUID}}">
+            <div class="timePicker-header">
+                <label>Time </label>
+                <ul class="am-pm-button pull-right">
+                    <li>
+                        <span class="am-span"> 
+                            <input ng-model="data.ReminderData.Meridian" type="radio" value="am" name="time"> AM 
+                        </span> 
+                    </li>
+                    <li>
+                        <span class="pm-span"> 
+                            <input ng-model="data.ReminderData.Meridian" type="radio" value="pm" name="time"> PM 
+                        </span> 
+                    </li>
+                </ul>
+            </div>
+            <!--            <ul class="hours">
+                            <li>HH</li>
+                            <li ng-repeat="Hour in data.ReminderHours">
+                                
+                                <span class="{{IsSelectedHour(data.ActivityGUID,Hour)}}"> <input ng-disabled="IsHourDisabled(Hour)" type="radio" value="{{Hour}}" name="HH"> {{Hour}}</span>
+                            </li>
+                        </ul>-->
+            <ul ng-cloak class="hours amHoursBlock">
+                <li>HH</li>
+                <li ng-repeat="Hour in data.ReminderHours" ng-class="{ 'reminderSet' : ( ( data.ReminderData.Meridian == 'am' ) && ( data.ReminderData.Hour == Hour ) ) }">
+                    <span> <input type="radio" ng-value="(Hour==12) ? 0 : Hour" name="HH" class="hourForAm"> {{Hour}}</span>
+                </li>
+            </ul>
+            <ul ng-cloak class="hours  pmHoursBlock">
+                <li>HH</li>
+                <li ng-repeat="Hour in data.ReminderHours" ng-class="{ 'reminderSet' : ( ( data.ReminderData.Meridian == 'pm' ) && ( data.ReminderData.Hour == Hour ) ) }">
+                    <span> <input type="radio" ng-value="(Hour==12) ? Hour : Hour+12" name="HH" class="hourForPm"> {{Hour}}</span>
+                </li>
+            </ul>
+
+            <ul class="minutes">
+                <li>MM</li>
+                <li ng-class="{ 'reminderSet': ( data.ReminderData.Minutes == '0' ) }"><span> <input type="radio" value="00" name="MM"> 0 </span> </li>
+                <li ng-class="{ 'reminderSet': ( data.ReminderData.Minutes == '15' ) }"><span> <input type="radio" value="15" name="MM"> 15</span> </li>
+                <li ng-class="{ 'reminderSet': ( data.ReminderData.Minutes == '30' ) }"><span> <input type="radio" value="30" name="MM"> 30</span></li>
+                <li ng-class="{ 'reminderSet': ( data.ReminderData.Minutes == '45' ) }"><span> <input type="radio" value="45" name="MM"> 45</span> </li>
+            </ul>
+        </div>
+    </li>
+
+    <li class="reminder-footere" ng-class="data.ReminderData && data.ReminderData.ReminderGUID!=''?'hidediv':''" data-type="reminderFooter">
+        <a ng-click="saveReminder(data.ActivityGUID, 'ACTIVE', data.ReminderData.ReminderGUID);">Save</a>
+    </li>
+    <li class="reminder-footere edit" ng-class="!data.ReminderData || data.ReminderData.ReminderGUID==''?'hidediv':''" data-type="editreminderFooter">
+        <a data-type="editReminder">Edit</a>
+        <a ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'DELETED');">Remove</a>
+    </li>
+</ul>

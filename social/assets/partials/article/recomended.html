@@ -1,0 +1,158 @@
+<!-- Recommended for you -->    
+<div class="panel" ng-class="(IsSingleActivity) ? 'panel-recommended' : 'panel-transparent' ;" ng-if="(recommended_articles.length > 0 && recommended_articles_length) || viewAllRArticles">
+    
+    <div ng-if="recommend_articles_loader && (!recommended_articles || recommended_articles.length == 0)" class="is-loading">
+        <div class="loader"></div>
+    </div>
+
+    <div class="panel-heading">
+        <div ng-cloak ng-if="IsSingleActivity" class="container"> 
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2">
+                <h3 class="panel-title">  
+                    <span class="text" ng-bind="::lang.recmdd_artcl">
+                    
+                  </span>
+                </h3>                              
+              </div>
+            </div>
+          </div>
+
+        <h3 ng-cloak ng-if="!IsSingleActivity" class="panel-title title-lg">  
+            <a class="text-primary" ng-if="!viewAllRArticles && recommended_articles_length > 4" ng-click="viewAllRecommendedArticles()" ng-bind="::lang.recmdd_artcl_view_all"></a>
+            <a class="text-primary" ng-if="viewAllRArticles" ng-click="onArticleListInit(1)" ng-bind="::lang.recmdd_artcl_back"></a>
+            <span class="text" ng-bind="::lang.recmdd_artcl_fr_u">
+                
+            </span>
+        </h3>
+    </div>
+    <div class="panel-body transparent" >    
+        <div ng-class="(IsSingleActivity) ? 'container' : '' ;">              
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="article in recommended_articles">
+                    <div class="thumbnail thumbnail-card">                                         
+                        <div class="thumbnail-header">
+                            <div class="thumbnail-icn">                                                        
+                                <a class="icon"  
+                                   tooltip 
+                                   data-container="body"
+                                   data-placement="top" 
+                                   target="_self"
+                                   data-toggle="tooltip" 
+                                   ng-attr-data-original-title="{{(article.IsFavourite) ? lang.article_unfav : lang.article_fav ;}}" 
+                                   
+                                   ng-class="(article.IsFavourite) ? 'active' : '' ;" 
+                                   ng-click="setFavouriteArticle(article.ActivityGUID, article)"
+                                >
+                                    <i class="ficon-star f-xlg"></i>
+                                </a>
+                                
+                            </div>
+
+                            <h5 class="thumbnail-subtitle">                             
+                                <a class="text" ng-href="{{::getEntityURL(article)}}" target="_self">
+                                    <span  ng-bind="article.EntityName"></span>
+                                </a>
+                            </h5>                                
+                        </div>
+                        <div class="thumbnail-body">  
+                            <div class="caption">      
+                                
+                                <div class="content">           
+                                    <h4 class="thumbnail-title">
+                                        <a  ng-href="{{BaseURL + article.ActivityURL}}" target="_self" ng-if="article.PostTitle" ng-bind="slice_string(article.PostTitle, 50)"></a>
+                                    </h4>
+                                    
+                                    <p ng-if="article.ArticleSummary" ng-bind-html=":: (article.ArticleSummary.length > 100) ? article.ArticleSummary.substr(0, 100) + '...' : article.ArticleSummary"></p>
+                                    
+                                </div>
+                                
+                                
+                                <div class="member-list-block" ng-if="article.MembersTalking">
+                                    <ul class="member-list">
+                                        <li class="member-item">                                                    
+                                            <a class="thumb-item" 
+                                               tooltip 
+                                               title="{{member.Name}}" 
+                                               data-container="body" 
+                                               data-placement="bottom"
+
+                                               ng-repeat="member in article.MembersTalking"
+
+                                               >
+                                                <img 
+                                                    err-SRC="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" 
+                                                    ng-src="{{ImageServerPath + 'upload/profile/220x220/' + member.ProfilePicture}}"                                                                                                    
+                                                    />
+                                            </a>                                                                                                                                     
+                                        </li>
+                                    </ul>
+                                    <ul class="list-activites text-off">
+                                        <li  ng-bind-html="get_members_talking(article.MembersTalking)">                                                        
+                                        </li> 
+                                    </ul>
+                                </div>                            
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="thumbnail-footer">
+                            <ul class="feed-actions small">
+                                <li>
+                                    <span class="like-btn">
+                                        <i class="ficon-heart sm" ng-click="likeEmitArticle(article.ActivityGUID, 'ACTIVITY', article.ActivityGUID, '', '', article);" ng-class="(article.IsLike == '1') ? 'active' : '';"></i>
+                                        <abbr class="sm" ng-click="likeDetailsEmit(article.ActivityGUID, 'ACTIVITY');" ng-if="article.NoOfLikes > 0" ng-bind="article.NoOfLikes"></abbr>
+                                    </span>
+                                </li>
+                                <li>
+                                    <a ng-if="article.NoOfComments > 0" ng-href="{{BaseURL + article.ActivityURL}}" target="_self" ng-bind=" (article.NoOfComments > 0) ?  lang.recmdd_artcl_cmmt + ' (' + article.NoOfComments + ')' : 'Be the first to comment'"></a>
+                                </li>    
+                               
+                            </ul>
+                            <div class="btn-toolbar btn-toolbar-xs right ">
+                                <button class="btn btn-default btn-xs p-h-9" ng-click="subscribe_article(article.ActivityGUID, article);" ng-if="!article.IsSubscribed  ||article.IsSubscribed == 0 || article.IsSubscribed == '0'" ng-bind="::lang.follow"></button>
+                                
+                                <button class="btn btn-primary btn-xs p-h-9" ng-click="subscribe_article(article.ActivityGUID, article);" ng-if="article.IsSubscribed == 1 || article.IsSubscribed == '1'">
+                                    <span class="icon"><i class="ficon-check"></i></span>
+                                    <span class="text" ng-bind="::lang.following"></span>
+                                </button>
+                            </div>
+                        </div>
+                                            
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="panel-body nodata-panel" ng-if="viewAllRArticles && recommended_articles.length == 0 && searchKey && !recommend_articles_loader">
+        <div class="nodata-text p-lg">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-articles.png" >
+            </span>
+            <h5 ng-bind="::lang.recmdd_artcl_no_rslt"></h5>
+            <p class="text-off" ng-bind="::lang.recmdd_artcl_404"></p>
+            <!--            <a>Explore more!</a>-->
+        </div>
+    </div>
+    
+    
+    <div class="panel-body nodata-panel"  ng-if="viewAllRArticles && recommended_articles.length == 0 && !searchKey && !recommend_articles_loader">
+        <div class="nodata-text">
+            <span class="nodata-media">
+                <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-articles.png" >
+            </span>
+            <h5 ng-bind="::lang.recmdd_artcl_no_article"></h5>
+            <p class="text-off" ng-bind-html="::lang.recmdd_artcl_follow_msg"></p>
+<!--            <a>Explore more!</a>-->
+        </div>
+    </div>
+    
+    <div class="panel-footer transparent" ng-if="viewAllRArticles && recommend_articles_loader && recommended_articles.length > 0">
+        <span class="loader text-lg"></span>
+    </div>
+    
+    
+</div>

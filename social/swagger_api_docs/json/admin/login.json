@@ -1,0 +1,131 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/admin_api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/login/index": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "This api is used to login.",
+                "description": "",
+                "operationId": "index",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Login\\Index"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/login/logout": {
+            "post": {
+                "tags": [
+                    "Logout"
+                ],
+                "summary": "This api is used to logout user from application.",
+                "description": "",
+                "operationId": "logout",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": ".",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\Login\\Logout"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\AdminApi\\Login\\Index": {
+            "required": [
+                "Username",
+                "Password"
+            ],
+            "properties": {
+                "Username": {
+                    "description": "User name",
+                    "type": "string",
+                    "example": "9827298272"
+                },
+                "Password": {
+                    "description": "Password",
+                    "type": "string",
+                    "example": "Vtech#2012"
+                }
+            }
+        },
+        "Inclusify\\AdminApi\\Login\\Logout": {
+            "required": [
+                ""
+            ]
+        }
+    }
+}

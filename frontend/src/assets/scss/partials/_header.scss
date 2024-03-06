@@ -1,0 +1,991 @@
+.header-wrap {
+    background-color: $white;
+    padding: 8px 15px;
+    position: relative;
+
+    .header-content {
+        text-align: center;
+        height: 56px;
+
+        div {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .team-img-block {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+
+    .header-action {
+        font-size: 20px;
+        color: $primary_text_color;
+        width: 24px;
+        height: 24px;
+
+        @media screen and(max-width:360px) {
+            width: 17px;
+            height: 17px;
+            font-size: 18px;
+            margin-left: 0px;
+        }
+
+        @media screen and(max-width:320px) {
+            width: 15px;
+            height: 15px;
+            font-size: 16px;
+            margin-left: 0px;
+        }
+
+        position: relative;
+        display: block;
+
+        i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 17px;
+        }
+
+        &.f-sm {
+            font-size: 16px;
+        }
+
+        &.right {
+            float: right;
+        }
+
+        .live-indicator {
+            height: 6px;
+            width: 6px;
+
+            &.live {
+                background-color: $danger;
+            }
+
+            &.completed {
+                background-color: $success;
+            }
+        }
+
+        .status-text {
+            font-family: $font-regular;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 13px;
+            text-align: center;
+            margin-left: 5px;
+
+            &.live {
+                color: $danger;
+                text-transform: uppercase;
+            }
+
+            &.completed {
+                color: $success;
+                text-transform: uppercase;
+
+                @media screen and(max-width: 340px) {
+                    font-size: 8px;
+                }
+            }
+        }
+
+        &.status {
+            width: max-content;
+            cursor: default;
+            display: block !important;
+            line-height: 0;
+        }
+    }
+}
+
+.header-title {
+    font-size: 18px;
+    margin: 12px 0;
+    color: $gray-900;
+    font-family: $font-black;
+    text-transform: uppercase;
+}
+
+.app-header-style {
+    position: fixed;
+    top: 0;
+    left: 0;
+    // background-color: $primary !important;
+    max-width: $window_width;
+    height: 56px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    z-index: 1005;
+
+    &.share-pred {
+        background-color: $primary !important;
+
+    }
+
+    .section-middle {
+
+        .team-home,
+        .team-away,
+        .vs-text {
+            color: $white !important;
+        }
+    }
+
+    .match-timing {
+        color: $white !important;
+
+        .countdown {
+            color: $white !important;
+        }
+
+        .time-line {
+            color: $white !important;
+        }
+    }
+
+    &.header-transparent {
+        background: transparent;
+
+        .row-container {
+
+            .section-right,
+            .section-left {
+                .header-action {
+                    color: $white;
+                }
+            }
+
+            .match-timing {
+                color: $white;
+                font-size: $font-base;
+                font-family: $font-bold;
+            }
+        }
+    }
+
+    .header-brand-logo {
+        vertical-align: middle;
+        font-size: 20px;
+        max-height: 44px;
+        overflow: hidden;
+        cursor: pointer;
+
+        @media screen and (max-width: 360px) {
+            margin-top: 2px;
+        }
+    }
+
+    .center-container {
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+
+        .balance-box-style {
+            border: 1px solid $border_color;
+            background-color: $view_bg_color;
+            padding: 4px 8px 1px;
+            display: inline-block;
+            color: $primary_text_color;
+            font-family: $font-bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-radius: 12px;
+
+            span {
+                color: $primary;
+            }
+
+            .coin-img {
+                max-width: 14px;
+                margin: -1px 3px 0 0;
+            }
+        }
+    }
+
+    .app-header-text {
+        color: $white !important;
+        font-family: $font-bold;
+        font-weight: bold;
+        font-size: $font-base;
+        text-align: center;
+        position: relative;
+
+        @media screen and (max-width: 360px) {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        &.cat-name-exist {
+            position: relative;
+            top: 1px;
+        }
+
+        .selected-cat-nm {
+            font-size: $font-size-xsmall;
+            color: $help_text_color;
+            white-space: nowrap;
+            font-family: $font-book;
+            position: relative;
+            top: -2px;
+        }
+
+        .game-text-title {
+            font-size: $font-size-xsmall;
+            color: $help_text_color;
+            white-space: nowrap;
+            font-family: $font-regular;
+            position: relative;
+            top: -2px;
+        }
+
+        &.selected-cat-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 300px;
+            text-transform: capitalize;
+
+            span {
+                display: inline-block;
+                margin-right: 3px;
+            }
+
+            @media (max-width: 767px) {
+                max-width: 200px;
+            }
+
+            @media (max-width: 320px) {
+                max-width: 180px;
+            }
+        }
+    }
+
+    &.coin-headr {
+
+        .app-header-text .selected-cat-nm,
+        .countdown {
+            color: $white;
+        }
+    }
+
+    .brand-logo {
+        vertical-align: middle;
+        font-size: 20px;
+        height: 44px;
+        cursor: pointer;
+
+        @media screen and (max-width: 360px) {
+            height: 36px;
+            margin-top: 5px;
+        }
+    }
+
+    .header-action {
+        font-size: 18px;
+        color: $white !important;
+        height: 24px;
+        width: 24px;
+        position: relative;
+        display: block;
+
+        .filter-applied {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 100%;
+            background: $alert_danger_color;
+            position: absolute;
+            left: 16px;
+            top: -2px;
+        }
+
+        i.icon-edit-line {
+            font-size: 20px;
+        }
+
+        @media (max-width: 400px) {
+            i.icon-left-arrow {
+                position: relative;
+                top: -1px;
+                display: inline-block;
+            }
+        }
+
+        @media screen and(max-width:414px) {
+            width: 21px;
+            height: 21px;
+
+            &.info-ic {
+                height: 24px;
+                width: 20px;
+            }
+        }
+
+        @media screen and(max-width:375px) {
+            width: 17px;
+            height: 17px;
+
+            &.info-ic {
+                height: 24px;
+                width: 20px;
+            }
+        }
+
+        @media screen and(max-width:320px) {
+            width: 15px;
+            height: 15px;
+
+            &.info-ic {
+                height: 24px;
+                width: 20px;
+            }
+        }
+
+        &.right {
+            float: right;
+        }
+
+        &.status {
+            width: max-content;
+            cursor: default;
+            display: block !important;
+        }
+
+        .live-indicator {
+            height: 6px;
+            width: 6px;
+
+            &.live-indicator-league {
+                margin-left: 4px;
+                margin-right: 5px;
+            }
+
+            &.live {
+                background-color: $danger;
+            }
+
+            &.completed {
+                background-color: $success;
+            }
+        }
+
+        .status-text {
+            font-family: $font-regular;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 13px;
+            text-align: center;
+            margin-left: 5px;
+
+            &.league-margin {
+                margin-left: 2px;
+                font-family: $font-bold;
+                font-weight: bold;
+            }
+
+            &.live {
+                color: $white;
+                text-transform: uppercase;
+            }
+
+            &.completed {
+                color: $success;
+                text-transform: uppercase;
+
+                @media screen and(max-width: 370px) {
+                    font-size: 8px;
+                }
+            }
+        }
+    }
+
+    .header-content {
+        text-align: center;
+        height: 56px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+
+        div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .team-img-block {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        .team-header-content {
+            color: $primary_text_color;
+            font-family: $font-bold;
+            font-size: 14px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            small {
+                font-size: 10px;
+            }
+
+            p {
+                margin: 0;
+                font-size: 8px;
+                font-family: $font-bold-italic;
+                color: $body_text_color;
+            }
+        }
+
+        .team-header-detail {
+            margin: 0 10px;
+
+            @media screen and(max-width:320px) {
+                margin: 0 0px;
+            }
+
+            .team-header-content {
+                color: $primary_text_color;
+                font-family: $font-bold;
+                font-size: 14px;
+
+                @media screen and(max-width:320px) {
+                    font-size: 10px;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+
+                small {
+                    font-size: 12px;
+                }
+            }
+
+            p {
+                margin: 0;
+                font-size: 8px;
+                font-family: $font-bold-italic;
+                color: $body_text_color;
+
+                .date {
+                    color: $help_text_color;
+                    font-family: $font-bold;
+                    font-size: 11px;
+                    line-height: 13px;
+                    text-align: center;
+                }
+            }
+
+            @media (max-width: 400px) {
+                margin: 0 5px;
+
+                .team-header-content {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    .row-container {
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 15px;
+        position: relative;
+        overflow-x: hidden;
+
+        .section-left {
+            display: grid;
+            height: 56px;
+            align-items: center;
+            min-width: 28px;
+
+            .header-action {
+                display: grid;
+                height: auto;
+                padding: 8px 0;
+            }
+
+            &.section-min {
+                min-width: 80px;
+            }
+        }
+
+        .section-middle {
+            padding: 0;
+
+            .team-home,
+            .team-away {
+                font-size: $font-base;
+
+                @media (max-width: 320px) {
+                    font-size: $font-size-small;
+                }
+            }
+
+            .section-middle {
+                // padding: 0 20px;
+            }
+
+            .section-left,
+            .section-right {
+                justify-content: center;
+            }
+        }
+
+        .section-right {
+            display: flex;
+            height: 56px;
+            align-items: center;
+            min-width: 28px;
+
+            .scorecard-stats {
+                cursor: pointer;
+                margin-top: 0px;
+                color: $white;
+                font-family: $font-exo-regular;
+                font-size: 12px;
+                letter-spacing: 0;
+                line-height: 13px;
+                text-align: center;
+                text-decoration: underline;
+                // letter-spacing: 0.1px;
+            }
+
+            .header-pie-list-view {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                .list-view-container {
+                    height: 30px;
+                    width: 32px;
+                    border-radius: 5px 0 0 5px;
+                    background-color: rgba($white, 0.1);
+                    border-right: 1px solid $white;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+
+                    &.active {
+                        color: $primary;
+                        background-color: $white;
+                    }
+
+                    .icon-list-ic {
+                        color: $white;
+                        font-size: 14px;
+
+                        &.list-active {
+                            color: $primary !important;
+                        }
+                    }
+                }
+
+                .pi-view-container {
+                    justify-content: center;
+                    display: flex;
+                    height: 30px;
+                    width: 32px;
+                    border-radius: 0px 5px 5px 0px;
+                    background-color: rgba($white, 0.1);
+                    align-items: center;
+
+                    &.active {
+                        background-color: $white;
+                    }
+
+                    .icon-pie {
+                        color: $white;
+                        font-size: 16px;
+
+                        &.pi-active {
+                            color: $primary !important;
+                        }
+                    }
+                }
+            }
+
+            .header-action {
+                display: grid;
+            }
+
+            &.section-min {
+                min-width: 80px;
+            }
+
+            justify-content: flex-end;
+
+            .header-action {
+                margin-right: 20px;
+
+                &:last-child {
+                    margin-right: 0;
+
+                    &.status {
+                        line-height: 16px;
+
+                        &.border-live {
+                            border: 1px solid $disabled_text_color;
+                            padding-left: 5px;
+                            padding-right: 5px;
+                            width: auto;
+                            display: inline-block;
+                            height: 20px;
+                            border-radius: 5px;
+
+                            &.lbd {
+                                border: none;
+                                background: $red;
+                                border-radius: 10px;
+                                padding-left: 9px;
+                                padding-right: 9px;
+                                // padding-top: 1px;
+                                padding-bottom: 2px;
+
+                                .live-indicator {
+                                    background: #fff !important;
+                                    position: relative;
+                                    top: -1px;
+                                    margin-right: 2px;
+                                }
+
+                                .status-text {
+                                    color: #fff;
+                                    font-size: 11px;
+                                }
+
+                                &.completed {
+                                    background: $alert_success_color;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    &.coin-headr {
+        background-color: $primary;
+
+        .app-header-text,
+        .match-timing {
+            color: $white;
+        }
+
+        .icon-alarm-new {
+            font-weight: 600;
+        }
+
+        i {
+            color: $white !important;
+
+            &.primary {
+                color: $primary !important;
+            }
+        }
+
+        .center-container .balance-box-style {
+            @include background-opacity($black, 0.4);
+            border: 0.5px solid rgba($color: $black, $alpha: 0.05);
+            color: $white !important;
+            min-width: 64px !important;
+            text-align: center !important;
+            padding: 3px 8px 1px;
+
+            .coin-img {
+                max-width: 12px;
+            }
+
+            span {
+                color: $white !important;
+            }
+        }
+
+        .app-header-text .game-text-title {
+            color: $white;
+        }
+
+        .team-home,
+        .team-away,
+        .vs-text {
+            color: $white;
+        }
+    }
+}
+
+.app-header-style .row-container .section-right .header-action .icon-export-ic {
+    position: relative;
+    top: -4px;
+}
+
+.header-fixed-strip {
+    position: fixed;
+    top: 56px;
+
+    &.header-fixed-strip-2 {
+        top: 98px;
+
+        &.live-fantasy {
+            top: 55px;
+
+        }
+    }
+
+    max-width: 550px;
+    background: $primary;
+    height: 30px;
+    padding: 15px;
+    width: 100%;
+    left: 0;
+    z-index: 5;
+    line-height: 1;
+
+    div {
+        position: relative;
+        background: $white;
+        border-radius: 22px;
+        padding: 9px 18px 7px;
+        font-size: $font-size-small;
+        font-family: $font-bold;
+        color: $primary_text_color;
+        width: 100%;
+        text-align: right;
+
+        // box-shadow: 0 2px 30px 0 rgba(0,0,0,.1);
+        span {
+            text-transform: uppercase;
+            float: left;
+        }
+
+        a {
+            color: $primary;
+            font-size: $font-size-small;
+            font-family: $font-semibold;
+            display: inline-block;
+
+            &:nth-child(2) {
+                margin-right: 10px;
+            }
+
+            i {
+                margin-right: 5px;
+                position: relative;
+                top: -1px;
+            }
+
+            .coin-img {
+                max-width: 14px;
+                position: relative;
+                top: -1px;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.app-header-style .row-container .section-right .header-action {
+
+    &.status-box-live,
+    &.status-box-completed {
+        padding: 3px 6px 3px;
+        border-radius: 10px;
+        vertical-align: middle;
+        line-height: 1 !important;
+        height: 20px;
+
+        @media screen and (max-width: 320px) {
+            height: 17px;
+        }
+
+        .live-indicator {
+            background-color: $white;
+            position: relative;
+            top: 4.5px;
+            vertical-align: top;
+
+            @media screen and (max-width: 320px) {
+                top: 3px;
+                height: 5px;
+                width: 5px;
+            }
+        }
+
+        .status-text {
+            font-size: $font-size-small;
+            font-family: $font-bold;
+            color: $white !important;
+            margin-left: 0;
+            line-height: 1.4;
+            vertical-align: top;
+        }
+
+        @media screen and (max-width: 320px) {
+            height: 17px;
+            padding: 1px 4px 2px;
+
+            .status-text {
+                font-size: 9px;
+            }
+        }
+    }
+
+    &.status-box-live {
+        background: $alert_danger_color;
+        padding: 3px 10px 3px;
+    }
+
+    &.status-box-completed {
+        background: $alert_success_color;
+    }
+}
+
+// changes for dark theme overall
+.body-dark-theme {
+    .header-fixed-strip {
+        background: $darkT_app_bg_color;
+
+        div {
+            background: $darkT_body_text_color;
+
+            span {
+                color: $darkT_primary_text_color;
+            }
+
+            a {
+                color: $darkT_primary;
+            }
+        }
+    }
+}
+
+.app-header-text-font-big {
+    font-size: 16px !important;
+    font-family: $font-exo-bold !important;
+}
+
+.header-fixed-backround {
+    background-color: $primary !important;
+}
+
+.app-header-style .center-container {
+    &.tour-hdr {
+        .cont-ttl {
+            color: $white;
+            font-family: $font-bold;
+            font-size: $font-base;
+            max-width: 200px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .cont-date {
+            color: $white;
+            font-family: $font-bold;
+            font-size: 10px;
+
+            .live-sec {
+                background: $alert_danger_color;
+                // padding: 1px 5px 0;
+                padding: 1px 5px 2px;
+                border-radius: 6px;
+                vertical-align: middle;
+                text-transform: uppercase;
+
+                span {
+                    display: inline-block;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 50%;
+                    margin-right: 1px;
+                    vertical-align: middle;
+                    background: $white;
+
+                    @media (max-width: 1440px) and (min-width: 767px) {
+                        position: relative;
+                        top: -1px;
+                    }
+                }
+            }
+
+            .comp-sec {
+                background: $alert_success_color;
+                padding: 1px 5px 2px;
+                border-radius: 6px;
+                vertical-align: middle;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.app-header-style .row-container .section-right .header-action {
+    &.earn-coin-hdr-link {
+        font-size: 11px;
+        font-family: $font-bold;
+        text-transform: capitalize;
+        width: auto;
+        display: block;
+
+        img {
+            margin-right: 2px;
+            width: 14px;
+        }
+    }
+}
+
+.header-action-new {
+    margin-right: 20px !important;
+    margin-top: 5px;
+}
+
+.app-header-style .row-container .section-middle {
+    .center-status-sec {
+        font-size: 12px;
+        color: $white;
+        font-family: $font-bold;
+        text-transform: uppercase;
+    }
+
+    .center-status-sec-live {
+        font-size: 9.6px;
+        color: $white;
+        font-family: $font-bold;
+        text-transform: uppercase;
+        border-radius: 9px;
+        background-color: #EB4A3C;
+        padding: 2px 9px;
+
+        img {
+            width: 11px;
+            height: 10px;
+            margin-right: 5px;
+            margin-bottom: 2px;
+
+        }
+
+    }
+}

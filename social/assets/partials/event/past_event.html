@@ -1,0 +1,34 @@
+    <div class="panel panel-widget" ng-repeat="event in eventPast|limitTo:1" ng-cloak>
+        <div class="panel-heading no-border">
+            <h3 class="panel-title"> 
+                <span class="text">Previous Events</span>
+            </h3>        
+        </div>
+        <div class="panel-body no-padding widget-slider">
+            <div class="thumbnail thumbnail-card thumbnail-event">
+                <slick class="slider" ng-if="totalEventPast>0" settings="PastEventConfig">
+                    <figure class="img-panel" ng-repeat="m in event.MediaList" id="preEvent-slider" ng-class="(m.MediaType == 'Video' && m.ConversionStatus == 'Pending')? 'processing-skyblue' : ''">
+                        <a class="block overlay-1">
+                            <img src="{{AssetBaseUrl}}img/blank-2x1.png " alt=" " class="img-full ">
+                            <img ng-if="m.MediaType != 'Video'" ng-src="{{lang.image_server_path}}upload/wall/220x220/{{m.ImageName}}"  class="main-img">
+                            <img ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" ng-src="{{lang.image_server_path}}upload/wall/220x220/{{m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}"  class="main-img">
+                            <span class="media-ctrl ng-scope" ng-if="m.MediaType == 'Video'">
+                                <i class="ficon-play"></i>
+                            </span>
+                        </a>
+                    </figure>
+                </slick>
+            <div class="thumbnail-body">  
+                <div class="caption">      
+                    <div class="content">           
+                        <h4 class="thumbnail-title"><a ng-bind="event.Title" ng-href="{{BaseUrl + event.ProfileURL}}" target="_self"></a>
+                        </h4>                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="view-link" ng-href="{{event.MediaURL}}" target="_self">View Gallery</a>
+    </div>
+</div>

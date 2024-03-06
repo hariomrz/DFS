@@ -1,0 +1,186 @@
+.leaderbrd-ani-wrapper {
+    position: relative;
+    width: 100vw;
+    // height: 100vh;
+    max-width: 450px;
+    // height: calc(100vh - 304px);
+    // margin-top: 20px;
+    margin: auto;
+    display: flex;
+    // @media (max-width: 767px){
+    //     height: calc(100vh - 320px);
+    //     // margin-top: 30px;
+    // }
+}
+
+.lead-ani-sec {
+    // padding: 50px;
+    width: 100vw;
+    max-width: 450px;
+    // height: 100%;
+    animation: fadeout 4s;
+    opacity: 1;
+    padding-top: 100%;
+    position: relative;
+    // @media (max-height: 720px) and (min-width: 1190px) {
+    //     padding: 30px;
+    // }
+    // @media (max-height: 670px) and (min-width: 700px) {
+    //     padding: 20px;
+    // }
+    @keyframes fadeout {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+}
+
+.circular-sec{
+    text-align: center;
+    border-radius: 100%;
+    border: 2px dashed $primary;
+    // position: relative;
+    // max-width: 380px;
+    // max-height: 380px;
+    // display: block;
+    // width: 100%;
+    // height: 100%;
+    // margin: 0 auto;
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    bottom: 60px;
+    right: 60px;
+    img.center-img{ 
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        transform: translateY(-50%);
+        height: 150px;
+        width: 150px;
+    }
+    .feature-box{
+        // border: 0.5px solid ;
+        border-radius: 6px;
+        background-color: $white;
+        box-shadow: 0 0 14px 0 rgba(0,0,0,0.1);
+        height: 42px;
+        width: 160px;
+        position: absolute;
+        .inn-box{
+            position: relative;
+            padding: 11px 5px;
+        }
+        p{
+            margin-bottom: 0;
+            text-align: left;
+            font-size: $font-size-small - 1;
+            font-family: $font-regular;
+            line-height: 1;
+        }
+        img{
+            height: 26px;
+            width: auto;
+            position: absolute;
+            &.feature-img{
+                top: 50%;
+                transform: translateY(-50%);
+                right: 2px;
+            }
+            &.circle-bg{
+                top: -14px;
+                left: -14px;
+                height: 46px;
+                width: 46px;
+            }
+        }
+        &.fb1{
+            // border-color: #E02020;
+            left: 0;
+            top: 15px;
+            animation: slideBox 6s ease infinite;
+            p{
+                color: #AD0000;
+            }
+            @media (max-width: 550px){
+                top: 45px;
+                left: -30px;
+            }
+        }
+        &.fb2{
+            // border-color: #6DD400;
+            top: -8px;
+            right: -28px;
+            animation: slideBox 6s ease infinite;
+            animation-delay: -1s;
+            p{
+                color: #478B00;
+            }
+        }
+        &.fb3{
+            // border-color: #6236FF;
+            left: -29px;
+            bottom: 45px;
+            animation: slideBox 6s ease infinite;
+            animation-delay: -2s;
+            p{
+                color: #0174CB;
+            }
+            @media (max-width: 550px){
+                bottom: 45px;
+            }
+        }
+        &.fb4{
+            // border-color: #F7B500;
+            right: -29px;
+            bottom: -5px;
+            animation: slideBox 6s ease infinite;
+            animation-delay: -3s;
+            p{
+                color: #A77B01;
+            }
+        }
+    }
+    @keyframes slideBox{
+        0%{
+            transform:translateX(-5%) rotate(0deg)
+        }
+        50%{
+            transform:translateX(5%) rotate(.01deg)
+        }
+        to{
+            transform:translateX(-5%) rotate(0deg)
+        }
+    }     
+
+    // @media (max-height: 720px) and (min-width: 1190px) {
+    //     max-width: 300px;
+    //     max-height: 300px;
+    // }
+    // @media (max-height: 700px) and (max-width: 700px) {
+    //     max-width: 248px;
+    //     max-height: 248px;
+    // }
+    // @media (max-width: 500px) {
+    //     max-width: 250px;
+    //     max-height: 250px;
+    //     img.center-img{
+    //         height: 120px;
+    //         width: 120px;
+    //     }
+    // }
+}
+
+.nda-text{
+    text-align: center;
+    margin-top: 0;
+    font-size: $font-size-small;
+    font-family: $font-semibold;
+    color: $primary_text_color;
+    padding: 10px 30% 0;
+    @media (max-width: 550px){
+        padding: 10px 20% 0;
+    }
+    
+}

@@ -1,0 +1,250 @@
+<!-- new Template -->
+<div bindonce ng-init="Settings()" id="act-{{data.ActivityGUID}}" class="wall-posts" ng-class="data.Viewed=='0' ? 'inview' : ''">
+    <a href="javascript:void(0);" data-ng-if="data.IsSticky=='1'" class="sticky-post"><i class="icon-sticky"></i></a>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <figure>
+                        <a ng-href="{{data.SiteURL+data.UserProfileURL}}">
+                            <img ng-if="data.UserProfilePicture!==''"   class="img-circle" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+data.UserProfilePicture}}">
+                        </a>
+                    </figure>
+                    <div class="post-desctiption">
+                        <div ng-bind-html="getTitleMessage(data)" class="tagging"></div>
+                        <div class="share-status"><span class="time" ng-attr-title="{{getTimeFromDate(UTCtoTimeZone(data.CreatedDate));}}" ng-bind="date_format((data.CreatedDate))"></span>
+                            <span data-ng-if="data.CanRemove=='0' && data.ShowPrivacy=='1'">
+                                <a href="javascript:void(0);" class="anchor-icons">
+                                  <i ng-if="data.Visibility=='1'" class="icon-every"></i>
+                                  <i ng-if="data.Visibility=='2'" class="icon-follwers"></i>
+                                  <i ng-if="data.Visibility=='3'" class="icon-frnds"></i>
+                                  <i ng-if="data.Visibility=='4'" class="icon-onlyme"></i>
+                                </a>
+                              </span>
+                            <div data-ng-if="data.CanRemove=='1' && data.ShowPrivacy=='1'" class="btn-group custom-icondrop">
+                                <button aria-expanded="false" data-toggle="dropdown" class="drop-icon dropdown-toggle" type="button">
+                                    <i ng-if="data.Visibility=='1'" class="icon-every"></i>
+                                    <i ng-if="data.Visibility=='2'" class="icon-follwers"></i>
+                                    <i ng-if="data.Visibility=='3'" class="icon-frnds"></i>
+                                    <i ng-if="data.Visibility=='4'" class="icon-onlyme"></i>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul role="menu" class="dropdown-menu pull-left  dropdown-withicons">
+                                    <li><a ng-class="data.Visibility=='1' ? 'active' : ''" ng-click="$emit('privacyEmit',data.ActivityGUID,'1');" href="javascript:void(0);"><span class="mark-icon"><i class="icon-every"></i></span>Everyone</a></li>
+                                    <!-- <li><a ng-class="data.Visibility=='2' ? 'active' : ''" ng-click="$emit('privacyEmit',data.ActivityGUID,'2');" href="javascript:void(0);"><span class="mark-icon"><i class="icon-follwers"></i></span>Friends of Friends</a></li> -->
+                                    <li><a ng-class="data.Visibility=='3' ? 'active' : ''" ng-click="$emit('privacyEmit',data.ActivityGUID,'3');" href="javascript:void(0);"><span class="mark-icon"><i class="icon-frnds"></i></span>Friends</a></li>
+                                    <li><a ng-class="data.Visibility=='4' ? 'active' : ''" ng-click="$emit('privacyEmit',data.ActivityGUID,'4');" href="javascript:void(0);"><span class="mark-icon"><i class="icon-onlyme"></i></span>Only Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="data.CanShowSettings=='1'" class="btn-group post-action">
+                        <button type="button" class="btn btn-info dropdown-toggle btn-post-action" data-toggle="dropdown" aria-expanded="false">
+                            <i class="icon-vbullets"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-ng-if="data.CanMakeSticky=='1' && data.Visibility!=='4'">
+                                <a data-ng-click="$emit('stickyEmit',data.ActivityGUID);" data-ng-if="data.IsSticky=='0'" href="javascript:void(0);">Make Sticky</a>
+                                <a data-ng-click="$emit('stickyEmit',data.ActivityGUID);" data-ng-if="data.IsSticky=='1'" href="javascript:void(0);">Remove From Sticky</a>
+                            </li>
+                            <li data-ng-if="data.FlaggedByAny=='1' && data.IsEntityOwner=='1' && data.Flaggable=='1'"><a ng-click="$emit('approveFlagActivityEmit',data.ActivityGUID);" href="javascript:void(0);">Approve Flag Activity</a></li>
+                            <li data-ng-if="data.Settings.m17=='1'">
+                                <a ng-click="$emit('subscribeEmit','ACTIVITY',data.ActivityGUID);" ng-if="data.IsSubscribed=='1'" href="javascript:void(0);">Unsubscribe from this post</a>
+                                <a ng-click="$emit('subscribeEmit','ACTIVITY',data.ActivityGUID);" ng-if="data.IsSubscribed=='0'" href="javascript:void(0);">Subscribe to this post</a>
+                            </li>
+                            <li data-ng-if="data.IsOwner=='0' && data.IsEntityOwner=='0'">
+                                <a data-target="#reportAbuse" data-toggle="modal" onclick="flagValSet(this,'Activity')" id="tid-{{data.ActivityGUID}}" ng-click="$emit('subscribeEmit','ACTIVITY',data.ActivityGUID);" data-ng-if="data.IsFlagged=='0' && data.FlagAllowed=='1' && data.Flaggable=='1' && data.Settings.m12=='1' && data.IsOwner!=='1'" href="javascript:void(0);">Flag</a>
+                                <a ng-click="$emit('subscribeEmit','ACTIVITY',data.ActivityGUID);" data-ng-if="data.IsFlagged=='1' && data.FlagAllowed=='1' && data.Flaggable=='1' && data.Settings.m12=='1' && data.IsOwner!=='1'" href="javascript:void(0);">Flagged</a>
+                            </li>
+                            <li data-ng-if="data.CanBlock==1">
+                                <a ng-click="$emit('blockUserEmit',data.UserGUID);" href="javascript:void(0);">Block</a>
+                            </li>
+                            <!--<li><a href="javascript:void(0);">Hide from timeline</a></li>
+              <li ng-if="data.CommentsAllowed=='1' && data.IsOwner=='1'" class="divider"></li>-->
+                            <li ng-if="data.IsOwner==1 || data.IsEntityOwner==1">
+                                <a ng-if="data.CommentsAllowed==1" ng-click="$emit('commentsSwitchEmit','ACTIVITY',data.ActivityGUID)" href="javascript:void(0);">Turn Comments Off</a>
+                                <a ng-if="data.CommentsAllowed==0" ng-click="$emit('commentsSwitchEmit','ACTIVITY',data.ActivityGUID)" href="javascript:void(0);">Turn Comments On</a>
+                            </li>
+                            <!--<li ng-if="data.IsOwner=='1'" class="divider"></li>-->
+                            <li data-ng-if="data.CanRemove=='1' || data.IsOwner">
+                                <a ng-click="$emit('deleteEmit', data.ActivityGUID);" href="javascript:void(0);">Remove post</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="post-content">
+                <p ng-if="data.ActivityType=='ShareSelf' || data.ActivityType=='Share'" ng-bind-html="textToLink(data.SharePostContent)"></p>
+                <div ng-if="data.ActivityType=='ShareSelf' || data.ActivityType=='Share'" class="shared-content">
+                    <a ng-href="{{data.SiteURL+data.ActivityOwnerLink}}" ng-bind="data.ActivityOwner"></a>
+                    <p ng-bind-html="textToLink(data.PostContent)"></p>
+                </div>
+                <p ng-if="data.ActivityType!=='ShareSelf' && data.ActivityType!=='Share'" ng-bind-html="textToLink(data.PostContent)"></p>
+                <div ng-if="data.Album[0].Media != undefined && data.Album[0].Media !=='' && data.Album[0].Media.length>0" ng-class="layoutClass(data.Album[0].Media)" class="media-block media-photo">
+                    <figure ng-repeat="meida in data.Album[0].Media" ng-if="$index<4" class="media-thumbwrap" ng-class="(meida.MediaType=='Video') ? 'video-thumbwrap' : '' ;">
+                        <a ng-if="meida.ConversionStatus!='Pending'" class="media-thumb media-thumb-fill" ng-click="$emit('showMediaPopupGlobalEmit',meida.MediaGUID,'');" href="javascript:void(0);">
+                            <img ng-if="data.Album[0].AlbumName!=='Wall Media' && meida.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/album/750x500/'+meida.ImageName}}" />
+                            <img ng-if="data.Album[0].AlbumName=='Wall Media' && meida.MediaType=='Image'"   ng-src="{{data.ImageServerPath+'upload/wall/750x500/'+meida.ImageName}}" />
+                            <img ng-if="data.Album[0].AlbumName!=='Wall Media' && meida.MediaType=='Video' && meida.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/album/750x500/'+getVideoName(meida.ImageName)}}" />
+                            <img ng-if="data.Album[0].AlbumName=='Wall Media' && meida.MediaType=='Video' && meida.ConversionStatus=='Finished'"   ng-src="{{data.ImageServerPath+'upload/wall/750x500/'+getVideoName(meida.ImageName)}}" />
+                            <i class="icon-n-video-big" ng-if="meida.MediaType=='Video' && meida.ConversionStatus=='Finished'"></i>
+                        </a>
+                        <div ng-if="meida.MediaType=='Video' && meida.ConversionStatus=='Pending'" class="wall-video pending-rating-video">
+                            <i class="icon-video-c"></i>
+                        </div>
+                    </figure>
+                </div>
+                <!--<a href="javascript:void(0);" class="block">@Amit Hinduja</a>-->
+                <div class="m-t-10 display-t">
+                    <div class="pull-left">
+                        <ul class="sublisting">
+                            <!-- <li ng-if="data.ActivityType=='GroupPostAdded' || data.ActivityType=='EventWallPost'">
+                <a ng-href="{{data.EntityProfileURL}}">
+                  <span ng-bind="data.EntityName"></span>
+                </a>
+              </li> -->
+                            <li data-ng-if="data.LikeAllowed == '1' ? true : false">
+                                <a ng-click="$emit('likeEmit',data.ActivityGUID,'ACTIVITY',data.ActivityGUID);" data-ng-if="data.IsLike == '1'" href="javascript:void(0);" title="Unlike this">Unlike </a>
+                                <a ng-click="$emit('likeEmit',data.ActivityGUID,'ACTIVITY',data.ActivityGUID);" data-ng-if="data.IsLike == '0'" href="javascript:void(0);" title="Like this">Like </a>
+                            </li>
+                            <li data-ng-if="data.ShareAllowed==1 && data.Settings.m15=='1'"><a ng-click="$emit('shareEmit',data.ActivityGUID);" data-target="#sharemodal" data-toggle="modal" href="javascript:void(0);" title="Send this to friends or post it on your Timeline.">Share </a></li>
+                            <li data-ng-if="data.FavouriteAllowed==1 && data.Settings.m16=='1' && data.IsFavourite=='1'" class="active"><a data-ng-click="$emit('setFavouriteEmit',data.ActivityGUID);" href="javascript:void(0);" title="Remove from favourites"><i class="icon-like"></i> </a></li>
+                            <li data-ng-if="data.FavouriteAllowed==1 && data.Settings.m16=='1' && data.IsFavourite=='0'"><a data-ng-click="$emit('setFavouriteEmit',data.ActivityGUID);" href="javascript:void(0);" title="Add to favourite"><i class="icon-like"></i> </a></li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        <div ng-if="data.ActivityType=='PagePost' && data.IsEntityOwner=='1'" class="post-as-page">
+                            <div class="dropdown m-t-m5">
+                                <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="user-img-icon" id="">
+
+                  
+                    <img class="img-circle show-pic" alt="User" ng-if="data.ModuleEntityOwner==0 && LoggedInProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+LoggedInProfilePicture}}">
+                    <img class="img-circle show-pic" alt="User" ng-if="data.ModuleEntityOwner==1 && data.UserProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+data.UserProfilePicture}}">
+
+                    
+
+                      <span class="spacel-icon">
+                        <i class="caret"></i>
+                      </span>
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu dropwith-img" role="menu">
+                                    <li>
+                                        <a ng-click="$emit('likeStatusEmit',data.ActivityGUID,'User');" onClick="$(this).parent('li').parent('ul').parent('div').next('.module-entity-owner').val(0);" href="javascript:void(0);">
+                                            <span class="mark-icon">
+
+                     
+
+                      <img ng-if="LoggedInProfilePicture!==''" class="img-circle user-pic" title="User" alt="User" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+LoggedInProfilePicture}}">
+                      <img ng-if="LoggedInProfilePicture==''" ng-src="{{data.ImageServerPath+'profiles/user_default.jpg'}}" class="img-circle user-pic"  >
+
+                      </span> {{LoggedInName}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="$emit('likeStatusEmit',data.ActivityGUID,'Page');" onClick="$(this).parent('li').parent('ul').parent('div').next('.module-entity-owner').val(1);" href="javascript:void(0);">
+                                            <span class="mark-icon">
+                        <img ng-if="data.EntityProfilePicture!==''" class="img-circle entity-pic" title="Page" alt="Page" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+data.EntityProfilePicture}}">
+                      </span> {{data.EntityName}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <input type="hidden" class="module-entity-owner" value="{{data.PostAsEntityOwner}}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="data.CanShowSettings=='1' || data.ActivityType=='AlbumAdded' || data.ActivityType=='AlbumUpdated'" ng-class="{'only-like':data.NoOfLikes>0 && (data.NoOfComments==0 && data.CommentsAllowed=='0'),'hide':(data.NoOfLikes==0 && data.CommentsAllowed=='0' && data.NoOfComments=='0')}" class="panel-footer">
+            <div ng-if="data.LikeAllowed=='1' && data.NoOfLikes>0" class="comment-status">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="post-desctiption">
+                            <div class="tagging totalLike">
+                                <span class="status-like"><i data-ng-class="data.IsLike=='1' ? 'icon-statuslike' : 'icon-sharecount'"></i></span>
+                                <span data-ng-if="data.NoOfLikes=='0'">No Likes Yet</span>
+                                <span data-ng-if="data.NoOfLikes>0">
+                                <a ng-if="data.LikeName.ModuleID=='3'" ng-href="{{data.SiteURL+data.LikeName.ProfileURL}}" ng-bind="data.LikeName.Name "></a> 
+                                <a ng-if="data.LikeName.ModuleID=='18'" ng-href="{{data.SiteURL+'page/'+data.LikeName.ProfileURL}}" ng-bind="data.LikeName.Name "></a> 
+                                <span data-ng-if="data.NoOfLikes>1">
+                                  and  
+                                  <a ng-if="data.NoOfLikes == 2" ng-click="$emit('likeDetailsEmit',data.ActivityGUID,'ACTIVITY');" href="javascript:void(0);"> <span ng-bind="data.NoOfLikes-1"></span> other</a>
+                                <a ng-if="data.NoOfLikes > 2" ng-click="$emit('likeDetailsEmit',data.ActivityGUID,'ACTIVITY');" href="javascript:void(0);"> <span ng-bind="data.NoOfLikes-1"></span> others</a>
+                                </span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="view-all" data-ng-if="(data.Comments.length < data.NoOfComments)">
+                <a data-ng-click="$emit('viewAllComntEmit', index,data.ActivityGUID); data.viewStat=false;" href="javascript:void(0);">View all <span ng-bind="data.NoOfComments"></span> comments</a>
+                <div class="loaderbtn" id="cmt_loader_{{data.ActivityGUID}}"><span class="spinner20"></span></div>
+            </div>
+            <div class="visible-comments sub-comments">
+                <ul class="list-group">
+                    <li ng-repeat="comnt in data.Comments" class="list-group-item">
+                        <figure>
+                            <a ng-href="{{data.SiteURL+comnt.ProfileLink}}">
+                                <img ng-if="comnt.ProfilePicture!==''"   class="img-circle" ng-src="{{data.ImageServerPath+'upload/profile/220x220/'+comnt.ProfilePicture}}">
+                            </a>
+                        </figure>
+                        <div class="post-desctiption">
+                            <div class="tagging">
+                                <span ng-bind-html="getCommentTitle(comnt.Name,comnt.ProfileLink,comnt.ModuleID)"></span>
+                                <div ng-bind-html="textToLinkComment(comnt.PostComment)"></div>
+                                <div ng-if="comnt.Media.length!==0" class="media-block media-photo">
+                                    <figure class="media-thumbwrap">
+                                        <a ng-click="$emit('showMediaPopupGlobalEmit',comnt.Media.MediaGUID,'');" class="media-thumb CommentSingleImg" href="javascript:void(0);">
+                                            <img   ng-src="{{data.ImageServerPath+'upload/comments/'+comnt.Media.ImageName}}" />
+                                        </a>
+                                    </figure>
+                                </div>
+                            </div>
+                            <ul class="sublisting">
+                                <li class="time" ng-bind="date_format((comnt.CreatedDate));" ng-attr-title="{{getTimeFromDate(UTCtoTimeZone(comnt.CreatedDate));}}"></li>
+                                <li>
+                                    <a data-ng-click="$emit('likeEmit',comnt.CommentGUID,'COMMENT',data.ActivityGUID);" data-ng-if="comnt.IsLike=='1'" href="javascript:void(0);" title="Unlike this">Unlike</a>
+                                    <a data-ng-click="$emit('likeEmit',comnt.CommentGUID,'COMMENT',data.ActivityGUID);" data-ng-if="comnt.IsLike=='0'" href="javascript:void(0);" title="Like this">Like</a>
+                                </li>
+                                <li ng-if="comnt.NoOfLikes>0" class="cmn-color">
+                                    <a href="javascript:void(0);" data-ng-click="$emit('likeDetailsEmit',comnt.CommentGUID,'COMMENT');" class="default-link">
+                                        <i data-ng-class="comnt.IsLike=='1' ? 'icon-statuslike' : 'icon-sharecount'"></i>
+                                        <span ng-bind="comnt.NoOfLikes"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a alt="Remove Comment" title="Remove Comment" ng-if="comnt.CanDelete=='1' || data.CanRemove" ng-click="$emit('deleteCommentEmit', comnt.CommentGUID,data.ActivityGUID);" href="javascript:void(0);" class="remove"><i class="icon-remove"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="post-comments" data-ng-if="data.CommentsAllowed=='1'">
+                <div ng-if="data.ActivityType=='PagePost'" class="user-thmb" style="display:none">
+                    <img class="img-circle show-pic" alt="User" ng-if="data.IsEntityOwner==0 && data.ModuleEntityOwner==0 && LoggedInProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+LoggedInProfilePicture}}">
+                    <img class="img-circle show-pic" alt="User" ng-if="data.IsEntityOwner==1 && data.ModuleEntityOwner==0 && LoggedInProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+LoggedInProfilePicture}}">
+                    <img class="img-circle show-pic" alt="User" ng-if="data.IsEntityOwner==1 && data.ModuleEntityOwner==1 && data.UserProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+data.UserProfilePicture}}">
+                    <img class="img-circle show-pic" alt="User" ng-if="data.IsEntityOwner==0 && data.ModuleEntityOwner==1 && data.UserProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+LoggedInProfilePicture}}">
+                    <img ng-if="data.IsOwner==0 && LoggedInProfilePicture==''" ng-src="{{data.CurrentProfilePic}}" ng-init="getCurrentProfilePic()" class="img-circle current-profile-pic" />
+                </div>
+                <div ng-if="data.ActivityType!='PagePost'" class="user-thmb" style="display:none">
+                    <img class="img-circle show-pic" alt="User" ng-if="LoggedInProfilePicture!==''" ng-src="{{data.ImageServerPath+'upload/profile/36x36/'+LoggedInProfilePicture}}">
+                    <img ng-if="LoggedInProfilePicture==''" ng-src="{{data.CurrentProfilePic}}" ng-init="getCurrentProfilePic()" class="img-circle current-profile-pic" />
+                </div>
+                <div class="wall-comments">
+                    <div class="textarea-wrap">
+                        <textarea data-ng-init="tagComment('cmt-'+data.ActivityGUID)" id="cmt-{{data.ActivityGUID}}" data-ng-keypress="$emit('commentEmit',$event,data.ActivityGUID)" class="form-control comment-text" placeholder="Write a comment..."></textarea>
+                    </div>
+                    <div class="attach-on-comment">
+                        <i class="icon-camera-post" template="commentTemplate" fine-uploader upload-destination="api/upload_image" unique-id="{{data.ActivityGUID}}" image-type="comments" upload-extensions="jpeg,jpg,gif,png,JPEG,JPG,GIF,PNG" title="Attach a Photo"></i>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <ul class="attached-list" id="cm-{{data.ActivityGUID}}" style="display:none;"></ul>
+            <span class="post-help-text" style="display:none;">Press shift + return for new line. Press return for post.</span>
+        </div>
+    </div>
+</div>

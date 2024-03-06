@@ -1,0 +1,293 @@
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Base styles
+//
+@media (min-width:1024px){
+  button:focus,
+  :focus {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+button:focus,
+  :focus {
+    outline: 0;
+  }
+.btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  text-transform: uppercase;
+  border: $btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size-base, $btn-line-height, $btn-border-radius);
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    // opacity: $btn-disabled-opacity;
+    @include box-shadow(none);
+  }
+
+  // Opinionated: add "hand" cursor to non-disabled .btn elements
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    @include box-shadow($btn-active-box-shadow);
+
+    &:focus {
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+    }
+  }
+
+  background-position: center;
+  transition: 0.8s;
+
+  &:active {
+      // background-color: rgba(12, 191, 235, 0.8);
+      @include background-opacity($primary,0.8);
+      background-size: 100%;
+      transition: 0s;
+  }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset:disabled a.btn {
+  pointer-events: none;
+}
+
+
+//
+// Alternate buttons
+//
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @if $color=='primary' {
+      @include button-variant($value, $value, $primary);
+    } @else {
+      @include button-variant($value, $value);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+
+//
+// Button Sizes
+//
+
+.btn-lg {
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+}
+
+.btn-sm {
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+}
+
+
+//
+// Block button
+//
+
+.btn-block {
+  display: block;
+  width: 100%;
+
+  // Vertically space out multiple block buttons
+  + .btn-block {
+    margin-top: $btn-block-spacing-y;
+  }
+
+  &.w80{
+    width: 80% !important;
+  }
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+
+//
+// Button Rounded
+//
+
+.btn-primary{
+  font-family: $font-bold;
+  background: linear-gradient(90deg, $primary 0%, $primary 60%, $primary 90%);
+  padding: 15px 12px 13px;
+  line-height: 16px;
+  font-size: $font-base;
+  &:hover{
+    background: linear-gradient(90deg, $primary 0%, $primary 60%, $primary 90%);
+    // background: $primary  radial-gradient(circle, transparent 1%, $primary 1%) center/15000%;
+    // &:active {
+    //   background-color: $primary;
+    //   background-size: 100%;
+    //   transition: 0s;
+    // }
+  }
+  &.disabled {
+    pointer-events: none !important;
+  }
+  &:disabled {
+    @include color-opacity($help_text_color,0.4);
+    background: linear-gradient(90deg, $btn-disable-bg 0%, $btn-disable-bg 60%, $btn-disable-bg 90%);
+    &:hover{
+      background: linear-gradient(90deg, $btn-disable-bg 0%, $btn-disable-bg 60%, $btn-disable-bg 90%);
+      // background: $btn-disable-bg  radial-gradient(circle, transparent 1%, $btn-disable-bg 1%) center/15000%;
+    }
+    
+    background-position: center;
+    transition: 0.8s;
+    &:active {
+        // background-color: rgba(234, 234, 234, 0.8);
+        @include background-opacity($primary,0.8);
+        background-size: 100%;
+        transition: 0s;
+    }
+  }
+  box-shadow: none !important;
+  position: relative;
+  overflow: hidden;
+ 
+  background-position: center;
+  transition: 0.8s;
+
+  &:active {
+      // background-color: rgba(12, 191, 235, 0.8);
+      @include background-opacity($primary,0.8);
+      background-size: 100%;
+      transition: 0s;
+  }
+}
+
+.geo-disabled{
+  opacity: 0.6 !important;
+}
+
+.btn-rounded{
+  background: linear-gradient(90deg, $primary 0%, $primary 60%, $primary 90%);
+  // line-height: 1.3;
+  color: $white;
+  background-position: center;
+  transition: 0.8s;
+  border-radius: 15px;
+  font-family: $font-bold;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 11px 10px 10px;
+  &.small{
+    // padding: 9px 10px 6px;
+    padding: 6px 10px 6px;
+  }
+  &.btn-success{
+    background: $primary;
+    color: $white;
+    &:disabled {
+      @include color-opacity($help_text_color,0.4);
+      background: linear-gradient(90deg, $ternary 0%, $ternary 60%, $ternary 90%);
+    }
+  }
+  &.btn-danger{
+    background: $dark-red;
+    color: $white;
+  }
+  position: relative;
+  overflow: hidden;
+  
+  background-position: center;
+  transition: 0.8s;
+
+  &:active {
+      // background-color: rgba(12, 191, 235, 0.8);
+      @include background-opacity($primary,0.8);
+      background-size: 100%;
+      transition: 0s;
+  }
+}
+
+.overlay-on-input{
+  height: 120px;
+  background: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  width: 86%;
+  max-width: 520px;
+  z-index: 1004;
+}
+
+// changes for dark theme overall
+.body-dark-theme{
+  .btn { 
+    &:active {
+        @include background-opacity($darkT_primary,0.8);
+    }
+  }
+  .btn-primary{
+    background: linear-gradient(90deg, $darkT_primary 0%, $darkT_primary 60%, $darkT_primary 90%);
+    color: $darkT_secondary_text_color;
+    &:hover{
+      background: linear-gradient(90deg, $darkT_primary 0%, $darkT_primary 60%, $darkT_primary 90%);
+    }
+    &.disabled {
+      pointer-events: none !important;
+    }
+    &:disabled {
+      &:active {
+          @include background-opacity($darkT_primary,0.8);
+      }
+    }  
+    &:active {
+        @include background-opacity($darkT_primary,0.8);
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+      @include background-opacity($darkT_primary,0.8);
+      color: $darkT_secondary_text_color;
+    }
+  }
+  .btn-rounded{
+    background: linear-gradient(90deg, $darkT_primary 0%, $darkT_primary 60%, $darkT_primary 90%);
+    color: $darkT_secondary_text_color;
+    &.btn-success{
+      background: $darkT_primary;
+      color: $darkT_secondary_text_color;
+      &:disabled {
+        @include color-opacity($help_text_color,0.4);
+        background: linear-gradient(90deg, $ternary 0%, $ternary 60%, $ternary 90%);
+      }
+    }  
+    &:active {
+        @include background-opacity($darkT_primary,0.8);
+    }
+  }
+}

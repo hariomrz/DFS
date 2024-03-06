@@ -1,0 +1,27 @@
+#common
+5 */4 * * * wget -O - -q -t 1 http://localhost/trade/cron/auto_publish_fixture/7
+12 */6 * * * wget -O - -q -t 1 http://localhost/trade/cron/auto_publish_fixture/5
+*/12 * * * * wget -O - -q -t 1 http://localhost/trade/cron/game_cancellation
+*/22 * * * * wget -O - -q -t 1 http://localhost/trade/cron/update_question_status
+*/24 * * * * wget -O - -q -t 1 http://localhost/trade/cron/prize_distribution
+
+#cricket
+5 */8 * * * wget -O - -q -t 1 http://localhost/trade/feed/vinfotech_cricket/league
+15 */6 * * * wget -O - -q -t 1 http://localhost/trade/feed/vinfotech_cricket/season
+18 */6 * * * wget -O - -q -t 1 http://localhost/trade/feed/vinfotech_cricket/player
+*/20 * * * * wget -O - -q -t 1 http://localhost/trade/feed/vinfotech_cricket/score
+
+#soccer
+12 */8 * * * wget -O - -q -t 1 http://localhost/trade/feed/vinfotech_soccer/league
+22 */6 * * * wget -O - -q -t 1 http://localhost/trade/feed/vinfotech_soccer/season
+24 */6 * * * wget -O - -q -t 1 http://localhost/trade/feed/vinfotech_soccer/player
+*/28 * * * * wget -O - -q -t 1 http://localhost/trade/feed/vinfotech_soccer/score
+
+# notification
+// win notifciation
+*/15 * * * * wget -O - -q -t 1 http://localhost/trade/cron/notification/1
+// Cancel notification
+*/15 * * * * wget -O - -q -t 1 http://localhost/trade/cron/notification/0
+
+// trade matchup
+*/20 * * * * wget -O - -q -t 1 http://localhost/trade/cron/trade_matchup

@@ -1,0 +1,259 @@
+<div class="row" ng-controller="MyGroupCtrl" ng-init="getMyGroups(1,'MyGroupAndJoined'); getMyInformalGroups(1); invite_list(0)">	
+	<div class="col-lg-9 col-sm-8">
+		<!-- Formal Group Start -->
+		<div class="panel panel-info" ng-cloak ng-if="TotalRecordsMyGroup>0">   
+		  <div class="panel-heading no-border">                
+		    <div class="page-dropdown">
+		        <div class="row gutter-5">
+		            <div class="col-xs-7">  
+		              <div class="page-title-drop">                           
+		                <div class="dropdown">
+		                  <a target="_self" data-toggle="dropdown">
+		                    <span class="text" ng-bind="FilterLabel"></span><span class="icon"><i class="ficon-arrow-down"></i></span>
+		                  </a>
+		                  <ul class="dropdown-menu dropdown-menu-left">
+		                    <li><a target="_self" ng-click="getMyGroups(1,'MyGroupAndJoined');FilterLabel=lang.g_all_my_groups;" ng-bind="lang.g_all_my_groups"></a></li>
+		                    <li><a target="_self" ng-click="getMyGroups(1,'Manage');FilterLabel=lang.g_groups_i_created;" ng-bind="lang.g_groups_i_created"></a></li>
+		                    <li><a target="_self" ng-click="getMyGroups(1,'Join');FilterLabel=lang.g_groups_i_joined;" ng-bind="lang.g_groups_i_joined"></a></li>
+		                  </ul>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="col-xs-5">
+		              <ul class="sort-action">                      
+		                <li>
+		                  <div class="dropdown-sort">
+		                    <!-- <small class="title" ng-bind="lang.g_sort_by"></small> -->
+		                    <div class="dropdown">
+		                      <a target="_self" data-toggle="dropdown">
+		                        <span ng-bind="SortLabel" class="text"></span><span class="icon"><i class="ficon-arrow-down"></i></span>
+		                      </a>
+		                      <ul class="dropdown-menu">
+		                        <li><a target="_self" ng-click="sortBy('LastActivity',lang.g_activity_date);" ng-bind="lang.g_activity_date"></a></li>
+		                        <li><a target="_self" ng-click="sortBy('GroupName',lang.g_name);" ng-bind="lang.g_name"></a></li>
+		                        <li><a target="_self" ng-click="sortBy('Popularity',lang.g_popularity);" ng-bind="lang.g_popularity"></a></li>
+		                      </ul>
+		                    </div>
+		                  </div>
+		                </li>
+		              </ul>                           
+		            </div>
+		        </div>
+		    </div>
+		  </div>
+		  <div class="panel-body">
+		    <ul ng-cloak class="list-items-vertical list-items-circle list-items-scale row list-group-inline" id="myGroupSlider">
+		      <li ng-repeat="group in MyGrouplist" ng-cloak class="col-lg-3 col-md-4 col-sm-6">
+		        <div class="list-items-xlg">
+		          <div class="list-inner">
+		            <figure>
+		             	 <a ng-if="group.Type=='FORMAL'" target="_self" target="_self" ng-href="{{SiteURL+group.ProfileURL}}">
+		              		<img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" alt="" title="">
+		              	</a>
+		              	<a ng-if="group.Type=='INFORMAL' && group.Members.length>0">
+		              		<div ng-class="(group.Members.length>1) ? 'group-thumb-two' : '' ;">
+				              	<span ng-repeat="recipients in group.Members|limitTo:2" ng-if="recipients">
+		                            <img  err-src="{{AssetBaseUrl}}img/profiles/user_default.jpg" ng-src="{{ImageServerPath+'upload/profile/220x220/'+recipients.ProfilePicture}}" entitytype="user" ng-if="$index <= 2">
+		                        </span>
+			              	</div>
+		              	</a>
+		              	<a ng-if="group.Type=='INFORMAL' && group.Members.length==0" target="_self" target="_self" ng-href="{{SiteURL+group.ProfileURL}}">
+		              		<img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" alt="" title="">
+		              	</a>
+		            </figure>
+		            <div class="list-item-body">
+		              <a target="_self" target="_self" ng-href="{{SiteURL+group.ProfileURL}}" class="list-heading-xs bold ellipsis" ng-bind="group.GroupName"></a>
+		              <div class="text-sm-off semi-bold ellipsis" ng-bind="group.Category.Name"></div>                          
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		  <div class="panel-footer" ng-if="TotalRecordsMyGroup>MyGrouplist.length">
+	        <a target="_self" class="loadmore" ng-click="callPagination();">
+	          <span class="text" ng-bind="lang.g_load_more"></span>
+	          <span class="icon">
+	            <i class="ficon-arrow-create"></i>
+	          </span>
+	          <span ng-if="ShowLoader" class="loader">&nbsp;</span>
+	        </a>
+	      </div>
+		</div>
+		<!-- Formal Group Ends -->
+
+		<!-- Informal Group Start -->
+		<div class="panel panel-info" ng-cloak ng-if="TotalRecordsMyGroupInformal>0">   
+		  	<div class="panel-heading no-border">
+	            <div class="page-dropdown">                  
+	              	<h4 class="page-title" ng-bind="lang.g_recent_conversation"></h4>
+	            </div>
+          	</div>
+		  <div class="panel-body">
+		    <ul ng-cloak class="list-items-vertical list-items-circle list-items-scale row list-group-inline" id="myGroupSlider">
+		      <li ng-repeat="group in MyGrouplistInformal" ng-cloak class="col-lg-3 col-md-4 col-sm-6">
+		        <div class="list-items-xlg">
+		          <div class="list-inner">
+		            <figure>
+		             	 <a ng-if="group.Type=='FORMAL'" target="_self" target="_self" ng-href="{{SiteURL+group.ProfileURL}}">
+		              		<img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" alt="" title="">
+		              	</a>
+		              	<a ng-if="group.Type=='INFORMAL' && group.Members.length>0">
+		              		<div ng-class="(group.Members.length>1) ? 'group-thumb-two' : '' ;">
+				              	<span ng-repeat="recipients in group.Members|limitTo:2" ng-if="recipients">
+		                            <img alt="" err-src="{{AssetBaseUrl}}img/profiles/user_default.jpg" ng-src="{{ImageServerPath+'upload/profile/220x220/'+recipients.ProfilePicture}}" entitytype="user" ng-if="$index <= 2">
+		                        </span>
+			              	</div>
+		              	</a>
+		              	<a ng-if="group.Type=='INFORMAL' && group.Members.length==0" target="_self" target="_self" ng-href="{{SiteURL+group.ProfileURL}}">
+		              		<img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" alt="" title="">
+		              	</a>
+		            </figure>
+		            <div class="list-item-body">
+		              <a target="_self" target="_self" ng-href="{{SiteURL+group.ProfileURL}}" class="list-heading-xs bold ellipsis" ng-bind="group.GroupName"></a>
+		              <div class="text-sm-off semi-bold ellipsis" ng-bind="group.Category.Name"></div>                          
+		            </div>
+		          </div>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		  <div class="panel-footer" ng-if="TotalRecordsMyGroupInformal>MyGrouplistInformal.length">
+	        <a target="_self" class="loadmore" ng-click="callPaginationInformal();">
+	          <span class="text" ng-bind="lang.g_load_more"></span>
+	          <span class="icon">
+	            <i class="ficon-arrow-create"></i>
+	          </span>
+	          <span ng-if="ShowLoader" class="loader">&nbsp;</span>
+	        </a>
+	      </div>
+		</div>
+		<!-- Informal Group Ends -->
+
+		<!-- No data screen -->
+		<div class="panel panel-info" ng-cloak ng-if="TotalRecordsMyGroup==0">         
+          <div class="panel-body nodata-panel">
+            <div class="nodata-text">
+	            <span class="nodata-media">
+	            	<img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-groups-created.png" >
+	            </span>
+              	<h5 ng-bind="lang.no_groups_heading"></h5>                                                    
+                <p class="text-off">
+                    <span ng-bind="lang.no_groups_message1"></span>
+                    <br>
+                    <span ng-bind="lang.no_groups_message2"></span>
+                </p>
+                <a target="_self" ng-click="loadCreateGroup(); createGroup()" ng-bind="lang.g_create_group"></a>
+                <a target="_self" ng-click="redirectToUrl('group/discover'); loadDiscover(); changeGroupTabClass('#TabDiscover')" data-target="#groupDiscover" role="tab" data-toggle="tab" ng-bind="lang.g_discover_more"></a>
+            </div>
+          </div>
+        </div>
+        <!-- No data screen -->
+		</div>
+		<div class="col-lg-3 col-sm-4">
+			<div class="panel panel-widget" ng-cloak ng-if="LoginSessionKey!==''">
+			  <div class="panel-body nodata-panel">
+			    <div class="nodata-text p-b p-h">
+			      <span class="nodata-media">
+			        <img ng-src="{{AssetBaseUrl}}img/empty-img/empty-no-groups-created-dark.png" alt="">
+			      </span>              
+			      <p><span ng-bind="lang.g_group_easier"></span> <br><span ng-bind="lang.g_share_with"></span> <br><span ng-bind="lang.g_teammates"></span></p>
+			      <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="loadCreateGroup(); createGroup()" ng-bind="lang.g_create_a_group"></button>
+			    </div>
+			  </div>
+			</div>
+			<!-- Group Invites -->
+			<div class="panel panel-widget" ng-cloak ng-if="LoginSessionKey!=='' && Invitedlist.length>0">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"> 
+			      <span class="text" ng-bind="lang.group_invites"></span>
+			    </h3>        
+			  </div>
+			  <div class="panel-body no-padding">
+			    <ul class="list-items-hovered list-items-borderd">
+			      <li ng-repeat="list in Invitedlist">
+			        <div class="list-items-xmd">                    
+			          <div class="list-inner">
+			            <figure>
+			              <a target="_self" entitytype="group" entityguid="{{list.GroupGUID}}" class="loadbusinesscard" href="{{base_url + list.ProfileURL}}">
+			              	<img ng-if="list.ProfilePicture!=''&& list.Type=='FORMAL'" ng-src="{{ImageServerPath}}upload/profile/220x220/{{list.ProfilePicture}}" class="img-circle" alt="" title="">
+	                        <img ng-if="list.Type=='INFORMAL' && list.ProfilePicture!='' && list.ProfilePicture!='group-no-img.jpg'" ng-src="{{ImageServerPath}}upload/profile/220x220/{{list.ProfilePicture}}" class="img-circle" alt="" title="">
+	                        <div ng-if="list.Type=='INFORMAL' && list.ProfilePicture=='group-no-img.jpg'" ng-class="(list.EntityMembers>2) ? 'group-thumb' : 'group-thumb-two' ;" class="m-user-thmb ng-scope" ng-if="thread.ThreadImageName==''">
+	                            <span ng-repeat="recipients in list.EntityMembers" class="ng-scope">
+	                            <img err-src="{{AssetBaseUrl}}img/profiles/user_default.jpg" alt="" ng-src="{{ImageServerPath}}upload/profile/220x220/{{recipients.ProfilePicture}}" entitytype="user" ng-if="$index<=2" class="ng-scope">
+	                          </span>
+	                        </div>
+			              </a>
+			            </figure>
+			            <div class="list-item-body">
+			              <h4 class="list-heading-xs ellipsis bold">
+			              	<a target="_self" entitytype="group" entityguid="{{list.GroupGUID}}" class="loadbusinesscard" href="{{base_url + list.ProfileURL}}" ng-bind="list.GroupName"></a>
+			              </h4>
+			              <div class="text-sm-muted bold" ng-bind="list.CreatedBy"></div>
+			              <div class="text-xs-off semi-bold" ng-cloak ng-bind="list.MemberCount+' '+lang.member" ng-if="list.MemberCount==1"></div>
+			              <div class="text-xs-off semi-bold" ng-cloak ng-bind="list.MemberCount+' '+lang.members" ng-if="list.MemberCount>1"></div>
+			              <ul class="list-activites list-icons-disc text-off m-t-xs">
+			                <li><a target="_self" class="text-primary" ng-bind="lang.accept" ng-click="groupAcceptDenyRequest(list.GroupGUID,'2')"></a></li>
+			                <li><a target="_self" ng-bind="lang.deny" ng-click="groupAcceptDenyRequest(list.GroupGUID,'13')"></a></li>
+			              </ul>
+			            </div>
+			          </div>
+			          
+			        </div>
+			      </li>
+			    </ul>
+			  </div>
+			</div>
+			<div class="panel panel-widget" ng-cloak ng-controller="GroupPageCtrl" id="GroupPageCtrl" ng-init="suggestedGroupList(4, '0', 0)" ng-show="suggestedlist.length > 0">
+		        <div class="panel-heading p">
+		          <div class="list-items-default">
+		            <div class="list-item-body">
+		              <h4 class="list-heading-sm extra-bold" ng-bind="lang.w_suggested_groups_small"></h4>
+		            </div>
+		          </div>
+		        </div>
+		        <div class="panel-body no-padding">
+		          <ul class="list-items-members">
+		            <li ng-repeat="group in listObj = suggestedlist|limitTo:extra_param.WidgetItemSize" id="grp{{list.GroupGUID}}">
+		                <div class="list-items-md">
+		                  <div class="list-inner">
+		                    <ul class="pull-right list-icons">
+		                      <li>
+		                        <button ng-if="group.Permission.IsInvited != 1 && group.Permission.IsActiveMember != 1 && group.IsPublic == 1" class="btn btn-default btn-sm" ng-click="joinPublicGroup(group.GroupGUID, 'discoverslider')" ng-bind="lang.join"></button>
+		                      </li>
+		                    </ul>
+		                    <figure>
+		                      <a target="_self" href="{{SiteURL+'group/'+group.ProfileURL}}"><img ng-src="{{ImageServerPath+'upload/profile/220x220/'+group.ProfilePicture}}" class="img-circle" alt="" title=""></a>
+		                    </figure>
+		                    <div class="list-item-body">
+		                      <h4 class="list-heading-sm extra-bold"><a target="_self" class="text-black" href="{{SiteURL+'group/'+group.ProfileURL}}" ng-bind="group.GroupName"></a></h4>
+		                      <div class="ellipsis text-sm-muted" ng-if="group.GroupDescription!=''" ng-bind="group.GroupDescription"></div>
+		                      <ul class="list-activites list-icons-disc text-off">
+		                        <li ng-cloak ng-if="group.MemberCount=='1'" class="text" ng-bind="'1 Member'"></li>
+		                        <li ng-cloak ng-if="group.MemberCount>1" class="text" ng-bind="group.MemberCount+' Members'"></li>
+		                        <li ng-cloak ng-if="group.DiscussionCount=='1'" class="text" ng-bind="'1 Discussion'"></li>
+		                        <li ng-cloak ng-if="group.DiscussionCount>1" class="text" ng-bind="group.DiscussionCount+' Discussions'"></li>
+		                      </ul>
+		                      <div class="member-list-block" ng-if="group.MembersList.length>0">
+		                        <ul class="member-list">
+		                            <li class="member-item">                                           
+		                              <a ng-repeat="member in group.MembersList" ng-if="member.ProfilePicture!==''" class="thumb-item" tooltip ng-attr-title="{{member.Name}}" data-container="body" data-placement="bottom">
+		                                 <img err-src="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+member.ProfilePicture}}" alt="" title="" />
+		                              </a>  
+		                            </li>
+		                        </ul>
+		                        <ul class="list-activites text-off">
+		                          <li>
+		                            <span ng-bind-html="::get_members_talking(group.MembersList)"></span>                  
+		                          </li> 
+		                        </ul>
+		                      </div>
+		                    </div>
+		                  </div>
+		                </div>
+		            </li>
+		          </ul>
+		        </div>
+			</div>
+		</div>
+</div>

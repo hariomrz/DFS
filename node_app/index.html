@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html>
+   <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+      <script src = "https://code.angularjs.org/1.6.4/angular.min.js"></script>
+   </head>
+   
+   <body ng-app = "app">
+      <div ng-controller = "HelloController" >
+         <h2>Latest Tweets</h2>
+         <input type="text" name="hashtag" ng-model="hashtag">
+         <input type="button" name="get_tweets" value="get Tweets" ng-click="searchTweets()">
+
+
+<table>
+  <tr ng-repeat="item in tweet_data">
+    <td>{{item.full_text}} 
+    <hr/>
+    
+  </td>
+  <td>
+    
+
+  </td>
+   
+  </tr>
+</table>
+
+      </div>
+      
+      <script>
+
+        var socket = io();
+
+        var app= angular.module("app", []);
+
+        var BASE_URL='http://127.0.0.1:4000';
+          angular.module('app.service', [])
+        .service('$REST', ApiFunction);
+
+        /* GT API SERVICE
+      ================================ */
+    function ApiFunction($http, $q) {
+        var self = this;
+        
+
+        self.api = function(name, param, type, apiType) {
+            var type = type.toLowerCase(); 
+           
+            if(type==='get'){
+                return $http.get(BASE_URL + name, param);
+            }else{
+              return $http.post(BASE_URL + name, param);
+            }
+          }
+
+         
+    }
+    ApiFunction.$inject = ['$http', '$q'];
+
+    angular.module('app').controller('HelloController', HelloController);
+
+    HelloController.$inject = ['$scope', '$http'];
+    function HelloController($scope,$http) {
+            $scope.helloTo = {};
+            $scope.helloTo.title = "Tweets";
+
+            $scope.hashtag = 'ISRO';
+
+            $scope.tweet_data = [];
+
+            $scope.searchTweets = function(){
+              $http.post(BASE_URL + '/twitter_data/get_tweets',{hashtag:$scope.hashtag}).then(function(response) {
+                           $scope.tweet_data = response.data.data;
+                         }, function(error) {
+                                        
+                        });
+            }
+
+            $scope.searchTweets();
+
+           
+         }
+
+
+
+       
+       
+
+
+      </script>
+      
+   </body>
+</html>

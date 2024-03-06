@@ -1,0 +1,331 @@
+.withdrawl-list {
+  .react-datepicker-wrapper {
+    display: block;
+  }
+
+  margin-top: 1.5rem;
+
+  .table {
+    th {
+      vertical-align: middle;
+    }
+
+    td {
+      min-width: 148px;
+    }
+  }
+
+  .form-control {
+    border-color: #cccccc;
+  }
+
+  .white-box {
+    background: $white;
+    // height: 88px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    padding: 12px 16px;
+    border-radius: 6px;
+
+    .filter-label {
+      color: #27272D;
+      height: 42px;
+      font-family: $font-regular;
+    }
+
+    .am-value {
+      font-family: $font-bold;
+      font-size: 20px;
+    }
+  }
+
+  .export-sty {
+    float: left;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+  }
+
+  .wdl-reset-filter {
+    color: $secondary-color !important;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 16px;
+    cursor: pointer;
+  }
+
+  .wdl-legends-list {
+    list-style-type: none;
+    float: right;
+    margin-bottom: 0;
+
+    li {
+      float: left;
+      margin-left: 16px;
+      user-select: none;
+      font-size: 12px;
+      font-weight: 600;
+
+      img {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .wdl-action-sty {
+    .icon-action {
+      cursor: pointer;
+      font-size: 20px;
+      color: $gray-9;
+    }
+
+    .dropdown-item {
+      padding: 0 20px 10px;
+      border-bottom: none;
+    }
+
+    .dropdown-item:first-child {
+      padding-top: 16px;
+    }
+  }
+
+  input.form-check-input {
+    margin: 0;
+    padding: 0;
+    // margin-top: 6px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .wdl-footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .btn-secondary {
+      margin-right: 20px;
+    }
+
+    .custom-pagination {
+      float: right;
+    }
+  }
+
+  .checkbox-td {
+    width: 0px;
+    min-width: 0px !important;
+    display: block;
+
+    &.mth {
+      margin-top: 2px;
+    }
+
+    &.mtd {
+      margin-top: 7px;
+    }
+  .text-click a{
+    color: #030f09;
+  }
+}
+
+.approve-modal,
+.reject-modal {
+  .info-text {
+    font-size: 16px;
+    font-family: $font-regular;
+  }
+
+  .reject-textarea {
+    resize: none;
+  }
+
+  .iwHelpTxt {
+    background-color: #ccebff;
+    padding: 10px;
+    width: 570px;
+    margin-bottom: 14px;
+  }
+  .iwrow{
+    background-color: #ccebff;
+  }
+  .wdlLnHgt{
+    line-height: 16px;
+  }
+  .CrytoHead{
+    width: 500px;
+    display: block;
+  }
+  .CrytoAdd{
+    word-break: break-all;
+        white-space: unset !important;
+  }
+}
+
+.ref-modal {
+  .modal-header {
+    justify-content: flex-end;
+
+    a,
+    a:hover {
+      color: $secondary-color;
+      text-decoration: underline;
+      text-align: right;
+      cursor: pointer;
+    }
+  }
+
+  .table th {
+    padding: 0.75rem;
+
+    .common-table {
+
+      tr,
+      td {
+        text-align: center !important;
+      }
+    }
+  }
+}
+
+
+}
+
+.withdrawl-modal {
+  &.modal-dialog {
+    top: 4%;
+  }
+
+    .text-click a {
+      color: #030f09;
+    }
+  }
+
+  .approve-modal,
+  .reject-modal {
+    .info-text {
+      font-size: 16px;
+      font-family: $font-regular;
+    }
+
+    .reject-textarea {
+      resize: none;
+    }
+  }
+
+  .white-box {
+    background: $white;
+    // height: 88px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    padding: 12px 16px;
+    border-radius: 6px;
+
+    .filter-label {
+      color: #27272D;
+      height: 42px;
+      font-family: $font-regular;
+    }
+
+      font-family: $font-bold;
+      font-size: 20px;
+    }
+  
+
+    @media (min-width: 900px) {
+      &.modal-lg {
+        width: 900px;
+        max-width: 900px;
+      }
+    }
+      .wdl-uname {
+        color: #27272D;
+        font-family: $font-bold;
+        font-size: 24px;
+        text-decoration: underline;
+      }
+
+      .wdl-contact-dt {
+        margin-top: 22px;
+        margin-bottom: 18px;
+      }
+
+      .wdl-contact {
+        color: #27272D;
+        font-family: $font-regular;
+        font-weight: 600;
+        margin-right: 30px;
+
+        i {
+          margin-right: 8px;
+        }
+      }
+
+      .wdl-details {
+        text-align: center;
+        padding: 18px 8px;
+        background-color: #EFEFEF;
+        color: #27272E;
+      }
+
+      .wdl-fw {
+        font-weight: 600;
+      }
+
+      .infinite-scroll-component {
+        height: 400px !important;
+      }
+
+      .withdrawl-list {
+        .common-table {
+          height: 400px;
+          overflow-y: scroll
+        }
+
+        /*Start table header sticy*/
+        /* This is what we are focused on */
+        .table-wrapper {
+          overflow-y: scroll;
+          height: 150px;
+        }
+
+        .table-wrapper th {
+          position: sticky;
+          top: 0;
+        }
+
+        /* A bit more styling to make it look better */
+        .table-wrapper {
+          background: CadetBlue;
+        }
+
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        th {
+          background: #2b2e47;
+        }
+
+        td,
+        th {
+          padding: 10px;
+          text-align: center !important;
+        }
+
+        /*End table header sticy*/
+        #scrollableDiv {
+          height: 400px;
+          overflow: scroll;
+        }
+      }
+  
+.wdl-sts-dd{
+  .Select-control .Select-placeholder {
+    line-height: 36px;
+  }
+}
+
+.finance_row label.filter-label {
+  font-size: 17px;
+  line-height: 16px;
+  height :60px!important;
+}

@@ -1,0 +1,28 @@
+<div class="modal fade" id="selectBannerTheme" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button 
+                    type="button"
+                    class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                <h4 class="modal-title">Profile Cover Themes</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="banner-theme" data-theme="banner">
+                    <li><input ng-click="selectTheme(1)" type="radio" value="1" name="cover_theme"><img ng-src="{{AssetBaseUrl}}img/bannerTheme/11.jpg" ></li>
+                    <li><input ng-click="selectTheme(2)" type="radio" value="2" name="cover_theme"><img ng-src="{{AssetBaseUrl}}img/bannerTheme/22.jpg" ></li>
+                    <li><input ng-click="selectTheme(3)" type="radio" value="3" name="cover_theme"><img ng-src="{{AssetBaseUrl}}img/bannerTheme/33.jpg" ></li>
+                    <li><input ng-click="selectTheme(4)" type="radio" value="4" name="cover_theme"><img ng-src="{{AssetBaseUrl}}img/bannerTheme/44.jpg" ></li>
+                    <li><input ng-click="selectTheme(5)" type="radio" value="5" name="cover_theme"><img ng-src="{{AssetBaseUrl}}img/bannerTheme/55.jpg" ></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <button ng-click="hide()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button ng-disabled="cover_theme == 0" ng-click="applyDefaultTheme()" type="button" class="btn btn-primary"  data-dismiss="modal">Apply</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> 

@@ -1,0 +1,77 @@
+.qz-rwd-dashboard {
+  .h2-cls {
+    margin: 50px 0 20px;
+    font-family: $font-black;
+  }
+
+  .qz-r-ca-grp,
+  .highcharts-container,
+  .highcharts-background,
+  .highcharts-root {
+    width: 100% !important;
+    height: 226px !important;
+  }
+
+  .qz-graph-head {
+    margin-bottom: 0;
+    margin-left: 24px;
+  }
+
+  .qz-g-lable {
+    color: #999999;
+    font-family: $font-bold;
+    font-weight: 500;
+  }
+
+  .qz-g-count {
+    color: $secondary-color;
+    font-family: $font-bold;
+    font-size: 24px;
+  }
+
+  .qz-r-padd {
+    padding: 0 40px;
+  }
+
+  .keysty {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    display: block;
+    margin-right: 20px;
+  }
+
+  .keyname {
+    opacity: 0.8;
+    color: #616262;
+    font-family: $font-bold;
+    font-size: 16px;
+    user-select: none;
+  }
+
+  .qz-key-list {
+    display: inline-flex;
+    margin-right: 40px;
+    margin-bottom: 24px;
+    align-items: center;
+    min-width: 190px;
+  }
+
+  .icon-bonus {
+    color: #FA717B;
+  }
+
+  .common-table .table {
+    tbody td {
+      text-align: left;
+    }
+
+    th {
+      text-align: left;
+    }
+  }
+}
+
+.op2 {
+  opacity: 0.2 !important;
+}

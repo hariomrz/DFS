@@ -1,0 +1,60 @@
+.coinsconfig-modal {
+  .modal-header {
+    height: 54px;
+    border-radius: 0;
+    font-size: 18px;
+    justify-content: center;
+    padding: 12px;
+  }
+
+    .err-msg {
+      text-align: center;
+      font-size: 16px;
+      background-color: #F8436E;
+      color: #fff;
+      padding: 8px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+  .modal-content {
+    background-color: transparent;
+    top: 100px;
+  }
+
+  .modal-body {
+    padding: 36px;
+    background-color: #FFFFFF;
+  }
+
+  .coinsetting-box {
+    width: 194px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  label {
+    color: #212121;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .form-control {
+    box-sizing: border-box;
+    height: 80px;
+    width: 192px;
+    border: 3px solid #EFEFEF;
+    border-radius: 16px;
+    text-align: center;
+    color: #212121;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .btn {
+    width: 120px;
+    margin-top: 40px;
+  }
+}

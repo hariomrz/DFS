@@ -1,0 +1,167 @@
+.booster {
+  margin-top: 46px;
+
+  .h2-cls {
+    &::after {
+      content: '';
+      border-bottom: 1px solid #D8D8D8;
+      margin-top: 11px;
+      display: block;
+    }
+  }
+
+  .filter-area {
+    margin-top: 32px;
+
+    label {
+      color: $gray-5;
+      font-family: $font-bold;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    .Select-control {
+      height: 40px;
+
+      .Select-placeholder,
+      .Select-value {
+        line-height: 38px !important;
+      }
+    }
+  }
+
+  .table {
+    margin-top: 24px;
+
+    thead {
+      height: 42px;
+    }
+  }
+
+  .b-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    border: 0.5px solid #E1E1E1;
+    float: left;
+    .component-loader{
+      margin-top: 0;
+      background-size: 38px;
+    }
+    img {
+      border: 0.5px solid #E1E1E1;
+      border-radius: 100%;      
+    }
+
+  }
+
+  .icon-upload {
+    height: 16px;
+    width: 16px;
+    color: #6D7278;
+    cursor: pointer;
+    vertical-align: -webkit-baseline-middle;
+    margin-left: 16px;
+  }
+
+  .activate-module {
+    .global-switch {
+      position: relative;
+      width: 82px;
+      height: 34px;
+      margin-bottom: 0;
+
+      input:checked {
+        +.switch-slide:before {
+          transform: translateX(18px);
+        }
+
+        +.switch-slide {
+          // background-color: #999999;
+          background-color: #6DD400;
+        }
+      }
+    }
+
+    .switch-slide {
+      width: 40px;
+      height: 20px;
+      // background-color: #6DD400;
+      background-color: #999999;
+
+      &:before {
+        content: "";
+        height: 18px;
+        width: 18px;
+        right: 2px;
+        bottom: 1px;
+        background-color: $white;
+      }
+    }
+
+    .switch-off {
+      position: absolute;
+      top: 7px;
+      color: #999999;
+      font-family: "MuliBold";
+      font-size: 12px;
+    }
+  }
+
+  .table-responsive {
+    overflow-x: initial;
+  }
+
+  .common-table .table tbody {
+    border-top: 1px solid #EDEDED;
+
+    td {
+      padding: 20px 10px;
+    }
+
+    &:nth-child(odd) {
+      background-color: $white;
+    }
+    .form-control,
+    .Select-control,
+    .Select-input:focus {
+      background-color: $input-gry-clr;
+    }
+  }
+
+  .b-update-box {
+    background-color: #fff;
+    text-align: center;
+
+    .btn {
+      margin-top: 100px;
+      margin-bottom: 56px;
+      width: 120px;
+      height: 36px;
+    }
+  }
+
+  .b-pos-select {
+    min-width: 170px;
+    text-align: left;
+
+    .Select-placeholder,
+    .Select-value {
+      line-height: 36px !important;
+    }
+  }
+  .upload-btn{
+    // float: right;
+    position: relative;
+    input[type=file] {
+      font-size: 1px;
+      position: absolute;
+      top: 11px;
+      cursor: pointer;
+      opacity: 0;
+    }
+  }
+  .w-100-px {
+    width: 100px;
+  }
+}

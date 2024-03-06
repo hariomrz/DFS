@@ -1,0 +1,253 @@
+.chat-container{
+    max-width: $window_width;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    @media screen and(max-width:550px){
+        width: 100%;
+    }
+}
+.group-chat {
+    margin-top: 56px;
+    margin-bottom: 70px;
+    background-color: $white;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: calc(100vh - 92px);
+    height: calc(100vh - 106px);
+    padding: 0;
+    .date-header{
+        background-color: #9B9B9B;
+        display: inline-block;
+        height: 20px;
+        border-radius: 10px;
+        padding: 0 15px;
+        color: #FFFFFF;
+        font-family: $font-bold;
+        font-size: 12px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    .header-chat {
+        padding: 20px;
+        width: 100%;
+        background-color:$primary;
+        align-items: center;
+        text-transform: uppercase;
+
+        color: #FFFFFF;
+        font-family: $font-bold;
+        font-size: 16px;
+        line-height: 20px;
+
+    }
+
+    .message-list {
+        padding: 25px 10px;
+        max-height: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        text-align: center;
+    }
+    .footer-container{
+        box-shadow: 0 -8px 30px 0 rgba(0,0,0,0.08);
+
+        position: fixed;
+        bottom: 0px;
+        max-width: $window_width;
+        width: 100vw;
+        display: flex;
+        background-color: $white;
+      //  padding: 10px 0;
+
+        height: 60px;
+        @media screen and(max-width:550px){
+            width: 100%;
+        }
+        .typing-box {
+            padding: 10px 15px;
+            background-color: $white;
+            display: flex;
+            width: 90%;
+            .form__input {
+                width: calc(100% - 60px);
+                padding: 5px 10px;
+                border: none;
+                outline: 0;
+                background: transparent;
+                font-size: 16px;
+                color: #333333;
+             
+            }
+            input::placeholder {
+                color: #8E94A2 !important;
+            }
+        }
+
+        .form_button {
+            border-radius: 20px;
+            height: 40px;
+            width: 40px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin-right: 10px;
+            margin-top: 10px;
+            i{
+                font-size: 22px;
+                color: $primary_text_color;
+                &.disable{
+                    color: $help_text_color;
+                }
+            }
+           
+        }
+    }
+    .disply-f{
+        display: flex;
+    }
+
+    .message-box-left {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 15px;
+        text-align: left;
+
+        .user-img {
+            background-color: lightgray;
+            height: 30px;
+            width: 30px;
+            border-radius: 100%;
+            box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.08);
+        }
+
+        .msg-date-container {
+            // overflow-wrap: break-word;
+            // max-width: 400px;
+            // min-width: 160px;
+            // margin-left: 8px;
+            overflow-wrap: break-word;
+            margin-left: 8px;
+            display: block;
+        }
+
+        .msg-view {
+            width: 100%;
+            background-color: #F6F6F4;
+            border-radius: 26px 26px 26px 0;
+            padding: 16px;
+            min-width: 80px;
+            max-width: 100%;
+        }
+
+        .message-author {
+            color: #6C72BC;;
+            font-family: $font-regular;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .text-message {
+            color: #555555;
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 300;
+            font-family: $font-regular;
+        }
+
+        .message-date {
+            color: #999999;
+            font-family: $font-regular;
+            font-size: 12px;
+            font-weight: 600;
+            vertical-align: middle;
+            text-align: left;
+            margin-right: 10px;
+        }
+    }
+
+    .message-box-right {
+        display: flex;
+        flex-direction: row-reverse;
+        padding-bottom: 15px;
+        text-align: right;
+        .msg-date-container {
+            overflow-wrap: break-word;
+            margin-right: 8px;
+            display: block;
+        }
+
+        .msg-view {
+            width: 100%;
+            background-color: $primary;
+            border-radius: 26px 26px 0 26px;
+            padding: 16px;
+            min-width: 80px;
+            max-width: 100%;
+        }
+
+        .text-message {
+            color: white;
+            font-family: $font-regular;
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 300;
+        }
+
+        .message-date {
+            color: #999999;
+            font-family: $font-regular;
+            vertical-align: middle;
+            text-align: right;
+            margin-right: 10px;
+            margin-top: 5px;
+
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            line-height: 13px;
+        }
+    }
+}
+.body-dark-theme{
+    .group-chat {
+        background-color: $darkT_view_bg_color;
+
+    }
+    .footer-container{
+        background-color: $darkT_app_bg_color;
+        .typing-box {
+            background-color: $darkT_app_bg_color;
+            .form__input {
+                color: $darkT_primary_text_color;
+            }
+        }
+        .form_button {
+            i{
+                color: $darkT_primary;
+                &.disable{
+                    color: $help_text_color;
+                }
+            }
+        }
+    }
+    .message-box-left{
+        .user-img {
+            background-color:transparent;
+        }
+        .message-author {
+            color: $darkT_primary;
+        }
+    }
+    .message-box-right{
+        .message-author {
+            color: $darkT_primary;
+        }
+        .msg-view {
+            background-color:$darkT_primary;
+        }
+    }
+}

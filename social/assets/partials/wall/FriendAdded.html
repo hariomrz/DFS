@@ -1,0 +1,61 @@
+<a class="post-thumb"><img ng-src="{{data.ExtraParams.User.ProfilePicturePath+data.ExtraParams.User.ProfilePicture}}" /></a>
+  <div class="wall-post-content">
+    <div class="wall-post-title layer">
+      <div class="post-title-ctrl"  ng-if="postCtrl">
+        <div class="post-user-ctrl"> <a class="fa fa-lock" data-toggle="dropdown" id="postDropDown4"><i class="fa fa-angle-down"></i></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="postDropDown4">
+            <li><a href="javascript:void(0);">Everyone</a></li>
+            <li><a href="javascript:void(0);">Followers</a></li>
+            <li><a href="javascript:void(0);">Friends</a></li>
+            <li><a href="javascript:void(0);">Myself</a></li>
+          </ul>
+        </div>
+        <a class="fa fa-trash" ng-click="$emit('deleteEmit', data.ActivityID);"></a></div>
+      <div class="user-detail-title overflow">
+      <span class="muted" ng-bind-html="getTitleMessage(data)"></span>
+      </div>
+      <span class="posttime" ng-bind="getDateFormate(data.CreatedDate)"></span> </div>
+    <div class="post-content layer">
+      <div class="post-text layer">
+        <p ng-bind="extraParams.Entity.PostContent"></p>
+      </div>
+
+      <div class="media-block media-photo layer" ng-if="mediaData != undefined" ng-class="layoutClass(mediaData)">
+        <figure class="media-thumbwrap" ng-repeat="meida in mediaData"><a class="media-thumb"> <img ng-src="{{meida.BigImageName}}" /> </a></figure>
+      </div>
+
+      <nav class="post-content-ctrl layer">
+          <a data-ng-if="data.LikeAllowed == '1' ? true : false" ng-click="$emit('likeEmit');">
+            <span data-ng-if="data.IsLike == '1'">Unlike</span>
+            <span data-ng-if="data.IsLike == '0'">Like</span>
+          </a>
+          <a data-ng-if="data.FlagAllowed == '1' ? true : false" ng-click="$emit('flagEmit');">Flag</a>
+      </nav>
+    </div>
+
+    <div data-ng-if="data.CommentsAllowed == '1'? true : false" class="threaded-comments layer">
+      <div class="threaded-comments-composer layer">
+        <figure class="fa fa-2x fa-comments-o muted"></figure>
+        <div class="text-field-iconright composer">
+        <span class="field-icon"><a style="display:none" class="icon fa fa-paperclip" data-toggle="tooltip" data-original-title="Attach a Photo/Video"></a></span>
+          <textarea placeholder="Comment here. Press shift+return for new line. Press return for post." ng-keypress="addComment($event)"></textarea>
+          </div>
+      </div>
+      <ul class="threaded-comments-list layer" ng-init="getPostComments(data.Comments)">
+            <li class="threaded-comment layer" ng-repeat="comnt in comntData">
+            <a class="threaded-comment-thumb">
+                <img ng-src="{{comnt.ProfilePicture}}" />
+            </a>
+              <div class="overflow">
+                <div class="threaded-comment-title layer">
+                <div><a class="overflow pull-left">{{comnt.Name}}</a></div>
+                <span class="posttime" ng-bind="getDateFormate(comnt.CreatedDate)"></span>
+                </div>
+                <div class="overflow post-text" ng-bind="comnt.PostComment">
+                </div>
+              </div>
+            </li>
+      </ul>
+      <div class="view-threaded layer" ng-if="((data.NoOfComments > 2) && (viewStat === true)) ? true : false"> <a ng-click="$emit('viewAllComntEmit', index);">View {{data.NoOfComments}} more comments</a> </div>
+    </div>
+  </div>

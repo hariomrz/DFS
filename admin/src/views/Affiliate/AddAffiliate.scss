@@ -1,0 +1,53 @@
+.add-affiliate-wrapper.create-pick {
+  .aff-search-lbl {
+    float: left;
+    width: 100%;
+    color: #555555;
+  }
+
+  .go-btn .btn {
+    text-align: center;
+    margin-top: 36px;
+    padding: 6px 16px;
+  }
+
+  .form-control,
+  .Select-control {
+    width: 100%;
+    max-width: 390px;
+    background-color: #EDEDED;
+  }
+
+  .form-control {
+    border: none;
+  }
+
+  textarea.form-control {
+    resize: none;
+    height: 88px;
+  }
+
+  .aff-act-footer {
+    text-align: center;
+    margin: 70px;
+    .btn{
+      height: 36px;
+      width: 130px;
+      margin: 0 10px;
+    }
+  }
+  .coupons-option-list{
+    &::after{
+      // content: '';
+      border-bottom: inherit;
+    }
+  }
+}
+
+
+p.text-color-change {
+  color: red;
+}
+.icon-color-changes{
+  color:red!important;
+}

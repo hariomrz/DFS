@@ -1,0 +1,45 @@
+<div class="rating-view">
+    <div class="rated-view">
+        <div class="content-row">
+            <span class="badgerate-4" ng-bind="'RATED ' + ( activityData.RatingData.RateValue | number : 1 )"> RATED 4.1</span>
+            <span class="semi-bold rate-t" ng-bind="activityData.RatingData.Review.Title"></span>
+        </div>
+        <div class="content-row" ng-bind="activityData.RatingData.Review.Description"></div>
+        <div class="overflow-content">
+            <div class="content-row" ng-if="( activityData.RatingData.Album.length > 0 )">
+                
+                <ul class="uploaded-rating-view" ng-if="activityData.RatingData.Album[0].Media[0].MediaType == 'Image'" id="lg-{{activityData.RatingData.RatingGUID}}">
+                <li ng-repeat="media in activityData.RatingData.Album[0].Media" ng-data-thumb="{{getImagePath(media.MediaType, media.ImageName)}}" ng-data-src="{{getImagePath(media.MediaType, media.ImageName, 'original')}}">
+                <!-- <li ng-repeat="media in activityData.RatingData.Album[0].Media" ng-init="callLightGallery(activityData.RatingData.RatingGUID)" ng-data-thumb="{{getImagePath(media.MediaType, media.ImageName)}}" ng-data-src="{{getImagePath(media.MediaType, media.ImageName, 'original')}}"> -->
+                    <a href="javascript:void(0);">
+                        <img alt="" ng-if="media.MediaType == 'Image'" ng-src="{{getImagePath(media.MediaType, media.ImageName)}}">
+                    </a>
+                </li>
+            </ul>
+            <ul ng-if="activityData.RatingData.Album[0].Media[0].MediaType == 'Video'" id="lg-{{activityData.RatingData.RatingGUID}}">
+                <!--<li ng-repeat="media in activityData.RatingData.Album[0].Media" ng-if="media.ConversionStatus == 'Finished'" ng-data-html="{{'#m-' + media.MediaGUID}}" ng-data-thumb="{{getVideoPath(media.ImageName) + 'jpg'}}">-->
+                 <li ng-repeat="media in activityData.RatingData.Album[0].Media" ng-if="media.ConversionStatus == 'Finished'" ng-init="(media.ConversionStatus == 'Finished') ? callLightGallery(activityData.RatingData.RatingGUID) : '';"  ng-data-html="{{'#m-' + media.MediaGUID}}" ng-data-thumb="{{getVideoPath(media.ImageName) + 'jpg'}}"> 
+                    <a class="pos-relative" href="javascript:void(0);">
+                        <img alt="" ng-src="{{getVideoPath(media.ImageName, 1) + 'jpg'}}"/>
+                        <i class="icon-n-video-big video-icn"></i>
+                    </a>
+                    <div style="display:none;" id="m-{{activityData.RatingData.Album[0].Media[0].MediaGUID}}" class="video-block" ng-if="activityData.RatingData.Album[0].Media[0].MediaType == 'Video' && activityData.RatingData.Album[0].Media[0].ConversionStatus !== 'Pending'">
+                        <video ng-repeat="media in activityData.RatingData.Album[0].Media" width="100%" controls="" class="object">
+                            <source type="video/mp4" src="" dynamic-url dynamic-url-src="{{getVideoPath(media.ImageName) + 'mp4'}}"></source>
+                            <source type="video/ogg" src="" dynamic-url dynamic-url-src="{{getVideoPath(media.ImageName) + 'ogg'}}"></source>
+                            <source type="video/webm" src="" dynamic-url dynamic-url-src="{{getVideoPath(media.ImageName) + 'webm'}}"></source>
+<!-- <?php echo lang('video_not_support') ?> -->
+                        </video>
+                    </div>
+                </li>
+            </ul>
+            </div>
+            <ul class="row rating-listing">
+                <li class="col-sm-6"><span class="badgerate-4"> 4</span> Services </li>
+                <li class="col-sm-6"><span class="badgerate-3"> 3 </span>Design</li>
+                <li class="col-sm-6"><span class="badgerate-1"> 1 </span>Deadline</li>
+                <li class="col-sm-6"><span class="badgerate-2"> 2 </span>Communication</li>
+            </ul>
+        </div> 
+    </div>
+</div>

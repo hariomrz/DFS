@@ -1,0 +1,160 @@
+.add-level {
+  margin-top: 30px;
+
+  .common-table {
+    th {
+      cursor: pointer;
+    }
+
+    td,
+    th {
+      text-align: inherit ;
+    }
+    .table {
+      tbody{
+        td{
+          font-size: 18px;
+          font-family: $font-bold;
+          text-align: inherit ;
+        }    
+      }
+    }
+  }
+  .input-box{
+    width: 100%;
+    .form-control {
+      height: 48px;
+  }
+ 
+}
+.custom-form-control{
+  .Select-control {
+    background-color: $input-gry-clr  !important;
+    height: 48px;
+    border: 0;
+  }
+  
+  .Select-control .Select-input:focus{
+    background-color: $input-gry-clr;
+  }
+  
+}
+  .edit-level-btn{
+   color: $theme-color; 
+   font-family: "MuliBold";
+   cursor: pointer;
+  }
+}
+
+
+.se-limit-box {
+  // height: 232px;
+  padding: 30px 20px;
+  background-color: $white;
+  box-shadow: 0 15px 45px 0 rgba(14, 22, 39, 0.1);
+  margin-top: 12px;
+  border-radius: 4px;
+
+  .btn {
+    height: 48px;
+    width: 96px;
+  }
+
+  textarea {
+    box-sizing: border-box;
+    resize: none;
+    height: 107px;
+    max-width: 400px;
+    border: 1px solid #EFEFEF;
+    background-color: #F5F9FB;
+  }
+  .ue-set-default {
+    color: $secondary-color !important;
+    font-family: $font-bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
+.se-label {
+  float: left;
+  margin-top: 11px;
+  margin-right: 28px;
+  font-family: $font-bold;
+}
+
+.se-input-box {
+  display: grid;
+
+  .form-control {
+    max-width: 450px;
+    background-color: #ededed;
+    height: 40px;
+  }
+
+  span {
+    margin-top: 4px;
+    color: #555555;
+    font-family: $font-regular;
+    font-size: 12px;
+  }
+}
+
+.se-img-box {
+  margin-top: 20px;
+  box-sizing: border-box;
+  height: 30px;
+  width: 150px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  color: #999999;
+  font-family: $font-bold;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 1px;
+  position: relative;
+
+  .form-control-file {
+    position: absolute;
+    top: -8px;
+
+    opacity: 0;
+  }
+}
+
+.ue-sup-doc {
+  color: $black;
+  font-family: $font-bold;
+  font-size: 20px;
+}
+
+.se-input-div,
+.se-input-box {
+  .form-control {
+    max-width: 400px;
+    border: 1px solid #EFEFEF;
+    background-color: #F5F9FB;
+  }
+}
+.level-sub-header{
+  h2{
+    font-size: 20px;
+    color: $light-color;
+  }
+  span{
+    display: block;
+    cursor: pointer;
+    color: $light-color;
+    text-align: right;
+    margin-top: 9px;
+    font-family: "MuliBold";
+    i{
+      display: inline-block;
+      transform: rotate(90deg);
+      vertical-align: 0.5px;
+      font-size: 12px;
+    }
+  }
+}
+

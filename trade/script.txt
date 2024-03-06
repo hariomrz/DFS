@@ -1,0 +1,73 @@
+[program:tradeleague]
+command=php /var/www/html/trade/index.php cron/worker process_league --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradeleague.err.log
+stdout_logfile=/var/log/tradeleague.out.log
+
+[program:tradeteam]
+command=php /var/www/html/trade/index.php cron/worker process_team --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradeteam.err.log
+stdout_logfile=/var/log/tradeteam.out.log
+
+[program:tradeseason]
+command=php /var/www/html/trade/index.php cron/worker process_season --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradeseason.err.log
+stdout_logfile=/var/log/tradeseason.out.log
+
+[program:tradeplayer]
+command=php /var/www/html/trade/index.php cron/worker process_player --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradeplayer.err.log
+stdout_logfile=/var/log/tradeplayer.out.log
+
+[program:tradescore]
+command=php /var/www/html/trade/index.php cron/worker process_score --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradescore.err.log
+stdout_logfile=/var/log/tradescore.out.log
+
+[program:tradecron]
+command=php /var/www/html/trade/index.php cron/worker process_cron --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradecron.err.log
+stdout_logfile=/var/log/tradecron.out.log
+
+[program:tradeprize]
+command=php /var/www/html/trade/index.php cron/worker process_prize --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradeprize.err.log
+stdout_logfile=/var/log/tradeprize.out.log
+
+
+[program:tradenodeemitter]
+command=php /var/www/html/trade/index.php cron/worker process_node_emitter --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradenodeemitter.err.log
+stdout_logfile=/var/log/tradenodeemitter.out.log
+
+
+[program:tradematchup]
+command=php /var/www/html/trade/index.php cron/worker process_matchup --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradematchup.err.log
+stdout_logfile=/var/log/tradematchup.out.log
+
+
+[program:tradeautoquestion]
+command=php /var/www/html/trade/index.php cron/worker process_auto_question_consumer --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/tradeautoquestion.err.log
+stdout_logfile=/var/log/tradeautoquestion.out.log
+

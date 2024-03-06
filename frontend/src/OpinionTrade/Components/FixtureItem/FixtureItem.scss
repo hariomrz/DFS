@@ -1,0 +1,110 @@
+.ot-match-list-container {
+    flex: 0.25;
+    display: flex;
+    flex-direction: column;
+    
+    .ot-match-list {
+        width: 100%;
+        padding: 15px 15px;
+        padding-bottom: 15px;
+        padding-top: 0;
+        background-color: transparent;
+        max-height: 80px;
+        overflow: hidden;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        display: -webkit-inline-box;
+        flex-direction: row;
+        align-items: center;
+       
+        &.contains-scroll-disable{
+            &::-webkit-scrollbar {
+                width: 0px;
+                background: transparent;
+                display: none;
+                scrollbar-width: none;
+                -ms-overflow-style: none; 
+            }
+        }
+        
+        .active-view {
+            border: 1px solid $primary !important;
+        }
+
+        .ot-fixture-team {
+            position: relative;
+            display: flex;
+            width: auto;
+            height: 42px;
+            background-color: $white;
+            margin-right: 6px;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            .pinned-fixture{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 15px;
+                height: 15px;
+            }
+            .view-tag {
+                color: red;
+                font-family: $font-bold;
+                font-size: 9.6px;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            .team-flag-view {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 15px;
+                }
+            }
+
+            .title-match-vs {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-left: 15px;
+                margin-right: 15px;
+
+                .txt-title {
+                    color: #333333;
+                    font-family: $font-bold;
+                    font-size: 12px;
+                    text-align: center;
+                }
+
+                .text-schedule-date {
+                    color: #999999;
+                    font-family: $font-regular;
+                    font-size: 10px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin-top: -2px;
+                }
+            }
+        }
+
+        // .ot-fixture-team:hover {
+        //     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        // }
+    }
+
+    
+}

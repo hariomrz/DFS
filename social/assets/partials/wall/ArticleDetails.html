@@ -1,0 +1,302 @@
+<div class="wrapper"> 
+<div ng-class="'feed-act-' + data.ActivityGUID" class="feed-list detail">  
+    <div class="feed-header" data-scrollfix="scrollFix2">
+        <div class="container">     
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="feed-ctrl">
+                        <ul class="feed-nav">
+                            <li ng-if="SettingsData.m28 == 1 && data.IsMember && LoginSessionKey != ''" class="dropdown reminderNav" ng-include src="partialURL+'reminder.html'+app_version"></li>                         
+                            <li ng-if="(data.FavouriteAllowed == 1)" data-toggle="tooltip" data-placement="bottom" ng-attr-data-original-title="{{(data.IsFavourite=='1') ? 'Unfavourite' : 'Favourite' ;}}">
+                                <i ng-click="setFavouriteEmit(data.ActivityGUID);" ng-class="(data.IsFavourite == '1') ? 'f-yellow' : '';" class="ficon-star f-mlg"></i>
+                            </li>
+                            <li class="dropdown" ng-cloak ng-if="LoginSessionKey != ''">
+                                <i class="ficon-arrow-down" data-toggle="dropdown" ng-click="showOptions(data, 'tripleDot')"></i>
+                                <ul class="dropdown-menu feedaction" ng-if="data.tripleDot">
+                                    <li ng-if="(!IsMyDeskTab && (data.IsTaskDone == 1)) && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a ng-click="markAsDoneNotDone(data.ActivityGUID, 'NOTDONE');">Add Back to My Desk</a>
+                                    </li>
+                                    <li ng-cloak ng-if="data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a ng-if="((data.IsArchive != 1) && (!data.ReminderData.ReminderGUID || (data.ReminderData.ReminderGUID && CheckReminderDate(data.ActivityGUID))))" ng-click="toggleArchiveEmit(data.ActivityGUID);">
+                                            <span>Archive</span>
+                                            <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed. It will popup again only if someone tags you.">&nbsp;</i>
+                                        </a>
+                                        <a ng-if="((data.IsArchive != 1) && (data.ReminderData.ReminderGUID && !CheckReminderDate(data.ActivityGUID)))" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ARCHIVED');">
+                                            <span>Archive</span>
+                                            <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom" data-original-title="Remove it from your newsfeed. It will popup again on the selected date of reminder.">&nbsp;</i>
+                                        </a>
+                                        <a ng-if="((data.IsArchive == 1) && data.ReminderData.ReminderGUID)" ng-click="changeReminderStatusClick(data.ActivityGUID, data.ReminderData.ReminderGUID, 'ACTIVE');">Unarchive</a>
+                                        <a ng-if="((data.IsArchive == 1) && !data.ReminderData.ReminderGUID)" ng-click="toggleArchiveEmit(data.ActivityGUID);">Unarchive</a>
+                                    </li>
+
+                                    <li ng-cloak ng-if="data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a ng-click="toggleWatchlistStatus(data.ActivityGUID)" ng-bind="(data.IsWatchList == '1') ? 'Remove from Watchlist' : 'Add to Watchlist';"></a>
+                                    </li>
+                                    <li data-ng-if="data.IsOwner == '1' && data.ActivityType != 'AlbumAdded' && data.ActivityType != 'AlbumUpdated' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a data-ng-click="editPost(data.ActivityGUID, $event)">Edit Post</a>
+                                    </li>
+                                    <li data-ng-if="data.IsTagged == '1' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a data-ng-click="removeTagEmit(data.ActivityGUID);">Remove Tag</a>
+                                    </li>
+
+                                    <li data-ng-if="((data.CanMakeSticky == 3) || (data.CanMakeSticky == 2) || (data.CanMakeSticky == 1))">
+                                        <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 1, 'create', FeedIndex);" data-ng-if="!data.SelfSticky" >Mark sticky for me</a>
+                                        <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 1, 'remove', FeedIndex);" data-ng-if="data.SelfSticky" >Remove sticky for me</a>
+                                    </li>
+                                    <li data-ng-if="(((data.CanMakeSticky == 2) || (data.CanMakeSticky == 1)) && (data.ModuleID == '1'))">
+                                        <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 2, 'create', FeedIndex);" data-ng-if="!data.GroupSticky" >Mark sticky for group</a>
+                                        <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 2, 'remove', FeedIndex);" data-ng-if="data.GroupSticky" >Remove sticky for group</a>
+                                    </li>
+                                    <li data-ng-if="(data.CanMakeSticky == 1)">
+                                        <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 3, 'create', FeedIndex);" data-ng-if="!data.EveryoneSticky" >Mark sticky for everyone</a>
+                                        <a data-ng-click="markUnmarkAsSticky(data.ActivityGUID, 3, 'remove', FeedIndex);" data-ng-if="data.EveryoneSticky" >Remove sticky for everyone</a>
+                                    </li>
+
+                                    <li data-ng-if="IsNewsFeed == '1' && data.ModuleID !== '1' && data.Visibility == '1' && config_detail.IsSuperAdmin && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a ng-click="pin_to_top(data.ActivityGUID)" data-ng-if="data.IsPined == 0">Convert to Announcement</a>
+                                        <a ng-click="hideAnnouncement(data.ActivityGUID, 1)" data-ng-if="data.IsPined == 1">Remove Announcement for Everyone</a>
+                                    </li>
+                                    <li data-ng-if="IsNewsFeed == '0' && data.ModuleID == '1' && (data.IsEntityOwner == '1' || config_detail.IsSuperAdmin) && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a ng-click="pin_to_top(data.ActivityGUID)" data-ng-if="data.IsPined == 0">Pin To Top</a>
+                                        <a ng-click="hideAnnouncement(data.ActivityGUID, 1)" data-ng-if="data.IsPined == 1">Unpin</a>
+                                    </li>
+                                    <li data-ng-if="data.FlaggedByAny == '1' && data.IsEntityOwner == '1' && data.Flaggable == '1' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'"><a ng-click="approveFlagActivityEmit(data.ActivityGUID);">Approve Flag Activity</a></li>
+                                    <li ng-if="(data.ModuleID == '1' || data.ModuleID == '3' || data.ModuleID == '14' || data.ModuleID == '18') && data.MuteAllowed == 1 && data.PostType !== '7' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a ng-cloak ng-show="IsNewsFeed == 1 && data.ModuleID == '3' && data.IsEntityOwner !== 1" ng-click="muteUserEmit(data.ModuleID, data.UserGUID);">
+                                            <span>Mute User</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom"  data-original-title="lang.mute_user_help">&nbsp;</i>
+                                        </a>
+                                        <a ng-cloak ng-show="IsNewsFeed == 1 && data.ModuleID == '18' && data.IsEntityOwner !== 1" ng-click="muteUserEmit(data.ModuleID, data.UserGUID);">
+                                            <span>Mute Page</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom"  data-original-title="Mute page">&nbsp;</i>
+                                        </a>
+                                        <a ng-cloak ng-show="IsNewsFeed == 1 && data.ModuleID == '1' && data.IsEntityOwner !== 1" ng-click="muteUserEmit(data.ModuleID, data.UserGUID);">
+                                            <span>Mute Group</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom"  data-original-title="Mute Group">&nbsp;</i>
+                                        </a>
+                                        <a ng-cloak ng-show="IsNewsFeed == 1 && data.ModuleID == '14' && data.IsEntityOwner !== 1" ng-click="muteUserEmit(data.ModuleID, data.UserGUID);">
+                                            <span>Mute Events</span> <i class="icon-n-info" data-toggle="tooltip" data-placement="bottom"  data-original-title="Mute Events">&nbsp;</i>
+                                        </a>
+                                    </li>
+                                    <li data-ng-if="data.PostType !== '7' && data.IsOwner == '0' && data.IsEntityOwner == '0' && data.ShowFlagBTN == '1' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a data-target="#reportAbuse" data-toggle="modal" onclick="flagValSet(this, 'Activity')" id="tid-{{data.ActivityGUID}}" data-ng-if="data.IsFlagged == '0' && data.FlagAllowed == '1' && data.Flaggable == '1' && data.Settings.m12 == '1' && data.IsOwner !== '1'">Flag</a>
+                                        <a data-ng-if="data.IsFlagged == '1' && data.FlagAllowed == '1' && data.Flaggable == '1' && data.Settings.m12 == '1' && data.IsOwner !== '1'">Flagged</a>
+                                    </li>
+                                    <li data-ng-if="data.CanBlock == 1 && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a ng-click="blockUserEmit(data.UserGUID, data.ModuleID, data.EntityGUID);">Block</a>
+                                    </li>
+                                    <li data-ng-if="(data.IsEntityOwner == '1' || config_detail.IsSuperAdmin == '1') && data.PostType == '4' && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated' && SettingsData.m38 == '1'">
+                                        <a ng-click="reset_related_popup(data);" data-toggle="modal" data-target="#addRelatedArticles">Add Related</a>
+                                    </li>
+                                    <li ng-if="(data.IsOwner == 1 || data.IsEntityOwner == 1) && data.PostType != 2">
+                                        <a ng-if="data.CommentsAllowed == 1" ng-click="commentsSwitchEmit('ACTIVITY', data.ActivityGUID)">Turn Comments Off</a>
+                                        <a ng-if="data.CommentsAllowed == 0" ng-click="commentsSwitchEmit('ACTIVITY', data.ActivityGUID)">Turn Comments On</a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="seenDetailsEmit(data.ActivityGUID, 'ACTIVITY');">Views</a>
+                                    </li>
+
+                                    <li ng-if="config_detail.IsSuperAdmin && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'"> 
+                                        <a ng-if="data.IsPromoted == 0" ng-click="setPromotionStatus(data.ActivityID, 1, data, $event);">Promote</a>
+                                        <a ng-if="data.IsPromoted == 1" ng-click="setPromotionStatus(data.ActivityID, 0, data, $event);">Unpromote</a>
+                                    </li>
+                                    <li ng-click="remove_feature(data.ActivityGUID, data.ModuleID, data.ModuleEntityID, data);" data-ng-if="config_detail.IsSuperAdmin && data.IsFeatured == 1 && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a>Remove From Featured</a>
+                                    </li>
+                                    <li ng-click="mark_as_feature(data.ActivityGUID, data.ModuleID, data.ModuleEntityID, data);" data-ng-if="config_detail.IsSuperAdmin && data.IsFeatured == 0 && data.ActivityType != 'ProfilePicUpdated' && data.ActivityType != 'ProfileCoverUpdated'">
+                                        <a>Mark As Featured</a>
+                                    </li>
+                                    <li data-ng-if="(data.CanRemove == '1' || data.IsOwner)">
+                                        <a ng-click="deleteEmit(data.ActivityGUID);">Remove Post</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-toolbar btn-toolbar-xs right" data-ng-if="data.Settings.m17 == '1'">
+                        <button ng-if="data.IsSubscribed != '1'" ng-cloak ng-click="subscribeEmit('ACTIVITY', data.ActivityGUID);" class="btn btn-default btn-xs">Follow</button>
+                            <button ng-if="data.IsSubscribed == '1'" ng-cloak ng-click="subscribeEmit('ACTIVITY', data.ActivityGUID);" class="btn btn-primary btn-xs p-h-9" ng-cloak>
+                                <span class="icon"><i class="ficon-check"></i></span>
+                                <span class="text">Following</span>
+                            </button>
+                    </div>                   
+                    
+                    <div class="feed-heading">
+                        <h2 class="title" ng-bind="data.PostTitle"></h2>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">        
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="member-list-block">
+                    <ul class="member-list">
+                        <li class="member-item">                                                    
+                            <a class="thumb-item" tooltip title="{{data.UserName}}" data-container="body" data-placement="bottom">
+                                <img   class="img-circle" ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + data.UserProfilePicture}}" err-name="{{data.UserName}}" />
+                            </a>          
+                        </li>
+                    </ul>
+                    <ul class="list-activites list-icons-disc text-off">
+                        <li >
+                            <a 
+                                class="loadbusinesscard" 
+                                entitytype="user" 
+                                entityguid="{{data.UserGUID}}" 
+                                ng-if="data.PostAsModuleID == '3' && data.ActivityType !== 'ProfilePicUpdated' && data.ActivityType !== 'ProfileCoverUpdated'" 
+                                ng-href="{{data.SiteURL + data.UserProfileURL}}" 
+                                target="_self"
+                                ng-bind="::data.UserName"
+                                >
+
+                            </a>
+
+                        </li>
+                        <li ng-if="data.EntityName" ng-cloak>
+                            <span class="lighter">in</span> 
+                            <a ng-href="group/{{::data.EntityProfileURL}}" ng-if="::data.ModuleID == 1" ng-bind="::data.EntityName"> </a>
+                            <a ng-href="{{::data.EntityProfileURL}}" ng-if="::data.ModuleID == 3" ng-bind="::data.EntityName"> </a>
+                            <a ng-href="{{::data.EntityProfileURL}}" ng-if="::data.ModuleID == 34" ng-bind="::data.EntityName"> </a>                                          
+                        </li>    
+                        <li ng-bind="date_format(data.CreatedDate)"></li>
+                    </ul>
+                </div>
+                <div class="feed-body">
+                    <p ng-cloak ng-if="data.PostContent" ng-bind-html="textToLink(data.PostContent)"></p>
+                    <div class="feed-file" ng-if="data.AllFiles.length > 0">
+                        <h4>Attachments</h4>
+                        <div class="feed-file-body">
+                            <div class="row gutter-5">
+                                <div class="col-md-2 col-sm-3 col-xs-6" ng-repeat-start="m in data.AllFiles|limitTo:view_more_limit" ng-cloak>
+                                    <div ng-cloak class="thumbnail thumbnail-file" ng-if="m.MediaType !== 'Documents'">
+                                        <figure class="img-panel" ng-click="$emit('showMediaPopupGlobalEmit', m.MediaGUID, '');">
+                                            <a class="block">
+                                                <img src="{{AssetBaseUrl}}img/blank-thumb-200x112.png" class="img-full">
+                                                <img ng-if="data.Album[0].Media.length == 1 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}" class="main-img">
+                                                <img ng-if="data.Album[0].Media.length > 1 && m.MediaType !== 'Video' && m.MediaFolder !== 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}" class="main-img">
+                                                <img ng-if="m.MediaType !== 'Video' && m.MediaFolder == 'profile'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName}}" class="main-img">
+                                                <img ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" ng-src="{{ImageServerPath + 'upload/' + m.MediaFolder + '/220x220/' + m.ImageName.substr(0, m.ImageName.lastIndexOf('.')) + '.jpg'}}" class="main-img">
+                                                <span ng-if="m.MediaType == 'Video' && m.ConversionStatus == 'Finished'" class="video-btn">
+                                                    <i class="ficon-play"></i>
+                                                </span>
+                                                <div class="caption">                                      
+                                                    <h6 class="title" ng-bind="m.ImageName"></h6> 
+                                                </div>
+                                            </a>              
+                                        </figure>
+                                    </div>
+                                    <div ng-cloak class="thumbnail thumbnail-file file-type" ng-if="m.MediaType == 'Documents'">
+                                        <figure class="img-panel">
+                                            <a class="block" ng-click="hitToDownload(m.MediaGUID)">
+                                                <img src="{{AssetBaseUrl}}img/blank-thumb-200x112.png" class="img-full ">
+                                                <div class="caption">                                      
+                                                    <h6 class="title" ng-bind="m.OriginalName"></h6> 
+                                                </div>
+                                                <div class="content">
+                                                    <span class="files-attach">
+                                                        <span class="icon">
+                                                            <i ng-class="'ficon-file-type ' + m.MediaExtension">
+                                                                <span ng-bind="'.' + m.MediaExtension"></span>
+                                                            </i>
+                                                        </span>
+                                                        <!--  <span ng-bind="m.MediaExtension"></span> -->
+                                                    </span>
+                                                </div>
+                                            </a>              
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-3 col-xs-6" ng-repeat-end ng-cloak ng-if="$index == 10 && data.AllFiles.length > 9 && view_more == '1'">
+                                    <div class="thumbnail thumbnail-file file-view">
+                                        <figure class="img-panel">
+                                            <a class="block">
+                                                <img src="{{AssetBaseUrl}}img/blank-thumb-200x112.png" class="img-full ">
+                                                <div class="caption">
+                                                    <span class="text" ng-click="update_view_more(0, data.AllFiles.length)">View More</span>
+                                                </div>
+                                            </a>	                                
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feed-btm">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <div class="member-list-block" ng-if="data.MembersList.length > 0">
+                                    <ul class="member-list">
+                                        <li class="member-item">                                           
+                                            <a target="_self" ng-repeat="member in data.MembersList" ng-if="member.ProfilePicture !== ''" class="thumb-item" tooltip ng-attr-title="{{member.Name}}" data-container="body" data-placement="bottom">
+                                                <img err-src="{{AssetBaseUrl+'img/profiles/user_default.jpg'}}" ng-src="{{ImageServerPath + 'upload/profile/220x220/' + member.ProfilePicture}}"   />
+                                            </a>  
+                                        </li>
+                                    </ul>
+                                    <ul class="list-activites text-off">
+                                        <li>
+                                            <span ng-bind-html="::get_members_talking(data.MembersList)"></span>                  
+                                        </li> 
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-2" data-ng-if="data.Settings.m17 == '1'">
+                                <div class="btn-toolbar btn-toolbar-xs right ">
+                                    <button ng-if="data.IsSubscribed != '1'" ng-cloak ng-click="subscribeEmit('ACTIVITY', data.ActivityGUID);" class="btn btn-default btn-xs">Follow</button>
+                                    <button ng-if="data.IsSubscribed == '1'" ng-cloak ng-click="subscribeEmit('ACTIVITY', data.ActivityGUID);" class="btn btn-primary btn-xs p-h-9" ng-cloak>
+                                        <span class="icon"><i class="ficon-check"></i></span>
+                                        <span class="text">Following</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-bar">
+                        <ul class="feed-actions">
+                            <li>
+                                <span class="like-btn">
+                                    <i tooltip data-placement="top" data-container="body" ng-attr-data-original-title="{{(data.IsLike == '1') ? 'Unlike' : (data.NoOfLikes=='0') ? 'Be the first to like' : 'Like' ;}}" ng-click="likeEmit(data.ActivityGUID, 'ACTIVITY', data.ActivityGUID);" ng-class="data.IsLike == '1' ? 'ficon-heart active' : 'ficon-heart'" ></i>
+                                    <abbr ng-if="data.NoOfLikes > 0" ng-bind="data.NoOfLikes" ng-click="likeDetailsEmit(data.ActivityGUID, 'ACTIVITY');"></abbr>
+                                </span>
+                            </li>
+                            <li ng-if="data.CommentsAllowed == 0 && data.NoOfComments > 0">
+                                <a ng-click="moveToBottom();" ng-if="data.PostType !== '2'" ng-bind="'Comments (' + data.NoOfComments + ')'"></a>
+                                <a ng-click="moveToBottom();" ng-if="data.PostType == '2'" ng-bind="'Answers (' + data.NoOfComments + ')'"></a>
+                            </li>
+                            <li ng-if="data.CommentsAllowed == 1">
+                                <a ng-click="postCommentEditor(data.ActivityGUID, FeedIndex);  data.showeditor = true; moveToBottom();" ng-if="LoginSessionKey != '' && data.NoOfComments == 0">
+                                    Be the first to comment
+                                </a>
+                                <a ng-click="loginRequired()" ng-if="LoginSessionKey == '' && data.NoOfComments == 0">
+                                    Be the first to comment
+                                </a>
+                                <a ng-click="moveToBottom();" ng-if="data.PostType !== '2' && data.NoOfComments > 0" ng-bind="'Comments (' + data.NoOfComments + ')'"></a>
+                                <a ng-click="moveToBottom();" ng-if="data.PostType == '2' && data.NoOfComments > 0" ng-bind="'Answers (' + data.NoOfComments + ')'"></a>
+                            </li>                                                 
+                        </ul>
+                        <ul class="feed-action-right">
+                            <li ng-if="(data.FavouriteAllowed == 1)" data-toggle="tooltip" data-placement="bottom" ng-attr-data-original-title="{{(data.IsFavourite=='1') ? 'Unfavourite' : 'Favourite' ;}}">
+                                <i ng-click="setFavouriteEmit(data.ActivityGUID);" ng-class="(data.IsFavourite == '1') ? 'f-yellow' : '';" class="ficon-star f-mlg"></i>
+                            </li>
+                            <li ng-cloak ng-if="data.ShareAllowed == '1'" data-toggle="tooltip" title="Share" data-container="body">
+                                <a ng-click="shareEmit(data.ActivityGUID, 'shareEmit');">
+                                    <i class="ficon-share f-mlg"></i>
+                                </a>                        
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-include src="AssetBaseUrl + 'partials/article/recomended.html' + app_version" ng-cloak ng-init="getRecommendedArticlesTypes()"></ng-include>    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="feed-footer" ng-hide="data.NoOfComments == 0 && !data.showeditor" ng-class="(data.NoOfComments > 0) ? 'is-comments' : '';">
+                    <span ng-include src="partialURL+'activity/Comments.html'+app_version" ></span>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+</div>

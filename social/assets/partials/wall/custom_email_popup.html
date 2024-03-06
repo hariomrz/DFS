@@ -1,0 +1,48 @@
+<div id="emailServiceModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon-close"></i></span>
+                </button>
+                <h4 class="modal-title">Send an email</h4>
+            </div>
+            <form data-rel="form" id="ShareByEmailForm">
+                <div class="modal-body no-p-h">
+                    <div class="padding30">
+                        <div class="form-group" data-error="has-error">
+                            <label class="control-label"> Intended recipients email address <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="form1email"
+                                   placeholder="xyz@gmail.com" name="form1email"
+                                   data-controltype="MultipleEmail"
+                                   data-mandatory="true"
+                                   uix-input=""
+                                   data-msglocation="errorShareFormemail"
+                                   data-requiredmessage="Please enter Email."
+                                   data-ng-model="ShareByEmail.emails"
+                                   autocomplete="off"
+                                   on-focus/>
+                            <span id="errorShareFormemail" class="error-block"></span>
+                            <small class="block pull-right">Use <b>' , '</b> to add multiple email addresses</small>
+                        </div>
+                        <div class="form-group" data-error="has-error">
+                            <label class="control-label">Your personal message <span class="required">*</span></label>
+                            <textarea class="form-control" rows="4" id="shareEmailtext"
+                                      name="shareEmailtext"
+                                      placeholder="Whats on your mind?"
+                                      data-ng-model="ShareByEmail.message"
+                                      data-mandatory="true"
+                                      data-controltype="general"
+                                      data-msglocation="errorShareByEmailMessage"
+                                      data-requiredmessage="Please enter your description" on-focus></textarea>
+                            <span id="errorShareByEmailMessage" class="error-block"></span> </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary pull-right" id="nativesendinvitaion" ng-click="SubmitShareByEmail();">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

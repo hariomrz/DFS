@@ -1,0 +1,38 @@
+.note-editor {
+  position: relative;
+  background-color: $theme-color;
+  i,
+  .note-icon-caret,
+  .dropdown-toggle {
+    color: $white;
+    &::after {
+      content: none;
+    }
+  }
+  .dropdown-menu {
+    min-width: 170px !important;
+    text-align: center;
+    padding: 10px;
+    i{
+       color: $theme-color;
+    }
+  }
+  p,pre{
+    margin-bottom: 0;
+  }
+  li a {
+    color: $theme-color;
+  }
+  .modal-header{
+    display: block;
+  }
+  .note-statusbar{
+    display: none;
+  }
+}
+.popover-content.note-children-container{
+    display: none;
+  }
+.tooltip.fade.bs-tooltip-bottom{
+  background-color: transparent;
+}

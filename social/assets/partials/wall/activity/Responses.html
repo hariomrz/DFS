@@ -1,0 +1,239 @@
+<div ng-hide="data.NoOfComments==0 && data.CommentsAllowed==0" ng-class="(data.NoOfComments > 0) ? 'is-comments' : '';">
+    <div class="feed-title" ng-if="data.NoOfComments > 0">Responses</div>
+    <div class="news-feed-listing" ng-repeat="comnt in data.Comments|reverse" id="{{comnt.CommentGUID}}">
+        <div class="feed-body">
+            <div class="comment-view-block " id="comment-view-block-{{comnt.CommentGUID}}" ng-cloak>
+                <div class="feed-header">
+                    <a ng-cloak ng-if="comnt.ModuleID == '18'" ng-href="{{data.SiteURL + comnt.ProfileLink}}" class="ng-thumb-30 loadbusinesscard" entitytype="page" entityguid="{{comnt.UserGUID}}"><img ng-if="comnt.ProfilePicture !== ''"   ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + comnt.ProfilePicture}}"></a>
+                    <a ng-cloak ng-if="comnt.ModuleID == '3'" ng-href="{{data.SiteURL + comnt.ProfileLink}}" class="ng-thumb-30 loadbusinesscard" entitytype="user" entityguid="{{comnt.UserGUID}}"><img ng-if="comnt.ProfilePicture !== ''"   ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + comnt.ProfilePicture}}"></a>
+                    <div class="user-info">
+                        <a ng-cloak ng-if="comnt.ModuleID == '18'" ng-href="{{data.SiteURL + comnt.ProfileLink}}" class="loadbusinesscard" entitytype="page" entityguid="{{comnt.UserGUID}}" ng-bind="comnt.Name"></a>
+                        <a ng-cloak ng-if="comnt.ModuleID == '3'" ng-href="{{data.SiteURL + comnt.ProfileLink}}" class="loadbusinesscard" entitytype="user" entityguid="{{comnt.UserGUID}}" ng-bind="comnt.Name"></a>
+                        <span tooltip data-placement="top" data-original-title="Expert" ng-if="comnt.IsExpert=='1'" class="icon group-expert">
+                         <svg height="14px" width="14px" class="svg-icons">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#icnExpert'}}"></use>
+                          </svg>
+                    </span>
+                        <ul class="sub-navigation">
+                            <li ng-attr-title="{{getTimeFromDate(UTCtoTimeZone(comnt.CreatedDate));}}" ng-bind="date_format((comnt.CreatedDate));"></li>
+                        </ul>
+                    </div>
+                    <ul class="feed-nav" ng-if="data.PostType != '2'">
+                        <li class="dropdown" ng-if=" (data.IsOwner == '1' || comnt.IsOwner==1 ) && comnt.CanDelete == '1' ">
+                            <button type="button" data-toggle="dropdown" class="btn-circle" aria-expanded="false">
+                                <svg height="20px" width="20px" class="svg-icons">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#icnVerticalDot'}}"></use>
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu feedaction">
+                                <li ng-if="comnt.IsOwner==1" ng-click="commentEditBlock(comnt.CommentGUID, data.ActivityGUID,comnt)"><a>Edit</a></li>
+                                <li ng-click="deleteCommentEmit(comnt.CommentGUID, data.ActivityGUID);" ng-if="comnt.CanDelete == '1' && data.PostType !== '2'"><a>Delete</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feed-content">
+                    <div ng-bind-html="textToLinkComment(comnt.PostComment)"></div>
+                </div>
+                <div class="feed-post-activity">
+                    <ul class="feed-like-nav">
+                        <li tooltip data-placement="top" ng-attr-data-original-title="{{(comnt.IsLike == '1') ? 'Dislike' : 'Like' ;}}" ng-class="(comnt.IsLike == 1) ? 'active' : '';" class="iconlike">
+                            <span ng-disabled="data.IsDeleted == 1" data-ng-click="likeEmit(comnt.CommentGUID, 'COMMENT', data.ActivityGUID);">
+                                        <svg height="16px" width="16px" class="svg-icons">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#iconLike'}}"></use>
+                                        </svg>
+                                    </span>
+                        </li>
+                        <li class="view-count" ng-bind="comnt.NoOfLikes" ng-if="comnt.NoOfLikes>0" ng-click="likeDetailsEmit(comnt.CommentGUID, 'COMMENT');"></li>
+                        <li tooltip data-placement="top" data-original-title="Reply" ng-click="replyToComment(comnt.CommentGUID)">
+                            <svg height="18px" width="18px" class="svg-icons">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#icnReply'}}"></use>
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-t-sm semi-bold clearfix" ng-if="comnt.NoOfReplies > 0">
+                    <a class="pull-left" ng-if="comnt.Replies.length < comnt.NoOfReplies" ng-click="getCommentReplies(comnt.CommentGUID, data.ActivityGUID, comnt.NoOfReplies)" ng-cloak><span ng-if="comnt.NoOfReplies == 1" ng-bind="comnt.NoOfReplies + ' Reply'"></span><span ng-if="comnt.NoOfReplies > 1" ng-bind="comnt.NoOfReplies + ' Replies'"></span> <span class="caret"></span></a>
+                    <a class="pull-left" ng-if="comnt.Replies.length == comnt.NoOfReplies" ng-click="hideCommentReplies(comnt.CommentGUID, data.ActivityGUID)" ng-cloak>Hide <span class="caret"></span></a>
+                </div>
+                <ul class="comment-listing">
+                    <li ng-repeat="reply in comnt.Replies">
+                        <div class="comment-listing-content">
+                            <div class="comment-header">
+                                <div class="user-info">
+                                    <a ng-cloak ng-if="reply.ModuleID == '18'" ng-href="{{data.SiteURL + reply.ProfileLink}}" class="ng-thumb-30 loadbusinesscard" entitytype="page" entityguid="{{reply.UserGUID}}"><img ng-if="reply.ProfilePicture !== ''"   ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + reply.ProfilePicture}}"></a>
+                                    <a ng-cloak ng-if="reply.ModuleID == '3'" ng-href="{{data.SiteURL + reply.ProfileLink}}" class="ng-thumb-30 loadbusinesscard" entitytype="user" entityguid="{{reply.UserGUID}}">
+                                        <img err-Name="{{reply.Name}}"   ng-src="{{data.ImageServerPath + 'upload/profile/220x220/' + reply.ProfilePicture}}">
+                                    </a>
+                                    <a ng-cloak ng-if="reply.ModuleID == '18'" ng-href="{{data.SiteURL + reply.ProfileLink}}" class="loadbusinesscard" entitytype="page" entityguid="{{reply.UserGUID}}" ng-bind="reply.Name"></a>
+                                    <a ng-cloak ng-if="reply.ModuleID == '3'" ng-href="{{data.SiteURL + reply.ProfileLink}}" class="loadbusinesscard" entitytype="user" entityguid="{{reply.UserGUID}}" ng-bind="reply.Name"></a>
+                                    <span tooltip data-placement="top" data-original-title="Expert" ng-if="reply.IsExpert == '1'" class="icon group-expert">
+                                                <svg height="14px" width="14px" class="svg-icons">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#icnExpert'}}"></use>
+                                                </svg>
+                                            </span>
+                                    <div class="location" ng-attr-title="{{getTimeFromDate(UTCtoTimeZone(reply.CreatedDate));}}" ng-bind="date_format((reply.CreatedDate));"></div>
+                                </div>
+                            </div>
+                            <div class="commented-content" ng-bind-html="textToLinkComment(reply.PostComment)">
+                            </div>
+                            <div class="feed-post-activity">
+                                <ul class="feed-like-nav">
+                                    <li class="iconlike" tooltip data-placement="top" ng-attr-data-original-title="{{(reply.IsLike == '1') ? 'Dislike' : 'Like' ;}}" ng-class="(reply.IsLike == 1) ? 'active' : '';" data-ng-click="likeEmit(reply.CommentGUID, 'COMMENT', data.ActivityGUID, 0, comnt.CommentGUID);">
+                                        <svg height="16px" width="16px" class="svg-icons">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#iconLike'}}"></use>
+                                        </svg>
+                                    </li>
+                                    <li class="view-count" ng-click="likeDetailsEmit(reply.CommentGUID, 'COMMENT');" ng-bind="reply.NoOfLikes" ng-if="reply.NoOfLikes>0"></li>
+                                </ul>
+                                <ul class="feed-remove-nav">
+                                    <li ng-if="reply.CanDelete == '1'" ng-click="deleteCommentEmit(reply.CommentGUID, data.ActivityGUID, comnt.CommentGUID);" data-toggle="tooltip" data-placement="top"  data-original-title="Remove"><i class="icon-n-close"></i> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="write-on-comment reply-comment" style="display:none;" id="r-{{comnt.CommentGUID}}">
+                    <textarea ng-show="LoginSessionKey==''" ng-focus="loginRequired()" class="form-control " placeholder="{{(data.PostType=='2' ) ? 'Reply to answer...' : 'Reply to comment...' ;}} "></textarea>
+                    <textarea ng-show="LoginSessionKey!=''" id="rply-{{comnt.CommentGUID}}" data-ids=" r-{{comnt.CommentGUID}} " data-ng-keypress="replyEmit($event, comnt.CommentGUID, data.ActivityGUID) " class="form-control " placeholder="{{(data.PostType=='2' ) ? 'Reply to answer...' : 'Reply to comment...' ;}} "></textarea>
+                        </div>
+                        </div>
+        </div>
+        <div class="comment-edit-block" id="comment-edit-block-{{comnt.CommentGUID}} " ng-cloak="" ng-if="edit_comment_box==comnt.CommentGUID">
+                        <div class="post-comments ">
+                            <div class="comment-section ">
+                                <div class="current-selected ">
+                                    <span class="icon " ng-click="insert_to_editor(data.ActivityGUID,data.PostContent,FeedIndex) ">
+                                    <svg height="16px " width="16px " class="svg-icons ">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink " xlink:href="{{SiteURL+'assets/img/sprite.svg#icnQuote'}} " ng-href="{{SiteURL+'assets/img/sprite.svg#icnQuote'}} "></use>
+                                    </svg>
+                                  </span>
+                                </div>
+                                <summernote id="cmt-{{comnt.CommentGUID}} " config="commentOptions " placeholder="Write a comment " on-focus="focus(evt) " editable="editable " editor="editor " on-blur="CheckBlur(data.ActivityGUID) " on-keyup="checkEditorData(evt, FeedIndex);">
+                                </summernote>                                       
+                                <!-- Post Action -->
+                                <div class="post-actions clearfix border-top " >
+                                    <div class="media-upload-view " id="attachments-cmt-{{ EditComment.CommentGUID}} " ng-cloak ng-show="(EditComment.Media.length> 0) || (EditComment.Files.length > 0)">
+                        <ul class="attached-list" id="listingmedia">
+                            <li class="photo-itm media-item" ng-repeat=" ( mediaIndex, media ) in EditComment.Media">
+<!--                                <div ng-hide="media.progress" class="loader" style="display: block;"></div>-->
+                                <div ng-if="media.progressPercentage && media.progressPercentage < 101" data-percentage="{{media.progressPercentage}}" upload-progress-bar-cs></div>
+                                <span ng-if="(media.MediaType == 'Video')" ng-show="media.progress" class="videoprocess" style="background: #ddd;"></span>
+                                <img ng-if="(media.MediaType == 'Image' || media.MediaType == 'PHOTO')" ng-show="media.progress" ng-src="{{ImageServerPath}}upload/comments/220x220/{{media.ImageName}}" >
+                                <i ng-show="media.progress" class="icon-n-close-w" ng-click="removeEditAttachement('media', EditComment.Media, $index);"></i>
+                            </li>
+                        </ul>
+                        <ul class="attached-files ">
+                            <li ng-repeat="( fileIndex, file ) in EditComment.Files">
+<!--                                <div ng-hide="file.progress" class="loader" style="display: block;"></div>-->
+                                <div ng-if="file.progressPercentage && file.progressPercentage < 101" data-percentage="{{file.progressPercentage}}" upload-progress-bar-cs></div>
+                                <span  class="file-type {{file.MediaExtension || file.ext }}">
+                                                    <svg class="svg-icon" width="26px" height="28px">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#fileIcon'}}"></use>
+                                                    </svg> 
+                                                    <span ng-bind="'.' + (file.MediaExtension || file.ext)"></span>
+                                </span>
+                                <span  class="file-name" ng-bind="file.OriginalName || file.name"></span>
+                                <i ng-show="file.progress" class="dwonload icon hover" ng-click="removeEditAttachement('file', EditComment.Files, FeedIndex);">
+                                                    <svg class="svg-icons" width="20px" height="20px">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#closeIcon'}}"></use>
+                                                    </svg>
+                                                </i>
+                            </li>
+                        </ul>
+                </div>
+                <div class="post-footer">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="pull-right wall-btns">
+                                <ul class="wall-action-btn">
+                                    <li class="icon-btn" ng-if="EditComment.Media.length == 0">
+                                        <button ngf-select="EdituploadFiles($files, $invalidFiles,EditComment, 1)" accept=".png, .jpg, .jpeg" ngf-validate-async-fn="validateFileSize($file);" type="button" class="btn btn-default" onclick="$('#fileAttach').trigger('click');">
+                                            <span class="icon">
+                                                                            <svg class="svg-icons" height="20px" width="20px">
+                                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#icnAttachment'}}"></use>
+                                                                            </svg>
+                                                                        </span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="PostBtn-{{EditComment.CommentGUID}}" data-ng-click="EditcommentEmit($event, data.ActivityGUID, EditComment, 0, FeedIndex)" class="btn btn-primary p-h" type="button">Post </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-comments" id="cmt-div-{{data.ActivityGUID}}" ng-if="data.IsDeleted == 0 && data.CommentsAllowed == 1 && data.StatusID !== '10'">
+        <span class="place-holder-label" ng-click="postCommentEditor(data.ActivityGUID, FeedIndex)" ng-bind="(data.PostType == '2') ? 'Write an answer...' : 'Write a comment...'" ng-if="show_comment_box!=data.ActivityGUID"></span>
+        <div class="comment-section" ng-cloak ng-if="show_comment_box==data.ActivityGUID">
+            <div class="loader commentEditorLoader" style="top:45%;">&nbsp;</div>
+            <summernote data-posttype="Comment" data-guid="{{data.ActivityGUID}}" on-image-upload="imageUpload(files)" id="cmt-{{data.ActivityGUID}}" config="commentOptions" placeholder="Write a comment" on-focus="focus(evt)" on-blur="CheckBlur(data.ActivityGUID)" on-keyup="checkEditorData(evt, FeedIndex);">
+            </summernote>
+            <!-- Post Action -->
+            <div class="post-actions clearfix  border-top">
+                <div class="media-upload-view" id="attachments-cmt-{{ data.ActivityGUID}}" ng-cloak ng-show="(activityData[FeedIndex].commentMediaCount > 0) || (activityData[FeedIndex].commentFileCount > 0)">
+                    <ul class="attached-list" id="listingmedia">
+                        <li class="photo-itm media-item" ng-repeat=" ( mediaIndex, media ) in activityData[FeedIndex].medias">
+<!--                            <div ng-hide="media.progress" class="loader" style="display: block;"></div>-->
+                            <div ng-if="media.progressPercentage && media.progressPercentage < 101" data-percentage="{{media.progressPercentage}}" upload-progress-bar-cs></div>
+                            <span ng-if="(media.data.MediaType == 'VIDEO')" ng-show="media.progress" class="videoprocess" style="background: #ddd;"></span>
+                            <img ng-if="(media.data.MediaType == 'PHOTO')" ng-show="media.progress" ng-src="{{media.data.ImageServerPath}}/220x220/{{media.data.ImageName}}" >
+                            <i ng-show="media.progress" class="icon-n-close-w" ng-click="removeAttachement('media', mediaIndex, FeedIndex);"></i>
+                        </li>
+                    </ul>
+                    <ul class="attached-files ">
+                        <li ng-repeat="( fileIndex, file ) in activityData[FeedIndex].files">
+<!--                            <div ng-hide="file.progress" class="loader" style="display: block;"></div>-->
+                            <div ng-if="file.progressPercentage && file.progressPercentage < 101" data-percentage="{{file.progressPercentage}}" upload-progress-bar-cs></div>
+                            <span  class="file-type {{file.data.MediaExtension || file.ext }}">
+                                <svg class="svg-icon" width="26px" height="28px">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#fileIcon'}}"></use>
+                                </svg> 
+                                <span ng-bind="'.' + (file.data.MediaExtension || file.ext)"></span>
+                            </span>
+                            <span  class="file-name" ng-bind="file.data.OriginalName || file.name"></span>
+                            <i ng-show="file.progress" class="dwonload icon hover" ng-click="removeAttachement('file', fileIndex, FeedIndex);">
+                                <svg class="svg-icons" width="20px" height="20px">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#closeIcon'}}"></use>
+                                </svg>
+                            </i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="post-footer">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="pull-right wall-btns">
+                                <ul class="wall-action-btn">
+                                    <li class="icon-btn" ng-if="data[FeedIndex].commentMediaCount==0">
+                                        <button ngf-select="uploadFiles($files, $invalidFiles, data.ActivityGUID, FeedIndex, 0, 1)" accept=".png, .jpg, .jpeg" ngf-validate-async-fn="validateFileSize($file);" type="button" class="btn btn-default" onclick="$('#fileAttach').trigger('click');">
+                                            <span class="icon">
+                                                    <svg class="svg-icons" height="20px" width="20px">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{SiteURL+'assets/img/sprite.svg#icnAttachment'}}"></use>
+                                                    </svg>
+                                                </span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button disabled id="PostBtn-{{data.ActivityGUID}}" data-ng-click="commentEmit($event, data.ActivityGUID, FeedIndex, '.feed-act-' + data.ActivityGUID + ' ')" class="btn btn-primary p-h loader-btn" type="button">Post </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Post Action -->
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+</div>
+<div class="panel panel-show" ng-if="(data.NoOfComments> 2 && data.Comments.length
+                        < data.NoOfComments)">
+    <a class="btn btn-block" ng-click="viewAllComntEmit(FeedIndex, data.ActivityGUID);">Show all Responses</a>
+</div>

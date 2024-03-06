@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "predev-vinfotech-org",
+  "private_key_id": "1ae31df2538d47778e3766953d8f8b6250c76c3d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCnnIqXZShCWMT4\n8JMIxzgLC9hrdYqij3bE0plieiwSBrL1eb0r7q8V4srGW2dlIOw3ts0MG3Y2LKZN\n7olY4riSpOmt7NYCXLR6YVnf1kLAXsY19Dzm9iv1YiH3mAIbpaPpl+D8T7+9/KBT\n8AoNQzrj1RaWAqDAUA9ZQc+ElSNrEc69Skg09MRGwz3aF7gvNoFNuyUYjZ8ozy2l\niaIhXAX5emL+QwYBSsdCWHvb1SggaMomAizBXwJV2qXbYHDyDDAbUbxQTFPlY+bV\n0vds9DttIOwrzjvPf5BEvWNqMvaT+QSFVhsdG51KwF0xJS58DtW3Vv203faNOLov\nupi1LwkrAgMBAAECggEADM+zbJjP59y9VyI1H7KLVZWdTRidNQmBms/wGm3B+/5Y\nFz94lqjC6DzY1ZC7lluN9do6nqZj6QZaD2xGqK0eGrnEayws1XeWWFS9l/unR+kj\nZF3CE/NICK45PQgSgGBIs/xznXi10rgPEMT9t7LMuwjMFg5AXdxT6zVTcjJfrfmW\ndD8iKpx6XCLc3i1FalcoFmfdsIg05Nu/llpmgNor+gyZhQkX2v1mB6rBqvM8BUR6\nKwjZz73EYd5HfB+Ss3swCMOYWOqkbQCfy4CQrUUFsWgmUFC9Fzky3O/2cOxwM1M8\n5yO+sDsIhHe+thc46vgPAu3cLzqbccBVNKvoDZyGxQKBgQDrMRobGZgGvdbVMgRf\n8HoDuG7ohJpHho1IE//u7aLyt22KRVcH5xRT3GFqdFFARpCibLIyNRsbqSiB2Xhk\nDObqgCDXbLIyFzQ2cJGxyazCuo46zAMHeVB8BmNf1Z2VSfo7RzBQJKltgiDFk5ph\nAorVr0nK+VA9QDtyWV1o8eCGLQKBgQC2cM07MwgkiUEmnJHhhcdZU39Y0EJ7a1Z+\nrHnW2aQ7r6Fvj9kgBtdWniU9UYjvlpCXUjZbgS6B4OV7qumjc93wVw+94psm6JRV\n03RgxyJsG+H/GKxnNqxSmZfTlqTjn7Td0Zp4GEiHT6JmI42P1mJ92joqKwJBM306\nqYtagEX7twKBgQCSax81f9mFWOpGD71pfOx5JHjniKYDoWCTXuAWfxrSwB8R1dk4\nskOVcb2z6HYs7cFdXQ4S87zMm6L8M8cfgmi/1MSdWK4XQRrgSXRqmoNTN5EUSa4Z\nGQ1iKRf0sahJKKUAAnGxcyGHa1u7pQiXHF4Sae4mzs+FUlev+LKOgwakgQKBgAFW\nEiq81PJvjuqZevgL4snksqoT3GjLAHctDDdmoK1PO/91LkHtyuX3go5QapBWqfhx\nwbQp3g1VeFjPh6aK0rVP7e2WG0zNp0h5pACRdM8V5THZHGolHF3+gf4qvEpugQSe\n5GK8yssy6h2VZRQInfAOCR8F8Z5IokIru7mN9vVBAoGBAMBpYFH407dVjTRHOV2w\novKxv9iMdZrfYs+mvQch8zom3Bj0+L0e1aMn+ZEYuTIaWVFhsXUeFDjP2gcs/wLQ\n67JW94pDuQVGLY1nKP7GzEWFHgR5fkz8YRqYVCXX3KF9ka6PgTUk5JklQMfZd1WF\nDw99o8ctJFdDCBrW6slC7Dpi\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ofwm1@predev-vinfotech-org.iam.gserviceaccount.com",
+  "client_id": "109245157368546445771",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ofwm1%40predev-vinfotech-org.iam.gserviceaccount.com"
+}

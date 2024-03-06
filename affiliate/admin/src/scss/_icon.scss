@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('../assets/fonts/icomoon.eot?9bbgrb#iefix') format('embedded-opentype'),
+    url('../assets/fonts/icomoon.ttf?9bbgrb') format('truetype'),
+    url('../assets/fonts/icomoon.woff?9bbgrb') format('woff'),
+    url('../assets/fonts/icomoon.svg?9bbgrb#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wallet:before {
+  content: "\e911";
+}
+
+.icon-export:before {
+  content: "\e914";
+}
+
+.icon-Pending:before {
+  content: "\e915";
+}
+
+.icon-verified:before {
+  content: "\e916";
+}
+
+.icon-info:before {
+  content: "\e900";
+}
+
+.icon-rupess:before {
+  content: "\e90e";
+}
+
+.icon-Path:before {
+  content: "\e901";
+}
+
+.icon-Shape:before {
+  content: "\e90f";
+}
+
+.icon-delete:before {
+  content: "\e905";
+}
+
+.icon-search:before {
+  content: "\e904";
+}
+
+.icon-edit:before {
+  content: "\e903";
+}
+
+.icon-m:before {
+  content: "\e906";
+}
+
+.icon-r:before {
+  content: "\e907";
+}
+
+.icon-g:before {
+  content: "\e908";
+}
+
+.icon-down-arrow:before {
+  content: "\e909";
+}
+
+.icon-promote .path1:before {
+  content: "\e90a";
+  color: #f8436e;
+}
+
+.icon-promote .path2:before {
+  content: "\e90b";
+  color: #fff;
+  margin-left: -1em;
+}
+
+.icon-pinned:before {
+  content: "\e902";
+}
+
+.icon-info-border:before {
+  content: "\e90c";
+}
+
+.icon-bonus:before {
+  content: "\e90d";
+}
+
+.icon-email_verified:before {
+  content: "\e91a";
+}
+
+.icon-flag:before {
+  content: "\e919";
+}
+
+.icon-not-verify:before {
+  content: "\e91b";
+}
+
+.icon-inactive:before {
+  content: "\e910";
+}
+
+.icon-notify:before {
+  content: "\e918";
+}
+
+.icon-add_note:before {
+  content: "\e917";
+}
+
+.icon-filter:before {
+  content: "\e91c";
+}
+
+.icon-notification:before {
+  content: "\e91d";
+}
+
+.icon-sms:before {
+  content: "\e91e";
+}
+.icon-action:before {
+  content: "\e91f";
+}
+.icon-inactive-border:before {
+  content: "\e920";
+}
+.icon-pending-doc:before {
+  content: "\e921";
+}
+.icon-pending-document:before {
+  content: "\e922";
+}

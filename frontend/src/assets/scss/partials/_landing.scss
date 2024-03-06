@@ -1,0 +1,52 @@
+.brand-logo{
+    img{
+        @media (max-width:1400){
+            width: 77px;
+        }
+        @media (max-width:767px){
+            width: 50px;   
+        }
+    }
+    
+}
+.download-app-body{
+    font-size: 14px;
+    font-family: $font-regular;
+    padding: 15px;
+    a{
+        font-size: 14px;
+        color: $primary;
+        &:hover{
+            color: darken($primary, 15%);
+        }
+    }
+    .background-logo{
+        background-color: black !important;
+        border-radius: 8px !important;
+    }
+    .right-logo{
+        margin-right: 10px !important;
+    }
+    &.d-app-screen{
+        margin-top: 100px;
+        .btn-primary{
+            border-radius: 22px;
+            width: 70%;
+        }
+        .logo-lg{
+            margin-bottom: 20%;
+           
+        }
+        .react-tel-input{
+            max-width: 350px !important;
+        }
+        input[type="checkbox"]:checked ~ span:before{
+            background: $primary !important;
+        }
+        .click-disabled{
+            pointer-events: none;
+            background: linear-gradient(90deg,$btn-disable-bg,$btn-disable-bg 60%,$btn-disable-bg 90%);
+            color: $btn-disable-color;
+        }
+    }
+}

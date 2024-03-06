@@ -1,0 +1,167 @@
+.react-datepicker-wrapper {
+  :active,
+  :focus {
+    outline: none;
+  }
+}
+
+.graph-p-box {
+  margin: 0 16px;
+  @media (max-width: 1280px) {
+    margin: 6px;
+  }
+}
+
+.c-survey {
+  background-color: #f8436e;
+}
+.c-feedback {
+  background-color: #212235;
+}
+.c-dailystreak {
+  background-color: #04a057;
+}
+.c-video {
+  background-color: #00bfeb;
+}
+.c-totalcoins {
+  background-color: #eba000;
+}
+.c-friend {
+  background-color: #c410d3;
+}
+.c-giftvoucher {
+  background-color: #ef7e7e;
+}
+
+.pie-chart {
+  .highcharts-label {
+    .total-coins {
+      color: #030f09;
+    }
+  }
+}
+.coin-img {
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  20% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.highcharts-yaxis tspan {
+  font-size: 22px;
+  font-family: "MuliBold";
+  opacity: 0.1;
+}
+
+.coins-dashboard {
+  margin-top: 22px;
+  .member-box {
+    .react-datepicker-wrapper {
+      margin-right: 10px;
+    }
+  }
+  .closing-balance {
+    color: #555555;
+    font-family: $font-bold;
+    margin-bottom: 0;
+  }
+  .balance-count {
+    color: #27272d;
+    font-family: $font-bold;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .img-wrap {
+    float: left;
+    width: 40px;
+    height: 40px;
+  }
+
+  .coin-img {
+    height: 36px;
+    width: 36px;
+
+    
+
+    margin-right: 4px;
+    vertical-align: sub;
+  }
+  .graph-box {
+    
+    min-height: 534px;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: $white;
+    box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.2);
+    @media (max-width: 1280px) {
+      height: 548px;
+    }
+  }
+  .title-box {
+    padding: 30px;
+    @media (max-width: 1280px) {
+      padding: 20px 20px 0px 20px;
+    }
+  }
+  .distributed-count {
+    color: $secondary-color;
+    font-family: $font-bold;
+    font-size: 36px;
+    line-height: 40px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .coins-distributed {
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+}
+.align-right {
+  text-align: right;
+}
+.graph-list {
+  margin-bottom: 0;
+  margin-top: 6px;
+  .graph-item {
+    display: inline-block;
+    
+    .indicator {
+      margin-top: 7px;
+    }
+    margin-bottom: 6px;
+    text-align: left;
+    @media (max-width: 1280px) {
+      float: left;
+    }
+  }
+}
+.main-ind {
+  display: block;
+  height: 6px;
+  width: 18px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+.indicator {
+  @extend .main-ind;
+  float: right;
+  margin-left: 6px;
+}
+.dis-indicator {
+  @extend .main-ind;
+  float: left;
+  margin-right: 6px;
+}

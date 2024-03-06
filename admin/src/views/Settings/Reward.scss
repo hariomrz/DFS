@@ -1,0 +1,28 @@
+.sw_reward {
+  margin-top: 30px;
+
+  .icon-edit,
+  .icon-delete {
+    font-size: 20px;
+    cursor: pointer;
+    transition: font-size 0.4s;
+    padding: 6px;
+    border-radius: 100%;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #666;
+      color: $white;
+    }
+  }
+}
+
+.add-league-modal.reward-mod {
+  label {
+    margin-bottom: 4px;
+  }
+}
+
+// .prediction-popup {
+//   top: 30%;
+// }

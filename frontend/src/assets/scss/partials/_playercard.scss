@@ -1,0 +1,796 @@
+.playercard-modal{
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    max-height: 80vh;
+    a.close-modal{
+        position: absolute;
+        top: -35px;
+        right: 10px;
+        i{
+            color: $white;
+            font-size: $font-base;
+        }
+    }
+    .modal-header{
+        border-bottom: 0;
+        border-top-left-radius:13px;
+        border-top-right-radius:13px;
+        padding: 20px 20px 10px 20px;
+    }
+    .modal-body{
+        padding: 0 ;
+        background-color: $gray-170;
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+        max-height: calc(80vh - 162px);
+        .tab-content{
+            overflow: hidden;            
+            height: calc(80vh - 206px);
+            .player-card-body{
+                max-height: calc(80vh - 206px);
+                overflow-y: auto; 
+                min-height: 1px;               
+            }
+        }
+    }
+    .highcharts-credits{
+        display: none;
+    }
+}
+.playercard-header {
+    .btn-roster-action{
+        position: absolute;
+        top:15px;
+        right: 5px;
+    }
+    .player-img {
+        height: 80px;
+        width: 80px;
+        background-color: $white;
+        box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
+        padding: 18px;
+        border-radius: 50%;
+        margin-right: 15px;
+        display: inline-block;
+        img {
+            max-width: 100%;
+        }
+    }
+    .player-self-detail {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+.f-name {
+    color: $primary_text_color;
+    font-size: 16px;
+    font-family: $font-bold;
+    line-height: 20px;
+    display: block;
+}
+.l-name {
+    color: $primary;
+    font-size: 24px;
+    line-height: 28px;
+    font-family: $font-regular;
+    font-weight: bold;
+    display: block;
+}
+.player-postion {
+    color: $help_text_color;
+    font-size: 12px;
+    font-family: $font-regular;
+    font-weight: bold;
+    line-height: 15px;
+    display: block;
+}
+.list-player-detail {
+    margin: 0;
+    padding: 15px 15px 0;
+    display: flex;
+    justify-content: space-between;
+    li {
+        display: inline-block;
+        // width: calc(100% / 3);
+        text-align: center;
+        h4 {
+            color: $primary_text_color;
+            font-size: 16px;
+            font-family: $font-regular;
+            font-weight: bold;
+            line-height: 20px;
+            margin: 0;
+            i{
+                color:$help_text_color;
+            }
+        }
+        span{
+            color:$help_text_color;
+            font-size: 11px;
+            font-family: $font-regular;
+            font-weight: bold;
+            line-height: 15px;
+            display: block;
+        }
+    }
+}
+.sub-heading{
+    margin: 0;
+    font-size: 14px;
+    color: $body_text_color;
+    font-family: $font-regular;
+}
+.table-gamelog{
+    margin-top: 20px;
+    thead{
+        th{
+            font-size: 10px;
+            letter-spacing: -0.08px;
+            line-height: 13px;
+            color:$help_text_color;
+            border-bottom-width: 1px;
+            font-family: $font-regular;
+            font-weight: bold;
+            padding: 9px 8px;
+            text-align: center;
+            border-top: 0px;
+            border-bottom: 1px solid $border_color;
+            &.align-left{
+                text-align: start;
+            }
+        }
+    }
+    tbody{
+        td{
+            font-size: 12px;
+            padding: 25px 5px 0 5px;
+            color:$help_text_color;
+            font-family: $font-regular;
+            font-weight: bold;
+            border-top: 0;
+            text-align: center;
+            .game-date{
+                font-family: $font-regular;
+                color:$primary_text_color;
+                text-align: start;
+                small{
+                    color:$help_text_color;
+                    font-family: $font-regular;
+                    font-size: 12px;
+                }
+            }
+            &.align-left{
+                text-align: start;
+            }
+            .game-points{
+                color:$primary_text_color;
+                font-family: $font-regular;
+                font-weight: bold;
+            }
+            &:not(:first-child){
+                text-align: center;
+            }
+        }
+    }
+}
+.tabs-secondary{
+    .nav.nav-tabs {
+        border: 0;
+        box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+        li {
+            width: calc(100% / 2);
+            a {
+                width: 100%;
+                background: $white;
+                color: $help_text_color;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 12px;
+                font-family: $font-bold;
+                letter-spacing: 1px;
+                display: inline-block;
+                padding: 13px;
+            }
+            &.active {
+                a {
+                    color: $primary;
+                    position: relative;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0px;
+                        height: 2px;
+                        width: 100%;
+                        background: $primary;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.player-card-body{
+    padding: 20px 15px;
+    height: auto;
+    min-height: 360px;
+    position: relative;
+    .average-hardcoded-text{
+        color: $body_text_color;
+        font-family: $font-regular;
+        font-size: 14px;
+        line-height: 18px;
+        margin-left: 15px;
+        margin-bottom: 5px;
+    }
+    .player-average-data{
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 5px;
+        .average-container{
+            display: inline-block;
+            .average-progress{
+                display: inline-block;
+                .progress-item{
+                    height: 3px;
+                    width: 15px;
+                    margin-top: 1px;
+                    border-radius: 5px;
+                    background-color: rgba($color: $help_text_color, $alpha: 0.4);
+                    &.green{
+                        background-color: $alert_success_color;
+                    }
+                }
+            }
+            .item-data{
+                display: inline-block;
+                margin-left: 7px;
+                .average-value{
+                    color: rgba($color: $primary_text_color, $alpha: 0.7);
+                    font-family: $font-regular;
+                    font-size: 22px;
+                    line-height: 28px;
+                    text-align: left;                    
+                    span{
+                        color: rgba($color: $help_text_color, $alpha: 0.8);
+                        font-family: $font-regular;
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+                }
+                .average-text {
+                    color: rgba($color: $help_text_color, $alpha: 0.8);
+                    font-family: $font-regular;
+                    font-size: 12px;
+                    line-height: 15px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .no-data-available{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 12px;
+        padding: 25px 5px 0 5px;
+        color: $primary_text_color;
+        font-family: $font-regular;
+        font-weight: bold;
+        border-top: 0;
+    }    
+}
+.player_graph{width: 100%; border-radius: 0px 0px 10px 10px; max-height: 265px;}
+.highcharts-container {
+    .highcharts-root{
+        .highcharts-series-group{
+            .highcharts-series{
+                rect{
+                    fill: $primary;
+                }
+            }
+        }
+    }
+}
+.new-player-card {
+    .modal-content {
+        position: relative;
+    }
+
+    .modal-body {
+        padding: 0 !important;
+        padding-bottom: 80px !important;
+    }
+
+    .close-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 15px 8px;
+        border-bottom: 1px solid $border_color;
+        a {
+            width: 40px;
+            padding: 5px 0 0;
+            text-align: right;
+        }
+        .icon-arrow-down {
+            color: $help_text_color;
+        }
+
+        .text-success {
+            font-size: $font-base;
+            font-family: $font-semibold;
+
+            .playing_indicator {
+                width: 8px;
+                height: 8px;
+                margin-right: 4px;
+            }
+        }
+
+        .played-last-match-text {
+            font-size: $font-base;
+            font-family: $font-semibold;
+            margin: 0;
+
+            .playing_indicator {
+                width: 8px;
+                height: 8px;
+                margin-right: 4px;
+            }
+        }
+    }
+
+    .playercard-header {
+        padding: 15px 15px 0;
+        position: relative;
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+
+        .player-self-detail {
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 200px;
+        }
+
+        .player-img {
+            width: 54px;
+            height: 54px;
+            padding: 10px;
+            margin-right: 12px;
+        }
+
+        .l-name {
+            font-size: $font-size-h5;
+            line-height: 24px;
+            color: $primary_text_color;
+            font-family: $font-semibold;
+            font-weight: normal;
+        }
+
+        .player-postion {
+            font-size: $font-base;
+            line-height: 16px;
+            font-family: $font-semibold;
+            font-weight: normal;
+        }
+
+        .btn-roster-action {
+            top: 28px;
+            transition: all 0.3s;
+
+            &.added {
+                border: 1px solid $primary !important;
+            }
+        }
+
+        .list-player-detail {
+            margin-left: 66px;
+            padding: 15px 0;
+            justify-content: normal;
+
+            li {
+                text-align: left;
+                // width: 40%;
+                // min-width: 120px;
+                flex: auto;
+
+                h4 {
+                    color: $body_text_color;
+                }
+
+                span {
+                    line-height: unset;
+                    font-size: $font-size-small;
+                }
+            }
+        }
+    }
+
+    .match-list-v {
+        padding: 20px;
+
+        .no-data-container {
+            img {
+                max-width: 250px;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                text-transform: uppercase;
+                margin: 15px auto;
+                font-size: $font-size-h4;
+                font-family: $font-bold;
+            }
+        }
+
+        .match-wise-fantasy {
+            color: $primary_text_color;
+            font-family: $font-semibold;
+            letter-spacing: 0;
+            line-height: 18px;
+        }
+
+        .click-on {
+            color: $help_text_color;
+            font-family: $font-regular;
+            font-size: $font-size-small;
+            letter-spacing: 0;
+            line-height: 14px;
+            margin-bottom: 10px;
+        }
+
+        .match-item {
+            border-radius: 8px;
+            box-shadow: 0 5px 30px 1px rgba(0, 0, 0, 0.1);
+            padding: 21px 25px 18px 18px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid $app_text_color;
+            box-shadow: none;
+
+            &.is_tour_game {
+                padding: 15px 15px 10px;
+                flex-direction: column;
+                align-items: flex-start;
+
+
+                .is-tour-game-bottom {
+                    flex: 1;
+                    width: 100%;
+                }
+
+                .is-tour-game-bottom {
+                    display: flex;
+                    padding-top: 15px;
+                }
+
+                .name-h4 {
+                    line-height: 1.2;
+                }
+                .item-sec {
+                    flex: auto;
+                    &.track_svg {
+                        max-width: 60px;
+                        min-width: 60px;
+                        position: relative;
+                        display: flex;
+                        align-items: flex-end;
+
+                        img {
+                            position: absolute;
+                            width: 60px;
+                            height: 60px;
+                            bottom: 15px;
+                            right: 0;
+                        }
+                        .track_svg_caption {
+                            font-size: 12px;
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                &.tennis {
+                    padding: 15px 0 0;
+                    margin-bottom: 20px;
+                    .tennis-d-flex {
+                        display: flex;
+                        align-items: center;
+                        padding: 0 15px;
+                        width: 100%;
+                        .is-tour-game-bottom {
+                            flex: 1 1 100px;
+                            text-align: center;
+                            padding-top: 0;
+                        }
+                    }
+                    .tennis-bottom {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 30px;
+                        width: 100%;
+                        margin-top: 18px;
+                        border-top: solid 1px $disabled_text_color;
+                        .val-txt {
+                            color: $primary_text_color;
+                            margin-left: 6px;
+                            letter-spacing: 1.5px;
+                            &::after {
+                                content: ',';
+                            }
+                            &:last-child {
+                                &::after {
+                                    display: none;
+                                }   
+                            }
+                        }
+                    }
+                }
+
+            }
+            .name-h4 {
+                font-size: $font-size-medium;
+                color: $primary_text_color;
+                font-family: $font-semibold;
+                margin: 0;
+
+                .team_name {
+                    display: inline-block;
+                    color: $help_text_color;
+                    &.active{
+                        color: $primary_text_color;
+                    }
+                }
+            }
+
+            .item-sec.small {
+                .name-h4 {
+                    font-size: 15px;
+                }
+            }
+
+            span {
+                font-size: $font-size-small;
+                color: $help_text_color;
+                font-family: $font-regular;
+                font-weight: 600;
+                text-transform: capitalize;
+                line-height: 14px;
+            }
+        }
+    }
+
+    &.player-break-down {
+        .modal-body {
+            padding-bottom: 0 !important;
+        }
+
+        .close-header {
+            border-bottom: none;
+
+            a {
+                width: 40px;
+                padding: 5px 0 0;
+                text-align: left;
+            }
+        }
+
+        .playercard-header {
+            box-shadow: none;
+
+            .list-player-detail {
+                margin: 0;
+                padding: 18px 0;
+                justify-content: space-between;
+
+                li {
+                    width: 100%;
+
+                    h4 {
+                        color: $black;
+                        font-weight: normal;
+                        font-family: $font-bold;
+                    }
+                }
+            }
+
+            .player-self-detail {
+                max-width: 100%;
+
+                .l-name {
+                    font-size: $font-size-h3;
+                    font-family: $font-bold;
+                    line-height: 32px;
+                }
+
+                .fixture-name {
+                    font-size: $font-base;
+                    font-family: $font-semibold;
+                    line-height: 22px;
+                    color: $help_text_color;
+                    display: block;
+
+                    .active {
+                        color: $primary_text_color;
+                    }
+                }
+
+                .league-name {
+                    font-size: 13px;
+                    line-height: 20px;
+                    color: $help_text_color;
+                    display: block;
+                }
+            }
+        }
+
+        .break-down-l {
+            .strip-v {
+                background-color: $gray-120;
+                padding: 7px 15px 3px;
+                color: $primary_text_color;
+                font-family: $font-bold;
+                text-transform: capitalize;
+                margin: 4px 0;
+            }
+
+            .break-down-h {
+                display: flex;
+                align-items: center;
+                padding: 5px 15px 10px;
+
+                .item-n {
+                    width: 25%;
+                    text-transform: uppercase;
+                    color: $help_text_color;
+                    font-size: $font-size-small;
+                    font-weight: 600;
+                    text-align: center;
+
+                    &.max {
+                        width: 50%;
+                        text-align: left;
+                    }
+                }
+
+                &.sub {
+                    padding: 6px 15px;
+
+                    .item-n {
+                        text-transform: none;
+                        color: $primary_text_color;
+                        font-size: 13px;
+                        font-weight: 100;
+                    }
+                }
+            }
+        }
+
+        .total-footer {
+            background: $primary;
+            padding: 12px 16px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+
+            // position: fixed;
+            // left: 0;
+            // bottom: 0;
+            // width: 100%;
+            span {
+                color: $white;
+                font-size: $font-size-medium;
+                font-family: $font-bold;
+                width: 75%;
+
+                &.max {
+                    font-size: $font-size-h3;
+                    width: 25%;
+                    text-align: center;
+                }
+            }
+        }
+
+        .mob-browser-support {
+            width: 100%;
+            height: 70px;
+            background: $primary;
+        }
+    }
+}
+
+
+// changes for dark theme overall
+.body-dark-theme {
+    .playercard-modal {
+        .modal-body {
+            background: $darkT_ternary;
+        }
+
+        .f-name,
+        .list-player-detail li h4,
+        .sub-heading {
+            color: $darkT_primary_text_color;
+        }
+
+        .table-gamelog tbody td {
+            color: $darkT_primary_text_color;
+
+            .game-date {
+                color: $darkT_primary_text_color;
+
+                small {
+                    color: $darkT_primary_text_color;
+                }
+            }
+        }
+
+        .btn-roster-action {
+            background-color: $darkT_app_bg_color;
+            border-color: #3B3D42 !important;
+
+            i {
+                color: $darkT_primary;
+            }
+
+            &.added {
+                background-color: $darkT_primary;
+                border-color: $darkT_primary !important;
+
+                i {
+                    color: $darkT_secondary;
+                }
+            }
+        }
+
+        .tabs-secondary .nav.nav-tabs {
+            border-bottom: 1px solid $darkT_view_bg_color2;
+
+            li {
+                a {
+                    color: $help_text_color;
+                    background: transparent;
+                }
+
+                &.active {
+                    a {
+                        color: $darkT_primary_text_color;
+
+                        &:after {
+                            background: $darkT_primary;
+                            bottom: -1px;
+                            height: 3px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .l-name {
+            color: $darkT_primary;
+        }
+    }
+}
+.name-h4-tennis{
+font-size: 12px;
+@media (max-width:"550px") {
+    font-size: 10px  !important;
+}
+}
+
+.rules-label-roster{
+    font-size: $font-size-small;
+    font-family: $font-bold;
+    color: $white;
+    margin-left: 10px;
+    text-decoration: underline;
+
+}

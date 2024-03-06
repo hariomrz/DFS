@@ -1,0 +1,171 @@
+<div class="panel panel-transparent" ng-if="selected_categories.length == 0" >
+    <div class="panel-heading">
+        <h3 class="panel-title title-lg">                                              
+            <span class="text">My Favorite Categories</span>
+        </h3>
+    </div>
+    <div class="panel-body nodata-panel nodata-light">   
+        <div class="nodata-text p-v-mlg">            
+            <div class="nodata-vertical">        
+                <figure class="nodata-media">
+                    <img src="{{AssetBaseUrl}}img/favorite-categories.png" >
+                </figure>
+                <div class="block">
+                    <p class="text-off">
+                        No categires have been marked as favorite by you! 
+                        Mark one as favorite for your quick access. 
+                    </p>
+                    <a ng-click="openCategorySelectBox();">Select your category</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- My Favorite Categories -->
+<div class="panel panel-transparent" ng-if="selected_categories.length > 0">
+    <div class="panel-heading">
+        <h3 class="panel-title title-lg">  
+            <a class="text-primary" ng-click="openCategorySelectBox();">Change Category</a>
+            <span class="text">
+                My Favorite Categories
+                <span class="text-md-off regular">(You can select upto 8 categories)</span>
+            </span>
+        </h3>
+    </div>
+    <div class="panel-body transparent">                  
+        <ul class="list-items-categories row">
+            <li ng-repeat="(key, category) in selected_categories" class="col-lg-3 col-md-4 col-sm-6">
+                <div class="list-items-md">                    
+                    <div class="list-inner">
+                        <figure>
+                            <a ng-href="{{BaseUrl+'community/'+category.FURL+'/'+category.URL}}">
+                                <img ng-src="{{category.ProfilePicture}}" class="img-circle"  >
+                            </a>
+                        </figure>
+                        <div class="list-item-body">
+                            <h4 class="list-heading-md ellipsis">
+                                <a ng-href="{{BaseUrl+'community/'+category.FURL+'/'+category.URL}}" ng-bind="category.Name"> </a>
+                            </h4>
+                            <p class="semi-bold no-margin" ng-bind="category.Description"></p>                          
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="col-lg-3 col-md-4 col-sm-6">
+                <a class="list-items-md selected" ng-click="openCategorySelectBox();">                    
+                    <div class="list-inner">    
+                        <span class="text">Select Category</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        
+        <div id="wiki_loader_running" class="loader-fad" style="display: block;">
+            <div class="loader-view spinner48-b" style="display: block;">&nbsp;</div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="selectCategory" tabindex="-1">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                                
+                <div class="row">
+                        <div class="col-xs-12 col-sm-8">
+                           <h4 class="modal-title" id="myModalLabel1" ng-if="modal_show_all_cats == 1">Select Category ({{totalCats}})</h4>
+                            <h4 class="modal-title" id="myModalLabel1" ng-if="modal_show_all_cats == 0">
+                                Selected Categories ({{boxSelectedCategories.length}})
+                            </h4>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            
+                             <div class="input-group global-search category-search">
+                                 <input type="text" name="srch-filters" ng-model="searchCatBox" ng-keyup="searchCat();" placeholder="Quick search" class="form-control">
+                                <div class="input-group-btn" ng-if="searchCatBox == ''">
+                                    <button type="button" class="btn-search">
+                                        <i class="icon-search-gray"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="input-group-btn" ng-if="searchCatBox != ''">
+                                    <button type="button" class="btn-search icons search-icon">
+                                        <i class="ficon-cross "></i>
+                                    </button>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            
+                            <button ng-if="0" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                            
+                            
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-body">
+                <div class="global-scroll max-ht500" id="user-category-load-more">
+                    <ul class="category-list"  ng-if="modal_show_all_cats == 1"> 
+                        <li ng-repeat="(key, value) in categories" ng-click="selectDeselectCategory(value)">
+                            <div class="category-block" ng-class="(value.Selected) ? 'selected' : ''" style="background-image: url('{{value.ProfilePicture}}');">
+                                <input type="checkbox"  >
+                                <div class="category-txt">
+                                    <span ng-bind="value.Name"></span>  
+                                </div>
+                                <span class="icon">
+                                    <i class="ficon-check"></i>
+                                </span> 
+                            </div>
+                        </li>
+                        <li ng-if="categories.length == 0">
+                            No result found.
+                        </li>
+                    </ul> 
+               </div>
+
+               <div class="global-scroll max-ht500 mCustomScrollbar"> 
+                    <ul class="category-list category-list-selected   category-popup" ng-if="modal_show_all_cats == 0" ng-cloak>
+                         <li ng-repeat="(key, value) in boxSelectedCategories" >
+                              <div class="category-block" style="background-image: url('{{value.ProfilePicture}}');">
+                                  
+                                  <div class="category-txt">
+                                      <span ng-bind="value.Name"></span> 
+                                  </div>
+                                  <a class="close-category-list" ng-click="selectDeselectCategory(value)">
+                                    <i class="ficon-cross "></i>
+                                  </a> 
+                              </div>
+                          </li> 
+                          <li ng-if="boxSelectedCategories.length == 0">
+                              No result found.
+                          </li> 
+                    </ul>
+               </div>  
+            </div>
+            <div class="modal-footer">
+                <button type="button" 
+                        class="btn btn-default view-all-category-btn"  
+                        ng-if=" modal_show_all_cats == 1 && boxSelectedCategories.length" 
+                        ng-click="toggleBoxes()"
+                >{{boxSelectedCategories.length}} categories selected</button> 
+                <button type="button" 
+                        class="btn btn-default view-all-category-btn"  
+                        ng-if=" modal_show_all_cats == 0 && boxSelectedCategories.length"
+                        ng-click="toggleBoxes()"
+                        >View all categories</button>                 
+                <button type="button" class="btn btn-primary pull-right" ng-click="saveCategories()" data-dismiss="modal">I’m done</button> 
+            </div>
+        </div> 
+    </div> 
+</div> 

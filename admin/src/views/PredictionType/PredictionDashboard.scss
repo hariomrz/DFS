@@ -1,0 +1,404 @@
+.y-axis-align.highcharts-yaxis {
+  tspan {
+    font-size: 12px !important;
+    opacity: 1 !important;
+    font-family: $font-regular;
+  }
+}
+
+
+.y-axis-align.highcharts-axis-labels.highcharts-yaxis-labels {
+  :first-child {
+    display: none;
+  }
+}
+
+.prediction-dashboard {
+  .op-leaderboard {
+    .tbl-min-hgt {
+      td {
+        font-weight: bold;
+      }
+
+      .icon-bonus1 {
+        font-size: 14px;
+        vertical-align: baseline;
+      }
+      .icon-rupess {
+        font-size: 18px;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+
+  @media (max-width : 1366px) {
+    .graph-align {
+      margin-bottom: 44px;
+    }
+  }
+
+  .menu-item-wrapper {
+    &:focus {
+      outline: none;
+    }
+
+    .category-card {
+      width: 320px;
+      margin-right: 20px;
+      box-shadow: none;
+    }
+  }
+}
+
+.pre-sports-select {
+  height: 36px;
+  width: 120px;
+
+  .Select-value-label {
+    line-height: 36px;
+  }
+
+  .Select-control {
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    background-color: $white;
+    border-radius: 18px;
+    color: $gray-9;
+    font-family: $font-bold;
+  }
+}
+
+.prediction-dashboard {
+  .pre-heading {
+    color: #030F09;
+    font-family: $font-black;
+    font-size: 28px;
+    margin: 30px 0 0;
+  }
+
+  .trending-navigation {
+    margin: 30px 0;
+
+    .nav-tabs {
+      border-bottom: 1px solid #D8D8D8 !important;
+      margin-bottom: 30px;
+
+      .nav-item {
+        &:after {
+          border-bottom: none;
+        }
+      }
+
+      :first-child {
+        .nav-link {
+          margin: 10px 40px 0 10px;
+        }
+      }
+    }
+  }
+
+  .Select-multi-value-wrapper,
+  .Select.Select--single {
+    &:active {
+      outline: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .question-box {
+    box-sizing: border-box;
+    min-width: 414px;
+    border: 1px solid #0CBFEB;
+    border-radius: 14px;
+    background-color: $white;
+    padding: 14px 22px 16px 20px;
+    margin-bottom: 20px;
+    position: relative;
+
+    @media (max-width : 1366px) {
+      min-width: 100%;
+    }
+
+    .ques {
+      color: #0CBFEB;
+      font-family: $font-bold;
+      font-size: 16px;
+      float: left;
+      width: calc(100% - 70px);
+      word-break: break-all;
+    }
+
+    .ques-action {
+      float: right;
+
+      .dropdown {
+        margin-left: 10px;
+      }
+
+      .dropdown {
+        float: right;
+      }
+
+      .icon-more,
+      .icon-pause,
+      .icon-ic-play {
+        font-size: 24px;
+        opacity: 0.5;
+        float: right;
+        cursor: pointer;
+      }
+    }
+
+    .pre-fixture {
+      color: #555555;
+      font-family: $font-bold;
+      margin-bottom: 18px;
+    }
+
+    .pool-box {
+      text-align: left;
+    }
+
+    .poll-info {
+      color: #00BFEB;
+      font-family: $font-bold;
+      font-size: 16px;
+      line-height: 24px;
+      font-style: normal;
+
+      img {
+        margin: 0 4px 0 6px;
+        width: 16px;
+      }
+    }
+
+    .prediction-list {
+      list-style-type: none;
+      margin-bottom: 0;
+      font-style: normal;
+
+      >li {
+        display: inline-block;
+      }
+    }
+
+    .time {
+      color: #EB4A3C;
+      font-family: $font-bold;
+      font-size: 10px;
+
+      .date-style {
+        color: $gray-9;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 4px;
+        background-color: #8D8D8D;
+        border-radius: 100%;
+        float: right;
+        margin: 4px 14px;
+      }
+    }
+
+    li.predicted {
+      color: $gray-9;
+      font-family: $font-bold;
+      font-size: 10px;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .pool-list {
+      list-style-type: none;
+      margin-bottom: 10px;
+    }
+
+    .pool-item {
+      border-radius: 8px;
+      background-color: rgba(242, 242, 242, 0.6);
+      margin-top: 10px;
+      padding: 9px 10px 9px 16px;
+      color: #555555;
+      font-family: $font-bold;
+      font-size: 12px;
+      font-style: normal;
+      cursor: pointer;
+
+      &.active {
+        border: 1px solid #00BFEB;
+      }
+
+      &:first-child {
+        margin-top: 16px;
+      }
+    }
+
+    .right-answer {
+      box-sizing: border-box;
+      border: 1px solid #00BFEB;
+      border-radius: 8px;
+    }
+
+    .pre-timer {
+      line-height: 13px;
+    }
+
+    .dropdown-menu.show {
+      min-width: 115px;
+      border-radius: 4px;
+      background-color: #FFFFFF;
+      box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15);
+      border: none;
+
+      .dropdown-item {
+        border: none;
+        padding: 8px 20px 8px 12px;
+        color: #555555;
+        font-family: $font-regular;
+
+        i {
+          margin-left: 0;
+        }
+
+        &:active {
+          color: $white;
+
+          i {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .graph-box {
+    min-height: 534px;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: $white;
+    box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  .graph-heading {
+    color: #27272D;
+    font-family: $font-bold;
+    font-size: 18px;
+    margin-top: 44px;
+    margin-bottom: 16px;
+  }
+
+  .graph-p-box {
+    min-height: 585px;
+    margin: 0;
+    padding: 20px 16px;
+
+    &.bar-c-padd {
+      padding: 60px 16px 20px 16px;
+    }
+
+    .yaxis-coin {
+      height: 12px;
+      width: 12px;
+      vertical-align: inherit;
+      margin-right: 2px;
+    }
+  }
+
+  .custom-graph {
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    z-index: 100;
+
+    .btn-group {
+      background-color: $white;
+      border-radius: 8px;
+      padding: 5px;
+      height: 42px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+
+      .filter-btn {
+        display: inline-block;
+        height: 18px;
+        color: $black;
+        font-family: $font-bold-italic;
+        text-align: center;
+        padding: 7px;
+        margin: 0 4px;
+        cursor: pointer;
+
+        &.active {
+          color: $white;
+          height: 32px;
+          border-radius: 4px;
+          background: #F8436E;
+        }
+      }
+    }
+  }
+
+  .legend-lable {
+    color: #030F09;
+    font-family: $font-bold;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .graph-footer {
+    margin-top: 30px;
+    padding: 0 10px 0 24px;
+  }
+
+  .legend-counts {
+
+    
+    .amount {
+      color: #FA7083;
+      font-family: $font-bold;
+      font-size: 36px;
+      text-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.prediction-dashboard {
+  padding: 6px 4px;
+}
+
+.total-coin-img {
+  height: 24px;
+  width: 24px;
+  vertical-align: inherit;
+  margin-right: 6px;
+}
+
+.select-week {
+  padding: 24px 20px 40px;
+
+  label {
+    color: #555555;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .Select-control {
+    height: 38px;
+
+    .Select-value {
+      line-height: 36px !important;
+    }
+  }
+}
+.mt40{
+  margin-top: 40px !important;
+}

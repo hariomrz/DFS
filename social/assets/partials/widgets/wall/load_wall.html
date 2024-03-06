@@ -1,0 +1,74 @@
+<section 
+    class="news-feed" 
+    ng-cloak  
+    ng-controller="NewsFeedCtrl" 
+    id="NewsFeedCtrl"
+    infinite-scroll="GetwallPost()" 
+    infinite-scroll-distance="2" 
+    infinite-scroll-use-document-bottom="true" 
+    infinite-scroll-disabled="is_busy"
+        
+>
+
+
+
+    <div  ng-if="wlEttDt.ModuleEntityGUID && !wlEttDt.ActivityGUID" ng-include="AssetBaseUrl + 'partials/widgets/wall/wall-filter.html'" ></div>
+
+
+    <div ng-if="wlEttDt.ModuleEntityGUID && !wlEttDt.hidemedia && wlEttDt.pname == 'wall'" ng-include="AssetBaseUrl + 'partials/widgets/wall/media.html'" ></div>
+
+
+
+    <div class="news-feed-listing sticky-tutor" id="stickyTutorialBox" ng-cloak ng-if="stickynote" ng-class="{'overlay-content': stickynote}">
+        <div class="feed-body">
+            <img ng-src="{{AssetBaseUrl}}img/sticky-pos-options.jpg" >
+        </div>
+    </div>
+
+    <!-- condition  For forum post start  -->
+    <div 
+        ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.IsForumPost == 1"
+        id="activityFeedId-{{ data.ActivityID}}" 
+        ng-repeat="data in activityData track by $index" 
+        repeat-done="wallRepeatDone();" 
+        ng-init="SettingsFn(data.ActivityGUID); FeedIndex = $index; initTagsItem($index);" 
+        viewport-watch 
+        ng-attr-data-guid="act-{{data.ActivityGUID}}" class="activitywrapper"
+        ng-class="getCollpaseClass(data, 'feed-list')"
+    >
+
+        <div  class="inner-wall-post" ng-if="wlEttDt.ActivityGUID" ng-include="AssetBaseUrl + 'partials/wall/ForumPostDetail.html'" ></div>
+
+        <div  class="inner-wall-post" ng-if="!wlEttDt.ActivityGUID" ng-include="AssetBaseUrl + 'partials/wall/ForumPost.html'" ></div>
+
+    </div>
+    <!-- condition  For forum post end  -->
+    <div 
+        ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.IsForumPost == 0"
+        id="activityFeedId-{{ $index}}" 
+        ng-repeat="data in activityData track by $index"
+        repeat-done="wallRepeatDone();" 
+        ng-init="SettingsFn(data.ActivityGUID); FeedIndex = $index; initTagsItem($index);"  
+        ng-class="getCollpaseClass(data, 'feed-list')"
+        class="news-feed-listing feed-list activitywrapper" 
+        viewport-watch ng-attr-data-guid="act-{{data.ActivityGUID}}"
+    >
+        <div class="inner-wall-post" ng-include="getTemplateUrl(data)" ></div>
+    </div>
+    <div 
+        ng-if="!wlEttDt.ModuleEntityGUID && !wlEttDt.IsForumPost"
+        id="activityFeedId-{{ $index}}" 
+        ng-repeat="data in activityData track by $index"
+        repeat-done="wallRepeatDone();" 
+        ng-init="SettingsFn(data.ActivityGUID); FeedIndex = $index; initTagsItem($index);"  
+        ng-class="getCollpaseClass(data, 'feed-list')"
+        class="news-feed-listing feed-list activitywrapper" 
+        viewport-watch ng-attr-data-guid="act-{{data.ActivityGUID}}"
+    >
+        <div class="inner-wall-post" ng-include="getTemplateUrl(data)" ></div>
+    </div>
+
+
+    <div ng-if="wlEttDt.ModuleEntityGUID && wlEttDt.pname == 'wall'" ng-include="AssetBaseUrl + 'partials/widgets/wall/feed-loader.html'" ></div>    
+
+</section>

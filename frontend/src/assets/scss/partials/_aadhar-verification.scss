@@ -1,0 +1,255 @@
+.aadhar-block{
+    
+    .consent-text{
+        font-size: $font-size-small;
+        // color: $gray-575;
+        display: flex;
+        align-items: flex-start;
+        line-height: 1.3;
+        margin-top: 2px;
+        .info{
+            font-size: $font-size-medium;
+            margin: 1px 8px 0 0;
+        }
+    }
+    .validate-digit{
+        color: $red;
+        font-size: $font-size-small;
+    }
+    .upload-aadhar{
+        border: 1px dashed $help_text_color;
+        border-radius: 10px;
+        padding: 25px;
+        text-align: center;
+        margin-bottom: 20px;
+        .aadhar-heading{
+            color: $black;
+            font-size: $font-size-medium;
+            margin-top: 15px;
+        }
+        .aadhar-detail{
+            color: $help_text_color;
+            font-size: $font-base;
+            margin-bottom: 0;
+        }
+        .file-upload{
+            position: absolute;
+            max-width: 50%;
+            left: 40px;
+            width: 100%;
+            max-height: 145px;
+            height: 100%;
+            opacity: 0;
+        }
+    }
+    .btm-fixed-action{
+        // bottom: 0px;
+        // margin-top: 50px;
+        position: relative;
+        bottom: 0;
+    }
+    .aadhar-bg{
+        background: rgba(242, 242, 242, 0.6);
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        .aadhar-name-heading{
+            color: $help_text_color;
+            font-size: $font-size-small;
+            font-family: "Geominist-Regular";
+            margin-bottom: 0;
+        }
+        .aadhar-name{
+            color: $black;
+            font-size: $font-base;
+            font-family: "Geominist-Regular";
+            // margin-bottom: 0;
+
+        }
+    }
+    .custom-checkbox{
+        label{
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.3;
+        }
+        input{
+            margin: 1px 8px 0 0;
+        }
+    }
+    .aadhar-img-upload-block{
+        position: relative;
+        .change-btn{
+            font-size: 8px;
+            background: $light-gray;
+            padding: 5px;
+            border-radius: 50%;
+            position: absolute;
+            // bottom: 34px;
+            right: 105px;
+            top: -4px;
+        }
+    }
+}
+
+
+//For otp addhar new flow 
+.help-block-kyc {
+    margin-top: 20px;
+    padding: 0 27px;
+
+    p {
+        color: $gray-575;
+        text-align: center;
+        margin-top: 12px;
+        font-size: 12px;
+    }
+
+    @media (max-width:767px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.text-with-link {
+    text-align: center;
+    a {
+        color: $primary;
+        text-decoration: underline;
+    }
+}
+
+.aadhar-otp-wraper {
+    padding: 0 40px;
+
+    .btnStyle {
+        width: 108px;
+        padding: 7px;
+        font-size: 14px;
+        // font-family: $font-extra-bold;
+        clip-path: polygon(0 30%, 9% 0, 90% 0, 100% 0%, 100% 70%, 91% 100%, 0% 100%);
+    }
+
+    .validate-digit {
+        color: $gray-575;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .disable-otp-send {
+        color: $gray-575;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    .button-primary-rounded-sm {
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.aadhar-otp-header {
+    padding: 45px 55px 45px;
+    text-align: center;
+
+    h4 {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 11px;
+        color: $gray-575;
+    }
+}
+.aadhar-otp-footer {
+    padding-bottom: 56px;
+}
+.resend-aadhar-otp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .timer-resend {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    a {
+        color: $secondary;
+        text-decoration: underline;
+    }
+}
+
+.zoop-check {
+    margin-top: 25px;
+
+    .custom-checkbox {
+        label {
+            display: flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+    }
+
+    .consent-text {
+        color: #ADB4C1;
+        margin-left: 13px;
+        font-size: 12px;
+        margin-top: 2px;
+    }
+
+    // input[type=checkbox] {
+    //     accent-color: #FFF01F;
+    // }
+}
+
+.verify-aadhar-modal-btn {
+    min-width: 235px;
+    margin-top: 40px;
+}
+
+.otp-aadhar-modal {
+    padding: 0 30px 20px;
+    .desc-refral {
+        text-align: left;
+
+        &.sm {
+            margin-top: 0;
+        }
+    }
+
+    .fixed-bg-popup {
+        width: 87%;
+
+        @media (max-width:767px) {
+            width: 94%;
+        }
+    }
+
+    .sub-txt-spc {
+        margin: 20px 0;
+    }
+    .button {
+        margin: 20px auto 0 !important;
+    }
+}
+
+.m-img-center {
+    margin-top: -36px !important;
+    margin-left: 12px !important;
+    width: auto !important;
+}
+
+.fx-height {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 57px);
+    justify-content: space-between;
+    overflow-y: auto;
+}
+.verify-account.aadhaar {
+    padding-top: 57px;
+    padding-bottom: 0;
+}

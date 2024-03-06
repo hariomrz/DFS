@@ -1,0 +1,36 @@
+.tab-d-center.common-table .table {
+
+  th,
+  td {
+    text-align: center;
+  }
+}
+
+.affiliate-dashboard {
+  .aff-graph-date {
+    margin-top: 20px;
+  }
+
+  .vrfy-btn.btn-secondary-outline {
+    padding: 3px 18px;
+  }
+
+  .aff-name {
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .aff-status-filter {
+    width: 200px;
+    margin: 0 20px;
+
+    .Select-value {
+      line-height: 36px !important;
+    }
+  }
+}
+
+.aff_model{
+  padding :0px!important;
+}

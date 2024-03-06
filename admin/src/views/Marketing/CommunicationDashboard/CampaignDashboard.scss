@@ -1,0 +1,275 @@
+.campaign-dashboard {
+  .campaign {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+
+  .btn-new-campaign {
+    float: right;
+    border: 2px solid $secondary-color !important;
+    font-family: $font-bold;
+  }
+
+  .remainings.card {
+    box-shadow: 0px 2px 20px lightgrey;
+    border: none;
+    padding: 20px;
+  }
+
+  .remainingscol {
+    display: flex;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+
+  .balanceremaning {
+    font-family: $font-black;
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+
+  .labelremaining {
+    margin-bottom: 0;
+  }
+
+  .btn-buy {
+    color: $secondary-color;
+    font-family: $font-bold;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .textcls {
+    font-family: $font-black;
+    opacity: 0.5;
+    font-size: 16px;
+    margin-right: 25px;
+    opacity: 0.5;
+    letter-spacing: 0.4px;
+
+    @media (max-width: 1280px) {
+      font-size: 14px;
+    }
+  }
+
+  .recentcom.card {
+    box-shadow: 0px 3px 15px lightgrey;
+    border: none;
+    .table td{
+      border-top: none;
+    }
+  }
+
+  .card-header {
+    position: relative;
+    border: 0px;
+    font-family: "MuliRegular";
+    font-weight: bold;
+    font-size: 16px;
+    height: 60px;
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .recom {
+    font-family: $font-black;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .tbl-btn {
+    padding: 0;
+    color: #4a4a4a;
+    font-style: italic;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .fa-sort-desc {
+    color: #4a4a4a;
+    font-size: 18px;
+    margin-left: 6px;
+  }
+
+  .card-body {
+    padding: 0rem;
+  }
+
+  .dropdownuserdetail {
+    text-align: left;
+  }
+
+  #dropdownMenu {
+    @media (max-width: 1400px) {
+      font-size: 15px;
+    }
+
+    &:active {
+      background-color: transparent;
+      border: none;
+    }
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      border: none;
+    }
+
+    &.dropdown-toggle::after {
+      display: inline-block;
+      margin-left: 6px;
+      vertical-align: 0.255em;
+      content: "";
+      border-top: 6px solid;
+      border-right: 6px solid transparent;
+      border-bottom: 0;
+      border-left: 6px solid transparent;
+      display: none;
+    }
+  }
+
+  .table thead th {
+    border-top-style: hidden;
+    border-bottom: 1px solid #c8ced3;
+    vertical-align: top;
+    padding: 20px 10px;
+  }
+
+  .sent-count {
+    color: $secondary-color;
+    font-family: $font-bold;
+    font-size: 20px;
+    text-decoration: underline;
+  }
+
+  .shape {
+    height: 36px;
+    width: 36px;
+    padding: 3px 7px;
+    border: 2px solid $secondary-color;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    margin-right: 30px;
+  }
+
+  .magnifying-glass {
+    padding: 4px;
+  }
+
+  .viewrow {
+    text-align: end;
+    padding: 16px;
+  }
+
+  .viewallcd {
+    color: $secondary-color;
+    font-family: $font-black;
+    font-size: 16px;
+    cursor: pointer;
+    vertical-align: -webkit-baseline-middle;
+  }
+
+  .matchcard.card {
+    box-shadow: 0px 3px 15px lightgrey;
+    border: none;
+    margin-bottom: 4rem;
+  }
+
+  .upcoming-cardbody {
+    background-color: $white;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+
+  .vscard {
+    height: 200px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    border: none;
+    text-align: center;
+    padding: 30px;
+
+    h2 {
+      font-family: $font-black;
+    }
+  }
+
+  .promoterow {
+    margin-top: 10px;
+  }
+
+  .vscardh6 {
+    opacity: 0.5;
+    color: $black;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .no-data-img {
+    width: 120px;
+    opacity: 0.5;
+    margin: 10px auto;
+  }
+  .d-bdr{
+    border: 2px solid #B8B8B8 !important;
+  }
+}
+
+.promtn-modal {
+  @media (min-width: 576px) {
+    &.modal-dialog {
+      max-width: 600px;
+    }
+  }
+  .modal-header {
+    height: 36px;
+    font-size: 16px;
+    .close{
+      display: none;
+    }
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .pr-body-text,
+  .subjecttemp {
+    font-size: 16px;
+    font-family: $font-bold;
+    color: $gray-5;
+  }
+
+  .pr-ub-name {
+    font-family: $font-black;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .pr-sent-title {
+    font-family: $font-regular;
+  }
+
+  .pr-ub-date {
+    font-family: $font-regular;
+    color: $gray-5;
+  }
+
+  .tabpreview {
+    float: right;
+  }
+
+  .popuppreviewtab {
+    margin-top: 30px;
+
+    .nav-link {
+      padding: 0.4rem 1rem;
+
+      &.active {
+        border-color: #c8ced3 #c8ced3;
+      }
+    }
+  }
+}

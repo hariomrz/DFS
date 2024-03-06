@@ -1,0 +1,527 @@
+.no-records {
+  background-color: $white;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.dfs-main {
+  margin-top: 30px;
+
+  .stats-btn {
+    padding: 4px 10px;
+    margin-top: 10px;
+  }
+
+  .dfs-selector {
+    margin-bottom: 10px;
+    height: 42px;
+    width: 146px;
+    border: 1px solid #d2dfec;
+    border-radius: 4px;
+    background-color: #f5f9fb;
+    box-shadow: 0 2px 15px 1px rgba(184, 181, 181, 0.5);
+    &.mg-dfs-selector{
+      z-index: 9;
+    }
+    .Select-control {
+      border: none;
+
+      .Select-value {
+        line-height: 42px;
+      }
+
+      .Select-multi-value-wrapper {
+        height: 42px;
+
+        // .Select-value-label {
+        //   color: $black !important;
+        //   font-family: $font-bold;
+        //   font-size: 14px;
+        // }
+      }
+    }
+  }
+
+  .liverow {
+    margin-top: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+  }
+
+  .live {
+    color: #d0021b;
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .viewcompleted {
+    color: #9b9b9b;
+    font-family: $font-bold;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .createcollection {
+    font-family: $font-bold;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 4px 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.2s ease-in-out;
+    background-color: #ffff;
+    border: 2px solid #F8436E;
+    cursor: pointer;
+    margin-left: 40px;
+
+    @media all and (min-width: 1367px) {
+      margin-left: 30px;
+    }
+  }
+
+  .cardlivcol {
+    display: contents;
+  }
+
+  .upcoming-heading {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .upcoming {
+    font-family: $font-bold;
+    font-size: 16px;
+  }
+
+  .cardupcomingcol {
+    display: contents;
+  }
+
+  .livecard {
+    text-align: center;
+    width: 324px;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.05);
+
+    @media (max-width: 1330px) {
+      max-width: 100%;
+    }
+  }
+
+  .carddiv {
+    display: flex;
+    margin-top: 8px;
+
+    .col {
+      padding: 0 !important;
+
+      .livcardh3 {
+        width: 152px;
+        max-width: 100%;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        @media (max-width: 1330px) {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+
+      .livcardh6 {
+        width: auto;
+      }
+    }
+  }
+
+  .cardimg {
+    width: 54px;
+    height: 54px;
+  }
+
+  .livcardh6 {
+    color: #eb4a3c;
+    font-size: 10px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    font-family: $font-regular;
+  }
+
+  .livcardh3 {
+    color: #212121;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    font-family: $font-black;
+
+  }
+}
+
+.contest-group-wrapper {
+  margin-top: 22px;
+
+  
+
+  .cardimgdfs {
+    width: 68px;
+    height: 68px;
+  }
+
+  .livcardh3dfs {
+    color: #030F09;
+    font-family: $font-bold;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .livcardh6dfs {
+    width: 150px;
+    color: $gray-9;
+    font-family: $font-bold;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .fixture-contest {
+    text-align: right;
+    flex-direction: row-reverse;
+    display: flex;
+
+    .backtofixtures {
+      text-align: right;
+    }
+  }
+
+  .heading-box {
+    margin-top: 24px;
+    margin-bottom: 14px;
+  }
+
+  .contest-tempalte-wrapper {
+    float: left;
+  }
+}
+
+.slick-slide {
+  float: left;
+}
+
+.slick-slider {
+  overflow: hidden;
+}
+
+.collection_vertically {
+  writing-mode: tb-rl;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  white-space: nowrap;
+  display: block;
+  bottom: 0;
+  width: 20px;
+  height: 100px;
+  float: left;
+  letter-spacing: 2px;
+}
+
+.collectionfixtureList.livecard {
+  padding: 0 0 0 20px !important;
+}
+
+.collection_vertically {
+
+  @media (max-width: 1366px) {
+    height: 121px !important;
+  }
+
+}
+
+.collection-fixture-slider {
+  width: 290px;
+  text-align: left;
+  padding: 0 10px 0 10px;
+
+  .livecard {
+    padding: 3px 0 3px 0;
+    width: 200px !important;
+    box-shadow: none !important;
+
+  }
+
+  .card .carddiv {
+    margin-bottom: 2px;
+    margin-top: 7px !important;
+  }
+
+  .livcardh3 {
+    font-size: 10px;
+    font-weight: 300;
+    width: 80px !important;
+    margin: 3px !important;
+
+    @media (max-width: 1366px) {
+      font-size: 9px;
+    }
+
+    @media (min-width: 1361px) {
+      width: 94px !important;
+    }
+  }
+
+  .livcardh6 {
+    margin: 2px !important;
+  }
+
+  .cardimg {
+    width: 29px !important;
+    height: 25px !important;
+  }
+
+  .collection_name {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .league_name {
+    font-size: 10px;
+    font-weight: 100;
+    text-align: left;
+    float: left;
+  }
+
+  .match_count {
+    font-size: 10px;
+    font-weight: 100;
+    text-align: left;
+    float: left;
+    padding-bottom: 8px;
+    margin-left: 5px;
+
+  }
+
+  .slick-slider {
+    overflow: hidden;
+    clear: both;
+  }
+
+  .slick-slide {
+    width: 210px !important;
+  }
+
+  .doticon {
+    height: 5px;
+    width: 5px;
+    background-color: #5B5B55;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 10px 0 10px;
+  }
+}
+
+.collection-v {
+  border-color: #40BFEB !important;
+  text-align: center;
+  width: 350px;
+  border-radius: 14px;
+
+  .collection_vertically {
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    background-color: #40BFEB;
+    border-bottom-right-radius: 14px;
+    border-top-right-radius: 14px;
+    color: #fff;
+
+    .icon-info {
+      color: #fff;
+      font-size: 10px;
+    }
+
+    writing-mode: tb-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    display: block;
+    bottom: 0;
+    width: 20px;
+    height: 124px;
+    float: left;
+    letter-spacing: 2px;
+  }
+}
+
+.custom-pagination {
+  padding-left: 15px;
+
+  .pagination {
+    margin-bottom: 0;
+
+    .page-link {
+      color: #f8436e;
+    }
+
+    .page-item.active .page-link {
+      background-color: #f8436e;
+      border: 1px solid #f8436e;
+      color: #fff;
+    }
+
+    //added for userlist page
+    > :first-child {
+      border-left: 1px solid #bbbbbb;
+    }
+
+    li {
+      padding: 4px 11px;
+      border-right: 1px solid #bbbbbb;
+      border-top: 1px solid #bbbbbb;
+      border-bottom: 1px solid #bbbbbb;
+      background-color: #f9f9f9;
+      box-shadow: 0 1px 1px 0 rgba(221, 221, 221, 0.5);
+
+      &.active {
+        background-color: #efefef;
+
+        a {
+          color: #9b9b9b;
+        }
+      }
+    }
+
+    //added for userlist page
+    li a {
+      color: #f8436e;
+      font-size: 12px;
+    }
+  }
+}
+
+.tab-content {
+  margin-top: -1px;
+  background: none !important;
+  border: none !important;
+}
+
+.teamsaved {
+  font-size: 10px;
+  padding: 4px 10px !important;
+}
+
+.match-msg-modal {
+  .cardimg {
+    width: 54px;
+    height: 54px;
+  }
+
+  .msg-matchinfo {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .matchinfo-box {
+    margin: 0 20px;
+    text-align: center;
+    color: $gray-9;
+    font-style: italic;
+  }
+
+  .match-vs {
+    font-style: normal;
+    color: $black;
+  }
+
+  .match-msg {
+    width: 100%;
+    border: 1px solid #e4e7ea;
+    resize: none;
+    padding: 6px;
+  }
+}
+
+.create-mtl-game {
+  .week-match-club {
+    &.common-cus-checkbox .com-chekbox-container {
+      font-size: 16px;
+      float: left;
+    }
+  }
+
+  .Select-control,
+  .contestname {
+    height: 48px;
+  }
+
+  label {
+    margin-bottom: 4px;
+  }
+
+  .common-fixture {
+    border-radius: 14px;
+    margin-top: 20px;
+    background-color: $white;
+
+    .bg-card {
+      padding: 0;
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+
+  .week-select {
+    max-width: 320px;
+
+    @media (max-width: 1800px) {
+      max-width: 100%;
+    }
+  }
+}
+
+.check-disable {
+  cursor: not-allowed !important;
+
+  &:hover {
+    .com-chekbox-checkmark {
+      background-color: #e7e7e7 !important;
+    }
+  }
+}
+
+.multigame-upc-card.cardupcomingcol{
+  .collection-v .collection_vertically{
+    height: 138px;
+  }
+  .action-card-footer{
+    margin-top: -10px;
+    padding-bottom: 2px;
+    border-top: 1px solid #ededed;
+    text-align: center;
+    color: #000;
+    i{
+      cursor: pointer;
+    }
+  }
+}
+.collection-fixture-slider-new{
+  width: auto !important;
+}
+.multigame-fix-wrap{
+  .collection-v .collection_vertically{
+    height: 133px !important;
+  }
+  .multigame-upc-card.cardupcomingcol .collection-v .collection_vertically{
+    height: 147px !important;
+  }
+}

@@ -1,0 +1,55 @@
+<!-- Manage Feature Modal -->
+<div class="modal fade" id="visibility">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
+                <h4 class="modal-title" ng-bind="::lang.remove_visibility"></h4>
+            </div>
+            <div class="modal-body">
+                <!-- List Hover -->
+                <div class="modal-heading">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-10" ng-bind="lang.members"></div>
+                        <div class="col-xs-6 col-sm-2 text-right" ng-bind="lang.remove"></div>
+                    </div>
+                </div>
+                <div class="designer-scroll mCustomScrollbar">
+                    <ul class="listing-group list-group-v5">
+                        <li ng-cloak ng-repeat="cvs in category_visibilty" ng-click="hideBusinessCard();">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <div class="list-items-sm">
+                                        <div class="list-inner">
+                                            <figure>
+                                                <a>
+                                                    <img entitytype="group" class="img-circle" entityguid="{{cvs.ModuleEntityGUID}}" ng-if="cvs.ModuleID=='1'" err-SRC="{{AssetBaseUrl}}img/profiles/user_default.jpg" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cvs.ProfilePicture}}" >
+                                                    <img entitytype="user" class="img-circle" entityguid="{{cvs.ModuleEntityGUID}}"  ng-if="cvs.ModuleID=='3'" err-Name="{{cvs.Name}}" ng-src="{{ImageServerPath+'upload/profile/220x220/'+cvs.ProfilePicture}}" >
+                                                </a>
+                                            </figure>
+                                            <div class="list-item-body">
+                                                <h4 class="list-heading-xs ellipsis" ng-bind="cvs.Name"></h4>
+                                                <p class="text-sm-off" ng-if="cvs.ModuleID=='1'" ng-bind="cvs.TotalMember+' Members' "></p>
+                                                <p class="text-sm-off" ng-if="cvs.ModuleID=='3'" ng-bind="cvs.Location"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <label class="checkbox translateX">
+                                        <input type="checkbox" ng-click="visibility_toggle(SelectedForumCategoryVisibilityID, cvs.ForumCategoryVisibilityID)">
+                                        <span class="label"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button ng-disabled="SelectedForumCategoryVisibilityID.length <= 0" type="submit" ng-click="RemoveVisibility()" class="btn btn-primary pull-right" ng-bind="::lang.done"></button>
+            </div>
+        </div>
+    </div>
+</div>

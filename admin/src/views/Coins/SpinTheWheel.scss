@@ -1,0 +1,68 @@
+.spinthewheel {
+  .form-control,
+  .Select-control {
+    height: 48px;
+    background-color: #EDEDED;
+    border-color: transparent;
+    font-size: 12px;
+
+    .Select-value-label {
+      line-height: 46px;
+    }
+  }
+
+  @media (max-width: 1366px) {
+    .sw-prize-type {
+      width: 110px;
+    }
+
+    .sw-amount {
+      width: 50px;
+    }
+
+    .Select-value-label {
+      font-size: 12px;
+    }
+  }
+
+  .Select-values {
+    font-size: 12px;
+  }
+
+  .table-responsive {
+    overflow-x: inherit;
+  }
+
+  .common-table .table {
+    thead {
+      tr {
+        height: 52px;
+      }
+    }
+
+    tbody {
+      tr {
+        height: 94px;
+        border-top: 1px solid #EDEDED;
+      }
+    }
+
+    tr {
+      text-align: center;
+    }
+
+    td {
+      padding: 24px 10px 10px;
+      background-color: $white;
+      vertical-align: top;
+    }
+  }
+}
+
+
+.spw-empty-msg {
+  width: 110px;
+  display: block;
+  color: #ff0000;
+  font-size: 12px;
+}

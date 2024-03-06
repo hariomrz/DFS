@@ -1,0 +1,105 @@
+<div ng-cloak ng-if="category_detail.Name" class="row">
+    <div class="col-sm-10 col-xs-8">
+        <ul ng-if="category_detail.Visible=='1' && pageName!='Media'" class="nav nav-tabs nav-tabs-liner primary nav-tabs-scroll" role="tablist" ng-init="navTabScroll();" ng-cloak>
+            <li ng-class="(pageName!='Manage Admin' && PostTypeName=='All Posts') ? 'active' : '' ;" ng-init="callFilterPostType()">
+                <a ng-href="{{BaseUrl+category_detail.FullURL}}" ng-bind="::lang.all_posts"></a>
+            </li>
+            <li ng-class="(PostTypeName=='Discussions') ? 'active' : '' ;">
+                <a ng-href="{{BaseUrl+category_detail.FullURL}}/discussions" ng-bind="::lang.discussions"></a>
+            </li>
+            <li ng-class="(PostTypeName=='Questions') ? 'active' : '' ;">
+                <a ng-href="{{BaseUrl+category_detail.FullURL}}/questions" ng-bind="::lang.qna"></a>
+            </li>
+            <li ng-class="(PostTypeName=='Articles') ? 'active' : '' ;" ng-if="SettingsData.m38=='1'">
+                <a ng-href="{{BaseUrl+category_detail.FullURL}}/articles" ng-bind="::lang.articles"></a>
+            </li>
+            <li ng-cloak ng-hide="LoginSessionKey==''" ng-class="(PostTypeName=='Announcements') ? 'active' : '' ;">
+                <a ng-href="{{BaseUrl+category_detail.FullURL}}/announcements" ng-bind="::lang.announcements"> </a>
+            </li>
+            <li ng-if="LoginSessionKey" ng-class="(pageName=='Manage Admin') ? 'active' : '' ;">
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL+'/members'}}" ng-bind="::lang.members"></a>
+            </li>
+            <li>
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL+'/media'}}">Media</a>
+            </li>
+        </ul>
+        <ul ng-if="category_detail.Visible=='1' && pageName=='Media'" class="nav nav-tabs nav-tabs-liner primary nav-tabs-scroll" role="tablist" ng-init="navTabScroll();" ng-cloak >
+            <li ng-init="callFilterPostType()">
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL}}" ng-bind="::lang.all_posts"></a>
+            </li>
+            <li>
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL}}/discussions" ng-bind="::lang.discussions"></a>
+            </li>
+            <li>
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL}}/questions" ng-bind="::lang.qna"></a>
+            </li>
+            <li ng-if="SettingsData.m38=='1'">
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL}}/articles" ng-bind="::lang.articles"></a>
+            </li>
+            <li ng-cloak ng-hide="LoginSessionKey==''">
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL}}/announcements" ng-bind="::lang.announcements"> </a>
+            </li>
+            <li ng-if="LoginSessionKey">
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL+'/members'}}" ng-bind="::lang.members"></a>
+            </li>
+            <li class="active">
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL+'/media'}}">Media</a>
+            </li>
+            <!-- <li ng-init="slideMenu()" class="visible-xs" ng-if="category_detail.Visible=='0'"><a data-menu="about">Social Buzz</a></li> -->
+        </ul>
+        <ul ng-if="category_detail.Visible!='1' && pageName!='Media'" class="nav nav-tabs nav-tabs-liner primary nav-tabs-scroll" role="tablist" ng-init="navTabScroll();">
+            <li ng-class="(pageName!='Manage Admin' && PostTypeName=='All Posts') ? 'active' : '' ;" ng-init="callFilterPostType()">
+                <a ng-href="{{BaseUrl+category_detail.FullURL}}" ng-bind="::lang.discussions"></a>
+            </li>   
+            <li>
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL+'/media'}}">Media</a>
+            </li>
+        </ul>
+        <ul ng-if="category_detail.Visible!='1' && pageName=='Media'" class="nav nav-tabs nav-tabs-liner primary nav-tabs-scroll" role="tablist" ng-init="navTabScroll();" ng-cloak >
+            <li ng-init="callFilterPostType()">
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL}}" ng-bind="::lang.discussions"></a>
+            </li>            
+            <li class="active">
+                <a target="_self" ng-href="{{BaseUrl+category_detail.FullURL+'/media'}}">Media</a>
+            </li>
+            <!-- <li ng-init="slideMenu()" class="visible-xs" ng-if="category_detail.Visible=='0'"><a data-menu="about">Social Buzz</a></li> -->
+        </ul>
+    </div>
+    <div class="col-sm-2 col-xs-4">
+        <ul class="buttons-group">
+            <li>
+                <button class="btn btn-default btn-sm" ng-if="LoginSessionKey" ng-cloak ng-click="setFilterFixed(true)" ng-class="(NavTabName == 'members') ? 'hide' : ''">
+                    <span class="icon">
+                        <i class="ficon-filter"></i>
+                    </span>
+                </button>
+            </li>
+            <li ng-if="category_detail.Permissions.IsAdmin">
+                <button data-toggle="dropdown" class="btn btn-default btn-sm  dropdown-toggle">
+                    <span class="icon">
+                        <i class="ficon-settings"></i>
+                    </span>
+                    <span class="caret hidden-xs"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a ng-if="category_detail.ParentCategoryID=='0'" ng-click="openSaveFrmCatModal({ForumID : category_detail.ForumID}, category_detail)" ng-bind="::lang.edit_details"></a>
+                        <a ng-if="category_detail.ParentCategoryID!='0'" ng-click="openSaveFrmSubCatModal({ForumID : category_detail.ForumID},category_detail.ParentCategory, category_detail)" ng-bind="::lang.edit_subcategory"></a>
+                    </li>
+                    <li>
+                        <a ng-if="category_detail.ParentCategoryID=='0'" ng-click="openSaveFrmSubCatModal({ForumID : category_detail.ForumID}, category_detail);" ng-bind="::lang.add_sub_category"></a>
+                    </li>
+                    <li>
+                        <a target="_self" href="{{BaseUrl + 'community/members_settings/' + category_detail.ForumID + '/' + category_detail.ForumCategoryID}}" ng-bind="::lang.member_settings"></a>
+                    </li>
+                    <li>
+                        <a target="_self" ng-if="category_detail.ParentCategoryID=='0'" ng-click="delete_category(category_detail.ForumCategoryID,3,'Category')" ng-bind="::lang.delete_category">
+                        </a>
+                        <a target="_self" ng-if="category_detail.ParentCategoryID!='0'" ng-click="delete_category(category_detail.ForumCategoryID,3,'Subcategory')" ng-bind="::lang.delete_subcategory">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

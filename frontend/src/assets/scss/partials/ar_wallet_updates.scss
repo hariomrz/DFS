@@ -1,0 +1,558 @@
+.bg-clr-fix {
+    background: $white !important;
+}
+
+.qr-body {
+    padding: 20px;
+
+    .disc-para {
+        color: $body_text_color;
+        font-family: $font-exo-regular;
+        font-size: $font-base;
+        letter-spacing: 0;
+        line-height: 19px;
+    }
+
+    .qr-div {
+        display: flex;
+        justify-content: center;
+
+        .qr-img {
+            width: 108px;
+            height: 108px;
+            margin: 20px 0;
+            border: 1px solid #ebebeb;
+        }
+    }
+
+    .wallet-address {
+        color: $body_text_color;
+        font-family: $font-exo-regular;
+        font-size: $font-base;
+        letter-spacing: 0;
+        line-height: 19px;
+        display: flex;
+        width: -webkit-fill-available;
+        // text-align: center;
+    }
+
+    .copy-to-clipboard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        background: #f5f5f5;
+        // padding: 0 10px;
+        border-radius: 20px;
+        // padding-left: 20px;
+        height: 36px;
+        position: relative;
+
+        .social-circle {
+            font-size: 18px;
+            background-color: $primary;
+            color: $white !important;
+            width: 33px;
+            text-align: center;
+            height: 33px;
+            border-radius: 50%;
+            cursor: pointer;
+            min-width: 33px;
+            z-index: 1;
+            position: absolute;
+            right: 0;
+        }
+
+        .copy-ic {
+            font-size: 14px;
+            // color: $primary !important;
+        }
+
+        .copy-txt {
+            color: $primary;
+            font-family: $font-exo-regular;
+            font-size: $font-base;
+            letter-spacing: 0;
+            line-height: 19px;
+            text-decoration: underline;
+            margin-left: 5px;
+        }
+    }
+}
+
+
+.error-msg-cls {
+    color: $red;
+    font-size: $font-base;
+    font-family: $font-exo-bold;
+}
+
+.field {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-bottom: 1em;
+    margin: 0 20px;
+    margin-bottom: 10px;
+}
+
+label,
+.input-cls {
+    transition: all 0.2s;
+    touch-action: manipulation;
+}
+
+.input-cls {
+    color: $primary_text_color;
+    font-family: $font-exo-semibold;
+    font-size: 16px;
+    letter-spacing: 0;
+    border: 0;
+    border-bottom: 1px solid #D4D4D4 !important;
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding: 0;
+    cursor: text;
+    background: transparent !important;
+    height: 35px;
+}
+
+.input-cls:focus {
+    outline: 0;
+    border-bottom: 1px solid #666;
+}
+
+label {
+    color: $help_text_color;
+    font-family: $font-exo-regular;
+    font-size: $font-size-small;
+    letter-spacing: 0;
+}
+
+.input-cls:placeholder-shown+label {
+    cursor: text;
+    max-width: 66.66%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform-origin: left bottom;
+    transform: translate(0, 2.125rem) scale(1.5);
+}
+
+::-webkit-input-placeholder {
+    opacity: 0;
+    transition: inherit;
+}
+
+.input-cls:focus::-webkit-input-placeholder {
+    opacity: 1;
+}
+
+.input-cls:not(:placeholder-shown)+label,
+.input-cls:focus+label {
+    transform: translate(0, 0) scale(1);
+    cursor: pointer;
+}
+
+.disclaimer-block {
+    padding: 0px 20px 60px 20px;
+
+    .disclamer-check {
+        display: flex;
+    }
+
+    .discl-txt {
+        color: $quiz-semi-black;
+        font-family: $font-exo-bold;
+        font-size: $font-base;
+        letter-spacing: 0;
+        line-height: 17px;
+        margin-bottom: 10px;
+    }
+}
+
+.flex-div {
+    display: flex;
+
+    .confirm-btn,
+    .inactive {
+        height: 34px;
+        width: 144px;
+        background-color: $primary;
+        border-radius: 15px;
+        margin: 0 auto;
+        color: $white;
+        font-family: $font-exo-bold;
+        font-size: $font-base;
+        letter-spacing: 0;
+        line-height: 14px;
+        text-align: center;
+        border-color: $primary !important;
+        outline: auto;
+    }
+
+    .inactive {
+        background-color: $lf-text-color;
+    }
+}
+
+
+/* Customize the label (the container) */
+.chk-div {
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container .check-bxs {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+        border: none !important;
+        border-radius: 0% !important;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover .check-bxs~.checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container .check-bxs:checked~.checkmark {
+        background-color: $primary;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container .check-bxs:checked~.checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+        left: 8px;
+        top: 4px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+.url-check {
+    padding: 20px;
+    color: $primary;
+    font-family: $font-exo-bold;
+    font-size: $font-base;
+    letter-spacing: 0;
+    line-height: 17px;
+    margin-bottom: 10px;
+}
+
+.wallet-addres-span {
+    width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 5px;
+}
+
+.transaction-txt {
+    padding: 20px 0 5px 20px;
+    font-size: 14px;
+    color: #999;
+    font-family: $font-exo-medium;
+
+}
+
+.pt-fix {
+    // padding: 0 20px 30px 20px !important;
+    // padding: 10px 20px 0px 15px !important;
+
+    .upload-aadhar {
+        margin-bottom: 0px !important;
+    }
+
+    .selectImg-heading {
+        margin-top: 5px;
+        color: #999999;
+        font-family: $font-exo-regular;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 14px;
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+
+    .file-upload {
+        max-width: 100% !important;
+        max-height: 75px !important;
+        left: 20px !important;
+        width: 90% !important;
+    }
+}
+
+.img-img {
+    width: 40px;
+    height: 40px;
+}
+
+.bank-details {
+    padding: 15px;
+    height: 138px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $ad_funds_clr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .copy-to-clipboard {
+        justify-content: start !important;
+        margin-top: 0;
+    }
+}
+
+.type-txt {
+    color: #555555;
+    font-size: $font-size-small;
+    font-family: $font-exo-regular;
+    margin-right: 5px;
+}
+
+.bold-txt {
+    color: #212121;
+    font-family: $font-exo-medium;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-right: 5px;
+}
+
+.modal-mpg-main {
+    .modal-dialog {
+        margin: 0px !important;
+        width: 100% !important;
+        max-width: 550px !important;
+    }
+
+}
+
+.mpg-modal-header {
+    height: 56px !important;
+    width: 100%;
+    background-color: $primary;
+    color: $white;
+    border-radius: 0px !important;
+    display: flex;
+    align-items: center;
+
+    .fz-18px {
+        font-size: $font-size-h5;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .head-title {
+        width: 100%;
+        color: #FFFFFF !important;
+        font-family: $font-exo-bold;
+        // font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+.modal-mpg {
+    padding: 0px !important;
+}
+
+.w-fix-mpg {
+    // margin-top: 56px;
+    padding: 0px !important;
+}
+
+.img-uploaded {
+    width: 120px;
+    height: 120px;
+}
+
+.pos-relative {
+    position: relative;
+
+    .image-gallary {
+        width: 50px;
+        opacity: 0.8;
+    }
+
+    .image-upoader {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        opacity: 0;
+        top: -30;
+    }
+}
+
+.flex-image {
+    display: flex;
+    justify-content: center;
+
+    .remove-img {
+        width: fit-content;
+        position: relative;
+
+        .cross-ic-m {
+            cursor: pointer;
+            position: absolute;
+            color: $primary;
+            font-size: 18px;
+            top: -14px;
+            right: -10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+
+            i {
+                background: $app_bg_color;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.paymentmode-block {
+    padding: 20px 20px 0 20px;
+
+    .method-label {
+        text-align: center;
+        padding-bottom: 10px;
+        font-family: $font-exo-medium;
+    }
+
+    .radio-block {
+        display: flex;
+        justify-content: space-around;
+
+        .radio {
+            label {
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+
+                input {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+.pfix {
+    padding-left: 20px;
+}
+
+.last-transactions {
+    padding: 40px 20px 20px;
+
+    .border-block-txn {
+        border: 0.5px solid #E6E6E6;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        margin-top: 10px;
+    }
+}
+
+.table-trnx {
+    width: 98%;
+    padding: 0 10px;
+
+    th {
+        color: #999999;
+        font-family: $font-exo-regular;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 24px;
+        font-weight: normal !important;
+        text-align: center;
+    }
+
+    td {
+        height: 34px;
+        border-top: 0.5px solid rgba(0, 0, 0, 0.23);
+        color: #282E48;
+        font-family: $font-exo-regular;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 14px;
+        text-align: center;
+    }
+}
+
+.bold-title {
+    color: #282E48;
+    font-family: $font-exo-bold;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 17px;
+}
+
+.h-fix-mpg {
+    padding: 0px !important;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ic-clr-mpg {
+    color: $primary;
+    font-size: 18px;
+}
+
+.p-clr {
+    color: $primary;
+}
+
+.p-l-cls {
+    padding-left: 15px;
+}
+.stock-f{
+    .tour-slider-wrapper{
+        padding: 0 0 10px 0 !important;
+    }
+}
+.stock-f .upcoming-lobby-contest .top-section-heading {
+    padding-top: 0px !important;
+}

@@ -1,0 +1,102 @@
+.angucomplete-holder {
+    position: relative;
+}
+
+.angucomplete-dropdown {
+    border-color:#BBBBBB;
+    border-width: 1px;
+    border-style: solid;
+    width: 210px;
+    padding: 6px 0 0;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+    top: 42px;
+    left: 0px;
+    margin-top: -6px;
+    background-color: #ffffff;
+    box-shadow: 0 0 7px rgba(0,0,0,0.3)
+}
+
+.angucomplete-searching {
+    color: #acacac;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.angucomplete-description {
+    font-size: 14px;
+}
+
+.angucomplete-row {
+    padding: 8px 5px;
+    color: #444;
+    clear: both;
+    overflow: hidden;
+    line-height: normal;
+}
+
+.angucomplete-selected-row {
+    background-color: #FFFDEC; 
+}
+
+.angucomplete-image-holder {
+    padding-top: 2px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.angucomplete-image {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    border-color: #ececec;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.angucomplete-image-default {
+    /* Add your own default image here
+     background-image: url('/assets/default.png');
+    */
+    background-position: center;
+    background-size: contain;
+    height: 34px;
+    width: 34px;
+}
+
+
+.angucomplete-holder input {
+    color: #fff;
+}
+.global-search .input-group-btn, .global-search {min-height: 35px;}
+
+.angucomplete-title {padding: 5px 0;}
+
+.angucomplete-row.panel-footer {
+    padding: 10px;
+}
+
+
+@media (min-width:990px) {
+    
+.global-search {min-width: 210px;}
+
+}
+
+
+@media (max-width:990px) {
+    .angucomplete-holder input {
+        color: #444;
+    }
+ 
+
+}
+
+@media (max-width: 767px) {
+.custom-navbar .global-form {z-index: 9999;}
+.angucomplete-holder input {
+    color: #fff;
+}
+}

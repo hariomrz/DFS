@@ -1,0 +1,70 @@
+// @import "../../../assets/scss/bootstrap/bootstrap.scss";
+.info-wrap-modal {
+  .modal-dialog {
+    max-width: 418px;
+  }
+  .modal-content {
+    border-radius: 20px;
+  }
+  .modal-header {
+    font-size: $font-size-h4;
+    font-family: $font-exo-extrabold;
+    color: $primary_text_color;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    padding: 60px 1.2rem 15px;
+    border-bottom: 1px dashed #000;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background-color: $black;
+      width: 22px;
+      height: 22px;
+      top: 95px;
+      z-index: 1;
+    }
+    &::before {
+      left: -10px;
+    }
+    &::after {
+      right: -10px;
+    }
+    .modal-img-wrap {
+      border-radius: 100%;
+      padding: 13px;
+      background: $white;
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 86px;
+      height: 86px;
+      .circle {
+        border-radius: 100%;
+        padding: 15px;
+        background: $primary;
+        width: 60px;
+        height: 60px;
+        i {
+          font-size: 28px;
+          color: $white;
+        }
+      }
+    }
+  }
+  .modal-body {
+    padding: 30px;
+    font-size: $font-size-medium;
+    font-family:$font-regular;
+    color: $gray-900;
+    line-height: 24px;
+    .info-para {
+        & + .info-para {
+            margin-top: 30px;
+        }
+    }
+  }
+}

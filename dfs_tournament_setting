@@ -1,0 +1,110 @@
+#supervisor script
+ 
+[program:dfstcricketscorescript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_score_cricket --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/cricketscorescript.err.log
+stdout_logfile=/var/log/cricketscorescript.out.log
+
+[program:dfstsoccerscorescript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_score_soccer --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/soccerscorescript.err.log
+stdout_logfile=/var/log/soccerscorescript.out.log
+
+[program:dfstscorescript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_score_cron --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/scorescript.err.log
+stdout_logfile=/var/log/scorescript.out.log
+
+[program:dfstscorescript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_close_cron --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/scorescript.err.log
+stdout_logfile=/var/log/scorescript.out.log
+
+[program:dfstscpointsscript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_sc_points_cron --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/scpointsscript.err.log
+stdout_logfile=/var/log/scpointsscript.out.log
+
+
+[program:dfstprizecronscript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_prize_cron --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/prizecronscript.err.log
+stdout_logfile=/var/log/prizecronscript.out.log
+
+[program:dfstdistributeprizescript]
+command=php /var/www/html/fantasy/index.php tournament/worker distribute_prize --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/dfstdistributeprizescript.err.log
+stdout_logfile=/var/log/dfstdistributeprizescript.out.log
+
+[program:dfstprizenotifyscript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_prize_notify --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/prizenotifyscript.err.log
+stdout_logfile=/var/log/prizenotifyscript.out.log
+
+
+[program:dfstemailscript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_email --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/emailscript.err.log
+stdout_logfile=/var/log/emailscript.out.log
+
+[program:dfstcancelscript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_tournament_cancellation --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/dfstcancelscript.err.log
+stdout_logfile=/var/log/dfstcancelscript.out.log
+
+[program:dfsttsdeletescript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_delete_tournament_season_notify --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/dfsttsdeletescript.err.log
+stdout_logfile=/var/log/dfsttsdeletescript.out.log
+
+[program:dfstcronscript]
+command=php /var/www/html/fantasy/index.php tournament/worker process_cron --env production
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/dfstcronscript.err.log
+stdout_logfile=/var/log/dfstcronscript.out.log
+
+#crons
+ 
+*/3 * * * * wget -O - -q -t 1 http://localhost:4000/dfst_lineup/lineup_move
+
+#dfst cricket
+*/5 * * * * wget -O - -q -t 1 http://localhost/fantasy/tournament/cron_queue/cricket_update_scores_in_lineup
+*/5 * * * * wget -O - -q -t 1 http://localhost/fantasy/tournament/cron_queue/cricket_update_dfst_status
+
+#dfst soccer
+*/5 * * * * wget -O - -q -t 1 http://localhost/fantasy/tournament/cron_queue/soccer_update_scores_in_lineup
+*/5 * * * * wget -O - -q -t 1 http://localhost/fantasy/tournament/cron_queue/soccer_update_dfst_status
+
+*/15 * * * * wget -O - -q -t 1 http://localhost/fantasy/tournament/cron_queue/prize_distribution
+*/15 * * * * wget -O - -q -t 1 http://localhost/fantasy/tournament/cron_queue/prize_distribution_merchandise
+*/16 * * * * wget -O - -q -t 1 http://localhost/fantasy/tournament/cron_queue/prize_distribution_notification
+*/16 * * * * wget -O - -q -t 1 http://localhost/fantasy/tournament/cron_queue/tournament_cancellation
+
+
+-------------------------------------------------------
+UPDATE `vi_email_template` SET `subject` = 'Your {{name}} tournament joining is confirmed!' WHERE `vi_email_template`.`notification_type` = 470;
+
+UPDATE `vi_email_template` SET `subject` = 'Oops! {{name}} tournament has been Cancelled' WHERE `vi_email_template`.`notification_type` = 480;

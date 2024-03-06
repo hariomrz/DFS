@@ -1,0 +1,912 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/activity_helper/set_activity_title": {
+            "post": {
+                "tags": [
+                    "Activity Helper"
+                ],
+                "summary": "Set activity title",
+                "description": "",
+                "operationId": "set_activity_title",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to set the activity title",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\set_activity_title"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/delete_activity_title": {
+            "post": {
+                "tags": [
+                    "Activity Helper"
+                ],
+                "summary": "Delete activity title",
+                "description": "",
+                "operationId": "delete_activity_title",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to delete the activity title",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\delete_activity_title"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/top_contributor": {
+            "post": {
+                "tags": [
+                    "Top Contributor"
+                ],
+                "summary": "Get Top Contributor List",
+                "description": "",
+                "operationId": "top_contributor",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to delete the activity title",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\top_contributor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/similar_activity": {
+            "post": {
+                "tags": [
+                    "Similar Activity"
+                ],
+                "summary": "This api used to get similar post",
+                "description": "This api used to get similar post",
+                "operationId": "similar_activity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api used to get similar post",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\similar_activity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/admin_tool": {
+            "post": {
+                "tags": [
+                    "Activity Admin Tool"
+                ],
+                "summary": "This api used to get admin tool setting for particular post",
+                "description": "This api used to get admin tool setting for particular post",
+                "operationId": "admin_tool",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api used to get admin tool setting for particular post",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\admin_tool"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/set_promotion_status": {
+            "post": {
+                "tags": [
+                    "Promote/Un Promote Activity"
+                ],
+                "summary": "This api is used to set the promotion status of an activity.",
+                "description": "",
+                "operationId": "set_promotion_status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to set the promotion status of an activity. Possible values for status( 0, 1)",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\set_promotion_status"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/update_activity_newsfeed_status": {
+            "post": {
+                "tags": [
+                    "Show/Hide from Newsfeed"
+                ],
+                "summary": "This api is used to hide/show this activity on newsfeed.",
+                "description": "",
+                "operationId": "update_activity_newsfeed_status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to hide/show this activity on newsfeed",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\update_activity_newsfeed_status"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/move_to_city_news": {
+            "post": {
+                "tags": [
+                    "Move/Remove to City News"
+                ],
+                "summary": "This api is used to Move to this activity in city news.",
+                "description": "",
+                "operationId": "move_to_city_news",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to Move to this activity in city news",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\move_to_city_news"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/remove_from_city_news": {
+            "post": {
+                "tags": [
+                    "Move/Remove to City News"
+                ],
+                "summary": "This api is used to remove this activity from city news.",
+                "description": "",
+                "operationId": "remove_from_city_news",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to remove this activity from city news",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\remove_from_city_news"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/pin_to_top": {
+            "post": {
+                "tags": [
+                    "Pin To Top"
+                ],
+                "summary": "This api is used to pin activity on top.",
+                "description": "",
+                "operationId": "pin_to_top",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to pin activity on top",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\pin_to_top"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/remove_pin_to_top": {
+            "post": {
+                "tags": [
+                    "Pin To Top"
+                ],
+                "summary": "This api is used to unpin activity from top.",
+                "description": "",
+                "operationId": "remove_pin_to_top",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to unpin activity from top",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\remove_pin_to_top"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/related_to_indore": {
+            "post": {
+                "tags": [
+                    "Related to Indore"
+                ],
+                "summary": "This api is used to update related to indore flag for an activity.",
+                "description": "",
+                "operationId": "related_to_indore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to update related to indore flag for an activity",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\related_to_indore"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/idea_for_better_indore": {
+            "post": {
+                "tags": [
+                    "Idea for Better Indore"
+                ],
+                "summary": "This api is used to update idea for better indore flag for an activity.",
+                "description": "",
+                "operationId": "idea_for_better_indore",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to update idea for better indore flag for an activity",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\idea_for_better_indore"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/activity_helper/bump_up": {
+            "post": {
+                "tags": [
+                    "Bump up post"
+                ],
+                "summary": "This api is used to Bump up particular post.",
+                "description": "",
+                "operationId": "bump_up",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "This api is used to Bump up particular post",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Activity_Helper\\bump_up"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Activity_Helper\\set_activity_title": {
+            "required": [
+                "ActivityGUID",
+                "Title"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                },
+                "Title": {
+                    "description": "Activity Title",
+                    "type": "string",
+                    "example": "title"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\delete_activity_title": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\top_contributor": {
+            "required": [],
+            "properties": {
+                "PageNo": {
+                    "description": "Page Number",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "Page Size",
+                    "type": "integer",
+                    "example": "10"
+                },
+                "TagID": {
+                    "description": "Tag ID",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\similar_activity": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\admin_tool": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\set_promotion_status": {
+            "required": [
+                "ActivityGUID",
+                "IsPromoted"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "ActivityGUID",
+                    "type": "integer",
+                    "example": "3sadas-saf-sa-fssafsa"
+                },
+                "IsPromoted": {
+                    "description": "IsPromoted",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\update_activity_newsfeed_status": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\move_to_city_news": {
+            "required": [
+                "ActivityGUID",
+                "IsCityNews"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                },
+                "IsCityNews": {
+                    "description": "Is City News, 0 - No, 1 - Yes",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "IsShowOnNewsFeed": {
+                    "description": "Is Show On NewsFeed, 0 - Yes, 1 - No",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\remove_from_city_news": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\pin_to_top": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\remove_pin_to_top": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\related_to_indore": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                },
+                "IsRelated": {
+                    "description": "IsRelated, It may be 0 - No, 1 - Yes",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\idea_for_better_indore": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                },
+                "IsIdea": {
+                    "description": "IsIdea, It may be 0 - No, 1 - Yes",
+                    "type": "integer",
+                    "example": "1"
+                }
+            }
+        },
+        "Inclusify\\Api\\Activity_Helper\\bump_up": {
+            "required": [
+                "ActivityGUID"
+            ],
+            "properties": {
+                "ActivityGUID": {
+                    "description": "Activity GUID",
+                    "type": "string",
+                    "example": "0ff31ff2-13b8-ef08-00f3-47c73d0d5e7f"
+                }
+            }
+        }
+    }
+}

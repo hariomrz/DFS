@@ -1,0 +1,328 @@
+.props-player-web-container{
+  .props-player-card{
+      display: flex;
+      justify-content: space-between;
+      padding: 22px 22px 15px;
+      border-bottom: 2px solid $gray-920;
+      .name {
+          font-size: $font-size-h4;
+          color: $gray-900;
+          font-family: "Exo2-SemiBold";
+
+          // overflow: hidden;
+          // text-overflow: ellipsis;
+          // white-space: nowrap;
+          width: 164px;
+          margin-bottom: 4px;
+      }
+      .match {
+          font-size: 14px;
+          color: #878787;
+          margin-bottom: 4px;
+      }
+      .timing {
+          font-size: 12px;
+          color: #878787;
+          margin-bottom: 4px;
+      }
+      .jersey {
+          width: 70px;
+          height: 70px;
+      }
+      .score {
+          display: flex;
+          align-items: center;
+          .points {
+              font-size: 20px;
+              font-family: "Exo2-ExtraBold";
+              color: $gray-900;
+          }
+          .divide {
+              font-size: 20px;
+              color: #979797;
+              opacity: 0.4;
+              margin: 0 10px;
+          }
+          .runs {
+              font-size: 14px;
+              line-height: 1.2;
+              color: #878787;
+              text-align: left;
+          }
+      }
+      .styled-checkbox {
+          position: absolute; // take it out of document flow
+          opacity: 0; // hide it
+        
+          & + label {
+            position: relative;
+            cursor: pointer;
+            padding: 0;
+            right: -10px;
+          }
+        
+          // Box.
+          & + label:before {
+            content: '';
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: text-top;
+            width: 22px;
+            height: 22px;
+            background: $white;
+            border: 1px solid #A7A7A7;
+            border-radius: 4px;
+
+          }
+        
+          &:focus + label:before {
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+          }
+        
+          // Box checked
+          &:checked + label:before {
+              background: $primary;
+          }
+          
+          // Disabled state label.
+          &:disabled + label {
+            color: #b8b8b8;
+            cursor: auto;
+          }
+        
+          // Disabled box.
+          &:disabled + label:before {
+            box-shadow: none;
+            background: $gray-910;
+          }
+        
+          // Checkmark. Could be replaced with an image
+          &:checked + label:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 11px;
+            background: $white;
+            width: 3px;
+            height: 3px;
+            box-shadow: 
+              2px 0 0 $white,
+              4px 0 0 $white,
+              4px -2px 0 $white,
+              4px -4px 0 $white,
+              4px -6px 0 $white,
+              4px -8px 0 $white;
+            transform: rotate(45deg);
+          }
+        }
+  }
+  .props-lower-card{
+    margin: 15px 15px 0;
+    min-height: 200px;
+    // overflow-y: auto;
+    // height: calc(544px - 184px);
+    position: relative;
+    .no-data-container {
+      h3 {
+        margin: auto;
+      }
+    }
+    .props-graph{
+      overflow: hidden;
+      .project-referenceline {
+        word-break: break-all;
+        line-height: 1.2;
+      }
+    }
+
+    .plloader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -20px 0 0 -20px;
+      border: 2px solid lighten($color: $primary, $amount: 10%);
+      border-radius: 50%;
+      border-top-color: darken($primary, 10%);
+      width: 40px;
+      height: 40px;
+      -webkit-animation: spin-custom 1s linear infinite;
+      /* Safari */
+      animation: spin-custom 1s linear infinite;
+    }
+    .props-avg{
+      display: flex;
+      background: $ad_funds_clr;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-radius: 10px;
+      .avg-text{
+        color: #5B5B5B;
+        font-size: 14px;
+        letter-spacing: 0;
+      }
+      .avg-points{
+        color: #333333;
+        font-size: 20px;
+        letter-spacing: 0;
+        font-family: $font-bold;
+        width: 100px;
+        text-align: right;
+      }
+    }
+    .props-table{
+      margin-top: 15px;
+      .heading{
+        color: #878787;
+        font-size: 12px;
+        border-bottom: 1px solid $gray-920;
+        padding: 10px;
+        align-items: center;
+        p{
+          text-transform: uppercase;
+        }
+      }
+      .body{
+        color: #333333;
+        font-size: 14px;
+        padding: 4px 10px;
+      }
+      .day{
+        width: 30%;
+        margin-bottom: 0;
+        text-align: left;
+      }
+      .opp{
+        width: 30%;
+        margin-bottom: 0;
+        text-align: left;
+      }
+      .runs{
+        width: 40%;
+        margin-bottom: 0;
+        text-align: center;
+        line-height: 1.2;
+      }
+    }
+  }
+  .no-data-playercard {
+    font-size: 14px;
+    text-align: center;
+    color: $help_text_color;
+  }
+}
+
+
+
+
+@keyframes animatefadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.player-card-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-width: $window_width;
+  z-index: $zindex-modal-backdrop;
+  background-color: rgba($modal-backdrop-bg, 0);
+  backdrop-filter: blur(5px);
+  animation: animatefadein 0.4s;
+  &.show,
+  &.in
+   {
+      background-color: rgba($modal-backdrop-bg, .7);
+   }
+}
+
+.player-card-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  overflow: hidden;
+  outline: 0;
+  max-width: $window_width;
+  // display: none;
+  .props-player-card {
+    .name{
+      font-family: $font-bold;
+    }
+  }
+  .slick-slide {
+    .props-player-web-container {
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+    }
+    &.slick-active {
+      .props-player-web-container {
+        opacity: 1;
+      }
+    }
+  }
+  .check {
+    border: 1px solid #A7A7A7;
+    border-radius: 5px;
+    height: 23px;
+    width: 23px;
+    padding: 0 4px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 17px;
+
+    .icon-tick-ic {
+      font-size: 9px;
+      color: $white;
+      line-height: 1.2;
+    }
+  }
+
+  .check.active {
+    background-color: $primary;
+    border-color: $primary;
+  }
+  .props-entry-footer {
+    bottom: 0;
+  }
+  .icon-close {
+    // position: fixed;
+    // left: calc(#{$window_width} - 40px);
+    position: absolute;
+    right: 14px;
+    left: auto;
+    width: 40px;
+    height: 40px;
+    color: $white;
+    
+    top: 20px;
+    z-index: $zindex-modal;
+    padding: 13px;
+    cursor: pointer;
+  }
+}
+
+.player-card-modal {
+  width: 100%;
+  border-radius: 20px;
+  background-color: $white;
+  // margin: 7px;  
+  position: relative;
+  min-width: 315px;
+  max-width: 315px;
+  height: 550px;
+  margin: 4rem 7px;
+  // @include media-breakpoint-down(xs) {
+  //   min-width: 315px;
+  //   max-width: 315px;   
+  // }
+}

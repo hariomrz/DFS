@@ -1,0 +1,552 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/Media/like_details": {
+            "post": {
+                "tags": [
+                    "Media details"
+                ],
+                "summary": "This api is used to get like list of media.",
+                "description": "",
+                "operationId": "like_details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Media\\like_details"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/Media/comments": {
+            "post": {
+                "tags": [
+                    "Media activity"
+                ],
+                "summary": "This api is used to get comments of media.",
+                "description": "",
+                "operationId": "comments",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Media\\comments"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/Media/toggle_like": {
+            "post": {
+                "tags": [
+                    "Media activity"
+                ],
+                "summary": "This api is used to like/unlike media.",
+                "description": "",
+                "operationId": "toggle_like",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Media\\toggle_like"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/Media/add_comment": {
+            "post": {
+                "tags": [
+                    "Media activity"
+                ],
+                "summary": "This api is used to add comment on media.",
+                "description": "",
+                "operationId": "add_comment",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Media\\add_comment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/Media/details": {
+            "post": {
+                "tags": [
+                    "Media details"
+                ],
+                "summary": "This api is used to get media details.",
+                "description": "",
+                "operationId": "details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Media\\details"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/Media/delete": {
+            "post": {
+                "tags": [
+                    "Delete Media"
+                ],
+                "summary": "This api is used to delete media.",
+                "description": "",
+                "operationId": "delete",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Media\\delete"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/Media/add_gallery": {
+            "post": {
+                "tags": [
+                    "User Gallery"
+                ],
+                "summary": "This api is used to add user gallery media.",
+                "description": "",
+                "operationId": "add_gallery",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Media\\add_gallery"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        },
+        "/Media/get_gallery": {
+            "post": {
+                "tags": [
+                    "User Gallery"
+                ],
+                "summary": "This api is used to get user gallery media.",
+                "description": "",
+                "operationId": "get_gallery",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "APPVERSION",
+                        "in": "header",
+                        "description": "API Version, Current value is v3.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoginSessionKey",
+                        "in": "header",
+                        "description": "The Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\Api\\Media\\get_gallery"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\Api\\Media\\like_details": {
+            "required": [
+                "MediaGUID"
+            ],
+            "properties": {
+                "MediaGUID": {
+                    "description": "MediaGUID",
+                    "type": "string",
+                    "example": "a19be4f4-c7ea-e337-deee-22902d154962"
+                },
+                "PageNo": {
+                    "description": "PageNo",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "PageSize",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\Api\\Media\\comments": {
+            "required": [
+                "MediaGUID"
+            ],
+            "properties": {
+                "MediaGUID": {
+                    "description": "MediaGUID",
+                    "type": "string",
+                    "example": "a19be4f4-c7ea-e337-deee-22902d154962"
+                },
+                "PageNo": {
+                    "description": "PageNo",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "PageSize",
+                    "type": "integer",
+                    "example": "10"
+                }
+            }
+        },
+        "Inclusify\\Api\\Media\\toggle_like": {
+            "required": [
+                "MediaGUID"
+            ],
+            "properties": {
+                "MediaGUID": {
+                    "description": "MediaGUID",
+                    "type": "string",
+                    "example": "a19be4f4-c7ea-e337-deee-22902d154962"
+                }
+            }
+        },
+        "Inclusify\\Api\\Media\\add_comment": {
+            "required": [
+                "MediaGUID"
+            ],
+            "properties": {
+                "MediaGUID": {
+                    "description": "MediaGUID",
+                    "type": "string",
+                    "example": "a19be4f4-c7ea-e337-deee-22902d154962"
+                },
+                "Comment": {
+                    "description": "Comment",
+                    "type": "string",
+                    "example": "new comment"
+                },
+                "Media": {
+                    "description": "Media, array of Media",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "MediaGUID": {
+                                "type": "string",
+                                "example": "f7d1cdef-ef64-8f5e-3898-043eb546437d"
+                            },
+                            "MediaType": {
+                                "type": "string",
+                                "example": "PHOTO"
+                            },
+                            "Caption": {
+                                "type": "string",
+                                "example": "nature"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Media\\details": {
+            "required": [
+                "MediaGUID"
+            ],
+            "properties": {
+                "MediaGUID": {
+                    "description": "MediaGUID",
+                    "type": "string",
+                    "example": "a19be4f4-c7ea-e337-deee-22902d154962"
+                }
+            }
+        },
+        "Inclusify\\Api\\Media\\delete": {
+            "required": [
+                "MediaGUID"
+            ],
+            "properties": {
+                "MediaGUID": {
+                    "description": "MediaGUID",
+                    "type": "string",
+                    "example": "a19be4f4-c7ea-e337-deee-22902d154962"
+                }
+            }
+        },
+        "Inclusify\\Api\\Media\\add_gallery": {
+            "required": [],
+            "properties": {
+                "Media": {
+                    "description": "Media, array of gallery Media",
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "MediaGUID": {
+                                "type": "string",
+                                "example": "f7d1cdef-ef64-8f5e-3898-043eb546437d"
+                            },
+                            "Description": {
+                                "type": "string",
+                                "example": "Bhopu"
+                            }
+                        },
+                        "type": "object"
+                    }
+                }
+            }
+        },
+        "Inclusify\\Api\\Media\\get_gallery": {
+            "required": []
+        }
+    }
+}

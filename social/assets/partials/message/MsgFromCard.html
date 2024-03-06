@@ -1,0 +1,43 @@
+<!-- Message Popup open via business card Start -->
+<div ng-if="LoginSessionKey" ng-controller="messageSectionCtrl" class="modal fade" id="MsgFromCard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog"  ng-init="getUserDetails();">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon-close"></i></span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">New Message</h4>
+            </div>
+            <form id="newmsgform" ng-submit="submitMessageViaCard();">
+                <div class="modal-body">
+
+                    <div class="no-scrollbar">
+                        <div class="form-group">
+                            <label>To</label>
+                            <div class="text-field">
+                                <div data-error="hasError" class="text-field">
+                                    <input type="text" ng-value="" value="" id="toAddressCard" readonly="readonly" uix-input="">
+                                    <label id="errorTofield" class="error-block-overlay"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message</label>
+                            <div data-error="hasError" class="textarea-field">
+                                <textarea maxcount="200" maxlength="200" data-req-maxlen="200" data-req-minlen="200" ng-model="MessageTxtViaCard" id="textareaIDCardMsg" uix-textarea placeholder="Write something..." class="msg-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="ToMssgFrmCardGUID" value="">
+                    <button type="submit" class="btn btn-primary pull-right" onclick="return checkstatus('newmsgform');">SEND</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!--  Message Popup open via business card Ends -->

@@ -1,0 +1,28 @@
+
+.view-modal-data-view{
+    .modal-body{
+        padding: 0;
+    }
+    .data-view{
+        padding: 10px;
+        box-shadow: 0 0 2px 0 #dddd;
+    }
+    .home-away{
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    .sch-date{
+        font-size: 14px;
+        color: #999999;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .modal-footer{
+        padding: 0 30px;
+    }
+    .modal-title{
+        display: contents;
+    }
+}

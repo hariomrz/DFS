@@ -1,0 +1,59 @@
+[program:pickemleague]
+command=php /var/www/html/pickem/index.php cron/worker process_league --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickemleague.err.log
+stdout_logfile=/var/log/pickemleague.out.log
+
+
+[program:pickemteam]
+command=php /var/www/html/pickem/index.php cron/worker process_team --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickemteam.err.log
+stdout_logfile=/var/log/pickemteam.out.log
+
+
+[program:pickemseason]
+command=php /var/www/html/pickem/index.php cron/worker process_season --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickemseason.err.log
+stdout_logfile=/var/log/pickemseason.out.log
+
+
+[program:pickemscore]
+command=php /var/www/html/pickem/index.php cron/worker process_score --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickemscore.err.log
+stdout_logfile=/var/log/pickemscore.out.log
+
+[program:pickemcanceltournament]
+command=php /var/www/html/framework/pickem/index.php cron/worker process_cancel_tournament  --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickem_cancel_tournament.err.log
+stdout_logfile=/var/log/pickem_cancel_tournament.out.log
+
+[program:pickememail]
+command=php /var/www/html/framework/pickem/index.php cron/worker process_email --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickememail.err.log
+stdout_logfile=/var/log/pickememail.out.log
+
+[program:pickem_prize_distribution]
+command=php /var/www/html/framework/pickem/index.php cron/worker process_prize_distribution --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickem_prize_distribution.err.log
+stdout_logfile=/var/log/pickem_prize_distribution.out.log
+
+[program:pickem_prize_distribution]
+command=php /var/www/html/framework/pickem/index.php cron/worker process_prize_notification --env testing
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/pickem_prize_distribution.err.log
+stdout_logfile=/var/log/pickem_prize_distribution.out.log
+

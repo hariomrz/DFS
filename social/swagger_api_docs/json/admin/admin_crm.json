@@ -1,0 +1,131 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Inclusify API",
+        "description": "This is a Inclusify API api server.",
+        "version": "1.0.0"
+    },
+    "host": "localhost/inclusify",
+    "basePath": "/admin_api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/admin_crm/get_users": {
+            "post": {
+                "tags": [
+                    "Admin Crm users Section"
+                ],
+                "summary": "This api is used to get list of crm users.",
+                "description": "",
+                "operationId": "get_users",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "AdminLoginSessionKey",
+                        "in": "header",
+                        "description": "The Admin Login Session Key of logged in user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "List of crm users.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Inclusify\\AdminApi\\AdminCrm\\GetUsers"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message with data array"
+                    },
+                    "500": {
+                        "description": "Error Message"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Inclusify\\AdminApi\\AdminCrm\\GetUsers": {
+            "required": [
+                ""
+            ],
+            "properties": {
+                "PageNo": {
+                    "description": "PageNo",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "PageSize": {
+                    "description": "PageSize",
+                    "type": "integer",
+                    "example": "20"
+                },
+                "OrderByField": {
+                    "description": "OrderByField",
+                    "type": "string",
+                    "example": "U.UserID"
+                },
+                "OrderBy": {
+                    "description": "OrderBy",
+                    "type": "string",
+                    "example": "DESC"
+                },
+                "CityID": {
+                    "description": "CityID",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "AgeGroupID": {
+                    "description": "AgeGroupID",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "Gender": {
+                    "description": "Gender",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "SearchKey": {
+                    "description": "SearchKey",
+                    "type": "string",
+                    "example": ""
+                },
+                "TagUserType": {
+                    "description": "TagUserType",
+                    "type": "string",
+                    "example": []
+                },
+                "TagUserSearchType": {
+                    "description": "TagUserSearchType",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "TagTagType": {
+                    "description": "TagTagType",
+                    "type": "string",
+                    "example": []
+                },
+                "TagTagSearchType": {
+                    "description": "TagTagSearchType",
+                    "type": "integer",
+                    "example": "0"
+                },
+                "Download": {
+                    "description": "Download",
+                    "type": "integer",
+                    "example": "0"
+                }
+            }
+        }
+    }
+}
